@@ -194,9 +194,13 @@ void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
 }
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
+    const bool isStdlib = (module.name == "io" || module.name == "json");
+
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
     }
+    if (isStdlib) return;
+
     for (const auto& func : module.functions) {
         analyzeFunctionBody(*func, nullptr);
     }
