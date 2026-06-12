@@ -184,9 +184,13 @@ inline std::string stringify(const Value& v) {
     return "null";
 }
 
-inline std::string parse(const std::string& text) {
+inline std::string normalize(const std::string& text) {
     Parser parser(text);
     return stringify(parser.parse());
+}
+
+inline std::string parse(const std::string& text) {
+    return normalize(text);
 }
 
 inline std::string getString(const std::string& text, const std::string& key) {

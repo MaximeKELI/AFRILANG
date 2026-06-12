@@ -649,6 +649,8 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
     if (func.name == "writeFile") {
         out << rt << "(path, content);\n";
+    } else if (moduleName == "json" && func.name == "stringify") {
+        out << "return afrilang::runtime::json::normalize(value);\n";
     } else if (func.returnTypeName.empty()) {
         out << rt << "(";
         for (std::size_t i = 0; i < func.parameters.size(); ++i) {
