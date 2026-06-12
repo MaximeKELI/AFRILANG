@@ -38,7 +38,7 @@ namespace json {
     }
 
     std::string stringify(std::string value) {
-        return afrilang::runtime::json::stringify(value);
+        return afrilang::runtime::json::normalize(value);
     }
 
     std::string getString(std::string text, std::string key) {
