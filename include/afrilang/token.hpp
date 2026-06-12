@@ -7,10 +7,14 @@ namespace afrilang {
 
 enum class TokenType {
     // Mots-clés
-    Class, Function, End, Create, New, If, Then,
+    Class, Function, End, Create, New, If, Then, Else,
     Repeat, Times, Say, Is, Greater, Than, Less, Equal, To,
     And, Or, Not, Extends, Returns, Return,
-    TypeNumber, TypeText,
+    TypeNumber, TypeText, TypeBool,
+    While, Do, For, Each, In, Stop, Skip,
+    Module, Use, Import, Record, Field, Public, Private,
+    Set, This, Ask, Into, At, Add, Length, Of, Empty, List,
+    True, False, Yes, No,
 
     // Littéraux et identifiants
     Identifier,
@@ -20,6 +24,7 @@ enum class TokenType {
     // Symboles
     Plus, Minus, Star, Slash,
     Dot, Equals, Comma, LeftParen, RightParen,
+    LeftBracket, RightBracket,
 
     // Fin de fichier
     Eof
@@ -53,6 +58,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::New:            return "new";
         case TokenType::If:             return "if";
         case TokenType::Then:           return "then";
+        case TokenType::Else:           return "else";
         case TokenType::Repeat:         return "repeat";
         case TokenType::Times:          return "times";
         case TokenType::Say:            return "say";
@@ -70,6 +76,35 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Return:         return "return";
         case TokenType::TypeNumber:     return "number";
         case TokenType::TypeText:       return "text";
+        case TokenType::TypeBool:       return "bool";
+        case TokenType::While:          return "while";
+        case TokenType::Do:             return "do";
+        case TokenType::For:            return "for";
+        case TokenType::Each:           return "each";
+        case TokenType::In:             return "in";
+        case TokenType::Stop:           return "stop";
+        case TokenType::Skip:           return "skip";
+        case TokenType::Module:         return "module";
+        case TokenType::Use:            return "use";
+        case TokenType::Import:         return "import";
+        case TokenType::Record:         return "record";
+        case TokenType::Field:          return "field";
+        case TokenType::Public:         return "public";
+        case TokenType::Private:        return "private";
+        case TokenType::Set:            return "set";
+        case TokenType::This:           return "this";
+        case TokenType::Ask:            return "ask";
+        case TokenType::Into:           return "into";
+        case TokenType::At:             return "at";
+        case TokenType::Add:            return "add";
+        case TokenType::Length:         return "length";
+        case TokenType::Of:             return "of";
+        case TokenType::Empty:          return "empty";
+        case TokenType::List:           return "list";
+        case TokenType::True:           return "true";
+        case TokenType::False:          return "false";
+        case TokenType::Yes:            return "yes";
+        case TokenType::No:             return "no";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";
@@ -82,6 +117,8 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Comma:          return ",";
         case TokenType::LeftParen:      return "(";
         case TokenType::RightParen:     return ")";
+        case TokenType::LeftBracket:    return "[";
+        case TokenType::RightBracket:   return "]";
         case TokenType::Eof:            return "fin de fichier";
     }
     return "inconnu";

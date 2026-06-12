@@ -1,0 +1,27 @@
+create nums = list of 1, 2, 3
+say nums at 0
+say nums at 1
+say length of nums
+
+set nums at 1 = 99
+say nums at 1
+
+add 4 to nums
+say length of nums
+
+create bracket = [10, 20, 30]
+say bracket at 0
+say bracket[2]
+
+create nums2 = empty list number
+add 42 to nums2
+say length of nums2
+
+create names = list of "Alice", "Bob"
+for each name in names do
+    say name
+end
+
+create flags = list of true, false, yes, no
+say flags at 0
+say flags at 2

@@ -307,6 +307,30 @@ src/semantic/analyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.s
 .PHONY : src/semantic/analyzer.cpp.s
 
+src/utils/compiler.o: src/utils/compiler.cpp.o
+.PHONY : src/utils/compiler.o
+
+# target to build an object file
+src/utils/compiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o
+.PHONY : src/utils/compiler.cpp.o
+
+src/utils/compiler.i: src/utils/compiler.cpp.i
+.PHONY : src/utils/compiler.i
+
+# target to preprocess a source file
+src/utils/compiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.i
+.PHONY : src/utils/compiler.cpp.i
+
+src/utils/compiler.s: src/utils/compiler.cpp.s
+.PHONY : src/utils/compiler.s
+
+# target to generate assembly for a file
+src/utils/compiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.s
+.PHONY : src/utils/compiler.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -336,6 +360,9 @@ help:
 	@echo "... src/semantic/analyzer.o"
 	@echo "... src/semantic/analyzer.i"
 	@echo "... src/semantic/analyzer.s"
+	@echo "... src/utils/compiler.o"
+	@echo "... src/utils/compiler.i"
+	@echo "... src/utils/compiler.s"
 .PHONY : help
 
 

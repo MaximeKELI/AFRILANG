@@ -1,0 +1,21 @@
+class Person
+    public field name text
+    private field age number
+
+    function init(aName text, aAge number)
+        set this.name = aName
+        set this.age = aAge
+    end
+
+    function greet()
+        say name
+        say age
+    end
+end
+
+create person = new Person
+person.greet()
+
+create bob = new Person
+set bob.name = "Bob"
+say bob.name

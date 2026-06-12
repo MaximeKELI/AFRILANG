@@ -5,6 +5,7 @@
 
 #include <ostream>
 #include <string>
+#include <unordered_set>
 
 namespace afrilang {
 
@@ -23,15 +24,23 @@ private:
     const SemanticResult& semantic_;
 
     void emitHeader(std::ostream& out) const;
+    void emitRecords(std::ostream& out) const;
     void emitClasses(std::ostream& out) const;
+    void emitModules(std::ostream& out) const;
     void emitGlobalFunctions(std::ostream& out) const;
     void emitMain(std::ostream& out) const;
 
-    void emitStatement(std::ostream& out, const StatementNode& stmt, int indent) const;
-    void emitExpression(std::ostream& out, const ExpressionNode& expr) const;
+    void emitClass(std::ostream& out, const ClassNode& cls) const;
+    void emitFunction(std::ostream& out, const FunctionNode& func,
+                      const ClassInfo* ownerClass, int indentLevel) const;
+    void emitStatement(std::ostream& out, const StatementNode& stmt, int indent,
+                       const ClassInfo* ownerClass) const;
+    void emitExpression(std::ostream& out, const ExpressionNode& expr,
+                        const ClassInfo* ownerClass) const;
 
     std::string resolveVariableType(const std::string& name) const;
     std::string inferExpressionType(const ExpressionNode& expr) const;
+    std::string classPrefix(const ClassInfo* ownerClass) const;
 
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);

@@ -1,0 +1,3 @@
+function sum2(a number, b number) returns number
+    return a + b
+end

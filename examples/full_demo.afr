@@ -1,0 +1,34 @@
+import "helpers.afr"
+
+module Utils
+    function twice(x number) returns number
+        return x * 2
+    end
+end
+
+use Utils
+
+create active bool = true
+
+if active is equal to true then
+    say "System active"
+else
+    say "System inactive"
+end
+
+create counter number = 0
+while counter is less than 3 do
+    say twice(counter)
+    set counter = counter + 1
+end
+
+create items = list of 1, 2, 3
+for each item in items do
+    if item is equal to 2 then
+        stop
+    end
+    say item
+end
+
+say sum2(10, 32)
+say "Full demo complete"

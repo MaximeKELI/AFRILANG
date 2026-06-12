@@ -14,6 +14,7 @@ set(AFRILANG_SOURCES
     src/parser/parser.cpp
     src/semantic/analyzer.cpp
     src/codegen/codegen.cpp
+    src/utils/compiler.cpp
 )
 
 add_executable(afrilang main.cpp ${AFRILANG_SOURCES})
@@ -35,6 +36,12 @@ add_custom_target(examples
     COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/conditions.afr --run
     COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/inheritance.afr --run
     COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/functions.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/while.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/lists.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/modules.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/fields.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/records.afr --run
+    COMMAND ${CMAKE_BINARY_DIR}/afrilang ${CMAKE_SOURCE_DIR}/examples/full_demo.afr --run
     DEPENDS afrilang
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Compilation et exécution des exemples AFRILANG"

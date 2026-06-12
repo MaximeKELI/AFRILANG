@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o"
   "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o.d"
+  "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o"
+  "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d"
   "afrilang"
   "afrilang.pdb"
 )

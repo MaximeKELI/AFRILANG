@@ -1,8 +1,8 @@
-#include "afrilang/lexer.hpp"
-#include "afrilang/parser.hpp"
+#include "afrilang/compiler.hpp"
 #include "afrilang/semantic.hpp"
 #include "afrilang/codegen.hpp"
 #include "afrilang/error.hpp"
+#include "afrilang/lexer.hpp"
 
 #include <filesystem>
 #include <fstream>
@@ -43,17 +43,16 @@ static void printTokens(const std::vector<afrilang::Token>& tokens) {
 
 static void printAST(const afrilang::ProgramNode& program) {
     std::cout << "=== AST ===\n";
+    std::cout << "Imports: " << program.imports.size() << "\n";
+    std::cout << "Modules: " << program.modules.size() << "\n";
+    std::cout << "Records: " << program.records.size() << "\n";
     std::cout << "Classes: " << program.classes.size() << "\n";
     for (const auto& cls : program.classes) {
-        std::cout << "  class " << cls->name << " (" << cls->methods.size() << " méthodes)\n";
-        for (const auto& method : cls->methods) {
-            std::cout << "    function " << method->name << "(" << method->parameters.size() << " params)";
-            if (!method->returnTypeName.empty()) {
-                std::cout << " returns " << method->returnTypeName;
-            }
-            std::cout << " [" << method->body.size() << " stmts]\n";
-        }
+        std::cout << "  class " << cls->name
+                  << " (" << cls->fields.size() << " champs, "
+                  << cls->methods.size() << " méthodes)\n";
     }
+    std::cout << "Functions: " << program.functions.size() << "\n";
     std::cout << "Statements: " << program.statements.size() << "\n";
     std::cout << "===========\n";
 }
@@ -91,31 +90,28 @@ int main(int argc, char* argv[]) {
     }
 
     try {
-        const std::string source = readFile(sourcePath);
         const fs::path srcPath(sourcePath);
         const std::string baseName = srcPath.stem().string();
 
-        // ── Phase 1 : Lexing ──────────────────────────────────────────────
-        afrilang::Lexer lexer(source);
-        const std::vector<afrilang::Token> tokens = lexer.tokenize();
-
         if (showTokens) {
-            printTokens(tokens);
+            const std::string source = readFile(sourcePath);
+            afrilang::Lexer lexer(source);
+            printTokens(lexer.tokenize());
         }
 
-        // ── Phase 2 : Parsing ───────────────────────────────────────────
-        afrilang::Parser parser(tokens);
-        std::unique_ptr<afrilang::ProgramNode> program = parser.parse();
+        // ── Compilation multi-fichiers ────────────────────────────────────
+        afrilang::Compiler compiler(sourcePath);
+        std::unique_ptr<afrilang::ProgramNode> program = compiler.compile();
 
         if (showAST) {
             printAST(*program);
         }
 
-        // ── Phase 3 : Analyse sémantique ──────────────────────────────────
+        // ── Analyse sémantique ────────────────────────────────────────────
         afrilang::SemanticAnalyzer analyzer(*program);
         const afrilang::SemanticResult semantic = analyzer.analyze();
 
-        // ── Phase 4 : Code generation ─────────────────────────────────────
+        // ── Génération de code ────────────────────────────────────────────
         afrilang::CodeGenerator codegen(*program, semantic);
         const std::string generatedCpp = baseName + ".generated.cpp";
 

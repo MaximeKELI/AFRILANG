@@ -73,6 +73,12 @@ CMakeFiles/examples: afrilang
 	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/conditions.afr --run
 	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/inheritance.afr --run
 	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/functions.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/while.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/lists.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/modules.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/fields.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/records.afr --run
+	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/full_demo.afr --run
 
 examples: CMakeFiles/examples
 examples: CMakeFiles/examples.dir/build.make

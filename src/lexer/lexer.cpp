@@ -14,6 +14,7 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"new",      TokenType::New},
     {"if",       TokenType::If},
     {"then",     TokenType::Then},
+    {"else",     TokenType::Else},
     {"repeat",   TokenType::Repeat},
     {"times",    TokenType::Times},
     {"say",      TokenType::Say},
@@ -31,6 +32,35 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"return",   TokenType::Return},
     {"number",   TokenType::TypeNumber},
     {"text",     TokenType::TypeText},
+    {"bool",     TokenType::TypeBool},
+    {"while",    TokenType::While},
+    {"do",       TokenType::Do},
+    {"for",      TokenType::For},
+    {"each",     TokenType::Each},
+    {"in",       TokenType::In},
+    {"stop",     TokenType::Stop},
+    {"skip",     TokenType::Skip},
+    {"module",   TokenType::Module},
+    {"use",      TokenType::Use},
+    {"import",   TokenType::Import},
+    {"record",   TokenType::Record},
+    {"field",    TokenType::Field},
+    {"public",   TokenType::Public},
+    {"private",  TokenType::Private},
+    {"set",      TokenType::Set},
+    {"this",     TokenType::This},
+    {"ask",      TokenType::Ask},
+    {"into",     TokenType::Into},
+    {"at",       TokenType::At},
+    {"add",      TokenType::Add},
+    {"length",   TokenType::Length},
+    {"of",       TokenType::Of},
+    {"empty",    TokenType::Empty},
+    {"list",     TokenType::List},
+    {"true",     TokenType::True},
+    {"false",    TokenType::False},
+    {"yes",      TokenType::Yes},
+    {"no",       TokenType::No},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}
@@ -61,7 +91,6 @@ std::vector<Token> Lexer::tokenize() {
                 case '*': tokens.push_back(makeToken(TokenType::Star, "*")); break;
                 case '/':
                     if (peek() == '/') {
-                        // Commentaire ligne
                         while (!isAtEnd() && peek() != '\n') advance();
                     } else {
                         tokens.push_back(makeToken(TokenType::Slash, "/"));
@@ -72,6 +101,8 @@ std::vector<Token> Lexer::tokenize() {
                 case ',': tokens.push_back(makeToken(TokenType::Comma, ",")); break;
                 case '(': tokens.push_back(makeToken(TokenType::LeftParen, "(")); break;
                 case ')': tokens.push_back(makeToken(TokenType::RightParen, ")")); break;
+                case '[': tokens.push_back(makeToken(TokenType::LeftBracket, "[")); break;
+                case ']': tokens.push_back(makeToken(TokenType::RightBracket, "]")); break;
                 default:
                     throw CompileError(
                         std::string("Caractère inattendu '") + c + "'",
@@ -131,7 +162,7 @@ Token Lexer::errorToken(const std::string& message) const {
 Token Lexer::stringLiteral() {
     const int startLine = line_;
     const int startColumn = column_;
-    advance(); // opening quote
+    advance();
 
     std::string value;
     while (!isAtEnd() && peek() != '"') {
@@ -156,7 +187,7 @@ Token Lexer::stringLiteral() {
         throw CompileError("Chaîne non terminée", startLine, startColumn);
     }
 
-    advance(); // closing quote
+    advance();
     return Token(TokenType::StringLiteral, std::move(value), startLine, startColumn);
 }
 
@@ -170,7 +201,7 @@ Token Lexer::numberLiteral() {
     }
 
     if (peek() == '.' && std::isdigit(static_cast<unsigned char>(peekNext()))) {
-        num += advance(); // dot
+        num += advance();
         while (!isAtEnd() && std::isdigit(static_cast<unsigned char>(peek()))) {
             num += advance();
         }

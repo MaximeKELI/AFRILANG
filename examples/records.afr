@@ -1,0 +1,14 @@
+record Point
+    field x number
+    field y number
+end
+
+create px number = 10
+create py number = 20
+
+say px
+say py
+say px + py
+
+create dist number = px * px + py * py
+say dist

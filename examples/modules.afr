@@ -1,0 +1,14 @@
+module Math
+    function add(a number, b number) returns number
+        return a + b
+    end
+
+    function multiply(a number, b number) returns number
+        return a * b
+    end
+end
+
+use Math
+
+say add(3, 4)
+say multiply(5, 6)

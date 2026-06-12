@@ -82,12 +82,12 @@ clean: CMakeFiles/examples.dir/clean
 CMakeFiles/afrilang.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target afrilang"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target afrilang"
 .PHONY : CMakeFiles/afrilang.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/afrilang.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/afrilang.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 0
 .PHONY : CMakeFiles/afrilang.dir/rule
@@ -108,12 +108,12 @@ CMakeFiles/afrilang.dir/clean:
 CMakeFiles/examples.dir/all: CMakeFiles/afrilang.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/examples.dir/build.make CMakeFiles/examples.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/examples.dir/build.make CMakeFiles/examples.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=7 "Built target examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=8 "Built target examples"
 .PHONY : CMakeFiles/examples.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/examples.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/examples.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 0
 .PHONY : CMakeFiles/examples.dir/rule

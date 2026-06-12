@@ -7,9 +7,17 @@
 
 namespace afrilang {
 
+// ── Source locations ──────────────────────────────────────────────────────────
+
+struct SourceLoc {
+    int line = 0;
+    int column = 0;
+};
+
 // ── Base ──────────────────────────────────────────────────────────────────────
 
 struct ASTNode {
+    SourceLoc loc;
     virtual ~ASTNode() = default;
 };
 
@@ -28,10 +36,17 @@ struct NumberLiteralNode : ExpressionNode {
     explicit NumberLiteralNode(double value) : value(value) {}
 };
 
+struct BoolLiteralNode : ExpressionNode {
+    bool value;
+    explicit BoolLiteralNode(bool value) : value(value) {}
+};
+
 struct IdentifierNode : ExpressionNode {
     std::string name;
     explicit IdentifierNode(std::string name) : name(std::move(name)) {}
 };
+
+struct ThisExpressionNode : ExpressionNode {};
 
 struct BinaryOpNode : ExpressionNode {
     std::string op;
@@ -76,6 +91,33 @@ struct NewExpressionNode : ExpressionNode {
     explicit NewExpressionNode(std::string className) : className(std::move(className)) {}
 };
 
+struct ListLiteralNode : ExpressionNode {
+    std::vector<std::unique_ptr<ExpressionNode>> elements;
+    explicit ListLiteralNode(std::vector<std::unique_ptr<ExpressionNode>> elements)
+        : elements(std::move(elements)) {}
+};
+
+struct EmptyListNode : ExpressionNode {
+    std::string elementTypeName;
+    explicit EmptyListNode(std::string elementTypeName)
+        : elementTypeName(std::move(elementTypeName)) {}
+};
+
+struct IndexExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> object;
+    std::unique_ptr<ExpressionNode> index;
+
+    IndexExpressionNode(std::unique_ptr<ExpressionNode> object,
+                        std::unique_ptr<ExpressionNode> index)
+        : object(std::move(object)), index(std::move(index)) {}
+};
+
+struct LengthExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> object;
+    explicit LengthExpressionNode(std::unique_ptr<ExpressionNode> object)
+        : object(std::move(object)) {}
+};
+
 // ── Statements ────────────────────────────────────────────────────────────────
 
 struct SayStatementNode : StatementNode {
@@ -86,10 +128,46 @@ struct SayStatementNode : StatementNode {
 
 struct AssignStatementNode : StatementNode {
     std::string name;
+    std::string typeName;
     std::unique_ptr<ExpressionNode> value;
 
-    AssignStatementNode(std::string name, std::unique_ptr<ExpressionNode> value)
-        : name(std::move(name)), value(std::move(value)) {}
+    AssignStatementNode(std::string name,
+                        std::string typeName,
+                        std::unique_ptr<ExpressionNode> value)
+        : name(std::move(name))
+        , typeName(std::move(typeName))
+        , value(std::move(value)) {}
+};
+
+struct SetStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> target;
+    std::unique_ptr<ExpressionNode> value;
+
+    SetStatementNode(std::unique_ptr<ExpressionNode> target,
+                     std::unique_ptr<ExpressionNode> value)
+        : target(std::move(target)), value(std::move(value)) {}
+};
+
+struct IndexAssignStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> object;
+    std::unique_ptr<ExpressionNode> index;
+    std::unique_ptr<ExpressionNode> value;
+
+    IndexAssignStatementNode(std::unique_ptr<ExpressionNode> object,
+                             std::unique_ptr<ExpressionNode> index,
+                             std::unique_ptr<ExpressionNode> value)
+        : object(std::move(object))
+        , index(std::move(index))
+        , value(std::move(value)) {}
+};
+
+struct AddToListStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> value;
+    std::unique_ptr<ExpressionNode> list;
+
+    AddToListStatementNode(std::unique_ptr<ExpressionNode> value,
+                           std::unique_ptr<ExpressionNode> list)
+        : value(std::move(value)), list(std::move(list)) {}
 };
 
 struct ReturnStatementNode : StatementNode {
@@ -100,10 +178,23 @@ struct ReturnStatementNode : StatementNode {
 
 struct IfStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> condition;
-    std::vector<std::unique_ptr<StatementNode>> body;
+    std::vector<std::unique_ptr<StatementNode>> thenBody;
+    std::vector<std::unique_ptr<StatementNode>> elseBody;
 
     IfStatementNode(std::unique_ptr<ExpressionNode> condition,
-                    std::vector<std::unique_ptr<StatementNode>> body)
+                    std::vector<std::unique_ptr<StatementNode>> thenBody,
+                    std::vector<std::unique_ptr<StatementNode>> elseBody = {})
+        : condition(std::move(condition))
+        , thenBody(std::move(thenBody))
+        , elseBody(std::move(elseBody)) {}
+};
+
+struct WhileStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> condition;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    WhileStatementNode(std::unique_ptr<ExpressionNode> condition,
+                       std::vector<std::unique_ptr<StatementNode>> body)
         : condition(std::move(condition)), body(std::move(body)) {}
 };
 
@@ -114,6 +205,35 @@ struct RepeatStatementNode : StatementNode {
     RepeatStatementNode(std::unique_ptr<ExpressionNode> count,
                         std::vector<std::unique_ptr<StatementNode>> body)
         : count(std::move(count)), body(std::move(body)) {}
+};
+
+struct ForEachStatementNode : StatementNode {
+    std::string itemName;
+    std::unique_ptr<ExpressionNode> list;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    ForEachStatementNode(std::string itemName,
+                         std::unique_ptr<ExpressionNode> list,
+                         std::vector<std::unique_ptr<StatementNode>> body)
+        : itemName(std::move(itemName))
+        , list(std::move(list))
+        , body(std::move(body)) {}
+};
+
+struct BreakStatementNode : StatementNode {};
+struct ContinueStatementNode : StatementNode {};
+
+struct AskStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> prompt;
+    std::string variableName;
+
+    AskStatementNode(std::unique_ptr<ExpressionNode> prompt, std::string variableName)
+        : prompt(std::move(prompt)), variableName(std::move(variableName)) {}
+};
+
+struct UseStatementNode : StatementNode {
+    std::string moduleName;
+    explicit UseStatementNode(std::string moduleName) : moduleName(std::move(moduleName)) {}
 };
 
 struct ExpressionStatementNode : StatementNode {
@@ -130,6 +250,15 @@ struct ParameterNode {
 
     ParameterNode(std::string name, std::string typeName)
         : name(std::move(name)), typeName(std::move(typeName)) {}
+};
+
+struct FieldNode {
+    std::string name;
+    std::string typeName;
+    bool isPublic = true;
+
+    FieldNode(std::string name, std::string typeName, bool isPublic = true)
+        : name(std::move(name)), typeName(std::move(typeName)), isPublic(isPublic) {}
 };
 
 struct FunctionNode : ASTNode {
@@ -151,25 +280,66 @@ struct FunctionNode : ASTNode {
 struct ClassNode : ASTNode {
     std::string name;
     std::string baseClassName;
+    std::vector<FieldNode> fields;
     std::vector<std::unique_ptr<FunctionNode>> methods;
 
     ClassNode(std::string name,
               std::string baseClassName,
+              std::vector<FieldNode> fields,
               std::vector<std::unique_ptr<FunctionNode>> methods)
         : name(std::move(name))
         , baseClassName(std::move(baseClassName))
+        , fields(std::move(fields))
         , methods(std::move(methods)) {}
 };
 
+struct RecordNode : ASTNode {
+    std::string name;
+    std::vector<FieldNode> fields;
+
+    RecordNode(std::string name, std::vector<FieldNode> fields)
+        : name(std::move(name)), fields(std::move(fields)) {}
+};
+
+struct ModuleNode : ASTNode {
+    std::string name;
+    std::vector<std::unique_ptr<ClassNode>> classes;
+    std::vector<std::unique_ptr<RecordNode>> records;
+    std::vector<std::unique_ptr<FunctionNode>> functions;
+
+    ModuleNode(std::string name,
+               std::vector<std::unique_ptr<ClassNode>> classes,
+               std::vector<std::unique_ptr<RecordNode>> records,
+               std::vector<std::unique_ptr<FunctionNode>> functions)
+        : name(std::move(name))
+        , classes(std::move(classes))
+        , records(std::move(records))
+        , functions(std::move(functions)) {}
+};
+
+struct ImportNode : ASTNode {
+    std::string path;
+    explicit ImportNode(std::string path) : path(std::move(path)) {}
+};
+
 struct ProgramNode : ASTNode {
+    std::vector<std::unique_ptr<ImportNode>> imports;
+    std::vector<std::unique_ptr<ModuleNode>> modules;
+    std::vector<std::unique_ptr<RecordNode>> records;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
     std::vector<std::unique_ptr<StatementNode>> statements;
 
-    ProgramNode(std::vector<std::unique_ptr<ClassNode>> classes,
+    ProgramNode(std::vector<std::unique_ptr<ImportNode>> imports,
+                std::vector<std::unique_ptr<ModuleNode>> modules,
+                std::vector<std::unique_ptr<RecordNode>> records,
+                std::vector<std::unique_ptr<ClassNode>> classes,
                 std::vector<std::unique_ptr<FunctionNode>> functions,
                 std::vector<std::unique_ptr<StatementNode>> statements)
-        : classes(std::move(classes))
+        : imports(std::move(imports))
+        , modules(std::move(modules))
+        , records(std::move(records))
+        , classes(std::move(classes))
         , functions(std::move(functions))
         , statements(std::move(statements)) {}
 };

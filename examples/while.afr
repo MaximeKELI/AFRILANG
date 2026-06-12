@@ -1,0 +1,20 @@
+create count number = 0
+
+while count is less than 5 do
+    say count
+    set count = count + 1
+end
+
+say "Done counting"
+
+create score number = 75
+
+if score is greater than 90 then
+    say "Excellent"
+else
+    if score is greater than 60 then
+        say "Passed"
+    else
+        say "Failed"
+    end
+end

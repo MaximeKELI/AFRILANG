@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/lexer/lexer.cpp" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o.d"
   "/home/maxime/AFRILANG/src/parser/parser.cpp" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o.d"
   "/home/maxime/AFRILANG/src/semantic/analyzer.cpp" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/compiler.cpp" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

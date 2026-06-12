@@ -3,21 +3,22 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 int main() {
-    auto age = 25;
+    double age = 25;
     if ((age > 18)) {
         std::cout << "Adulte" << std::endl;
     }
     if ((age < 30)) {
         std::cout << "Jeune adulte" << std::endl;
     }
-    auto score = 100;
+    double score = 100;
     if ((score == 100)) {
         std::cout << "Score parfait!" << std::endl;
     }
-    auto x = 10;
-    auto y = 3;
+    double x = 10;
+    double y = 3;
     std::cout << (x + y) << std::endl;
     std::cout << (x - y) << std::endl;
     std::cout << (x * y) << std::endl;
