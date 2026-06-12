@@ -19,9 +19,12 @@ public:
     bool compileToExecutable(const std::string& outputPath,
                              const std::string& executablePath) const;
 
+    void setRuntimeDir(std::string dir) { runtimeDir_ = std::move(dir); }
+
 private:
     const ProgramNode& program_;
     const SemanticResult& semantic_;
+    std::string runtimeDir_;
 
     void emitHeader(std::ostream& out) const;
     void emitRecords(std::ostream& out) const;
@@ -45,6 +48,10 @@ private:
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);
     static std::string paramList(const FunctionNode& func);
+
+    bool usesStdlibModule(const std::string& name) const;
+    void emitStdlibFunction(std::ostream& out, const std::string& moduleName,
+                            const FunctionNode& func, int indentLevel) const;
 };
 
 } // namespace afrilang

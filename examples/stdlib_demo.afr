@@ -1,0 +1,21 @@
+import "std/io"
+import "std/json"
+
+use io
+use json
+
+create content = makeObject("lang", "AFRILANG")
+say content
+
+create parsed = parse(content)
+say getString(parsed, "lang")
+
+create ok = fileExists("/tmp/afrilang_test.txt")
+if ok is equal to false then
+    writeFile("/tmp/afrilang_test.txt", "Hello from stdlib io")
+end
+
+create text = readFile("/tmp/afrilang_test.txt")
+say text
+
+say getNumber("{\"value\": 42}", "value")

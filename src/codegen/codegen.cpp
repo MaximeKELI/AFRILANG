@@ -29,7 +29,17 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "// Ne pas modifier manuellement\n\n";
     out << "#include <iostream>\n";
     out << "#include <string>\n";
-    out << "#include <vector>\n\n";
+    out << "#include <vector>\n";
+
+    bool needsIo = false;
+    bool needsJson = false;
+    for (const auto& module : program_.modules) {
+        if (module->name == "io") needsIo = true;
+        if (module->name == "json") needsJson = true;
+    }
+    if (needsIo) out << "#include \"io.hpp\"\n";
+    if (needsJson) out << "#include \"json.hpp\"\n";
+    out << "\n";
 }
 
 void CodeGenerator::emitRecords(std::ostream& out) const {
@@ -147,7 +157,11 @@ void CodeGenerator::emitModules(std::ostream& out) const {
         }
 
         for (const auto& func : module->functions) {
-            emitFunction(out, *func, nullptr, 1);
+            if (usesStdlibModule(module->name)) {
+                emitStdlibFunction(out, module->name, *func, 1);
+            } else {
+                emitFunction(out, *func, nullptr, 1);
+            }
             out << "\n";
         }
 
@@ -617,6 +631,44 @@ std::string CodeGenerator::escapeString(const std::string& s) {
     return result;
 }
 
+bool CodeGenerator::usesStdlibModule(const std::string& name) const {
+    return name == "io" || name == "json";
+}
+
+void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
+                                       const FunctionNode& func, int indentLevel) const {
+    const std::string returnCpp = func.returnTypeName.empty()
+        ? "void"
+        : typeFromName(func.returnTypeName).toCpp();
+
+    indent(out, indentLevel);
+    out << returnCpp << " " << func.name << "(" << paramList(func) << ") {\n";
+    indent(out, indentLevel + 1);
+
+    const std::string rt = "afrilang::runtime::" + moduleName + "::" + func.name;
+
+    if (func.name == "writeFile") {
+        out << rt << "(path, content);\n";
+    } else if (func.returnTypeName.empty()) {
+        out << rt << "(";
+        for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << func.parameters[i].name;
+        }
+        out << ");\n";
+    } else {
+        out << "return " << rt << "(";
+        for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << func.parameters[i].name;
+        }
+        out << ");\n";
+    }
+
+    indent(out, indentLevel);
+    out << "}\n";
+}
+
 bool CodeGenerator::compileToExecutable(const std::string& outputPath,
                                         const std::string& executablePath) const {
     {
@@ -625,9 +677,15 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         generate(file);
     }
 
-    const std::string command =
+    std::string command =
         "g++ -std=c++17 -O2 -Wall -Wextra -o \"" + executablePath +
-        "\" \"" + outputPath + "\" 2>&1";
+        "\" \"" + outputPath + "\"";
+
+    if (!runtimeDir_.empty()) {
+        command += " -I\"" + runtimeDir_ + "\"";
+    }
+
+    command += " 2>&1";
 
     const int result = std::system(command.c_str());
     return result == 0;
