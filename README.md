@@ -44,24 +44,81 @@ make
 ## Utilisation
 
 ```bash
-# Compiler un programme AFRILANG
-./afrilang ../examples/hello.afr
+# Commandes CLI (recommandé)
+afrilang build              # Compiler le projet (afrilang.toml)
+afrilang run fichier.afr    # Compiler et exécuter
+afrilang check fichier.afr  # Vérifier sans compiler
+afrilang test               # Lancer la suite de tests
+afrilang init mon_projet    # Créer un nouveau projet
 
-# Compiler et exécuter
+# Mode legacy (compatible)
 ./afrilang ../examples/hello.afr --run
-
-# Afficher les tokens (debug lexer)
-./afrilang ../examples/hello.afr --tokens
-
-# Afficher l'AST (debug parser)
-./afrilang ../examples/hello.afr --ast
-
-# Générer le C++ sans compiler
 ./afrilang ../examples/hello.afr --emit
-
-# Spécifier le nom de l'exécutable
-./afrilang ../examples/oop.afr -o mon_programme --run
+./afrilang ../examples/hello.afr --tokens
+./afrilang ../examples/hello.afr --ast
 ```
+
+### Créer un projet
+
+```bash
+afrilang init mon_app
+cd mon_app
+afrilang build
+afrilang run src/main.afr
+```
+
+Fichier `afrilang.toml` :
+
+```toml
+name = "mon_app"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/mon_app"
+```
+
+### Bibliothèque standard
+
+```afr
+import "std/io"
+import "std/json"
+
+use io
+use json
+
+create data = makeObject("name", "AFRILANG")
+say getString(data, "name")
+
+writeFile("/tmp/test.txt", "Hello")
+say readFile("/tmp/test.txt")
+```
+
+| Module | Fonctions |
+|--------|-----------|
+| `std/io` | `readFile`, `writeFile`, `fileExists`, `readLine` |
+| `std/json` | `parse`, `stringify`, `getString`, `getNumber`, `makeObject` |
+
+### Messages d'erreur enrichis
+
+```
+Erreur dans main.afr:5:8
+  Variable 'coutn' non déclarée
+
+  create coutn = 0
+         ^
+  Suggestions :
+    - vouliez-vous dire 'count' ?
+```
+
+### Tests
+
+```bash
+cd build
+make                          # compiler le compilateur
+ctest                         # tests unitaires + intégration
+./afrilang test ..            # compiler tous les exemples
+```
+
+## Utilisation (legacy)
 
 ## Syntaxe du langage
 
