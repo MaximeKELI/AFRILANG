@@ -3,6 +3,7 @@
 #include "afrilang/error.hpp"
 #include "afrilang/lexer.hpp"
 #include "afrilang/parser.hpp"
+#include "afrilang/stdlib_registry.hpp"
 
 #include <filesystem>
 #include <fstream>
@@ -13,10 +14,13 @@ namespace fs = std::filesystem;
 
 namespace afrilang {
 
-Compiler::Compiler(std::string entryPath) : entryPath_(std::move(entryPath)) {}
+Compiler::Compiler(std::string entryPath, std::string afrilangRoot)
+    : entryPath_(std::move(entryPath))
+    , afrilangRoot_(std::move(afrilangRoot)) {}
 
 std::unique_ptr<ProgramNode> Compiler::compile() {
     loadedFiles_.clear();
+    sources_ = SourceManager{};
     auto program = parseFile(entryPath_);
     const std::string baseDir = fs::path(entryPath_).parent_path().string();
     resolveImports(*program, baseDir);
@@ -37,12 +41,35 @@ std::string Compiler::normalizePath(const std::string& path) {
     return fs::weakly_canonical(fs::path(path)).string();
 }
 
-std::string Compiler::resolvePath(const std::string& baseDir, const std::string& importPath) {
+std::string Compiler::resolvePath(const std::string& baseDir,
+                                  const std::string& importPath) const {
+    if (StdlibRegistry::isStdlibImport(importPath)) {
+        return importPath;
+    }
     fs::path resolved = fs::path(baseDir) / importPath;
     return normalizePath(resolved.string());
 }
 
+void Compiler::handleStdlibImport(ProgramNode& program, const std::string& importPath) {
+    const std::string mod = StdlibRegistry::stdlibModuleName(importPath);
+    if (mod == "io") {
+        StdlibRegistry::injectIoModule(program);
+    } else if (mod == "json") {
+        StdlibRegistry::injectJsonModule(program);
+    }
+}
+
 std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
+    if (StdlibRegistry::isStdlibImport(path)) {
+        return std::make_unique<ProgramNode>(
+            std::vector<std::unique_ptr<ImportNode>>{},
+            std::vector<std::unique_ptr<ModuleNode>>{},
+            std::vector<std::unique_ptr<RecordNode>>{},
+            std::vector<std::unique_ptr<ClassNode>>{},
+            std::vector<std::unique_ptr<FunctionNode>>{},
+            std::vector<std::unique_ptr<StatementNode>>{});
+    }
+
     const std::string normalized = normalizePath(path);
     if (loadedFiles_.count(normalized)) {
         return std::make_unique<ProgramNode>(
@@ -56,6 +83,8 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
     loadedFiles_.insert(normalized);
 
     const std::string source = readFile(normalized);
+    sources_.addFile(normalized, source);
+
     Lexer lexer(source);
     const std::vector<Token> tokens = lexer.tokenize();
     Parser parser(tokens);
@@ -82,6 +111,11 @@ void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir) 
     pending.swap(program.imports);
 
     for (const auto& imp : pending) {
+        if (StdlibRegistry::isStdlibImport(imp->path)) {
+            handleStdlibImport(program, imp->path);
+            continue;
+        }
+
         const std::string resolved = resolvePath(baseDir, imp->path);
         auto imported = parseFile(resolved);
         const std::string importDir = fs::path(resolved).parent_path().string();

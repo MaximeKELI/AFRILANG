@@ -4,7 +4,12 @@
 
 namespace afrilang {
 
-SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program) : program_(program) {}
+SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
+                                   const SourceManager* sources,
+                                   std::string currentFile)
+    : program_(program)
+    , sources_(sources)
+    , currentFile_(std::move(currentFile)) {}
 
 SemanticResult SemanticAnalyzer::analyze() {
     registerRecords();
@@ -538,7 +543,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
         }
 
-        errorAt(expr, "Variable '" + id->name + "' non déclarée");
+        std::vector<std::string> hints;
+        for (const auto& [name, _] : scope) hints.push_back(name);
+        for (const auto& [name, _] : result_.globalVariables) hints.push_back(name);
+        errorAt(expr, "Variable '" + id->name + "' non déclarée", hints);
     }
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
@@ -778,8 +786,32 @@ MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,
     throw CompileError(message, line, column);
 }
 
-[[noreturn]] void SemanticAnalyzer::errorAt(const ASTNode& node, const std::string& message) const {
-    throw CompileError(message, node.loc.line, node.loc.column);
+[[noreturn]] void SemanticAnalyzer::errorAt(const ASTNode& node, const std::string& message,
+                                            const std::vector<std::string>& nameHints) const {
+    std::string snippet;
+    if (sources_) {
+        if (const SourceFile* file = sources_->getFile(currentFile_)) {
+            snippet = file->lineAt(node.loc.line);
+        }
+    }
+    const auto suggestions = findSimilarNames(
+        nameHints.empty() ? "" : message,
+        nameHints);
+    (void)suggestions;
+
+    std::vector<std::string> sug;
+    if (!nameHints.empty()) {
+        std::string badName;
+        const auto q1 = message.find('\'');
+        const auto q2 = message.find('\'', q1 + 1);
+        if (q1 != std::string::npos && q2 != std::string::npos) {
+            badName = message.substr(q1 + 1, q2 - q1 - 1);
+        }
+        sug = findSimilarNames(badName, nameHints);
+    }
+
+    throw CompileError(message, node.loc.line, node.loc.column,
+                       currentFile_, snippet, sug);
 }
 
 } // namespace afrilang

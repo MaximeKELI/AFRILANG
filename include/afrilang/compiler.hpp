@@ -1,6 +1,7 @@
 #pragma once
 
 #include "afrilang/ast.hpp"
+#include "afrilang/diagnostics.hpp"
 
 #include <memory>
 #include <string>
@@ -10,21 +11,25 @@ namespace afrilang {
 
 class Compiler {
 public:
-    explicit Compiler(std::string entryPath);
+    Compiler(std::string entryPath, std::string afrilangRoot = "");
 
     std::unique_ptr<ProgramNode> compile();
+    const SourceManager& sources() const { return sources_; }
 
 private:
     std::string entryPath_;
+    std::string afrilangRoot_;
     std::unordered_set<std::string> loadedFiles_;
+    SourceManager sources_;
 
     static std::string readFile(const std::string& path);
-    static std::string resolvePath(const std::string& baseDir, const std::string& importPath);
+    std::string resolvePath(const std::string& baseDir, const std::string& importPath) const;
     static std::string normalizePath(const std::string& path);
 
     std::unique_ptr<ProgramNode> parseFile(const std::string& path);
     void mergeProgram(ProgramNode& target, ProgramNode& source);
     void resolveImports(ProgramNode& program, const std::string& baseDir);
+    void handleStdlibImport(ProgramNode& program, const std::string& importPath);
 };
 
 } // namespace afrilang

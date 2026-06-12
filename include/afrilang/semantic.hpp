@@ -1,6 +1,7 @@
 #pragma once
 
 #include "afrilang/ast.hpp"
+#include "afrilang/diagnostics.hpp"
 #include "afrilang/types.hpp"
 
 #include <string>
@@ -53,12 +54,16 @@ struct SemanticResult {
 
 class SemanticAnalyzer {
 public:
-    explicit SemanticAnalyzer(const ProgramNode& program);
+    SemanticAnalyzer(const ProgramNode& program,
+                     const SourceManager* sources = nullptr,
+                     std::string currentFile = "");
 
     SemanticResult analyze();
 
 private:
     const ProgramNode& program_;
+    const SourceManager* sources_;
+    std::string currentFile_;
     SemanticResult result_;
     int loopDepth_ = 0;
     const ClassInfo* currentClass_ = nullptr;
@@ -92,7 +97,8 @@ private:
     const MethodSignature* findFunction(const std::string& name) const;
 
     [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
-    [[noreturn]] void errorAt(const ASTNode& node, const std::string& message) const;
+    [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,
+                              const std::vector<std::string>& nameHints = {}) const;
 };
 
 } // namespace afrilang
