@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/maxime/AFRILANG/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -175,6 +185,19 @@ afrilang/fast:
 .PHONY : afrilang/fast
 
 #=============================================================================
+# Target rules for targets named afrilang_tests
+
+# Build rule for target.
+afrilang_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 afrilang_tests
+.PHONY : afrilang_tests
+
+# fast build rule for target.
+afrilang_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/build
+.PHONY : afrilang_tests/fast
+
+#=============================================================================
 # Target rules for targets named examples
 
 # Build rule for target.
@@ -217,6 +240,7 @@ src/codegen/codegen.o: src/codegen/codegen.cpp.o
 # target to build an object file
 src/codegen/codegen.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o
 .PHONY : src/codegen/codegen.cpp.o
 
 src/codegen/codegen.i: src/codegen/codegen.cpp.i
@@ -225,6 +249,7 @@ src/codegen/codegen.i: src/codegen/codegen.cpp.i
 # target to preprocess a source file
 src/codegen/codegen.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.i
 .PHONY : src/codegen/codegen.cpp.i
 
 src/codegen/codegen.s: src/codegen/codegen.cpp.s
@@ -233,6 +258,7 @@ src/codegen/codegen.s: src/codegen/codegen.cpp.s
 # target to generate assembly for a file
 src/codegen/codegen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.s
 .PHONY : src/codegen/codegen.cpp.s
 
 src/lexer/lexer.o: src/lexer/lexer.cpp.o
@@ -241,6 +267,7 @@ src/lexer/lexer.o: src/lexer/lexer.cpp.o
 # target to build an object file
 src/lexer/lexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o
 .PHONY : src/lexer/lexer.cpp.o
 
 src/lexer/lexer.i: src/lexer/lexer.cpp.i
@@ -249,6 +276,7 @@ src/lexer/lexer.i: src/lexer/lexer.cpp.i
 # target to preprocess a source file
 src/lexer/lexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.i
 .PHONY : src/lexer/lexer.cpp.i
 
 src/lexer/lexer.s: src/lexer/lexer.cpp.s
@@ -257,6 +285,7 @@ src/lexer/lexer.s: src/lexer/lexer.cpp.s
 # target to generate assembly for a file
 src/lexer/lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.s
 .PHONY : src/lexer/lexer.cpp.s
 
 src/parser/parser.o: src/parser/parser.cpp.o
@@ -265,6 +294,7 @@ src/parser/parser.o: src/parser/parser.cpp.o
 # target to build an object file
 src/parser/parser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/parser/parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o
 .PHONY : src/parser/parser.cpp.o
 
 src/parser/parser.i: src/parser/parser.cpp.i
@@ -273,6 +303,7 @@ src/parser/parser.i: src/parser/parser.cpp.i
 # target to preprocess a source file
 src/parser/parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/parser/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.i
 .PHONY : src/parser/parser.cpp.i
 
 src/parser/parser.s: src/parser/parser.cpp.s
@@ -281,6 +312,7 @@ src/parser/parser.s: src/parser/parser.cpp.s
 # target to generate assembly for a file
 src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/parser/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
 
 src/semantic/analyzer.o: src/semantic/analyzer.cpp.o
@@ -289,6 +321,7 @@ src/semantic/analyzer.o: src/semantic/analyzer.cpp.o
 # target to build an object file
 src/semantic/analyzer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o
 .PHONY : src/semantic/analyzer.cpp.o
 
 src/semantic/analyzer.i: src/semantic/analyzer.cpp.i
@@ -297,6 +330,7 @@ src/semantic/analyzer.i: src/semantic/analyzer.cpp.i
 # target to preprocess a source file
 src/semantic/analyzer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.i
 .PHONY : src/semantic/analyzer.cpp.i
 
 src/semantic/analyzer.s: src/semantic/analyzer.cpp.s
@@ -305,7 +339,35 @@ src/semantic/analyzer.s: src/semantic/analyzer.cpp.s
 # target to generate assembly for a file
 src/semantic/analyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.s
 .PHONY : src/semantic/analyzer.cpp.s
+
+src/utils/cli.o: src/utils/cli.cpp.o
+.PHONY : src/utils/cli.o
+
+# target to build an object file
+src/utils/cli.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cli.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o
+.PHONY : src/utils/cli.cpp.o
+
+src/utils/cli.i: src/utils/cli.cpp.i
+.PHONY : src/utils/cli.i
+
+# target to preprocess a source file
+src/utils/cli.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cli.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.i
+.PHONY : src/utils/cli.cpp.i
+
+src/utils/cli.s: src/utils/cli.cpp.s
+.PHONY : src/utils/cli.s
+
+# target to generate assembly for a file
+src/utils/cli.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cli.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.s
+.PHONY : src/utils/cli.cpp.s
 
 src/utils/compiler.o: src/utils/compiler.cpp.o
 .PHONY : src/utils/compiler.o
@@ -313,6 +375,7 @@ src/utils/compiler.o: src/utils/compiler.cpp.o
 # target to build an object file
 src/utils/compiler.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o
 .PHONY : src/utils/compiler.cpp.o
 
 src/utils/compiler.i: src/utils/compiler.cpp.i
@@ -321,6 +384,7 @@ src/utils/compiler.i: src/utils/compiler.cpp.i
 # target to preprocess a source file
 src/utils/compiler.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.i
 .PHONY : src/utils/compiler.cpp.i
 
 src/utils/compiler.s: src/utils/compiler.cpp.s
@@ -329,7 +393,113 @@ src/utils/compiler.s: src/utils/compiler.cpp.s
 # target to generate assembly for a file
 src/utils/compiler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/compiler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.s
 .PHONY : src/utils/compiler.cpp.s
+
+src/utils/diagnostics.o: src/utils/diagnostics.cpp.o
+.PHONY : src/utils/diagnostics.o
+
+# target to build an object file
+src/utils/diagnostics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o
+.PHONY : src/utils/diagnostics.cpp.o
+
+src/utils/diagnostics.i: src/utils/diagnostics.cpp.i
+.PHONY : src/utils/diagnostics.i
+
+# target to preprocess a source file
+src/utils/diagnostics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.i
+.PHONY : src/utils/diagnostics.cpp.i
+
+src/utils/diagnostics.s: src/utils/diagnostics.cpp.s
+.PHONY : src/utils/diagnostics.s
+
+# target to generate assembly for a file
+src/utils/diagnostics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.s
+.PHONY : src/utils/diagnostics.cpp.s
+
+src/utils/project.o: src/utils/project.cpp.o
+.PHONY : src/utils/project.o
+
+# target to build an object file
+src/utils/project.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/project.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o
+.PHONY : src/utils/project.cpp.o
+
+src/utils/project.i: src/utils/project.cpp.i
+.PHONY : src/utils/project.i
+
+# target to preprocess a source file
+src/utils/project.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/project.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.i
+.PHONY : src/utils/project.cpp.i
+
+src/utils/project.s: src/utils/project.cpp.s
+.PHONY : src/utils/project.s
+
+# target to generate assembly for a file
+src/utils/project.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/project.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.s
+.PHONY : src/utils/project.cpp.s
+
+src/utils/stdlib_registry.o: src/utils/stdlib_registry.cpp.o
+.PHONY : src/utils/stdlib_registry.o
+
+# target to build an object file
+src/utils/stdlib_registry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o
+.PHONY : src/utils/stdlib_registry.cpp.o
+
+src/utils/stdlib_registry.i: src/utils/stdlib_registry.cpp.i
+.PHONY : src/utils/stdlib_registry.i
+
+# target to preprocess a source file
+src/utils/stdlib_registry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.i
+.PHONY : src/utils/stdlib_registry.cpp.i
+
+src/utils/stdlib_registry.s: src/utils/stdlib_registry.cpp.s
+.PHONY : src/utils/stdlib_registry.s
+
+# target to generate assembly for a file
+src/utils/stdlib_registry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.s
+.PHONY : src/utils/stdlib_registry.cpp.s
+
+tests/test_compiler.o: tests/test_compiler.cpp.o
+.PHONY : tests/test_compiler.o
+
+# target to build an object file
+tests/test_compiler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o
+.PHONY : tests/test_compiler.cpp.o
+
+tests/test_compiler.i: tests/test_compiler.cpp.i
+.PHONY : tests/test_compiler.i
+
+# target to preprocess a source file
+tests/test_compiler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.i
+.PHONY : tests/test_compiler.cpp.i
+
+tests/test_compiler.s: tests/test_compiler.cpp.s
+.PHONY : tests/test_compiler.s
+
+# target to generate assembly for a file
+tests/test_compiler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.s
+.PHONY : tests/test_compiler.cpp.s
 
 # Help Target
 help:
@@ -343,8 +513,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... examples"
 	@echo "... afrilang"
+	@echo "... afrilang_tests"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -360,9 +532,24 @@ help:
 	@echo "... src/semantic/analyzer.o"
 	@echo "... src/semantic/analyzer.i"
 	@echo "... src/semantic/analyzer.s"
+	@echo "... src/utils/cli.o"
+	@echo "... src/utils/cli.i"
+	@echo "... src/utils/cli.s"
 	@echo "... src/utils/compiler.o"
 	@echo "... src/utils/compiler.i"
 	@echo "... src/utils/compiler.s"
+	@echo "... src/utils/diagnostics.o"
+	@echo "... src/utils/diagnostics.i"
+	@echo "... src/utils/diagnostics.s"
+	@echo "... src/utils/project.o"
+	@echo "... src/utils/project.i"
+	@echo "... src/utils/project.s"
+	@echo "... src/utils/stdlib_registry.o"
+	@echo "... src/utils/stdlib_registry.i"
+	@echo "... src/utils/stdlib_registry.s"
+	@echo "... tests/test_compiler.o"
+	@echo "... tests/test_compiler.i"
+	@echo "... tests/test_compiler.s"
 .PHONY : help
 
 

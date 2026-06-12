@@ -41,5 +41,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/afrilang.dir/DependInfo.cmake"
+  "CMakeFiles/afrilang_tests.dir/DependInfo.cmake"
   "CMakeFiles/examples.dir/DependInfo.cmake"
   )

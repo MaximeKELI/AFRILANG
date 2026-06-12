@@ -175,10 +175,12 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/error.hpp \
- /usr/include/c++/13/unordered_set \
- /usr/include/c++/13/bits/unordered_set.h \
+ /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/erase_if.h
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/unordered_set \
+ /usr/include/c++/13/bits/unordered_set.h

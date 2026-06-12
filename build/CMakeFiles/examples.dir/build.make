@@ -67,18 +67,8 @@ include CMakeFiles/examples.dir/compiler_depend.make
 include CMakeFiles/examples.dir/progress.make
 
 CMakeFiles/examples: afrilang
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compilation et exécution des exemples AFRILANG"
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/hello.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/oop.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/conditions.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/inheritance.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/functions.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/while.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/lists.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/modules.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/fields.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/records.afr --run
-	/home/maxime/AFRILANG/build/afrilang /home/maxime/AFRILANG/examples/full_demo.afr --run
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Compilation et tests des exemples AFRILANG"
+	/home/maxime/AFRILANG/build/afrilang test /home/maxime/AFRILANG
 
 examples: CMakeFiles/examples
 examples: CMakeFiles/examples.dir/build.make

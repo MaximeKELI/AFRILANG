@@ -48,8 +48,8 @@ static void testSemanticUndeclaredVariable() {
         analyzer.analyze();
     } catch (const afrilang::CompileError& e) {
         threw = true;
-        expect(e.what() != std::string(""), "message d'erreur non vide");
-        expect(e.line() > 0, "erreur avec numéro de ligne");
+        const std::string msg = e.format();
+        expect(msg.find("non déclarée") != std::string::npos, "message variable non déclarée");
     }
     expect(threw, "variable non déclarée détectée");
 }

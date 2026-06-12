@@ -203,7 +203,7 @@ static int cmdBuild(const std::string& projectDir) {
 
     CompileOptions opts;
     opts.outputExecutable = (dir / config.output).string();
-    opts.runtimeDir = (detectAfrilangRoot() / "runtime").string();
+    opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
 
     const fs::path oldCwd = fs::current_path();
     fs::current_path(dir / "build");

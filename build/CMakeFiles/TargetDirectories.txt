@@ -1,5 +1,7 @@
 /home/maxime/AFRILANG/build/CMakeFiles/afrilang.dir
+/home/maxime/AFRILANG/build/CMakeFiles/afrilang_tests.dir
 /home/maxime/AFRILANG/build/CMakeFiles/examples.dir
+/home/maxime/AFRILANG/build/CMakeFiles/test.dir
 /home/maxime/AFRILANG/build/CMakeFiles/edit_cache.dir
 /home/maxime/AFRILANG/build/CMakeFiles/rebuild_cache.dir
 /home/maxime/AFRILANG/build/CMakeFiles/list_install_components.dir

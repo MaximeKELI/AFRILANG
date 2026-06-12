@@ -62,6 +62,14 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   include("/home/maxime/AFRILANG/build/CMakeFiles/afrilang.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/afrilang/runtime" TYPE DIRECTORY FILES "/home/maxime/AFRILANG/runtime/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/afrilang/stdlib" TYPE DIRECTORY OPTIONAL FILES "/home/maxime/AFRILANG/stdlib/")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

@@ -794,10 +794,6 @@ MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,
             snippet = file->lineAt(node.loc.line);
         }
     }
-    const auto suggestions = findSimilarNames(
-        nameHints.empty() ? "" : message,
-        nameHints);
-    (void)suggestions;
 
     std::vector<std::string> sug;
     if (!nameHints.empty()) {

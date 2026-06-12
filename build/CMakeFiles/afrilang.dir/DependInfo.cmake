@@ -13,7 +13,11 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/lexer/lexer.cpp" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o.d"
   "/home/maxime/AFRILANG/src/parser/parser.cpp" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o.d"
   "/home/maxime/AFRILANG/src/semantic/analyzer.cpp" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/cli.cpp" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/compiler.cpp" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/diagnostics.cpp" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/project.cpp" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
