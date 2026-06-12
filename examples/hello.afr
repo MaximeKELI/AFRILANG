@@ -1,0 +1,6 @@
+say "Bonjour depuis AFRILANG!"
+say "Le compilateur fonctionne."
+
+repeat 3 times
+    say "Hello"
+end

@@ -1,0 +1,8 @@
+/home/maxime/AFRILANG/build/CMakeFiles/afrilang.dir
+/home/maxime/AFRILANG/build/CMakeFiles/examples.dir
+/home/maxime/AFRILANG/build/CMakeFiles/edit_cache.dir
+/home/maxime/AFRILANG/build/CMakeFiles/rebuild_cache.dir
+/home/maxime/AFRILANG/build/CMakeFiles/list_install_components.dir
+/home/maxime/AFRILANG/build/CMakeFiles/install.dir
+/home/maxime/AFRILANG/build/CMakeFiles/install/local.dir
+/home/maxime/AFRILANG/build/CMakeFiles/install/strip.dir

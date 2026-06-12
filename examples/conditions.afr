@@ -1,0 +1,27 @@
+create age = 25
+
+if age is greater than 18 then
+    say "Adulte"
+end
+
+if age is less than 30 then
+    say "Jeune adulte"
+end
+
+create score = 100
+
+if score is equal to 100 then
+    say "Score parfait!"
+end
+
+create x = 10
+create y = 3
+
+say x + y
+say x - y
+say x * y
+say x / y
+
+repeat 2 times
+    say "Boucle conditionnelle"
+end
