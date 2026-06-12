@@ -28,7 +28,12 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
 }
 
 void StdlibRegistry::injectIoModule(ProgramNode& program) {
-    auto module = std::make_unique<ModuleNode>("io");
+    auto module = std::make_unique<ModuleNode>(
+        "io",
+        std::vector<std::unique_ptr<ClassNode>>{},
+        std::vector<std::unique_ptr<RecordNode>>{},
+        std::vector<std::unique_ptr<FunctionNode>>{});
+
     module->functions.push_back(makeStubFunction(
         "readFile", {{"path", "text"}}, "text"));
     module->functions.push_back(makeStubFunction(
@@ -41,7 +46,12 @@ void StdlibRegistry::injectIoModule(ProgramNode& program) {
 }
 
 void StdlibRegistry::injectJsonModule(ProgramNode& program) {
-    auto module = std::make_unique<ModuleNode>("json");
+    auto module = std::make_unique<ModuleNode>(
+        "json",
+        std::vector<std::unique_ptr<ClassNode>>{},
+        std::vector<std::unique_ptr<RecordNode>>{},
+        std::vector<std::unique_ptr<FunctionNode>>{});
+
     module->functions.push_back(makeStubFunction(
         "parse", {{"text", "text"}}, "text"));
     module->functions.push_back(makeStubFunction(
