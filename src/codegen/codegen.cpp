@@ -18,7 +18,9 @@ std::string CodeGenerator::generate() const {
 }
 
 void CodeGenerator::generate(std::ostream& out) const {
+    linkLibraries_.clear();
     emitHeader(out);
+    emitExterns(out);
     emitRecords(out);
     emitInterfaces(out);
     emitClasses(out);
@@ -54,7 +56,60 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         }
     }
     if (needsResult) out << "#include \"result.hpp\"\n";
+    if (!program_.externs.empty()) {
+        out << "#include <cmath>\n";
+        out << "#include <cstring>\n";
+    }
     out << "\n";
+}
+
+void CodeGenerator::emitExterns(std::ostream& out) const {
+    for (const auto& ext : program_.externs) {
+        collectLinkLibrary(ext->library, linkLibraries_);
+
+        out << "extern \"C\" ";
+        if (ext->returnTypeName.empty()) {
+            out << "void ";
+        } else {
+            out << ffiTypeToCpp(ext->returnTypeName) << " ";
+        }
+        out << ext->name << "(";
+        for (std::size_t i = 0; i < ext->parameters.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << ffiTypeToCpp(ext->parameters[i].typeName) << " "
+                << ext->parameters[i].name;
+        }
+        out << ");\n";
+    }
+    if (!program_.externs.empty()) out << "\n";
+}
+
+std::string CodeGenerator::ffiTypeToCpp(const std::string& typeName) {
+    if (typeName == "number") return "double";
+    if (typeName == "text") return "const char*";
+    if (typeName == "pointer") return "void*";
+    if (typeName == "bool") return "bool";
+    return typeFromName(typeName).toCpp();
+}
+
+void CodeGenerator::collectLinkLibrary(const std::string& library,
+                                       std::unordered_set<std::string>& libs) {
+    const std::string flag = linkFlagForLibrary(library);
+    if (!flag.empty()) libs.insert(flag);
+}
+
+std::string CodeGenerator::linkFlagForLibrary(const std::string& library) {
+    if (library == "c" || library == "libc") return {};
+    if (library == "m" || library == "libm") return "-lm";
+    if (library == "pthread") return "-lpthread";
+    if (library == "dl") return "-ldl";
+    return "-l" + library;
+}
+
+std::string CodeGenerator::compilerForTarget(const std::string& target) {
+    if (target == "linux-arm64") return "aarch64-linux-gnu-g++";
+    if (target == "wasm32") return "em++";
+    return "g++";
 }
 
 void CodeGenerator::emitRecords(std::ostream& out) const {
@@ -662,11 +717,23 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        const MethodSignature* externSig = nullptr;
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
+            const auto it = semantic_.functions.find(id->name);
+            if (it != semantic_.functions.end() && it->second.isExtern) {
+                externSig = &it->second;
+            }
+        }
+
         emitExpression(out, *call->callee, ownerClass);
         out << "(";
         for (std::size_t i = 0; i < call->arguments.size(); ++i) {
             if (i > 0) out << ", ";
             emitExpression(out, *call->arguments[i], ownerClass);
+            if (externSig && i < externSig->paramTypes.size() &&
+                externSig->paramTypes[i].kind == TypeKind::Text) {
+                out << ".c_str()";
+            }
         }
         out << ")";
         return;

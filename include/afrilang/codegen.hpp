@@ -30,6 +30,8 @@ private:
     std::string runtimeDir_;
     std::string sourceFilePath_;
     bool debugSymbols_ = true;
+    std::string crossTarget_ = "native";
+    mutable std::unordered_set<std::string> linkLibraries_;
 
     mutable const FunctionNode* currentFunction_ = nullptr;
     mutable bool inTest_ = false;
@@ -40,6 +42,7 @@ private:
     void emitClasses(std::ostream& out) const;
     void emitModules(std::ostream& out) const;
     void emitGlobalFunctions(std::ostream& out) const;
+    void emitExterns(std::ostream& out) const;
     void emitTests(std::ostream& out) const;
     void emitMain(std::ostream& out) const;
 
@@ -62,6 +65,11 @@ private:
     static std::string functionReturnCpp(const FunctionNode& func);
     static std::string resultTypeAlias(const std::string& innerTypeName);
     static std::string sanitizeTestName(const std::string& name);
+    static std::string ffiTypeToCpp(const std::string& typeName);
+    static std::string compilerForTarget(const std::string& target);
+    static std::string linkFlagForLibrary(const std::string& library);
+    static void collectLinkLibrary(const std::string& library,
+                                   std::unordered_set<std::string>& libs);
 
     bool usesStdlibModule(const std::string& name) const;
     void emitStdlibFunction(std::ostream& out, const std::string& moduleName,
