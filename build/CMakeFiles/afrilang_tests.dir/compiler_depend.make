@@ -445,6 +445,7 @@ CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o: /home/maxime/AFRILANG/src/l
 
 CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: /home/maxime/AFRILANG/src/lsp/server.cpp \
   /home/maxime/AFRILANG/include/afrilang/ast.hpp \
+  /home/maxime/AFRILANG/include/afrilang/cli.hpp \
   /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
@@ -3834,8 +3835,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/arpa/inet.h:
 
-/home/maxime/AFRILANG/include/afrilang/cli.hpp:
-
 /home/maxime/AFRILANG/include/afrilang/parser.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
@@ -3927,6 +3926,10 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
 /usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/c++/13/bits/parse_numbers.h:
+
+/usr/include/c++/13/bits/std_abs.h:
 
 /home/maxime/AFRILANG/src/repl/repl.cpp:
 
@@ -4151,6 +4154,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/functional_hash.h:
 
 /usr/include/errno.h:
+
+/home/maxime/AFRILANG/include/afrilang/cli.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
@@ -4421,7 +4426,3 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/c++/13/bits/locale_facets_nonio.h:
-
-/usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/c++/13/bits/parse_numbers.h:

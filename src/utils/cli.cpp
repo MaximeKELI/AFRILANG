@@ -32,6 +32,49 @@ std::string detectAfrilangRoot() {
     return fs::current_path().string();
 }
 
+static void printFileNotFoundHint(const std::string& userPath) {
+    const fs::path requested = fs::absolute(userPath);
+    const fs::path cwd = fs::current_path();
+    const std::string baseName = requested.filename().string();
+
+    std::cerr << "Fichier introuvable: " << requested << "\n";
+
+    if (requested.string().find("/examples/examples/") != std::string::npos) {
+        std::cerr << "  Astuce: vous êtes déjà dans examples/ — utilisez:\n";
+        std::cerr << "    afrilang run " << baseName << "\n";
+        return;
+    }
+
+    if (fs::exists(cwd / baseName)) {
+        std::cerr << "  Astuce: le fichier est ici — utilisez:\n";
+        std::cerr << "    afrilang run " << baseName << "\n";
+        return;
+    }
+
+    if (fs::exists(cwd / "examples" / baseName)) {
+        std::cerr << "  Astuce: le fichier est dans examples/ — utilisez:\n";
+        std::cerr << "    afrilang run examples/" << baseName << "\n";
+        return;
+    }
+
+    if (fs::exists(cwd.parent_path() / "examples" / baseName)) {
+        std::cerr << "  Astuce: depuis la racine du projet — utilisez:\n";
+        std::cerr << "    afrilang run examples/" << baseName << "\n";
+    }
+}
+
+static int reportCliException(const std::exception& e, const std::string& userPath = {}) {
+    const std::string msg = e.what();
+    if (msg.rfind("Impossible d'ouvrir le fichier:", 0) == 0) {
+        printFileNotFoundHint(userPath.empty()
+            ? msg.substr(std::string("Impossible d'ouvrir le fichier: ").size())
+            : userPath);
+        return 1;
+    }
+    std::cerr << "Erreur: " << msg << "\n";
+    return 1;
+}
+
 static void printUsage() {
     std::cerr << "AFRILANG — compilateur v1.0\n\n";
     std::cerr << "Usage:\n";
@@ -133,6 +176,10 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 bool Pipeline::checkFile(const std::string& sourcePath) {
     try {
         const fs::path srcPath = fs::absolute(sourcePath);
+        if (!fs::exists(srcPath)) {
+            printFileNotFoundHint(sourcePath);
+            return false;
+        }
         Compiler compiler(srcPath.string(), detectAfrilangRoot());
         std::unique_ptr<ProgramNode> program = compiler.compile();
         SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
@@ -141,6 +188,9 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
         return true;
     } catch (const CompileError& e) {
         std::cerr << e.format();
+        return false;
+    } catch (const std::exception& e) {
+        reportCliException(e, sourcePath);
         return false;
     }
 }
@@ -256,6 +306,9 @@ static int cmdBuild(int argc, char* argv[]) {
         fs::current_path(oldCwd);
         std::cerr << e.format();
         return 1;
+    } catch (const std::exception& e) {
+        fs::current_path(oldCwd);
+        return reportCliException(e, mainFile.string());
     }
 }
 
@@ -274,12 +327,21 @@ static int cmdRun(int argc, char* argv[]) {
             opts.crossTarget = argv[++i];
         }
     }
+
+    const fs::path absPath = fs::absolute(file);
+    if (!fs::exists(absPath)) {
+        printFileNotFoundHint(file);
+        return 1;
+    }
+
     try {
         auto result = Pipeline::compileFile(file, opts);
         return result.success ? 0 : 1;
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, file);
     }
 }
 
@@ -296,6 +358,8 @@ static int cmdExplain(const std::string& file, int lineFilter) {
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, file);
     }
 }
 
@@ -363,6 +427,8 @@ static int legacyMode(int argc, char* argv[]) {
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, sourcePath);
     }
 }
 
@@ -396,6 +462,8 @@ static int cmdDoc(const std::string& sourcePath) {
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, sourcePath);
     }
 }
 

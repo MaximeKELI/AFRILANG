@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Lance un exemple AFRILANG : ./run hello  ou  ./run hello.afr
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+EXAMPLES="$(cd "$(dirname "$0")" && pwd)"
+
+find_afrilang() {
+  if command -v afrilang >/dev/null 2>&1; then
+    command -v afrilang
+    return
+  fi
+  if [[ -x "$ROOT/build/afrilang" ]]; then
+    echo "$ROOT/build/afrilang"
+    return
+  fi
+  echo "Erreur: compilateur introuvable." >&2
+  echo "  Compilez: cd $ROOT/build && make" >&2
+  echo "  Ou ajoutez au PATH: export PATH=\"\$HOME/AFRILANG/build:\$PATH\"" >&2
+  exit 1
+}
+
+usage() {
+  echo "Usage: ./run <exemple>   (ex: ./run hello, ./run maps.afr)"
+  echo ""
+  echo "Exemples disponibles:"
+  ls -1 "$EXAMPLES"/*.afr 2>/dev/null | xargs -n1 basename | sed 's/\.afr$//' | sort | tr '\n' ' '
+  echo ""
+}
+
+if [[ $# -lt 1 || "$1" == "-h" || "$1" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+name="$1"
+if [[ "$name" == *.afr ]]; then
+  file="$EXAMPLES/$name"
+else
+  file="$EXAMPLES/${name}.afr"
+fi
+
+if [[ ! -f "$file" ]]; then
+  echo "Fichier introuvable: $file" >&2
+  echo "  Astuce: ./run hello   (sans le préfixe examples/)" >&2
+  exit 1
+fi
+
+AFRILANG="$(find_afrilang)"
+cd "$EXAMPLES"
+exec "$AFRILANG" run "$(basename "$file")"

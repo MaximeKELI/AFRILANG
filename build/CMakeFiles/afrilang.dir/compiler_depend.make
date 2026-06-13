@@ -606,6 +606,7 @@ CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o: /home/maxime/AFRILANG/src/lexer/l
 
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: /home/maxime/AFRILANG/src/lsp/server.cpp \
   /home/maxime/AFRILANG/include/afrilang/ast.hpp \
+  /home/maxime/AFRILANG/include/afrilang/cli.hpp \
   /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
