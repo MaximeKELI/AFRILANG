@@ -111,6 +111,10 @@ private:
                           bool isGlobalScope);
     AfrType analyzeExpression(const ExpressionNode& expr,
                               const std::unordered_map<std::string, AfrType>& scope);
+    AfrType inferReturnTypeFromBlock(
+        const std::vector<std::unique_ptr<StatementNode>>& body,
+        const std::unordered_map<std::string, AfrType>& scope,
+        const ASTNode& at);
 
     bool isNumeric(const AfrType& type) const;
     bool isBoolean(const AfrType& type) const;

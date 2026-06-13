@@ -30,6 +30,136 @@ std::string cppTypeFromAfrName(const std::string& typeName,
     return typeFromName(typeName).toCpp();
 }
 
+bool expressionUsesNaturalListOps(const ExpressionNode& expr) {
+    if (dynamic_cast<const MapEachExpressionNode*>(&expr)) return true;
+    if (dynamic_cast<const FilterEachExpressionNode*>(&expr)) return true;
+    if (dynamic_cast<const ReduceExpressionNode*>(&expr)) return true;
+
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        return expressionUsesNaturalListOps(*bin->left) ||
+               expressionUsesNaturalListOps(*bin->right);
+    }
+    if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
+        return expressionUsesNaturalListOps(*unary->operand);
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        if (expressionUsesNaturalListOps(*call->callee)) return true;
+        for (const auto& arg : call->arguments) {
+            if (expressionUsesNaturalListOps(*arg)) return true;
+        }
+    }
+    if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
+        return expressionUsesNaturalListOps(*member->object);
+    }
+    if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        return expressionUsesNaturalListOps(*index->object) ||
+               expressionUsesNaturalListOps(*index->index);
+    }
+    if (const auto* length = dynamic_cast<const LengthExpressionNode*>(&expr)) {
+        return expressionUsesNaturalListOps(*length->object);
+    }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        for (const auto& elem : list->elements) {
+            if (expressionUsesNaturalListOps(*elem)) return true;
+        }
+    }
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        for (const auto& pair : mapLit->pairs) {
+            if (expressionUsesNaturalListOps(*pair.key) ||
+                expressionUsesNaturalListOps(*pair.value)) {
+                return true;
+            }
+        }
+    }
+    if (const auto* interp = dynamic_cast<const InterpolatedStringNode*>(&expr)) {
+        for (const auto& part : interp->parts) {
+            if (expressionUsesNaturalListOps(*part)) return true;
+        }
+    }
+    if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
+        for (const auto& stmt : lambda->body) {
+            if (const auto* say = dynamic_cast<const SayStatementNode*>(stmt.get())) {
+                if (expressionUsesNaturalListOps(*say->value)) return true;
+            } else if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
+                if (ret->value && expressionUsesNaturalListOps(*ret->value)) return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool statementUsesNaturalListOps(const StatementNode& stmt) {
+    if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
+        return expressionUsesNaturalListOps(*assign->value);
+    }
+    if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
+        return expressionUsesNaturalListOps(*say->value);
+    }
+    if (const auto* set = dynamic_cast<const SetStatementNode*>(&stmt)) {
+        return expressionUsesNaturalListOps(*set->target) ||
+               expressionUsesNaturalListOps(*set->value);
+    }
+    if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        return ret->value && expressionUsesNaturalListOps(*ret->value);
+    }
+    if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(&stmt)) {
+        return expressionUsesNaturalListOps(*exprStmt->expression);
+    }
+    if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(&stmt)) {
+        if (expressionUsesNaturalListOps(*ifStmt->condition)) return true;
+        for (const auto& s : ifStmt->thenBody) {
+            if (statementUsesNaturalListOps(*s)) return true;
+        }
+        for (const auto& s : ifStmt->elseBody) {
+            if (statementUsesNaturalListOps(*s)) return true;
+        }
+    }
+    if (const auto* whileStmt = dynamic_cast<const WhileStatementNode*>(&stmt)) {
+        if (expressionUsesNaturalListOps(*whileStmt->condition)) return true;
+        for (const auto& s : whileStmt->body) {
+            if (statementUsesNaturalListOps(*s)) return true;
+        }
+    }
+    if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(&stmt)) {
+        if (expressionUsesNaturalListOps(*forEach->list)) return true;
+        for (const auto& s : forEach->body) {
+            if (statementUsesNaturalListOps(*s)) return true;
+        }
+    }
+    return false;
+}
+
+bool programUsesNaturalListOps(const ProgramNode& program) {
+    for (const auto& stmt : program.statements) {
+        if (statementUsesNaturalListOps(*stmt)) return true;
+    }
+    for (const auto& func : program.functions) {
+        for (const auto& stmt : func->body) {
+            if (statementUsesNaturalListOps(*stmt)) return true;
+        }
+    }
+    for (const auto& test : program.tests) {
+        for (const auto& stmt : test->body) {
+            if (statementUsesNaturalListOps(*stmt)) return true;
+        }
+    }
+    for (const auto& cls : program.classes) {
+        for (const auto& method : cls->methods) {
+            for (const auto& stmt : method->body) {
+                if (statementUsesNaturalListOps(*stmt)) return true;
+            }
+        }
+    }
+    for (const auto& mod : program.modules) {
+        for (const auto& func : mod->functions) {
+            for (const auto& stmt : func->body) {
+                if (statementUsesNaturalListOps(*stmt)) return true;
+            }
+        }
+    }
+    return false;
+}
+
 } // namespace
 
 CodeGenerator::CodeGenerator(const ProgramNode& program, const SemanticResult& semantic)
@@ -95,6 +225,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "re") needsRe = true;
         if (module->name == "collections") needsCollections = true;
     }
+    if (programUsesNaturalListOps(program_)) needsCollections = true;
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
     if (needsFs) out << "#include \"fs.hpp\"\n";
@@ -1128,6 +1259,51 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* mapEach = dynamic_cast<const MapEachExpressionNode*>(&expr)) {
+        const std::string fn = mapEach->elementTypeName == "text" ? "mapText" : "mapNumbers";
+        const AfrType elemType = typeFromName(mapEach->elementTypeName);
+        const AfrType resultType = typeFromName(mapEach->resultElementTypeName);
+        out << "afrilang::runtime::collections::" << fn << "(";
+        emitExpression(out, *mapEach->list, ownerClass);
+        out << ", [&](" << elemType.toCpp() << " " << mapEach->itemName << ") -> "
+            << resultType.toCpp() << " {\n";
+        for (const auto& bodyStmt : mapEach->body) {
+            emitStatement(out, *bodyStmt, 1, ownerClass);
+        }
+        out << "    })";
+        return;
+    }
+
+    if (const auto* filterEach = dynamic_cast<const FilterEachExpressionNode*>(&expr)) {
+        const std::string fn =
+            filterEach->elementTypeName == "text" ? "filterText" : "filterNumbers";
+        const AfrType elemType = typeFromName(filterEach->elementTypeName);
+        out << "afrilang::runtime::collections::" << fn << "(";
+        emitExpression(out, *filterEach->list, ownerClass);
+        out << ", [&](" << elemType.toCpp() << " " << filterEach->itemName << ") -> bool {\n";
+        out << "        return ";
+        emitExpression(out, *filterEach->condition, ownerClass);
+        out << ";\n    })";
+        return;
+    }
+
+    if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
+        const AfrType elemType = typeFromName(reduce->elementTypeName);
+        const AfrType resultType = typeFromName(reduce->resultTypeName);
+        out << "afrilang::runtime::collections::reduceNumbers(";
+        emitExpression(out, *reduce->list, ownerClass);
+        out << ", [&](" << resultType.toCpp() << " " << reduce->accName << ", "
+            << elemType.toCpp() << " " << reduce->itemName << ") -> "
+            << resultType.toCpp() << " {\n";
+        for (const auto& bodyStmt : reduce->body) {
+            emitStatement(out, *bodyStmt, 1, ownerClass);
+        }
+        out << "    }, ";
+        emitExpression(out, *reduce->initial, ownerClass);
+        out << ")";
+        return;
+    }
+
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         const MethodSignature* externSig = nullptr;
         if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
@@ -1200,6 +1376,18 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
             params << lambda->parameters[i].typeName;
         }
         return AfrType::functionType(params.str(), lambda->returnTypeName).toCpp();
+    }
+
+    if (const auto* mapEach = dynamic_cast<const MapEachExpressionNode*>(&expr)) {
+        return "std::vector<" + typeFromName(mapEach->resultElementTypeName).toCpp() + ">";
+    }
+
+    if (const auto* filterEach = dynamic_cast<const FilterEachExpressionNode*>(&expr)) {
+        return "std::vector<" + typeFromName(filterEach->elementTypeName).toCpp() + ">";
+    }
+
+    if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
+        return typeFromName(reduce->resultTypeName).toCpp();
     }
 
     if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {

@@ -50,6 +50,34 @@ AfrType lambdaExpressionType(const LambdaExpressionNode& lambda) {
     return AfrType::functionType(params.str(), lambda.returnTypeName);
 }
 
+AfrType inferReturnTypeFromBlockImpl(
+    const std::vector<std::unique_ptr<StatementNode>>& body,
+    const std::unordered_map<std::string, AfrType>& scope,
+    const ASTNode& at,
+    const std::function<AfrType(const ExpressionNode&,
+                                const std::unordered_map<std::string, AfrType>&)>& analyzeExpr,
+    const std::function<void(const ASTNode&, const std::string&)>& reportError) {
+    AfrType result;
+    bool found = false;
+    for (const auto& stmt : body) {
+        if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
+            if (!ret->value) {
+                reportError(at, "return avec valeur attendu");
+            }
+            AfrType retType = analyzeExpr(*ret->value, scope);
+            if (found && result.kind != retType.kind) {
+                reportError(at, "Types de retour incohérents dans le bloc");
+            }
+            result = retType;
+            found = true;
+        }
+    }
+    if (!found) {
+        reportError(at, "Au moins un 'return' attendu");
+    }
+    return result;
+}
+
 } // namespace
 
 SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
@@ -827,6 +855,18 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
     }
 }
 
+AfrType SemanticAnalyzer::inferReturnTypeFromBlock(
+    const std::vector<std::unique_ptr<StatementNode>>& body,
+    const std::unordered_map<std::string, AfrType>& scope,
+    const ASTNode& at) {
+    return inferReturnTypeFromBlockImpl(
+        body, scope, at,
+        [this](const ExpressionNode& e, const std::unordered_map<std::string, AfrType>& s) {
+            return analyzeExpression(e, s);
+        },
+        [this](const ASTNode& node, const std::string& msg) { errorAt(node, msg); });
+}
+
 AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                                             const std::unordered_map<std::string, AfrType>& scope) {
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
@@ -1000,6 +1040,82 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'length of' requiert une liste ou une map");
         }
         return AfrType::number();
+    }
+
+    if (const auto* mapEach = dynamic_cast<const MapEachExpressionNode*>(&expr)) {
+        AfrType listType = analyzeExpression(*mapEach->list, scope);
+        if (listType.kind != TypeKind::List) {
+            errorAt(expr, "'map each' requiert une liste");
+        }
+        AfrType elemType = listType.listElementType();
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+            errorAt(expr, "'map each' supporte listes de number ou text");
+        }
+
+        auto* mutableNode = const_cast<MapEachExpressionNode*>(mapEach);
+        mutableNode->elementTypeName = elemType.toTypeName();
+
+        std::unordered_map<std::string, AfrType> bodyScope = scope;
+        bodyScope[mapEach->itemName] = elemType;
+        for (const auto& stmt : mapEach->body) {
+            analyzeStatement(*stmt, bodyScope, false);
+        }
+        AfrType resultElem = inferReturnTypeFromBlock(mapEach->body, bodyScope, expr);
+        mutableNode->resultElementTypeName = resultElem.toTypeName();
+        return AfrType::listType(resultElem);
+    }
+
+    if (const auto* filterEach = dynamic_cast<const FilterEachExpressionNode*>(&expr)) {
+        AfrType listType = analyzeExpression(*filterEach->list, scope);
+        if (listType.kind != TypeKind::List) {
+            errorAt(expr, "'filter each' requiert une liste");
+        }
+        AfrType elemType = listType.listElementType();
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+            errorAt(expr, "'filter each' supporte listes de number ou text");
+        }
+
+        const_cast<FilterEachExpressionNode*>(filterEach)->elementTypeName =
+            elemType.toTypeName();
+
+        std::unordered_map<std::string, AfrType> condScope = scope;
+        condScope[filterEach->itemName] = elemType;
+        AfrType condType = analyzeExpression(*filterEach->condition, condScope);
+        if (condType.kind != TypeKind::Bool) {
+            errorAt(expr, "La condition de 'filter each' doit être un booléen");
+        }
+        return listType;
+    }
+
+    if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
+        AfrType listType = analyzeExpression(*reduce->list, scope);
+        if (listType.kind != TypeKind::List) {
+            errorAt(expr, "'reduce' requiert une liste");
+        }
+        AfrType elemType = listType.listElementType();
+        if (elemType.kind != TypeKind::Number) {
+            errorAt(expr, "'reduce' supporte uniquement listes de number pour l'instant");
+        }
+
+        AfrType initialType = analyzeExpression(*reduce->initial, scope);
+        if (initialType.kind != TypeKind::Number) {
+            errorAt(expr, "La valeur initiale de 'reduce' doit être un number");
+        }
+
+        const_cast<ReduceExpressionNode*>(reduce)->elementTypeName = elemType.toTypeName();
+        const_cast<ReduceExpressionNode*>(reduce)->resultTypeName = initialType.toTypeName();
+
+        std::unordered_map<std::string, AfrType> bodyScope = scope;
+        bodyScope[reduce->accName] = initialType;
+        bodyScope[reduce->itemName] = elemType;
+        for (const auto& stmt : reduce->body) {
+            analyzeStatement(*stmt, bodyScope, false);
+        }
+        AfrType resultType = inferReturnTypeFromBlock(reduce->body, bodyScope, expr);
+        if (!isAssignable(initialType, resultType)) {
+            errorAt(expr, "Le type de retour de 'reduce' doit correspondre à la valeur initiale");
+        }
+        return initialType;
     }
 
     if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {

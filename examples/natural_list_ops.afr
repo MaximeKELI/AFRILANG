@@ -1,0 +1,36 @@
+create nums = list of 1, 2, 3, 4, 5
+
+create doubled = map each x in nums do
+    return x * 2
+end
+
+say doubled at 0
+say doubled at 4
+
+create bigOnes = filter each x in nums where x is greater than 3
+
+say length of bigOnes
+say bigOnes at 0
+say bigOnes at 1
+
+create total = reduce nums from 0 with each acc, x do
+    return acc + x
+end
+
+say total
+
+create words = list of "hi", "hello", "hey"
+
+create upper = map each w in words do
+    return w + "!"
+end
+
+say upper at 0
+say upper at 2
+
+create longWords = filter each w in words where w is equal to "hello"
+
+say length of longWords
+say longWords at 0
+
+say "natural list ops complete"
