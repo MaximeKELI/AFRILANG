@@ -54,6 +54,10 @@ afrilang lsp                # Serveur Language Server (stdio)
 afrilang fmt fichier.afr    # Formater (stdout)
 afrilang fmt fichier.afr -w # Formater et écraser le fichier
 afrilang repl               # REPL interactif
+afrilang pkg add math       # Ajouter un paquet
+afrilang pkg install        # Installer les dépendances
+afrilang serve              # Playground web (port 8080)
+afrilang build --target linux-arm64  # Cross-compilation
 
 # Mode legacy (compatible)
 ./afrilang ../examples/hello.afr --run
@@ -415,6 +419,63 @@ Le code C++ généré inclut des directives `#line` pointant vers le fichier `.a
 afrilang run examples/hello.afr --emit
 gdb ./hello
 ```
+
+### FFI (Foreign Function Interface)
+
+Appeler des fonctions C/C++ depuis AFRILANG :
+
+```afr
+extern from "m" function sin(x number) returns number
+extern from "m" function sqrt(x number) returns number
+
+say sin(3.14159 / 2)
+say sqrt(16)
+```
+
+Bibliothèques supportées : `m`/`libm` → `-lm`, `pthread` → `-lpthread`, etc.
+
+Types FFI : `number`, `text` (→ `const char*`), `pointer` (→ `void*`).
+
+### Gestionnaire de paquets (`afrilang pkg`)
+
+```bash
+afrilang pkg list              # paquets disponibles dans packages/
+afrilang pkg add math          # copie dans vendor/ + afrilang.toml
+afrilang pkg install           # installe toutes les dépendances
+```
+
+Dans `afrilang.toml` :
+
+```toml
+[dependencies]
+math = "0.1.0"
+```
+
+Import dans le code :
+
+```afr
+import "pkg/math/math.afr"
+use Math
+say square(5)
+```
+
+### Cross-compilation
+
+```bash
+afrilang build --target linux-arm64
+afrilang run examples/hello.afr --target wasm32
+```
+
+Cibles : `native` (défaut), `linux-x64`, `linux-arm64`, `wasm32` (nécessite le toolchain correspondant).
+
+### Playground web
+
+```bash
+afrilang serve        # http://localhost:8080
+afrilang serve 3000   # port personnalisé
+```
+
+Le site dans `site/` propose un éditeur en ligne avec exécution via `/api/run`.
 
 ## Exemples
 
