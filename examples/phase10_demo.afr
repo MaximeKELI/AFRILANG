@@ -7,7 +7,7 @@ use str
 use math
 
 function greet(name text, prefix text = "Hello") returns text
-    return join(list of prefix, " ", name, "!")
+    return "{prefix} {name}!"
 end
 
 say greet("World")

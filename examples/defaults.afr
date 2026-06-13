@@ -11,9 +11,9 @@ end
 say power(3)
 say power(2, 10)
 
-function label(text text, tag text = "[info]") returns text
-    return join(list of tag, " ", text)
+function label(message text, tag text = "info") returns text
+    return "{tag} {message}"
 end
 
 say label("System ready")
-say label("Warning", "[warn]")
+say label("Warning", "warn")
