@@ -347,11 +347,7 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
     }
 
     std::vector<std::unique_ptr<StatementNode>> body;
-    if (signatureOnly) {
-        if (match(TokenType::End)) {
-            // optional end for interface method signature style
-        }
-    } else {
+    if (!signatureOnly) {
         body = parseBlock();
         consume(TokenType::End, "'end' attendu pour fermer la fonction");
     }
