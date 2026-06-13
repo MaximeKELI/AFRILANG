@@ -556,13 +556,13 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         if (const auto* empty = dynamic_cast<const EmptyListNode*>(assign->value.get())) {
-            out << "std::vector<" << typeFromName(empty->elementTypeName).toCpp()
+            out << constPrefix << "std::vector<" << typeFromName(empty->elementTypeName).toCpp()
                 << "> " << assign->name << " = {};\n";
             return;
         }
 
         if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(assign->value.get())) {
-            out << "std::unordered_map<"
+            out << constPrefix << "std::unordered_map<"
                 << typeFromName(emptyMap->keyTypeName).toCpp() << ", "
                 << typeFromName(emptyMap->valueTypeName).toCpp()
                 << "> " << assign->name << " = {};\n";
@@ -583,7 +583,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                 keyCpp = inferExpressionType(*mapLit->pairs[0].key);
                 valCpp = inferExpressionType(*mapLit->pairs[0].value);
             }
-            out << "std::unordered_map<" << keyCpp << ", " << valCpp << "> "
+            out << constPrefix << "std::unordered_map<" << keyCpp << ", " << valCpp << "> "
                 << assign->name << " = {";
             for (std::size_t i = 0; i < mapLit->pairs.size(); ++i) {
                 if (i > 0) out << ", ";
@@ -606,7 +606,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             if (elemCpp.empty() && !list->elements.empty()) {
                 elemCpp = inferExpressionType(*list->elements[0]);
             }
-            out << "std::vector<" << elemCpp << "> " << assign->name << " = {";
+            out << constPrefix << "std::vector<" << elemCpp << "> " << assign->name << " = {";
             for (std::size_t i = 0; i < list->elements.size(); ++i) {
                 if (i > 0) out << ", ";
                 emitExpression(out, *list->elements[i], ownerClass);
@@ -621,7 +621,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         } else {
             typeCpp = inferExpressionType(*assign->value);
         }
-        out << typeCpp << " " << assign->name << " = ";
+        out << constPrefix << typeCpp << " " << assign->name << " = ";
         emitExpression(out, *assign->value, ownerClass);
         out << ";\n";
         return;
@@ -831,6 +831,26 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << ") {\n";
         }
         for (const auto& bodyStmt : forEach->body) {
+            emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
+    if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(&stmt)) {
+        out << "for (double " << forRange->varName << " = ";
+        emitExpression(out, *forRange->start, ownerClass);
+        out << "; " << forRange->varName << " <= ";
+        emitExpression(out, *forRange->end, ownerClass);
+        out << "; " << forRange->varName << " += ";
+        if (forRange->step) {
+            emitExpression(out, *forRange->step, ownerClass);
+        } else {
+            out << "1.0";
+        }
+        out << ") {\n";
+        for (const auto& bodyStmt : forRange->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
         }
         indent(out, indentLevel);
@@ -1225,7 +1245,7 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
-           name == "re";
+           name == "re" || name == "collections";
 }
 
 namespace {
