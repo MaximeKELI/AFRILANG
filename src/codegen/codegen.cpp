@@ -616,6 +616,13 @@ void CodeGenerator::emitReceiver(std::ostream& out, const ExpressionNode& object
 void CodeGenerator::emitCallArgument(std::ostream& out, const ExpressionNode& arg,
                                      const AfrType& paramType,
                                      const ClassInfo* ownerClass) const {
+    if (dynamic_cast<const StringLiteralNode*>(&arg) &&
+        (paramType.kind == TypeKind::Text || paramType.kind == TypeKind::TypeVar)) {
+        out << "std::string(";
+        emitExpression(out, arg, ownerClass);
+        out << ")";
+        return;
+    }
     if (paramType.kind == TypeKind::Class && usesPointerAccess(arg)) {
         out << "*";
     }

@@ -25,7 +25,7 @@ int main() {
     #line 9 "/home/maxime/AFRILANG/build/../examples/generics.afr"
     std::cout << afr_identity(42) << std::endl;
     #line 10 "/home/maxime/AFRILANG/build/../examples/generics.afr"
-    std::cout << afr_identity("hello") << std::endl;
+    std::cout << afr_identity(std::string("hello")) << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/generics.afr"
     std::vector<double> nums = {10, 20, 30};
     #line 13 "/home/maxime/AFRILANG/build/../examples/generics.afr"
