@@ -1,5 +1,5 @@
 class Box<T>
-    field value T
+    public field value T
 
     function init(v T)
         set this.value = v

@@ -45,7 +45,9 @@ public:
 
 int main() {
     #line 19 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
-    std::vector<std::unique_ptr<Animal>> pets = {std::unique_ptr<Animal>(std::make_unique<Dog>()), std::unique_ptr<Animal>(std::make_unique<Cat>())};
+    std::vector<std::unique_ptr<Animal>> pets;
+    pets.push_back(std::unique_ptr<Animal>(std::make_unique<Dog>()));
+    pets.push_back(std::unique_ptr<Animal>(std::make_unique<Cat>()));
     #line 21 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
     std::cout << pets.size() << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
@@ -55,7 +57,7 @@ int main() {
         pet.speak();
     }
     #line 27 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
-    pets.push_back(std::make_unique<Dog>());
+    pets.push_back(std::unique_ptr<Animal>(std::make_unique<Dog>()));
     #line 29 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
     std::cout << pets.size() << std::endl;
     #line 31 "/home/maxime/AFRILANG/build/../examples/polymorphic_list.afr"
