@@ -197,7 +197,18 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
     return failures;
 }
 
-static int cmdBuild(const std::string& projectDir) {
+static int cmdBuild(int argc, char* argv[]) {
+    std::string projectDir;
+    std::string target = "native";
+    for (int i = 2; i < argc; ++i) {
+        const std::string arg = argv[i];
+        if (arg == "--target" && i + 1 < argc) {
+            target = argv[++i];
+        } else if (arg.rfind("--", 0) != 0 && projectDir.empty()) {
+            projectDir = arg;
+        }
+    }
+
     const fs::path dir = projectDir.empty() ? fs::current_path() : fs::path(projectDir);
     const fs::path configPath = dir / "afrilang.toml";
 
@@ -219,6 +230,11 @@ static int cmdBuild(const std::string& projectDir) {
     CompileOptions opts;
     opts.outputExecutable = (dir / config.output).string();
     opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
+    opts.crossTarget = target;
+
+    if (target != "native") {
+        std::cout << "Cible de compilation: " << target << "\n";
+    }
 
     const fs::path oldCwd = fs::current_path();
     fs::current_path(dir / "build");
