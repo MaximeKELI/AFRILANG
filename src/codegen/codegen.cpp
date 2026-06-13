@@ -24,6 +24,7 @@ void CodeGenerator::generate(std::ostream& out) const {
     emitHeader(out);
     emitExterns(out);
     emitRecords(out);
+    emitEnums(out);
     emitInterfaces(out);
     emitClasses(out);
     emitModules(out);
@@ -38,6 +39,14 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <iostream>\n";
     out << "#include <string>\n";
     out << "#include <vector>\n";
+
+    bool needsOptional = false;
+    for (const auto& [_, t] : semantic_.globalVariables) {
+        if (t.kind == TypeKind::Optional) needsOptional = true;
+    }
+    if (!program_.enums.empty() || needsOptional) {
+        out << "#include <optional>\n";
+    }
 
     bool needsIo = false;
     bool needsJson = false;
@@ -135,6 +144,57 @@ void CodeGenerator::emitRecords(std::ostream& out) const {
             out << "};\n\n";
         }
         out << "} // namespace " << module->name << "\n\n";
+    }
+}
+
+void CodeGenerator::emitEnums(std::ostream& out) const {
+    for (const auto& en : program_.enums) {
+        const EnumInfo* info = nullptr;
+        auto it = semantic_.enums.find(en->name);
+        if (it != semantic_.enums.end()) info = &it->second;
+
+        out << "struct " << en->name << " {\n";
+        out << "    enum class Tag {";
+        for (std::size_t i = 0; i < en->cases.size(); ++i) {
+            if (i > 0) out << ',';
+            out << " " << en->cases[i].name;
+        }
+        out << " };\n";
+        out << "    Tag tag;\n";
+
+        if (info) {
+            std::unordered_set<std::string> emittedFields;
+            for (const auto& [_, c] : info->cases) {
+                for (const auto& [fname, ftype] : c.fields) {
+                    if (emittedFields.count(fname)) continue;
+                    emittedFields.insert(fname);
+                    out << "    " << ftype.toCpp() << " " << fname << ";\n";
+                }
+            }
+        }
+
+        for (const auto& c : en->cases) {
+            out << "    static " << en->name << " make_" << c.name << "(";
+            if (info && info->cases.count(c.name)) {
+                const auto& fields = info->cases.at(c.name).fields;
+                for (std::size_t i = 0; i < fields.size(); ++i) {
+                    if (i > 0) out << ", ";
+                    out << fields[i].second.toCpp() << " " << fields[i].first;
+                }
+            }
+            out << ") {\n";
+            out << "        " << en->name << " v;\n";
+            out << "        v.tag = Tag::" << c.name << ";\n";
+            if (info && info->cases.count(c.name)) {
+                for (const auto& [fname, _] : info->cases.at(c.name).fields) {
+                    out << "        v." << fname << " = " << fname << ";\n";
+                }
+            }
+            out << "        return v;\n";
+            out << "    }\n";
+        }
+
+        out << "};\n\n";
     }
 }
 

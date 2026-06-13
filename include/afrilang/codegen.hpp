@@ -38,6 +38,7 @@ private:
 
     void emitHeader(std::ostream& out) const;
     void emitRecords(std::ostream& out) const;
+    void emitEnums(std::ostream& out) const;
     void emitInterfaces(std::ostream& out) const;
     void emitClasses(std::ostream& out) const;
     void emitModules(std::ostream& out) const;
