@@ -89,7 +89,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "str") needsStr = true;
         if (module->name == "logging") needsLog = true;
         if (module->name == "math") needsMath = true;
-        if (module->name == "clock") needsTime = true;
+        if (module->name == "chrono") needsTime = true;
         if (module->name == "re") needsRe = true;
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
@@ -1209,7 +1209,7 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
-           name == "str" || name == "logging" || name == "math" || name == "clock" ||
+           name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re";
 }
 
@@ -1217,7 +1217,7 @@ namespace {
 
 std::string runtimeModuleName(const std::string& moduleName) {
     if (moduleName == "logging") return "log";
-    if (moduleName == "clock") return "time";
+    if (moduleName == "chrono") return "time";
     return moduleName;
 }
 

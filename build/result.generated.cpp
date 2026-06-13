@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
 #include "result.hpp"
 
 afrilang::runtime::AfrResult_number divide(double a, double b) {

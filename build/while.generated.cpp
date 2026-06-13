@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/while.afr"

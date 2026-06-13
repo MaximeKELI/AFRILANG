@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
 
 double add(double a, double b) {
     #line 2 "/home/maxime/AFRILANG/build/../examples/tests.afr"

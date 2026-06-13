@@ -47,7 +47,7 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
            path == "std/logging" || path == "std/logging.afr" ||
            path == "std/math" || path == "std/math.afr" ||
            path == "std/time" || path == "std/time.afr" ||
-           path == "std/clock" || path == "std/clock.afr" ||
+           path == "std/chrono" || path == "std/chrono.afr" ||
            path == "std/re" || path == "std/re.afr";
 }
 
@@ -55,13 +55,23 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (path.find("json") != std::string::npos) return "json";
     if (path.find("http") != std::string::npos) return "http";
     if (path.find("math") != std::string::npos) return "math";
-    if (path.find("time") != std::string::npos) return "time";
-    if (path.find("str") != std::string::npos) return "str";
-    if (path.find("logging") != std::string::npos || path.find("/log") != std::string::npos) {
+    if (path.find("logging") != std::string::npos || path.find("std/log") != std::string::npos) {
         return "logging";
     }
-    if (path.find("clock") != std::string::npos || path.find("/time") != std::string::npos) {
-        return "clock";
+    if (path.find("chrono") != std::string::npos || path.find("std/time") != std::string::npos) {
+        return "chrono";
+    }
+    if (path.find("std/str") != std::string::npos || path.find("str.afr") != std::string::npos) {
+        return "str";
+    }
+    if (path.find("std/re") != std::string::npos || path.find("re.afr") != std::string::npos) {
+        return "re";
+    }
+    if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
+        return "fs";
+    }
+    if (path.find("std/io") != std::string::npos || path.find("io.afr") != std::string::npos) {
+        return "io";
     }
     return "";
 }
@@ -133,7 +143,7 @@ void StdlibRegistry::injectTimeModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("now", {}, "number"));
     fns.push_back(makeStubFunction("formatTimestamp", {{"seconds", "number"}}, "text"));
-    injectModule(program, "clock", std::move(fns));
+    injectModule(program, "chrono", std::move(fns));
 }
 
 void StdlibRegistry::injectReModule(ProgramNode& program) {

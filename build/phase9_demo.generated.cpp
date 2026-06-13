@@ -15,14 +15,14 @@
 namespace str {
 } // namespace str
 
-namespace log {
-} // namespace log
+namespace logging {
+} // namespace logging
 
 namespace math {
 } // namespace math
 
-namespace time {
-} // namespace time
+namespace chrono {
+} // namespace chrono
 
 namespace str {
     std::string trim(std::string text) {
@@ -47,7 +47,7 @@ namespace str {
 
 } // namespace str
 
-namespace log {
+namespace logging {
     void info(std::string message) {
         afrilang::runtime::log::info(message);
     }
@@ -60,7 +60,7 @@ namespace log {
         afrilang::runtime::log::error(message);
     }
 
-} // namespace log
+} // namespace logging
 
 namespace math {
     double abs(double value) {
@@ -85,7 +85,7 @@ namespace math {
 
 } // namespace math
 
-namespace time {
+namespace chrono {
     double now() {
         return afrilang::runtime::time::now();
     }
@@ -94,11 +94,11 @@ namespace time {
         return afrilang::runtime::time::formatTimestamp(seconds);
     }
 
-} // namespace time
+} // namespace chrono
 
-using namespace time;
+using namespace chrono;
 using namespace math;
-using namespace log;
+using namespace logging;
 using namespace str;
 
 int main() {
@@ -113,9 +113,9 @@ int main() {
     #line 13 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << afrilang::runtime::str::concat({afrilang::runtime::str::toString("Welcome to "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString(" v"), afrilang::runtime::str::toString(version), afrilang::runtime::str::toString("!")}) << std::endl;
     #line 15 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    log::info("starting demo");
+    logging::info("starting demo");
     #line 16 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    log::warn("this is a warning");
+    logging::warn("this is a warning");
     #line 18 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     auto value = math::pow(2, 10);
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
@@ -125,9 +125,9 @@ int main() {
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << value << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    auto nowTs = time::now();
+    auto nowTs = chrono::now();
     #line 24 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    std::cout << time::formatTimestamp(nowTs) << std::endl;
+    std::cout << chrono::formatTimestamp(nowTs) << std::endl;
     #line 26 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::trim("  hello  ") << std::endl;
     #line 27 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"

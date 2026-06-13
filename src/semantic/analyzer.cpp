@@ -277,7 +277,7 @@ void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
     const bool isStdlib = (module.name == "io" || module.name == "json" ||
                            module.name == "fs" || module.name == "http" ||
                            module.name == "str" || module.name == "logging" ||
-                           module.name == "math" || module.name == "clock" ||
+                           module.name == "math" || module.name == "chrono" ||
                            module.name == "re");
 
     for (const auto& cls : module.classes) {
