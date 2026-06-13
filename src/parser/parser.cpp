@@ -395,6 +395,23 @@ std::vector<std::string> Parser::parseTypeParams() {
 }
 
 std::string Parser::parseTypeName() {
+    if (match(TokenType::Function)) {
+        std::vector<std::string> paramTypes;
+        do {
+            paramTypes.push_back(parseTypeName());
+        } while (match(TokenType::Comma));
+        consume(TokenType::To, "'to' attendu dans le type fonction");
+        const std::string returnType = parseTypeName();
+        std::ostringstream sig;
+        sig << "function ";
+        for (std::size_t i = 0; i < paramTypes.size(); ++i) {
+            if (i > 0) sig << ", ";
+            sig << paramTypes[i];
+        }
+        sig << " to " << returnType;
+        return sig.str();
+    }
+
     std::string base;
     if (match(TokenType::TypeNumber)) base = "number";
     else if (match(TokenType::TypeText))   base = "text";
@@ -466,6 +483,30 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
         std::move(funcName), std::move(params), std::move(returnType),
         returnsResult, std::move(body), std::move(typeParams));
     node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::unique_ptr<ExpressionNode> Parser::parseLambdaExpression() {
+    consume(TokenType::LeftParen, "'(' attendu après 'function' (lambda)");
+    std::vector<ParameterNode> params = parseParameters();
+    consume(TokenType::RightParen, "')' attendu");
+
+    std::string returnType;
+    bool returnsResult = false;
+    if (match(TokenType::Returns)) {
+        returnType = parseTypeName();
+        if (match(TokenType::Or)) {
+            consume(TokenType::ErrorKw, "'error' attendu après 'or'");
+            returnsResult = true;
+        }
+    }
+
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer la lambda");
+
+    auto node = std::make_unique<LambdaExpressionNode>(
+        std::move(params), std::move(returnType), returnsResult, std::move(body));
+    setLoc(*node);
     return node;
 }
 
