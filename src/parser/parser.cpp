@@ -549,6 +549,7 @@ std::unique_ptr<StatementNode> Parser::parseIfStatement() {
 }
 
 std::unique_ptr<StatementNode> Parser::parseWhileStatement() {
+    skipOptionalQueAfterWhile();
     auto condition = parseComparison();
     consume(TokenType::Do, "'do' attendu après la condition");
 
@@ -610,7 +611,7 @@ std::unique_ptr<StatementNode> Parser::parseAssertStatement() {
 
 std::unique_ptr<StatementNode> Parser::parseAskStatement() {
     auto prompt = parseExpression();
-    consume(TokenType::Into, "'into' attendu après le prompt");
+    consumeIntoOrEn("'into' ou 'en' attendu après le prompt");
     const Token& varToken = consumeName( "Nom de variable attendu après 'into'");
     auto node = std::make_unique<AskStatementNode>(std::move(prompt), varToken.lexeme);
     node->loc = {varToken.line, varToken.column};
@@ -626,7 +627,7 @@ std::unique_ptr<StatementNode> Parser::parseUseStatement() {
 
 std::unique_ptr<StatementNode> Parser::parseAddToListStatement() {
     auto value = parseExpression();
-    consume(TokenType::To, "'to' attendu après la valeur");
+    consumeToOrThan("'to' ou 'à' attendu après la valeur");
     auto list = parseExpression();
     auto node = std::make_unique<AddToListStatementNode>(std::move(value), std::move(list));
     setLoc(*node);
@@ -657,17 +658,17 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
         std::string op;
 
         if (match(TokenType::Greater)) {
-            consume(TokenType::Than, "'than' attendu après 'greater'");
+            consumeToOrThan("'than' ou 'à' attendu après 'greater'/'supérieur'");
             op = ">";
         } else if (match(TokenType::Less)) {
-            consume(TokenType::Than, "'than' attendu après 'less'");
+            consumeToOrThan("'than' ou 'à' attendu après 'less'/'inférieur'");
             op = "<";
         } else if (match(TokenType::Equal)) {
-            consume(TokenType::To, "'to' attendu après 'equal'");
+            consumeToOrThan("'to' ou 'à' attendu après 'equal'/'égal'");
             op = "==";
         } else if (match(TokenType::Not)) {
             consume(TokenType::Equal, "'equal' attendu après 'not'");
-            consume(TokenType::To, "'to' attendu après 'equal'");
+            consumeToOrThan("'to' ou 'à' attendu après 'equal'");
             op = "!=";
         } else {
             error("Comparateur attendu après 'is' (greater than, less than, equal to, not equal to)");
