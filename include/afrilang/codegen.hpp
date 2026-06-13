@@ -36,6 +36,7 @@ private:
 
     mutable const FunctionNode* currentFunction_ = nullptr;
     mutable bool inTest_ = false;
+    mutable bool inAsyncCoroutine_ = false;
 
     void emitHeader(std::ostream& out) const;
     void emitRecords(std::ostream& out) const;

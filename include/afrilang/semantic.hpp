@@ -23,6 +23,7 @@ struct MethodSignature {
     bool isStatic = false;
     bool isAbstract = false;
     bool isFinal = false;
+    bool isAsync = false;
     std::string externLibrary;
 };
 
@@ -87,6 +88,7 @@ struct SemanticResult {
     std::unordered_map<std::string, MethodSignature> functions;
     std::unordered_map<std::string, ModuleInfo> modules;
     std::unordered_set<std::string> usedModules;
+    bool usesAsync = false;
 };
 
 class SemanticAnalyzer {
@@ -103,6 +105,7 @@ private:
     std::string currentFile_;
     SemanticResult result_;
     int loopDepth_ = 0;
+    int asyncContextDepth_ = 0;
     const ClassInfo* currentClass_ = nullptr;
     std::unordered_set<std::string> constVariables_;
 
@@ -153,6 +156,8 @@ private:
     AfrType resolveTypeForGeneric(const std::string& name,
                                   const std::vector<std::string>& typeParams) const;
     AfrType resolveFunctionReturnType(const FunctionNode& func) const;
+    AfrType resolveFunctionReturnTypeWithParams(
+        const FunctionNode& func, const std::vector<std::string>& typeParams) const;
     AfrType substituteType(AfrType type,
                            const std::unordered_map<std::string, AfrType>& subst) const;
     std::unordered_map<std::string, AfrType> inferGenericSubst(

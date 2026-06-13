@@ -118,7 +118,7 @@ bool Parser::matchName(std::string& out) {
         TokenType::Import, TokenType::While, TokenType::Do, TokenType::For,
         TokenType::Each, TokenType::In, TokenType::Stop, TokenType::Skip,
         TokenType::Else, TokenType::Empty, TokenType::Length, TokenType::Of,
-        TokenType::Public, TokenType::Private, TokenType::New
+        TokenType::Public, TokenType::Private, TokenType::New, TokenType::Async
     };
 
     if (!isAtEnd() && usableAsName.count(peek().type)) {

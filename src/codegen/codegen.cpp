@@ -314,6 +314,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
+    if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
 
@@ -812,6 +813,10 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         emitStatement(out, *stmt, indentLevel + 1, ownerClass);
     }
     currentFunction_ = saved;
+    if (func.isAsync && func.returnTypeName.empty()) {
+        indent(out, indentLevel + 1);
+        out << "co_return;\n";
+    }
     indent(out, indentLevel);
     out << "}\n";
 }
@@ -855,9 +860,27 @@ void CodeGenerator::emitMain(std::ostream& out) const {
         out << "int main() {\n";
     }
 
-    for (const auto& stmt : program_.statements) {
-        emitStatement(out, *stmt, 1, nullptr);
+    const bool wrapMainAsync = semantic_.usesAsync;
+    if (wrapMainAsync) {
+        out << "    afrilang::runtime::async::run([]() -> afrilang::runtime::async::Task<void> {\n";
     }
+
+    const bool savedAsyncMain = inAsyncCoroutine_;
+    if (wrapMainAsync) inAsyncCoroutine_ = true;
+
+    const int mainIndent = wrapMainAsync ? 2 : 1;
+    for (const auto& stmt : program_.statements) {
+        emitStatement(out, *stmt, mainIndent, nullptr);
+    }
+
+    if (wrapMainAsync) {
+        indent(out, 2);
+        out << "co_return;\n";
+        indent(out, 1);
+        out << "}());\n";
+    }
+
+    inAsyncCoroutine_ = savedAsyncMain;
 
     for (const auto& test : program_.tests) {
         out << "    " << "afr_test_" << sanitizeTestName(test->name) << "();\n";
@@ -1104,6 +1127,8 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        const bool useCoReturn =
+            inAsyncCoroutine_ || (currentFunction_ && currentFunction_->isAsync);
         if (ret->isError && currentFunction_ && currentFunction_->returnsResult) {
             const std::string alias = resultTypeAlias(currentFunction_->returnTypeName);
             out << alias << " _result;\n";
@@ -1126,6 +1151,12 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << ";\n";
             indent(out, indentLevel);
             out << "return _result;\n";
+            return;
+        }
+        if (useCoReturn) {
+            out << "co_return ";
+            emitExpression(out, *ret->value, ownerClass);
+            out << ";\n";
             return;
         }
         out << "return ";
@@ -1441,6 +1472,12 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             emitExpression(out, *enumCase->arguments[i], ownerClass);
         }
         out << ")";
+        return;
+    }
+
+    if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {
+        out << "co_await ";
+        emitExpression(out, *awaitExpr->value, ownerClass);
         return;
     }
 
@@ -1917,7 +1954,8 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
-           name == "re" || name == "collections" || name == "args" || name == "path";
+           name == "re" || name == "collections" || name == "args" || name == "path" ||
+           name == "async";
 }
 
 namespace {
@@ -1932,13 +1970,28 @@ std::string runtimeModuleName(const std::string& moduleName) {
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
                                        const FunctionNode& func, int indentLevel) const {
-    const std::string returnCpp = func.returnTypeName.empty()
-        ? "void"
-        : typeFromName(func.returnTypeName).toCpp();
+    std::string returnCpp;
+    if (func.isAsync) {
+        returnCpp = func.returnTypeName.empty()
+            ? "afrilang::runtime::async::Task<void>"
+            : "afrilang::runtime::async::Task<" +
+              typeFromName(func.returnTypeName).toCpp() + ">";
+    } else {
+        returnCpp = func.returnTypeName.empty()
+            ? "void"
+            : typeFromName(func.returnTypeName).toCpp();
+    }
 
     indent(out, indentLevel);
     out << returnCpp << " " << func.name << "(" << paramList(func) << ") {\n";
     indent(out, indentLevel + 1);
+
+    if (moduleName == "async" && func.name == "sleep") {
+        out << "return afrilang::runtime::async::sleep(" << func.parameters[0].name << ");\n";
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
 
     const std::string rt = "afrilang::runtime::" + runtimeModuleName(moduleName) +
                            "::" + func.name;
@@ -1969,8 +2022,16 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
 std::string CodeGenerator::functionReturnCpp(const FunctionNode& func,
                                              const ClassInfo* ownerClass) {
-    if (func.returnTypeName.empty()) return "void";
+    if (func.returnTypeName.empty() && !func.isAsync) return "void";
     if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
+    if (func.isAsync) {
+        if (func.returnTypeName.empty()) {
+            return "afrilang::runtime::async::Task<void>";
+        }
+        return "afrilang::runtime::async::Task<" +
+               cppTypeFromAfrName(func.returnTypeName, effectiveTypeParams(func, ownerClass)) +
+               ">";
+    }
     return cppTypeFromAfrName(func.returnTypeName, effectiveTypeParams(func, ownerClass));
 }
 
@@ -1996,7 +2057,13 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     }
 
     std::string command =
-        compilerForTarget(crossTarget_) + " -std=c++17 -O2 -Wall -Wextra";
+        compilerForTarget(crossTarget_) + " -std=" +
+        (semantic_.usesAsync ? std::string("c++20") : std::string("c++17")) +
+        " -O2 -Wall -Wextra";
+    if (semantic_.usesAsync &&
+        (crossTarget_ != "wasm32")) {
+        command += " -fcoroutines";
+    }
     if (debugSymbols_) {
         command += " -g";
     }

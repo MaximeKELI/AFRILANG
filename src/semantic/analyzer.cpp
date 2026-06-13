@@ -98,10 +98,21 @@ SemanticResult SemanticAnalyzer::analyze() {
     return result_;
 }
 
+AfrType SemanticAnalyzer::resolveFunctionReturnTypeWithParams(
+    const FunctionNode& func, const std::vector<std::string>& typeParams) const {
+    AfrType inner;
+    if (func.returnTypeName.empty()) {
+        inner = AfrType::voidType();
+    } else {
+        inner = resolveTypeForGeneric(func.returnTypeName, typeParams);
+    }
+    if (func.returnsResult) return AfrType::resultType(inner);
+    if (func.isAsync) return AfrType::taskType(inner);
+    return inner;
+}
+
 AfrType SemanticAnalyzer::resolveFunctionReturnType(const FunctionNode& func) const {
-    if (func.returnTypeName.empty()) return AfrType::voidType();
-    AfrType inner = resolveTypeForGeneric(func.returnTypeName, func.typeParams);
-    return func.returnsResult ? AfrType::resultType(inner) : inner;
+    return resolveFunctionReturnTypeWithParams(func, func.typeParams);
 }
 
 void SemanticAnalyzer::registerInterfaces() {
@@ -231,17 +242,14 @@ void SemanticAnalyzer::registerClasses() {
             sig.isStatic = method->isStatic;
             sig.isAbstract = method->isAbstract;
             sig.isFinal = method->isFinal;
+            sig.isAsync = method->isAsync;
             sig.typeParams = cls->typeParams.empty()
                 ? method->typeParams
                 : cls->typeParams;
 
             const std::vector<std::string>& tparams = sig.typeParams;
-            if (method->returnTypeName.empty()) {
-                sig.returnType = AfrType::voidType();
-            } else {
-                AfrType inner = resolveTypeForGeneric(method->returnTypeName, tparams);
-                sig.returnType = method->returnsResult ? AfrType::resultType(inner) : inner;
-            }
+            sig.returnType = resolveFunctionReturnTypeWithParams(*method, tparams);
+            if (method->isAsync) result_.usesAsync = true;
 
             for (const auto& param : method->parameters) {
                 sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, tparams));
@@ -298,6 +306,7 @@ void SemanticAnalyzer::registerClasses() {
                 sig.returnsResult = method->returnsResult;
                 sig.isStatic = method->isStatic;
                 sig.isAbstract = method->isAbstract;
+                sig.isAsync = method->isAsync;
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
@@ -317,6 +326,8 @@ void SemanticAnalyzer::registerClasses() {
             sig.typeParams = func->typeParams;
             sig.returnType = resolveFunctionReturnType(*func);
             sig.returnsResult = func->returnsResult;
+            sig.isAsync = func->isAsync;
+            if (func->isAsync) result_.usesAsync = true;
             for (const auto& param : func->parameters) {
                 sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func->typeParams));
             }
@@ -391,9 +402,12 @@ void SemanticAnalyzer::analyzeProgram() {
         analyzeTest(*test);
     }
 
+    const int savedAsync = asyncContextDepth_;
+    asyncContextDepth_ = 1;
     for (const auto& stmt : program_.statements) {
         analyzeStatement(*stmt, scope, true);
     }
+    asyncContextDepth_ = savedAsync;
 }
 
 void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
@@ -405,7 +419,8 @@ void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
                            module.name == "fs" || module.name == "http" ||
                            module.name == "str" || module.name == "logging" ||
                            module.name == "math" || module.name == "chrono" ||
-                           module.name == "re" || module.name == "collections");
+                           module.name == "re" || module.name == "collections" ||
+                           module.name == "async");
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
@@ -421,12 +436,17 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
     if (result_.functions.count(func.name)) {
         errorAt(func, "Fonction '" + func.name + "' déjà définie");
     }
+    if (func.isAsync && func.returnsResult) {
+        errorAt(func, "'async function' ne supporte pas 'returns ... or error'");
+    }
 
     MethodSignature sig;
     sig.name = func.name;
     sig.typeParams = func.typeParams;
     sig.returnType = resolveFunctionReturnType(func);
     sig.returnsResult = func.returnsResult;
+    sig.isAsync = func.isAsync;
+    if (func.isAsync) result_.usesAsync = true;
     for (const auto& param : func.parameters) {
         sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func.typeParams));
     }
@@ -473,10 +493,20 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
 }
 
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
+    if (func.isAsync && func.returnsResult) {
+        errorAt(func, "'async function' ne supporte pas 'returns ... or error'");
+    }
+
     std::unordered_map<std::string, AfrType> scope;
     activeTypeParams_ = func.typeParams;
     if (activeTypeParams_.empty() && ownerClass && !ownerClass->typeParams.empty()) {
         activeTypeParams_ = ownerClass->typeParams;
+    }
+
+    const int savedAsync = asyncContextDepth_;
+    if (func.isAsync) {
+        ++asyncContextDepth_;
+        result_.usesAsync = true;
     }
     constVariables_.clear();
 
@@ -513,9 +543,11 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     if (ownerClass) currentClass_ = savedClass;
 
     activeTypeParams_.clear();
+    asyncContextDepth_ = savedAsync;
 
-    if (declaredReturn.kind != TypeKind::Void && !hasReturn && func.name != "init" &&
-        !func.body.empty()) {
+    const bool implicitAsyncVoid = func.isAsync && func.returnTypeName.empty();
+    if (!implicitAsyncVoid && declaredReturn.kind != TypeKind::Void && !hasReturn &&
+        func.name != "init" && !func.body.empty()) {
         errorAt(func, "Fonction '" + func.name + "' déclare un retour '" +
               func.returnTypeName + "' mais ne contient pas de 'return'");
     }
@@ -1288,6 +1320,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "Le type de retour de 'reduce' doit correspondre à la valeur initiale");
         }
         return initialType;
+    }
+
+    if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {
+        if (asyncContextDepth_ <= 0) {
+            errorAt(expr, "'await' n'est autorisé que dans une fonction async ou au niveau global");
+        }
+        AfrType taskType = analyzeExpression(*awaitExpr->value, scope);
+        if (taskType.kind != TypeKind::Task) {
+            errorAt(expr, "'await' requiert une expression de type task");
+        }
+        result_.usesAsync = true;
+        return taskType.taskInnerType();
     }
 
     if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
