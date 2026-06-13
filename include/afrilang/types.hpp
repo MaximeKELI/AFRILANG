@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace afrilang {
 
@@ -17,7 +18,8 @@ enum class TypeKind {
     Pointer,
     Optional,
     Enum,
-    TypeVar
+    TypeVar,
+    Function
 };
 
 struct AfrType {
@@ -78,6 +80,16 @@ struct AfrType {
     static AfrType typeVar(std::string name) {
         return {TypeKind::TypeVar, std::move(name), {}, {}};
     }
+    static AfrType functionType(std::string paramTypeNames, std::string returnTypeName) {
+        AfrType t;
+        t.kind = TypeKind::Function;
+        t.className = std::move(paramTypeNames);
+        t.listElementTypeName = std::move(returnTypeName);
+        return t;
+    }
+
+    std::vector<std::string> functionParamTypeNames() const;
+    AfrType functionReturnType() const;
 
     AfrType resultInnerType() const;
     AfrType optionalInnerType() const;
@@ -123,11 +135,8 @@ struct AfrType {
                 return "std::optional<" + optionalInnerType().toCpp() + ">";
             case TypeKind::Enum:   return className;
             case TypeKind::TypeVar: return className;
+            case TypeKind::Function: return toCppFunctionType();
         }
-        return "void";
-    }
-
-    static std::string resultCppAlias(const std::string& innerTypeName) {
         return "afrilang::runtime::AfrResult_" + innerTypeName;
     }
 
