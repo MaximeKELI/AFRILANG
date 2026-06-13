@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <functional>
+#include <sstream>
 
 namespace afrilang {
 
@@ -1178,6 +1179,10 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     }
     if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
         return target.className == value.className;
+    }
+    if (target.kind == TypeKind::Function && value.kind == TypeKind::Function) {
+        return target.className == value.className &&
+               target.listElementTypeName == value.listElementTypeName;
     }
     return false;
 }
