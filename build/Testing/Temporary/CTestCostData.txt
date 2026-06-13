@@ -1,3 +1,3 @@
-compiler_unit_tests 1 0.00361827
-compiler_integration 1 19.7673
+compiler_unit_tests 2 0.00167109
+compiler_integration 2 10.34
 ---

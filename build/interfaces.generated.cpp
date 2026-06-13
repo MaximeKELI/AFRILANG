@@ -20,6 +20,7 @@ public:
 class Animal {
 public:
     virtual void speak() {
+        #line 11 "/home/maxime/AFRILANG/examples/interfaces.afr"
         std::cout << "..." << std::endl;
     }
 
@@ -28,18 +29,23 @@ public:
 class Dog : public Animal, public Speakable, public Named {
 public:
     virtual void speak() override {
+        #line 17 "/home/maxime/AFRILANG/examples/interfaces.afr"
         std::cout << "Woof!" << std::endl;
     }
 
     virtual std::string getName() override {
+        #line 21 "/home/maxime/AFRILANG/examples/interfaces.afr"
         return "Rex";
     }
 
 };
 
 int main() {
+    #line 25 "/home/maxime/AFRILANG/examples/interfaces.afr"
     Dog dog;
+    #line 26 "/home/maxime/AFRILANG/examples/interfaces.afr"
     dog.speak();
+    #line 27 "/home/maxime/AFRILANG/examples/interfaces.afr"
     std::cout << dog.getName() << std::endl;
     return 0;
 }

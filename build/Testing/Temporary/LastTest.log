@@ -1,10 +1,10 @@
-Start testing: Jun 13 00:05 GMT
+Start testing: Jun 13 00:08 GMT
 ----------------------------------------------------------
 1/2 Testing: compiler_unit_tests
 1/2 Test: compiler_unit_tests
 Command: "/home/maxime/AFRILANG/build/afrilang_tests"
 Directory: /home/maxime/AFRILANG/build
-"compiler_unit_tests" start time: Jun 13 00:05 GMT
+"compiler_unit_tests" start time: Jun 13 00:08 GMT
 Output:
 ----------------------------------------------------------
 === Tests compilateur AFRILANG ===
@@ -14,7 +14,7 @@ Tous les tests unitaires passent.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler_unit_tests" end time: Jun 13 00:05 GMT
+"compiler_unit_tests" end time: Jun 13 00:08 GMT
 "compiler_unit_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -22,7 +22,7 @@ Test Passed.
 2/2 Test: compiler_integration
 Command: "/home/maxime/AFRILANG/build/afrilang" "test" "/home/maxime/AFRILANG"
 Directory: /home/maxime/AFRILANG/build
-"compiler_integration" start time: Jun 13 00:05 GMT
+"compiler_integration" start time: Jun 13 00:08 GMT
 Output:
 ----------------------------------------------------------
 === Tests AFRILANG ===
@@ -79,11 +79,11 @@ OK
 
 Tous les tests passent.
 <end of output>
-Test time =  19.77 sec
+Test time =  20.68 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler_integration" end time: Jun 13 00:06 GMT
-"compiler_integration" time elapsed: 00:00:19
+"compiler_integration" end time: Jun 13 00:09 GMT
+"compiler_integration" time elapsed: 00:00:20
 ----------------------------------------------------------
 
-End testing: Jun 13 00:06 GMT
+End testing: Jun 13 00:09 GMT
