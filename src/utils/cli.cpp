@@ -36,6 +36,7 @@ static void printUsage() {
     std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter\n";
     std::cerr << "  afrilang check <fichier.afr> Vérifier sans compiler\n";
     std::cerr << "  afrilang test                Lancer la suite de tests\n";
+    std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
     std::cerr << "  afrilang <fichier.afr> [opts] Mode legacy\n\n";
     std::cerr << "Options (mode legacy):\n";
@@ -320,6 +321,9 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "test") {
         return Pipeline::runTests(argc > 2 ? argv[2] : detectAfrilangRoot());
+    }
+    if (cmd == "lsp") {
+        return afrilang::runLspServer();
     }
     if (cmd == "init") {
         return cmdInit(argc > 2 ? argv[2] : "");

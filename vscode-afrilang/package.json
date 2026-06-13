@@ -1,0 +1,24 @@
+{
+  "name": "afrilang",
+  "displayName": "AFRILANG",
+  "description": "Support AFRILANG — langage naturel compilé",
+  "version": "0.2.0",
+  "publisher": "afrilang",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [{
+      "id": "afrilang",
+      "aliases": ["AFRILANG", "afrilang"],
+      "extensions": [".afr"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "afrilang",
+      "scopeName": "source.afrilang",
+      "path": "./syntaxes/afrilang.tmLanguage.json"
+    }]
+  },
+  "main": "./extension.js",
+  "activationEvents": ["onLanguage:afrilang"]
+}
