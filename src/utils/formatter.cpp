@@ -244,9 +244,9 @@ void Formatter::formatStatements(std::ostream& out,
 void Formatter::formatStatement(std::ostream& out, const StatementNode& stmt) const {
     if (const auto* explain = dynamic_cast<const ExplainStatementNode*>(&stmt)) {
         writeln(out, "explain");
-        --indent_;
-        formatStatement(out, *explain->statement);
         ++indent_;
+        formatStatement(out, *explain->statement);
+        --indent_;
         return;
     }
 

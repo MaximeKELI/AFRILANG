@@ -372,6 +372,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         const std::string text = explainStatement(*explain->statement);
         out << "std::cout << \"[explication] " << escapeString(text)
             << "\" << std::endl;\n";
+        emitStatement(out, *explain->statement, indentLevel, ownerClass);
         return;
     }
 
