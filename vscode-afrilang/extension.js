@@ -18,35 +18,52 @@ function isAfrilangDocument(document) {
   return document.languageId === 'afrilang' || document.fileName.endsWith('.afr');
 }
 
-function resolveServerPath() {
+function resolveServerPath(context) {
   const config = vscode.workspace.getConfiguration('afrilang');
-  let serverPath = config.get('serverPath', 'afrilang');
+  let configured = config.get('serverPath', '');
 
-  // Expand ${workspaceFolder} if present
-  const folder = vscode.workspace.workspaceFolders?.[0];
-  if (folder && serverPath.includes('${workspaceFolder}')) {
-    serverPath = serverPath.replace(/\$\{workspaceFolder\}/g, folder.uri.fsPath);
-  }
+  const folders = vscode.workspace.workspaceFolders ?? [];
+  const candidates = [];
 
-  if (serverPath !== 'afrilang' && fs.existsSync(serverPath)) {
-    return serverPath;
-  }
+  const addCandidate = (p) => {
+    if (p && !candidates.includes(p)) candidates.push(p);
+  };
 
-  if (folder) {
-    const candidates = [
-      path.join(folder.uri.fsPath, 'build', 'afrilang'),
-      path.join(folder.uri.fsPath, 'afrilang'),
-    ];
-    for (const candidate of candidates) {
-      if (fs.existsSync(candidate)) return candidate;
+  // 1. Configured path (expand ${workspaceFolder})
+  if (configured) {
+    for (const folder of folders) {
+      const expanded = configured.replace(/\$\{workspaceFolder\}/g, folder.uri.fsPath);
+      addCandidate(expanded);
+    }
+    if (!configured.includes('${workspaceFolder}')) {
+      addCandidate(configured);
     }
   }
 
-  return serverPath;
+  // 2. Workspace build/afrilang
+  for (const folder of folders) {
+    addCandidate(path.join(folder.uri.fsPath, 'build', 'afrilang'));
+    addCandidate(path.join(folder.uri.fsPath, 'afrilang'));
+  }
+
+  // 3. Relative to extension (symlink → repo root)
+  if (context?.extensionPath) {
+    addCandidate(path.join(context.extensionPath, '..', 'build', 'afrilang'));
+  }
+
+  // 4. Fallback PATH name
+  addCandidate('afrilang');
+
+  for (const candidate of candidates) {
+    if (candidate === 'afrilang') continue;
+    if (fs.existsSync(candidate)) return candidate;
+  }
+
+  return 'afrilang';
 }
 
 function verifyServerPath(serverPath) {
-  if (serverPath === 'afrilang') return true;
+  if (serverPath === 'afrilang') return false;
   return fs.existsSync(serverPath);
 }
 
@@ -57,8 +74,8 @@ function getOutputChannel() {
   return outputChannel;
 }
 
-async function runAfrilangCommand(subcommand, filePath) {
-  const serverPath = resolveServerPath();
+async function runAfrilangCommand(context, subcommand, filePath) {
+  const serverPath = resolveServerPath(context);
 
   if (!verifyServerPath(serverPath)) {
     const msg = `Exécutable introuvable : ${serverPath}\n` +
@@ -92,7 +109,9 @@ async function runAfrilangCommand(subcommand, filePath) {
 }
 
 function startLanguageClient(context) {
-  const serverPath = resolveServerPath();
+  const serverPath = resolveServerPath(context);
+
+  getOutputChannel().appendLine(`AFRILANG: serveur → ${serverPath}`);
 
   if (!verifyServerPath(serverPath)) {
     const msg = `AFRILANG LSP: exécutable introuvable (${serverPath}). ` +
@@ -135,7 +154,7 @@ function registerRunCommand(context) {
     }
 
     await editor.document.save();
-    await runAfrilangCommand('run', editor.document.uri.fsPath);
+    await runAfrilangCommand(context, 'run', editor.document.uri.fsPath);
   });
   context.subscriptions.push(disposable);
 }
@@ -149,7 +168,7 @@ function registerCheckCommand(context) {
     }
 
     await editor.document.save();
-    await runAfrilangCommand('check', editor.document.uri.fsPath);
+    await runAfrilangCommand(context, 'check', editor.document.uri.fsPath);
   });
   context.subscriptions.push(disposable);
 }

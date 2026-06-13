@@ -1,5 +1,5 @@
 {
-  "afrilang.serverPath": "${workspaceFolder}/build/afrilang",
+  "afrilang.serverPath": "/home/maxime/AFRILANG/build/afrilang",
   "workbench.iconTheme": "afrilang-icons",
   "[afrilang]": {
     "editor.tabSize": 4
