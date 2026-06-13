@@ -171,7 +171,7 @@ void StdlibRegistry::injectCollectionsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("containsText", {{"items", "list text"}, {"value", "text"}}, "bool"));
     fns.push_back(makeStubFunction("indexOfNumber", {{"items", "list number"}, {"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("indexOfText", {{"items", "list text"}, {"value", "text"}}, "number"));
-    fns.push_back(makeStubFunction("sum", {{"items", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("sumNumbers", {{"items", "list number"}}, "number"));
     injectModule(program, "collections", std::move(fns));
 }
 
