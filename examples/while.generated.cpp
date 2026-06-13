@@ -1,0 +1,40 @@
+// Code généré par le compilateur AFRILANG
+// Ne pas modifier manuellement
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
+
+int main() {
+    #line 1 "/home/maxime/AFRILANG/examples/while.afr"
+    double count = 0;
+    #line 6 "/home/maxime/AFRILANG/examples/while.afr"
+    while ((count < 5)) {
+        #line 4 "/home/maxime/AFRILANG/examples/while.afr"
+        std::cout << count << std::endl;
+        #line 5 "/home/maxime/AFRILANG/examples/while.afr"
+        count = (count + 1);
+    }
+    #line 8 "/home/maxime/AFRILANG/examples/while.afr"
+    std::cout << "Done counting" << std::endl;
+    #line 10 "/home/maxime/AFRILANG/examples/while.afr"
+    double score = 75;
+    #line 20 "/home/maxime/AFRILANG/examples/while.afr"
+    if ((score > 90)) {
+        #line 13 "/home/maxime/AFRILANG/examples/while.afr"
+        std::cout << "Excellent" << std::endl;
+    } else {
+        #line 19 "/home/maxime/AFRILANG/examples/while.afr"
+        if ((score > 60)) {
+            #line 16 "/home/maxime/AFRILANG/examples/while.afr"
+            std::cout << "Passed" << std::endl;
+        } else {
+            #line 18 "/home/maxime/AFRILANG/examples/while.afr"
+            std::cout << "Failed" << std::endl;
+        }
+    }
+    return 0;
+}

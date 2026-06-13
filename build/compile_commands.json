@@ -1,0 +1,194 @@
+[
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/main.cpp.o -c /home/maxime/AFRILANG/main.cpp",
+  "file": "/home/maxime/AFRILANG/main.cpp",
+  "output": "CMakeFiles/afrilang.dir/main.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o -c /home/maxime/AFRILANG/src/lexer/lexer.cpp",
+  "file": "/home/maxime/AFRILANG/src/lexer/lexer.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/parser/parser.cpp.o -c /home/maxime/AFRILANG/src/parser/parser.cpp",
+  "file": "/home/maxime/AFRILANG/src/parser/parser.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o -c /home/maxime/AFRILANG/src/semantic/analyzer.cpp",
+  "file": "/home/maxime/AFRILANG/src/semantic/analyzer.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o -c /home/maxime/AFRILANG/src/codegen/codegen.cpp",
+  "file": "/home/maxime/AFRILANG/src/codegen/codegen.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o -c /home/maxime/AFRILANG/src/utils/compiler.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/compiler.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o -c /home/maxime/AFRILANG/src/utils/cli.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/cli.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o -c /home/maxime/AFRILANG/src/utils/diagnostics.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/diagnostics.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/project.cpp.o -c /home/maxime/AFRILANG/src/utils/project.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/project.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/project.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o -c /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o -c /home/maxime/AFRILANG/src/utils/formatter.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/formatter.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o -c /home/maxime/AFRILANG/src/utils/pkg.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/pkg.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o -c /home/maxime/AFRILANG/src/utils/educational.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/educational.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o -c /home/maxime/AFRILANG/src/repl/repl.cpp",
+  "file": "/home/maxime/AFRILANG/src/repl/repl.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/repl/repl.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/serve/server.cpp.o -c /home/maxime/AFRILANG/src/serve/server.cpp",
+  "file": "/home/maxime/AFRILANG/src/serve/server.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/serve/server.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o -c /home/maxime/AFRILANG/src/lsp/server.cpp",
+  "file": "/home/maxime/AFRILANG/src/lsp/server.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/lsp/server.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o -c /home/maxime/AFRILANG/tests/test_compiler.cpp",
+  "file": "/home/maxime/AFRILANG/tests/test_compiler.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o -c /home/maxime/AFRILANG/src/lexer/lexer.cpp",
+  "file": "/home/maxime/AFRILANG/src/lexer/lexer.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o -c /home/maxime/AFRILANG/src/parser/parser.cpp",
+  "file": "/home/maxime/AFRILANG/src/parser/parser.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o -c /home/maxime/AFRILANG/src/semantic/analyzer.cpp",
+  "file": "/home/maxime/AFRILANG/src/semantic/analyzer.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o -c /home/maxime/AFRILANG/src/codegen/codegen.cpp",
+  "file": "/home/maxime/AFRILANG/src/codegen/codegen.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o -c /home/maxime/AFRILANG/src/utils/compiler.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/compiler.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o -c /home/maxime/AFRILANG/src/utils/cli.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/cli.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o -c /home/maxime/AFRILANG/src/utils/diagnostics.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/diagnostics.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o -c /home/maxime/AFRILANG/src/utils/project.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/project.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o -c /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o -c /home/maxime/AFRILANG/src/utils/formatter.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/formatter.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o -c /home/maxime/AFRILANG/src/utils/pkg.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/pkg.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o -c /home/maxime/AFRILANG/src/utils/educational.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/educational.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o -c /home/maxime/AFRILANG/src/repl/repl.cpp",
+  "file": "/home/maxime/AFRILANG/src/repl/repl.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o -c /home/maxime/AFRILANG/src/serve/server.cpp",
+  "file": "/home/maxime/AFRILANG/src/serve/server.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o -c /home/maxime/AFRILANG/src/lsp/server.cpp",
+  "file": "/home/maxime/AFRILANG/src/lsp/server.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o"
+}
+]
