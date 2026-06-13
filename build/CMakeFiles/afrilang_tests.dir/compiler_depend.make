@@ -11,9 +11,11 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/s
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/13/algorithm \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
+  /usr/include/c++/13/bits/algorithmfwd.h \
   /usr/include/c++/13/bits/align.h \
   /usr/include/c++/13/bits/alloc_traits.h \
   /usr/include/c++/13/bits/allocated_ptr.h \
@@ -69,10 +71,12 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/s
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
+  /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
@@ -86,6 +90,7 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/s
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/unordered_set.h \
@@ -120,6 +125,7 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/s
   /usr/include/c++/13/new \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/sstream \
@@ -3754,12 +3760,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /home/maxime/AFRILANG/src/utils/formatter.cpp:
 
-/usr/include/c++/13/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/algorithm:
-
 /home/maxime/AFRILANG/src/utils/diagnostics.cpp:
 
 /home/maxime/AFRILANG/src/utils/compiler.cpp:
@@ -3824,11 +3824,19 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/cstdint:
 
-/usr/include/c++/13/system_error:
+/usr/include/c++/13/codecvt:
 
-/usr/include/c++/13/bits/range_access.h:
+/usr/include/c++/13/bits/quoted_string.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/c++/13/bits/locale_facets_nonio.h:
 
 /usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/13/ext/concurrence.h:
 
 /usr/include/c++/13/pstl/execution_defs.h:
 
@@ -3839,10 +3847,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/ostream:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/include/c++/13/new:
-
-/usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
@@ -3859,8 +3863,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/c++/13/ext/concurrence.h:
 
 /usr/include/c++/13/cctype:
 
@@ -3884,10 +3886,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/atomic_base.h:
 
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
 /usr/include/c++/13/exception:
@@ -3897,6 +3895,10 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
 /usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/c++/13/bits/parse_numbers.h:
+
+/usr/include/c++/13/bits/std_abs.h:
 
 /usr/include/c++/13/bits/unordered_set.h:
 
@@ -3916,8 +3918,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/unordered_map.h:
 
-/usr/include/c++/13/bits/quoted_string.h:
-
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
@@ -3926,11 +3926,13 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/stl_relops.h:
 
-/usr/include/c++/13/bits/stl_raw_storage_iter.h:
-
 /usr/include/c++/13/bits/functexcept.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/c++/13/new:
+
+/usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
 
@@ -3952,17 +3954,15 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /home/maxime/AFRILANG/include/afrilang/parser.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/system_error:
 
 /usr/include/c++/13/bits/string_view.tcc:
 
-/usr/include/c++/13/bits/locale_facets.tcc:
-
-/usr/include/c++/13/stdexcept:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/home/maxime/AFRILANG/src/lsp/server.cpp:
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/linux/posix_types.h:
 
@@ -3971,38 +3971,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
-
-/home/maxime/AFRILANG/tests/test_compiler.cpp:
-
-/usr/include/c++/13/cstddef:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
-
-/usr/include/c++/13/string:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/c++/13/bits/stl_function.h:
-
-/usr/include/c++/13/bits/move.h:
-
-/home/maxime/AFRILANG/include/afrilang/lexer.hpp:
-
-/home/maxime/AFRILANG/include/afrilang/diagnostics.hpp:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/13/bits/refwrap.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/c++/13/bits/fstream.tcc:
 
 /usr/include/c++/13/bits/basic_string.h:
 
@@ -4038,9 +4006,35 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/concept_check.h:
 
-/usr/include/c++/13/iosfwd:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/c++/13/bits/algorithmfwd.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
+
+/usr/include/c++/13/iosfwd:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/c++/13/bits/enable_special_members.h:
+
+/home/maxime/AFRILANG/include/afrilang/diagnostics.hpp:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
+/usr/include/c++/13/bits/stl_function.h:
 
 /usr/include/c++/13/ext/aligned_buffer.h:
 
@@ -4052,6 +4046,12 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
+/usr/include/c++/13/bits/stl_algo.h:
+
+/home/maxime/AFRILANG/tests/test_compiler.cpp:
+
+/usr/include/c++/13/cstddef:
+
 /home/maxime/AFRILANG/include/afrilang/educational.hpp:
 
 /home/maxime/AFRILANG/src/utils/educational.cpp:
@@ -4059,14 +4059,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /home/maxime/AFRILANG/src/serve/server.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/c++/13/bits/enable_special_members.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
 
@@ -4087,6 +4079,22 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /home/maxime/AFRILANG/include/afrilang/semantic.hpp:
 
 /usr/include/alloca.h:
+
+/usr/include/c++/13/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/13/algorithm:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/c++/13/bits/move.h:
+
+/home/maxime/AFRILANG/include/afrilang/lexer.hpp:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket_type.h:
 
@@ -4110,17 +4118,15 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/exception_ptr.h:
 
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/c++/13/bits/istream.tcc:
+
 /usr/include/c++/13/bits/functional_hash.h:
 
 /usr/include/errno.h:
 
 /home/maxime/AFRILANG/include/afrilang/cli.hpp:
-
-/usr/include/c++/13/string_view:
-
-/usr/include/features-time64.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
@@ -4135,8 +4141,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/ostream.tcc:
 
 /usr/include/c++/13/bits/fs_ops.h:
-
-/usr/include/c++/13/bits/fs_dir.h:
 
 /usr/include/c++/13/bits/uniform_int_dist.h:
 
@@ -4157,6 +4161,22 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/fs_fwd.h:
 
 /usr/include/c++/13/ios:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/include/c++/13/stdexcept:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/home/maxime/AFRILANG/src/lsp/server.cpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/13/string:
+
+/usr/include/c++/13/string_view:
+
+/usr/include/features-time64.h:
 
 /usr/include/c++/13/bits/nested_exception.h:
 
@@ -4375,17 +4395,3 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/c++/13/bits/chrono.h:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/locale_conv.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/c++/13/bits/locale_facets_nonio.h:
-
-/usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/c++/13/bits/parse_numbers.h:
-
-/usr/include/c++/13/codecvt:

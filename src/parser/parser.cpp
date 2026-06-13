@@ -396,6 +396,7 @@ std::string Parser::parseTypeName() {
     else if (match(TokenType::TypeText))   base = "text";
     else if (match(TokenType::TypeBool))   base = "bool";
     else if (match(TokenType::List)) {
+        match(TokenType::Of);
         std::string elementType = parseTypeName();
         return "list " + elementType;
     }
