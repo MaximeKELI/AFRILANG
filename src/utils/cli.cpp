@@ -1,4 +1,5 @@
 #include "afrilang/cli.hpp"
+#include "afrilang/lsp.hpp"
 
 #include "afrilang/codegen.hpp"
 #include "afrilang/compiler.hpp"

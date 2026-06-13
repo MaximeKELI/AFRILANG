@@ -1,6 +1,7 @@
 #include "afrilang/codegen.hpp"
 
 #include <cstdlib>
+#include <cctype>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>

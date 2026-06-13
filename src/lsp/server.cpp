@@ -3,6 +3,7 @@
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/lexer.hpp"
+#include "afrilang/semantic.hpp"
 
 #include <iostream>
 #include <sstream>
