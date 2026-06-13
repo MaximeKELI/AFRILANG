@@ -6,6 +6,41 @@
 
 namespace afrilang {
 
+namespace {
+
+std::size_t countRequiredParams(const std::vector<ParameterNode>& params) {
+    std::size_t required = params.size();
+    for (auto it = params.rbegin(); it != params.rend(); ++it) {
+        if (it->defaultValue) --required;
+        else break;
+    }
+    return required;
+}
+
+bool isLiteralDefault(const ExpressionNode* expr) {
+    return dynamic_cast<const StringLiteralNode*>(expr) ||
+           dynamic_cast<const NumberLiteralNode*>(expr) ||
+           dynamic_cast<const BoolLiteralNode*>(expr);
+}
+
+void validateFunctionDefaults(const FunctionNode& func,
+                              const std::function<void(const std::string&)>& reportError) {
+    bool seenDefault = false;
+    for (const auto& param : func.parameters) {
+        if (param.defaultValue) {
+            if (!isLiteralDefault(param.defaultValue.get())) {
+                reportError("Valeur par défaut du paramètre '" + param.name +
+                            "' doit être un littéral (texte, nombre ou booléen)");
+            }
+            seenDefault = true;
+        } else if (seenDefault) {
+            reportError("Les paramètres par défaut doivent être en fin de liste");
+        }
+    }
+}
+
+} // namespace
+
 SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
                                    const SourceManager* sources,
                                    std::string currentFile)
