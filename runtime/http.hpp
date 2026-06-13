@@ -44,6 +44,23 @@ inline std::string httpGet(const std::string& url) {
     return result;
 }
 
+inline std::string httpPost(const std::string& url, const std::string& body) {
+    if (!isSafeUrl(url)) return {};
+    const std::string cmd =
+        "curl -fsSL -X POST -H \"Content-Type: application/json\" -d \"" + body +
+        "\" \"" + url + "\" 2>/dev/null";
+    std::array<char, 4096> buffer{};
+    std::string result;
+    const std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd.c_str(), "r"), pclose);
+    if (!pipe) return {};
+    while (true) {
+        const std::size_t n = std::fread(buffer.data(), 1, buffer.size(), pipe.get());
+        if (n == 0) break;
+        result.append(buffer.data(), n);
+    }
+    return result;
+}
+
 } // namespace http
 } // namespace runtime
 } // namespace afrilang

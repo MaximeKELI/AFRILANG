@@ -71,15 +71,15 @@ std::string Compiler::resolvePath(const std::string& baseDir,
 
 void Compiler::handleStdlibImport(ProgramNode& program, const std::string& importPath) {
     const std::string mod = StdlibRegistry::stdlibModuleName(importPath);
-    if (mod == "io") {
-        StdlibRegistry::injectIoModule(program);
-    } else if (mod == "json") {
-        StdlibRegistry::injectJsonModule(program);
-    } else if (mod == "fs") {
-        StdlibRegistry::injectFsModule(program);
-    } else if (mod == "http") {
-        StdlibRegistry::injectHttpModule(program);
-    }
+    if (mod == "io") StdlibRegistry::injectIoModule(program);
+    else if (mod == "json") StdlibRegistry::injectJsonModule(program);
+    else if (mod == "fs") StdlibRegistry::injectFsModule(program);
+    else if (mod == "http") StdlibRegistry::injectHttpModule(program);
+    else if (mod == "str") StdlibRegistry::injectStrModule(program);
+    else if (mod == "log") StdlibRegistry::injectLogModule(program);
+    else if (mod == "math") StdlibRegistry::injectMathModule(program);
+    else if (mod == "time") StdlibRegistry::injectTimeModule(program);
+    else if (mod == "re") StdlibRegistry::injectReModule(program);
 }
 
 std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {

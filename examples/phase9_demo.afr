@@ -1,0 +1,30 @@
+import "std/str"
+import "std/log"
+import "std/math"
+import "std/time"
+
+use str
+use log
+use math
+use time
+
+create name = "AFRILANG"
+create version = 1
+say "Welcome to {name} v{version}!"
+
+info("starting demo")
+warn("this is a warning")
+
+create value = pow(2, 10)
+say abs(-42)
+say floor(3.9)
+say value
+
+create nowTs = now()
+say formatTimestamp(nowTs)
+
+say trim("  hello  ")
+say contains("hello world", "world")
+
+create parts = split("a,b,c", ",")
+say join(parts, "-")

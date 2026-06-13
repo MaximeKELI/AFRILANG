@@ -1,0 +1,15 @@
+create scores = map of "alice" to 95, "bob" to 88, "carol" to 91
+
+say scores at "alice"
+say length of scores
+
+set scores at "dave" = 76
+say scores at "dave"
+
+for each name, score in scores do
+    say name
+    say score
+end
+
+create empty = empty map text to number
+say length of empty

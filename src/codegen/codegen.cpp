@@ -101,6 +101,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsMath) out << "#include \"math.hpp\"\n";
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
+    out << "#include \"str.hpp\"\n";
 
     bool needsResult = false;
     for (const auto& func : program_.functions) {
@@ -872,14 +873,14 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* interp = dynamic_cast<const InterpolatedStringNode*>(&expr)) {
-        out << "afrilang::runtime::str::concat(";
+        out << "afrilang::runtime::str::concat({";
         for (std::size_t i = 0; i < interp->parts.size(); ++i) {
             if (i > 0) out << ", ";
             out << "afrilang::runtime::str::toString(";
             emitExpression(out, *interp->parts[i], ownerClass);
             out << ")";
         }
-        out << ")";
+        out << "})";
         return;
     }
 
@@ -1105,6 +1106,10 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
                    inferExpressionType(*mapLit->pairs[0].key) + ", " +
                    inferExpressionType(*mapLit->pairs[0].value) + ">";
         }
+    }
+
+    if (const auto* empty = dynamic_cast<const EmptyListNode*>(&expr)) {
+        return "std::vector<" + typeFromName(empty->elementTypeName).toCpp() + ">";
     }
 
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
