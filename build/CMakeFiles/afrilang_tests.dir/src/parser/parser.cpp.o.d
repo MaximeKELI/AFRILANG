@@ -184,4 +184,7 @@ CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
- /home/maxime/AFRILANG/include/afrilang/lexer.hpp
+ /home/maxime/AFRILANG/include/afrilang/lexer.hpp \
+ /usr/include/c++/13/sstream /usr/include/c++/13/istream \
+ /usr/include/c++/13/bits/istream.tcc \
+ /usr/include/c++/13/bits/sstream.tcc
