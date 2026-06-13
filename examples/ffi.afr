@@ -1,0 +1,5 @@
+extern from "m" function sin(x number) returns number
+extern from "m" function sqrt(x number) returns number
+
+say sin(3.14159265359 / 2)
+say sqrt(16)
