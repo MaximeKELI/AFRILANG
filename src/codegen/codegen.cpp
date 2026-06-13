@@ -236,6 +236,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
     if (needsCollections) out << "#include \"collections.hpp\"\n";
+    if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
 
     bool needsResult = false;
@@ -397,9 +398,17 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     out << " {\n";
 
     out << "public:\n";
+    if (cls.isAbstract) {
+        out << "    virtual ~" << cls.name << "() = default;\n\n";
+    }
     for (const auto& field : cls.fields) {
-        out << "    " << typeFromName(field.typeName).toCpp()
-            << " " << field.name << ";\n";
+        if (field.isStatic) {
+            out << "    static " << typeFromName(field.typeName).toCpp()
+                << " " << field.name << ";\n";
+        } else {
+            out << "    " << typeFromName(field.typeName).toCpp()
+                << " " << field.name << ";\n";
+        }
     }
     if (!cls.fields.empty()) out << "\n";
 
@@ -421,11 +430,28 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
 
     for (const auto& method : cls.methods) {
         if (method->name == "init") continue;
-        emitFunction(out, *method, classInfo, 1);
-        out << "\n";
+        if (method->isAbstract) {
+            const std::string ret = functionReturnCpp(*method);
+            out << "    virtual " << ret << " " << method->name
+                << "(" << paramList(*method) << ") = 0;\n\n";
+        } else {
+            emitFunction(out, *method, classInfo, 1);
+            out << "\n";
+        }
     }
 
     out << "};\n\n";
+
+    for (const auto& field : cls.fields) {
+        if (field.isStatic) {
+            out << typeFromName(field.typeName).toCpp() << " "
+                << cls.name << "::" << field.name << ";\n";
+        }
+    }
+    if (std::any_of(cls.fields.begin(), cls.fields.end(),
+                    [](const FieldNode& f) { return f.isStatic; })) {
+        out << "\n";
+    }
 }
 
 void CodeGenerator::emitInterfaces(std::ostream& out) const {
@@ -506,7 +532,12 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
     for (std::size_t i = 0; i < func.parameters.size(); ++i) {
         if (i > 0) out << ", ";
         const auto& param = func.parameters[i];
-        out << cppTypeFromAfrName(param.typeName, func.typeParams) << " " << param.name;
+        const AfrType paramType = typeFromName(param.typeName);
+        if (paramType.kind == TypeKind::Class) {
+            out << "const " << paramType.className << "& " << param.name;
+        } else {
+            out << cppTypeFromAfrName(param.typeName, func.typeParams) << " " << param.name;
+        }
         if (param.defaultValue) {
             out << " = ";
             if (const auto* str = dynamic_cast<const StringLiteralNode*>(param.defaultValue.get())) {
@@ -529,6 +560,49 @@ std::string mangleGlobalFunctionName(const std::string& name) {
 
 } // namespace
 
+std::string CodeGenerator::classStorageCpp(const AfrType& type) {
+    return "std::unique_ptr<" + type.className + ">";
+}
+
+std::string CodeGenerator::classStorageCpp(const std::string& className) {
+    return "std::unique_ptr<" + className + ">";
+}
+
+bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
+    if (dynamic_cast<const ThisExpressionNode*>(&object)) return false;
+    if (dynamic_cast<const SuperExpressionNode*>(&object)) return false;
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(&object)) {
+        const auto it = semantic_.globalVariables.find(id->name);
+        if (it != semantic_.globalVariables.end() && it->second.kind == TypeKind::Class) {
+            return true;
+        }
+    }
+    if (const auto* member = dynamic_cast<const MemberAccessNode*>(&object)) {
+        if (dynamic_cast<const ThisExpressionNode*>(member->object.get())) return false;
+        return usesPointerAccess(*member->object);
+    }
+    return false;
+}
+
+void CodeGenerator::emitReceiver(std::ostream& out, const ExpressionNode& object,
+                                 const ClassInfo* ownerClass) const {
+    emitExpression(out, object, ownerClass);
+    if (usesPointerAccess(object)) {
+        out << "->";
+    } else {
+        out << ".";
+    }
+}
+
+void CodeGenerator::emitCallArgument(std::ostream& out, const ExpressionNode& arg,
+                                     const AfrType& paramType,
+                                     const ClassInfo* ownerClass) const {
+    if (paramType.kind == TypeKind::Class && usesPointerAccess(arg)) {
+        out << "*";
+    }
+    emitExpression(out, arg, ownerClass);
+}
+
 void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
                                  const ClassInfo* ownerClass, int indentLevel) const {
     const std::string returnCpp = functionReturnCpp(func);
@@ -545,7 +619,9 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     }
 
     indent(out, indentLevel);
-    if (ownerClass) {
+    if (func.isStatic) {
+        out << "static ";
+    } else if (ownerClass) {
         out << "virtual ";
     }
     const std::string emittedName = (ownerClass || indentLevel > 0)
@@ -553,7 +629,7 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         : mangleGlobalFunctionName(func.name);
     out << returnCpp << " " << emittedName << "(" << paramList(func) << ")";
 
-    if (ownerClass) {
+    if (ownerClass && !func.isStatic) {
         bool shouldOverride = false;
         for (const auto& cls : program_.classes) {
             if (cls->name != ownerClass->name) continue;
@@ -678,53 +754,22 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(assign->value.get())) {
-            out << constPrefix << newExpr->className << " " << assign->name;
-            const ClassInfo* clsInfo = nullptr;
-            auto it = semantic_.classes.find(newExpr->className);
-            if (it != semantic_.classes.end()) clsInfo = &it->second;
-
-            const FunctionNode* initMethod = nullptr;
-            for (const auto& cls : program_.classes) {
-                if (cls->name == newExpr->className) {
-                    for (const auto& m : cls->methods) {
-                        if (m->name == "init") initMethod = m.get();
-                    }
-                }
-            }
-            if (!initMethod) {
-                for (const auto& module : program_.modules) {
-                    for (const auto& cls : module->classes) {
-                        if (cls->name == newExpr->className) {
-                            for (const auto& m : cls->methods) {
-                                if (m->name == "init") initMethod = m.get();
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (initMethod && !initMethod->parameters.empty()) {
-                out << "(";
-                for (std::size_t i = 0; i < initMethod->parameters.size(); ++i) {
-                    if (i > 0) out << ", ";
-                    out << typeFromName(initMethod->parameters[i].typeName).toCpp() << "{}";
-                }
-                out << ")";
-            }
+            AfrType storedType = assign->typeName.empty()
+                ? AfrType::classType(newExpr->className)
+                : typeFromName(assign->typeName);
+            out << constPrefix << classStorageCpp(storedType) << " " << assign->name << " = ";
+            emitExpression(out, *assign->value, ownerClass);
             out << ";\n";
-            (void)clsInfo;
             return;
         }
 
         if (const auto* newCall = dynamic_cast<const CallExpressionNode*>(assign->value.get())) {
             if (dynamic_cast<const NewExpressionNode*>(newCall->callee.get())) {
-                std::string typeCpp;
-                if (!assign->typeName.empty()) {
-                    typeCpp = typeFromName(assign->typeName).toCpp();
-                } else {
-                    typeCpp = inferExpressionType(*assign->value);
-                }
-                out << constPrefix << typeCpp << " " << assign->name << " = ";
+                AfrType storedType = assign->typeName.empty()
+                    ? AfrType::classType(
+                          static_cast<const NewExpressionNode*>(newCall->callee.get())->className)
+                    : typeFromName(assign->typeName);
+                out << constPrefix << classStorageCpp(storedType) << " " << assign->name << " = ";
                 emitExpression(out, *assign->value, ownerClass);
                 out << ";\n";
                 return;
@@ -793,7 +838,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
 
         std::string typeCpp;
         if (!assign->typeName.empty()) {
-            typeCpp = typeFromName(assign->typeName).toCpp();
+            const AfrType declared = typeFromName(assign->typeName);
+            typeCpp = declared.kind == TypeKind::Class
+                ? classStorageCpp(declared)
+                : declared.toCpp();
         } else {
             typeCpp = inferExpressionType(*assign->value);
         }
@@ -1321,7 +1369,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
-            out << newExpr->className << "(";
+            out << "std::make_unique<" << newExpr->className << ">(";
             for (std::size_t i = 0; i < call->arguments.size(); ++i) {
                 if (i > 0) out << ", ";
                 emitExpression(out, *call->arguments[i], ownerClass);
@@ -1330,7 +1378,93 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             return;
         }
 
+        if (dynamic_cast<const SuperExpressionNode*>(call->callee.get())) {
+            if (ownerClass && !ownerClass->baseClass.empty()) {
+                out << ownerClass->baseClass << "::" << ownerClass->baseClass << "(";
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    if (i > 0) out << ", ";
+                    emitExpression(out, *call->arguments[i], ownerClass);
+                }
+                out << ")";
+            }
+            return;
+        }
+
         const MethodSignature* externSig = nullptr;
+        const MethodSignature* globalSig = nullptr;
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
+            const auto it = semantic_.functions.find(id->name);
+            if (it != semantic_.functions.end() && it->second.isExtern) {
+                externSig = &it->second;
+            }
+            if (it != semantic_.functions.end() && !it->second.isExtern) {
+                globalSig = &it->second;
+                out << mangleGlobalFunctionName(id->name) << "(";
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    if (i > 0) out << ", ";
+                    const AfrType paramType = i < globalSig->paramTypes.size()
+                        ? globalSig->paramTypes[i] : AfrType::voidType();
+                    emitCallArgument(out, *call->arguments[i], paramType, ownerClass);
+                }
+                out << ")";
+                return;
+            }
+        }
+
+        if (const auto* member = dynamic_cast<const MemberAccessNode*>(call->callee.get())) {
+            if (dynamic_cast<const SuperExpressionNode*>(member->object.get())) {
+                if (ownerClass && !ownerClass->baseClass.empty()) {
+                    out << ownerClass->baseClass << "::" << member->member << "(";
+                    for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                        if (i > 0) out << ", ";
+                        emitExpression(out, *call->arguments[i], ownerClass);
+                    }
+                    out << ")";
+                }
+                return;
+            }
+
+            if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                if (semantic_.classes.count(classId->name)) {
+                    out << classId->name << "::" << member->member << "(";
+                    for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                        if (i > 0) out << ", ";
+                        emitExpression(out, *call->arguments[i], ownerClass);
+                    }
+                    out << ")";
+                    return;
+                }
+            }
+
+            const MethodSignature* methodSig = nullptr;
+            if (const auto* objId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                const auto vit = semantic_.globalVariables.find(objId->name);
+                if (vit != semantic_.globalVariables.end() &&
+                    vit->second.kind == TypeKind::Class) {
+                    const auto mit = semantic_.classes.find(vit->second.className);
+                    if (mit != semantic_.classes.end()) {
+                        const auto sit = mit->second.methods.find(member->member);
+                        if (sit != mit->second.methods.end()) methodSig = &sit->second;
+                    }
+                }
+            }
+
+            emitReceiver(out, *member->object, ownerClass);
+            out << member->member << "(";
+            for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                if (i > 0) out << ", ";
+                const AfrType paramType = methodSig && i < methodSig->paramTypes.size()
+                    ? methodSig->paramTypes[i] : AfrType::voidType();
+                if (methodSig && i < methodSig->paramTypes.size()) {
+                    emitCallArgument(out, *call->arguments[i], paramType, ownerClass);
+                } else {
+                    emitExpression(out, *call->arguments[i], ownerClass);
+                }
+            }
+            out << ")";
+            return;
+        }
+
         if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
             const auto it = semantic_.functions.find(id->name);
             if (it != semantic_.functions.end() && it->second.isExtern) {

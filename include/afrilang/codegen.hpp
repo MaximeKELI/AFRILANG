@@ -5,7 +5,8 @@
 
 #include <ostream>
 #include <string>
-#include <unordered_set>
+#include <memory>
+#include <unordered_map>
 
 namespace afrilang {
 
@@ -59,6 +60,13 @@ private:
     AfrType inferExpressionAfrType(const ExpressionNode& expr) const;
     std::string inferExpressionType(const ExpressionNode& expr) const;
     std::string classPrefix(const ClassInfo* ownerClass) const;
+    bool usesPointerAccess(const ExpressionNode& object) const;
+    void emitReceiver(std::ostream& out, const ExpressionNode& object,
+                      const ClassInfo* ownerClass) const;
+    void emitCallArgument(std::ostream& out, const ExpressionNode& arg,
+                        const AfrType& paramType, const ClassInfo* ownerClass) const;
+    static std::string classStorageCpp(const AfrType& type);
+    static std::string classStorageCpp(const std::string& className);
 
     void emitLineDirective(std::ostream& out, const ASTNode& node, int indentLevel) const;
     static void indent(std::ostream& out, int level);

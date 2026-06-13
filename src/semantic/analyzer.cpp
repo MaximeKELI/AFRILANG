@@ -1631,17 +1631,6 @@ bool SemanticAnalyzer::canAccessField(const FieldInfo& field, const ClassInfo& o
     return isSubclassOf(accessingClass->name, ownerClass.name);
 }
 
-const FieldInfo* SemanticAnalyzer::findField(const ClassInfo& cls, const std::string& fieldName) const {
-    auto it = cls.fields.find(fieldName);
-    if (it != cls.fields.end()) return &it->second;
-
-    if (!cls.baseClass.empty()) {
-        const ClassInfo* base = findClass(cls.baseClass);
-        if (base) return findField(*base, fieldName);
-    }
-    return nullptr;
-}
-
 const MethodSignature* SemanticAnalyzer::findFunction(const std::string& name) const {
     auto it = result_.functions.find(name);
     return it != result_.functions.end() ? &it->second : nullptr;
