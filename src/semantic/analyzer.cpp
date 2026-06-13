@@ -178,6 +178,10 @@ void SemanticAnalyzer::registerClasses() {
             for (const auto& param : method->parameters) {
                 sig.paramTypes.push_back(typeFromName(param.typeName));
             }
+            sig.requiredParamCount = countRequiredParams(method->parameters);
+            validateFunctionDefaults(*method, [&](const std::string& msg) {
+                errorAt(*method, msg);
+            });
 
             info.methods[method->name] = std::move(sig);
         }
@@ -238,6 +242,10 @@ void SemanticAnalyzer::registerClasses() {
             for (const auto& param : func->parameters) {
                 sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func->typeParams));
             }
+            sig.requiredParamCount = countRequiredParams(func->parameters);
+            validateFunctionDefaults(*func, [&](const std::string& msg) {
+                errorAt(*func, msg);
+            });
             modInfo.functions[func->name] = sig;
         }
 
@@ -313,7 +321,7 @@ void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
                            module.name == "fs" || module.name == "http" ||
                            module.name == "str" || module.name == "logging" ||
                            module.name == "math" || module.name == "chrono" ||
-                           module.name == "re");
+                           module.name == "re" || module.name == "collections");
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
