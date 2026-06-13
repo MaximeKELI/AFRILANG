@@ -545,6 +545,42 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             return;
         }
 
+        if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(assign->value.get())) {
+            out << "std::unordered_map<"
+                << typeFromName(emptyMap->keyTypeName).toCpp() << ", "
+                << typeFromName(emptyMap->valueTypeName).toCpp()
+                << "> " << assign->name << " = {};\n";
+            return;
+        }
+
+        if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(assign->value.get())) {
+            std::string keyCpp;
+            std::string valCpp;
+            if (!assign->typeName.empty()) {
+                AfrType t = typeFromName(assign->typeName);
+                if (t.kind == TypeKind::Map) {
+                    keyCpp = t.mapKeyType().toCpp();
+                    valCpp = t.mapValueType().toCpp();
+                }
+            }
+            if (keyCpp.empty() && !mapLit->pairs.empty()) {
+                keyCpp = inferExpressionType(*mapLit->pairs[0].key);
+                valCpp = inferExpressionType(*mapLit->pairs[0].value);
+            }
+            out << "std::unordered_map<" << keyCpp << ", " << valCpp << "> "
+                << assign->name << " = {";
+            for (std::size_t i = 0; i < mapLit->pairs.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << "{";
+                emitExpression(out, *mapLit->pairs[i].key, ownerClass);
+                out << ", ";
+                emitExpression(out, *mapLit->pairs[i].value, ownerClass);
+                out << "}";
+            }
+            out << "};\n";
+            return;
+        }
+
         if (const auto* list = dynamic_cast<const ListLiteralNode*>(assign->value.get())) {
             std::string elemCpp;
             if (!assign->typeName.empty()) {
@@ -584,10 +620,17 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* idxAssign = dynamic_cast<const IndexAssignStatementNode*>(&stmt)) {
+        const AfrType containerType = inferExpressionAfrType(*idxAssign->object);
         emitExpression(out, *idxAssign->object, ownerClass);
-        out << "[static_cast<size_t>(";
-        emitExpression(out, *idxAssign->index, ownerClass);
-        out << ")] = ";
+        out << "[";
+        if (containerType.kind == TypeKind::List) {
+            out << "static_cast<size_t>(";
+            emitExpression(out, *idxAssign->index, ownerClass);
+            out << ")";
+        } else {
+            emitExpression(out, *idxAssign->index, ownerClass);
+        }
+        out << "] = ";
         emitExpression(out, *idxAssign->value, ownerClass);
         out << ";\n";
         return;
@@ -757,14 +800,50 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(&stmt)) {
-        out << "for (auto& " << forEach->itemName << " : ";
-        emitExpression(out, *forEach->list, ownerClass);
-        out << ") {\n";
+        const AfrType containerType = inferExpressionAfrType(*forEach->list);
+        if (containerType.kind == TypeKind::Map && !forEach->valueName.empty()) {
+            out << "for (auto& _afr_pair : ";
+            emitExpression(out, *forEach->list, ownerClass);
+            out << ") {\n";
+            indent(out, indentLevel + 1);
+            out << "auto& " << forEach->itemName << " = _afr_pair.first;\n";
+            indent(out, indentLevel + 1);
+            out << "auto& " << forEach->valueName << " = _afr_pair.second;\n";
+        } else {
+            out << "for (auto& " << forEach->itemName << " : ";
+            emitExpression(out, *forEach->list, ownerClass);
+            out << ") {\n";
+        }
         for (const auto& bodyStmt : forEach->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
         }
         indent(out, indentLevel);
         out << "}\n";
+        return;
+    }
+
+    if (const auto* tryStmt = dynamic_cast<const TryStatementNode*>(&stmt)) {
+        out << "try {\n";
+        for (const auto& bodyStmt : tryStmt->tryBody) {
+            emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+        }
+        indent(out, indentLevel);
+        out << "} catch (const std::exception& _afr_ex) {\n";
+        indent(out, indentLevel + 1);
+        out << "std::string " << tryStmt->catchVarName
+            << " = _afr_ex.what();\n";
+        for (const auto& bodyStmt : tryStmt->catchBody) {
+            emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
+    if (const auto* raiseStmt = dynamic_cast<const RaiseStatementNode*>(&stmt)) {
+        out << "throw std::runtime_error(";
+        emitExpression(out, *raiseStmt->message, ownerClass);
+        out << ");\n";
         return;
     }
 
@@ -789,6 +868,18 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                                      const ClassInfo* ownerClass) const {
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
         out << '"' << escapeString(str->value) << '"';
+        return;
+    }
+
+    if (const auto* interp = dynamic_cast<const InterpolatedStringNode*>(&expr)) {
+        out << "afrilang::runtime::str::concat(";
+        for (std::size_t i = 0; i < interp->parts.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << "afrilang::runtime::str::toString(";
+            emitExpression(out, *interp->parts[i], ownerClass);
+            out << ")";
+        }
+        out << ")";
         return;
     }
 
@@ -904,11 +995,45 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
+        out << "std::unordered_map<"
+            << typeFromName(emptyMap->keyTypeName).toCpp() << ", "
+            << typeFromName(emptyMap->valueTypeName).toCpp() << ">()";
+        return;
+    }
+
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        std::string keyCpp = mapLit->pairs.empty()
+            ? "std::string"
+            : inferExpressionType(*mapLit->pairs[0].key);
+        std::string valCpp = mapLit->pairs.empty()
+            ? "double"
+            : inferExpressionType(*mapLit->pairs[0].value);
+        out << "std::unordered_map<" << keyCpp << ", " << valCpp << ">{";
+        for (std::size_t i = 0; i < mapLit->pairs.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << "{";
+            emitExpression(out, *mapLit->pairs[i].key, ownerClass);
+            out << ", ";
+            emitExpression(out, *mapLit->pairs[i].value, ownerClass);
+            out << "}";
+        }
+        out << "}";
+        return;
+    }
+
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        const AfrType containerType = inferExpressionAfrType(*index->object);
         emitExpression(out, *index->object, ownerClass);
-        out << "[static_cast<size_t>(";
-        emitExpression(out, *index->index, ownerClass);
-        out << ")]";
+        out << "[";
+        if (containerType.kind == TypeKind::List) {
+            out << "static_cast<size_t>(";
+            emitExpression(out, *index->index, ownerClass);
+            out << ")";
+        } else {
+            emitExpression(out, *index->index, ownerClass);
+        }
+        out << "]";
         return;
     }
 
@@ -966,8 +1091,20 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
         return newExpr->className;
     }
 
-    if (const auto* empty = dynamic_cast<const EmptyListNode*>(&expr)) {
-        return "std::vector<" + typeFromName(empty->elementTypeName).toCpp() + ">";
+    if (dynamic_cast<const InterpolatedStringNode*>(&expr)) return "std::string";
+
+    if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
+        return "std::unordered_map<" +
+               typeFromName(emptyMap->keyTypeName).toCpp() + ", " +
+               typeFromName(emptyMap->valueTypeName).toCpp() + ">";
+    }
+
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        if (!mapLit->pairs.empty()) {
+            return "std::unordered_map<" +
+                   inferExpressionType(*mapLit->pairs[0].key) + ", " +
+                   inferExpressionType(*mapLit->pairs[0].value) + ">";
+        }
     }
 
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
@@ -1017,6 +1154,26 @@ std::string CodeGenerator::resolveVariableType(const std::string& name) const {
     return "auto";
 }
 
+AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const {
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
+        auto it = semantic_.globalVariables.find(id->name);
+        if (it != semantic_.globalVariables.end()) return it->second;
+    }
+    if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
+        return AfrType::mapType(typeFromName(emptyMap->keyTypeName),
+                                typeFromName(emptyMap->valueTypeName));
+    }
+    if (const auto* empty = dynamic_cast<const EmptyListNode*>(&expr)) {
+        return AfrType::listType(typeFromName(empty->elementTypeName));
+    }
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        if (!mapLit->pairs.empty()) {
+            return AfrType::mapType(AfrType::text(), AfrType::number());
+        }
+    }
+    return AfrType::voidType();
+}
+
 void CodeGenerator::indent(std::ostream& out, int level) {
     for (int i = 0; i < level; ++i) {
         out << "    ";
@@ -1046,7 +1203,9 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 }
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
-    return name == "io" || name == "json" || name == "fs" || name == "http";
+    return name == "io" || name == "json" || name == "fs" || name == "http" ||
+           name == "str" || name == "log" || name == "math" || name == "time" ||
+           name == "re";
 }
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
