@@ -4,6 +4,7 @@
 #include "afrilang/semantic.hpp"
 
 #include <string>
+#include <unordered_map>
 #include <unordered_set>
 
 namespace afrilang {
@@ -14,6 +15,7 @@ struct ProjectConfig {
     std::string mainFile = "src/main.afr";
     std::string output = "build/app";
     std::string stdlibPath;
+    std::unordered_map<std::string, std::string> dependencies;
 };
 
 ProjectConfig loadProjectConfig(const std::string& path);

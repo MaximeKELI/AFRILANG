@@ -27,9 +27,18 @@ ProjectConfig loadProjectConfig(const std::string& path) {
     if (!file) return config;
 
     std::string line;
+    bool inDependencies = false;
     while (std::getline(file, line)) {
         line = trim(line);
         if (line.empty() || line[0] == '#') continue;
+
+        if (line == "[dependencies]") {
+            inDependencies = true;
+            continue;
+        }
+        if (!line.empty() && line[0] == '[') {
+            inDependencies = false;
+        }
 
         const auto eq = line.find('=');
         if (eq == std::string::npos) continue;
@@ -37,7 +46,9 @@ ProjectConfig loadProjectConfig(const std::string& path) {
         const std::string key = trim(line.substr(0, eq));
         const std::string value = unquote(trim(line.substr(eq + 1)));
 
-        if (key == "name") config.name = value;
+        if (inDependencies) {
+            config.dependencies[key] = value;
+        } else if (key == "name") config.name = value;
         else if (key == "version") config.version = value;
         else if (key == "main") config.mainFile = value;
         else if (key == "output") config.output = value;
