@@ -63,80 +63,80 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
 }
 
 void StdlibRegistry::injectIoModule(ProgramNode& program) {
-    injectModule(program, "io", {
-        makeStubFunction("readFile", {{"path", "text"}}, "text"),
-        makeStubFunction("writeFile", {{"path", "text"}, {"content", "text"}}, ""),
-        makeStubFunction("fileExists", {{"path", "text"}}, "bool"),
-        makeStubFunction("readLine", {}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("readFile", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("writeFile", {{"path", "text"}, {"content", "text"}}, ""));
+    fns.push_back(makeStubFunction("fileExists", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("readLine", {}, "text"));
+    injectModule(program, "io", std::move(fns));
 }
 
 void StdlibRegistry::injectJsonModule(ProgramNode& program) {
-    injectModule(program, "json", {
-        makeStubFunction("parse", {{"text", "text"}}, "text"),
-        makeStubFunction("stringify", {{"value", "text"}}, "text"),
-        makeStubFunction("getString", {{"text", "text"}, {"key", "text"}}, "text"),
-        makeStubFunction("getNumber", {{"text", "text"}, {"key", "text"}}, "number"),
-        makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("parse", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("stringify", {{"value", "text"}}, "text"));
+    fns.push_back(makeStubFunction("getString", {{"text", "text"}, {"key", "text"}}, "text"));
+    fns.push_back(makeStubFunction("getNumber", {{"text", "text"}, {"key", "text"}}, "number"));
+    fns.push_back(makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "text"));
+    injectModule(program, "json", std::move(fns));
 }
 
 void StdlibRegistry::injectFsModule(ProgramNode& program) {
-    injectModule(program, "fs", {
-        makeStubFunction("listDir", {{"path", "text"}}, "list text"),
-        makeStubFunction("makeDir", {{"path", "text"}}, "bool"),
-        makeStubFunction("removeFile", {{"path", "text"}}, "bool"),
-        makeStubFunction("fileSize", {{"path", "text"}}, "number"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("listDir", {{"path", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("makeDir", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("removeFile", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("fileSize", {{"path", "text"}}, "number"));
+    injectModule(program, "fs", std::move(fns));
 }
 
 void StdlibRegistry::injectHttpModule(ProgramNode& program) {
-    injectModule(program, "http", {
-        makeStubFunction("httpGet", {{"url", "text"}}, "text"),
-        makeStubFunction("httpPost", {{"url", "text"}, {"body", "text"}}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("httpGet", {{"url", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpPost", {{"url", "text"}, {"body", "text"}}, "text"));
+    injectModule(program, "http", std::move(fns));
 }
 
 void StdlibRegistry::injectStrModule(ProgramNode& program) {
-    injectModule(program, "str", {
-        makeStubFunction("trim", {{"text", "text"}}, "text"),
-        makeStubFunction("contains", {{"text", "text"}, {"needle", "text"}}, "bool"),
-        makeStubFunction("replace", {{"text", "text"}, {"from", "text"}, {"to", "text"}}, "text"),
-        makeStubFunction("split", {{"text", "text"}, {"sep", "text"}}, "list text"),
-        makeStubFunction("join", {{"parts", "list text"}, {"sep", "text"}}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("trim", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("contains", {{"text", "text"}, {"needle", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"from", "text"}, {"to", "text"}}, "text"));
+    fns.push_back(makeStubFunction("split", {{"text", "text"}, {"sep", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("join", {{"parts", "list text"}, {"sep", "text"}}, "text"));
+    injectModule(program, "str", std::move(fns));
 }
 
 void StdlibRegistry::injectLogModule(ProgramNode& program) {
-    injectModule(program, "log", {
-        makeStubFunction("info", {{"message", "text"}}, ""),
-        makeStubFunction("warn", {{"message", "text"}}, ""),
-        makeStubFunction("error", {{"message", "text"}}, ""),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("info", {{"message", "text"}}, ""));
+    fns.push_back(makeStubFunction("warn", {{"message", "text"}}, ""));
+    fns.push_back(makeStubFunction("error", {{"message", "text"}}, ""));
+    injectModule(program, "log", std::move(fns));
 }
 
 void StdlibRegistry::injectMathModule(ProgramNode& program) {
-    injectModule(program, "math", {
-        makeStubFunction("abs", {{"value", "number"}}, "number"),
-        makeStubFunction("floor", {{"value", "number"}}, "number"),
-        makeStubFunction("ceil", {{"value", "number"}}, "number"),
-        makeStubFunction("pow", {{"base", "number"}, {"exp", "number"}}, "number"),
-        makeStubFunction("random", {}, "number"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("abs", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("floor", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("ceil", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("pow", {{"base", "number"}, {"exp", "number"}}, "number"));
+    fns.push_back(makeStubFunction("random", {}, "number"));
+    injectModule(program, "math", std::move(fns));
 }
 
 void StdlibRegistry::injectTimeModule(ProgramNode& program) {
-    injectModule(program, "time", {
-        makeStubFunction("now", {}, "number"),
-        makeStubFunction("formatTimestamp", {{"seconds", "number"}}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("now", {}, "number"));
+    fns.push_back(makeStubFunction("formatTimestamp", {{"seconds", "number"}}, "text"));
+    injectModule(program, "time", std::move(fns));
 }
 
 void StdlibRegistry::injectReModule(ProgramNode& program) {
-    injectModule(program, "re", {
-        makeStubFunction("match", {{"text", "text"}, {"pattern", "text"}}, "bool"),
-        makeStubFunction("replace", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"),
-    });
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("match", {{"text", "text"}, {"pattern", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
+    injectModule(program, "re", std::move(fns));
 }
 
 } // namespace afrilang
