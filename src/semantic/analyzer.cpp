@@ -275,7 +275,10 @@ void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
     const bool isStdlib = (module.name == "io" || module.name == "json" ||
-                           module.name == "fs" || module.name == "http");
+                           module.name == "fs" || module.name == "http" ||
+                           module.name == "str" || module.name == "log" ||
+                           module.name == "math" || module.name == "time" ||
+                           module.name == "re");
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
@@ -1061,6 +1064,13 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
         if (!isConcreteTypeName(target.listElementTypeName)) return true;
         return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Map && value.kind == TypeKind::Map) {
+        if (!isConcreteTypeName(target.className) || !isConcreteTypeName(target.listElementTypeName)) {
+            return true;
+        }
+        return target.className == value.className &&
+               target.listElementTypeName == value.listElementTypeName;
     }
     if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
         return target.listElementTypeName == value.listElementTypeName;
