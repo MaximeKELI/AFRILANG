@@ -1,7 +1,5 @@
 {
-  "afrilang.serverPath": "/home/maxime/AFRILANG/build/afrilang",
+  "afrilang.serverPath": "/home/maxime/AFRILANG/vscode-afrilang/../build/afrilang",
   "workbench.iconTheme": "afrilang-icons",
-  "[afrilang]": {
-    "editor.tabSize": 4
-  }
+  "[afrilang]": { "editor.tabSize": 4 }
 }

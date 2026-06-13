@@ -14,6 +14,7 @@ public:
     Compiler(std::string entryPath, std::string afrilangRoot = "");
 
     std::unique_ptr<ProgramNode> compile();
+    std::unique_ptr<ProgramNode> compileFromSource(const std::string& source);
     const SourceManager& sources() const { return sources_; }
 
 private:

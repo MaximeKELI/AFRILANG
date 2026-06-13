@@ -46,6 +46,23 @@ std::unique_ptr<ProgramNode> Compiler::compile() {
     return program;
 }
 
+std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& source) {
+    loadedFiles_.clear();
+    sources_ = SourceManager{};
+    const std::string normalized = normalizePath(entryPath_);
+    loadedFiles_.insert(normalized);
+    sources_.addFile(normalized, source);
+
+    Lexer lexer(source);
+    const std::vector<Token> tokens = lexer.tokenize();
+    Parser parser(tokens);
+    auto program = parser.parse();
+
+    const std::string baseDir = fs::path(entryPath_).parent_path().string();
+    resolveImports(*program, baseDir);
+    return program;
+}
+
 std::string Compiler::readFile(const std::string& path) {
     std::ifstream file(path);
     if (!file) {

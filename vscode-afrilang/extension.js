@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const { promisify } = require('util');
-const { LanguageClient, TransportKind } = require('vscode-languageclient/node');
+const { LanguageClient, TransportKind, DidOpenTextDocumentNotification } = require('vscode-languageclient/node');
 
 const execAsync = promisify(exec);
 
@@ -102,6 +102,29 @@ async function runAfrilangCommand(context, subcommand, filePath) {
   }
 }
 
+async function scanWorkspaceFiles(client) {
+  if (!client || !vscode.workspace.workspaceFolders?.length) return;
+
+  const files = await vscode.workspace.findFiles('**/*.afr', '{**/node_modules/**,**/build/**}');
+  getOutputChannel().appendLine(`AFRILANG: analyse de ${files.length} fichier(s) .afr...`);
+
+  for (const uri of files) {
+    try {
+      const doc = await vscode.workspace.openTextDocument(uri);
+      client.sendNotification(DidOpenTextDocumentNotification.type, {
+        textDocument: {
+          uri: uri.toString(),
+          languageId: 'afrilang',
+          version: 1,
+          text: doc.getText()
+        }
+      });
+    } catch (err) {
+      getOutputChannel().appendLine(`  skip ${uri.fsPath}: ${err.message}`);
+    }
+  }
+}
+
 function startLanguageClient(context) {
   const serverPath = resolveServerPath(context);
 
@@ -136,7 +159,27 @@ function startLanguageClient(context) {
     serverOptions,
     clientOptions
   );
-  return client.start();
+  return client.start().then(() => {
+    scanWorkspaceFiles(client);
+    const watcher = vscode.workspace.createFileSystemWatcher('**/*.afr');
+    const refresh = async (uri) => {
+      if (!client || !uri) return;
+      try {
+        const doc = await vscode.workspace.openTextDocument(uri);
+        client.sendNotification(DidOpenTextDocumentNotification.type, {
+          textDocument: {
+            uri: uri.toString(),
+            languageId: 'afrilang',
+            version: doc.version,
+            text: doc.getText()
+          }
+        });
+      } catch (_) { /* ignore */ }
+    };
+    watcher.onDidCreate(refresh);
+    watcher.onDidChange(refresh);
+    context.subscriptions.push(watcher);
+  });
 }
 
 function registerRunCommand(context) {

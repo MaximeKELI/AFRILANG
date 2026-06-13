@@ -1,14 +1,19 @@
 #include "afrilang/lsp.hpp"
 
+#include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/formatter.hpp"
 #include "afrilang/semantic.hpp"
 
+#include <cstdlib>
+#include <filesystem>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
+
+namespace fs = std::filesystem;
 
 namespace afrilang {
 
@@ -106,16 +111,38 @@ static void sendResponse(int id, const std::string& result) {
     sendMessage(out.str());
 }
 
+static std::string detectAfrilangRoot(const std::string& filePath) {
+    if (const char* env = std::getenv("AFRILANG_HOME")) {
+        return env;
+    }
+    fs::path dir = fs::path(filePath).parent_path();
+    for (int i = 0; i < 12 && !dir.empty() && dir != dir.parent_path(); ++i) {
+        if (fs::exists(dir / "CMakeLists.txt") || fs::exists(dir / "build" / "afrilang")) {
+            return dir.string();
+        }
+        dir = dir.parent_path();
+    }
+    return {};
+}
+
 static void publishDiagnostics(const std::string& uri, const std::string& source) {
     std::vector<std::string> diags;
     const std::string path = uriToPath(uri);
 
     try {
-        SourceManager sources;
-        sources.addFile(path.empty() ? "<buffer>" : path, source);
-        auto program = parseSourceProgram(source, path.empty() ? "<buffer>" : path, &sources);
-        SemanticAnalyzer analyzer(*program, &sources, path.empty() ? "<buffer>" : path);
-        analyzer.analyze();
+        if (!path.empty()) {
+            const std::string root = detectAfrilangRoot(path);
+            Compiler compiler(path, root);
+            auto program = compiler.compileFromSource(source);
+            SemanticAnalyzer analyzer(*program, &compiler.sources(), path);
+            analyzer.analyze();
+        } else {
+            SourceManager sources;
+            sources.addFile("<buffer>", source);
+            auto program = parseSourceProgram(source, "<buffer>", &sources);
+            SemanticAnalyzer analyzer(*program, &sources, "<buffer>");
+            analyzer.analyze();
+        }
     } catch (const CompileError& e) {
         std::ostringstream item;
         item << "{\"range\":{\"start\":{\"line\":" << std::max(0, e.line() - 1)
