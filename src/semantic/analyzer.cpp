@@ -300,9 +300,7 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
         scope[param.name] = typeFromName(param.typeName);
     }
 
-    AfrType declaredReturn = func.returnTypeName.empty()
-        ? AfrType::voidType()
-        : typeFromName(func.returnTypeName);
+    AfrType declaredReturn = resolveFunctionReturnType(func);
 
     bool hasReturn = func.name == "init";
     const ClassInfo* savedClass = currentClass_;
@@ -555,6 +553,14 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         analyzeExpression(*exprStmt->expression, scope);
         return;
     }
+
+    if (const auto* assertStmt = dynamic_cast<const AssertStatementNode*>(&stmt)) {
+        AfrType condType = analyzeExpression(*assertStmt->condition, scope);
+        if (condType.kind != TypeKind::Bool && condType.kind != TypeKind::Number) {
+            errorAt(*assertStmt, "La condition de 'assert' doit être booléenne ou numérique");
+        }
+        return;
+    }
 }
 
 AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
@@ -744,6 +750,12 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 
     if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
         AfrType objectType = analyzeExpression(*member->object, scope);
+
+        if (objectType.kind == TypeKind::Result) {
+            if (member->member == "value") return objectType.resultInnerType();
+            if (member->member == "message") return AfrType::text();
+            errorAt(expr, "Membre '" + member->member + "' introuvable sur un Result");
+        }
 
         if (objectType.kind == TypeKind::Class) {
             const FieldInfo* field = findField(*findClass(objectType.className), member->member);
