@@ -610,6 +610,51 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         return;
     }
 
+    if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
+        std::string enumName;
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(matchStmt->subject.get())) {
+            auto vit = semantic_.globalVariables.find(id->name);
+            if (vit != semantic_.globalVariables.end() &&
+                vit->second.kind == TypeKind::Enum) {
+                enumName = vit->second.className;
+            }
+        }
+        if (enumName.empty()) {
+            std::string cppType = inferExpressionType(*matchStmt->subject);
+            enumName = cppType;
+        }
+
+        indent(out, indentLevel);
+        out << "{\n";
+        indent(out, indentLevel + 1);
+        out << enumName << " _afr_match = ";
+        emitExpression(out, *matchStmt->subject, ownerClass);
+        out << ";\n";
+
+        for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
+            const auto& arm = matchStmt->arms[i];
+            indent(out, indentLevel + 1);
+            if (arm.isDefault) {
+                out << "else {\n";
+            } else if (i == 0) {
+                out << "if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
+                    << ") {\n";
+            } else {
+                out << "else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
+                    << ") {\n";
+            }
+            for (const auto& bodyStmt : arm.body) {
+                emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+            }
+            indent(out, indentLevel + 1);
+            out << "}";
+            if (i + 1 == matchStmt->arms.size()) out << "\n";
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
     if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(&stmt)) {
         out << "if (";
         emitExpression(out, *ifStmt->condition, ownerClass);
@@ -717,6 +762,12 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 return;
             }
         }
+        auto vit = semantic_.globalVariables.find(id->name);
+        if (vit != semantic_.globalVariables.end() &&
+            vit->second.kind == TypeKind::Optional) {
+            out << id->name << ".value()";
+            return;
+        }
         out << id->name;
         return;
     }
@@ -745,6 +796,27 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     if (const auto* isError = dynamic_cast<const IsErrorCheckNode*>(&expr)) {
         emitExpression(out, *isError->value, ownerClass);
         out << ".isError";
+        return;
+    }
+
+    if (const auto* isDefined = dynamic_cast<const IsDefinedCheckNode*>(&expr)) {
+        emitExpression(out, *isDefined->value, ownerClass);
+        out << ".has_value()";
+        return;
+    }
+
+    if (dynamic_cast<const NothingLiteralNode*>(&expr)) {
+        out << "std::nullopt";
+        return;
+    }
+
+    if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
+        out << enumCase->enumName << "::make_" << enumCase->caseName << "(";
+        for (std::size_t i = 0; i < enumCase->arguments.size(); ++i) {
+            if (i > 0) out << ", ";
+            emitExpression(out, *enumCase->arguments[i], ownerClass);
+        }
+        out << ")";
         return;
     }
 
@@ -843,6 +915,16 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
             return "std::vector<" + inferExpressionType(*list->elements[0]) + ">";
         }
     }
+
+    if (dynamic_cast<const NothingLiteralNode*>(&expr)) {
+        return "std::nullopt";
+    }
+
+    if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
+        return enumCase->enumName;
+    }
+
+    if (dynamic_cast<const IsDefinedCheckNode*>(&expr)) return "bool";
 
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
         return resolveVariableType(id->name);
