@@ -398,6 +398,56 @@ struct LambdaExpressionNode : ExpressionNode {
         , body(std::move(body)) {}
 };
 
+struct MapEachExpressionNode : ExpressionNode {
+    std::string itemName;
+    std::unique_ptr<ExpressionNode> list;
+    std::vector<std::unique_ptr<StatementNode>> body;
+    std::string elementTypeName;
+    std::string resultElementTypeName;
+
+    MapEachExpressionNode(std::string itemName,
+                          std::unique_ptr<ExpressionNode> list,
+                          std::vector<std::unique_ptr<StatementNode>> body)
+        : itemName(std::move(itemName))
+        , list(std::move(list))
+        , body(std::move(body)) {}
+};
+
+struct FilterEachExpressionNode : ExpressionNode {
+    std::string itemName;
+    std::unique_ptr<ExpressionNode> list;
+    std::unique_ptr<ExpressionNode> condition;
+    std::string elementTypeName;
+
+    FilterEachExpressionNode(std::string itemName,
+                             std::unique_ptr<ExpressionNode> list,
+                             std::unique_ptr<ExpressionNode> condition)
+        : itemName(std::move(itemName))
+        , list(std::move(list))
+        , condition(std::move(condition)) {}
+};
+
+struct ReduceExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> list;
+    std::unique_ptr<ExpressionNode> initial;
+    std::string accName;
+    std::string itemName;
+    std::vector<std::unique_ptr<StatementNode>> body;
+    std::string elementTypeName;
+    std::string resultTypeName;
+
+    ReduceExpressionNode(std::unique_ptr<ExpressionNode> list,
+                         std::unique_ptr<ExpressionNode> initial,
+                         std::string accName,
+                         std::string itemName,
+                         std::vector<std::unique_ptr<StatementNode>> body)
+        : list(std::move(list))
+        , initial(std::move(initial))
+        , accName(std::move(accName))
+        , itemName(std::move(itemName))
+        , body(std::move(body)) {}
+};
+
 struct FieldNode {
     std::string name;
     std::string typeName;

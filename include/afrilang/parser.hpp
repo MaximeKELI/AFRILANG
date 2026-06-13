@@ -59,6 +59,9 @@ private:
     std::unique_ptr<StatementNode> parseForEachStatement();
     std::unique_ptr<StatementNode> parseForRangeStatement();
     std::unique_ptr<ExpressionNode> parseLambdaExpression();
+    std::unique_ptr<ExpressionNode> parseMapEachExpression();
+    std::unique_ptr<ExpressionNode> parseFilterEachExpression();
+    std::unique_ptr<ExpressionNode> parseReduceExpression();
     std::unique_ptr<StatementNode> parseMatchStatement();
     std::unique_ptr<StatementNode> parseReturnStatement();
     std::unique_ptr<StatementNode> parseAssertStatement();

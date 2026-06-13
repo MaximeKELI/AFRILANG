@@ -511,6 +511,55 @@ std::unique_ptr<ExpressionNode> Parser::parseLambdaExpression() {
     return node;
 }
 
+std::unique_ptr<ExpressionNode> Parser::parseMapEachExpression() {
+    consume(TokenType::Each, "'each' attendu après 'map'");
+    const Token& itemToken = consumeName("Nom de variable attendu après 'each'");
+    consume(TokenType::In, "'in' attendu");
+    auto list = parseExpression();
+    consume(TokenType::Do, "'do' attendu");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer 'map each'");
+
+    auto node = std::make_unique<MapEachExpressionNode>(
+        itemToken.lexeme, std::move(list), std::move(body));
+    node->loc = {itemToken.line, itemToken.column};
+    return node;
+}
+
+std::unique_ptr<ExpressionNode> Parser::parseFilterEachExpression() {
+    consume(TokenType::Each, "'each' attendu après 'filter'");
+    const Token& itemToken = consumeName("Nom de variable attendu après 'each'");
+    consume(TokenType::In, "'in' attendu");
+    auto list = parseExpression();
+    consume(TokenType::Where, "'where' attendu");
+    auto condition = parseExpression();
+
+    auto node = std::make_unique<FilterEachExpressionNode>(
+        itemToken.lexeme, std::move(list), std::move(condition));
+    node->loc = {itemToken.line, itemToken.column};
+    return node;
+}
+
+std::unique_ptr<ExpressionNode> Parser::parseReduceExpression() {
+    auto list = parseExpression();
+    consume(TokenType::From, "'from' attendu après la liste dans 'reduce'");
+    auto initial = parseExpression();
+    consume(TokenType::With, "'with' attendu");
+    consume(TokenType::Each, "'each' attendu après 'with'");
+    const Token& accToken = consumeName("Nom d'accumulateur attendu après 'each'");
+    consume(TokenType::Comma, "',' attendu entre accumulateur et élément");
+    const Token& itemToken = consumeName("Nom d'élément attendu après ','");
+    consume(TokenType::Do, "'do' attendu");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer 'reduce'");
+
+    auto node = std::make_unique<ReduceExpressionNode>(
+        std::move(list), std::move(initial),
+        accToken.lexeme, itemToken.lexeme, std::move(body));
+    setLoc(*node);
+    return node;
+}
+
 std::vector<std::unique_ptr<StatementNode>> Parser::parseBlock() {
     std::vector<std::unique_ptr<StatementNode>> body;
     while (!check(TokenType::End) && !check(TokenType::Else) &&
@@ -1018,6 +1067,21 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::This)) {
         return std::make_unique<ThisExpressionNode>();
+    }
+
+    if (match(TokenType::Map)) {
+        if (check(TokenType::Each)) {
+            return parseMapEachExpression();
+        }
+        error("'map each ...' attendu dans une expression, ou utilisez 'map of' dans create");
+    }
+
+    if (match(TokenType::Filter)) {
+        return parseFilterEachExpression();
+    }
+
+    if (match(TokenType::Reduce)) {
+        return parseReduceExpression();
     }
 
     if (match(TokenType::Empty)) {
