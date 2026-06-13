@@ -347,6 +347,11 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
 void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                                         std::unordered_map<std::string, AfrType>& scope,
                                         bool isGlobalScope) {
+    if (const auto* explain = dynamic_cast<const ExplainStatementNode*>(&stmt)) {
+        analyzeStatement(*explain->statement, scope, isGlobalScope);
+        return;
+    }
+
     if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
         AfrType valueType = analyzeExpression(*assign->value, scope);
 

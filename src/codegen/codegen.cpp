@@ -1,5 +1,7 @@
 #include "afrilang/codegen.hpp"
 
+#include "afrilang/educational.hpp"
+
 #include <cstdlib>
 #include <cctype>
 #include <cstdlib>
@@ -365,6 +367,13 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                                   const ClassInfo* ownerClass) const {
     emitLineDirective(out, stmt, indentLevel);
     indent(out, indentLevel);
+
+    if (const auto* explain = dynamic_cast<const ExplainStatementNode*>(&stmt)) {
+        const std::string text = explainStatement(*explain->statement);
+        out << "std::cout << \"[explication] " << escapeString(text)
+            << "\" << std::endl;\n";
+        return;
+    }
 
     if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
         out << "std::cout << ";
