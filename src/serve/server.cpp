@@ -121,6 +121,7 @@ static std::string contentTypeFor(const fs::path& path) {
     if (ext == ".js") return "application/javascript; charset=utf-8";
     if (ext == ".json") return "application/json; charset=utf-8";
     if (ext == ".svg") return "image/svg+xml";
+    if (ext == ".png") return "image/png";
     return "text/plain; charset=utf-8";
 }
 

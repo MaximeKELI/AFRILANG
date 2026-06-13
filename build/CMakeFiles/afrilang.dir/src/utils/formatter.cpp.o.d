@@ -182,6 +182,7 @@ CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/lexer.hpp \
  /home/maxime/AFRILANG/include/afrilang/token.hpp \
  /home/maxime/AFRILANG/include/afrilang/parser.hpp \
- /usr/include/c++/13/sstream /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
+ /usr/include/c++/13/unordered_set \
+ /usr/include/c++/13/bits/unordered_set.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/istream /usr/include/c++/13/bits/istream.tcc \
  /usr/include/c++/13/bits/sstream.tcc

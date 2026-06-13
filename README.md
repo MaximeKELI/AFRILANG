@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/afrilang-africa-clean.png" alt="AFRILANG" width="128">
+</p>
+
 # AFRILANG
 
 Compilateur pour **AFRILANG**, un langage orienté objet à syntaxe naturelle qui transpile vers C++17.
@@ -389,6 +393,17 @@ Les blocs `test` sont compilés et exécutés automatiquement au lancement du pr
 
 Un serveur LSP minimal est disponible via `afrilang lsp` (stdio). L'extension dans `vscode-afrilang/` fournit coloration syntaxique et lance le serveur. Les diagnostics utilisent le contenu du buffer ouvert.
 
+**Icône** — la carte d'Afrique apparaît :
+- dans le panneau **Extensions** (icône de l'extension) ;
+- à côté des fichiers `.afr` dans l'explorateur (thème d'icônes par défaut du langage) ;
+- partout si vous choisissez le thème d'icônes **AFRILANG** : *Fichier → Préférences → Thème de fichiers → AFRILANG*.
+
+Installation locale :
+
+```bash
+cd vscode-afrilang && code --install-extension .
+```
+
 ### Formateur (`afrilang fmt`)
 
 Normalise l'indentation (4 espaces) et la syntaxe naturelle :
@@ -513,6 +528,44 @@ afrilang explain examples/educational.afr
 afrilang explain examples/hello.afr --line 1
 ```
 
+### Enums, pattern matching et null-safety
+
+**Enums** — sommes algébriques avec champs optionnels par cas :
+
+```afr
+enum Status
+    case Ok
+    case Error with message text
+end
+
+create s = Status.Ok
+create e = Status.Error with "failed"
+```
+
+**Pattern matching** — `match` / `selon` sur une valeur enum :
+
+```afr
+match s
+    case Ok then
+        say "ok"
+    end
+    default
+        say "other"
+    end
+end
+```
+
+**Null-safety** — types optionnels (`text?`) et `nothing` / `rien` :
+
+```afr
+create nickname text? = nothing
+if nickname is defined then
+    say nickname
+end
+```
+
+Alias français : `enumeration`, `cas`, `avec`, `selon`, `rien`, `defini`.
+
 ## Exemples
 
 | Fichier | Description |
@@ -536,6 +589,7 @@ afrilang explain examples/hello.afr --line 1
 | `examples/pkg_demo.afr` | Paquets — import pkg/math |
 | `examples/french.afr` | Syntaxe française native |
 | `examples/educational.afr` | Mode éducatif explain/expliquer |
+| `examples/advanced.afr` | Enums, match, null-safety |
 
 ## Compiler tous les exemples
 

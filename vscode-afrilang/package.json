@@ -4,6 +4,7 @@
   "description": "Support AFRILANG — langage naturel compilé",
   "version": "0.2.0",
   "publisher": "afrilang",
+  "icon": "icons/icon.png",
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Programming Languages"],
   "contributes": {
@@ -11,7 +12,16 @@
       "id": "afrilang",
       "aliases": ["AFRILANG", "afrilang"],
       "extensions": [".afr"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/afr-light.png",
+        "dark": "./icons/afr-dark.png"
+      }
+    }],
+    "iconThemes": [{
+      "id": "afrilang-icons",
+      "label": "AFRILANG",
+      "path": "./icons/afrilang-icon-theme.json"
     }],
     "grammars": [{
       "language": "afrilang",

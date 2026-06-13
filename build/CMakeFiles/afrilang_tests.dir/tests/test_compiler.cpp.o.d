@@ -181,12 +181,11 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/utility \
- /usr/include/c++/13/bits/stl_relops.h \
+ /usr/include/c++/13/bits/stl_relops.h /usr/include/c++/13/unordered_set \
+ /usr/include/c++/13/bits/unordered_set.h \
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
- /usr/include/c++/13/unordered_set \
- /usr/include/c++/13/bits/unordered_set.h \
  /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc

@@ -332,6 +332,7 @@ std::unique_ptr<EnumNode> Parser::parseEnum() {
     }
 
     consume(TokenType::End, "'end' attendu pour fermer l'enum");
+    enumNames_.insert(nameToken.lexeme);
     auto node = std::make_unique<EnumNode>(nameToken.lexeme, std::move(cases));
     node->loc = {nameToken.line, nameToken.column};
     return node;
@@ -907,7 +908,8 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
     while (true) {
         if (match(TokenType::Dot)) {
             const Token& member = consumeName("Nom de membre attendu après '.'");
-            if (auto* id = dynamic_cast<IdentifierNode*>(callee.get())) {
+            if (auto* id = dynamic_cast<IdentifierNode*>(callee.get());
+                id && enumNames_.count(id->name)) {
                 std::vector<std::unique_ptr<ExpressionNode>> arguments;
                 if (match(TokenType::With)) {
                     do {

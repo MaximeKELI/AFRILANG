@@ -1,0 +1,14 @@
+{
+  "iconDefinitions": {
+    "_afr_file": {
+      "iconPath": "./afr-dark.png"
+    }
+  },
+  "fileExtensions": {
+    "afr": "_afr_file"
+  },
+  "languageIds": {
+    "afrilang": "_afr_file"
+  },
+  "showLanguageModeIcons": true
+}

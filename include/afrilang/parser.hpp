@@ -4,6 +4,7 @@
 #include "afrilang/token.hpp"
 
 #include <memory>
+#include <unordered_set>
 #include <vector>
 
 namespace afrilang {
@@ -17,6 +18,7 @@ public:
 private:
     std::vector<Token> tokens_;
     std::size_t current_ = 0;
+    std::unordered_set<std::string> enumNames_;
 
     bool isAtEnd() const;
     const Token& peek() const;
