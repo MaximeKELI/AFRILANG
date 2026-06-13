@@ -262,6 +262,24 @@ void CodeGenerator::emitGlobalFunctions(std::ostream& out) const {
     }
 }
 
+void CodeGenerator::emitTests(std::ostream& out) const {
+    if (program_.tests.empty()) return;
+
+    out << "static int afr_tests_failed = 0;\n\n";
+
+    for (const auto& test : program_.tests) {
+        const std::string fn = "afr_test_" + sanitizeTestName(test->name);
+        out << "void " << fn << "() {\n";
+        bool saved = inTest_;
+        inTest_ = true;
+        for (const auto& stmt : test->body) {
+            emitStatement(out, *stmt, 1, nullptr);
+        }
+        inTest_ = saved;
+        out << "}\n\n";
+    }
+}
+
 void CodeGenerator::emitMain(std::ostream& out) const {
     for (const auto& modName : semantic_.usedModules) {
         out << "using namespace " << modName << ";\n";
@@ -272,6 +290,14 @@ void CodeGenerator::emitMain(std::ostream& out) const {
 
     for (const auto& stmt : program_.statements) {
         emitStatement(out, *stmt, 1, nullptr);
+    }
+
+    for (const auto& test : program_.tests) {
+        out << "    " << "afr_test_" << sanitizeTestName(test->name) << "();\n";
+    }
+
+    if (!program_.tests.empty()) {
+        out << "    if (afr_tests_failed > 0) return 1;\n";
     }
 
     out << "    return 0;\n";
@@ -405,9 +431,54 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        if (ret->isError && currentFunction_ && currentFunction_->returnsResult) {
+            const std::string alias = resultTypeAlias(currentFunction_->returnTypeName);
+            out << alias << " _result;\n";
+            indent(out, indentLevel);
+            out << "_result.isError = true;\n";
+            indent(out, indentLevel);
+            out << "_result.message = ";
+            emitExpression(out, *ret->value, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel);
+            out << "return _result;\n";
+            return;
+        }
+        if (currentFunction_ && currentFunction_->returnsResult) {
+            const std::string alias = resultTypeAlias(currentFunction_->returnTypeName);
+            out << alias << " _result;\n";
+            indent(out, indentLevel);
+            out << "_result.value = ";
+            emitExpression(out, *ret->value, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel);
+            out << "return _result;\n";
+            return;
+        }
         out << "return ";
         emitExpression(out, *ret->value, ownerClass);
         out << ";\n";
+        return;
+    }
+
+    if (const auto* assertStmt = dynamic_cast<const AssertStatementNode*>(&stmt)) {
+        out << "if (!(";
+        emitExpression(out, *assertStmt->condition, ownerClass);
+        out << ")) {\n";
+        indent(out, indentLevel + 1);
+        out << "std::cerr << \"ASSERT FAILED";
+        if (!assertStmt->label.empty()) out << ": " << escapeString(assertStmt->label);
+        out << "\" << std::endl;\n";
+        indent(out, indentLevel + 1);
+        if (inTest_) {
+            out << "++afr_tests_failed;\n";
+            indent(out, indentLevel + 1);
+            out << "return;\n";
+        } else {
+            out << "std::exit(1);\n";
+        }
+        indent(out, indentLevel);
+        out << "}\n";
         return;
     }
 
