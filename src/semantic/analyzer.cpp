@@ -2,6 +2,8 @@
 
 #include "afrilang/error.hpp"
 
+#include <algorithm>
+
 namespace afrilang {
 
 SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
