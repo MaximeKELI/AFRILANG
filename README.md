@@ -496,6 +496,8 @@ Le site dans `site/` propose un éditeur en ligne avec exécution via `/api/run`
 | `examples/result.afr` | Result / gestion d'erreurs |
 | `examples/interfaces.afr` | Interfaces et implements |
 | `examples/tests.afr` | Tests intégrés et assert |
+| `examples/ffi.afr` | FFI — appels C (libm) |
+| `examples/pkg_demo.afr` | Paquets — import pkg/math |
 
 ## Compiler tous les exemples
 
