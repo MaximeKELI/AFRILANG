@@ -185,6 +185,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/parser.hpp \
+ /home/maxime/AFRILANG/include/afrilang/pkg.hpp \
  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/cstdint /usr/include/c++/13/bits/chrono.h \
