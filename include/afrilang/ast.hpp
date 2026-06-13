@@ -129,6 +129,32 @@ struct EmptyListNode : ExpressionNode {
         : elementTypeName(std::move(elementTypeName)) {}
 };
 
+struct MapPairNode {
+    std::unique_ptr<ExpressionNode> key;
+    std::unique_ptr<ExpressionNode> value;
+};
+
+struct MapLiteralNode : ExpressionNode {
+    std::vector<MapPairNode> pairs;
+    explicit MapLiteralNode(std::vector<MapPairNode> pairs)
+        : pairs(std::move(pairs)) {}
+};
+
+struct EmptyMapNode : ExpressionNode {
+    std::string keyTypeName;
+    std::string valueTypeName;
+
+    EmptyMapNode(std::string keyTypeName, std::string valueTypeName)
+        : keyTypeName(std::move(keyTypeName))
+        , valueTypeName(std::move(valueTypeName)) {}
+};
+
+struct InterpolatedStringNode : ExpressionNode {
+    std::vector<std::unique_ptr<ExpressionNode>> parts;
+    explicit InterpolatedStringNode(std::vector<std::unique_ptr<ExpressionNode>> parts)
+        : parts(std::move(parts)) {}
+};
+
 struct IndexExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> object;
     std::unique_ptr<ExpressionNode> index;
@@ -236,13 +262,16 @@ struct RepeatStatementNode : StatementNode {
 
 struct ForEachStatementNode : StatementNode {
     std::string itemName;
+    std::string valueName;
     std::unique_ptr<ExpressionNode> list;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     ForEachStatementNode(std::string itemName,
+                         std::string valueName,
                          std::unique_ptr<ExpressionNode> list,
                          std::vector<std::unique_ptr<StatementNode>> body)
         : itemName(std::move(itemName))
+        , valueName(std::move(valueName))
         , list(std::move(list))
         , body(std::move(body)) {}
 };
@@ -296,6 +325,25 @@ struct AssertStatementNode : StatementNode {
 
     AssertStatementNode(std::unique_ptr<ExpressionNode> condition, std::string label = "")
         : condition(std::move(condition)), label(std::move(label)) {}
+};
+
+struct TryStatementNode : StatementNode {
+    std::vector<std::unique_ptr<StatementNode>> tryBody;
+    std::string catchVarName;
+    std::vector<std::unique_ptr<StatementNode>> catchBody;
+
+    TryStatementNode(std::vector<std::unique_ptr<StatementNode>> tryBody,
+                     std::string catchVarName,
+                     std::vector<std::unique_ptr<StatementNode>> catchBody)
+        : tryBody(std::move(tryBody))
+        , catchVarName(std::move(catchVarName))
+        , catchBody(std::move(catchBody)) {}
+};
+
+struct RaiseStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> message;
+    explicit RaiseStatementNode(std::unique_ptr<ExpressionNode> message)
+        : message(std::move(message)) {}
 };
 
 // ── Déclarations ─────────────────────────────────────────────────────────────

@@ -1,6 +1,7 @@
 #include "afrilang/parser.hpp"
 
 #include "afrilang/error.hpp"
+#include "afrilang/lexer.hpp"
 
 #include <unordered_set>
 
@@ -88,6 +89,8 @@ void Parser::synchronize() {
             case TokenType::Test:
             case TokenType::Assert:
             case TokenType::Explain:
+            case TokenType::Try:
+            case TokenType::Raise:
                 return;
             default:
                 break;
@@ -400,6 +403,13 @@ std::string Parser::parseTypeName() {
         std::string elementType = parseTypeName();
         return "list " + elementType;
     }
+    else if (match(TokenType::Map)) {
+        match(TokenType::Of);
+        std::string keyType = parseTypeName();
+        consume(TokenType::To, "'to' attendu dans le type map");
+        std::string valueType = parseTypeName();
+        return "map " + keyType + " to " + valueType;
+    }
     else if (match(TokenType::Identifier)) base = previous().lexeme;
     else if (matchName(base)) { /* ok */ }
     else error("Type attendu (number, text, bool, list, ou nom de classe/record/enum)");
@@ -456,7 +466,8 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
 
 std::vector<std::unique_ptr<StatementNode>> Parser::parseBlock() {
     std::vector<std::unique_ptr<StatementNode>> body;
-    while (!check(TokenType::End) && !check(TokenType::Else) && !isAtEnd()) {
+    while (!check(TokenType::End) && !check(TokenType::Else) &&
+           !check(TokenType::Catch) && !isAtEnd()) {
         body.push_back(parseStatement());
     }
     return body;
@@ -478,6 +489,8 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::Assert))    return parseAssertStatement();
     if (match(TokenType::Ask))       return parseAskStatement();
     if (match(TokenType::Use))       return parseUseStatement();
+    if (match(TokenType::Try))       return parseTryStatement();
+    if (match(TokenType::Raise))     return parseRaiseStatement();
     if (match(TokenType::Add))       return parseAddToListStatement();
     if (match(TokenType::Stop)) {
         auto node = std::make_unique<BreakStatementNode>();
@@ -519,10 +532,30 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
             } while (match(TokenType::Comma));
         }
         value = std::make_unique<ListLiteralNode>(std::move(elements));
+    } else if (match(TokenType::Map)) {
+        consume(TokenType::Of, "'of' attendu après 'map'");
+        std::vector<MapPairNode> pairs;
+        if (!check(TokenType::End) && !isAtEnd()) {
+            do {
+                MapPairNode pair;
+                pair.key = parseExpression();
+                consume(TokenType::To, "'to' attendu dans map of ...");
+                pair.value = parseExpression();
+                pairs.push_back(std::move(pair));
+            } while (match(TokenType::Comma));
+        }
+        value = std::make_unique<MapLiteralNode>(std::move(pairs));
     } else if (match(TokenType::Empty)) {
-        consume(TokenType::List, "'list' attendu après 'empty'");
-        std::string elementType = parseTypeName();
-        value = std::make_unique<EmptyListNode>(std::move(elementType));
+        if (match(TokenType::Map)) {
+            std::string keyType = parseTypeName();
+            consume(TokenType::To, "'to' attendu dans empty map");
+            std::string valueType = parseTypeName();
+            value = std::make_unique<EmptyMapNode>(std::move(keyType), std::move(valueType));
+        } else {
+            consume(TokenType::List, "'list' attendu après 'empty'");
+            std::string elementType = parseTypeName();
+            value = std::make_unique<EmptyListNode>(std::move(elementType));
+        }
     } else if (match(TokenType::Nothing)) {
         value = std::make_unique<NothingLiteralNode>();
     } else {
@@ -616,6 +649,11 @@ std::unique_ptr<StatementNode> Parser::parseRepeatStatement() {
 std::unique_ptr<StatementNode> Parser::parseForEachStatement() {
     consume(TokenType::Each, "'each' attendu après 'for'");
     const Token& itemToken = consumeName( "Nom de variable attendu après 'each'");
+    std::string valueName;
+    if (match(TokenType::Comma)) {
+        const Token& valueToken = consumeName("Nom de variable attendu après ','");
+        valueName = valueToken.lexeme;
+    }
     consume(TokenType::In, "'in' attendu");
     auto list = parseExpression();
     consume(TokenType::Do, "'do' attendu");
@@ -624,8 +662,29 @@ std::unique_ptr<StatementNode> Parser::parseForEachStatement() {
     consume(TokenType::End, "'end' attendu pour fermer la boucle 'for each'");
 
     auto node = std::make_unique<ForEachStatementNode>(
-        itemToken.lexeme, std::move(list), std::move(body));
+        itemToken.lexeme, std::move(valueName), std::move(list), std::move(body));
     node->loc = {itemToken.line, itemToken.column};
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseTryStatement() {
+    std::vector<std::unique_ptr<StatementNode>> tryBody = parseBlock();
+    consume(TokenType::Catch, "'catch' attendu après le bloc try");
+    consume(TokenType::ErrorKw, "'error' attendu après 'catch'");
+    const Token& varToken = consumeName("Nom de variable attendu après 'catch error'");
+    std::vector<std::unique_ptr<StatementNode>> catchBody = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer try/catch");
+
+    auto node = std::make_unique<TryStatementNode>(
+        std::move(tryBody), varToken.lexeme, std::move(catchBody));
+    node->loc = {varToken.line, varToken.column};
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseRaiseStatement() {
+    auto message = parseExpression();
+    auto node = std::make_unique<RaiseStatementNode>(std::move(message));
+    setLoc(*node);
     return node;
 }
 
@@ -808,9 +867,47 @@ std::unique_ptr<ExpressionNode> Parser::parseListLiteral() {
     return std::make_unique<ListLiteralNode>(std::move(elements));
 }
 
+std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string& raw) {
+    if (raw.find('{') == std::string::npos) {
+        return std::make_unique<StringLiteralNode>(raw);
+    }
+
+    std::vector<std::unique_ptr<ExpressionNode>> parts;
+    std::size_t i = 0;
+    while (i < raw.size()) {
+        if (raw[i] == '{') {
+            const std::size_t close = raw.find('}', i);
+            if (close == std::string::npos) {
+                error("Accolade '}' manquante dans la chaîne interpolée");
+            }
+            const std::string exprSource = raw.substr(i + 1, close - i - 1);
+            Lexer subLexer(exprSource);
+            Parser subParser(subLexer.tokenize());
+            parts.push_back(subParser.parseExpression());
+            i = close + 1;
+        } else {
+            const std::size_t next = raw.find('{', i);
+            const std::size_t end = (next == std::string::npos) ? raw.size() : next;
+            const std::string text = raw.substr(i, end - i);
+            if (!text.empty()) {
+                parts.push_back(std::make_unique<StringLiteralNode>(text));
+            }
+            i = end;
+        }
+    }
+
+    if (parts.empty()) {
+        return std::make_unique<StringLiteralNode>("");
+    }
+    if (parts.size() == 1 && dynamic_cast<const StringLiteralNode*>(parts[0].get())) {
+        return std::move(parts[0]);
+    }
+    return std::make_unique<InterpolatedStringNode>(std::move(parts));
+}
+
 std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     if (match(TokenType::StringLiteral)) {
-        return std::make_unique<StringLiteralNode>(previous().lexeme);
+        return parseStringExpression(previous().lexeme);
     }
 
     if (match(TokenType::NumberLiteral)) {
@@ -834,6 +931,12 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     }
 
     if (match(TokenType::Empty)) {
+        if (match(TokenType::Map)) {
+            std::string keyType = parseTypeName();
+            consume(TokenType::To, "'to' attendu dans empty map");
+            std::string valueType = parseTypeName();
+            return std::make_unique<EmptyMapNode>(std::move(keyType), std::move(valueType));
+        }
         consume(TokenType::List, "'list' attendu après 'empty'");
         std::string elementType = parseTypeName();
         return std::make_unique<EmptyListNode>(std::move(elementType));

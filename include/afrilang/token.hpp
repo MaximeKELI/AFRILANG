@@ -19,6 +19,7 @@ enum class TokenType {
     Extern, From,
     Explain,
     Enum, Case, Match, Default, With, Nothing, Defined,
+    Map, Try, Catch, Raise,
 
     // Littéraux et identifiants
     Identifier,
@@ -126,6 +127,10 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::With:           return "with";
         case TokenType::Nothing:        return "nothing";
         case TokenType::Defined:        return "defined";
+        case TokenType::Map:            return "map";
+        case TokenType::Try:            return "try";
+        case TokenType::Catch:          return "catch";
+        case TokenType::Raise:          return "raise";
         case TokenType::Question:       return "?";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";

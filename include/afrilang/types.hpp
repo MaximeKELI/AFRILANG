@@ -10,6 +10,7 @@ enum class TypeKind {
     Text,
     Bool,
     List,
+    Map,
     Class,
     Record,
     Result,
@@ -41,6 +42,20 @@ struct AfrType {
     }
     static AfrType listTypeFromName(std::string elementTypeName) {
         return {TypeKind::List, {}, {}, std::move(elementTypeName)};
+    }
+    static AfrType mapType(AfrType key, AfrType value) {
+        AfrType t;
+        t.kind = TypeKind::Map;
+        t.className = key.toTypeName();
+        t.listElementTypeName = value.toTypeName();
+        return t;
+    }
+    static AfrType mapTypeFromNames(std::string keyTypeName, std::string valueTypeName) {
+        AfrType t;
+        t.kind = TypeKind::Map;
+        t.className = std::move(keyTypeName);
+        t.listElementTypeName = std::move(valueTypeName);
+        return t;
     }
     static AfrType recordType(std::string name) {
         return {TypeKind::Record, {}, std::move(name), {}};
@@ -75,6 +90,7 @@ struct AfrType {
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "pointer";
             case TypeKind::List:   return "list " + listElementTypeName;
+            case TypeKind::Map:    return "map " + className + " to " + listElementTypeName;
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return resultInnerType().toTypeName() + " or error";
@@ -86,6 +102,8 @@ struct AfrType {
     }
 
     AfrType listElementType() const;
+    AfrType mapKeyType() const;
+    AfrType mapValueType() const;
 
     std::string toCpp() const {
         switch (kind) {
@@ -95,6 +113,9 @@ struct AfrType {
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "void*";
             case TypeKind::List:   return "std::vector<" + listElementType().toCpp() + ">";
+            case TypeKind::Map:
+                return "std::unordered_map<" + mapKeyType().toCpp() + ", " +
+                       mapValueType().toCpp() + ">";
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return "afrilang::runtime::AfrResult_" + listElementTypeName;
@@ -115,6 +136,10 @@ struct AfrType {
         if (kind == TypeKind::Class) return className == other.className;
         if (kind == TypeKind::Record) return recordName == other.recordName;
         if (kind == TypeKind::List) return listElementTypeName == other.listElementTypeName;
+        if (kind == TypeKind::Map) {
+            return className == other.className &&
+                   listElementTypeName == other.listElementTypeName;
+        }
         if (kind == TypeKind::Result) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Optional) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Enum) return className == other.className;
@@ -136,10 +161,25 @@ inline AfrType typeFromName(const std::string& name) {
     if (name.size() > 5 && name.substr(0, 5) == "list ") {
         return AfrType::listTypeFromName(name.substr(5));
     }
+    if (name.size() > 4 && name.substr(0, 4) == "map ") {
+        const std::size_t toPos = name.find(" to ");
+        if (toPos != std::string::npos) {
+            return AfrType::mapTypeFromNames(name.substr(4, toPos - 4),
+                                             name.substr(toPos + 4));
+        }
+    }
     return AfrType::classType(name);
 }
 
 inline AfrType AfrType::listElementType() const {
+    return typeFromName(listElementTypeName);
+}
+
+inline AfrType AfrType::mapKeyType() const {
+    return typeFromName(className);
+}
+
+inline AfrType AfrType::mapValueType() const {
     return typeFromName(listElementTypeName);
 }
 

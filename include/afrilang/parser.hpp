@@ -63,6 +63,8 @@ private:
     std::unique_ptr<StatementNode> parseAskStatement();
     std::unique_ptr<StatementNode> parseUseStatement();
     std::unique_ptr<StatementNode> parseAddToListStatement();
+    std::unique_ptr<StatementNode> parseTryStatement();
+    std::unique_ptr<StatementNode> parseRaiseStatement();
     std::unique_ptr<StatementNode> parseExplainStatement();
     std::unique_ptr<StatementNode> parseExpressionStatement();
 
@@ -81,6 +83,7 @@ private:
     std::unique_ptr<ExpressionNode> parseFactor();
     std::unique_ptr<ExpressionNode> parseUnary();
     std::unique_ptr<ExpressionNode> parsePrimary();
+    std::unique_ptr<ExpressionNode> parseStringExpression(const std::string& raw);
     std::unique_ptr<ExpressionNode> parsePostfix(std::unique_ptr<ExpressionNode> expr);
     std::unique_ptr<ExpressionNode> finishCall(std::unique_ptr<ExpressionNode> callee);
     std::unique_ptr<ExpressionNode> parseListLiteral();
