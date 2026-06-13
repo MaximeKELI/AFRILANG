@@ -4,8 +4,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
 #include "io.hpp"
 #include "fs.hpp"
+#include "str.hpp"
 
 namespace fs {
 } // namespace fs

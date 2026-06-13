@@ -4,6 +4,7 @@
 #include "afrilang/lexer.hpp"
 
 #include <unordered_set>
+#include <cctype>
 
 namespace afrilang {
 
@@ -872,6 +873,17 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
         return std::make_unique<StringLiteralNode>(raw);
     }
 
+    auto isIdent = [](const std::string& text) {
+        if (text.empty()) return false;
+        if (!std::isalpha(static_cast<unsigned char>(text[0])) && text[0] != '_') {
+            return false;
+        }
+        for (char c : text) {
+            if (!std::isalnum(static_cast<unsigned char>(c)) && c != '_') return false;
+        }
+        return true;
+    };
+
     std::vector<std::unique_ptr<ExpressionNode>> parts;
     std::size_t i = 0;
     while (i < raw.size()) {
@@ -881,19 +893,22 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
                 error("Accolade '}' manquante dans la chaîne interpolée");
             }
             const std::string exprSource = raw.substr(i + 1, close - i - 1);
-            Lexer subLexer(exprSource);
-            Parser subParser(subLexer.tokenize());
-            parts.push_back(subParser.parseExpression());
-            i = close + 1;
-        } else {
-            const std::size_t next = raw.find('{', i);
-            const std::size_t end = (next == std::string::npos) ? raw.size() : next;
-            const std::string text = raw.substr(i, end - i);
-            if (!text.empty()) {
-                parts.push_back(std::make_unique<StringLiteralNode>(text));
+            if (isIdent(exprSource)) {
+                Lexer subLexer(exprSource);
+                Parser subParser(subLexer.tokenize());
+                parts.push_back(subParser.parseExpression());
+                i = close + 1;
+                continue;
             }
-            i = end;
         }
+
+        const std::size_t next = raw.find('{', i);
+        const std::size_t end = (next == std::string::npos) ? raw.size() : next;
+        const std::string text = raw.substr(i, end - i);
+        if (!text.empty()) {
+            parts.push_back(std::make_unique<StringLiteralNode>(text));
+        }
+        i = end;
     }
 
     if (parts.empty()) {

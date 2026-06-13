@@ -4,7 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
 #include <optional>
+#include "str.hpp"
 
 struct Status {
     enum class Tag { Ok, Error };

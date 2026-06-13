@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
 
 template<typename T>
 T identity(T x) {
@@ -14,7 +17,7 @@ T identity(T x) {
 template<typename T>
 T first(std::vector<T> items) {
     #line 6 "/home/maxime/AFRILANG/build/../examples/generics.afr"
-    return items[static_cast<size_t>(0)];
+    return items[0];
 }
 
 int main() {

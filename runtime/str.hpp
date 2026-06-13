@@ -7,6 +7,7 @@
 
 namespace afrilang::runtime::str {
 
+inline std::string toString(const char* value) { return value ? std::string(value) : std::string(); }
 inline std::string toString(const std::string& value) { return value; }
 
 inline std::string toString(double value) {

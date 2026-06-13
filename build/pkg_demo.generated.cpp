@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
+#include "str.hpp"
 
 namespace Math {
 } // namespace Math
