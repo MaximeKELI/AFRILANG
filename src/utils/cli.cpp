@@ -37,6 +37,8 @@ static void printUsage() {
     std::cerr << "  afrilang check <fichier.afr> Vérifier sans compiler\n";
     std::cerr << "  afrilang test                Lancer la suite de tests\n";
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
+    std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
+    std::cerr << "  afrilang repl                REPL interactif\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
     std::cerr << "  afrilang <fichier.afr> [opts] Mode legacy\n\n";
     std::cerr << "Options (mode legacy):\n";
@@ -327,6 +329,22 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "lsp") {
         return afrilang::runLspServer();
+    }
+    if (cmd == "fmt") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang fmt <fichier.afr> [-w]\n";
+            return 1;
+        }
+        bool writeBack = false;
+        for (int i = 3; i < argc; ++i) {
+            if (std::string(argv[i]) == "-w" || std::string(argv[i]) == "--write") {
+                writeBack = true;
+            }
+        }
+        return Pipeline::formatFile(argv[2], writeBack) ? 0 : 1;
+    }
+    if (cmd == "repl") {
+        return runRepl();
     }
     if (cmd == "init") {
         return cmdInit(argc > 2 ? argv[2] : "");
