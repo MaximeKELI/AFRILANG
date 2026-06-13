@@ -901,14 +901,21 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     }
 
     std::string command =
-        "g++ -std=c++17 -O2 -Wall -Wextra";
+        compilerForTarget(crossTarget_) + " -std=c++17 -O2 -Wall -Wextra";
     if (debugSymbols_) {
         command += " -g";
+    }
+    if (crossTarget_ == "wasm32") {
+        command += " -s WASM=1";
     }
     command += " -o \"" + executablePath + "\" \"" + outputPath + "\"";
 
     if (!runtimeDir_.empty()) {
         command += " -I\"" + runtimeDir_ + "\"";
+    }
+
+    for (const auto& lib : linkLibraries_) {
+        command += " " + lib;
     }
 
     command += " 2>&1";
