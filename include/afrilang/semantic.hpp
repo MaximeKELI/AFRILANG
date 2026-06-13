@@ -16,6 +16,7 @@ struct MethodSignature {
     std::vector<std::string> typeParams;
     std::vector<AfrType> paramTypes;
     AfrType returnType;
+    std::size_t requiredParamCount = 0;
     bool isConstructor = false;
     bool returnsResult = false;
     bool isExtern = false;
@@ -64,6 +65,7 @@ struct EnumInfo {
 
 struct SemanticResult {
     std::unordered_map<std::string, AfrType> globalVariables;
+    std::unordered_set<std::string> constVariables;
     std::unordered_map<std::string, ClassInfo> classes;
     std::unordered_map<std::string, InterfaceInfo> interfaces;
     std::unordered_map<std::string, RecordInfo> records;
@@ -88,6 +90,7 @@ private:
     SemanticResult result_;
     int loopDepth_ = 0;
     const ClassInfo* currentClass_ = nullptr;
+    std::unordered_set<std::string> constVariables_;
 
     void registerRecords();
     void registerEnums();
