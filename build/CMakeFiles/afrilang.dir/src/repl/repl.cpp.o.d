@@ -1,6 +1,6 @@
-CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: \
- /home/maxime/AFRILANG/src/lsp/server.cpp /usr/include/stdc-predef.h \
- /home/maxime/AFRILANG/include/afrilang/lsp.hpp \
+CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: \
+ /home/maxime/AFRILANG/src/repl/repl.cpp /usr/include/stdc-predef.h \
+ /home/maxime/AFRILANG/include/afrilang/cli.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -133,7 +133,7 @@ CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
+ /home/maxime/AFRILANG/include/afrilang/codegen.hpp \
  /home/maxime/AFRILANG/include/afrilang/ast.hpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
@@ -168,7 +168,11 @@ CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/utility \
- /usr/include/c++/13/bits/stl_relops.h /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/stl_relops.h \
+ /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
+ /home/maxime/AFRILANG/include/afrilang/types.hpp \
+ /usr/include/c++/13/unordered_set \
+ /usr/include/c++/13/bits/unordered_set.h /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
  /usr/include/c++/13/bits/locale_classes.tcc \
@@ -184,9 +188,23 @@ CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
- /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
- /home/maxime/AFRILANG/include/afrilang/types.hpp \
- /usr/include/c++/13/unordered_set \
- /usr/include/c++/13/bits/unordered_set.h /usr/include/c++/13/iostream \
+ /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
+ /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
+ /usr/include/c++/13/cstdint /usr/include/c++/13/bits/chrono.h \
+ /usr/include/c++/13/ratio /usr/include/c++/13/limits \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
  /usr/include/c++/13/istream /usr/include/c++/13/bits/istream.tcc \
- /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
+ /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
+ /usr/include/c++/13/fstream \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/iostream
