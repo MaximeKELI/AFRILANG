@@ -1,5 +1,6 @@
-CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: \
- /home/maxime/AFRILANG/src/utils/cli.cpp /usr/include/stdc-predef.h \
+CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o: \
+ /home/maxime/AFRILANG/src/serve/server.cpp /usr/include/stdc-predef.h \
+ /home/maxime/AFRILANG/include/afrilang/serve.hpp \
  /home/maxime/AFRILANG/include/afrilang/cli.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
@@ -133,9 +134,6 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/maxime/AFRILANG/include/afrilang/lsp.hpp \
- /home/maxime/AFRILANG/include/afrilang/pkg.hpp \
- /home/maxime/AFRILANG/include/afrilang/serve.hpp \
  /home/maxime/AFRILANG/include/afrilang/codegen.hpp \
  /home/maxime/AFRILANG/include/afrilang/ast.hpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
@@ -191,11 +189,33 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
- /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
- /home/maxime/AFRILANG/include/afrilang/lexer.hpp \
- /home/maxime/AFRILANG/include/afrilang/token.hpp \
- /home/maxime/AFRILANG/include/afrilang/parser.hpp \
- /home/maxime/AFRILANG/include/afrilang/project.hpp \
+ /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
+ /usr/include/arpa/inet.h /usr/include/netinet/in.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/c++/13/cstring \
+ /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/cstdint /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/limits \
