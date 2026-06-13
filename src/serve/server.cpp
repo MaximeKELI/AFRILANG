@@ -26,8 +26,6 @@ static std::string urlDecode(const std::string& value) {
     std::string out;
     for (std::size_t i = 0; i < value.size(); ++i) {
         if (value[i] == '%' && i + 2 < value.size()) {
-            const int hi = std::isxdigit(value[i + 1]) ? value[i + 1] : 0;
-            const int lo = std::isxdigit(value[i + 2]) ? value[i + 2] : 0;
             out += static_cast<char>(std::strtol((value.substr(i + 1, 2)).c_str(), nullptr, 16));
             i += 2;
         } else if (value[i] == '+') {
