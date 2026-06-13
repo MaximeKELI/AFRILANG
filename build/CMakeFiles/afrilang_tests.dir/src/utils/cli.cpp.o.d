@@ -133,10 +133,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/maxime/AFRILANG/include/afrilang/lsp.hpp \
- /home/maxime/AFRILANG/include/afrilang/pkg.hpp \
- /home/maxime/AFRILANG/include/afrilang/serve.hpp \
- /home/maxime/AFRILANG/include/afrilang/codegen.hpp \
+ /home/maxime/AFRILANG/include/afrilang/educational.hpp \
  /home/maxime/AFRILANG/include/afrilang/ast.hpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
@@ -172,6 +169,10 @@ CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
+ /home/maxime/AFRILANG/include/afrilang/lsp.hpp \
+ /home/maxime/AFRILANG/include/afrilang/pkg.hpp \
+ /home/maxime/AFRILANG/include/afrilang/serve.hpp \
+ /home/maxime/AFRILANG/include/afrilang/codegen.hpp \
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /usr/include/c++/13/unordered_set \
