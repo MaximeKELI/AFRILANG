@@ -180,15 +180,21 @@ inline Task<void> sleep(double ms) {
 
 template<typename T>
 inline T run(Task<T> task) {
-    while (task.handle && !task.handle.done()) {
+    if (task.handle) {
         task.handle.resume();
+    }
+    while (task.handle && !task.handle.done()) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
     return task.await_resume();
 }
 
 inline void run(Task<void> task) {
-    while (task.handle && !task.handle.done()) {
+    if (task.handle) {
         task.handle.resume();
+    }
+    while (task.handle && !task.handle.done()) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
     task.await_resume();
 }
