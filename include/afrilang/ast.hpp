@@ -182,13 +182,16 @@ struct AssignStatementNode : StatementNode {
     std::string name;
     std::string typeName;
     std::unique_ptr<ExpressionNode> value;
+    bool isConst = false;
 
     AssignStatementNode(std::string name,
                         std::string typeName,
-                        std::unique_ptr<ExpressionNode> value)
+                        std::unique_ptr<ExpressionNode> value,
+                        bool isConst = false)
         : name(std::move(name))
         , typeName(std::move(typeName))
-        , value(std::move(value)) {}
+        , value(std::move(value))
+        , isConst(isConst) {}
 };
 
 struct SetStatementNode : StatementNode {
@@ -276,6 +279,25 @@ struct ForEachStatementNode : StatementNode {
         , body(std::move(body)) {}
 };
 
+struct ForRangeStatementNode : StatementNode {
+    std::string varName;
+    std::unique_ptr<ExpressionNode> start;
+    std::unique_ptr<ExpressionNode> end;
+    std::unique_ptr<ExpressionNode> step;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    ForRangeStatementNode(std::string varName,
+                          std::unique_ptr<ExpressionNode> start,
+                          std::unique_ptr<ExpressionNode> end,
+                          std::unique_ptr<ExpressionNode> step,
+                          std::vector<std::unique_ptr<StatementNode>> body)
+        : varName(std::move(varName))
+        , start(std::move(start))
+        , end(std::move(end))
+        , step(std::move(step))
+        , body(std::move(body)) {}
+};
+
 struct BreakStatementNode : StatementNode {};
 struct ContinueStatementNode : StatementNode {};
 
@@ -351,9 +373,13 @@ struct RaiseStatementNode : StatementNode {
 struct ParameterNode {
     std::string name;
     std::string typeName;
+    std::unique_ptr<ExpressionNode> defaultValue;
 
-    ParameterNode(std::string name, std::string typeName)
-        : name(std::move(name)), typeName(std::move(typeName)) {}
+    ParameterNode(std::string name, std::string typeName,
+                  std::unique_ptr<ExpressionNode> defaultValue = nullptr)
+        : name(std::move(name))
+        , typeName(std::move(typeName))
+        , defaultValue(std::move(defaultValue)) {}
 };
 
 struct FieldNode {

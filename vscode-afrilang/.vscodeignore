@@ -4,3 +4,7 @@ install*.sh
 publish.sh
 PUBLISHING.md
 **/*.vsix
+hello
+hello.generated.cpp
+**/*.generated.cpp
+**/*.afr

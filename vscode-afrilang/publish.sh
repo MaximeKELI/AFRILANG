@@ -2,6 +2,11 @@
 # Empaquette et publie l'extension sur VS Code Marketplace + Open VSX.
 set -euo pipefail
 
+# Éviter le Node embarqué de Cursor (npm ENOENT sur AppImage)
+if [[ -x "${HOME}/.nvm/versions/node/v20.19.0/bin/node" ]]; then
+  export PATH="${HOME}/.nvm/versions/node/v20.19.0/bin:${PATH}"
+fi
+
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 

@@ -80,6 +80,8 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"try",      TokenType::Try},
     {"catch",    TokenType::Catch},
     {"raise",    TokenType::Raise},
+    {"const",    TokenType::Const},
+    {"step",     TokenType::Step},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}

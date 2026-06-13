@@ -427,7 +427,11 @@ std::vector<ParameterNode> Parser::parseParameters() {
     do {
         const Token& nameToken = consumeName( "Nom de paramètre attendu");
         std::string typeName = parseTypeName();
-        params.emplace_back(nameToken.lexeme, std::move(typeName));
+        std::unique_ptr<ExpressionNode> defaultValue;
+        if (match(TokenType::Equals)) {
+            defaultValue = parseExpression();
+        }
+        params.emplace_back(nameToken.lexeme, std::move(typeName), std::move(defaultValue));
     } while (match(TokenType::Comma));
 
     return params;
@@ -485,7 +489,10 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::If))        return parseIfStatement();
     if (match(TokenType::While))     return parseWhileStatement();
     if (match(TokenType::Repeat))    return parseRepeatStatement();
-    if (match(TokenType::For))       return parseForEachStatement();
+    if (match(TokenType::For)) {
+        if (check(TokenType::Each)) return parseForEachStatement();
+        return parseForRangeStatement();
+    }
     if (match(TokenType::Return))    return parseReturnStatement();
     if (match(TokenType::Assert))    return parseAssertStatement();
     if (match(TokenType::Ask))       return parseAskStatement();
@@ -514,6 +521,7 @@ std::unique_ptr<StatementNode> Parser::parseSayStatement() {
 }
 
 std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
+    const bool isConst = match(TokenType::Const);
     const Token& nameToken = consumeName( "Nom de variable attendu après 'create'");
     std::string typeName;
 
@@ -564,7 +572,7 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
     }
 
     auto node = std::make_unique<AssignStatementNode>(
-        nameToken.lexeme, std::move(typeName), std::move(value));
+        nameToken.lexeme, std::move(typeName), std::move(value), isConst);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -665,6 +673,27 @@ std::unique_ptr<StatementNode> Parser::parseForEachStatement() {
     auto node = std::make_unique<ForEachStatementNode>(
         itemToken.lexeme, std::move(valueName), std::move(list), std::move(body));
     node->loc = {itemToken.line, itemToken.column};
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseForRangeStatement() {
+    const Token& varToken = consumeName("Nom de variable attendu après 'for'");
+    consume(TokenType::From, "'from' attendu");
+    auto start = parseExpression();
+    consume(TokenType::To, "'to' attendu");
+    auto end = parseExpression();
+    std::unique_ptr<ExpressionNode> step;
+    if (match(TokenType::Step)) {
+        step = parseExpression();
+    }
+    consume(TokenType::Do, "'do' attendu");
+
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer la boucle 'for'");
+
+    auto node = std::make_unique<ForRangeStatementNode>(
+        varToken.lexeme, std::move(start), std::move(end), std::move(step), std::move(body));
+    node->loc = {varToken.line, varToken.column};
     return node;
 }
 
