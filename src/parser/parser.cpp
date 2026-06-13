@@ -198,6 +198,37 @@ std::unique_ptr<ExternDeclNode> Parser::parseExtern() {
     return node;
 }
 
+bool Parser::matchToOrThan() {
+    return match(TokenType::To) || match(TokenType::Than);
+}
+
+void Parser::consumeToOrThan(const std::string& message) {
+    if (!matchToOrThan()) error(message);
+}
+
+void Parser::consumeIntoOrEn(const std::string& message) {
+    if (!match(TokenType::Into)) {
+        std::string name;
+        if (!matchName(name) || name != "en") {
+            error(message);
+        }
+    }
+}
+
+void Parser::skipOptionalQueAfterWhile() {
+    std::string word;
+    if (matchName(word) && word != "que") {
+        error("Mot inattendu '" + word + "' après 'tant' — utilisez 'tant que' ou 'tantque'");
+    }
+}
+
+std::unique_ptr<StatementNode> Parser::parseExplainStatement() {
+    auto inner = parseStatement();
+    auto node = std::make_unique<ExplainStatementNode>(std::move(inner));
+    setLoc(*node);
+    return node;
+}
+
 std::unique_ptr<ImportNode> Parser::parseImport() {
     const Token& pathToken = consume(TokenType::StringLiteral, "Chemin de fichier attendu après 'import'");
     auto node = std::make_unique<ImportNode>(pathToken.lexeme);
@@ -396,6 +427,7 @@ std::vector<std::unique_ptr<StatementNode>> Parser::parseBlock() {
 // ── Instructions ──────────────────────────────────────────────────────────────
 
 std::unique_ptr<StatementNode> Parser::parseStatement() {
+    if (match(TokenType::Explain))    return parseExplainStatement();
     if (match(TokenType::Say))       return parseSayStatement();
     if (match(TokenType::Create))    return parseCreateStatement();
     if (match(TokenType::Set))       return parseSetStatement();
