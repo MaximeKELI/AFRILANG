@@ -1042,6 +1042,13 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
         return std::make_unique<NewExpressionNode>(classToken.lexeme);
     }
 
+    if (match(TokenType::Function)) {
+        if (!check(TokenType::LeftParen)) {
+            error("Fonction anonyme attendue: function(...) returns ... end");
+        }
+        return parseLambdaExpression();
+    }
+
     if (match(TokenType::LeftBracket)) {
         return parseListLiteral();
     }
