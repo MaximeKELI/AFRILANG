@@ -48,7 +48,8 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
            path == "std/math" || path == "std/math.afr" ||
            path == "std/time" || path == "std/time.afr" ||
            path == "std/chrono" || path == "std/chrono.afr" ||
-           path == "std/re" || path == "std/re.afr";
+           path == "std/re" || path == "std/re.afr" ||
+           path == "std/collections" || path == "std/collections.afr";
 }
 
 std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
@@ -67,6 +68,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (path.find("std/re") != std::string::npos || path.find("re.afr") != std::string::npos) {
         return "re";
     }
+    if (path.find("collections") != std::string::npos) return "collections";
     if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
         return "fs";
     }
@@ -151,6 +153,20 @@ void StdlibRegistry::injectReModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("match", {{"text", "text"}, {"pattern", "text"}}, "bool"));
     fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
     injectModule(program, "re", std::move(fns));
+}
+
+void StdlibRegistry::injectCollectionsModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("sortNumbers", {{"items", "list number"}}, "list number"));
+    fns.push_back(makeStubFunction("sortText", {{"items", "list text"}}, "list text"));
+    fns.push_back(makeStubFunction("reverseNumbers", {{"items", "list number"}}, "list number"));
+    fns.push_back(makeStubFunction("reverseText", {{"items", "list text"}}, "list text"));
+    fns.push_back(makeStubFunction("containsNumber", {{"items", "list number"}, {"value", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("containsText", {{"items", "list text"}, {"value", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("indexOfNumber", {{"items", "list number"}, {"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("indexOfText", {{"items", "list text"}, {"value", "text"}}, "number"));
+    fns.push_back(makeStubFunction("sum", {{"items", "list number"}}, "number"));
+    injectModule(program, "collections", std::move(fns));
 }
 
 } // namespace afrilang
