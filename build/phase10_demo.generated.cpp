@@ -53,8 +53,8 @@ namespace collections {
         return afrilang::runtime::collections::indexOfText(items, value);
     }
 
-    double sum(std::vector<double> items) {
-        return afrilang::runtime::collections::sum(items);
+    double sumNumbers(std::vector<double> items) {
+        return afrilang::runtime::collections::sumNumbers(items);
     }
 
 } // namespace collections
@@ -135,7 +135,7 @@ int main() {
     #line 22 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << sorted[static_cast<size_t>(4)] << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << collections::sum(nums) << std::endl;
+    std::cout << collections::sumNumbers(nums) << std::endl;
     #line 24 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << collections::containsNumber(nums, 4) << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
