@@ -50,6 +50,7 @@ afrilang run fichier.afr    # Compiler et exécuter
 afrilang check fichier.afr  # Vérifier sans compiler
 afrilang test               # Lancer la suite de tests
 afrilang init mon_projet    # Créer un nouveau projet
+afrilang lsp                # Serveur Language Server (stdio)
 
 # Mode legacy (compatible)
 ./afrilang ../examples/hello.afr --run
@@ -313,6 +314,74 @@ say x - y
 say a / b
 ```
 
+### Result / gestion d'erreurs
+
+Les fonctions peuvent retourner une valeur **ou** une erreur :
+
+```
+function divide(a number, b number) returns number or error
+    if b is equal to 0 then
+        return error "Division par zero"
+    end
+    return a / b
+end
+
+create ok = divide(10, 2)
+if ok is error then
+    say ok.message
+else
+    say ok.value
+end
+```
+
+- `returns T or error` — type de retour Result
+- `return error "message"` — retourne une erreur
+- `if x is error then` — teste si le Result est une erreur
+- `.value` et `.message` — accès aux champs du Result
+
+### Interfaces (traits)
+
+```
+interface Speakable
+    function speak()
+end
+
+interface Named
+    function getName() returns text
+end
+
+class Dog extends Animal implements Speakable, Named
+    function speak()
+        say "Woof!"
+    end
+
+    function getName() returns text
+        return "Rex"
+    end
+end
+```
+
+Les interfaces définissent des signatures de méthodes ; les classes qui les implémentent doivent fournir les méthodes correspondantes.
+
+### Tests et assertions
+
+```
+function add(a number, b number) returns number
+    return a + b
+end
+
+test "addition works"
+    create r = add(2, 3)
+    assert r is equal to 5
+end
+```
+
+Les blocs `test` sont compilés et exécutés automatiquement au lancement du programme. `assert` vérifie une condition et incrémente un compteur d'échecs en cas d'erreur.
+
+### Extension VS Code / LSP
+
+Un serveur LSP minimal est disponible via `afrilang lsp` (stdio). L'extension dans `vscode-afrilang/` fournit coloration syntaxique et lance le serveur.
+
 ## Exemples
 
 | Fichier | Description |
@@ -328,6 +397,10 @@ say a / b
 | `examples/fields.afr` | Champs public/private et init |
 | `examples/records.afr` | Records (structs) |
 | `examples/full_demo.afr` | Démo combinée (imports, modules, boucles) |
+| `examples/stdlib_demo.afr` | Bibliothèque standard (io, json) |
+| `examples/result.afr` | Result / gestion d'erreurs |
+| `examples/interfaces.afr` | Interfaces et implements |
+| `examples/tests.afr` | Tests intégrés et assert |
 
 ## Compiler tous les exemples
 

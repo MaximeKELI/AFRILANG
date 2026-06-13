@@ -1,0 +1,89 @@
+Start testing: Jun 13 00:05 GMT
+----------------------------------------------------------
+1/2 Testing: compiler_unit_tests
+1/2 Test: compiler_unit_tests
+Command: "/home/maxime/AFRILANG/build/afrilang_tests"
+Directory: /home/maxime/AFRILANG/build
+"compiler_unit_tests" start time: Jun 13 00:05 GMT
+Output:
+----------------------------------------------------------
+=== Tests compilateur AFRILANG ===
+
+Tous les tests unitaires passent.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"compiler_unit_tests" end time: Jun 13 00:05 GMT
+"compiler_unit_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: compiler_integration
+2/2 Test: compiler_integration
+Command: "/home/maxime/AFRILANG/build/afrilang" "test" "/home/maxime/AFRILANG"
+Directory: /home/maxime/AFRILANG/build
+"compiler_integration" start time: Jun 13 00:05 GMT
+Output:
+----------------------------------------------------------
+=== Tests AFRILANG ===
+
+[examples]
+  hello.afr ... Compilation de /home/maxime/AFRILANG/examples/hello.afr...
+Exécutable produit: hello
+OK
+  oop.afr ... Compilation de /home/maxime/AFRILANG/examples/oop.afr...
+Exécutable produit: oop
+OK
+  conditions.afr ... Compilation de /home/maxime/AFRILANG/examples/conditions.afr...
+Exécutable produit: conditions
+OK
+  inheritance.afr ... Compilation de /home/maxime/AFRILANG/examples/inheritance.afr...
+Exécutable produit: inheritance
+OK
+  functions.afr ... Compilation de /home/maxime/AFRILANG/examples/functions.afr...
+Exécutable produit: functions
+OK
+  while.afr ... Compilation de /home/maxime/AFRILANG/examples/while.afr...
+Exécutable produit: while
+OK
+  lists.afr ... Compilation de /home/maxime/AFRILANG/examples/lists.afr...
+Exécutable produit: lists
+OK
+  modules.afr ... Compilation de /home/maxime/AFRILANG/examples/modules.afr...
+Exécutable produit: modules
+OK
+  fields.afr ... Compilation de /home/maxime/AFRILANG/examples/fields.afr...
+Exécutable produit: fields
+OK
+  records.afr ... Compilation de /home/maxime/AFRILANG/examples/records.afr...
+Exécutable produit: records
+OK
+  full_demo.afr ... Compilation de /home/maxime/AFRILANG/examples/full_demo.afr...
+Exécutable produit: full_demo
+OK
+  stdlib_demo.afr ... Compilation de /home/maxime/AFRILANG/examples/stdlib_demo.afr...
+Exécutable produit: stdlib_demo
+OK
+  result.afr ... Compilation de /home/maxime/AFRILANG/examples/result.afr...
+Exécutable produit: result
+OK
+  interfaces.afr ... Compilation de /home/maxime/AFRILANG/examples/interfaces.afr...
+Exécutable produit: interfaces
+OK
+  tests.afr ... Compilation de /home/maxime/AFRILANG/examples/tests.afr...
+Exécutable produit: tests
+OK
+  stdlib_demo.afr ... Compilation de /home/maxime/AFRILANG/examples/stdlib_demo.afr...
+Exécutable produit: stdlib_demo
+OK
+
+Tous les tests passent.
+<end of output>
+Test time =  19.77 sec
+----------------------------------------------------------
+Test Passed.
+"compiler_integration" end time: Jun 13 00:06 GMT
+"compiler_integration" time elapsed: 00:00:19
+----------------------------------------------------------
+
+End testing: Jun 13 00:06 GMT
