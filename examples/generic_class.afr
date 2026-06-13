@@ -1,12 +1,12 @@
 class Box<T>
-    public field value T
+    public field data T
 
     function init(v T)
-        set this.value = v
+        set this.data = v
     end
 
     function get() returns T
-        return this.value
+        return this.data
     end
 end
 
