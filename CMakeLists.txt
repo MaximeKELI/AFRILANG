@@ -18,7 +18,9 @@ set(AFRILANG_SOURCES
     src/utils/project.cpp
     src/utils/stdlib_registry.cpp
     src/utils/formatter.cpp
+    src/utils/pkg.cpp
     src/repl/repl.cpp
+    src/serve/server.cpp
     src/lsp/server.cpp
 )
 

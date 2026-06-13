@@ -6,6 +6,7 @@
 #include "afrilang/pkg.hpp"
 #include "afrilang/stdlib_registry.hpp"
 
+#include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <sstream>

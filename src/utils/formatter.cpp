@@ -66,6 +66,19 @@ void Formatter::format(std::ostream& out) const {
         needBlank = true;
     }
 
+    for (const auto& ext : program_.externs) {
+        if (needBlank) out << "\n";
+        writeIndent(out);
+        out << "extern from \"" << ext->library << "\" function " << ext->name;
+        formatParameters(out, ext->parameters);
+        if (!ext->returnTypeName.empty()) {
+            out << " returns ";
+            formatType(out, ext->returnTypeName);
+        }
+        out << "\n";
+        needBlank = true;
+    }
+
     for (const auto& test : program_.tests) {
         if (needBlank) out << "\n";
         formatTest(out, *test);

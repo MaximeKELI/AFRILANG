@@ -250,10 +250,21 @@ static int cmdBuild(int argc, char* argv[]) {
     }
 }
 
-static int cmdRun(const std::string& file) {
+static int cmdRun(int argc, char* argv[]) {
+    if (argc < 3) {
+        std::cerr << "Usage: afrilang run <fichier.afr> [--target <cible>]\n";
+        return 1;
+    }
+
     CompileOptions opts;
     opts.runAfter = true;
     opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
+    std::string file = argv[2];
+    for (int i = 3; i < argc; ++i) {
+        if (std::string(argv[i]) == "--target" && i + 1 < argc) {
+            opts.crossTarget = argv[++i];
+        }
+    }
     try {
         auto result = Pipeline::compileFile(file, opts);
         return result.success ? 0 : 1;
@@ -311,6 +322,7 @@ static int legacyMode(int argc, char* argv[]) {
         else if (arg == "--ast") opts.showAST = true;
         else if (arg == "--emit") opts.emitOnly = true;
         else if (arg == "--run") opts.runAfter = true;
+        else if (arg == "--target" && i + 1 < argc) opts.crossTarget = argv[++i];
         else if (arg == "-o" && i + 1 < argc) opts.outputExecutable = argv[++i];
         else {
             std::cerr << "Option inconnue: " << arg << "\n";
@@ -338,11 +350,10 @@ int runCli(int argc, char* argv[]) {
     const std::string cmd = argv[1];
 
     if (cmd == "build") {
-        return cmdBuild(argc > 2 ? argv[2] : "");
+        return cmdBuild(argc, argv);
     }
     if (cmd == "run") {
-        if (argc < 3) { std::cerr << "Usage: afrilang run <fichier.afr>\n"; return 1; }
-        return cmdRun(argv[2]);
+        return cmdRun(argc, argv);
     }
     if (cmd == "check") {
         if (argc < 3) { std::cerr << "Usage: afrilang check <fichier.afr>\n"; return 1; }
@@ -369,6 +380,31 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "repl") {
         return runRepl();
+    }
+    if (cmd == "pkg") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang pkg <list|add|install> [name]\n";
+            return 1;
+        }
+        const std::string sub = argv[2];
+        const std::string root = detectAfrilangRoot();
+        const std::string dir = fs::current_path().string();
+        if (sub == "list") return PkgRegistry::cmdList(root);
+        if (sub == "add") {
+            if (argc < 4) {
+                std::cerr << "Usage: afrilang pkg add <name>\n";
+                return 1;
+            }
+            return PkgRegistry::cmdAdd(dir, argv[3], root);
+        }
+        if (sub == "install") return PkgRegistry::cmdInstall(dir, root);
+        std::cerr << "Sous-commande pkg inconnue: " << sub << "\n";
+        return 1;
+    }
+    if (cmd == "serve") {
+        int port = 8080;
+        if (argc >= 3) port = std::stoi(argv[2]);
+        return runHttpServer(port, (fs::path(detectAfrilangRoot()) / "site").string());
     }
     if (cmd == "init") {
         return cmdInit(argc > 2 ? argv[2] : "");
