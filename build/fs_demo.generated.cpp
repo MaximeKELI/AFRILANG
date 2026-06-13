@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "io.hpp"
 #include "fs.hpp"
 #include "str.hpp"

@@ -6,20 +6,21 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 
 namespace Utils {
 } // namespace Utils
 
 namespace Utils {
-    double twice(double x) {
+    double afr_twice(double x) {
         #line 5 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
         return (x * 2);
     }
 
 } // namespace Utils
 
-double sum2(double a, double b) {
+double afr_sum2(double a, double b) {
     #line 2 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
     return (a + b);
 }
@@ -60,7 +61,7 @@ int main() {
         std::cout << item << std::endl;
     }
     #line 33 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
-    std::cout << sum2(10, 32) << std::endl;
+    std::cout << afr_sum2(10, 32) << std::endl;
     #line 34 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
     std::cout << "Full demo complete" << std::endl;
     return 0;

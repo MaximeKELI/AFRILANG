@@ -6,18 +6,19 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 
 namespace Math {
 } // namespace Math
 
 namespace Math {
-    double add(double a, double b) {
+    double afr_add(double a, double b) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/modules.afr"
         return (a + b);
     }
 
-    double multiply(double a, double b) {
+    double afr_multiply(double a, double b) {
         #line 7 "/home/maxime/AFRILANG/build/../examples/modules.afr"
         return (a * b);
     }

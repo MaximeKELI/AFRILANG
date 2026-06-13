@@ -6,10 +6,11 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 #include "result.hpp"
 
-afrilang::runtime::AfrResult_number divide(double a, double b) {
+afrilang::runtime::AfrResult_number afr_divide(double a, double b) {
     #line 4 "/home/maxime/AFRILANG/build/../examples/result.afr"
     if ((b == 0)) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/result.afr"
@@ -26,7 +27,7 @@ afrilang::runtime::AfrResult_number divide(double a, double b) {
 
 int main() {
     #line 8 "/home/maxime/AFRILANG/build/../examples/result.afr"
-    auto ok = divide(10, 2);
+    auto ok = afr_divide(10, 2);
     #line 13 "/home/maxime/AFRILANG/build/../examples/result.afr"
     if (ok.isError) {
         #line 10 "/home/maxime/AFRILANG/build/../examples/result.afr"
@@ -36,7 +37,7 @@ int main() {
         std::cout << ok.value << std::endl;
     }
     #line 15 "/home/maxime/AFRILANG/build/../examples/result.afr"
-    auto bad = divide(10, 0);
+    auto bad = afr_divide(10, 0);
     #line 20 "/home/maxime/AFRILANG/build/../examples/result.afr"
     if (bad.isError) {
         #line 17 "/home/maxime/AFRILANG/build/../examples/result.afr"

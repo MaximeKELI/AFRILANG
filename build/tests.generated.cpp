@@ -6,9 +6,10 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 
-double add(double a, double b) {
+double afr_add(double a, double b) {
     #line 2 "/home/maxime/AFRILANG/build/../examples/tests.afr"
     return (a + b);
 }
@@ -17,7 +18,7 @@ static int afr_tests_failed = 0;
 
 void afr_test_addition_works() {
     #line 6 "/home/maxime/AFRILANG/build/../examples/tests.afr"
-    auto r = add(2, 3);
+    auto r = afr_add(2, 3);
     #line 7 "/home/maxime/AFRILANG/build/../examples/tests.afr"
     if (!((r == 5))) {
         std::cerr << "ASSERT FAILED" << std::endl;

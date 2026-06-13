@@ -6,23 +6,24 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 
 namespace Math {
 } // namespace Math
 
 namespace Math {
-    double square(double x) {
+    double afr_square(double x) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return (x * x);
     }
 
-    double pi() {
+    double afr_pi() {
         #line 7 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return 3.14159;
     }
 
-    double twice(double x) {
+    double afr_twice(double x) {
         #line 11 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return (x * 2);
     }
