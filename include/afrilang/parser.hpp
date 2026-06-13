@@ -38,6 +38,7 @@ private:
 
     std::unique_ptr<ProgramNode> parseProgram();
     std::unique_ptr<ImportNode> parseImport();
+    std::unique_ptr<ExternDeclNode> parseExtern();
     std::unique_ptr<ModuleNode> parseModule();
     std::unique_ptr<RecordNode> parseRecord();
     std::unique_ptr<InterfaceNode> parseInterface();

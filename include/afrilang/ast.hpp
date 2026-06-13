@@ -359,6 +359,22 @@ struct ImportNode : ASTNode {
     explicit ImportNode(std::string path) : path(std::move(path)) {}
 };
 
+struct ExternDeclNode : ASTNode {
+    std::string library;
+    std::string name;
+    std::vector<ParameterNode> parameters;
+    std::string returnTypeName;
+
+    ExternDeclNode(std::string library,
+                   std::string name,
+                   std::vector<ParameterNode> parameters,
+                   std::string returnTypeName)
+        : library(std::move(library))
+        , name(std::move(name))
+        , parameters(std::move(parameters))
+        , returnTypeName(std::move(returnTypeName)) {}
+};
+
 struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<ImportNode>> imports;
     std::vector<std::unique_ptr<ModuleNode>> modules;
@@ -367,6 +383,7 @@ struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
     std::vector<std::unique_ptr<TestNode>> tests;
+    std::vector<std::unique_ptr<ExternDeclNode>> externs;
     std::vector<std::unique_ptr<StatementNode>> statements;
 
     ProgramNode(std::vector<std::unique_ptr<ImportNode>> imports,
@@ -376,6 +393,7 @@ struct ProgramNode : ASTNode {
                 std::vector<std::unique_ptr<ClassNode>> classes,
                 std::vector<std::unique_ptr<FunctionNode>> functions,
                 std::vector<std::unique_ptr<TestNode>> tests,
+                std::vector<std::unique_ptr<ExternDeclNode>> externs,
                 std::vector<std::unique_ptr<StatementNode>> statements)
         : imports(std::move(imports))
         , modules(std::move(modules))
@@ -384,6 +402,7 @@ struct ProgramNode : ASTNode {
         , classes(std::move(classes))
         , functions(std::move(functions))
         , tests(std::move(tests))
+        , externs(std::move(externs))
         , statements(std::move(statements)) {}
 };
 

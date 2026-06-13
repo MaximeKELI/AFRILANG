@@ -17,6 +17,8 @@ struct MethodSignature {
     AfrType returnType;
     bool isConstructor = false;
     bool returnsResult = false;
+    bool isExtern = false;
+    std::string externLibrary;
 };
 
 struct FieldInfo {
@@ -79,6 +81,7 @@ private:
     void registerInterfaces();
     void registerClasses();
     void registerModules();
+    void registerExterns();
     void analyzeProgram();
     void analyzeClass(const ClassNode& cls);
     void analyzeTest(const TestNode& test);

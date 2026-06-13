@@ -82,6 +82,7 @@ void Parser::synchronize() {
             case TokenType::Module:
             case TokenType::Record:
             case TokenType::Import:
+            case TokenType::Extern:
             case TokenType::Interface:
             case TokenType::Test:
             case TokenType::Assert:
@@ -139,12 +140,15 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
     std::vector<std::unique_ptr<TestNode>> tests;
+    std::vector<std::unique_ptr<ExternDeclNode>> externs;
     std::vector<std::unique_ptr<StatementNode>> statements;
 
     while (!isAtEnd()) {
         try {
             if (match(TokenType::Import)) {
                 imports.push_back(parseImport());
+            } else if (match(TokenType::Extern)) {
+                externs.push_back(parseExtern());
             } else if (match(TokenType::Module)) {
                 modules.push_back(parseModule());
             } else if (match(TokenType::Interface)) {
@@ -169,7 +173,28 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
     return std::make_unique<ProgramNode>(
         std::move(imports), std::move(modules), std::move(interfaces),
         std::move(records), std::move(classes), std::move(functions),
-        std::move(tests), std::move(statements));
+        std::move(tests), std::move(externs), std::move(statements));
+}
+
+std::unique_ptr<ExternDeclNode> Parser::parseExtern() {
+    consume(TokenType::From, "'from' attendu après 'extern'");
+    const Token& libToken = consume(TokenType::StringLiteral, "Nom de bibliothèque attendu");
+    consume(TokenType::Function, "'function' attendu dans la déclaration extern");
+    const Token& nameToken = consumeName("Nom de fonction extern attendu");
+
+    consume(TokenType::LeftParen, "'(' attendu");
+    std::vector<ParameterNode> params = parseParameters();
+    consume(TokenType::RightParen, "')' attendu");
+
+    std::string returnType;
+    if (match(TokenType::Returns)) {
+        returnType = parseTypeName();
+    }
+
+    auto node = std::make_unique<ExternDeclNode>(
+        libToken.lexeme, nameToken.lexeme, std::move(params), std::move(returnType));
+    setLoc(*node);
+    return node;
 }
 
 std::unique_ptr<ImportNode> Parser::parseImport() {

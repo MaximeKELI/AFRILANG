@@ -12,7 +12,8 @@ enum class TypeKind {
     List,
     Class,
     Record,
-    Result
+    Result,
+    Pointer
 };
 
 struct AfrType {
@@ -25,6 +26,7 @@ struct AfrType {
     static AfrType number() { return {TypeKind::Number, {}, {}, {}}; }
     static AfrType text() { return {TypeKind::Text, {}, {}, {}}; }
     static AfrType boolType() { return {TypeKind::Bool, {}, {}, {}}; }
+    static AfrType pointer() { return {TypeKind::Pointer, {}, {}, {}}; }
     static AfrType classType(std::string name) {
         return {TypeKind::Class, std::move(name), {}, {}};
     }
@@ -55,6 +57,7 @@ struct AfrType {
             case TypeKind::Number: return "number";
             case TypeKind::Text:   return "text";
             case TypeKind::Bool:   return "bool";
+            case TypeKind::Pointer: return "pointer";
             case TypeKind::List:   return "list " + listElementTypeName;
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
@@ -71,6 +74,7 @@ struct AfrType {
             case TypeKind::Number: return "double";
             case TypeKind::Text:   return "std::string";
             case TypeKind::Bool:   return "bool";
+            case TypeKind::Pointer: return "void*";
             case TypeKind::List:   return "std::vector<" + listElementType().toCpp() + ">";
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
@@ -99,6 +103,7 @@ inline AfrType typeFromName(const std::string& name) {
     if (name == "number") return AfrType::number();
     if (name == "text")   return AfrType::text();
     if (name == "bool")   return AfrType::boolType();
+    if (name == "pointer") return AfrType::pointer();
     if (name.size() > 5 && name.substr(0, 5) == "list ") {
         return AfrType::listTypeFromName(name.substr(5));
     }

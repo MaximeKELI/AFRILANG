@@ -66,6 +66,8 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"test",     TokenType::Test},
     {"assert",   TokenType::Assert},
     {"error",    TokenType::ErrorKw},
+    {"extern",   TokenType::Extern},
+    {"from",     TokenType::From},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}
