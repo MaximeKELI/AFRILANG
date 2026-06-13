@@ -13,17 +13,17 @@ namespace Math {
 } // namespace Math
 
 namespace Math {
-    double afr_square(double x) {
+    double square(double x) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return (x * x);
     }
 
-    double afr_pi() {
+    double pi() {
         #line 7 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return 3.14159;
     }
 
-    double afr_twice(double x) {
+    double twice(double x) {
         #line 11 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return (x * 2);
     }
