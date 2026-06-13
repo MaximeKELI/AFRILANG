@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o.d"
+  "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o"
+  "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o"

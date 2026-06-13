@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/main.cpp" "CMakeFiles/afrilang.dir/main.cpp.o" "gcc" "CMakeFiles/afrilang.dir/main.cpp.o.d"
   "/home/maxime/AFRILANG/src/codegen/codegen.cpp" "CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o.d"
   "/home/maxime/AFRILANG/src/lexer/lexer.cpp" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o.d"
+  "/home/maxime/AFRILANG/src/lsp/server.cpp" "CMakeFiles/afrilang.dir/src/lsp/server.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/lsp/server.cpp.o.d"
   "/home/maxime/AFRILANG/src/parser/parser.cpp" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/parser/parser.cpp.o.d"
   "/home/maxime/AFRILANG/src/semantic/analyzer.cpp" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/cli.cpp" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o.d"

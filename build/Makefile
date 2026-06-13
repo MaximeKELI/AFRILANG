@@ -288,6 +288,33 @@ src/lexer/lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.s
 .PHONY : src/lexer/lexer.cpp.s
 
+src/lsp/server.o: src/lsp/server.cpp.o
+.PHONY : src/lsp/server.o
+
+# target to build an object file
+src/lsp/server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lsp/server.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o
+.PHONY : src/lsp/server.cpp.o
+
+src/lsp/server.i: src/lsp/server.cpp.i
+.PHONY : src/lsp/server.i
+
+# target to preprocess a source file
+src/lsp/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lsp/server.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.i
+.PHONY : src/lsp/server.cpp.i
+
+src/lsp/server.s: src/lsp/server.cpp.s
+.PHONY : src/lsp/server.s
+
+# target to generate assembly for a file
+src/lsp/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/lsp/server.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.s
+.PHONY : src/lsp/server.cpp.s
+
 src/parser/parser.o: src/parser/parser.cpp.o
 .PHONY : src/parser/parser.o
 
@@ -526,6 +553,9 @@ help:
 	@echo "... src/lexer/lexer.o"
 	@echo "... src/lexer/lexer.i"
 	@echo "... src/lexer/lexer.s"
+	@echo "... src/lsp/server.o"
+	@echo "... src/lsp/server.i"
+	@echo "... src/lsp/server.s"
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"
