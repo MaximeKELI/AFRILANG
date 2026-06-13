@@ -3,5 +3,5 @@ import "pkg/math/math.afr"
 use Math
 
 say square(5)
-say double(21)
+say twice(21)
 say pi()

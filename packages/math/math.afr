@@ -7,7 +7,7 @@ module Math
         return 3.14159265359
     end
 
-    function double(x number) returns number
+    function twice(x number) returns number
         return x * 2
     end
 end
