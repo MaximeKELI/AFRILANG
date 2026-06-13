@@ -128,6 +128,8 @@ private:
     const ClassInfo* findClass(const std::string& name) const;
     const RecordInfo* findRecord(const std::string& name) const;
     const FieldInfo* findField(const ClassInfo& cls, const std::string& fieldName) const;
+    const FieldInfo* findFieldWithOwner(const ClassInfo& cls, const std::string& fieldName,
+                                        const ClassInfo*& ownerClass) const;
     bool canAccessField(const FieldInfo& field, const ClassInfo& ownerClass,
                         const ClassInfo* accessingClass) const;
     bool isSubclassOf(const std::string& derived, const std::string& base) const;

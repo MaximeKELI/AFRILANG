@@ -609,7 +609,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                     errorAt(*set, "'this' utilisé en dehors d'une méthode");
                 }
                 const ClassInfo* ownerClass = currentClass_;
-                const FieldInfo* field = findField(*currentClass_, member->member);
+                const FieldInfo* field = findFieldWithOwner(*currentClass_, member->member, ownerClass);
                 if (!field) {
                     errorAt(*set, "Champ '" + member->member + "' introuvable");
                 }
@@ -939,6 +939,16 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         return AfrType::classType(currentClass_->name);
     }
 
+    if (dynamic_cast<const SuperExpressionNode*>(&expr)) {
+        if (!currentClass_) {
+            errorAt(expr, "'super' utilisé en dehors d'une méthode");
+        }
+        if (currentClass_->baseClass.empty()) {
+            errorAt(expr, "'super' utilisé sans classe de base");
+        }
+        return AfrType::classType(currentClass_->baseClass);
+    }
+
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
         auto it = scope.find(id->name);
         if (it != scope.end()) return it->second;
@@ -1177,6 +1187,9 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             if (!result_.classes.count(newExpr->className)) {
                 errorAt(expr, "Classe '" + newExpr->className + "' introuvable");
             }
+            if (result_.classes.at(newExpr->className).isAbstract) {
+                errorAt(expr, "Impossible d'instancier la classe abstraite '" + newExpr->className + "'");
+            }
             const MethodSignature* initSig = findMethod(newExpr->className, "init");
             if (initSig) {
                 if (call->arguments.size() < initSig->requiredParamCount ||
@@ -1199,7 +1212,82 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             return AfrType::classType(newExpr->className);
         }
 
+        if (dynamic_cast<const SuperExpressionNode*>(call->callee.get())) {
+            if (!currentClass_) {
+                errorAt(expr, "'super(...)' utilisé en dehors d'une méthode");
+            }
+            if (currentClass_->baseClass.empty()) {
+                errorAt(expr, "'super(...)' sans classe de base");
+            }
+            const MethodSignature* initSig = findMethod(currentClass_->baseClass, "init");
+            if (initSig) {
+                if (call->arguments.size() < initSig->requiredParamCount ||
+                    call->arguments.size() > initSig->paramTypes.size()) {
+                    errorAt(expr, "Constructeur parent attend entre " +
+                          std::to_string(initSig->requiredParamCount) + " et " +
+                          std::to_string(initSig->paramTypes.size()) + " argument(s)");
+                }
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                    if (!isAssignable(initSig->paramTypes[i], argType)) {
+                        errorAt(expr, "Type incompatible pour l'argument " +
+                              std::to_string(i + 1) + " de super(...)");
+                    }
+                }
+            } else if (!call->arguments.empty()) {
+                errorAt(expr, "La classe de base n'a pas de constructeur 'init'");
+            }
+            return AfrType::voidType();
+        }
+
         if (const auto* member = dynamic_cast<const MemberAccessNode*>(call->callee.get())) {
+            if (dynamic_cast<const SuperExpressionNode*>(member->object.get())) {
+                if (!currentClass_) {
+                    errorAt(expr, "'super' utilisé en dehors d'une méthode");
+                }
+                if (currentClass_->baseClass.empty()) {
+                    errorAt(expr, "'super' sans classe de base");
+                }
+                const MethodSignature* sig = findMethod(currentClass_->baseClass, member->member);
+                if (!sig) {
+                    errorAt(expr, "Méthode '" + member->member + "' introuvable dans la classe de base");
+                }
+                if (call->arguments.size() < sig->requiredParamCount ||
+                    call->arguments.size() > sig->paramTypes.size()) {
+                    errorAt(expr, "Méthode parente '" + member->member + "' : nombre d'arguments incorrect");
+                }
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                    if (!isAssignable(sig->paramTypes[i], argType)) {
+                        errorAt(expr, "Type incompatible pour l'argument " + std::to_string(i + 1));
+                    }
+                }
+                return sig->returnType;
+            }
+
+            if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                if (result_.classes.count(classId->name) &&
+                    !scope.count(classId->name) &&
+                    result_.globalVariables.find(classId->name) == result_.globalVariables.end()) {
+                    const MethodSignature* sig = findMethod(classId->name, member->member);
+                    if (!sig || !sig->isStatic) {
+                        errorAt(expr, "Méthode statique '" + member->member + "' introuvable dans '" +
+                              classId->name + "'");
+                    }
+                    if (call->arguments.size() < sig->requiredParamCount ||
+                        call->arguments.size() > sig->paramTypes.size()) {
+                        errorAt(expr, "Méthode statique '" + member->member + "' : nombre d'arguments incorrect");
+                    }
+                    for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                        AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                        if (!isAssignable(sig->paramTypes[i], argType)) {
+                            errorAt(expr, "Type incompatible pour l'argument " + std::to_string(i + 1));
+                        }
+                    }
+                    return sig->returnType;
+                }
+            }
+
             AfrType objectType = analyzeExpression(*member->object, scope);
 
             if (objectType.kind != TypeKind::Class) {
@@ -1209,6 +1297,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             const MethodSignature* sig = findMethod(objectType.className, member->member);
             if (!sig) {
                 errorAt(expr, "Méthode '" + member->member + "' introuvable dans '" + objectType.className + "'");
+            }
+            if (sig->isStatic) {
+                errorAt(expr, "Utilisez " + objectType.className + "." + member->member +
+                      " pour une méthode statique");
             }
 
             if (call->arguments.size() < sig->requiredParamCount ||
@@ -1337,8 +1429,35 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         }
 
         if (objectType.kind == TypeKind::Class) {
-            const FieldInfo* field = findField(*findClass(objectType.className), member->member);
-            if (field) return field->type;
+            if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                if (result_.classes.count(classId->name) &&
+                    !scope.count(classId->name) &&
+                    result_.globalVariables.find(classId->name) == result_.globalVariables.end()) {
+                    const ClassInfo* cls = findClass(classId->name);
+                    const FieldInfo* field = findField(*cls, member->member);
+                    if (!field || !field->isStatic) {
+                        errorAt(expr, "Champ statique '" + member->member + "' introuvable");
+                    }
+                    if (field->visibility != FieldVisibility::Public) {
+                        errorAt(expr, "Champ statique '" + member->member + "' inaccessible");
+                    }
+                    return field->type;
+                }
+            }
+
+            const ClassInfo* cls = findClass(objectType.className);
+            const ClassInfo* ownerClass = cls;
+            const FieldInfo* field = findFieldWithOwner(*cls, member->member, ownerClass);
+            if (field) {
+                if (field->isStatic) {
+                    errorAt(expr, "Utilisez " + cls->name + "." + member->member +
+                          " pour un champ statique");
+                }
+                if (!canAccessField(*field, *ownerClass, currentClass_)) {
+                    errorAt(expr, "Champ '" + member->member + "' inaccessible");
+                }
+                return field->type;
+            }
 
             if (findMethod(objectType.className, member->member)) {
                 return AfrType::voidType();
@@ -1387,6 +1506,9 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         if (!result_.classes.count(newExpr->className)) {
             errorAt(expr, "Classe '" + newExpr->className + "' introuvable");
         }
+        if (result_.classes.at(newExpr->className).isAbstract) {
+            errorAt(expr, "Impossible d'instancier la classe abstraite '" + newExpr->className + "'");
+        }
         return AfrType::classType(newExpr->className);
     }
 
@@ -1411,13 +1533,8 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
     if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
-        if (target.className == value.className) return true;
-        const ClassInfo* derived = findClass(value.className);
-        while (derived && !derived->baseClass.empty()) {
-            if (derived->baseClass == target.className) return true;
-            derived = findClass(derived->baseClass);
-        }
-        return false;
+        return target.className == value.className ||
+               isSubclassOf(value.className, target.className);
     }
     if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
         return target.recordName == value.recordName;
@@ -1465,6 +1582,53 @@ const ClassInfo* SemanticAnalyzer::findClass(const std::string& name) const {
 const RecordInfo* SemanticAnalyzer::findRecord(const std::string& name) const {
     auto it = result_.records.find(name);
     return it != result_.records.end() ? &it->second : nullptr;
+}
+
+const FieldInfo* SemanticAnalyzer::findField(const ClassInfo& cls, const std::string& fieldName) const {
+    auto it = cls.fields.find(fieldName);
+    if (it != cls.fields.end()) return &it->second;
+
+    if (!cls.baseClass.empty()) {
+        const ClassInfo* base = findClass(cls.baseClass);
+        if (base) return findField(*base, fieldName);
+    }
+    return nullptr;
+}
+
+const FieldInfo* SemanticAnalyzer::findFieldWithOwner(const ClassInfo& cls,
+                                                      const std::string& fieldName,
+                                                      const ClassInfo*& ownerClass) const {
+    auto it = cls.fields.find(fieldName);
+    if (it != cls.fields.end()) {
+        ownerClass = &cls;
+        return &it->second;
+    }
+    if (!cls.baseClass.empty()) {
+        const ClassInfo* base = findClass(cls.baseClass);
+        if (base) return findFieldWithOwner(*base, fieldName, ownerClass);
+    }
+    return nullptr;
+}
+
+bool SemanticAnalyzer::isSubclassOf(const std::string& derived, const std::string& base) const {
+    if (derived == base) return true;
+    const ClassInfo* cls = findClass(derived);
+    while (cls && !cls->baseClass.empty()) {
+        if (cls->baseClass == base) return true;
+        cls = findClass(cls->baseClass);
+    }
+    return false;
+}
+
+bool SemanticAnalyzer::canAccessField(const FieldInfo& field, const ClassInfo& ownerClass,
+                                      const ClassInfo* accessingClass) const {
+    if (field.visibility == FieldVisibility::Public) return true;
+    if (!accessingClass) return false;
+    if (field.visibility == FieldVisibility::Private) {
+        return accessingClass->name == ownerClass.name;
+    }
+    if (accessingClass->name == ownerClass.name) return true;
+    return isSubclassOf(accessingClass->name, ownerClass.name);
 }
 
 const FieldInfo* SemanticAnalyzer::findField(const ClassInfo& cls, const std::string& fieldName) const {
