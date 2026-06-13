@@ -1148,13 +1148,16 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'reduce' requiert une liste");
         }
         AfrType elemType = listType.listElementType();
-        if (elemType.kind != TypeKind::Number) {
-            errorAt(expr, "'reduce' supporte uniquement listes de number pour l'instant");
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+            errorAt(expr, "'reduce' supporte listes de number ou text");
         }
 
         AfrType initialType = analyzeExpression(*reduce->initial, scope);
-        if (initialType.kind != TypeKind::Number) {
-            errorAt(expr, "La valeur initiale de 'reduce' doit être un number");
+        if (elemType.kind == TypeKind::Number && initialType.kind != TypeKind::Number) {
+            errorAt(expr, "La valeur initiale de 'reduce' sur number doit être un number");
+        }
+        if (elemType.kind == TypeKind::Text && initialType.kind != TypeKind::Text) {
+            errorAt(expr, "La valeur initiale de 'reduce' sur text doit être un text");
         }
 
         const_cast<ReduceExpressionNode*>(reduce)->elementTypeName = elemType.toTypeName();

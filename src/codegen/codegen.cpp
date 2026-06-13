@@ -1379,7 +1379,8 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
         const AfrType elemType = typeFromName(reduce->elementTypeName);
         const AfrType resultType = typeFromName(reduce->resultTypeName);
-        out << "afrilang::runtime::collections::reduceNumbers(";
+        const std::string fn = reduce->elementTypeName == "text" ? "reduceText" : "reduceNumbers";
+        out << "afrilang::runtime::collections::" << fn << "(";
         emitExpression(out, *reduce->list, ownerClass);
         out << ", [&](" << resultType.toCpp() << " " << reduce->accName << ", "
             << elemType.toCpp() << " " << reduce->itemName << ") -> "

@@ -105,4 +105,34 @@ inline std::vector<std::string> filterText(const std::vector<std::string>& items
     return out;
 }
 
+inline std::string reduceText(const std::vector<std::string>& items,
+                              std::function<std::string(std::string, std::string)> fn,
+                              std::string initial) {
+    std::string acc = std::move(initial);
+    for (const auto& s : items) acc = fn(acc, s);
+    return acc;
+}
+
+inline std::vector<double> flatMapNumbers(
+    const std::vector<double>& items,
+    std::function<std::vector<double>(double)> fn) {
+    std::vector<double> out;
+    for (double v : items) {
+        auto mapped = fn(v);
+        out.insert(out.end(), mapped.begin(), mapped.end());
+    }
+    return out;
+}
+
+inline std::vector<std::string> flatMapText(
+    const std::vector<std::string>& items,
+    std::function<std::vector<std::string>(std::string)> fn) {
+    std::vector<std::string> out;
+    for (const auto& s : items) {
+        auto mapped = fn(s);
+        out.insert(out.end(), mapped.begin(), mapped.end());
+    }
+    return out;
+}
+
 } // namespace afrilang::runtime::collections
