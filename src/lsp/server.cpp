@@ -1,5 +1,6 @@
 #include "afrilang/lsp.hpp"
 
+#include "afrilang/cli.hpp"
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/formatter.hpp"
@@ -111,62 +112,8 @@ static void sendResponse(int id, const std::string& result) {
     sendMessage(out.str());
 }
 
-static std::string detectAfrilangRoot(const std::string& filePath) {
-    if (const char* env = std::getenv("AFRILANG_HOME")) {
-        return env;
-    }
-    fs::path dir = fs::path(filePath).parent_path();
-    for (int i = 0; i < 12 && !dir.empty() && dir != dir.parent_path(); ++i) {
-        if (fs::exists(dir / "CMakeLists.txt") || fs::exists(dir / "build" / "afrilang")) {
-            return dir.string();
-        }
-        dir = dir.parent_path();
-    }
-    return {};
-}
-
-static void publishDiagnostics(const std::string& uri, const std::string& source) {
-    std::vector<std::string> diags;
-    const std::string path = uriToPath(uri);
-
-    try {
-        if (!path.empty()) {
-            const std::string root = detectAfrilangRoot(path);
-            Compiler compiler(path, root);
-            auto program = compiler.compileFromSource(source);
-            SemanticAnalyzer analyzer(*program, &compiler.sources(), path);
-            analyzer.analyze();
-        } else {
-            SourceManager sources;
-            sources.addFile("<buffer>", source);
-            auto program = parseSourceProgram(source, "<buffer>", &sources);
-            SemanticAnalyzer analyzer(*program, &sources, "<buffer>");
-            analyzer.analyze();
-        }
-    } catch (const CompileError& e) {
-        std::ostringstream item;
-        item << "{\"range\":{\"start\":{\"line\":" << std::max(0, e.line() - 1)
-             << ",\"character\":" << std::max(0, e.column() - 1)
-             << "},\"end\":{\"line\":" << std::max(0, e.line() - 1)
-             << ",\"character\":" << std::max(0, e.column() + 1) << "}},"
-             << "\"severity\":1,\"source\":\"afrilang\","
-             << "\"message\":\"" << jsonEscape(e.what()) << "\"}";
-        diags.push_back(item.str());
-    }
-
-    std::ostringstream params;
-    params << "{\"uri\":\"" << jsonEscape(uri) << "\",\"diagnostics\":[";
-    for (std::size_t i = 0; i < diags.size(); ++i) {
-        if (i > 0) params << ',';
-        params << diags[i];
-    }
-    params << "]}";
-
-    std::ostringstream msg;
-    msg << "{\"jsonrpc\":\"2.0\",\"method\":\"textDocument/publishDiagnostics\","
-        << "\"params\":" << params.str() << "}";
-    sendMessage(msg.str());
-}
+// Diagnostics are published by the VS Code extension via `afrilang check`
+// (same path as the CLI). The LSP handles completion and formatting only.
 
 static std::string completionItems() {
     std::ostringstream out;
@@ -227,7 +174,6 @@ static int extractId(const std::string& body) {
 static void updateDocument(const std::string& uri, const std::string& text) {
     if (uri.empty()) return;
     g_documents[uri] = text;
-    publishDiagnostics(uri, text);
 }
 
 int runLspServer() {
@@ -242,7 +188,7 @@ int runLspServer() {
                 "\"completionProvider\":{\"triggerCharacters\":[\".\",\" \"]},"
                 "\"documentFormattingProvider\":true"
                 "},"
-                "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"0.3.0\"}"
+                "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"0.3.6\"}"
                 "}");
         } else if (body.find("\"method\":\"initialized\"") != std::string::npos) {
             // notification, no response

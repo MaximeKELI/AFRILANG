@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const { promisify } = require('util');
-const { LanguageClient, TransportKind, DidOpenTextDocumentNotification } = require('vscode-languageclient/node');
+const { LanguageClient, TransportKind } = require('vscode-languageclient/node');
 
 const execAsync = promisify(exec);
 
@@ -12,6 +12,9 @@ let client;
 
 /** @type {vscode.OutputChannel | undefined} */
 let outputChannel;
+
+/** @type {vscode.DiagnosticCollection | undefined} */
+let workspaceDiags;
 
 function isAfrilangDocument(document) {
   if (!document) return false;
@@ -102,27 +105,89 @@ async function runAfrilangCommand(context, subcommand, filePath) {
   }
 }
 
-async function scanWorkspaceFiles(client) {
-  if (!client || !vscode.workspace.workspaceFolders?.length) return;
+function parseCheckErrors(stderr) {
+  const diags = [];
+  const re = /Erreur dans .+:(\d+):(\d+)\n\s+([^\n]+)/g;
+  let match;
+  while ((match = re.exec(stderr)) !== null) {
+    const line = Math.max(0, parseInt(match[1], 10) - 1);
+    const col = Math.max(0, parseInt(match[2], 10) - 1);
+    diags.push(new vscode.Diagnostic(
+      new vscode.Range(line, col, line, col + 1),
+      match[3].trim(),
+      vscode.DiagnosticSeverity.Error,
+      'afrilang'
+    ));
+  }
+  return diags;
+}
 
-  const files = await vscode.workspace.findFiles('**/*.afr', '{**/node_modules/**,**/build/**}');
-  getOutputChannel().appendLine(`AFRILANG: analyse de ${files.length} fichier(s) .afr...`);
+async function checkSingleFile(context, uri) {
+  if (!workspaceDiags || !uri) return;
 
-  for (const uri of files) {
-    try {
-      const doc = await vscode.workspace.openTextDocument(uri);
-      client.sendNotification(DidOpenTextDocumentNotification.type, {
-        textDocument: {
-          uri: uri.toString(),
-          languageId: 'afrilang',
-          version: 1,
-          text: doc.getText()
-        }
-      });
-    } catch (err) {
-      getOutputChannel().appendLine(`  skip ${uri.fsPath}: ${err.message}`);
+  const serverPath = resolveServerPath(context);
+  if (!verifyServerPath(serverPath)) return;
+
+  try {
+    await execAsync(
+      `"${serverPath}" check "${uri.fsPath}"`,
+      { cwd: path.dirname(uri.fsPath), maxBuffer: 10 * 1024 * 1024 }
+    );
+    workspaceDiags.set(uri, []);
+  } catch (err) {
+    const text = `${err.stderr ?? ''}${err.stdout ?? ''}`;
+    const diags = parseCheckErrors(text);
+    if (diags.length) {
+      workspaceDiags.set(uri, diags);
+    } else if (text.trim()) {
+      workspaceDiags.set(uri, [
+        new vscode.Diagnostic(
+          new vscode.Range(0, 0, 0, 1),
+          text.trim(),
+          vscode.DiagnosticSeverity.Error,
+          'afrilang'
+        )
+      ]);
+    } else {
+      workspaceDiags.set(uri, []);
     }
   }
+}
+
+async function checkWorkspaceFiles(context) {
+  if (!vscode.workspace.workspaceFolders?.length) return;
+
+  const files = await vscode.workspace.findFiles('**/*.afr', '{**/node_modules/**,**/build/**}');
+  getOutputChannel().appendLine(`AFRILANG: vérification de ${files.length} fichier(s) .afr...`);
+
+  await Promise.all(files.map((uri) => checkSingleFile(context, uri)));
+}
+
+function registerWorkspaceDiagnostics(context) {
+  workspaceDiags = vscode.languages.createDiagnosticCollection('afrilang');
+  context.subscriptions.push(workspaceDiags);
+
+  const refresh = (uri) => {
+    if (uri?.fsPath?.endsWith('.afr')) {
+      checkSingleFile(context, uri);
+    }
+  };
+
+  context.subscriptions.push(
+    vscode.workspace.onDidSaveTextDocument((doc) => {
+      if (isAfrilangDocument(doc)) checkSingleFile(context, doc.uri);
+    })
+  );
+
+  const watcher = vscode.workspace.createFileSystemWatcher('**/*.afr');
+  watcher.onDidCreate(refresh);
+  watcher.onDidChange(refresh);
+  watcher.onDidDelete((uri) => workspaceDiags?.delete(uri));
+  context.subscriptions.push(watcher);
+
+  checkWorkspaceFiles(context).catch((err) => {
+    getOutputChannel().appendLine(`AFRILANG diagnostics: ${err.message}`);
+  });
 }
 
 function startLanguageClient(context) {
@@ -159,27 +224,7 @@ function startLanguageClient(context) {
     serverOptions,
     clientOptions
   );
-  return client.start().then(() => {
-    scanWorkspaceFiles(client);
-    const watcher = vscode.workspace.createFileSystemWatcher('**/*.afr');
-    const refresh = async (uri) => {
-      if (!client || !uri) return;
-      try {
-        const doc = await vscode.workspace.openTextDocument(uri);
-        client.sendNotification(DidOpenTextDocumentNotification.type, {
-          textDocument: {
-            uri: uri.toString(),
-            languageId: 'afrilang',
-            version: doc.version,
-            text: doc.getText()
-          }
-        });
-      } catch (_) { /* ignore */ }
-    };
-    watcher.onDidCreate(refresh);
-    watcher.onDidChange(refresh);
-    context.subscriptions.push(watcher);
-  });
+  return client.start();
 }
 
 function registerRunCommand(context) {
@@ -217,6 +262,7 @@ function registerRestartCommand(context) {
       client = undefined;
     }
     await startLanguageClient(context);
+    await checkWorkspaceFiles(context);
     vscode.window.showInformationMessage('Serveur AFRILANG redémarré.');
   });
   context.subscriptions.push(disposable);
@@ -227,6 +273,7 @@ function activate(context) {
   registerRunCommand(context);
   registerCheckCommand(context);
   registerRestartCommand(context);
+  registerWorkspaceDiagnostics(context);
   startLanguageClient(context).catch((err) => {
     vscode.window.showErrorMessage(`AFRILANG LSP: ${err.message}`);
     getOutputChannel().appendLine(`LSP error: ${err.message}`);

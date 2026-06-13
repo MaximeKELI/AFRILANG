@@ -2,7 +2,7 @@
   "name": "afrilang",
   "displayName": "AFRILANG",
   "description": "Support AFRILANG — coloration, LSP, formatage et exécution",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "publisher": "afrilang",
   "license": "MIT",
   "icon": "icons/icon.png",
