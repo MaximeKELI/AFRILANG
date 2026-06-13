@@ -382,6 +382,22 @@ struct ParameterNode {
         , defaultValue(std::move(defaultValue)) {}
 };
 
+struct LambdaExpressionNode : ExpressionNode {
+    std::vector<ParameterNode> parameters;
+    std::string returnTypeName;
+    bool returnsResult = false;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    LambdaExpressionNode(std::vector<ParameterNode> parameters,
+                           std::string returnTypeName,
+                           bool returnsResult,
+                           std::vector<std::unique_ptr<StatementNode>> body)
+        : parameters(std::move(parameters))
+        , returnTypeName(std::move(returnTypeName))
+        , returnsResult(returnsResult)
+        , body(std::move(body)) {}
+};
+
 struct FieldNode {
     std::string name;
     std::string typeName;
