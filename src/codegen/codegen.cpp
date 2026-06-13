@@ -81,6 +81,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsMath = false;
     bool needsTime = false;
     bool needsRe = false;
+    bool needsCollections = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
@@ -91,6 +92,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "math") needsMath = true;
         if (module->name == "chrono") needsTime = true;
         if (module->name == "re") needsRe = true;
+        if (module->name == "collections") needsCollections = true;
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
@@ -101,6 +103,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsMath) out << "#include \"math.hpp\"\n";
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
+    if (needsCollections) out << "#include \"collections.hpp\"\n";
     out << "#include \"str.hpp\"\n";
 
     bool needsResult = false;
@@ -372,6 +375,16 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
         if (i > 0) out << ", ";
         const auto& param = func.parameters[i];
         out << cppTypeFromAfrName(param.typeName, func.typeParams) << " " << param.name;
+        if (param.defaultValue) {
+            out << " = ";
+            if (const auto* str = dynamic_cast<const StringLiteralNode*>(param.defaultValue.get())) {
+                out << "\"" << escapeCppString(str->value) << "\"";
+            } else if (const auto* num = dynamic_cast<const NumberLiteralNode*>(param.defaultValue.get())) {
+                out << num->value;
+            } else if (const auto* boolean = dynamic_cast<const BoolLiteralNode*>(param.defaultValue.get())) {
+                out << (boolean->value ? "true" : "false");
+            }
+        }
     }
     return out.str();
 }
@@ -501,8 +514,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
+        const std::string constPrefix = assign->isConst ? "const " : "";
+
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(assign->value.get())) {
-            out << newExpr->className << " " << assign->name;
+            out << constPrefix << newExpr->className << " " << assign->name;
             const ClassInfo* clsInfo = nullptr;
             auto it = semantic_.classes.find(newExpr->className);
             if (it != semantic_.classes.end()) clsInfo = &it->second;

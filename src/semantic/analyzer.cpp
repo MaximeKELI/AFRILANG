@@ -3,6 +3,7 @@
 #include "afrilang/error.hpp"
 
 #include <algorithm>
+#include <functional>
 
 namespace afrilang {
 
@@ -702,6 +703,29 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         return;
     }
 
+    if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(&stmt)) {
+        AfrType startType = analyzeExpression(*forRange->start, scope);
+        AfrType endType = analyzeExpression(*forRange->end, scope);
+        if (!isNumeric(startType) || !isNumeric(endType)) {
+            errorAt(*forRange, "Boucle 'for from/to' requiert des bornes numériques");
+        }
+        if (forRange->step) {
+            AfrType stepType = analyzeExpression(*forRange->step, scope);
+            if (!isNumeric(stepType)) {
+                errorAt(*forRange, "Le pas ('step') doit être numérique");
+            }
+        }
+
+        scope[forRange->varName] = AfrType::number();
+        ++loopDepth_;
+        for (const auto& bodyStmt : forRange->body) {
+            analyzeStatement(*bodyStmt, scope, isGlobalScope);
+        }
+        scope.erase(forRange->varName);
+        --loopDepth_;
+        return;
+    }
+
     if (const auto* tryStmt = dynamic_cast<const TryStatementNode*>(&stmt)) {
         for (const auto& bodyStmt : tryStmt->tryBody) {
             analyzeStatement(*bodyStmt, scope, isGlobalScope);
@@ -971,8 +995,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 errorAt(expr, "Méthode '" + member->member + "' introuvable dans '" + objectType.className + "'");
             }
 
-            if (call->arguments.size() != sig->paramTypes.size()) {
-                errorAt(expr, "Méthode '" + member->member + "' attend " +
+            if (call->arguments.size() < sig->requiredParamCount ||
+                call->arguments.size() > sig->paramTypes.size()) {
+                errorAt(expr, "Méthode '" + member->member + "' attend entre " +
+                      std::to_string(sig->requiredParamCount) + " et " +
                       std::to_string(sig->paramTypes.size()) + " argument(s), reçu " +
                       std::to_string(call->arguments.size()));
             }
@@ -1002,8 +1028,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 errorAt(expr, "Fonction '" + id->name + "' introuvable");
             }
 
-            if (call->arguments.size() != sig->paramTypes.size()) {
-                errorAt(expr, "Fonction '" + id->name + "' attend " +
+            if (call->arguments.size() < sig->requiredParamCount ||
+                call->arguments.size() > sig->paramTypes.size()) {
+                errorAt(expr, "Fonction '" + id->name + "' attend entre " +
+                      std::to_string(sig->requiredParamCount) + " et " +
                       std::to_string(sig->paramTypes.size()) + " argument(s), reçu " +
                       std::to_string(call->arguments.size()));
             }
