@@ -41,6 +41,7 @@ private:
     std::unique_ptr<ExternDeclNode> parseExtern();
     std::unique_ptr<ModuleNode> parseModule();
     std::unique_ptr<RecordNode> parseRecord();
+    std::unique_ptr<EnumNode> parseEnum();
     std::unique_ptr<InterfaceNode> parseInterface();
     std::unique_ptr<TestNode> parseTest();
     std::unique_ptr<ClassNode> parseClass();
@@ -54,6 +55,7 @@ private:
     std::unique_ptr<StatementNode> parseWhileStatement();
     std::unique_ptr<StatementNode> parseRepeatStatement();
     std::unique_ptr<StatementNode> parseForEachStatement();
+    std::unique_ptr<StatementNode> parseMatchStatement();
     std::unique_ptr<StatementNode> parseReturnStatement();
     std::unique_ptr<StatementNode> parseAssertStatement();
     std::unique_ptr<StatementNode> parseAskStatement();

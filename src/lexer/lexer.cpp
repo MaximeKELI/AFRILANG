@@ -69,6 +69,21 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"extern",   TokenType::Extern},
     {"from",     TokenType::From},
     {"explain",  TokenType::Explain},
+    {"enum",     TokenType::Enum},
+    {"case",     TokenType::Case},
+    {"match",    TokenType::Match},
+    {"default",  TokenType::Default},
+    {"with",     TokenType::With},
+    {"nothing",  TokenType::Nothing},
+    {"defined",  TokenType::Defined},
+    // French Phase 6
+    {"enumeration", TokenType::Enum},
+    {"cas",         TokenType::Case},
+    {"selon",       TokenType::Match},
+    {"par_defaut",  TokenType::Default},
+    {"rien",        TokenType::Nothing},
+    {"defini",      TokenType::Defined},
+    {"avec",        TokenType::With},
     // ── Mots-clés français (bilinguisme FR/EN) ──
     {"classe",       TokenType::Class},
     {"fonction",     TokenType::Function},
@@ -167,6 +182,7 @@ std::vector<Token> Lexer::tokenize() {
                 case ')': tokens.push_back(makeToken(TokenType::RightParen, ")")); break;
                 case '[': tokens.push_back(makeToken(TokenType::LeftBracket, "[")); break;
                 case ']': tokens.push_back(makeToken(TokenType::RightBracket, "]")); break;
+                case '?': tokens.push_back(makeToken(TokenType::Question, "?")); break;
                 default:
                     throw CompileError(
                         std::string("Caractère inattendu '") + c + "'",

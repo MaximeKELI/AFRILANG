@@ -85,6 +85,7 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
             std::vector<std::unique_ptr<ModuleNode>>{},
             std::vector<std::unique_ptr<InterfaceNode>>{},
             std::vector<std::unique_ptr<RecordNode>>{},
+            std::vector<std::unique_ptr<EnumNode>>{},
             std::vector<std::unique_ptr<ClassNode>>{},
             std::vector<std::unique_ptr<FunctionNode>>{},
             std::vector<std::unique_ptr<TestNode>>{},
@@ -99,6 +100,7 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
             std::vector<std::unique_ptr<ModuleNode>>{},
             std::vector<std::unique_ptr<InterfaceNode>>{},
             std::vector<std::unique_ptr<RecordNode>>{},
+            std::vector<std::unique_ptr<EnumNode>>{},
             std::vector<std::unique_ptr<ClassNode>>{},
             std::vector<std::unique_ptr<FunctionNode>>{},
             std::vector<std::unique_ptr<TestNode>>{},
@@ -122,6 +124,9 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     }
     for (auto& rec : source.records) {
         target.records.push_back(std::move(rec));
+    }
+    for (auto& en : source.enums) {
+        target.enums.push_back(std::move(en));
     }
     for (auto& cls : source.classes) {
         target.classes.push_back(std::move(cls));

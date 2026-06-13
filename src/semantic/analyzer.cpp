@@ -13,6 +13,7 @@ SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
 
 SemanticResult SemanticAnalyzer::analyze() {
     registerRecords();
+    registerEnums();
     registerInterfaces();
     registerClasses();
     registerModules();
@@ -86,6 +87,29 @@ void SemanticAnalyzer::registerRecords() {
             result_.records[record->name] = std::move(info);
             result_.modules[module->name].records[record->name] = result_.records.at(record->name);
         }
+    }
+}
+
+void SemanticAnalyzer::registerEnums() {
+    for (const auto& en : program_.enums) {
+        if (result_.enums.count(en->name)) {
+            errorAt(*en, "Enum '" + en->name + "' déjà définie");
+        }
+
+        EnumInfo info;
+        info.name = en->name;
+        for (const auto& c : en->cases) {
+            if (info.cases.count(c.name)) {
+                errorAt(*en, "Cas '" + c.name + "' dupliqué dans enum '" + en->name + "'");
+            }
+            EnumCaseInfo ci;
+            ci.name = c.name;
+            for (const auto& field : c.fields) {
+                ci.fields.emplace_back(field.name, typeFromName(field.typeName));
+            }
+            info.cases[c.name] = std::move(ci);
+        }
+        result_.enums[en->name] = std::move(info);
     }
 }
 
@@ -587,6 +611,39 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         }
         return;
     }
+
+    if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
+        AfrType subjectType = analyzeExpression(*matchStmt->subject, scope);
+        if (subjectType.kind != TypeKind::Enum) {
+            errorAt(*matchStmt, "'match' requiert une valeur de type enum");
+        }
+        const EnumInfo* en = findEnum(subjectType.className);
+        if (!en) errorAt(*matchStmt, "Enum '" + subjectType.className + "' introuvable");
+
+        bool hasDefault = false;
+        for (const auto& arm : matchStmt->arms) {
+            if (arm.isDefault) {
+                hasDefault = true;
+                for (const auto& bodyStmt : arm.body) {
+                    analyzeStatement(*bodyStmt, scope, isGlobalScope);
+                }
+                continue;
+            }
+            const auto caseIt = en->cases.find(arm.caseName);
+            if (caseIt == en->cases.end()) {
+                errorAt(*matchStmt, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
+            }
+            auto armScope = scope;
+            for (const auto& [fname, ftype] : caseIt->second.fields) {
+                armScope[fname] = ftype;
+            }
+            for (const auto& bodyStmt : arm.body) {
+                analyzeStatement(*bodyStmt, armScope, isGlobalScope);
+            }
+        }
+        (void)hasDefault;
+        return;
+    }
 }
 
 AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
@@ -668,6 +725,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         }
         if (unary->op == "!") {
             return AfrType::boolType();
+        }
+        return AfrType::boolType();
+    }
+
+    if (dynamic_cast<const NothingLiteralNode*>(&expr)) {
+        return AfrType::optionalType(AfrType::number());
+    }
+
+    if (const auto* isDef = dynamic_cast<const IsDefinedCheckNode*>(&expr)) {
+        AfrType valType = analyzeExpression(*isDef->value, scope);
+        if (valType.kind != TypeKind::Optional) {
+            errorAt(expr, "'is defined' requiert un type nullable (ex: text?)");
         }
         return AfrType::boolType();
     }
@@ -801,7 +870,41 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "Membre '" + member->member + "' introuvable dans '" + objectType.className + "'");
         }
 
+        if (objectType.kind == TypeKind::Enum) {
+            const EnumInfo* en = findEnum(objectType.className);
+            if (en) {
+                for (const auto& [_, c] : en->cases) {
+                    for (const auto& [fname, ftype] : c.fields) {
+                        if (fname == member->member) return ftype;
+                    }
+                }
+            }
+            errorAt(expr, "Champ '" + member->member + "' introuvable sur enum '" + objectType.className + "'");
+        }
+
         errorAt(expr, "Accès membre sur un type non objet");
+    }
+
+    if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
+        const EnumInfo* en = findEnum(enumCase->enumName);
+        if (!en) {
+            errorAt(expr, "Enum '" + enumCase->enumName + "' introuvable");
+        }
+        const auto caseIt = en->cases.find(enumCase->caseName);
+        if (caseIt == en->cases.end()) {
+            errorAt(expr, "Cas '" + enumCase->caseName + "' introuvable dans enum '" + enumCase->enumName + "'");
+        }
+        if (caseIt->second.fields.size() != enumCase->arguments.size()) {
+            errorAt(expr, "Le cas '" + enumCase->caseName + "' attend " +
+                  std::to_string(caseIt->second.fields.size()) + " argument(s)");
+        }
+        for (std::size_t i = 0; i < enumCase->arguments.size(); ++i) {
+            AfrType argType = analyzeExpression(*enumCase->arguments[i], scope);
+            if (!isAssignable(caseIt->second.fields[i].second, argType)) {
+                errorAt(expr, "Type incompatible pour l'argument du cas '" + enumCase->caseName + "'");
+            }
+        }
+        return AfrType::enumType(enumCase->enumName);
     }
 
     if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
@@ -838,6 +941,41 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     }
     if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
         return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Optional && value.kind == TypeKind::Optional) {
+        return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Optional && dynamic_cast<const NothingLiteralNode*>(&expr)) {
+        return true;
+    }
+    if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
+        return target.className == value.className;
+    }
+    return false;
+}
+
+bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value) const {
+    if (target == value) return true;
+    if (target.kind == TypeKind::Number && value.kind == TypeKind::Number) return true;
+    if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
+    if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
+    if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
+        return target.className == value.className;
+    }
+    if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
+        return target.recordName == value.recordName;
+    }
+    if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
+        return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
+        return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Optional && value.kind == TypeKind::Optional) {
+        return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
+        return target.className == value.className;
     }
     return false;
 }

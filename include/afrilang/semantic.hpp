@@ -51,11 +51,22 @@ struct InterfaceInfo {
     std::unordered_map<std::string, MethodSignature> methods;
 };
 
+struct EnumCaseInfo {
+    std::string name;
+    std::vector<std::pair<std::string, AfrType>> fields;
+};
+
+struct EnumInfo {
+    std::string name;
+    std::unordered_map<std::string, EnumCaseInfo> cases;
+};
+
 struct SemanticResult {
     std::unordered_map<std::string, AfrType> globalVariables;
     std::unordered_map<std::string, ClassInfo> classes;
     std::unordered_map<std::string, InterfaceInfo> interfaces;
     std::unordered_map<std::string, RecordInfo> records;
+    std::unordered_map<std::string, EnumInfo> enums;
     std::unordered_map<std::string, MethodSignature> functions;
     std::unordered_map<std::string, ModuleInfo> modules;
     std::unordered_set<std::string> usedModules;
@@ -78,6 +89,7 @@ private:
     const ClassInfo* currentClass_ = nullptr;
 
     void registerRecords();
+    void registerEnums();
     void registerInterfaces();
     void registerClasses();
     void registerModules();
@@ -107,6 +119,8 @@ private:
     const MethodSignature* findMethod(const std::string& className,
                                       const std::string& methodName) const;
     const MethodSignature* findFunction(const std::string& name) const;
+    const EnumInfo* findEnum(const std::string& name) const;
+    AfrType resolveTypeName(const std::string& name) const;
 
     [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
     [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,

@@ -81,6 +81,7 @@ void Parser::synchronize() {
             case TokenType::Set:
             case TokenType::Module:
             case TokenType::Record:
+            case TokenType::Enum:
             case TokenType::Import:
             case TokenType::Extern:
             case TokenType::Interface:
@@ -138,6 +139,7 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
     std::vector<std::unique_ptr<ModuleNode>> modules;
     std::vector<std::unique_ptr<InterfaceNode>> interfaces;
     std::vector<std::unique_ptr<RecordNode>> records;
+    std::vector<std::unique_ptr<EnumNode>> enums;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
     std::vector<std::unique_ptr<TestNode>> tests;
@@ -156,6 +158,8 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 interfaces.push_back(parseInterface());
             } else if (match(TokenType::Record)) {
                 records.push_back(parseRecord());
+            } else if (match(TokenType::Enum)) {
+                enums.push_back(parseEnum());
             } else if (match(TokenType::Class)) {
                 classes.push_back(parseClass());
             } else if (match(TokenType::Function)) {
@@ -173,7 +177,7 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
 
     return std::make_unique<ProgramNode>(
         std::move(imports), std::move(modules), std::move(interfaces),
-        std::move(records), std::move(classes), std::move(functions),
+        std::move(records), std::move(enums), std::move(classes), std::move(functions),
         std::move(tests), std::move(externs), std::move(statements));
 }
 
@@ -308,6 +312,31 @@ std::unique_ptr<RecordNode> Parser::parseRecord() {
     return node;
 }
 
+std::unique_ptr<EnumNode> Parser::parseEnum() {
+    const Token& nameToken = consumeName("Nom d'enum attendu après 'enum'");
+
+    std::vector<EnumCaseNode> cases;
+    while (!check(TokenType::End) && !isAtEnd()) {
+        consume(TokenType::Case, "'case' attendu dans l'enum");
+        const Token& caseToken = consumeName("Nom de cas attendu");
+
+        std::vector<FieldNode> fields;
+        if (match(TokenType::With)) {
+            do {
+                const Token& fieldName = consumeName("Nom de champ attendu");
+                std::string typeName = parseTypeName();
+                fields.emplace_back(fieldName.lexeme, std::move(typeName), true);
+            } while (match(TokenType::Comma));
+        }
+        cases.emplace_back(caseToken.lexeme, std::move(fields));
+    }
+
+    consume(TokenType::End, "'end' attendu pour fermer l'enum");
+    auto node = std::make_unique<EnumNode>(nameToken.lexeme, std::move(cases));
+    node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
 FieldNode Parser::parseField() {
     bool isPublic = true;
     if (match(TokenType::Public)) {
@@ -365,17 +394,20 @@ std::unique_ptr<ClassNode> Parser::parseClass() {
 }
 
 std::string Parser::parseTypeName() {
-    if (match(TokenType::TypeNumber)) return "number";
-    if (match(TokenType::TypeText))   return "text";
-    if (match(TokenType::TypeBool))   return "bool";
-    if (match(TokenType::List)) {
+    std::string base;
+    if (match(TokenType::TypeNumber)) base = "number";
+    else if (match(TokenType::TypeText))   base = "text";
+    else if (match(TokenType::TypeBool))   base = "bool";
+    else if (match(TokenType::List)) {
         std::string elementType = parseTypeName();
         return "list " + elementType;
     }
-    if (match(TokenType::Identifier)) return previous().lexeme;
-    std::string name;
-    if (matchName(name)) return name;
-    error("Type attendu (number, text, bool, list, ou nom de classe/record)");
+    else if (match(TokenType::Identifier)) base = previous().lexeme;
+    else if (matchName(base)) { /* ok */ }
+    else error("Type attendu (number, text, bool, list, ou nom de classe/record/enum)");
+
+    if (match(TokenType::Question)) base += "?";
+    return base;
 }
 
 std::vector<ParameterNode> Parser::parseParameters() {
@@ -438,6 +470,7 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::Say))       return parseSayStatement();
     if (match(TokenType::Create))    return parseCreateStatement();
     if (match(TokenType::Set))       return parseSetStatement();
+    if (match(TokenType::Match))     return parseMatchStatement();
     if (match(TokenType::If))        return parseIfStatement();
     if (match(TokenType::While))     return parseWhileStatement();
     if (match(TokenType::Repeat))    return parseRepeatStatement();
@@ -491,6 +524,8 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
         consume(TokenType::List, "'list' attendu après 'empty'");
         std::string elementType = parseTypeName();
         value = std::make_unique<EmptyListNode>(std::move(elementType));
+    } else if (match(TokenType::Nothing)) {
+        value = std::make_unique<NothingLiteralNode>();
     } else {
         value = parseExpression();
     }
@@ -596,6 +631,35 @@ std::unique_ptr<StatementNode> Parser::parseForEachStatement() {
     return node;
 }
 
+std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
+    auto subject = parseExpression();
+    std::vector<MatchArmNode> arms;
+
+    while (!check(TokenType::End) && !isAtEnd()) {
+        if (match(TokenType::Default)) {
+            MatchArmNode arm;
+            arm.isDefault = true;
+            arm.body = parseBlock();
+            consume(TokenType::End, "'end' attendu pour fermer default");
+            arms.push_back(std::move(arm));
+        } else {
+            consume(TokenType::Case, "'case' attendu dans match");
+            const Token& caseToken = consumeName("Nom de cas attendu");
+            consume(TokenType::Then, "'then' attendu après le cas");
+            MatchArmNode arm;
+            arm.caseName = caseToken.lexeme;
+            arm.body = parseBlock();
+            consume(TokenType::End, "'end' attendu pour fermer le case");
+            arms.push_back(std::move(arm));
+        }
+    }
+
+    consume(TokenType::End, "'end' attendu pour fermer match");
+    auto node = std::make_unique<MatchStatementNode>(std::move(subject), std::move(arms));
+    setLoc(*node);
+    return node;
+}
+
 std::unique_ptr<StatementNode> Parser::parseReturnStatement() {
     if (match(TokenType::ErrorKw)) {
         auto msg = parseExpression();
@@ -660,6 +724,9 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
     if (match(TokenType::Is)) {
         if (match(TokenType::ErrorKw)) {
             return std::make_unique<IsErrorCheckNode>(std::move(left));
+        }
+        if (match(TokenType::Defined)) {
+            return std::make_unique<IsDefinedCheckNode>(std::move(left));
         }
 
         std::string op;
@@ -756,6 +823,10 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
         return std::make_unique<BoolLiteralNode>(true);
     }
 
+    if (match(TokenType::Nothing)) {
+        return std::make_unique<NothingLiteralNode>();
+    }
+
     if (matchOneOf(TokenType::False, TokenType::No)) {
         return std::make_unique<BoolLiteralNode>(false);
     }
@@ -835,7 +906,18 @@ std::unique_ptr<ExpressionNode> Parser::parsePostfix(std::unique_ptr<ExpressionN
 std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNode> callee) {
     while (true) {
         if (match(TokenType::Dot)) {
-            const Token& member = consumeName( "Nom de membre attendu après '.'");
+            const Token& member = consumeName("Nom de membre attendu après '.'");
+            if (auto* id = dynamic_cast<IdentifierNode*>(callee.get())) {
+                std::vector<std::unique_ptr<ExpressionNode>> arguments;
+                if (match(TokenType::With)) {
+                    do {
+                        arguments.push_back(parseExpression());
+                    } while (match(TokenType::Comma));
+                }
+                callee = std::make_unique<EnumCaseExprNode>(
+                    id->name, member.lexeme, std::move(arguments));
+                continue;
+            }
             callee = std::make_unique<MemberAccessNode>(std::move(callee), member.lexeme);
             continue;
         }

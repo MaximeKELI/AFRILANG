@@ -275,6 +275,21 @@ struct ExplainStatementNode : StatementNode {
         : statement(std::move(statement)) {}
 };
 
+struct MatchArmNode {
+    std::string caseName;
+    bool isDefault = false;
+    std::vector<std::unique_ptr<StatementNode>> body;
+};
+
+struct MatchStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> subject;
+    std::vector<MatchArmNode> arms;
+
+    MatchStatementNode(std::unique_ptr<ExpressionNode> subject,
+                       std::vector<MatchArmNode> arms)
+        : subject(std::move(subject)), arms(std::move(arms)) {}
+};
+
 struct AssertStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> condition;
     std::string label;
@@ -364,6 +379,19 @@ struct RecordNode : ASTNode {
         : name(std::move(name)), fields(std::move(fields)) {}
 };
 
+struct EnumCaseNode {
+    std::string name;
+    std::vector<FieldNode> fields;
+};
+
+struct EnumNode : ASTNode {
+    std::string name;
+    std::vector<EnumCaseNode> cases;
+
+    EnumNode(std::string name, std::vector<EnumCaseNode> cases)
+        : name(std::move(name)), cases(std::move(cases)) {}
+};
+
 struct ModuleNode : ASTNode {
     std::string name;
     std::vector<std::unique_ptr<ClassNode>> classes;
@@ -406,6 +434,7 @@ struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<ModuleNode>> modules;
     std::vector<std::unique_ptr<InterfaceNode>> interfaces;
     std::vector<std::unique_ptr<RecordNode>> records;
+    std::vector<std::unique_ptr<EnumNode>> enums;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
     std::vector<std::unique_ptr<TestNode>> tests;
@@ -416,6 +445,7 @@ struct ProgramNode : ASTNode {
                 std::vector<std::unique_ptr<ModuleNode>> modules,
                 std::vector<std::unique_ptr<InterfaceNode>> interfaces,
                 std::vector<std::unique_ptr<RecordNode>> records,
+                std::vector<std::unique_ptr<EnumNode>> enums,
                 std::vector<std::unique_ptr<ClassNode>> classes,
                 std::vector<std::unique_ptr<FunctionNode>> functions,
                 std::vector<std::unique_ptr<TestNode>> tests,
@@ -425,6 +455,7 @@ struct ProgramNode : ASTNode {
         , modules(std::move(modules))
         , interfaces(std::move(interfaces))
         , records(std::move(records))
+        , enums(std::move(enums))
         , classes(std::move(classes))
         , functions(std::move(functions))
         , tests(std::move(tests))
