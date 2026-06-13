@@ -1,6 +1,10 @@
 import "std/collections"
+import "std/str"
+import "std/math"
 
 use collections
+use str
+use math
 
 function greet(name text, prefix text = "Hello") returns text
     return join(list of prefix, " ", name, "!")

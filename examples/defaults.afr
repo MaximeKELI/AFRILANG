@@ -1,3 +1,9 @@
+import "std/math"
+import "std/str"
+
+use math
+use str
+
 function power(base number, exp number = 2) returns number
     return pow(base, exp)
 end
