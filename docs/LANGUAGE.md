@@ -12,6 +12,43 @@
 | optional | `T?` | `std::optional<T>` |
 | result | `T or error` | `AfrResult_T` |
 
+## Programmation orientée objet (POO)
+
+Classes, héritage, encapsulation et interfaces :
+
+```afr
+class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    public field name text
+
+    function init(aName text)
+        set this.name = aName
+    end
+
+    function speak()
+        say name + " says Woof!"
+    end
+end
+
+create rex = new Dog("Rex")
+rex.speak()
+```
+
+Fonctionnalités POO :
+- **Classes** — `class Nom ... end` avec méthodes `function ... end`
+- **Instanciation** — `new Classe` ou `new Classe(arg1, arg2)` (constructeur `init`)
+- **Champs** — `public field` / `private field`, accès via `this.champ` ou `obj.champ`
+- **Héritage** — `class Enfant extends Parent` avec redéfinition de méthodes (`override` en C++)
+- **Interfaces** — `interface I ... end` et `class C implements I, J`
+- **Records** — structs légers (`record Point ... end`) pour données sans méthodes
+
+Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/fields.afr`, `examples/interfaces.afr`, `examples/poo_demo.afr`
+
 ## Maps
 
 ```afr
@@ -106,6 +143,22 @@ say apply(doubleIt, 10)
 Type fonction : `function number to number`, `function number, text to text`, etc.
 
 ## map / filter / reduce (listes + lambdas)
+
+Syntaxe naturelle (sans import) :
+
+```afr
+create doubled = map each x in nums do
+    return x * 2
+end
+
+create big = filter each x in nums where x is greater than 3
+
+create total = reduce nums from 0 with each acc, x do
+    return acc + x
+end
+```
+
+Syntaxe explicite via `std/collections` :
 
 ```afr
 import "std/collections"

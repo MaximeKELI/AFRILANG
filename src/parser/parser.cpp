@@ -633,18 +633,23 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
         }
         value = std::make_unique<ListLiteralNode>(std::move(elements));
     } else if (match(TokenType::Map)) {
-        consume(TokenType::Of, "'of' attendu après 'map'");
-        std::vector<MapPairNode> pairs;
-        if (!check(TokenType::End) && !isAtEnd()) {
-            do {
-                MapPairNode pair;
-                pair.key = parseExpression();
-                consume(TokenType::To, "'to' attendu dans map of ...");
-                pair.value = parseExpression();
-                pairs.push_back(std::move(pair));
-            } while (match(TokenType::Comma));
+        if (check(TokenType::Each)) {
+            --current_;
+            value = parseExpression();
+        } else {
+            consume(TokenType::Of, "'of' attendu après 'map'");
+            std::vector<MapPairNode> pairs;
+            if (!check(TokenType::End) && !isAtEnd()) {
+                do {
+                    MapPairNode pair;
+                    pair.key = parseExpression();
+                    consume(TokenType::To, "'to' attendu dans map of ...");
+                    pair.value = parseExpression();
+                    pairs.push_back(std::move(pair));
+                } while (match(TokenType::Comma));
+            }
+            value = std::make_unique<MapLiteralNode>(std::move(pairs));
         }
-        value = std::make_unique<MapLiteralNode>(std::move(pairs));
     } else if (match(TokenType::Empty)) {
         if (match(TokenType::Map)) {
             std::string keyType = parseTypeName();
@@ -1104,7 +1109,8 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::New)) {
         const Token& classToken = consumeName( "Nom de classe attendu après 'new'");
-        return std::make_unique<NewExpressionNode>(classToken.lexeme);
+        auto expr = std::make_unique<NewExpressionNode>(classToken.lexeme);
+        return finishCall(std::move(expr));
     }
 
     if (match(TokenType::Function)) {

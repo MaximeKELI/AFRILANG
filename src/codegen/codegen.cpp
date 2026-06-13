@@ -716,6 +716,21 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             return;
         }
 
+        if (const auto* newCall = dynamic_cast<const CallExpressionNode*>(assign->value.get())) {
+            if (dynamic_cast<const NewExpressionNode*>(newCall->callee.get())) {
+                std::string typeCpp;
+                if (!assign->typeName.empty()) {
+                    typeCpp = typeFromName(assign->typeName).toCpp();
+                } else {
+                    typeCpp = inferExpressionType(*assign->value);
+                }
+                out << constPrefix << typeCpp << " " << assign->name << " = ";
+                emitExpression(out, *assign->value, ownerClass);
+                out << ";\n";
+                return;
+            }
+        }
+
         if (const auto* empty = dynamic_cast<const EmptyListNode*>(assign->value.get())) {
             out << constPrefix << "std::vector<" << typeFromName(empty->elementTypeName).toCpp()
                 << "> " << assign->name << " = {};\n";
@@ -1305,6 +1320,16 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
+            out << newExpr->className << "(";
+            for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                if (i > 0) out << ", ";
+                emitExpression(out, *call->arguments[i], ownerClass);
+            }
+            out << ")";
+            return;
+        }
+
         const MethodSignature* externSig = nullptr;
         if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
             const auto it = semantic_.functions.find(id->name);

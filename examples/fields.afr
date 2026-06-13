@@ -13,9 +13,6 @@ class Person
     end
 end
 
-create person = new Person
-person.greet()
-
-create bob = new Person
-set bob.name = "Bob"
+create bob = new Person("Bob", 25)
+bob.greet()
 say bob.name

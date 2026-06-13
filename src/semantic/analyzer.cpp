@@ -1133,6 +1133,32 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
     }
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
+            if (!result_.classes.count(newExpr->className)) {
+                errorAt(expr, "Classe '" + newExpr->className + "' introuvable");
+            }
+            const MethodSignature* initSig = findMethod(newExpr->className, "init");
+            if (initSig) {
+                if (call->arguments.size() < initSig->requiredParamCount ||
+                    call->arguments.size() > initSig->paramTypes.size()) {
+                    errorAt(expr, "Constructeur 'init' de '" + newExpr->className +
+                          "' attend entre " + std::to_string(initSig->requiredParamCount) +
+                          " et " + std::to_string(initSig->paramTypes.size()) +
+                          " argument(s), reçu " + std::to_string(call->arguments.size()));
+                }
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                    if (!isAssignable(initSig->paramTypes[i], argType)) {
+                        errorAt(expr, "Type incompatible pour l'argument " +
+                              std::to_string(i + 1) + " du constructeur");
+                    }
+                }
+            } else if (!call->arguments.empty()) {
+                errorAt(expr, "Classe '" + newExpr->className + "' n'a pas de constructeur 'init'");
+            }
+            return AfrType::classType(newExpr->className);
+        }
+
         if (const auto* member = dynamic_cast<const MemberAccessNode*>(call->callee.get())) {
             AfrType objectType = analyzeExpression(*member->object, scope);
 
@@ -1345,7 +1371,13 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
     if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
-        return target.className == value.className;
+        if (target.className == value.className) return true;
+        const ClassInfo* derived = findClass(value.className);
+        while (derived && !derived->baseClass.empty()) {
+            if (derived->baseClass == target.className) return true;
+            derived = findClass(derived->baseClass);
+        }
+        return false;
     }
     if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
         return target.recordName == value.recordName;
