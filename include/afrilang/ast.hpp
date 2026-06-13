@@ -382,6 +382,9 @@ struct RecordNode : ASTNode {
 struct EnumCaseNode {
     std::string name;
     std::vector<FieldNode> fields;
+
+    EnumCaseNode(std::string name, std::vector<FieldNode> fields = {})
+        : name(std::move(name)), fields(std::move(fields)) {}
 };
 
 struct EnumNode : ASTNode {
