@@ -110,6 +110,11 @@ void Formatter::writeln(std::ostream& out, const std::string& line) const {
 }
 
 void Formatter::formatType(std::ostream& out, const std::string& typeName) const {
+    if (typeName.rfind("task ", 0) == 0) {
+        out << "task ";
+        formatType(out, typeName.substr(5));
+        return;
+    }
     if (typeName.rfind("list ", 0) == 0) {
         out << "list of ";
         formatType(out, typeName.substr(5));
@@ -144,6 +149,7 @@ void Formatter::formatFunctionSignature(std::ostream& out, const FunctionNode& f
     if (func.isStatic) out << "static ";
     if (func.isAbstract) out << "abstract ";
     if (func.isFinal) out << "final ";
+    if (func.isAsync) out << "async ";
     out << "function " << func.name;
     if (!func.typeParams.empty()) {
         out << "<";
@@ -504,6 +510,16 @@ void Formatter::formatStatement(std::ostream& out, const StatementNode& stmt) co
 }
 
 void Formatter::formatExpression(std::ostream& out, const ExpressionNode& expr) const {
+    if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {
+        out << "await ";
+        formatExpression(out, *awaitExpr->value);
+        return;
+    }
+
+    if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {
+        (void)awaitExpr;
+    }
+
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
         out << '"' << str->value << '"';
         return;
