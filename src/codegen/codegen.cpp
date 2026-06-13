@@ -87,9 +87,9 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "fs") needsFs = true;
         if (module->name == "http") needsHttp = true;
         if (module->name == "str") needsStr = true;
-        if (module->name == "log") needsLog = true;
+        if (module->name == "logging") needsLog = true;
         if (module->name == "math") needsMath = true;
-        if (module->name == "time") needsTime = true;
+        if (module->name == "clock") needsTime = true;
         if (module->name == "re") needsRe = true;
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
@@ -1209,9 +1209,19 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
-           name == "str" || name == "log" || name == "math" || name == "time" ||
+           name == "str" || name == "logging" || name == "math" || name == "clock" ||
            name == "re";
 }
+
+namespace {
+
+std::string runtimeModuleName(const std::string& moduleName) {
+    if (moduleName == "logging") return "log";
+    if (moduleName == "clock") return "time";
+    return moduleName;
+}
+
+} // namespace
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
                                        const FunctionNode& func, int indentLevel) const {
@@ -1223,7 +1233,8 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     out << returnCpp << " " << func.name << "(" << paramList(func) << ") {\n";
     indent(out, indentLevel + 1);
 
-    const std::string rt = "afrilang::runtime::" + moduleName + "::" + func.name;
+    const std::string rt = "afrilang::runtime::" + runtimeModuleName(moduleName) +
+                           "::" + func.name;
 
     if (func.name == "writeFile") {
         out << rt << "(path, content);\n";

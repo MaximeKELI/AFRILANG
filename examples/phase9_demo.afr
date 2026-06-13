@@ -4,9 +4,9 @@ import "std/math"
 import "std/time"
 
 use str
-use log
+use logging
 use math
-use time
+use clock
 
 create name = "AFRILANG"
 create version = 1

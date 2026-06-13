@@ -76,9 +76,9 @@ void Compiler::handleStdlibImport(ProgramNode& program, const std::string& impor
     else if (mod == "fs") StdlibRegistry::injectFsModule(program);
     else if (mod == "http") StdlibRegistry::injectHttpModule(program);
     else if (mod == "str") StdlibRegistry::injectStrModule(program);
-    else if (mod == "log") StdlibRegistry::injectLogModule(program);
+    else if (mod == "logging") StdlibRegistry::injectLogModule(program);
     else if (mod == "math") StdlibRegistry::injectMathModule(program);
-    else if (mod == "time") StdlibRegistry::injectTimeModule(program);
+    else if (mod == "clock") StdlibRegistry::injectTimeModule(program);
     else if (mod == "re") StdlibRegistry::injectReModule(program);
 }
 
