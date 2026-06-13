@@ -1,0 +1,19 @@
+class Box<T>
+    field T value
+
+    function init(v T)
+        set this.value to v
+    end
+
+    function get() returns T
+        return this.value
+    end
+end
+
+create numbers = new Box<number>(42)
+say numbers.get()
+
+create label = new Box<text>("hello")
+say label.get()
+
+say "generic class complete"

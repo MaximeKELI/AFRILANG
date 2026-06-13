@@ -98,6 +98,8 @@ void Compiler::handleStdlibImport(ProgramNode& program, const std::string& impor
     else if (mod == "chrono") StdlibRegistry::injectTimeModule(program);
     else if (mod == "re") StdlibRegistry::injectReModule(program);
     else if (mod == "collections") StdlibRegistry::injectCollectionsModule(program);
+    else if (mod == "args") StdlibRegistry::injectArgsModule(program);
+    else if (mod == "path") StdlibRegistry::injectPathModule(program);
 }
 
 std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {

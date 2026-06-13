@@ -55,7 +55,9 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
            path == "std/time" || path == "std/time.afr" ||
            path == "std/chrono" || path == "std/chrono.afr" ||
            path == "std/re" || path == "std/re.afr" ||
-           path == "std/collections" || path == "std/collections.afr";
+           path == "std/collections" || path == "std/collections.afr" ||
+           path == "std/args" || path == "std/args.afr" ||
+           path == "std/path" || path == "std/path.afr";
 }
 
 std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
@@ -75,6 +77,12 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
         return "re";
     }
     if (path.find("collections") != std::string::npos) return "collections";
+    if (path.find("std/args") != std::string::npos || path.find("args.afr") != std::string::npos) {
+        return "args";
+    }
+    if (path.find("std/path") != std::string::npos || path.find("path.afr") != std::string::npos) {
+        return "path";
+    }
     if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
         return "fs";
     }
@@ -181,6 +189,24 @@ void StdlibRegistry::injectCollectionsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("flatMapNumbers", {{"items", "list number"}, {"fn", "function number to list number"}}, "list number"));
     fns.push_back(makeStubFunction("flatMapText", {{"items", "list text"}, {"fn", "function text to list text"}}, "list text"));
     injectModule(program, "collections", std::move(fns));
+}
+
+void StdlibRegistry::injectArgsModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("count", {}, "number"));
+    fns.push_back(makeStubFunction("at", {{"index", "number"}}, "text"));
+    fns.push_back(makeStubFunction("all", {}, "list text"));
+    injectModule(program, "args", std::move(fns));
+}
+
+void StdlibRegistry::injectPathModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("join", {{"left", "text"}, {"right", "text"}}, "text"));
+    fns.push_back(makeStubFunction("basename", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("dirname", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("extension", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("isAbsolute", {{"path", "text"}}, "bool"));
+    injectModule(program, "path", std::move(fns));
 }
 
 } // namespace afrilang

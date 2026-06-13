@@ -1,0 +1,34 @@
+class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    function speak()
+        say "Woof!"
+    end
+end
+
+class Cat extends Animal
+    function speak()
+        say "Meow!"
+    end
+end
+
+create pets list of Animal = list of new Dog(), new Cat()
+
+say length of pets
+
+for each pet in pets
+    pet.speak()
+end
+
+say pets at 0
+say pets at 1
+
+add new Dog() to pets
+
+say length of pets
+
+say "polymorphic lists complete"

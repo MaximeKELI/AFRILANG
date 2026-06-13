@@ -214,6 +214,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsTime = false;
     bool needsRe = false;
     bool needsCollections = false;
+    bool needsArgs = false;
+    bool needsPath = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
@@ -225,6 +227,12 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "chrono") needsTime = true;
         if (module->name == "re") needsRe = true;
         if (module->name == "collections") needsCollections = true;
+        if (module->name == "args") needsArgs = true;
+        if (module->name == "path") needsPath = true;
+    }
+    for (const auto& modName : semantic_.usedModules) {
+        if (modName == "args") needsArgs = true;
+        if (modName == "path") needsPath = true;
     }
     if (programUsesNaturalListOps(program_)) needsCollections = true;
     if (needsIo) out << "#include \"io.hpp\"\n";
@@ -237,6 +245,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
     if (needsCollections) out << "#include \"collections.hpp\"\n";
+    if (needsArgs) out << "#include \"args.hpp\"\n";
+    if (needsPath) out << "#include \"path.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
 
@@ -410,17 +420,14 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     out << " {\n";
 
     out << "public:\n";
-    if (cls.isAbstract || !cls.destroyBody.empty()) {
-        out << "    virtual ~" << cls.name << "()";
-        if (cls.isAbstract && cls.destroyBody.empty()) {
-            out << " = default;\n\n";
-        } else {
-            out << " {\n";
-            for (const auto& stmt : cls.destroyBody) {
-                emitStatement(out, *stmt, 2, classInfo);
-            }
-            out << "    }\n\n";
+    if (!cls.destroyBody.empty()) {
+        out << "    virtual ~" << cls.name << "() {\n";
+        for (const auto& stmt : cls.destroyBody) {
+            emitStatement(out, *stmt, 2, classInfo);
         }
+        out << "    }\n\n";
+    } else {
+        out << "    virtual ~" << cls.name << "() = default;\n\n";
     }
     for (const auto& field : cls.fields) {
         const std::string fieldCpp = cppTypeFromAfrName(field.typeName, cls.typeParams);
@@ -819,7 +826,13 @@ void CodeGenerator::emitMain(std::ostream& out) const {
     }
     if (!semantic_.usedModules.empty()) out << "\n";
 
-    out << "int main() {\n";
+    const bool needsArgs = semantic_.usedModules.count("args") > 0;
+    if (needsArgs) {
+        out << "int main(int argc, char** argv) {\n";
+        out << "    afrilang::runtime::args::init(argc, argv);\n";
+    } else {
+        out << "int main() {\n";
+    }
 
     for (const auto& stmt : program_.statements) {
         emitStatement(out, *stmt, 1, nullptr);
@@ -977,6 +990,17 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* set = dynamic_cast<const SetStatementNode*>(&stmt)) {
+        if (const auto* member = dynamic_cast<const MemberAccessNode*>(set->target.get())) {
+            const AfrType objectType = inferExpressionAfrType(*member->object);
+            if (objectType.kind == TypeKind::Class &&
+                classHasProperty(semantic_, objectType.className, member->member)) {
+                emitReceiver(out, *member->object, ownerClass);
+                out << propertySetterName(member->member) << "(";
+                emitExpression(out, *set->value, ownerClass);
+                out << ");\n";
+                return;
+            }
+        }
         emitExpression(out, *set->target, ownerClass);
         out << " = ";
         emitExpression(out, *set->value, ownerClass);
@@ -1511,7 +1535,10 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
-            out << "std::make_unique<" << newExpr->className << ">(";
+            const std::string classCpp = newExpr->typeArgs.empty()
+                ? newExpr->className
+                : newExpr->className + "<" + joinGenericArgs(newExpr->typeArgs) + ">";
+            out << "std::make_unique<" << classCpp << ">(";
             for (std::size_t i = 0; i < call->arguments.size(); ++i) {
                 if (i > 0) out << ", ";
                 emitExpression(out, *call->arguments[i], ownerClass);
@@ -1628,6 +1655,13 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
+        const AfrType objectType = inferExpressionAfrType(*member->object);
+        if (objectType.kind == TypeKind::Class &&
+            classHasProperty(semantic_, objectType.className, member->member)) {
+            emitReceiver(out, *member->object, ownerClass);
+            out << propertyGetterName(member->member) << "()";
+            return;
+        }
         if (dynamic_cast<const ThisExpressionNode*>(member->object.get())) {
             out << member->member;
         } else if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
@@ -1807,7 +1841,7 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
-           name == "re" || name == "collections";
+           name == "re" || name == "collections" || name == "args" || name == "path";
 }
 
 namespace {

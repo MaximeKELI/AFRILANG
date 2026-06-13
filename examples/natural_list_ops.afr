@@ -33,4 +33,10 @@ create longWords = filter each w in words where w is equal to "hello"
 say length of longWords
 say longWords at 0
 
+create joined = reduce words from "" with each acc, w do
+    return acc + w + ","
+end
+
+say joined
+
 say "natural list ops complete"
