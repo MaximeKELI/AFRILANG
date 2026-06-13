@@ -1,14 +1,23 @@
 {
   "name": "afrilang",
   "displayName": "AFRILANG",
-  "description": "Support AFRILANG — coloration, LSP, formatage et exécution",
-  "version": "0.3.6",
+  "description": "Langage AFRILANG — coloration, diagnostics, LSP, formatage et exécution (.afr)",
+  "version": "0.4.0",
   "publisher": "afrilang",
   "license": "MIT",
   "icon": "icons/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaximeKELI/AFRILANG.git",
+    "directory": "vscode-afrilang"
+  },
+  "bugs": {
+    "url": "https://github.com/MaximeKELI/AFRILANG/issues"
+  },
+  "homepage": "https://github.com/MaximeKELI/AFRILANG#readme",
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Programming Languages"],
-  "keywords": ["afrilang", "africa", "natural language"],
+  "keywords": ["afrilang", "africa", "natural language", "afr", "compiler", "lsp"],
   "main": "./extension.js",
   "activationEvents": ["onLanguage:afrilang", "onStartupFinished"],
   "dependencies": {

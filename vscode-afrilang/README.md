@@ -1,42 +1,39 @@
-# AFRILANG — extension VS Code / Cursor
+# AFRILANG — extension VS Code / Cursor / VSCodium
 
-Coloration syntaxique, diagnostics LSP, complétion, formatage et exécution de fichiers `.afr`.
+Coloration syntaxique, diagnostics, complétion LSP, formatage et exécution de fichiers `.afr`.
 
-## Prérequis
+## Installation (utilisateurs)
 
-- [AFRILANG](https://github.com/afrilang/afrilang) compilé et accessible dans le `PATH` (`afrilang --help`)
-- Node.js 18+ (pour installer les dépendances de l'extension)
-
-## Installation locale
-
-Un script installe l'extension dans **Cursor**, **VS Code** et **VSCodium** (lien symbolique, méthode fiable) :
+Depuis l'éditeur : **Extensions** → rechercher **AFRILANG** → **Install**
 
 ```bash
-cd /chemin/vers/AFRILANG/vscode-afrilang
+code --install-extension afrilang.afrilang      # VS Code
+codium --install-extension afrilang.afrilang    # VSCodium
+# Cursor : même marketplace que VS Code
+```
+
+### Compilateur requis
+
+L'extension appelle `afrilang` pour le LSP et l'exécution. [Compilez AFRILANG](https://github.com/MaximeKELI/AFRILANG) puis configurez :
+
+```json
+{
+  "afrilang.serverPath": "/chemin/vers/AFRILANG/build/afrilang"
+}
+```
+
+## Installation locale (développeurs)
+
+```bash
+cd vscode-afrilang
 ./install.sh
 ```
 
-Équivalent : `./install-cursor.sh`
+Puis **Developer: Reload Window**.
 
-Puis dans l'éditeur : **Developer: Reload Window**.
+## Publication (mainteneurs)
 
-### Par éditeur (alternative)
-
-| Éditeur | Dossier extension |
-|---------|-------------------|
-| Cursor | `~/.cursor/extensions/afrilang.afrilang-*` |
-| VS Code | `~/.vscode/extensions/afrilang.afrilang-*` |
-| VSCodium | `~/.vscode-oss/extensions/afrilang.afrilang-*` |
-
-Installation manuelle :
-
-```bash
-cd vscode-afrilang && npm install
-code --install-extension .      # VS Code
-codium --install-extension .    # VSCodium
-```
-
-`cursor --install-extension .` peut échouer silencieusement — préférez `./install.sh`.
+Voir [PUBLISHING.md](./PUBLISHING.md).
 
 ## Configuration
 

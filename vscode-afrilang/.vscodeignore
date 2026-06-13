@@ -1,4 +1,6 @@
 .vscode/**
 .git/**
-**/*.map
-**/tsconfig.json
+install*.sh
+publish.sh
+PUBLISHING.md
+**/*.vsix
