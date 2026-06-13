@@ -27,9 +27,8 @@ static const std::vector<std::string> kKeywords = {
     "returns", "module", "use", "import", "record", "field", "number",
     "text", "bool", "list", "true", "false", "stop", "skip", "nothing",
     "enum", "case", "match", "default", "with", "defined", "ask", "into",
-    "new", "public", "private", "empty", "of", "at", "to", "from",
-    "explain", "yes", "no", "is", "greater", "than", "less", "equal",
-    "and", "or", "not", "set", "this", "add", "length", "extern"
+    "new", "public", "private", "empty", "of", "at", "to", "from", "step",
+    "const", "map", "try", "catch", "raise",
 };
 
 static std::string jsonEscape(const std::string& s) {

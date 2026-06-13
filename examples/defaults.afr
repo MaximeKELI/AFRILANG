@@ -1,0 +1,13 @@
+function power(base number, exp number = 2) returns number
+    return pow(base, exp)
+end
+
+say power(3)
+say power(2, 10)
+
+function label(text text, tag text = "[info]") returns text
+    return join(list of tag, " ", text)
+end
+
+say label("System ready")
+say label("Warning", "[warn]")
