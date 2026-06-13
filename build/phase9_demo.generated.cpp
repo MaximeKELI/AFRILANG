@@ -103,39 +103,39 @@ using namespace logging;
 using namespace str;
 
 int main() {
-    #line 6 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
-        #line 7 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
-        #line 8 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
-        #line 9 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
-        #line 11 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 6 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
+        #line 7 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
+        #line 8 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
+        #line 9 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
+        #line 11 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::string name = "AFRILANG";
-    #line 12 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 12 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     double version = 1;
-    #line 13 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 13 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << afrilang::runtime::str::concat({afrilang::runtime::str::toString("Welcome to "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString(" v"), afrilang::runtime::str::toString(version), afrilang::runtime::str::toString("!")}) << std::endl;
-    #line 15 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 15 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     logging::info("starting demo");
-    #line 16 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 16 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     logging::warn("this is a warning");
-    #line 18 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 18 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     auto value = math::pow(2, 10);
-    #line 19 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 19 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << math::abs(-42) << std::endl;
-    #line 20 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 20 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << math::floor(3.9) << std::endl;
-    #line 21 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 21 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << value << std::endl;
-    #line 23 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 23 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     auto nowTs = chrono::now();
-    #line 24 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 24 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << chrono::formatTimestamp(nowTs) << std::endl;
-    #line 26 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 26 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::trim("  hello  ") << std::endl;
-    #line 27 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 27 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::contains("hello world", "world") << std::endl;
-    #line 29 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 29 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     auto parts = str::split("a,b,c", ",");
-    #line 30 "/home/maxime/AFRILANG/examples/phase9_demo.afr"
+    #line 30 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::join(parts, "-") << std::endl;
     return 0;
 }

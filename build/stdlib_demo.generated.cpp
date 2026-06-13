@@ -63,28 +63,28 @@ using namespace json;
 using namespace io;
 
 int main() {
-    #line 4 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        #line 5 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        #line 7 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 4 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
+        #line 5 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
+        #line 7 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     auto content = json::makeObject("lang", "AFRILANG");
-    #line 8 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 8 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     std::cout << content << std::endl;
-    #line 10 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 10 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     auto parsed = json::parse(content);
-    #line 11 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 11 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     std::cout << json::getString(parsed, "lang") << std::endl;
-    #line 13 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 13 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     auto ok = io::fileExists("/tmp/afrilang_test.txt");
-    #line 16 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 16 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     if ((ok == false)) {
-        #line 15 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+        #line 15 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
         io::writeFile("/tmp/afrilang_test.txt", "Hello from stdlib io");
     }
-    #line 18 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 18 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     auto fileContent = io::readFile("/tmp/afrilang_test.txt");
-    #line 19 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 19 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     std::cout << fileContent << std::endl;
-    #line 21 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+    #line 21 "/home/maxime/AFRILANG/build/../examples/stdlib_demo.afr"
     std::cout << json::getNumber("{\"value\": 42}", "value") << std::endl;
     return 0;
 }

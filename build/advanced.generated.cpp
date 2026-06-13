@@ -28,40 +28,40 @@ struct Status {
 };
 
 int main() {
-    #line 6 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 6 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
     Status s = Status::make_Ok();
-    #line 7 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 7 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
     Status e = Status::make_Error("failed");
-    #line 16 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 16 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
         {
         Status _afr_match = s;
         if (_afr_match.tag == Status::Tag::Ok) {
-            #line 11 "/home/maxime/AFRILANG/examples/advanced.afr"
+            #line 11 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
             std::cout << "ok" << std::endl;
         }        else {
-            #line 14 "/home/maxime/AFRILANG/examples/advanced.afr"
+            #line 14 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
             std::cout << "other" << std::endl;
         }
     }
-    #line 25 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 25 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
         {
         Status _afr_match = e;
         if (_afr_match.tag == Status::Tag::Error) {
-            #line 20 "/home/maxime/AFRILANG/examples/advanced.afr"
+            #line 20 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
             std::cout << e.message << std::endl;
         }        else {
-            #line 23 "/home/maxime/AFRILANG/examples/advanced.afr"
+            #line 23 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
             std::cout << "unexpected" << std::endl;
         }
     }
-    #line 27 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 27 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
     std::optional<std::string> nickname = std::nullopt;
-    #line 32 "/home/maxime/AFRILANG/examples/advanced.afr"
+    #line 32 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
     if (nickname.has_value()) {
-        #line 29 "/home/maxime/AFRILANG/examples/advanced.afr"
+        #line 29 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
         std::cout << nickname.value() << std::endl;
     } else {
-        #line 31 "/home/maxime/AFRILANG/examples/advanced.afr"
+        #line 31 "/home/maxime/AFRILANG/build/../examples/advanced.afr"
         std::cout << "no nickname" << std::endl;
     }
     return 0;
