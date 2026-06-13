@@ -1,6 +1,7 @@
 #include "afrilang/codegen.hpp"
 
 #include <cstdlib>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 
@@ -614,6 +615,12 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* isError = dynamic_cast<const IsErrorCheckNode*>(&expr)) {
+        emitExpression(out, *isError->value, ownerClass);
+        out << ".isError";
+        return;
+    }
+
     if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
         out << unary->op;
         emitExpression(out, *unary->operand, ownerClass);
@@ -788,6 +795,25 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
     indent(out, indentLevel);
     out << "}\n";
+}
+
+std::string CodeGenerator::functionReturnCpp(const FunctionNode& func) {
+    if (func.returnTypeName.empty()) return "void";
+    if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
+    return typeFromName(func.returnTypeName).toCpp();
+}
+
+std::string CodeGenerator::resultTypeAlias(const std::string& innerTypeName) {
+    return "afrilang::runtime::AfrResult_" + innerTypeName;
+}
+
+std::string CodeGenerator::sanitizeTestName(const std::string& name) {
+    std::string out;
+    for (char c : name) {
+        if (std::isalnum(static_cast<unsigned char>(c))) out += c;
+        else if (c == ' ' || c == '-') out += '_';
+    }
+    return out.empty() ? "unnamed" : out;
 }
 
 bool CodeGenerator::compileToExecutable(const std::string& outputPath,
