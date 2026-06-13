@@ -22,6 +22,7 @@ public:
     void setRuntimeDir(std::string dir) { runtimeDir_ = std::move(dir); }
     void setSourceFile(std::string path) { sourceFilePath_ = std::move(path); }
     void setDebugSymbols(bool enabled) { debugSymbols_ = enabled; }
+    void setCrossTarget(std::string target) { crossTarget_ = std::move(target); }
 
 private:
     const ProgramNode& program_;
