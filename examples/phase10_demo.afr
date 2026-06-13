@@ -17,14 +17,16 @@ create const PI = 3.14159
 say PI
 
 create nums = list of 3, 1, 4, 1, 5
-say sortNumbers(nums)
+create sorted = sortNumbers(nums)
+say sorted at 0
+say sorted at 4
 say sum(nums)
-say reverseNumbers(nums)
 say containsNumber(nums, 4)
 say indexOfNumber(nums, 5)
 
 create words = list of "zebra", "apple", "mango"
-say sortText(words)
+create ordered = sortText(words)
+say ordered at 0
 say containsText(words, "apple")
 
 create total = 0

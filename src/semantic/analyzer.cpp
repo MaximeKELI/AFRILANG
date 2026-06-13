@@ -318,7 +318,6 @@ void SemanticAnalyzer::analyzeProgram() {
         analyzeTest(*test);
     }
 
-    std::unordered_map<std::string, AfrType> scope;
     for (const auto& stmt : program_.statements) {
         analyzeStatement(*stmt, scope, true);
     }
