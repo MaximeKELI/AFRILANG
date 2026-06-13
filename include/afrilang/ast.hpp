@@ -75,6 +75,26 @@ struct IsErrorCheckNode : ExpressionNode {
         : value(std::move(value)) {}
 };
 
+struct IsDefinedCheckNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> value;
+    explicit IsDefinedCheckNode(std::unique_ptr<ExpressionNode> value)
+        : value(std::move(value)) {}
+};
+
+struct NothingLiteralNode : ExpressionNode {};
+
+struct EnumCaseExprNode : ExpressionNode {
+    std::string enumName;
+    std::string caseName;
+    std::vector<std::unique_ptr<ExpressionNode>> arguments;
+
+    EnumCaseExprNode(std::string enumName, std::string caseName,
+                     std::vector<std::unique_ptr<ExpressionNode>> arguments = {})
+        : enumName(std::move(enumName))
+        , caseName(std::move(caseName))
+        , arguments(std::move(arguments)) {}
+};
+
 struct CallExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> callee;
     std::vector<std::unique_ptr<ExpressionNode>> arguments;

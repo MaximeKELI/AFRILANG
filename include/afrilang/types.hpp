@@ -13,7 +13,9 @@ enum class TypeKind {
     Class,
     Record,
     Result,
-    Pointer
+    Pointer,
+    Optional,
+    Enum
 };
 
 struct AfrType {
@@ -48,8 +50,18 @@ struct AfrType {
         t.listElementTypeName = inner.toTypeName();
         return t;
     }
+    static AfrType optionalType(AfrType inner) {
+        AfrType t;
+        t.kind = TypeKind::Optional;
+        t.listElementTypeName = inner.toTypeName();
+        return t;
+    }
+    static AfrType enumType(std::string name) {
+        return {TypeKind::Enum, std::move(name), {}, {}};
+    }
 
     AfrType resultInnerType() const;
+    AfrType optionalInnerType() const;
 
     std::string toTypeName() const {
         switch (kind) {
@@ -62,6 +74,8 @@ struct AfrType {
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return resultInnerType().toTypeName() + " or error";
+            case TypeKind::Optional: return optionalInnerType().toTypeName() + "?";
+            case TypeKind::Enum:   return className;
         }
         return "void";
     }
@@ -79,6 +93,9 @@ struct AfrType {
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return "afrilang::runtime::AfrResult_" + listElementTypeName;
+            case TypeKind::Optional:
+                return "std::optional<" + optionalInnerType().toCpp() + ">";
+            case TypeKind::Enum:   return className;
         }
         return "void";
     }
@@ -93,6 +110,8 @@ struct AfrType {
         if (kind == TypeKind::Record) return recordName == other.recordName;
         if (kind == TypeKind::List) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Result) return listElementTypeName == other.listElementTypeName;
+        if (kind == TypeKind::Optional) return listElementTypeName == other.listElementTypeName;
+        if (kind == TypeKind::Enum) return className == other.className;
         return true;
     }
 
@@ -100,6 +119,9 @@ struct AfrType {
 };
 
 inline AfrType typeFromName(const std::string& name) {
+    if (!name.empty() && name.back() == '?') {
+        return AfrType::optionalType(typeFromName(name.substr(0, name.size() - 1)));
+    }
     if (name == "number") return AfrType::number();
     if (name == "text")   return AfrType::text();
     if (name == "bool")   return AfrType::boolType();
@@ -115,6 +137,10 @@ inline AfrType AfrType::listElementType() const {
 }
 
 inline AfrType AfrType::resultInnerType() const {
+    return typeFromName(listElementTypeName);
+}
+
+inline AfrType AfrType::optionalInnerType() const {
     return typeFromName(listElementTypeName);
 }
 

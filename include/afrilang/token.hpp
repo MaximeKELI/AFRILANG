@@ -18,6 +18,7 @@ enum class TokenType {
     Interface, Implements, Test, Assert, ErrorKw,
     Extern, From,
     Explain,
+    Enum, Case, Match, Default, With, Nothing, Defined,
 
     // Littéraux et identifiants
     Identifier,
@@ -28,6 +29,7 @@ enum class TokenType {
     Plus, Minus, Star, Slash,
     Dot, Equals, Comma, LeftParen, RightParen,
     LeftBracket, RightBracket,
+    Question,
 
     // Fin de fichier
     Eof
@@ -116,6 +118,14 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Extern:         return "extern";
         case TokenType::From:           return "from";
         case TokenType::Explain:        return "explain";
+        case TokenType::Enum:           return "enum";
+        case TokenType::Case:           return "case";
+        case TokenType::Match:          return "match";
+        case TokenType::Default:        return "default";
+        case TokenType::With:           return "with";
+        case TokenType::Nothing:        return "nothing";
+        case TokenType::Defined:        return "defined";
+        case TokenType::Question:       return "?";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";
