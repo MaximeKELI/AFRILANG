@@ -342,6 +342,33 @@ src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
 
+src/repl/repl.o: src/repl/repl.cpp.o
+.PHONY : src/repl/repl.o
+
+# target to build an object file
+src/repl/repl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/repl/repl.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o
+.PHONY : src/repl/repl.cpp.o
+
+src/repl/repl.i: src/repl/repl.cpp.i
+.PHONY : src/repl/repl.i
+
+# target to preprocess a source file
+src/repl/repl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/repl/repl.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.i
+.PHONY : src/repl/repl.cpp.i
+
+src/repl/repl.s: src/repl/repl.cpp.s
+.PHONY : src/repl/repl.s
+
+# target to generate assembly for a file
+src/repl/repl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/repl/repl.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.s
+.PHONY : src/repl/repl.cpp.s
+
 src/semantic/analyzer.o: src/semantic/analyzer.cpp.o
 .PHONY : src/semantic/analyzer.o
 
@@ -449,6 +476,33 @@ src/utils/diagnostics.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.s
 .PHONY : src/utils/diagnostics.cpp.s
+
+src/utils/formatter.o: src/utils/formatter.cpp.o
+.PHONY : src/utils/formatter.o
+
+# target to build an object file
+src/utils/formatter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o
+.PHONY : src/utils/formatter.cpp.o
+
+src/utils/formatter.i: src/utils/formatter.cpp.i
+.PHONY : src/utils/formatter.i
+
+# target to preprocess a source file
+src/utils/formatter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/formatter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.i
+.PHONY : src/utils/formatter.cpp.i
+
+src/utils/formatter.s: src/utils/formatter.cpp.s
+.PHONY : src/utils/formatter.s
+
+# target to generate assembly for a file
+src/utils/formatter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/formatter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.s
+.PHONY : src/utils/formatter.cpp.s
 
 src/utils/project.o: src/utils/project.cpp.o
 .PHONY : src/utils/project.o
@@ -559,6 +613,9 @@ help:
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"
+	@echo "... src/repl/repl.o"
+	@echo "... src/repl/repl.i"
+	@echo "... src/repl/repl.s"
 	@echo "... src/semantic/analyzer.o"
 	@echo "... src/semantic/analyzer.i"
 	@echo "... src/semantic/analyzer.s"
@@ -571,6 +628,9 @@ help:
 	@echo "... src/utils/diagnostics.o"
 	@echo "... src/utils/diagnostics.i"
 	@echo "... src/utils/diagnostics.s"
+	@echo "... src/utils/formatter.o"
+	@echo "... src/utils/formatter.i"
+	@echo "... src/utils/formatter.s"
 	@echo "... src/utils/project.o"
 	@echo "... src/utils/project.i"
 	@echo "... src/utils/project.s"

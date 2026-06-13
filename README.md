@@ -51,6 +51,9 @@ afrilang check fichier.afr  # Vérifier sans compiler
 afrilang test               # Lancer la suite de tests
 afrilang init mon_projet    # Créer un nouveau projet
 afrilang lsp                # Serveur Language Server (stdio)
+afrilang fmt fichier.afr    # Formater (stdout)
+afrilang fmt fichier.afr -w # Formater et écraser le fichier
+afrilang repl               # REPL interactif
 
 # Mode legacy (compatible)
 ./afrilang ../examples/hello.afr --run
@@ -380,7 +383,38 @@ Les blocs `test` sont compilés et exécutés automatiquement au lancement du pr
 
 ### Extension VS Code / LSP
 
-Un serveur LSP minimal est disponible via `afrilang lsp` (stdio). L'extension dans `vscode-afrilang/` fournit coloration syntaxique et lance le serveur.
+Un serveur LSP minimal est disponible via `afrilang lsp` (stdio). L'extension dans `vscode-afrilang/` fournit coloration syntaxique et lance le serveur. Les diagnostics utilisent le contenu du buffer ouvert.
+
+### Formateur (`afrilang fmt`)
+
+Normalise l'indentation (4 espaces) et la syntaxe naturelle :
+
+```bash
+afrilang fmt examples/hello.afr       # affiche sur stdout
+afrilang fmt examples/hello.afr -w    # réécrit le fichier
+```
+
+### REPL interactif
+
+```bash
+afrilang repl
+>>> create x = 42
+>>> say x + 8
+50
+>>> :help
+>>> :quit
+```
+
+Commandes : `:help`, `:reset`, `:show`, `:paste` / `:end`, `:quit`.
+
+### Symboles de debug
+
+Le code C++ généré inclut des directives `#line` pointant vers le fichier `.afr` source, et `g++` est invoqué avec `-g`. Vous pouvez débugger avec GDB en suivant les numéros de ligne AFRILANG :
+
+```bash
+afrilang run examples/hello.afr --emit
+gdb ./hello
+```
 
 ## Exemples
 
