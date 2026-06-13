@@ -19,47 +19,41 @@ function isAfrilangDocument(document) {
 }
 
 function resolveServerPath(context) {
-  const config = vscode.workspace.getConfiguration('afrilang');
-  let configured = config.get('serverPath', '');
-
-  const folders = vscode.workspace.workspaceFolders ?? [];
   const candidates = [];
 
   const addCandidate = (p) => {
     if (p && !candidates.includes(p)) candidates.push(p);
   };
 
-  // 1. Configured path (expand ${workspaceFolder})
+  // 1. Bundled with extension (symlink → repo/build/afrilang) — priorité max
+  if (context?.extensionPath) {
+    addCandidate(path.join(context.extensionPath, '..', 'build', 'afrilang'));
+  }
+
+  // 2. Settings utilisateur / workspace
+  const config = vscode.workspace.getConfiguration('afrilang');
+  const configured = config.get('serverPath', '');
+  const folders = vscode.workspace.workspaceFolders ?? [];
+
   if (configured) {
     for (const folder of folders) {
-      const expanded = configured.replace(/\$\{workspaceFolder\}/g, folder.uri.fsPath);
-      addCandidate(expanded);
+      addCandidate(configured.replace(/\$\{workspaceFolder\}/g, folder.uri.fsPath));
     }
     if (!configured.includes('${workspaceFolder}')) {
       addCandidate(configured);
     }
   }
 
-  // 2. Workspace build/afrilang
+  // 3. Workspace build/afrilang
   for (const folder of folders) {
     addCandidate(path.join(folder.uri.fsPath, 'build', 'afrilang'));
-    addCandidate(path.join(folder.uri.fsPath, 'afrilang'));
   }
-
-  // 3. Relative to extension (symlink → repo root)
-  if (context?.extensionPath) {
-    addCandidate(path.join(context.extensionPath, '..', 'build', 'afrilang'));
-  }
-
-  // 4. Fallback PATH name
-  addCandidate('afrilang');
 
   for (const candidate of candidates) {
-    if (candidate === 'afrilang') continue;
     if (fs.existsSync(candidate)) return candidate;
   }
 
-  return 'afrilang';
+  return configured || 'afrilang';
 }
 
 function verifyServerPath(serverPath) {
