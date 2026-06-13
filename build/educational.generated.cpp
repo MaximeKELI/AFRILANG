@@ -14,7 +14,9 @@ int main() {
     std::cout << "[explication] Déclare une nouvelle variable avec une valeur initiale." << std::endl;
     #line 3 "/home/maxime/AFRILANG/build/../examples/educational.afr"
     double x = 10;
-    #line 5 "/home/maxime/AFRILANG/build/../examples/educational.afr"
+    #line 4 "/home/maxime/AFRILANG/build/../examples/educational.afr"
+    std::cout << x << std::endl;
+    #line 6 "/home/maxime/AFRILANG/build/../examples/educational.afr"
     std::cout << "Programme terminé" << std::endl;
     return 0;
 }

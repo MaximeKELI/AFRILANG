@@ -199,7 +199,15 @@ std::unique_ptr<ExternDeclNode> Parser::parseExtern() {
 }
 
 bool Parser::matchToOrThan() {
-    return match(TokenType::To) || match(TokenType::Than);
+    if (match(TokenType::To) || match(TokenType::Than)) return true;
+    if (check(TokenType::Identifier)) {
+        const std::string& lex = peek().lexeme;
+        if (lex == "a" || lex == "à") {
+            advance();
+            return true;
+        }
+    }
+    return false;
 }
 
 void Parser::consumeToOrThan(const std::string& message) {

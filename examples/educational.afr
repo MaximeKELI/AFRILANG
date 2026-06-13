@@ -1,5 +1,6 @@
 expliquer dire "Ce message est expliqué puis affiché"
 
 explain creer x = 10
+say x
 
 dire "Programme terminé"

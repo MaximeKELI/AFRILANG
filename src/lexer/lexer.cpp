@@ -85,7 +85,6 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"superieur",    TokenType::Greater},
     {"inferieur",    TokenType::Less},
     {"egal",         TokenType::Equal},
-    {"a",            TokenType::To},
     {"et",           TokenType::And},
     {"ou",           TokenType::Or},
     {"pas",          TokenType::Not},
