@@ -10,7 +10,7 @@
 #include "str.hpp"
 
 template<typename T>
-T afr_identity(T x) {
+T afr_identity(const T& x) {
     #line 2 "/home/maxime/AFRILANG/build/../examples/generics.afr"
     return x;
 }

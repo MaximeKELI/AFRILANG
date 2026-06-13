@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 #include "str.hpp"
 
 class Calculator {
@@ -47,8 +48,8 @@ int main() {
     #line 26 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << squared << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    Calculator calc;
+    std::unique_ptr<Calculator> calc = std::make_unique<Calculator>();
     #line 29 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    std::cout << calc.compute(5, 3) << std::endl;
+    std::cout << calc->compute(5, 3) << std::endl;
     return 0;
 }

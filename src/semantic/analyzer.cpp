@@ -140,7 +140,7 @@ void SemanticAnalyzer::registerRecords() {
             FieldInfo fi;
             fi.name = field.name;
             fi.type = typeFromName(field.typeName);
-            fi.isPublic = true;
+            fi.visibility = FieldVisibility::Public;
             info.fields[field.name] = std::move(fi);
         }
         result_.records[record->name] = std::move(info);
@@ -157,7 +157,7 @@ void SemanticAnalyzer::registerRecords() {
                 FieldInfo fi;
                 fi.name = field.name;
                 fi.type = typeFromName(field.typeName);
-                fi.isPublic = true;
+                fi.visibility = FieldVisibility::Public;
                 info.fields[field.name] = std::move(fi);
             }
             result_.records[record->name] = std::move(info);
@@ -431,6 +431,7 @@ void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
     currentClass_ = &result_.classes.at(cls.name);
 
     for (const auto& method : cls.methods) {
+        if (method->isAbstract) continue;
         analyzeFunctionBody(*method, currentClass_);
     }
 
@@ -964,6 +965,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             if (result_.usedModules.count(modName) && mod.functions.count(id->name)) {
                 return mod.functions.at(id->name).returnType;
             }
+        }
+
+        if (result_.classes.count(id->name)) {
+            return AfrType::classType(id->name);
         }
 
         std::vector<std::string> hints;

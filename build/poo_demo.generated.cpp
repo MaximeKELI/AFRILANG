@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 #include "str.hpp"
 
 class Animal {
@@ -45,13 +46,13 @@ public:
 
 int main() {
     #line 25 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
-    auto rex = Dog("Rex");
+    std::unique_ptr<Dog> rex = std::make_unique<Dog>("Rex");
     #line 26 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
-    rex.speak();
+    rex->speak();
     #line 28 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
-    Cat whiskers;
+    std::unique_ptr<Cat> whiskers = std::make_unique<Cat>();
     #line 29 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
-    whiskers.speak();
+    whiskers->speak();
     #line 31 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
     std::cout << "POO demo complete" << std::endl;
     return 0;

@@ -319,7 +319,8 @@ std::unique_ptr<EnumNode> Parser::parseEnum() {
             do {
                 const Token& fieldName = consumeName("Nom de champ attendu");
                 std::string typeName = parseTypeName();
-                fields.emplace_back(fieldName.lexeme, std::move(typeName), true);
+                fields.emplace_back(fieldName.lexeme, std::move(typeName),
+                                    FieldVisibility::Public);
             } while (match(TokenType::Comma));
         }
         cases.emplace_back(caseToken.lexeme, std::move(fields));

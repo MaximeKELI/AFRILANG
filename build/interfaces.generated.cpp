@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 #include "str.hpp"
 
 class Speakable {
@@ -46,10 +47,10 @@ public:
 
 int main() {
     #line 25 "/home/maxime/AFRILANG/build/../examples/interfaces.afr"
-    Dog dog;
+    std::unique_ptr<Dog> dog = std::make_unique<Dog>();
     #line 26 "/home/maxime/AFRILANG/build/../examples/interfaces.afr"
-    dog.speak();
+    dog->speak();
     #line 27 "/home/maxime/AFRILANG/build/../examples/interfaces.afr"
-    std::cout << dog.getName() << std::endl;
+    std::cout << dog->getName() << std::endl;
     return 0;
 }

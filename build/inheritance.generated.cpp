@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 #include "str.hpp"
 
 class Animal {
@@ -43,18 +44,18 @@ public:
 
 int main() {
     #line 23 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    Dog animals;
+    std::unique_ptr<Dog> animals = std::make_unique<Dog>();
     #line 24 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    animals.speak();
+    animals->speak();
     #line 25 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    std::cout << animals.breed() << std::endl;
+    std::cout << animals->breed() << std::endl;
     #line 27 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    Cat cat;
+    std::unique_ptr<Cat> cat = std::make_unique<Cat>();
     #line 28 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    cat.speak();
+    cat->speak();
     #line 30 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    Animal animal;
+    std::unique_ptr<Animal> animal = std::make_unique<Animal>();
     #line 31 "/home/maxime/AFRILANG/build/../examples/inheritance.afr"
-    animal.speak();
+    animal->speak();
     return 0;
 }

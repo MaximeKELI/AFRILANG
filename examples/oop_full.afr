@@ -1,0 +1,64 @@
+abstract class Shape
+    abstract function area() returns number
+end
+
+class Circle extends Shape
+    public field radius number
+
+    function init(r number)
+        set this.radius = r
+    end
+
+    function area() returns number
+        return 3.14159 * radius * radius
+    end
+end
+
+class Counter
+    static field count number
+
+    static function nextId() returns number
+        set Counter.count = Counter.count + 1
+        return Counter.count
+    end
+end
+
+class Animal
+    protected field species text
+
+    function init(aSpecies text)
+        set this.species = aSpecies
+    end
+
+    function describe()
+        say species
+    end
+end
+
+class Dog extends Animal
+    public field name text
+
+    function init(aSpecies text, aName text)
+        super(aSpecies)
+        set this.name = aName
+    end
+
+    function describe()
+        super.describe()
+        say name + " (dog)"
+    end
+end
+
+create circle = new Circle(5)
+say circle.area()
+
+say Counter.nextId()
+say Counter.nextId()
+
+create rex = new Dog("Canis", "Rex")
+rex.describe()
+
+create pet Animal = new Dog("Canis", "Buddy")
+pet.describe()
+
+say "OOP full demo complete"

@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include <memory>
 #include "str.hpp"
 
 class Person {
@@ -32,10 +33,10 @@ public:
 
 int main() {
     #line 16 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    auto bob = Person("Bob", 25);
+    std::unique_ptr<Person> bob = std::make_unique<Person>("Bob", 25);
     #line 17 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    bob.greet();
+    bob->greet();
     #line 18 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    std::cout << bob.name << std::endl;
+    std::cout << bob->name << std::endl;
     return 0;
 }

@@ -187,7 +187,9 @@ void Formatter::formatClass(std::ostream& out, const ClassNode& cls) const {
     ++indent_;
     for (const auto& field : cls.fields) {
         writeIndent(out);
-        out << (field.isPublic ? "public" : "private") << " field "
+        out << (field.visibility == FieldVisibility::Public ? "public"
+              : field.visibility == FieldVisibility::Private ? "private"
+              : "protected") << " field "
             << field.name << " ";
         formatType(out, field.typeName);
         out << "\n";
