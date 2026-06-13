@@ -409,8 +409,15 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             }
         }
 
+        if (dynamic_cast<const NothingLiteralNode*>(assign->value.get())) {
+            if (assign->typeName.empty() || assign->typeName.back() != '?') {
+                errorAt(*assign, "'nothing' requiert un type nullable (ex: text?)");
+            }
+            valueType = typeFromName(assign->typeName);
+        }
+
         if (!assign->typeName.empty()) {
-            AfrType declared = typeFromName(assign->typeName);
+            AfrType declared = resolveTypeName(assign->typeName);
             if (!isAssignable(declared, valueType)) {
                 errorAt(*assign, "Type incompatible pour '" + assign->name + "'");
             }
@@ -945,35 +952,6 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::Optional && value.kind == TypeKind::Optional) {
         return target.listElementTypeName == value.listElementTypeName;
     }
-    if (target.kind == TypeKind::Optional && dynamic_cast<const NothingLiteralNode*>(&expr)) {
-        return true;
-    }
-    if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
-        return target.className == value.className;
-    }
-    return false;
-}
-
-bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value) const {
-    if (target == value) return true;
-    if (target.kind == TypeKind::Number && value.kind == TypeKind::Number) return true;
-    if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
-    if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
-    if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
-        return target.className == value.className;
-    }
-    if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
-        return target.recordName == value.recordName;
-    }
-    if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
-        return target.listElementTypeName == value.listElementTypeName;
-    }
-    if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
-        return target.listElementTypeName == value.listElementTypeName;
-    }
-    if (target.kind == TypeKind::Optional && value.kind == TypeKind::Optional) {
-        return target.listElementTypeName == value.listElementTypeName;
-    }
     if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
         return target.className == value.className;
     }
@@ -1004,6 +982,17 @@ const FieldInfo* SemanticAnalyzer::findField(const ClassInfo& cls, const std::st
 const MethodSignature* SemanticAnalyzer::findFunction(const std::string& name) const {
     auto it = result_.functions.find(name);
     return it != result_.functions.end() ? &it->second : nullptr;
+}
+
+const EnumInfo* SemanticAnalyzer::findEnum(const std::string& name) const {
+    auto it = result_.enums.find(name);
+    return it != result_.enums.end() ? &it->second : nullptr;
+}
+
+AfrType SemanticAnalyzer::resolveTypeName(const std::string& name) const {
+    if (result_.enums.count(name)) return AfrType::enumType(name);
+    if (result_.records.count(name)) return AfrType::recordType(name);
+    return typeFromName(name);
 }
 
 const MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,
