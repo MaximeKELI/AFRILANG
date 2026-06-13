@@ -16,6 +16,7 @@ struct MethodSignature {
     std::vector<AfrType> paramTypes;
     AfrType returnType;
     bool isConstructor = false;
+    bool returnsResult = false;
 };
 
 struct FieldInfo {
@@ -43,9 +44,15 @@ struct ModuleInfo {
     std::unordered_map<std::string, RecordInfo> records;
 };
 
+struct InterfaceInfo {
+    std::string name;
+    std::unordered_map<std::string, MethodSignature> methods;
+};
+
 struct SemanticResult {
     std::unordered_map<std::string, AfrType> globalVariables;
     std::unordered_map<std::string, ClassInfo> classes;
+    std::unordered_map<std::string, InterfaceInfo> interfaces;
     std::unordered_map<std::string, RecordInfo> records;
     std::unordered_map<std::string, MethodSignature> functions;
     std::unordered_map<std::string, ModuleInfo> modules;
@@ -69,10 +76,12 @@ private:
     const ClassInfo* currentClass_ = nullptr;
 
     void registerRecords();
+    void registerInterfaces();
     void registerClasses();
     void registerModules();
     void analyzeProgram();
     void analyzeClass(const ClassNode& cls);
+    void analyzeTest(const TestNode& test);
     void analyzeRecord(const RecordNode& record);
     void analyzeModule(const ModuleNode& module);
     void analyzeGlobalFunction(const FunctionNode& func);

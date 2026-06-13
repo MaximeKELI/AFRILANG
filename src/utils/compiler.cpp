@@ -64,9 +64,11 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
         return std::make_unique<ProgramNode>(
             std::vector<std::unique_ptr<ImportNode>>{},
             std::vector<std::unique_ptr<ModuleNode>>{},
+            std::vector<std::unique_ptr<InterfaceNode>>{},
             std::vector<std::unique_ptr<RecordNode>>{},
             std::vector<std::unique_ptr<ClassNode>>{},
             std::vector<std::unique_ptr<FunctionNode>>{},
+            std::vector<std::unique_ptr<TestNode>>{},
             std::vector<std::unique_ptr<StatementNode>>{});
     }
 
@@ -75,9 +77,11 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
         return std::make_unique<ProgramNode>(
             std::vector<std::unique_ptr<ImportNode>>{},
             std::vector<std::unique_ptr<ModuleNode>>{},
+            std::vector<std::unique_ptr<InterfaceNode>>{},
             std::vector<std::unique_ptr<RecordNode>>{},
             std::vector<std::unique_ptr<ClassNode>>{},
             std::vector<std::unique_ptr<FunctionNode>>{},
+            std::vector<std::unique_ptr<TestNode>>{},
             std::vector<std::unique_ptr<StatementNode>>{});
     }
     loadedFiles_.insert(normalized);

@@ -13,10 +13,41 @@ SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
 
 SemanticResult SemanticAnalyzer::analyze() {
     registerRecords();
+    registerInterfaces();
     registerClasses();
     registerModules();
     analyzeProgram();
     return result_;
+}
+
+static AfrType resolveFunctionReturnType(const FunctionNode& func) {
+    if (func.returnTypeName.empty()) return AfrType::voidType();
+    AfrType inner = typeFromName(func.returnTypeName);
+    return func.returnsResult ? AfrType::resultType(inner) : inner;
+}
+
+void SemanticAnalyzer::registerInterfaces() {
+    for (const auto& iface : program_.interfaces) {
+        if (result_.interfaces.count(iface->name)) {
+            errorAt(*iface, "Interface '" + iface->name + "' déjà définie");
+        }
+
+        InterfaceInfo info;
+        info.name = iface->name;
+
+        for (const auto& method : iface->methods) {
+            MethodSignature sig;
+            sig.name = method->name;
+            sig.returnType = resolveFunctionReturnType(*method);
+            sig.returnsResult = method->returnsResult;
+            for (const auto& param : method->parameters) {
+                sig.paramTypes.push_back(typeFromName(param.typeName));
+            }
+            info.methods[method->name] = std::move(sig);
+        }
+
+        result_.interfaces[iface->name] = std::move(info);
+    }
 }
 
 void SemanticAnalyzer::registerRecords() {
@@ -79,9 +110,8 @@ void SemanticAnalyzer::registerClasses() {
             MethodSignature sig;
             sig.name = method->name;
             sig.isConstructor = (method->name == "init");
-            sig.returnType = method->returnTypeName.empty()
-                ? AfrType::voidType()
-                : typeFromName(method->returnTypeName);
+            sig.returnType = resolveFunctionReturnType(*method);
+            sig.returnsResult = method->returnsResult;
 
             for (const auto& param : method->parameters) {
                 sig.paramTypes.push_back(typeFromName(param.typeName));
@@ -126,9 +156,8 @@ void SemanticAnalyzer::registerClasses() {
                 MethodSignature sig;
                 sig.name = method->name;
                 sig.isConstructor = (method->name == "init");
-                sig.returnType = method->returnTypeName.empty()
-                    ? AfrType::voidType()
-                    : typeFromName(method->returnTypeName);
+                sig.returnType = resolveFunctionReturnType(*method);
+                sig.returnsResult = method->returnsResult;
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
@@ -141,9 +170,8 @@ void SemanticAnalyzer::registerClasses() {
         for (const auto& func : module->functions) {
             MethodSignature sig;
             sig.name = func->name;
-            sig.returnType = func->returnTypeName.empty()
-                ? AfrType::voidType()
-                : typeFromName(func->returnTypeName);
+            sig.returnType = resolveFunctionReturnType(*func);
+            sig.returnsResult = func->returnsResult;
             for (const auto& param : func->parameters) {
                 sig.paramTypes.push_back(typeFromName(param.typeName));
             }
@@ -183,6 +211,10 @@ void SemanticAnalyzer::analyzeProgram() {
         analyzeGlobalFunction(*func);
     }
 
+    for (const auto& test : program_.tests) {
+        analyzeTest(*test);
+    }
+
     std::unordered_map<std::string, AfrType> scope;
     for (const auto& stmt : program_.statements) {
         analyzeStatement(*stmt, scope, true);
@@ -213,9 +245,8 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
 
     MethodSignature sig;
     sig.name = func.name;
-    sig.returnType = func.returnTypeName.empty()
-        ? AfrType::voidType()
-        : typeFromName(func.returnTypeName);
+    sig.returnType = resolveFunctionReturnType(func);
+    sig.returnsResult = func.returnsResult;
     for (const auto& param : func.parameters) {
         sig.paramTypes.push_back(typeFromName(param.typeName));
     }
@@ -225,6 +256,20 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
 }
 
 void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
+    for (const auto& ifaceName : cls.interfaceNames) {
+        if (!result_.interfaces.count(ifaceName)) {
+            errorAt(cls, "Interface '" + ifaceName + "' introuvable");
+        }
+        const InterfaceInfo& iface = result_.interfaces.at(ifaceName);
+        for (const auto& [methodName, sig] : iface.methods) {
+            const MethodSignature* impl = findMethod(cls.name, methodName);
+            if (!impl) {
+                errorAt(cls, "Classe '" + cls.name + "' n'implémente pas '" +
+                          methodName + "' de l'interface '" + ifaceName + "'");
+            }
+        }
+    }
+
     const ClassInfo* savedClass = currentClass_;
     currentClass_ = &result_.classes.at(cls.name);
 
@@ -233,6 +278,13 @@ void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
     }
 
     currentClass_ = savedClass;
+}
+
+void SemanticAnalyzer::analyzeTest(const TestNode& test) {
+    std::unordered_map<std::string, AfrType> scope;
+    for (const auto& stmt : test.body) {
+        analyzeStatement(*stmt, scope, false);
+    }
 }
 
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {

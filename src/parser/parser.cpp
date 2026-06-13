@@ -82,6 +82,9 @@ void Parser::synchronize() {
             case TokenType::Module:
             case TokenType::Record:
             case TokenType::Import:
+            case TokenType::Interface:
+            case TokenType::Test:
+            case TokenType::Assert:
                 return;
             default:
                 break;
@@ -131,9 +134,11 @@ const Token& Parser::consumeName(const std::string& message) {
 std::unique_ptr<ProgramNode> Parser::parseProgram() {
     std::vector<std::unique_ptr<ImportNode>> imports;
     std::vector<std::unique_ptr<ModuleNode>> modules;
+    std::vector<std::unique_ptr<InterfaceNode>> interfaces;
     std::vector<std::unique_ptr<RecordNode>> records;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
+    std::vector<std::unique_ptr<TestNode>> tests;
     std::vector<std::unique_ptr<StatementNode>> statements;
 
     while (!isAtEnd()) {
@@ -142,12 +147,16 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 imports.push_back(parseImport());
             } else if (match(TokenType::Module)) {
                 modules.push_back(parseModule());
+            } else if (match(TokenType::Interface)) {
+                interfaces.push_back(parseInterface());
             } else if (match(TokenType::Record)) {
                 records.push_back(parseRecord());
             } else if (match(TokenType::Class)) {
                 classes.push_back(parseClass());
             } else if (match(TokenType::Function)) {
                 functions.push_back(parseFunction());
+            } else if (match(TokenType::Test)) {
+                tests.push_back(parseTest());
             } else {
                 statements.push_back(parseStatement());
             }
@@ -158,8 +167,9 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
     }
 
     return std::make_unique<ProgramNode>(
-        std::move(imports), std::move(modules), std::move(records),
-        std::move(classes), std::move(functions), std::move(statements));
+        std::move(imports), std::move(modules), std::move(interfaces),
+        std::move(records), std::move(classes), std::move(functions),
+        std::move(tests), std::move(statements));
 }
 
 std::unique_ptr<ImportNode> Parser::parseImport() {
@@ -192,6 +202,30 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
     consume(TokenType::End, "'end' attendu pour fermer le module");
     auto node = std::make_unique<ModuleNode>(
         std::move(moduleName), std::move(classes), std::move(records), std::move(functions));
+    node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::unique_ptr<InterfaceNode> Parser::parseInterface() {
+    const Token& nameToken = consumeName("Nom d'interface attendu après 'interface'");
+    std::vector<std::unique_ptr<FunctionNode>> methods;
+
+    while (!check(TokenType::End) && !isAtEnd()) {
+        consume(TokenType::Function, "Signature 'function' attendue dans l'interface");
+        methods.push_back(parseFunction(true));
+    }
+
+    consume(TokenType::End, "'end' attendu pour fermer l'interface");
+    auto node = std::make_unique<InterfaceNode>(nameToken.lexeme, std::move(methods));
+    node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::unique_ptr<TestNode> Parser::parseTest() {
+    const Token& nameToken = consume(TokenType::StringLiteral, "Nom de test attendu (chaîne)");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer le test");
+    auto node = std::make_unique<TestNode>(nameToken.lexeme, std::move(body));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -230,8 +264,16 @@ std::unique_ptr<ClassNode> Parser::parseClass() {
 
     std::string baseClass;
     if (match(TokenType::Extends)) {
-        const Token& baseToken = consumeName( "Nom de classe de base attendu après 'extends'");
+        const Token& baseToken = consumeName("Nom de classe de base attendu après 'extends'");
         baseClass = baseToken.lexeme;
+    }
+
+    std::vector<std::string> interfaceNames;
+    if (match(TokenType::Implements)) {
+        do {
+            const Token& ifaceToken = consumeName("Nom d'interface attendu après 'implements'");
+            interfaceNames.push_back(ifaceToken.lexeme);
+        } while (match(TokenType::Comma));
     }
 
     std::vector<FieldNode> fields;
@@ -252,7 +294,8 @@ std::unique_ptr<ClassNode> Parser::parseClass() {
 
     consume(TokenType::End, "'end' attendu pour fermer la classe");
     auto node = std::make_unique<ClassNode>(
-        std::move(className), std::move(baseClass), std::move(fields), std::move(methods));
+        std::move(className), std::move(baseClass), std::move(interfaceNames),
+        std::move(fields), std::move(methods));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -285,8 +328,8 @@ std::vector<ParameterNode> Parser::parseParameters() {
     return params;
 }
 
-std::unique_ptr<FunctionNode> Parser::parseFunction() {
-    const Token& nameToken = consumeName( "Nom de fonction attendu");
+std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
+    const Token& nameToken = consumeName("Nom de fonction attendu");
     std::string funcName = nameToken.lexeme;
 
     consume(TokenType::LeftParen, "'(' attendu après le nom de la fonction");
@@ -294,15 +337,28 @@ std::unique_ptr<FunctionNode> Parser::parseFunction() {
     consume(TokenType::RightParen, "')' attendu");
 
     std::string returnType;
+    bool returnsResult = false;
     if (match(TokenType::Returns)) {
         returnType = parseTypeName();
+        if (match(TokenType::Or)) {
+            consume(TokenType::ErrorKw, "'error' attendu après 'or'");
+            returnsResult = true;
+        }
     }
 
-    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
-    consume(TokenType::End, "'end' attendu pour fermer la fonction");
+    std::vector<std::unique_ptr<StatementNode>> body;
+    if (signatureOnly) {
+        if (match(TokenType::End)) {
+            // optional end for interface method signature style
+        }
+    } else {
+        body = parseBlock();
+        consume(TokenType::End, "'end' attendu pour fermer la fonction");
+    }
 
     auto node = std::make_unique<FunctionNode>(
-        std::move(funcName), std::move(params), std::move(returnType), std::move(body));
+        std::move(funcName), std::move(params), std::move(returnType),
+        returnsResult, std::move(body));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -326,6 +382,7 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::Repeat))    return parseRepeatStatement();
     if (match(TokenType::For))       return parseForEachStatement();
     if (match(TokenType::Return))    return parseReturnStatement();
+    if (match(TokenType::Assert))    return parseAssertStatement();
     if (match(TokenType::Ask))       return parseAskStatement();
     if (match(TokenType::Use))       return parseUseStatement();
     if (match(TokenType::Add))       return parseAddToListStatement();
@@ -478,8 +535,21 @@ std::unique_ptr<StatementNode> Parser::parseForEachStatement() {
 }
 
 std::unique_ptr<StatementNode> Parser::parseReturnStatement() {
+    if (match(TokenType::ErrorKw)) {
+        auto msg = parseExpression();
+        auto node = std::make_unique<ReturnStatementNode>(std::move(msg), true);
+        setLoc(*node);
+        return node;
+    }
     auto value = parseExpression();
     auto node = std::make_unique<ReturnStatementNode>(std::move(value));
+    setLoc(*node);
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseAssertStatement() {
+    auto condition = parseComparison();
+    auto node = std::make_unique<AssertStatementNode>(std::move(condition));
     setLoc(*node);
     return node;
 }
@@ -526,6 +596,10 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
     auto left = parseTerm();
 
     if (match(TokenType::Is)) {
+        if (match(TokenType::ErrorKw)) {
+            return std::make_unique<IsErrorCheckNode>(std::move(left));
+        }
+
         std::string op;
 
         if (match(TokenType::Greater)) {

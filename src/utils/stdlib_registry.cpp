@@ -10,7 +10,7 @@ std::unique_ptr<FunctionNode> makeStubFunction(const std::string& name,
                                                std::vector<ParameterNode> params,
                                                std::string returnType) {
     return std::make_unique<FunctionNode>(
-        name, std::move(params), std::move(returnType),
+        name, std::move(params), std::move(returnType), false,
         std::vector<std::unique_ptr<StatementNode>>{});
 }
 
