@@ -82,6 +82,8 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     CodeGenerator codegen(*program, semantic);
     codegen.setRuntimeDir(options.runtimeDir.empty() ? detectAfrilangRoot() + "/runtime"
                                                      : options.runtimeDir);
+    codegen.setSourceFile(srcPath.string());
+    codegen.setDebugSymbols(options.debugSymbols);
 
     result.generatedCpp = baseName + ".generated.cpp";
     result.executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;

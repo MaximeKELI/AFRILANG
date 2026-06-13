@@ -308,6 +308,7 @@ void CodeGenerator::emitMain(std::ostream& out) const {
 
 void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, int indentLevel,
                                   const ClassInfo* ownerClass) const {
+    emitLineDirective(out, stmt, indentLevel);
     indent(out, indentLevel);
 
     if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
@@ -743,6 +744,13 @@ void CodeGenerator::indent(std::ostream& out, int level) {
     }
 }
 
+void CodeGenerator::emitLineDirective(std::ostream& out, const ASTNode& node,
+                                      int indentLevel) const {
+    if (!debugSymbols_ || sourceFilePath_.empty() || node.loc.line <= 0) return;
+    indent(out, indentLevel);
+    out << "#line " << node.loc.line << " \"" << sourceFilePath_ << "\"\n";
+}
+
 std::string CodeGenerator::escapeString(const std::string& s) {
     std::string result;
     result.reserve(s.size());
@@ -826,8 +834,11 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     }
 
     std::string command =
-        "g++ -std=c++17 -O2 -Wall -Wextra -o \"" + executablePath +
-        "\" \"" + outputPath + "\"";
+        "g++ -std=c++17 -O2 -Wall -Wextra";
+    if (debugSymbols_) {
+        command += " -g";
+    }
+    command += " -o \"" + executablePath + "\" \"" + outputPath + "\"";
 
     if (!runtimeDir_.empty()) {
         command += " -I\"" + runtimeDir_ + "\"";
