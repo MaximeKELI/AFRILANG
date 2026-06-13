@@ -60,13 +60,13 @@ using namespace args;
 
 int main(int argc, char** argv) {
     afrilang::runtime::args::init(argc, argv);
-    #line 4 "/home/maxime/AFRILANG/examples/args_path_demo.afr"
-        #line 5 "/home/maxime/AFRILANG/examples/args_path_demo.afr"
-        #line 7 "/home/maxime/AFRILANG/examples/args_path_demo.afr"
+    #line 4 "/home/maxime/AFRILANG/build/../examples/args_path_demo.afr"
+        #line 5 "/home/maxime/AFRILANG/build/../examples/args_path_demo.afr"
+        #line 7 "/home/maxime/AFRILANG/build/../examples/args_path_demo.afr"
     std::cout << args::count() << std::endl;
-    #line 8 "/home/maxime/AFRILANG/examples/args_path_demo.afr"
+    #line 8 "/home/maxime/AFRILANG/build/../examples/args_path_demo.afr"
     std::cout << path::join("home", "user") << std::endl;
-    #line 10 "/home/maxime/AFRILANG/examples/args_path_demo.afr"
+    #line 10 "/home/maxime/AFRILANG/build/../examples/args_path_demo.afr"
     std::cout << "stdlib args path complete" << std::endl;
     return 0;
 }

@@ -13,7 +13,7 @@
 class Config final {
 public:
     virtual ~Config() {
-        #line 10 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+        #line 10 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
         std::cout << "config destroyed" << std::endl;
     }
 
@@ -27,22 +27,22 @@ public:
     }
 
     Config(std::string n) {
-        #line 6 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+        #line 6 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
         setName(n);
     }
 
 };
 
 int main() {
-    #line 14 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+    #line 14 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
     std::unique_ptr<Config> cfg = std::make_unique<Config>("app");
-    #line 15 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+    #line 15 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
     std::cout << cfg->getName() << std::endl;
-    #line 16 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+    #line 16 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
     cfg->setName("server");
-    #line 17 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+    #line 17 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
     std::cout << cfg->getName() << std::endl;
-    #line 19 "/home/maxime/AFRILANG/examples/poo_advanced.afr"
+    #line 19 "/home/maxime/AFRILANG/build/../examples/poo_advanced.afr"
     std::cout << "poo advanced complete" << std::endl;
     return 0;
 }

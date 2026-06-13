@@ -18,27 +18,27 @@ public:
     T data;
 
     Box(const T& v) {
-        #line 5 "/home/maxime/AFRILANG/examples/generic_class.afr"
+        #line 5 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
         data = v;
     }
 
     virtual T get() {
-        #line 9 "/home/maxime/AFRILANG/examples/generic_class.afr"
+        #line 9 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
         return data;
     }
 
 };
 
 int main() {
-    #line 13 "/home/maxime/AFRILANG/examples/generic_class.afr"
+    #line 13 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::unique_ptr<Box<double>> numbers = std::make_unique<Box<double>>(42);
-    #line 14 "/home/maxime/AFRILANG/examples/generic_class.afr"
+    #line 14 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::cout << numbers->get() << std::endl;
-    #line 16 "/home/maxime/AFRILANG/examples/generic_class.afr"
+    #line 16 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::unique_ptr<Box<std::string>> label = std::make_unique<Box<std::string>>("hello");
-    #line 17 "/home/maxime/AFRILANG/examples/generic_class.afr"
+    #line 17 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::cout << label->get() << std::endl;
-    #line 19 "/home/maxime/AFRILANG/examples/generic_class.afr"
+    #line 19 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::cout << "generic class complete" << std::endl;
     return 0;
 }
