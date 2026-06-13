@@ -417,6 +417,22 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             }
         }
 
+        if (dynamic_cast<const MapLiteralNode*>(assign->value.get())) {
+            const auto* mapLit = static_cast<const MapLiteralNode*>(assign->value.get());
+            if (mapLit->pairs.empty()) {
+                errorAt(*assign, "Impossible d'inférer le type d'une map vide");
+            }
+            AfrType keyType = analyzeExpression(*mapLit->pairs[0].key, scope);
+            AfrType valType = analyzeExpression(*mapLit->pairs[0].value, scope);
+            valueType = AfrType::mapType(keyType, valType);
+        }
+
+        if (dynamic_cast<const EmptyMapNode*>(assign->value.get())) {
+            const auto* empty = static_cast<const EmptyMapNode*>(assign->value.get());
+            valueType = AfrType::mapType(typeFromName(empty->keyTypeName),
+                                         typeFromName(empty->valueTypeName));
+        }
+
         if (dynamic_cast<const NothingLiteralNode*>(assign->value.get())) {
             if (assign->typeName.empty() || assign->typeName.back() != '?') {
                 errorAt(*assign, "'nothing' requiert un type nullable (ex: text?)");
@@ -497,18 +513,28 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
     }
 
     if (const auto* idxAssign = dynamic_cast<const IndexAssignStatementNode*>(&stmt)) {
-        AfrType listType = analyzeExpression(*idxAssign->object, scope);
-        if (listType.kind != TypeKind::List) {
-            errorAt(*idxAssign, "Indexation sur un type non-liste");
-        }
+        AfrType containerType = analyzeExpression(*idxAssign->object, scope);
         AfrType indexType = analyzeExpression(*idxAssign->index, scope);
-        if (!isNumeric(indexType)) {
-            errorAt(*idxAssign, "L'index doit être un nombre");
-        }
         AfrType valueType = analyzeExpression(*idxAssign->value, scope);
-        if (!isAssignable(listType.listElementType(), valueType)) {
-            errorAt(*idxAssign, "Type incompatible pour l'élément de la liste");
+        if (containerType.kind == TypeKind::List) {
+            if (!isNumeric(indexType)) {
+                errorAt(*idxAssign, "L'index doit être un nombre");
+            }
+            if (!isAssignable(containerType.listElementType(), valueType)) {
+                errorAt(*idxAssign, "Type incompatible pour l'élément de la liste");
+            }
+            return;
         }
+        if (containerType.kind == TypeKind::Map) {
+            if (!isAssignable(containerType.mapKeyType(), indexType)) {
+                errorAt(*idxAssign, "Type incompatible pour la clé de la map");
+            }
+            if (!isAssignable(containerType.mapValueType(), valueType)) {
+                errorAt(*idxAssign, "Type incompatible pour la valeur de la map");
+            }
+            return;
+        }
+        errorAt(*idxAssign, "Indexation sur un type non-liste/non-map");
         return;
     }
 
@@ -586,17 +612,50 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
     }
 
     if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(&stmt)) {
-        AfrType listType = analyzeExpression(*forEach->list, scope);
-        if (listType.kind != TypeKind::List) {
-            errorAt(*forEach, "La cible de 'for each' doit être une liste");
+        AfrType containerType = analyzeExpression(*forEach->list, scope);
+        if (containerType.kind == TypeKind::List) {
+            if (!forEach->valueName.empty()) {
+                errorAt(*forEach, "Deux variables dans 'for each' requièrent une map");
+            }
+            scope[forEach->itemName] = containerType.listElementType();
+        } else if (containerType.kind == TypeKind::Map) {
+            if (forEach->valueName.empty()) {
+                errorAt(*forEach, "'for each key, value in map' requiert deux variables");
+            }
+            scope[forEach->itemName] = containerType.mapKeyType();
+            scope[forEach->valueName] = containerType.mapValueType();
+        } else {
+            errorAt(*forEach, "La cible de 'for each' doit être une liste ou une map");
         }
-        scope[forEach->itemName] = listType.listElementType();
         ++loopDepth_;
         for (const auto& bodyStmt : forEach->body) {
             analyzeStatement(*bodyStmt, scope, isGlobalScope);
         }
         scope.erase(forEach->itemName);
+        if (!forEach->valueName.empty()) {
+            scope.erase(forEach->valueName);
+        }
         --loopDepth_;
+        return;
+    }
+
+    if (const auto* tryStmt = dynamic_cast<const TryStatementNode*>(&stmt)) {
+        for (const auto& bodyStmt : tryStmt->tryBody) {
+            analyzeStatement(*bodyStmt, scope, isGlobalScope);
+        }
+        scope[tryStmt->catchVarName] = AfrType::text();
+        for (const auto& bodyStmt : tryStmt->catchBody) {
+            analyzeStatement(*bodyStmt, scope, isGlobalScope);
+        }
+        scope.erase(tryStmt->catchVarName);
+        return;
+    }
+
+    if (const auto* raiseStmt = dynamic_cast<const RaiseStatementNode*>(&stmt)) {
+        AfrType msgType = analyzeExpression(*raiseStmt->message, scope);
+        if (msgType.kind != TypeKind::Text) {
+            errorAt(*raiseStmt, "'raise' requiert un message text");
+        }
         return;
     }
 
@@ -665,6 +724,13 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                                             const std::unordered_map<std::string, AfrType>& scope) {
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
         (void)str;
+        return AfrType::text();
+    }
+
+    if (const auto* interp = dynamic_cast<const InterpolatedStringNode*>(&expr)) {
+        for (const auto& part : interp->parts) {
+            analyzeExpression(*part, scope);
+        }
         return AfrType::text();
     }
 
@@ -782,22 +848,49 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         return AfrType::listType(typeFromName(empty->elementTypeName));
     }
 
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        if (mapLit->pairs.empty()) {
+            errorAt(expr, "Impossible d'inférer le type d'une map vide");
+        }
+        AfrType keyType = analyzeExpression(*mapLit->pairs[0].key, scope);
+        AfrType valType = analyzeExpression(*mapLit->pairs[0].value, scope);
+        for (std::size_t i = 1; i < mapLit->pairs.size(); ++i) {
+            AfrType k = analyzeExpression(*mapLit->pairs[i].key, scope);
+            AfrType v = analyzeExpression(*mapLit->pairs[i].value, scope);
+            if (!isAssignable(keyType, k) || !isAssignable(valType, v)) {
+                errorAt(expr, "Types incohérents dans la map");
+            }
+        }
+        return AfrType::mapType(keyType, valType);
+    }
+
+    if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
+        return AfrType::mapType(typeFromName(emptyMap->keyTypeName),
+                                typeFromName(emptyMap->valueTypeName));
+    }
+
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
         AfrType objectType = analyzeExpression(*index->object, scope);
-        if (objectType.kind != TypeKind::List) {
-            errorAt(expr, "Indexation sur un type non-liste");
-        }
         AfrType indexType = analyzeExpression(*index->index, scope);
-        if (!isNumeric(indexType)) {
-            errorAt(expr, "L'index doit être un nombre");
+        if (objectType.kind == TypeKind::List) {
+            if (!isNumeric(indexType)) {
+                errorAt(expr, "L'index doit être un nombre");
+            }
+            return objectType.listElementType();
         }
-        return objectType.listElementType();
+        if (objectType.kind == TypeKind::Map) {
+            if (!isAssignable(objectType.mapKeyType(), indexType)) {
+                errorAt(expr, "Type incompatible pour la clé de la map");
+            }
+            return objectType.mapValueType();
+        }
+        errorAt(expr, "Indexation sur un type non-liste/non-map");
     }
 
     if (const auto* length = dynamic_cast<const LengthExpressionNode*>(&expr)) {
         AfrType objectType = analyzeExpression(*length->object, scope);
-        if (objectType.kind != TypeKind::List) {
-            errorAt(expr, "'length of' requiert une liste");
+        if (objectType.kind != TypeKind::List && objectType.kind != TypeKind::Map) {
+            errorAt(expr, "'length of' requiert une liste ou une map");
         }
         return AfrType::number();
     }
