@@ -71,8 +71,9 @@ private:
     void emitLineDirective(std::ostream& out, const ASTNode& node, int indentLevel) const;
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);
-    static std::string paramList(const FunctionNode& func);
-    static std::string functionReturnCpp(const FunctionNode& func);
+    static std::string paramList(const FunctionNode& func, const ClassInfo* ownerClass = nullptr);
+    static std::string functionReturnCpp(const FunctionNode& func,
+                                          const ClassInfo* ownerClass = nullptr);
     static std::string resultTypeAlias(const std::string& innerTypeName);
     static std::string sanitizeTestName(const std::string& name);
     static std::string ffiTypeToCpp(const std::string& typeName);

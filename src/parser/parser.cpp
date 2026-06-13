@@ -167,9 +167,12 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 enums.push_back(parseEnum());
             } else if (match(TokenType::Abstract)) {
                 consume(TokenType::Class, "'class' attendu après 'abstract'");
-                classes.push_back(parseClass(true));
+                classes.push_back(parseClass(true, false));
+            } else if (match(TokenType::Final)) {
+                consume(TokenType::Class, "'class' attendu après 'final'");
+                classes.push_back(parseClass(false, true));
             } else if (match(TokenType::Class)) {
-                classes.push_back(parseClass(false));
+                classes.push_back(parseClass(false, false));
             } else if (match(TokenType::Function)) {
                 functions.push_back(parseFunction());
             } else if (match(TokenType::Test)) {
@@ -249,9 +252,12 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
     while (!check(TokenType::End) && !isAtEnd()) {
         if (match(TokenType::Abstract)) {
             consume(TokenType::Class, "'class' attendu après 'abstract'");
-            classes.push_back(parseClass(true));
+            classes.push_back(parseClass(true, false));
+        } else if (match(TokenType::Final)) {
+            consume(TokenType::Class, "'class' attendu après 'final'");
+            classes.push_back(parseClass(false, true));
         } else if (match(TokenType::Class)) {
-            classes.push_back(parseClass(false));
+            classes.push_back(parseClass(false, false));
         } else if (match(TokenType::Record)) {
             records.push_back(parseRecord());
         } else if (match(TokenType::Function)) {
@@ -349,9 +355,10 @@ FieldNode Parser::parseField() {
     return FieldNode(nameToken.lexeme, std::move(typeName), visibility);
 }
 
-std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract) {
+std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract, bool isFinal) {
     const Token& nameToken = consumeName( "Nom de classe attendu après 'class'");
     std::string className = nameToken.lexeme;
+    std::vector<std::string> typeParams = parseTypeParams();
 
     std::string baseClass;
     if (match(TokenType::Extends)) {
@@ -368,10 +375,28 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract) {
     }
 
     std::vector<FieldNode> fields;
+    std::vector<PropertyNode> properties;
     std::vector<std::unique_ptr<FunctionNode>> methods;
+    std::vector<std::unique_ptr<StatementNode>> destroyBody;
 
     while (!check(TokenType::End) && !isAtEnd()) {
-        if (match(TokenType::Static)) {
+        if (match(TokenType::Destroy)) {
+            destroyBody = parseBlock();
+            consume(TokenType::End, "'end' attendu pour fermer 'destroy'");
+        } else if (match(TokenType::Property)) {
+            FieldVisibility visibility = FieldVisibility::Public;
+            if (match(TokenType::Public)) {
+                visibility = FieldVisibility::Public;
+            } else if (match(TokenType::Private)) {
+                visibility = FieldVisibility::Private;
+            } else if (match(TokenType::Protected)) {
+                visibility = FieldVisibility::Protected;
+            }
+            std::string typeName = parseTypeName();
+            const Token& propName = consumeName("Nom de propriété attendu");
+            properties.emplace_back(propName.lexeme, std::move(typeName), visibility);
+            consume(TokenType::End, "'end' attendu pour fermer 'property'");
+        } else if (match(TokenType::Static)) {
             if (match(TokenType::Function)) {
                 methods.push_back(parseFunction(false, true, false));
             } else {
@@ -391,6 +416,9 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract) {
         } else if (match(TokenType::Abstract)) {
             consume(TokenType::Function, "'function' attendu après 'abstract'");
             methods.push_back(parseFunction(true, false, true));
+        } else if (match(TokenType::Final)) {
+            consume(TokenType::Function, "'function' attendu après 'final'");
+            methods.push_back(parseFunction(false, false, false, true));
         } else if (matchOneOf(TokenType::Public, TokenType::Private, TokenType::Protected)) {
             FieldVisibility visibility = FieldVisibility::Public;
             if (previous().type == TokenType::Private) {
@@ -412,7 +440,8 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract) {
     consume(TokenType::End, "'end' attendu pour fermer la classe");
     auto node = std::make_unique<ClassNode>(
         std::move(className), std::move(baseClass), std::move(interfaceNames),
-        std::move(fields), std::move(methods), isAbstract);
+        std::move(fields), std::move(methods), isAbstract, std::move(typeParams),
+        std::move(properties), std::move(destroyBody), isFinal);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -492,7 +521,8 @@ std::vector<ParameterNode> Parser::parseParameters() {
 
 std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
                                                     bool isStatic,
-                                                    bool isAbstract) {
+                                                    bool isAbstract,
+                                                    bool isFinal) {
     const Token& nameToken = consumeName("Nom de fonction attendu");
     std::string funcName = nameToken.lexeme;
     std::vector<std::string> typeParams = parseTypeParams();
@@ -519,7 +549,7 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
 
     auto node = std::make_unique<FunctionNode>(
         std::move(funcName), std::move(params), std::move(returnType),
-        returnsResult, std::move(body), std::move(typeParams), isStatic, isAbstract);
+        returnsResult, std::move(body), std::move(typeParams), isStatic, isAbstract, isFinal);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -1151,7 +1181,8 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::New)) {
         const Token& classToken = consumeName( "Nom de classe attendu après 'new'");
-        auto expr = std::make_unique<NewExpressionNode>(classToken.lexeme);
+        std::vector<std::string> typeArgs = parseTypeParams();
+        auto expr = std::make_unique<NewExpressionNode>(classToken.lexeme, std::move(typeArgs));
         return finishCall(std::move(expr));
     }
 

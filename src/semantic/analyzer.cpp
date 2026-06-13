@@ -199,27 +199,52 @@ void SemanticAnalyzer::registerClasses() {
         info.name = cls->name;
         info.baseClass = cls->baseClassName;
         info.isAbstract = cls->isAbstract;
+        info.isFinal = cls->isFinal;
+        info.typeParams = cls->typeParams;
 
         for (const auto& field : cls->fields) {
             FieldInfo fi;
             fi.name = field.name;
-            fi.type = typeFromName(field.typeName);
+            fi.type = cls->typeParams.empty()
+                ? typeFromName(field.typeName)
+                : resolveTypeForGeneric(field.typeName, cls->typeParams);
             fi.visibility = field.visibility;
             fi.isStatic = field.isStatic;
             info.fields[field.name] = std::move(fi);
+        }
+
+        for (const auto& prop : cls->properties) {
+            PropertyInfo pi;
+            pi.name = prop.name;
+            pi.type = cls->typeParams.empty()
+                ? typeFromName(prop.typeName)
+                : resolveTypeForGeneric(prop.typeName, cls->typeParams);
+            pi.visibility = prop.visibility;
+            info.properties[prop.name] = std::move(pi);
         }
 
         for (const auto& method : cls->methods) {
             MethodSignature sig;
             sig.name = method->name;
             sig.isConstructor = (method->name == "init");
-            sig.returnType = resolveFunctionReturnType(*method);
             sig.returnsResult = method->returnsResult;
             sig.isStatic = method->isStatic;
             sig.isAbstract = method->isAbstract;
+            sig.isFinal = method->isFinal;
+            sig.typeParams = cls->typeParams.empty()
+                ? method->typeParams
+                : cls->typeParams;
+
+            const std::vector<std::string>& tparams = sig.typeParams;
+            if (method->returnTypeName.empty()) {
+                sig.returnType = AfrType::voidType();
+            } else {
+                AfrType inner = resolveTypeForGeneric(method->returnTypeName, tparams);
+                sig.returnType = method->returnsResult ? AfrType::resultType(inner) : inner;
+            }
 
             for (const auto& param : method->parameters) {
-                sig.paramTypes.push_back(typeFromName(param.typeName));
+                sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, tparams));
             }
             sig.requiredParamCount = countRequiredParams(method->parameters);
             validateFunctionDefaults(*method, [&](const std::string& msg) {
@@ -236,6 +261,8 @@ void SemanticAnalyzer::registerClasses() {
         if (!cls->baseClassName.empty()) {
             if (!result_.classes.count(cls->baseClassName)) {
                 errorAt(*cls, "Classe de base '" + cls->baseClassName + "' introuvable pour '" + cls->name + "'");
+            } else if (result_.classes.at(cls->baseClassName).isFinal) {
+                errorAt(*cls, "La classe '" + cls->baseClassName + "' est final et ne peut être étendue");
             }
         }
     }
@@ -448,6 +475,9 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
     std::unordered_map<std::string, AfrType> scope;
     activeTypeParams_ = func.typeParams;
+    if (activeTypeParams_.empty() && ownerClass && !ownerClass->typeParams.empty()) {
+        activeTypeParams_ = ownerClass->typeParams;
+    }
     constVariables_.clear();
 
     if (ownerClass) {
@@ -518,9 +548,27 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
         if (dynamic_cast<const ListLiteralNode*>(assign->value.get())) {
             const auto* list = static_cast<const ListLiteralNode*>(assign->value.get());
-            if (!list->elements.empty()) {
-                AfrType elemType = analyzeExpression(*list->elements[0], scope);
+            AfrType elemType;
+            if (!assign->typeName.empty()) {
+                AfrType declared = typeFromName(assign->typeName);
+                if (declared.kind == TypeKind::List) {
+                    elemType = declared.listElementType();
+                }
+            }
+            if (elemType.kind == TypeKind::Void && !list->elements.empty()) {
+                elemType = analyzeExpression(*list->elements[0], scope);
+            }
+            if (!list->elements.empty() && elemType.kind != TypeKind::Void) {
+                for (std::size_t i = 0; i < list->elements.size(); ++i) {
+                    AfrType t = analyzeExpression(*list->elements[i], scope);
+                    if (!isAssignable(elemType, t)) {
+                        errorAt(*assign, "Types incohérents dans la liste");
+                    }
+                }
                 valueType = AfrType::listType(elemType);
+            } else if (!list->elements.empty()) {
+                AfrType firstType = analyzeExpression(*list->elements[0], scope);
+                valueType = AfrType::listType(firstType);
             } else if (!assign->typeName.empty()) {
                 AfrType declared = typeFromName(assign->typeName);
                 if (declared.kind == TypeKind::List) {
@@ -611,15 +659,25 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 }
                 const ClassInfo* ownerClass = currentClass_;
                 const FieldInfo* field = findFieldWithOwner(*currentClass_, member->member, ownerClass);
-                if (!field) {
-                    errorAt(*set, "Champ '" + member->member + "' introuvable");
+                if (field) {
+                    if (!canAccessField(*field, *ownerClass, currentClass_)) {
+                        errorAt(*set, "Champ '" + member->member + "' inaccessible");
+                    }
+                    if (!isAssignable(field->type, valueType)) {
+                        errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
+                    }
+                    return;
                 }
-                if (!canAccessField(*field, *ownerClass, currentClass_)) {
-                    errorAt(*set, "Champ '" + member->member + "' inaccessible");
+                if (const PropertyInfo* prop = findProperty(*currentClass_, member->member)) {
+                    if (prop->visibility != FieldVisibility::Public) {
+                        errorAt(*set, "Propriété '" + member->member + "' inaccessible");
+                    }
+                    if (!isAssignable(prop->type, valueType)) {
+                        errorAt(*set, "Type incompatible pour la propriété '" + member->member + "'");
+                    }
+                    return;
                 }
-                if (!isAssignable(field->type, valueType)) {
-                    errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
-                }
+                errorAt(*set, "Champ '" + member->member + "' introuvable");
                 return;
             }
 
@@ -647,18 +705,28 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             const ClassInfo* cls = findClass(objectType.className);
             const ClassInfo* ownerClass = cls;
             const FieldInfo* field = findFieldWithOwner(*cls, member->member, ownerClass);
-            if (!field) {
-                errorAt(*set, "Champ '" + member->member + "' introuvable");
+            if (field) {
+                if (field->isStatic) {
+                    errorAt(*set, "Utilisez " + cls->name + "." + member->member + " pour un champ statique");
+                }
+                if (!canAccessField(*field, *ownerClass, currentClass_)) {
+                    errorAt(*set, "Champ '" + member->member + "' inaccessible");
+                }
+                if (!isAssignable(field->type, valueType)) {
+                    errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
+                }
+                return;
             }
-            if (field->isStatic) {
-                errorAt(*set, "Utilisez " + cls->name + "." + member->member + " pour un champ statique");
+            if (const PropertyInfo* prop = findProperty(*cls, member->member)) {
+                if (prop->visibility != FieldVisibility::Public) {
+                    errorAt(*set, "Propriété '" + member->member + "' inaccessible");
+                }
+                if (!isAssignable(prop->type, valueType)) {
+                    errorAt(*set, "Type incompatible pour la propriété '" + member->member + "'");
+                }
+                return;
             }
-            if (!canAccessField(*field, *ownerClass, currentClass_)) {
-                errorAt(*set, "Champ '" + member->member + "' inaccessible");
-            }
-            if (!isAssignable(field->type, valueType)) {
-                errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
-            }
+            errorAt(*set, "Champ '" + member->member + "' introuvable");
             return;
         }
 
@@ -1195,8 +1263,21 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             if (!result_.classes.count(newExpr->className)) {
                 errorAt(expr, "Classe '" + newExpr->className + "' introuvable");
             }
-            if (result_.classes.at(newExpr->className).isAbstract) {
+            const ClassInfo& clsInfo = result_.classes.at(newExpr->className);
+            if (clsInfo.isAbstract) {
                 errorAt(expr, "Impossible d'instancier la classe abstraite '" + newExpr->className + "'");
+            }
+            std::unordered_map<std::string, AfrType> subst;
+            if (!clsInfo.typeParams.empty()) {
+                if (newExpr->typeArgs.size() != clsInfo.typeParams.size()) {
+                    errorAt(expr, "Classe générique '" + newExpr->className + "' attend " +
+                          std::to_string(clsInfo.typeParams.size()) + " argument(s) de type");
+                }
+                for (std::size_t i = 0; i < clsInfo.typeParams.size(); ++i) {
+                    subst[clsInfo.typeParams[i]] = typeFromName(newExpr->typeArgs[i]);
+                }
+            } else if (!newExpr->typeArgs.empty()) {
+                errorAt(expr, "Classe '" + newExpr->className + "' n'est pas générique");
             }
             const MethodSignature* initSig = findMethod(newExpr->className, "init");
             if (initSig) {
@@ -1209,7 +1290,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 }
                 for (std::size_t i = 0; i < call->arguments.size(); ++i) {
                     AfrType argType = analyzeExpression(*call->arguments[i], scope);
-                    if (!isAssignable(initSig->paramTypes[i], argType)) {
+                    AfrType paramType = subst.empty()
+                        ? initSig->paramTypes[i]
+                        : substituteType(initSig->paramTypes[i], subst);
+                    if (!isAssignable(paramType, argType)) {
                         errorAt(expr, "Type incompatible pour l'argument " +
                               std::to_string(i + 1) + " du constructeur");
                     }
@@ -1467,6 +1551,13 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 return field->type;
             }
 
+            if (const PropertyInfo* prop = findProperty(*cls, member->member)) {
+                if (prop->visibility != FieldVisibility::Public) {
+                    errorAt(expr, "Propriété '" + member->member + "' inaccessible");
+                }
+                return prop->type;
+            }
+
             if (findMethod(objectType.className, member->member)) {
                 return AfrType::voidType();
             }
@@ -1549,7 +1640,7 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     }
     if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
         if (!isConcreteTypeName(target.listElementTypeName)) return true;
-        return target.listElementTypeName == value.listElementTypeName;
+        return isAssignable(target.listElementType(), value.listElementType());
     }
     if (target.kind == TypeKind::Map && value.kind == TypeKind::Map) {
         if (!isConcreteTypeName(target.className) || !isConcreteTypeName(target.listElementTypeName)) {
@@ -1614,6 +1705,17 @@ const FieldInfo* SemanticAnalyzer::findFieldWithOwner(const ClassInfo& cls,
     if (!cls.baseClass.empty()) {
         const ClassInfo* base = findClass(cls.baseClass);
         if (base) return findFieldWithOwner(*base, fieldName, ownerClass);
+    }
+    return nullptr;
+}
+
+const PropertyInfo* SemanticAnalyzer::findProperty(const ClassInfo& cls,
+                                                   const std::string& name) const {
+    const auto it = cls.properties.find(name);
+    if (it != cls.properties.end()) return &it->second;
+    if (!cls.baseClass.empty()) {
+        const ClassInfo* base = findClass(cls.baseClass);
+        if (base) return findProperty(*base, name);
     }
     return nullptr;
 }

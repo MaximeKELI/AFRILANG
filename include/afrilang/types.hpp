@@ -118,6 +118,7 @@ struct AfrType {
     AfrType listElementType() const;
     AfrType mapKeyType() const;
     AfrType mapValueType() const;
+    std::string listElementCpp() const;
     std::string toCppFunctionType() const;
 
     std::string toCpp() const {
@@ -127,7 +128,7 @@ struct AfrType {
             case TypeKind::Text:   return "std::string";
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "void*";
-            case TypeKind::List:   return "std::vector<" + listElementType().toCpp() + ">";
+            case TypeKind::List:   return "std::vector<" + listElementCpp() + ">";
             case TypeKind::Map:
                 return "std::unordered_map<" + mapKeyType().toCpp() + ", " +
                        mapValueType().toCpp() + ">";
@@ -242,6 +243,14 @@ inline std::string AfrType::toCppFunctionType() const {
 
 inline AfrType AfrType::listElementType() const {
     return typeFromName(listElementTypeName);
+}
+
+inline std::string AfrType::listElementCpp() const {
+    const AfrType elem = listElementType();
+    if (elem.kind == TypeKind::Class) {
+        return "std::unique_ptr<" + elem.className + ">";
+    }
+    return elem.toCpp();
 }
 
 inline AfrType AfrType::mapKeyType() const {

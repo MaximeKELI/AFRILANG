@@ -22,6 +22,7 @@ std::string cppTypeFromAfrName(const std::string& typeName,
     if (typeName.rfind("list ", 0) == 0) {
         const std::string elem = typeName.substr(5);
         if (isParam(elem)) return "std::vector<" + elem + ">";
+        return typeFromName(typeName).toCpp();
     }
     if (!typeName.empty() && typeName.back() == '?') {
         const std::string inner = typeName.substr(0, typeName.size() - 1);
@@ -385,7 +386,18 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     auto it = semantic_.classes.find(cls.name);
     if (it != semantic_.classes.end()) classInfo = &it->second;
 
+    if (!cls.typeParams.empty()) {
+        out << "template<typename";
+        for (std::size_t i = 0; i < cls.typeParams.size(); ++i) {
+            if (i == 0) out << " ";
+            else out << ", typename ";
+            out << cls.typeParams[i];
+        }
+        out << ">\n";
+    }
+
     out << "class " << cls.name;
+    if (cls.isFinal) out << " final";
     bool firstBase = true;
     if (!cls.baseClassName.empty()) {
         out << " : public " << cls.baseClassName;
@@ -398,23 +410,46 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     out << " {\n";
 
     out << "public:\n";
-    if (cls.isAbstract) {
-        out << "    virtual ~" << cls.name << "() = default;\n\n";
+    if (cls.isAbstract || !cls.destroyBody.empty()) {
+        out << "    virtual ~" << cls.name << "()";
+        if (cls.isAbstract && cls.destroyBody.empty()) {
+            out << " = default;\n\n";
+        } else {
+            out << " {\n";
+            for (const auto& stmt : cls.destroyBody) {
+                emitStatement(out, *stmt, 2, classInfo);
+            }
+            out << "    }\n\n";
+        }
     }
     for (const auto& field : cls.fields) {
+        const std::string fieldCpp = cppTypeFromAfrName(field.typeName, cls.typeParams);
         if (field.isStatic) {
-            out << "    inline static " << typeFromName(field.typeName).toCpp()
-                << " " << field.name;
+            out << "    inline static " << fieldCpp << " " << field.name;
             if (field.typeName == "number") out << " = 0";
             else if (field.typeName == "text") out << " = \"\"";
             else if (field.typeName == "bool") out << " = false";
             out << ";\n";
         } else {
-            out << "    " << typeFromName(field.typeName).toCpp()
-                << " " << field.name << ";\n";
+            out << "    " << fieldCpp << " " << field.name << ";\n";
         }
     }
-    if (!cls.fields.empty()) out << "\n";
+    for (const auto& prop : cls.properties) {
+        const std::string propCpp = cppTypeFromAfrName(prop.typeName, cls.typeParams);
+        out << "    " << propCpp << " " << propertyBackingField(prop.name) << ";\n";
+    }
+    if (!cls.fields.empty() || !cls.properties.empty()) out << "\n";
+
+    for (const auto& prop : cls.properties) {
+        const std::string propCpp = cppTypeFromAfrName(prop.typeName, cls.typeParams);
+        out << "    " << propCpp << " " << propertyGetterName(prop.name) << "() const {\n";
+        out << "        return " << propertyBackingField(prop.name) << ";\n";
+        out << "    }\n";
+        out << "    void " << propertySetterName(prop.name) << "(const " << propCpp
+            << "& value) {\n";
+        out << "        " << propertyBackingField(prop.name) << " = value;\n";
+        out << "    }\n\n";
+    }
 
     const FunctionNode* constructor = nullptr;
     for (const auto& method : cls.methods) {
@@ -449,7 +484,7 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
             if (!skip) ctorBody.push_back(stmt.get());
         }
 
-        out << "    " << cls.name << "(" << paramList(*constructor) << ")";
+        out << "    " << cls.name << "(" << paramList(*constructor, classInfo) << ")";
         if (!baseInit.empty()) out << " : " << baseInit;
         out << " {\n";
         for (const auto* stmt : ctorBody) {
@@ -461,9 +496,9 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     for (const auto& method : cls.methods) {
         if (method->name == "init") continue;
         if (method->isAbstract) {
-            const std::string ret = functionReturnCpp(*method);
+            const std::string ret = functionReturnCpp(*method, classInfo);
             out << "    virtual " << ret << " " << method->name
-                << "(" << paramList(*method) << ") = 0;\n\n";
+                << "(" << paramList(*method, classInfo) << ") = 0;\n\n";
         } else {
             emitFunction(out, *method, classInfo, 1);
             out << "\n";
@@ -546,7 +581,8 @@ void CodeGenerator::emitModules(std::ostream& out) const {
     }
 }
 
-std::string CodeGenerator::paramList(const FunctionNode& func) {
+std::string CodeGenerator::paramList(const FunctionNode& func, const ClassInfo* ownerClass) {
+    const std::vector<std::string> tparams = effectiveTypeParams(func, ownerClass);
     std::ostringstream out;
     for (std::size_t i = 0; i < func.parameters.size(); ++i) {
         if (i > 0) out << ", ";
@@ -555,7 +591,7 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
         if (paramType.kind == TypeKind::Class) {
             out << "const " << paramType.className << "& " << param.name;
         } else {
-            out << cppTypeFromAfrName(param.typeName, func.typeParams) << " " << param.name;
+            out << cppTypeFromAfrName(param.typeName, tparams) << " " << param.name;
         }
         if (param.defaultValue) {
             out << " = ";
@@ -572,6 +608,59 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
 }
 
 namespace {
+
+std::string effectiveTypeParams(const FunctionNode& func, const ClassInfo* ownerClass) {
+    if (!func.typeParams.empty()) return func.typeParams;
+    if (ownerClass && !ownerClass->typeParams.empty()) return ownerClass->typeParams;
+    return {};
+}
+
+std::string capitalizeName(const std::string& name) {
+    if (name.empty()) return name;
+    std::string out = name;
+    out[0] = static_cast<char>(std::toupper(static_cast<unsigned char>(out[0])));
+    return out;
+}
+
+std::string cppGenericArg(const std::string& afr) {
+    if (afr == "number") return "double";
+    if (afr == "text") return "std::string";
+    if (afr == "bool") return "bool";
+    return afr;
+}
+
+std::string joinGenericArgs(const std::vector<std::string>& args) {
+    std::ostringstream joined;
+    for (std::size_t i = 0; i < args.size(); ++i) {
+        if (i > 0) joined << ", ";
+        joined << cppGenericArg(args[i]);
+    }
+    return joined.str();
+}
+
+std::string propertyBackingField(const std::string& name) {
+    return "_" + name;
+}
+
+std::string propertyGetterName(const std::string& name) {
+    return "get" + capitalizeName(name);
+}
+
+std::string propertySetterName(const std::string& name) {
+    return "set" + capitalizeName(name);
+}
+
+bool classHasProperty(const SemanticResult& semantic, const std::string& className,
+                      const std::string& propName) {
+    const auto clsIt = semantic.classes.find(className);
+    if (clsIt == semantic.classes.end()) return false;
+    const ClassInfo& cls = clsIt->second;
+    if (cls.properties.count(propName)) return true;
+    if (!cls.baseClass.empty()) {
+        return classHasProperty(semantic, cls.baseClass, propName);
+    }
+    return false;
+}
 
 std::string mangleGlobalFunctionName(const std::string& name) {
     return "afr_" + name;
@@ -590,6 +679,14 @@ std::string CodeGenerator::classStorageCpp(const std::string& className) {
 bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
     if (dynamic_cast<const ThisExpressionNode*>(&object)) return false;
     if (dynamic_cast<const SuperExpressionNode*>(&object)) return false;
+    if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&object)) {
+        const AfrType containerType = inferExpressionAfrType(*index->object);
+        if (containerType.kind == TypeKind::List &&
+            containerType.listElementType().kind == TypeKind::Class) {
+            return true;
+        }
+        return usesPointerAccess(*index->object);
+    }
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&object)) {
         const auto it = semantic_.globalVariables.find(id->name);
         if (it != semantic_.globalVariables.end() && it->second.kind == TypeKind::Class) {
@@ -631,9 +728,10 @@ void CodeGenerator::emitCallArgument(std::ostream& out, const ExpressionNode& ar
 
 void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
                                  const ClassInfo* ownerClass, int indentLevel) const {
-    const std::string returnCpp = functionReturnCpp(func);
+    const std::vector<std::string> tparams = effectiveTypeParams(func, ownerClass);
+    const std::string returnCpp = functionReturnCpp(func, ownerClass);
 
-    if (!func.typeParams.empty()) {
+    if (!func.typeParams.empty() && (!ownerClass || ownerClass->typeParams.empty())) {
         indent(out, indentLevel);
         out << "template<typename";
         for (std::size_t i = 0; i < func.typeParams.size(); ++i) {
@@ -653,7 +751,7 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     const std::string emittedName = (ownerClass || indentLevel > 0)
         ? func.name
         : mangleGlobalFunctionName(func.name);
-    out << returnCpp << " " << emittedName << "(" << paramList(func) << ")";
+    out << returnCpp << " " << emittedName << "(" << paramList(func, ownerClass) << ")";
 
     if (ownerClass && !func.isStatic) {
         bool shouldOverride = false;
@@ -677,6 +775,7 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         }
         if (shouldOverride) out << " override";
     }
+    if (func.isFinal) out << " final";
 
     out << " {\n";
     const FunctionNode* saved = currentFunction_;
@@ -848,7 +947,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             std::string elemCpp;
             if (!assign->typeName.empty()) {
                 AfrType t = typeFromName(assign->typeName);
-                if (t.kind == TypeKind::List) elemCpp = t.listElementType().toCpp();
+                if (t.kind == TypeKind::List) elemCpp = t.listElementCpp();
             }
             if (elemCpp.empty() && !list->elements.empty()) {
                 elemCpp = inferExpressionType(*list->elements[0]);
@@ -903,9 +1002,18 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* addTo = dynamic_cast<const AddToListStatementNode*>(&stmt)) {
+        const AfrType listType = inferExpressionAfrType(*addTo->list);
         emitExpression(out, *addTo->list, ownerClass);
         out << ".push_back(";
-        emitExpression(out, *addTo->value, ownerClass);
+        if (listType.kind == TypeKind::List &&
+            listType.listElementType().kind == TypeKind::Class &&
+            dynamic_cast<const IdentifierNode*>(addTo->value.get())) {
+            out << "std::move(";
+            emitExpression(out, *addTo->value, ownerClass);
+            out << ")";
+        } else {
+            emitExpression(out, *addTo->value, ownerClass);
+        }
         out << ");\n";
         return;
     }
@@ -1075,6 +1183,13 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << "auto& " << forEach->itemName << " = _afr_pair.first;\n";
             indent(out, indentLevel + 1);
             out << "auto& " << forEach->valueName << " = _afr_pair.second;\n";
+        } else if (containerType.kind == TypeKind::List &&
+                   containerType.listElementType().kind == TypeKind::Class) {
+            out << "for (auto& _afr_ptr : ";
+            emitExpression(out, *forEach->list, ownerClass);
+            out << ") {\n";
+            indent(out, indentLevel + 1);
+            out << "auto& " << forEach->itemName << " = *_afr_ptr;\n";
         } else {
             out << "for (auto& " << forEach->itemName << " : ";
             emitExpression(out, *forEach->list, ownerClass);
@@ -1742,10 +1857,11 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     out << "}\n";
 }
 
-std::string CodeGenerator::functionReturnCpp(const FunctionNode& func) {
+std::string CodeGenerator::functionReturnCpp(const FunctionNode& func,
+                                             const ClassInfo* ownerClass) {
     if (func.returnTypeName.empty()) return "void";
     if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
-    return cppTypeFromAfrName(func.returnTypeName, func.typeParams);
+    return cppTypeFromAfrName(func.returnTypeName, effectiveTypeParams(func, ownerClass));
 }
 
 std::string CodeGenerator::resultTypeAlias(const std::string& innerTypeName) {

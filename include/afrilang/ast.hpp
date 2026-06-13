@@ -116,7 +116,11 @@ struct MemberAccessNode : ExpressionNode {
 
 struct NewExpressionNode : ExpressionNode {
     std::string className;
-    explicit NewExpressionNode(std::string className) : className(std::move(className)) {}
+    std::vector<std::string> typeArgs;
+
+    explicit NewExpressionNode(std::string className,
+                               std::vector<std::string> typeArgs = {})
+        : className(std::move(className)), typeArgs(std::move(typeArgs)) {}
 };
 
 struct ListLiteralNode : ExpressionNode {
@@ -475,6 +479,7 @@ struct FunctionNode : ASTNode {
     bool returnsResult = false;
     bool isStatic = false;
     bool isAbstract = false;
+    bool isFinal = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
@@ -484,7 +489,8 @@ struct FunctionNode : ASTNode {
                  std::vector<std::unique_ptr<StatementNode>> body,
                  std::vector<std::string> typeParams = {},
                  bool isStatic = false,
-                 bool isAbstract = false)
+                 bool isAbstract = false,
+                 bool isFinal = false)
         : name(std::move(name))
         , typeParams(std::move(typeParams))
         , parameters(std::move(parameters))
@@ -492,7 +498,20 @@ struct FunctionNode : ASTNode {
         , returnsResult(returnsResult)
         , isStatic(isStatic)
         , isAbstract(isAbstract)
+        , isFinal(isFinal)
         , body(std::move(body)) {}
+};
+
+struct PropertyNode {
+    std::string name;
+    std::string typeName;
+    FieldVisibility visibility = FieldVisibility::Public;
+
+    PropertyNode(std::string name, std::string typeName,
+                 FieldVisibility visibility = FieldVisibility::Public)
+        : name(std::move(name))
+        , typeName(std::move(typeName))
+        , visibility(visibility) {}
 };
 
 struct InterfaceNode : ASTNode {
@@ -515,22 +534,34 @@ struct ClassNode : ASTNode {
     std::string name;
     std::string baseClassName;
     std::vector<std::string> interfaceNames;
+    std::vector<std::string> typeParams;
     std::vector<FieldNode> fields;
+    std::vector<PropertyNode> properties;
     std::vector<std::unique_ptr<FunctionNode>> methods;
+    std::vector<std::unique_ptr<StatementNode>> destroyBody;
     bool isAbstract = false;
+    bool isFinal = false;
 
     ClassNode(std::string name,
               std::string baseClassName,
               std::vector<std::string> interfaceNames,
               std::vector<FieldNode> fields,
               std::vector<std::unique_ptr<FunctionNode>> methods,
-              bool isAbstract = false)
+              bool isAbstract = false,
+              std::vector<std::string> typeParams = {},
+              std::vector<PropertyNode> properties = {},
+              std::vector<std::unique_ptr<StatementNode>> destroyBody = {},
+              bool isFinal = false)
         : name(std::move(name))
         , baseClassName(std::move(baseClassName))
         , interfaceNames(std::move(interfaceNames))
+        , typeParams(std::move(typeParams))
         , fields(std::move(fields))
+        , properties(std::move(properties))
         , methods(std::move(methods))
-        , isAbstract(isAbstract) {}
+        , destroyBody(std::move(destroyBody))
+        , isAbstract(isAbstract)
+        , isFinal(isFinal) {}
 };
 
 struct RecordNode : ASTNode {
