@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/utils/cli.cpp" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/compiler.cpp" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/diagnostics.cpp" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/educational.cpp" "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/formatter.cpp" "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/pkg.cpp" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/project.cpp" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d"

@@ -1,4 +1,5 @@
 #include "afrilang/cli.hpp"
+#include "afrilang/educational.hpp"
 #include "afrilang/lsp.hpp"
 #include "afrilang/pkg.hpp"
 #include "afrilang/serve.hpp"
@@ -45,6 +46,7 @@ static void printUsage() {
     std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
+    std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
     std::cerr << "  afrilang <fichier.afr> [opts] Mode legacy\n\n";
     std::cerr << "Options (mode legacy):\n";
@@ -150,7 +152,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "functions.afr", "while.afr", "lists.afr", "modules.afr",
         "fields.afr", "records.afr", "full_demo.afr", "stdlib_demo.afr",
         "result.afr", "interfaces.afr", "tests.afr",
-        "ffi.afr", "pkg_demo.afr"
+        "ffi.afr", "pkg_demo.afr",
+        "french.afr", "educational.afr"
     };
 
     CompileOptions opts;
@@ -268,6 +271,22 @@ static int cmdRun(int argc, char* argv[]) {
     try {
         auto result = Pipeline::compileFile(file, opts);
         return result.success ? 0 : 1;
+    } catch (const CompileError& e) {
+        std::cerr << e.format();
+        return 1;
+    }
+}
+
+static int cmdExplain(const std::string& file, int lineFilter) {
+    try {
+        const fs::path srcPath = fs::absolute(file);
+        Compiler compiler(srcPath.string(), detectAfrilangRoot());
+        auto program = compiler.compile();
+        SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
+        analyzer.analyze();
+        std::cout << "=== Mode éducatif AFRILANG ===\n\n";
+        explainProgram(*program, lineFilter);
+        return 0;
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
@@ -405,6 +424,19 @@ int runCli(int argc, char* argv[]) {
         int port = 8080;
         if (argc >= 3) port = std::stoi(argv[2]);
         return runHttpServer(port, (fs::path(detectAfrilangRoot()) / "site").string());
+    }
+    if (cmd == "explain") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang explain <fichier.afr> [--line N]\n";
+            return 1;
+        }
+        int lineFilter = 0;
+        for (int i = 3; i < argc; ++i) {
+            if (std::string(argv[i]) == "--line" && i + 1 < argc) {
+                lineFilter = std::stoi(argv[++i]);
+            }
+        }
+        return cmdExplain(argv[2], lineFilter);
     }
     if (cmd == "init") {
         return cmdInit(argc > 2 ? argv[2] : "");

@@ -16,7 +16,8 @@ static const std::vector<std::string> kKeywords = {
     "while", "do", "repeat", "times", "for", "each", "in", "return",
     "interface", "implements", "test", "assert", "error", "extends",
     "returns", "module", "use", "import", "record", "field", "number",
-    "text", "bool", "list", "true", "false", "stop", "skip"
+    "text", "bool", "list", "true", "false", "stop", "skip",
+    "explain", "expliquer", "dire", "si", "alors", "sinon", "fin"
 };
 
 static std::string jsonEscape(const std::string& s) {

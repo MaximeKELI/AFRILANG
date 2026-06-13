@@ -1,0 +1,11 @@
+dire "Bonjour depuis AFRILANG en français!"
+
+si 42 est superieur a 40 alors
+    dire "La condition est vraie"
+sinon
+    dire "Impossible"
+fin
+
+repeter 3 fois
+    dire "Bonjour"
+fin

@@ -477,6 +477,42 @@ afrilang serve 3000   # port personnalisé
 
 Le site dans `site/` propose un éditeur en ligne avec exécution via `/api/run`.
 
+### Bilinguisme FR/EN natif
+
+AFRILANG accepte les mots-clés en **français** et en **anglais** (mélange autorisé) :
+
+```afr
+si age est superieur a 18 alors
+    dire "Adulte"
+sinon
+    dire "Mineur"
+fin
+
+repeter 3 fois
+    dire "Bonjour"
+fin
+```
+
+Correspondances : `si/if`, `dire/say`, `creer/create`, `fin/end`, `alors/then`, `sinon/else`, `fonction/function`, `classe/class`, `tantque/while`, `faire/do`, etc.
+
+### Mode éducatif
+
+**Dans le code** — prefixe `explain` / `expliquer` :
+
+```afr
+expliquer dire "Bonjour"
+explain creer x = 10
+```
+
+Affiche une explication pédagogique puis exécute l'instruction.
+
+**En CLI** :
+
+```bash
+afrilang explain examples/educational.afr
+afrilang explain examples/hello.afr --line 1
+```
+
 ## Exemples
 
 | Fichier | Description |
@@ -498,6 +534,8 @@ Le site dans `site/` propose un éditeur en ligne avec exécution via `/api/run`
 | `examples/tests.afr` | Tests intégrés et assert |
 | `examples/ffi.afr` | FFI — appels C (libm) |
 | `examples/pkg_demo.afr` | Paquets — import pkg/math |
+| `examples/french.afr` | Syntaxe française native |
+| `examples/educational.afr` | Mode éducatif explain/expliquer |
 
 ## Compiler tous les exemples
 

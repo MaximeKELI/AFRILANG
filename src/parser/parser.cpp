@@ -216,9 +216,8 @@ void Parser::consumeIntoOrEn(const std::string& message) {
 }
 
 void Parser::skipOptionalQueAfterWhile() {
-    std::string word;
-    if (matchName(word) && word != "que") {
-        error("Mot inattendu '" + word + "' après 'tant' — utilisez 'tant que' ou 'tantque'");
+    if (check(TokenType::Identifier) && peek().lexeme == "que") {
+        advance();
     }
 }
 
