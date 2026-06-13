@@ -86,6 +86,7 @@ void Parser::synchronize() {
             case TokenType::Interface:
             case TokenType::Test:
             case TokenType::Assert:
+            case TokenType::Explain:
                 return;
             default:
                 break;

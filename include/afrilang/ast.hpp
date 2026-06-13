@@ -249,6 +249,12 @@ struct ExpressionStatementNode : StatementNode {
         : expression(std::move(expression)) {}
 };
 
+struct ExplainStatementNode : StatementNode {
+    std::unique_ptr<StatementNode> statement;
+    explicit ExplainStatementNode(std::unique_ptr<StatementNode> statement)
+        : statement(std::move(statement)) {}
+};
+
 struct AssertStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> condition;
     std::string label;

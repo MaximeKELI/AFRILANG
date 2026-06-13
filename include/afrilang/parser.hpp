@@ -59,7 +59,13 @@ private:
     std::unique_ptr<StatementNode> parseAskStatement();
     std::unique_ptr<StatementNode> parseUseStatement();
     std::unique_ptr<StatementNode> parseAddToListStatement();
+    std::unique_ptr<StatementNode> parseExplainStatement();
     std::unique_ptr<StatementNode> parseExpressionStatement();
+
+    bool matchToOrThan();
+    void consumeToOrThan(const std::string& message);
+    void consumeIntoOrEn(const std::string& message);
+    void skipOptionalQueAfterWhile();
 
     std::string parseTypeName();
     std::vector<ParameterNode> parseParameters();

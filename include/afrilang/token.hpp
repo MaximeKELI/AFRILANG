@@ -17,6 +17,7 @@ enum class TokenType {
     True, False, Yes, No,
     Interface, Implements, Test, Assert, ErrorKw,
     Extern, From,
+    Explain,
 
     // Littéraux et identifiants
     Identifier,
@@ -114,6 +115,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::ErrorKw:        return "error";
         case TokenType::Extern:         return "extern";
         case TokenType::From:           return "from";
+        case TokenType::Explain:        return "explain";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";
