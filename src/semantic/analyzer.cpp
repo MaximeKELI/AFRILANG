@@ -1129,6 +1129,7 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
             errorAt(expr, "Types incohérents dans la liste");
         }
+        const_cast<ListLiteralNode*>(list)->elementTypeName = elemType.toTypeName();
         return AfrType::listType(elemType);
     }
 
@@ -1202,6 +1203,33 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             analyzeStatement(*stmt, bodyScope, false);
         }
         AfrType resultElem = inferReturnTypeFromBlock(mapEach->body, bodyScope, expr);
+        mutableNode->resultElementTypeName = resultElem.toTypeName();
+        return AfrType::listType(resultElem);
+    }
+
+    if (const auto* flatMapEach = dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) {
+        AfrType listType = analyzeExpression(*flatMapEach->list, scope);
+        if (listType.kind != TypeKind::List) {
+            errorAt(expr, "'flatMap each' requiert une liste");
+        }
+        AfrType elemType = listType.listElementType();
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+            errorAt(expr, "'flatMap each' supporte listes de number ou text");
+        }
+
+        auto* mutableNode = const_cast<FlatMapEachExpressionNode*>(flatMapEach);
+        mutableNode->elementTypeName = elemType.toTypeName();
+
+        std::unordered_map<std::string, AfrType> bodyScope = scope;
+        bodyScope[flatMapEach->itemName] = elemType;
+        for (const auto& stmt : flatMapEach->body) {
+            analyzeStatement(*stmt, bodyScope, false);
+        }
+        AfrType returnedList = inferReturnTypeFromBlock(flatMapEach->body, bodyScope, expr);
+        if (returnedList.kind != TypeKind::List) {
+            errorAt(expr, "Le corps de 'flatMap each' doit retourner une liste");
+        }
+        AfrType resultElem = returnedList.listElementType();
         mutableNode->resultElementTypeName = resultElem.toTypeName();
         return AfrType::listType(resultElem);
     }

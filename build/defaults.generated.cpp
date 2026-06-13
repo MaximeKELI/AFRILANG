@@ -64,12 +64,12 @@ namespace str {
 } // namespace str
 
 double afr_power(double base, double exp = 2) {
-    #line 8 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 8 "/home/maxime/AFRILANG/examples/defaults.afr"
     return math::pow(base, exp);
 }
 
 std::string afr_label(std::string message, std::string tag = "info") {
-    #line 15 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 15 "/home/maxime/AFRILANG/examples/defaults.afr"
     return afrilang::runtime::str::concat({afrilang::runtime::str::toString(tag), afrilang::runtime::str::toString(" "), afrilang::runtime::str::toString(message)});
 }
 
@@ -77,15 +77,15 @@ using namespace str;
 using namespace math;
 
 int main() {
-    #line 4 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-        #line 5 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-        #line 11 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 4 "/home/maxime/AFRILANG/examples/defaults.afr"
+        #line 5 "/home/maxime/AFRILANG/examples/defaults.afr"
+        #line 11 "/home/maxime/AFRILANG/examples/defaults.afr"
     std::cout << afr_power(3) << std::endl;
-    #line 12 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 12 "/home/maxime/AFRILANG/examples/defaults.afr"
     std::cout << afr_power(2, 10) << std::endl;
-    #line 18 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 18 "/home/maxime/AFRILANG/examples/defaults.afr"
     std::cout << afr_label(std::string("System ready")) << std::endl;
-    #line 19 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
+    #line 19 "/home/maxime/AFRILANG/examples/defaults.afr"
     std::cout << afr_label(std::string("Warning"), std::string("warn")) << std::endl;
     return 0;
 }

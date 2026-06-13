@@ -99,6 +99,7 @@ std::string instantiatedClassStorageCpp(const NewExpressionNode& newExpr) {
 
 bool expressionUsesNaturalListOps(const ExpressionNode& expr) {
     if (dynamic_cast<const MapEachExpressionNode*>(&expr)) return true;
+    if (dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const FilterEachExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const ReduceExpressionNode*>(&expr)) return true;
 
@@ -978,6 +979,9 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                 AfrType t = typeFromName(assign->typeName);
                 if (t.kind == TypeKind::List) elemCpp = t.listElementCpp();
             }
+            if (elemCpp.empty() && !list->elementTypeName.empty()) {
+                elemCpp = typeFromName(list->elementTypeName).toCpp();
+            }
             if (elemCpp.empty() && !list->elements.empty()) {
                 elemCpp = inferExpressionType(*list->elements[0]);
             }
@@ -1447,9 +1451,14 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
-        std::string elemCpp = list->elements.empty()
-            ? "double"
-            : inferExpressionType(*list->elements[0]);
+        std::string elemCpp;
+        if (!list->elementTypeName.empty()) {
+            elemCpp = typeFromName(list->elementTypeName).toCpp();
+        } else if (!list->elements.empty()) {
+            elemCpp = inferExpressionType(*list->elements[0]);
+        } else {
+            elemCpp = "double";
+        }
         out << "std::vector<" << elemCpp << ">{";
         for (std::size_t i = 0; i < list->elements.size(); ++i) {
             if (i > 0) out << ", ";
@@ -1540,6 +1549,22 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         out << ", [&](" << elemType.toCpp() << " " << mapEach->itemName << ") -> "
             << resultType.toCpp() << " {\n";
         for (const auto& bodyStmt : mapEach->body) {
+            emitStatement(out, *bodyStmt, 1, ownerClass);
+        }
+        out << "    })";
+        return;
+    }
+
+    if (const auto* flatMapEach = dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) {
+        const std::string fn =
+            flatMapEach->elementTypeName == "text" ? "flatMapText" : "flatMapNumbers";
+        const AfrType elemType = typeFromName(flatMapEach->elementTypeName);
+        const AfrType resultType = typeFromName(flatMapEach->resultElementTypeName);
+        out << "afrilang::runtime::collections::" << fn << "(";
+        emitExpression(out, *flatMapEach->list, ownerClass);
+        out << ", [&](" << elemType.toCpp() << " " << flatMapEach->itemName << ") -> "
+            << "std::vector<" << resultType.toCpp() << "> {\n";
+        for (const auto& bodyStmt : flatMapEach->body) {
             emitStatement(out, *bodyStmt, 1, ownerClass);
         }
         out << "    })";
@@ -1758,6 +1783,10 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
         return "std::vector<" + typeFromName(mapEach->resultElementTypeName).toCpp() + ">";
     }
 
+    if (const auto* flatMapEach = dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) {
+        return "std::vector<" + typeFromName(flatMapEach->resultElementTypeName).toCpp() + ">";
+    }
+
     if (const auto* filterEach = dynamic_cast<const FilterEachExpressionNode*>(&expr)) {
         return "std::vector<" + typeFromName(filterEach->elementTypeName).toCpp() + ">";
     }
@@ -1785,6 +1814,9 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
     }
 
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        if (!list->elementTypeName.empty()) {
+            return "std::vector<" + typeFromName(list->elementTypeName).toCpp() + ">";
+        }
         if (!list->elements.empty()) {
             return "std::vector<" + inferExpressionType(*list->elements[0]) + ">";
         }

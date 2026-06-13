@@ -598,6 +598,21 @@ std::unique_ptr<ExpressionNode> Parser::parseMapEachExpression() {
     return node;
 }
 
+std::unique_ptr<ExpressionNode> Parser::parseFlatMapEachExpression() {
+    consume(TokenType::Each, "'each' attendu après 'flatMap'");
+    const Token& itemToken = consumeName("Nom de variable attendu après 'each'");
+    consume(TokenType::In, "'in' attendu");
+    auto list = parseExpression();
+    consume(TokenType::Do, "'do' attendu");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer 'flatMap each'");
+
+    auto node = std::make_unique<FlatMapEachExpressionNode>(
+        itemToken.lexeme, std::move(list), std::move(body));
+    node->loc = {itemToken.line, itemToken.column};
+    return node;
+}
+
 std::unique_ptr<ExpressionNode> Parser::parseFilterEachExpression() {
     consume(TokenType::Each, "'each' attendu après 'filter'");
     const Token& itemToken = consumeName("Nom de variable attendu après 'each'");
@@ -1152,11 +1167,31 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
         return finishCall(std::move(expr));
     }
 
+    if (match(TokenType::List)) {
+        if (check(TokenType::Each)) {
+            return parseMapEachExpression();
+        }
+        if (match(TokenType::Of)) {
+            std::vector<std::unique_ptr<ExpressionNode>> elements;
+            if (!check(TokenType::End) && !isAtEnd()) {
+                do {
+                    elements.push_back(parseExpression());
+                } while (match(TokenType::Comma));
+            }
+            return std::make_unique<ListLiteralNode>(std::move(elements));
+        }
+        error("'map each ...' ou 'list of ...' attendu dans une expression");
+    }
+
     if (match(TokenType::Map)) {
         if (check(TokenType::Each)) {
             return parseMapEachExpression();
         }
         error("'map each ...' attendu dans une expression, ou utilisez 'map of' dans create");
+    }
+
+    if (match(TokenType::FlatMap)) {
+        return parseFlatMapEachExpression();
     }
 
     if (match(TokenType::Filter)) {

@@ -111,9 +111,19 @@ void Formatter::writeln(std::ostream& out, const std::string& line) const {
 
 void Formatter::formatType(std::ostream& out, const std::string& typeName) const {
     if (typeName.rfind("list ", 0) == 0) {
-        out << "list ";
+        out << "list of ";
         formatType(out, typeName.substr(5));
         return;
+    }
+    if (typeName.rfind("map ", 0) == 0) {
+        const std::size_t toPos = typeName.find(" to ");
+        if (toPos != std::string::npos) {
+            out << "map ";
+            formatType(out, typeName.substr(4, toPos - 4));
+            out << " to ";
+            formatType(out, typeName.substr(toPos + 4));
+            return;
+        }
     }
     out << typeName;
 }
@@ -131,6 +141,9 @@ void Formatter::formatParameters(std::ostream& out,
 
 void Formatter::formatFunctionSignature(std::ostream& out, const FunctionNode& func,
                                         bool signatureOnly) const {
+    if (func.isStatic) out << "static ";
+    if (func.isAbstract) out << "abstract ";
+    if (func.isFinal) out << "final ";
     out << "function " << func.name;
     if (!func.typeParams.empty()) {
         out << "<";
@@ -172,7 +185,17 @@ void Formatter::formatFunction(std::ostream& out, const FunctionNode& func,
 
 void Formatter::formatClass(std::ostream& out, const ClassNode& cls) const {
     writeIndent(out);
+    if (cls.isFinal) out << "final ";
+    if (cls.isAbstract) out << "abstract ";
     out << "class " << cls.name;
+    if (!cls.typeParams.empty()) {
+        out << "<";
+        for (std::size_t i = 0; i < cls.typeParams.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << cls.typeParams[i];
+        }
+        out << ">";
+    }
     if (!cls.baseClassName.empty()) {
         out << " extends " << cls.baseClassName;
     }
@@ -195,8 +218,25 @@ void Formatter::formatClass(std::ostream& out, const ClassNode& cls) const {
         out << "\n";
     }
 
+    for (const auto& prop : cls.properties) {
+        writeIndent(out);
+        out << (prop.visibility == FieldVisibility::Public ? "public"
+              : prop.visibility == FieldVisibility::Private ? "private"
+              : "protected") << " property ";
+        formatType(out, prop.typeName);
+        out << " " << prop.name << " end\n";
+    }
+
     for (const auto& method : cls.methods) {
         formatFunction(out, *method);
+    }
+
+    if (!cls.destroyBody.empty()) {
+        writeln(out, "destroy");
+        ++indent_;
+        formatStatements(out, cls.destroyBody);
+        --indent_;
+        writeln(out, "end");
     }
     --indent_;
     writeln(out, "end");
@@ -598,16 +638,69 @@ void Formatter::formatExpression(std::ostream& out, const ExpressionNode& expr) 
 
     if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
         out << "new " << newExpr->className;
+        if (!newExpr->typeArgs.empty()) {
+            out << "<";
+            for (std::size_t i = 0; i < newExpr->typeArgs.size(); ++i) {
+                if (i > 0) out << ", ";
+                formatType(out, newExpr->typeArgs[i]);
+            }
+            out << ">";
+        }
+        return;
+    }
+
+    if (const auto* mapEach = dynamic_cast<const MapEachExpressionNode*>(&expr)) {
+        out << "map each " << mapEach->itemName << " in ";
+        formatExpression(out, *mapEach->list);
+        out << " do\n";
+        ++indent_;
+        formatStatements(out, mapEach->body);
+        --indent_;
+        writeIndent(out);
+        out << "end";
+        return;
+    }
+
+    if (const auto* flatMapEach = dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) {
+        out << "flatMap each " << flatMapEach->itemName << " in ";
+        formatExpression(out, *flatMapEach->list);
+        out << " do\n";
+        ++indent_;
+        formatStatements(out, flatMapEach->body);
+        --indent_;
+        writeIndent(out);
+        out << "end";
+        return;
+    }
+
+    if (const auto* filterEach = dynamic_cast<const FilterEachExpressionNode*>(&expr)) {
+        out << "filter each " << filterEach->itemName << " in ";
+        formatExpression(out, *filterEach->list);
+        out << " where ";
+        formatExpression(out, *filterEach->condition);
+        return;
+    }
+
+    if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
+        out << "reduce ";
+        formatExpression(out, *reduce->list);
+        out << " from ";
+        formatExpression(out, *reduce->initial);
+        out << " with each " << reduce->accName << ", " << reduce->itemName << " do\n";
+        ++indent_;
+        formatStatements(out, reduce->body);
+        --indent_;
+        writeIndent(out);
+        out << "end";
         return;
     }
 
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
-        out << "[";
+        out << "list of ";
         for (std::size_t i = 0; i < list->elements.size(); ++i) {
             if (i > 0) out << ", ";
             formatExpression(out, *list->elements[i]);
         }
-        out << "]";
         return;
     }
 

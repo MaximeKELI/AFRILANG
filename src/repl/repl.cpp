@@ -9,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 namespace fs = std::filesystem;
 
@@ -18,11 +19,15 @@ static const char* kReplSessionPath = "/tmp/afrilang_repl_session.afr";
 
 static void printReplHelp() {
     std::cout << "Commandes REPL:\n";
-    std::cout << "  :help   — afficher cette aide\n";
-    std::cout << "  :reset  — effacer la session\n";
-    std::cout << "  :show   — afficher le code accumulé\n";
-    std::cout << "  :paste  — coller un bloc multi-lignes (terminer par :end)\n";
-    std::cout << "  :quit   — quitter\n";
+    std::cout << "  :help              — afficher cette aide\n";
+    std::cout << "  :reset             — effacer la session\n";
+    std::cout << "  :show              — afficher le code accumulé\n";
+    std::cout << "  :run               — ré-exécuter la session\n";
+    std::cout << "  :load <fichier>    — charger un fichier .afr dans la session\n";
+    std::cout << "  :type <expression> — inférer le type d'une expression\n";
+    std::cout << "  :history           — historique des lignes saisies\n";
+    std::cout << "  :paste             — coller un bloc multi-lignes (terminer par :end)\n";
+    std::cout << "  :quit              — quitter\n";
     std::cout << "\nChaque ligne valide est compilée et exécutée.\n";
 }
 
@@ -52,6 +57,37 @@ bool Pipeline::evalReplSource(const std::string& source, std::string& errorOut) 
         if (code != 0) {
             errorOut = "Programme terminé avec le code " + std::to_string(code) + "\n";
         }
+        return true;
+    } catch (const CompileError& e) {
+        errorOut = e.format();
+        return false;
+    }
+}
+
+bool Pipeline::inferReplExpressionType(const std::string& session,
+                                       const std::string& expression,
+                                       std::string& typeOut,
+                                       std::string& errorOut) {
+    try {
+        std::string probe = session;
+        if (!probe.empty() && probe.back() != '\n') {
+            probe += "\n";
+        }
+        probe += "create const __repl_probe = " + expression + "\n";
+
+        SourceManager sources;
+        sources.addFile(kReplSessionPath, probe);
+        auto program = parseSourceProgram(probe, kReplSessionPath, &sources);
+
+        SemanticAnalyzer analyzer(*program, &sources, kReplSessionPath);
+        const SemanticResult semantic = analyzer.analyze();
+
+        const auto it = semantic.globalVariables.find("__repl_probe");
+        if (it == semantic.globalVariables.end()) {
+            errorOut = "Impossible d'inférer le type.\n";
+            return false;
+        }
+        typeOut = it->second.toTypeName();
         return true;
     } catch (const CompileError& e) {
         errorOut = e.format();
@@ -100,12 +136,21 @@ bool Pipeline::formatFile(const std::string& sourcePath, bool writeBack) {
     }
 }
 
+static std::string trim(const std::string& s) {
+    std::size_t start = 0;
+    while (start < s.size() && (s[start] == ' ' || s[start] == '\t')) ++start;
+    std::size_t end = s.size();
+    while (end > start && (s[end - 1] == ' ' || s[end - 1] == '\t')) --end;
+    return s.substr(start, end - start);
+}
+
 int runRepl() {
-    std::cout << "AFRILANG REPL v1.0 — tapez :help pour l'aide\n\n";
+    std::cout << "AFRILANG REPL v2.0 — tapez :help pour l'aide\n\n";
 
     std::string session;
     bool pasteMode = false;
     std::string pasteBuffer;
+    std::vector<std::string> history;
 
     auto tryEval = [&](const std::string& source) -> bool {
         if (source.find_first_not_of(" \t\n\r") == std::string::npos) {
@@ -138,6 +183,7 @@ int runRepl() {
             if (line == ":end") {
                 pasteMode = false;
                 if (!pasteBuffer.empty()) {
+                    history.push_back(pasteBuffer);
                     if (!session.empty() && session.back() != '\n') session += "\n";
                     session += pasteBuffer;
                     pasteBuffer.clear();
@@ -172,6 +218,58 @@ int runRepl() {
                 }
                 continue;
             }
+            if (line == ":run") {
+                tryEval(session);
+                continue;
+            }
+            if (line == ":history") {
+                if (history.empty()) {
+                    std::cout << "(historique vide)\n";
+                } else {
+                    for (std::size_t i = 0; i < history.size(); ++i) {
+                        std::cout << i + 1 << ": " << history[i];
+                        if (history[i].find('\n') == std::string::npos) std::cout << "\n";
+                    }
+                }
+                continue;
+            }
+            if (line.rfind(":load", 0) == 0) {
+                const std::string path = trim(line.substr(5));
+                if (path.empty()) {
+                    std::cout << "Usage: :load chemin/vers/fichier.afr\n";
+                    continue;
+                }
+                std::ifstream in(path);
+                if (!in) {
+                    std::cout << "Fichier introuvable: " << path << "\n";
+                    continue;
+                }
+                std::ostringstream buffer;
+                buffer << in.rdbuf();
+                const std::string content = buffer.str();
+                if (!session.empty() && session.back() != '\n') session += "\n";
+                session += content;
+                if (!session.empty() && session.back() != '\n') session += "\n";
+                history.push_back(":load " + path);
+                std::cout << "Chargé: " << path << "\n";
+                tryEval(session);
+                continue;
+            }
+            if (line.rfind(":type", 0) == 0) {
+                const std::string expr = trim(line.substr(5));
+                if (expr.empty()) {
+                    std::cout << "Usage: :type <expression>\n";
+                    continue;
+                }
+                std::string typeOut;
+                std::string error;
+                if (Pipeline::inferReplExpressionType(session, expr, typeOut, error)) {
+                    std::cout << typeOut << "\n";
+                } else {
+                    std::cerr << error;
+                }
+                continue;
+            }
             if (line == ":paste") {
                 pasteMode = true;
                 pasteBuffer.clear();
@@ -180,6 +278,10 @@ int runRepl() {
             }
             std::cout << "Commande inconnue. Tapez :help\n";
             continue;
+        }
+
+        if (!line.empty()) {
+            history.push_back(line);
         }
 
         if (!session.empty() && session.back() != '\n') {

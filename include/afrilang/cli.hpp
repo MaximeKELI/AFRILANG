@@ -34,6 +34,10 @@ public:
 
     static bool formatFile(const std::string& sourcePath, bool writeBack);
     static bool evalReplSource(const std::string& source, std::string& errorOut);
+    static bool inferReplExpressionType(const std::string& session,
+                                        const std::string& expression,
+                                        std::string& typeOut,
+                                        std::string& errorOut);
 };
 
 int runCli(int argc, char* argv[]);

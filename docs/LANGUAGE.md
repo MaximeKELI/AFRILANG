@@ -7,7 +7,7 @@
 | number | `number` | `double` |
 | text | `text` | `std::string` |
 | bool | `bool` | `bool` |
-| list | `list of T` | `std::vector<T>` |
+| list | `list of T` | `std::vector<T>` (classes: `vector<unique_ptr<T>>`) |
 | map | `map K to V` | `std::unordered_map<K,V>` |
 | optional | `T?` | `std::optional<T>` |
 | result | `T or error` | `AfrResult_T` |
@@ -47,11 +47,15 @@ Fonctionnalités POO :
 - **super** — `super(arg)` dans `init`, `super.methode()` pour appeler le parent
 - **static** — `static field` / `static function`, appel via `Classe.methode()`
 - **abstract** — `abstract class` et `abstract function` (pas d'instanciation)
-- **Polymorphisme** — `create pet Animal = new Dog("Rex")` puis `pet.methode()` (dispatch virtuel)
+- **final** — `final class` (non extensible), `final function` (non redéfinissable)
+- **property** — `property text name end` (getter/setter auto)
+- **destroy** — bloc `destroy ... end` → destructeur virtuel
+- **Polymorphisme** — `create pet Animal = new Dog("Rex")`, listes `list of Animal`
+- **Classes génériques** — `class Box<T> ... end`, `new Box<number>(42)`
 - **Interfaces** — `interface I ... end` et `class C implements I, J`
 - **Records** — structs légers (`record Point ... end`)
 
-Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/fields.afr`, `examples/interfaces.afr`, `examples/poo_demo.afr`, `examples/oop_full.afr`
+Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/poo_demo.afr`, `examples/oop_full.afr`, `examples/polymorphic_list.afr`, `examples/generic_class.afr`, `examples/poo_advanced.afr`, `examples/phase11_demo.afr`
 
 ## Maps
 
@@ -88,7 +92,7 @@ say "Hello {name}!"
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path.
 
 ## Generics
 
@@ -160,7 +164,13 @@ create big = filter each x in nums where x is greater than 3
 create total = reduce nums from 0 with each acc, x do
     return acc + x
 end
+
+create flat = flatMap each n in nums do
+    return list of n, n * 10
+end
 ```
+
+`reduce` fonctionne aussi sur `list text` (valeur initiale text).
 
 Syntaxe explicite via `std/collections` :
 
@@ -189,6 +199,32 @@ end, 0)
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path.
 
-Compiler version follows semantic versioning. Breaking syntax changes require a minor/major bump and CHANGELOG entry.
+### std/args
+
+```afr
+import "std/args"
+use args
+
+say count()
+say at(0)
+```
+
+### std/path
+
+```afr
+import "std/path"
+use path
+
+say join("home", "user")
+say basename("/tmp/file.txt")
+```
+
+## REPL
+
+```bash
+afrilang repl
+```
+
+Commandes : `:help`, `:reset`, `:show`, `:run`, `:load fichier.afr`, `:type expr`, `:history`, `:paste` / `:end`, `:quit`

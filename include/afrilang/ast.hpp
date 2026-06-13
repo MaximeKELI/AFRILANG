@@ -125,6 +125,7 @@ struct NewExpressionNode : ExpressionNode {
 
 struct ListLiteralNode : ExpressionNode {
     std::vector<std::unique_ptr<ExpressionNode>> elements;
+    std::string elementTypeName;
     explicit ListLiteralNode(std::vector<std::unique_ptr<ExpressionNode>> elements)
         : elements(std::move(elements)) {}
 };
@@ -414,6 +415,21 @@ struct MapEachExpressionNode : ExpressionNode {
     MapEachExpressionNode(std::string itemName,
                           std::unique_ptr<ExpressionNode> list,
                           std::vector<std::unique_ptr<StatementNode>> body)
+        : itemName(std::move(itemName))
+        , list(std::move(list))
+        , body(std::move(body)) {}
+};
+
+struct FlatMapEachExpressionNode : ExpressionNode {
+    std::string itemName;
+    std::unique_ptr<ExpressionNode> list;
+    std::vector<std::unique_ptr<StatementNode>> body;
+    std::string elementTypeName;
+    std::string resultElementTypeName;
+
+    FlatMapEachExpressionNode(std::string itemName,
+                              std::unique_ptr<ExpressionNode> list,
+                              std::vector<std::unique_ptr<StatementNode>> body)
         : itemName(std::move(itemName))
         , list(std::move(list))
         , body(std::move(body)) {}

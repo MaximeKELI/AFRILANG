@@ -139,7 +139,7 @@ namespace math {
 } // namespace math
 
 std::string afr_greet(std::string name, std::string prefix = "Hello") {
-    #line 10 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 10 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     return afrilang::runtime::str::concat({afrilang::runtime::str::toString(prefix), afrilang::runtime::str::toString(" "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString("!")});
 }
 
@@ -148,54 +148,54 @@ using namespace str;
 using namespace collections;
 
 int main() {
-    #line 5 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-        #line 6 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-        #line 7 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-        #line 13 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 5 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
+        #line 6 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
+        #line 7 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
+        #line 13 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << afr_greet(std::string("World")) << std::endl;
-    #line 14 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 14 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << afr_greet(std::string("Africa"), std::string("Bonjour")) << std::endl;
-    #line 16 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 16 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     const double PI = 3.14159;
-    #line 17 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 17 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << PI << std::endl;
-    #line 19 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 19 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::vector<double> nums = {3, 1, 4, 1, 5};
-    #line 20 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 20 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     auto sorted = collections::sortNumbers(nums);
-    #line 21 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 21 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << sorted[static_cast<size_t>(0)] << std::endl;
-    #line 22 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 22 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << sorted[static_cast<size_t>(4)] << std::endl;
-    #line 23 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 23 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << collections::sumNumbers(nums) << std::endl;
-    #line 24 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 24 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << collections::containsNumber(nums, 4) << std::endl;
-    #line 25 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 25 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << collections::indexOfNumber(nums, 5) << std::endl;
-    #line 27 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 27 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::vector<std::string> words = {"zebra", "apple", "mango"};
-    #line 28 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 28 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     auto ordered = collections::sortText(words);
-    #line 29 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 29 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << ordered[static_cast<size_t>(0)] << std::endl;
-    #line 30 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 30 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << collections::containsText(words, "apple") << std::endl;
-    #line 32 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 32 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     double total = 0;
-    #line 33 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 33 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     for (double i = 1; i <= 5; i += 1.0) {
-        #line 34 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+        #line 34 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
         total = (total + i);
     }
-    #line 36 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 36 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << total << std::endl;
-    #line 38 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 38 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     for (double n = 0; n <= 10; n += 2) {
-        #line 39 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+        #line 39 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
         std::cout << n << std::endl;
     }
-    #line 42 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
+    #line 42 "/home/maxime/AFRILANG/examples/phase10_demo.afr"
     std::cout << "Phase 10 demo complete" << std::endl;
     return 0;
 }

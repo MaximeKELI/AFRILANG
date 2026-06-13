@@ -21,7 +21,7 @@ enum class TokenType {
     Enum, Case, Match, Default, With, Nothing, Defined,
     Map, Try, Catch, Raise,
     Const, Step,
-    Filter, Reduce, Where,
+    Filter, Reduce, Where, FlatMap,
     Super, Static, Abstract, Protected, Final, Property, Destroy,
 
     // Littéraux et identifiants
@@ -139,6 +139,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Filter:         return "filter";
         case TokenType::Reduce:         return "reduce";
         case TokenType::Where:          return "where";
+        case TokenType::FlatMap:        return "flatMap";
         case TokenType::Super:          return "super";
         case TokenType::Static:         return "static";
         case TokenType::Abstract:       return "abstract";

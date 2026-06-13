@@ -3,34 +3,30 @@
 ## Unreleased
 
 ### Language
+- **flatMap each** — `flatMap each x in list do return list of ... end`
+- **reduce text** — `reduce` naturel sur listes de `text`
+- **Listes polymorphes** — `list of Animal` avec `unique_ptr` et sous-types
+- **Classes génériques** — `class Box<T>`, `new Box<number>(42)`
+- **POO avancée** — `final`, `property`, `destroy`, `super`, `static`, `abstract`, `protected`
 - **Lambdas** — `function(x number) returns number ... end` as expression
-- **map / filter / reduce** — `mapNumbers`, `filterNumbers`, `reduceNumbers`, `mapText`, `filterText` in `std/collections`
-- **Natural list ops** — `map each x in list do ... end`, `filter each x in list where ...`, `reduce list from init with each acc, x do ... end`
-- **POO avancée** — `super`, `static`, `abstract`, `protected`, polymorphisme via `unique_ptr`
-- **Default parameters** — `function f(x number, y number = 0)`
-- **Numeric for loops** — `for i from 1 to 10 do` / `step 2`
-- **Constants** — `create const NAME = value`
-- **Maps** — `map of "k" to v`, `empty map text to number`, indexing with `at`
-- **Exceptions** — `try` / `catch error e` / `raise`
-- **String interpolation** — `"Hello {name}"`
-- **for each key, value in map** — iterate maps with two variables
+- **map / filter / reduce** — syntaxe naturelle + `std/collections`
+- **Default parameters**, **for from/to/step**, **const**, **maps**, **exceptions**, **interpolation**
 
 ### Standard library
-- `std/str` — trim, contains, replace, split, join
-- `std/log` — info, warn, error
-- `std/math` — abs, floor, ceil, pow, random
-- `std/time` — now, formatTimestamp
-- `std/re` — match, replace (regex)
-- `std/http` — httpPost added
-- `std/collections` — sortNumbers, sortText, reverse, contains, indexOf, sum
+- `std/args` — count, at, all (arguments CLI)
+- `std/path` — join, basename, dirname, extension, isAbsolute
+- `std/collections` — map/filter/reduce/flatMap, sort, reverse, contains, indexOf, sum
+- `std/str`, `std/log`, `std/math`, `std/time`, `std/re`, `std/http`, `std/fs`, `std/io`, `std/json`
 
 ### Tooling
-- `afrilang lint` — static analysis entry point
-- `afrilang doc` — Markdown documentation generator
+- **REPL v2** — `:load`, `:type`, `:run`, `:history`, `:paste`
+- `afrilang lint`, `afrilang doc`
+- Extension VS Code 0.5.0 — coloration POO + list ops
 
 ### Examples
-- `examples/maps.afr`, `examples/exceptions.afr`, `examples/phase9_demo.afr`
-- `examples/lambdas.afr`, `examples/list_ops.afr`, `examples/natural_list_ops.afr`, `examples/poo_demo.afr`, `examples/oop_full.afr`
+- `phase11_demo.afr` — démo complète phase 11
+- `polymorphic_list.afr`, `generic_class.afr`, `poo_advanced.afr`, `args_path_demo.afr`
 
-## Prior releases
-- Generics on functions, enums/match, null-safety, LSP, pkg registry, playground
+## 0.4.0
+
+Initial POO, natural list ops, VS Code extension prep.

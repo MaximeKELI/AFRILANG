@@ -39,4 +39,11 @@ end
 
 say joined
 
+create expanded = flatMap each n in nums do
+    return list of n, n * 100
+end
+
+say length of expanded
+say expanded at 3
+
 say "natural list ops complete"
