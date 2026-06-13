@@ -800,8 +800,12 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* isDefined = dynamic_cast<const IsDefinedCheckNode*>(&expr)) {
-        emitExpression(out, *isDefined->value, ownerClass);
-        out << ".has_value()";
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(isDefined->value.get())) {
+            out << id->name << ".has_value()";
+        } else {
+            emitExpression(out, *isDefined->value, ownerClass);
+            out << ".has_value()";
+        }
         return;
     }
 
