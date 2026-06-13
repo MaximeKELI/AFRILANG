@@ -107,17 +107,21 @@ async function runAfrilangCommand(context, subcommand, filePath) {
 
 function parseCheckErrors(stderr) {
   const diags = [];
-  const re = /Erreur dans .+:(\d+):(\d+)\n\s+([^\n]+)/g;
-  let match;
-  while ((match = re.exec(stderr)) !== null) {
-    const line = Math.max(0, parseInt(match[1], 10) - 1);
-    const col = Math.max(0, parseInt(match[2], 10) - 1);
-    diags.push(new vscode.Diagnostic(
-      new vscode.Range(line, col, line, col + 1),
-      match[3].trim(),
-      vscode.DiagnosticSeverity.Error,
-      'afrilang'
-    ));
+  const withFile = /Erreur dans .+:(\d+):(\d+)\n\s+([^\n]+)/g;
+  const withLine = /Erreur ligne (\d+), colonne (\d+)\n\s+([^\n]+)/g;
+
+  for (const re of [withFile, withLine]) {
+    let match;
+    while ((match = re.exec(stderr)) !== null) {
+      const line = Math.max(0, parseInt(match[1], 10) - 1);
+      const col = Math.max(0, parseInt(match[2], 10) - 1);
+      diags.push(new vscode.Diagnostic(
+        new vscode.Range(line, col, line, col + 1),
+        match[3].trim(),
+        vscode.DiagnosticSeverity.Error,
+        'afrilang'
+      ));
+    }
   }
   return diags;
 }
