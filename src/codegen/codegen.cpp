@@ -517,6 +517,24 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
         const std::string constPrefix = assign->isConst ? "const " : "";
 
+        if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(assign->value.get())) {
+            std::string typeCpp;
+            if (!assign->typeName.empty()) {
+                typeCpp = typeFromName(assign->typeName).toCpp();
+            } else {
+                std::ostringstream params;
+                for (std::size_t i = 0; i < lambda->parameters.size(); ++i) {
+                    if (i > 0) params << ", ";
+                    params << lambda->parameters[i].typeName;
+                }
+                typeCpp = AfrType::functionType(params.str(), lambda->returnTypeName).toCpp();
+            }
+            out << constPrefix << typeCpp << " " << assign->name << " = ";
+            emitExpression(out, *assign->value, ownerClass);
+            out << ";\n";
+            return;
+        }
+
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(assign->value.get())) {
             out << constPrefix << newExpr->className << " " << assign->name;
             const ClassInfo* clsInfo = nullptr;
@@ -1080,6 +1098,25 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
+        out << "[&](";
+        for (std::size_t i = 0; i < lambda->parameters.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << typeFromName(lambda->parameters[i].typeName).toCpp()
+                << " " << lambda->parameters[i].name;
+        }
+        out << ")";
+        if (!lambda->returnTypeName.empty()) {
+            out << " -> " << typeFromName(lambda->returnTypeName).toCpp();
+        }
+        out << " {\n";
+        for (const auto& bodyStmt : lambda->body) {
+            emitStatement(out, *bodyStmt, 1, ownerClass);
+        }
+        out << "    }";
+        return;
+    }
+
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         const MethodSignature* externSig = nullptr;
         if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
@@ -1089,7 +1126,13 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
         }
 
-        emitExpression(out, *call->callee, ownerClass);
+        if (dynamic_cast<const LambdaExpressionNode*>(call->callee.get())) {
+            out << "(";
+            emitExpression(out, *call->callee, ownerClass);
+            out << ")";
+        } else {
+            emitExpression(out, *call->callee, ownerClass);
+        }
         out << "(";
         for (std::size_t i = 0; i < call->arguments.size(); ++i) {
             if (i > 0) out << ", ";
@@ -1129,6 +1172,15 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
     }
 
     if (dynamic_cast<const InterpolatedStringNode*>(&expr)) return "std::string";
+
+    if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
+        std::ostringstream params;
+        for (std::size_t i = 0; i < lambda->parameters.size(); ++i) {
+            if (i > 0) params << ", ";
+            params << lambda->parameters[i].typeName;
+        }
+        return AfrType::functionType(params.str(), lambda->returnTypeName).toCpp();
+    }
 
     if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
         return "std::unordered_map<" +

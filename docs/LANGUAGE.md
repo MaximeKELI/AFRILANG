@@ -87,6 +87,24 @@ create const MAX = 100
 create const NAME text = "AFRILANG"
 ```
 
+## Lambdas (fonctions anonymes)
+
+```afr
+create doubleIt = function(x number) returns number
+    return x * 2
+end
+
+say doubleIt(21)
+
+function apply(fn function number to number, value number) returns number
+    return fn(value)
+end
+
+say apply(doubleIt, 10)
+```
+
+Type fonction : `function number to number`, `function number, text to text`, etc.
+
 ## Modules
 
 Import with `import "std/io"` and `use io`.
