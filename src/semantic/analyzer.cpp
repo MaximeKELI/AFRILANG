@@ -646,6 +646,14 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         return AfrType::boolType();
     }
 
+    if (const auto* isError = dynamic_cast<const IsErrorCheckNode*>(&expr)) {
+        AfrType valType = analyzeExpression(*isError->value, scope);
+        if (valType.kind != TypeKind::Result) {
+            errorAt(expr, "'is error' requiert un type Result");
+        }
+        return AfrType::boolType();
+    }
+
     if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
         if (list->elements.empty()) {
             errorAt(expr, "Impossible d'inférer le type d'une liste vide");
@@ -800,6 +808,9 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
         return target.recordName == value.recordName;
     }
     if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
+        return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
         return target.listElementTypeName == value.listElementTypeName;
     }
     return false;
