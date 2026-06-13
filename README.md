@@ -514,7 +514,7 @@ afrilang serve 3000   # port personnalisé
 ```
 
 Le site dans `site/` propose un éditeur en ligne avec :
-- exemples préchargés (Hello, OOP, enums/match)
+- exemples préchargés (Hello, OOP, enums/match, generics)
 - exécution via `/api/run`
 - formatage via `/api/fmt`
 - raccourci **Ctrl+Enter** pour exécuter
@@ -589,6 +589,31 @@ if nickname is defined then
 end
 ```
 
+### Generics
+
+Type parameters on functions with inference at call sites:
+
+```afr
+function identity<T>(x T) returns T
+    return x
+end
+
+function first<T>(items list of T) returns T
+    return items at 0
+end
+
+say identity(42)
+say identity("hello")
+
+create nums = list of 10, 20, 30
+say first(nums)
+
+create words = list of "a", "b", "c"
+say first(words)
+```
+
+Generics transpile to C++ `template<typename T>` functions. Types are inferred from arguments (`42` → `number`, `"hello"` → `text`, list element types from `list of …`).
+
 ## Exemples
 
 | Fichier | Description |
@@ -614,6 +639,7 @@ end
 | `examples/educational.afr` | Mode éducatif explain |
 | `examples/fs_demo.afr` | Stdlib fs (listDir, makeDir, fileSize) |
 | `examples/advanced.afr` | Enums, match, null-safety |
+| `examples/generics.afr` | Fonctions génériques (type params, inference) |
 
 ## Compiler tous les exemples
 
@@ -637,3 +663,4 @@ cd build && make examples
 | `ask "..." into var` | `std::cout << ...; std::getline(std::cin, var)` |
 | `length of x` | `x.size()` |
 | `add v to list` | `list.push_back(v)` |
+| `function f<T>(x T) returns T` | `template<typename T> T f(T x)` |

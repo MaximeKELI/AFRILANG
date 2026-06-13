@@ -51,6 +51,23 @@ if nickname is defined then
 else
     say "no nickname"
 end
+`,
+  generics: `function identity<T>(x T) returns T
+    return x
+end
+
+function first<T>(items list of T) returns T
+    return items at 0
+end
+
+say identity(42)
+say identity("hello")
+
+create nums = list of 10, 20, 30
+say first(nums)
+
+create words = list of "a", "b", "c"
+say first(words)
 `
 };
 
