@@ -19,6 +19,7 @@ public:
 private:
     std::string entryPath_;
     std::string afrilangRoot_;
+    std::string projectDir_;
     std::unordered_set<std::string> loadedFiles_;
     SourceManager sources_;
 

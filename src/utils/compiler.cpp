@@ -3,6 +3,7 @@
 #include "afrilang/error.hpp"
 #include "afrilang/lexer.hpp"
 #include "afrilang/parser.hpp"
+#include "afrilang/pkg.hpp"
 #include "afrilang/stdlib_registry.hpp"
 
 #include <filesystem>
@@ -16,7 +17,24 @@ namespace afrilang {
 
 Compiler::Compiler(std::string entryPath, std::string afrilangRoot)
     : entryPath_(std::move(entryPath))
-    , afrilangRoot_(std::move(afrilangRoot)) {}
+    , afrilangRoot_(std::move(afrilangRoot)) {
+    fs::path dir = fs::path(entryPath_).parent_path();
+    while (!dir.empty() && dir != dir.parent_path()) {
+        if (fs::exists(dir / "afrilang.toml")) {
+            projectDir_ = dir.string();
+            break;
+        }
+        dir = dir.parent_path();
+    }
+    if (projectDir_.empty()) {
+        projectDir_ = fs::path(entryPath_).parent_path().string();
+    }
+    if (afrilangRoot_.empty()) {
+        if (const char* env = std::getenv("AFRILANG_HOME")) {
+            afrilangRoot_ = env;
+        }
+    }
+}
 
 std::unique_ptr<ProgramNode> Compiler::compile() {
     loadedFiles_.clear();
@@ -125,7 +143,12 @@ void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir) 
             continue;
         }
 
-        const std::string resolved = resolvePath(baseDir, imp->path);
+        std::string resolved;
+        if (PkgRegistry::isPkgImport(imp->path)) {
+            resolved = PkgRegistry::resolvePkgImport(imp->path, projectDir_, afrilangRoot_);
+        } else {
+            resolved = resolvePath(baseDir, imp->path);
+        }
         auto imported = parseFile(resolved);
         const std::string importDir = fs::path(resolved).parent_path().string();
         resolveImports(*imported, importDir);
