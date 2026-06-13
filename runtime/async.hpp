@@ -170,8 +170,12 @@ inline Task<void> detail::TaskPromise<void>::get_return_object() noexcept {
     return Task<void>{std::coroutine_handle<TaskPromise<void>>::from_promise(*this)};
 }
 
-inline SleepAwaitable sleep(double ms) {
+inline SleepAwaitable sleepAwaitable(double ms) {
     return SleepAwaitable{ms};
+}
+
+inline Task<void> sleep(double ms) {
+    co_await sleepAwaitable(ms);
 }
 
 template<typename T>
