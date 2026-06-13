@@ -41,6 +41,15 @@ void validateFunctionDefaults(const FunctionNode& func,
     }
 }
 
+AfrType lambdaExpressionType(const LambdaExpressionNode& lambda) {
+    std::ostringstream params;
+    for (std::size_t i = 0; i < lambda.parameters.size(); ++i) {
+        if (i > 0) params << ", ";
+        params << lambda.parameters[i].typeName;
+    }
+    return AfrType::functionType(params.str(), lambda.returnTypeName);
+}
+
 } // namespace
 
 SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
@@ -993,6 +1002,20 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         return AfrType::number();
     }
 
+    if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
+        std::unordered_map<std::string, AfrType> lambdaScope = scope;
+        for (const auto& param : lambda->parameters) {
+            lambdaScope[param.name] = typeFromName(param.typeName);
+        }
+        for (const auto& stmt : lambda->body) {
+            analyzeStatement(*stmt, lambdaScope, false);
+        }
+        if (lambda->returnTypeName.empty()) {
+            errorAt(expr, "Une lambda doit déclarer un type de retour (returns ...)");
+        }
+        return lambdaExpressionType(*lambda);
+    }
+
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         if (const auto* member = dynamic_cast<const MemberAccessNode*>(call->callee.get())) {
             AfrType objectType = analyzeExpression(*member->object, scope);
@@ -1026,6 +1049,39 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         }
 
         if (const auto* id = dynamic_cast<const IdentifierNode*>(call->callee.get())) {
+            AfrType fnValueType;
+            bool isFunctionValue = false;
+
+            const auto scopeIt = scope.find(id->name);
+            if (scopeIt != scope.end() && scopeIt->second.kind == TypeKind::Function) {
+                fnValueType = scopeIt->second;
+                isFunctionValue = true;
+            } else {
+                const auto globalIt = result_.globalVariables.find(id->name);
+                if (globalIt != result_.globalVariables.end() &&
+                    globalIt->second.kind == TypeKind::Function) {
+                    fnValueType = globalIt->second;
+                    isFunctionValue = true;
+                }
+            }
+
+            if (isFunctionValue) {
+                const auto paramTypes = fnValueType.functionParamTypeNames();
+                if (call->arguments.size() != paramTypes.size()) {
+                    errorAt(expr, "Appel de fonction attend " +
+                          std::to_string(paramTypes.size()) + " argument(s), reçu " +
+                          std::to_string(call->arguments.size()));
+                }
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    const AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                    if (!isAssignable(typeFromName(paramTypes[i]), argType)) {
+                        errorAt(expr, "Type incompatible pour l'argument " +
+                              std::to_string(i + 1));
+                    }
+                }
+                return fnValueType.functionReturnType();
+            }
+
             const MethodSignature* sig = findFunction(id->name);
             if (!sig) {
                 for (const auto& [modName, mod] : result_.modules) {
@@ -1066,6 +1122,24 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
 
             return sig->returnType;
+        }
+
+        if (dynamic_cast<const LambdaExpressionNode*>(call->callee.get())) {
+            const AfrType fnValueType = analyzeExpression(*call->callee, scope);
+            const auto paramTypes = fnValueType.functionParamTypeNames();
+            if (call->arguments.size() != paramTypes.size()) {
+                errorAt(expr, "Appel de lambda attend " +
+                      std::to_string(paramTypes.size()) + " argument(s), reçu " +
+                      std::to_string(call->arguments.size()));
+            }
+            for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                const AfrType argType = analyzeExpression(*call->arguments[i], scope);
+                if (!isAssignable(typeFromName(paramTypes[i]), argType)) {
+                    errorAt(expr, "Type incompatible pour l'argument " +
+                          std::to_string(i + 1));
+                }
+            }
+            return fnValueType.functionReturnType();
         }
 
         errorAt(expr, "Appel de fonction invalide");

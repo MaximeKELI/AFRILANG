@@ -5,6 +5,7 @@
 
 #include <unordered_set>
 #include <cctype>
+#include <sstream>
 
 namespace afrilang {
 
