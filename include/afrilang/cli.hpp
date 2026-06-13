@@ -11,8 +11,10 @@ struct CompileOptions {
     bool showAST = false;
     bool emitOnly = false;
     bool runAfter = false;
+    bool debugSymbols = true;
     std::string outputExecutable;
     std::string runtimeDir;
+    std::string sourcePath;
 };
 
 struct CompileResult {
@@ -28,9 +30,13 @@ public:
 
     static bool checkFile(const std::string& sourcePath);
     static int runTests(const std::string& afrilangRoot);
+
+    static bool formatFile(const std::string& sourcePath, bool writeBack);
+    static bool evalReplSource(const std::string& source, std::string& errorOut);
 };
 
 int runCli(int argc, char* argv[]);
+int runRepl();
 
 std::string detectAfrilangRoot();
 

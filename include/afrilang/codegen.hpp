@@ -20,11 +20,15 @@ public:
                              const std::string& executablePath) const;
 
     void setRuntimeDir(std::string dir) { runtimeDir_ = std::move(dir); }
+    void setSourceFile(std::string path) { sourceFilePath_ = std::move(path); }
+    void setDebugSymbols(bool enabled) { debugSymbols_ = enabled; }
 
 private:
     const ProgramNode& program_;
     const SemanticResult& semantic_;
     std::string runtimeDir_;
+    std::string sourceFilePath_;
+    bool debugSymbols_ = true;
 
     mutable const FunctionNode* currentFunction_ = nullptr;
     mutable bool inTest_ = false;
@@ -50,6 +54,7 @@ private:
     std::string inferExpressionType(const ExpressionNode& expr) const;
     std::string classPrefix(const ClassInfo* ownerClass) const;
 
+    void emitLineDirective(std::ostream& out, const ASTNode& node, int indentLevel) const;
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);
     static std::string paramList(const FunctionNode& func);
