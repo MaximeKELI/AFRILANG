@@ -20,18 +20,22 @@ struct MethodSignature {
     bool isConstructor = false;
     bool returnsResult = false;
     bool isExtern = false;
+    bool isStatic = false;
+    bool isAbstract = false;
     std::string externLibrary;
 };
 
 struct FieldInfo {
     std::string name;
     AfrType type;
-    bool isPublic = true;
+    FieldVisibility visibility = FieldVisibility::Public;
+    bool isStatic = false;
 };
 
 struct ClassInfo {
     std::string name;
     std::string baseClass;
+    bool isAbstract = false;
     std::unordered_map<std::string, FieldInfo> fields;
     std::unordered_map<std::string, MethodSignature> methods;
 };
@@ -124,6 +128,9 @@ private:
     const ClassInfo* findClass(const std::string& name) const;
     const RecordInfo* findRecord(const std::string& name) const;
     const FieldInfo* findField(const ClassInfo& cls, const std::string& fieldName) const;
+    bool canAccessField(const FieldInfo& field, const ClassInfo& ownerClass,
+                        const ClassInfo* accessingClass) const;
+    bool isSubclassOf(const std::string& derived, const std::string& base) const;
     MethodSignature* findMethod(const std::string& className, const std::string& methodName);
     const MethodSignature* findMethod(const std::string& className,
                                       const std::string& methodName) const;

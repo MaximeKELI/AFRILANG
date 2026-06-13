@@ -22,6 +22,7 @@ enum class TokenType {
     Map, Try, Catch, Raise,
     Const, Step,
     Filter, Reduce, Where,
+    Super, Static, Abstract, Protected,
 
     // Littéraux et identifiants
     Identifier,
@@ -138,6 +139,10 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Filter:         return "filter";
         case TokenType::Reduce:         return "reduce";
         case TokenType::Where:          return "where";
+        case TokenType::Super:          return "super";
+        case TokenType::Static:         return "static";
+        case TokenType::Abstract:       return "abstract";
+        case TokenType::Protected:      return "protected";
         case TokenType::Question:       return "?";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";

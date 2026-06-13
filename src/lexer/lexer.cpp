@@ -85,6 +85,10 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"filter",   TokenType::Filter},
     {"reduce",   TokenType::Reduce},
     {"where",    TokenType::Where},
+    {"super",    TokenType::Super},
+    {"static",   TokenType::Static},
+    {"abstract", TokenType::Abstract},
+    {"protected", TokenType::Protected},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}

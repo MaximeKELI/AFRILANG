@@ -198,12 +198,14 @@ void SemanticAnalyzer::registerClasses() {
         ClassInfo info;
         info.name = cls->name;
         info.baseClass = cls->baseClassName;
+        info.isAbstract = cls->isAbstract;
 
         for (const auto& field : cls->fields) {
             FieldInfo fi;
             fi.name = field.name;
             fi.type = typeFromName(field.typeName);
-            fi.isPublic = field.isPublic;
+            fi.visibility = field.visibility;
+            fi.isStatic = field.isStatic;
             info.fields[field.name] = std::move(fi);
         }
 
@@ -213,6 +215,8 @@ void SemanticAnalyzer::registerClasses() {
             sig.isConstructor = (method->name == "init");
             sig.returnType = resolveFunctionReturnType(*method);
             sig.returnsResult = method->returnsResult;
+            sig.isStatic = method->isStatic;
+            sig.isAbstract = method->isAbstract;
 
             for (const auto& param : method->parameters) {
                 sig.paramTypes.push_back(typeFromName(param.typeName));
@@ -250,11 +254,13 @@ void SemanticAnalyzer::registerClasses() {
             ClassInfo info;
             info.name = cls->name;
             info.baseClass = cls->baseClassName;
+            info.isAbstract = cls->isAbstract;
             for (const auto& field : cls->fields) {
                 FieldInfo fi;
                 fi.name = field.name;
                 fi.type = typeFromName(field.typeName);
-                fi.isPublic = field.isPublic;
+                fi.visibility = field.visibility;
+                fi.isStatic = field.isStatic;
                 info.fields[field.name] = std::move(fi);
             }
             for (const auto& method : cls->methods) {
@@ -263,6 +269,8 @@ void SemanticAnalyzer::registerClasses() {
                 sig.isConstructor = (method->name == "init");
                 sig.returnType = resolveFunctionReturnType(*method);
                 sig.returnsResult = method->returnsResult;
+                sig.isStatic = method->isStatic;
+                sig.isAbstract = method->isAbstract;
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
@@ -442,8 +450,15 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     constVariables_.clear();
 
     if (ownerClass) {
-        for (const auto& [name, field] : ownerClass->fields) {
-            scope[name] = field.type;
+        const ClassInfo* cls = ownerClass;
+        while (cls) {
+            for (const auto& [name, field] : cls->fields) {
+                if (!field.isStatic && !scope.count(name)) {
+                    scope[name] = field.type;
+                }
+            }
+            if (cls->baseClass.empty()) break;
+            cls = findClass(cls->baseClass);
         }
     }
 
@@ -593,9 +608,13 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 if (!currentClass_) {
                     errorAt(*set, "'this' utilisé en dehors d'une méthode");
                 }
+                const ClassInfo* ownerClass = currentClass_;
                 const FieldInfo* field = findField(*currentClass_, member->member);
                 if (!field) {
                     errorAt(*set, "Champ '" + member->member + "' introuvable");
+                }
+                if (!canAccessField(*field, *ownerClass, currentClass_)) {
+                    errorAt(*set, "Champ '" + member->member + "' inaccessible");
                 }
                 if (!isAssignable(field->type, valueType)) {
                     errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
@@ -603,17 +622,38 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 return;
             }
 
+            if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                if (result_.classes.count(classId->name)) {
+                    const ClassInfo* cls = findClass(classId->name);
+                    const FieldInfo* field = findField(*cls, member->member);
+                    if (!field || !field->isStatic) {
+                        errorAt(*set, "Champ statique '" + member->member + "' introuvable");
+                    }
+                    if (field->visibility != FieldVisibility::Public) {
+                        errorAt(*set, "Champ statique '" + member->member + "' inaccessible");
+                    }
+                    if (!isAssignable(field->type, valueType)) {
+                        errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
+                    }
+                    return;
+                }
+            }
+
             AfrType objectType = analyzeExpression(*member->object, scope);
             if (objectType.kind != TypeKind::Class) {
                 errorAt(*set, "Assignation de champ sur un type non objet");
             }
             const ClassInfo* cls = findClass(objectType.className);
-            const FieldInfo* field = findField(*cls, member->member);
+            const ClassInfo* ownerClass = cls;
+            const FieldInfo* field = findFieldWithOwner(*cls, member->member, ownerClass);
             if (!field) {
                 errorAt(*set, "Champ '" + member->member + "' introuvable");
             }
-            if (!field->isPublic) {
-                errorAt(*set, "Champ privé '" + member->member + "' inaccessible");
+            if (field->isStatic) {
+                errorAt(*set, "Utilisez " + cls->name + "." + member->member + " pour un champ statique");
+            }
+            if (!canAccessField(*field, *ownerClass, currentClass_)) {
+                errorAt(*set, "Champ '" + member->member + "' inaccessible");
             }
             if (!isAssignable(field->type, valueType)) {
                 errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");

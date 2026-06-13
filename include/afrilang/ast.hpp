@@ -48,6 +48,8 @@ struct IdentifierNode : ExpressionNode {
 
 struct ThisExpressionNode : ExpressionNode {};
 
+struct SuperExpressionNode : ExpressionNode {};
+
 struct BinaryOpNode : ExpressionNode {
     std::string op;
     std::unique_ptr<ExpressionNode> left;
@@ -448,13 +450,21 @@ struct ReduceExpressionNode : ExpressionNode {
         , body(std::move(body)) {}
 };
 
+enum class FieldVisibility { Public, Private, Protected };
+
 struct FieldNode {
     std::string name;
     std::string typeName;
-    bool isPublic = true;
+    FieldVisibility visibility = FieldVisibility::Public;
+    bool isStatic = false;
 
-    FieldNode(std::string name, std::string typeName, bool isPublic = true)
-        : name(std::move(name)), typeName(std::move(typeName)), isPublic(isPublic) {}
+    FieldNode(std::string name, std::string typeName,
+              FieldVisibility visibility = FieldVisibility::Public,
+              bool isStatic = false)
+        : name(std::move(name))
+        , typeName(std::move(typeName))
+        , visibility(visibility)
+        , isStatic(isStatic) {}
 };
 
 struct FunctionNode : ASTNode {
@@ -463,6 +473,8 @@ struct FunctionNode : ASTNode {
     std::vector<ParameterNode> parameters;
     std::string returnTypeName;
     bool returnsResult = false;
+    bool isStatic = false;
+    bool isAbstract = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
@@ -470,12 +482,16 @@ struct FunctionNode : ASTNode {
                  std::string returnTypeName,
                  bool returnsResult,
                  std::vector<std::unique_ptr<StatementNode>> body,
-                 std::vector<std::string> typeParams = {})
+                 std::vector<std::string> typeParams = {},
+                 bool isStatic = false,
+                 bool isAbstract = false)
         : name(std::move(name))
         , typeParams(std::move(typeParams))
         , parameters(std::move(parameters))
         , returnTypeName(std::move(returnTypeName))
         , returnsResult(returnsResult)
+        , isStatic(isStatic)
+        , isAbstract(isAbstract)
         , body(std::move(body)) {}
 };
 
@@ -501,17 +517,20 @@ struct ClassNode : ASTNode {
     std::vector<std::string> interfaceNames;
     std::vector<FieldNode> fields;
     std::vector<std::unique_ptr<FunctionNode>> methods;
+    bool isAbstract = false;
 
     ClassNode(std::string name,
               std::string baseClassName,
               std::vector<std::string> interfaceNames,
               std::vector<FieldNode> fields,
-              std::vector<std::unique_ptr<FunctionNode>> methods)
+              std::vector<std::unique_ptr<FunctionNode>> methods,
+              bool isAbstract = false)
         : name(std::move(name))
         , baseClassName(std::move(baseClassName))
         , interfaceNames(std::move(interfaceNames))
         , fields(std::move(fields))
-        , methods(std::move(methods)) {}
+        , methods(std::move(methods))
+        , isAbstract(isAbstract) {}
 };
 
 struct RecordNode : ASTNode {

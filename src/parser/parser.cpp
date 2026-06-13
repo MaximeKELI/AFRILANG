@@ -165,8 +165,11 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 records.push_back(parseRecord());
             } else if (match(TokenType::Enum)) {
                 enums.push_back(parseEnum());
+            } else if (match(TokenType::Abstract)) {
+                consume(TokenType::Class, "'class' attendu après 'abstract'");
+                classes.push_back(parseClass(true));
             } else if (match(TokenType::Class)) {
-                classes.push_back(parseClass());
+                classes.push_back(parseClass(false));
             } else if (match(TokenType::Function)) {
                 functions.push_back(parseFunction());
             } else if (match(TokenType::Test)) {
@@ -244,8 +247,11 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
     std::vector<std::unique_ptr<FunctionNode>> functions;
 
     while (!check(TokenType::End) && !isAtEnd()) {
-        if (match(TokenType::Class)) {
-            classes.push_back(parseClass());
+        if (match(TokenType::Abstract)) {
+            consume(TokenType::Class, "'class' attendu après 'abstract'");
+            classes.push_back(parseClass(true));
+        } else if (match(TokenType::Class)) {
+            classes.push_back(parseClass(false));
         } else if (match(TokenType::Record)) {
             records.push_back(parseRecord());
         } else if (match(TokenType::Function)) {
@@ -327,20 +333,22 @@ std::unique_ptr<EnumNode> Parser::parseEnum() {
 }
 
 FieldNode Parser::parseField() {
-    bool isPublic = true;
+    FieldVisibility visibility = FieldVisibility::Public;
     if (match(TokenType::Public)) {
-        isPublic = true;
+        visibility = FieldVisibility::Public;
     } else if (match(TokenType::Private)) {
-        isPublic = false;
+        visibility = FieldVisibility::Private;
+    } else if (match(TokenType::Protected)) {
+        visibility = FieldVisibility::Protected;
     }
 
     consume(TokenType::Field, "'field' attendu");
     const Token& nameToken = consumeName( "Nom de champ attendu");
     std::string typeName = parseTypeName();
-    return FieldNode(nameToken.lexeme, std::move(typeName), isPublic);
+    return FieldNode(nameToken.lexeme, std::move(typeName), visibility);
 }
 
-std::unique_ptr<ClassNode> Parser::parseClass() {
+std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract) {
     const Token& nameToken = consumeName( "Nom de classe attendu après 'class'");
     std::string className = nameToken.lexeme;
 
@@ -362,22 +370,48 @@ std::unique_ptr<ClassNode> Parser::parseClass() {
     std::vector<std::unique_ptr<FunctionNode>> methods;
 
     while (!check(TokenType::End) && !isAtEnd()) {
-        if (matchOneOf(TokenType::Public, TokenType::Private)) {
-            bool isPublic = previous().type == TokenType::Public;
+        if (match(TokenType::Static)) {
+            if (match(TokenType::Function)) {
+                methods.push_back(parseFunction(false, true, false));
+            } else {
+                FieldVisibility visibility = FieldVisibility::Public;
+                if (match(TokenType::Public)) {
+                    visibility = FieldVisibility::Public;
+                } else if (match(TokenType::Private)) {
+                    visibility = FieldVisibility::Private;
+                } else if (match(TokenType::Protected)) {
+                    visibility = FieldVisibility::Protected;
+                }
+                consume(TokenType::Field, "'field' attendu");
+                const Token& fieldName = consumeName("Nom de champ attendu");
+                std::string typeName = parseTypeName();
+                fields.emplace_back(fieldName.lexeme, std::move(typeName), visibility, true);
+            }
+        } else if (match(TokenType::Abstract)) {
+            consume(TokenType::Function, "'function' attendu après 'abstract'");
+            methods.push_back(parseFunction(true, false, true));
+        } else if (matchOneOf(TokenType::Public, TokenType::Private, TokenType::Protected)) {
+            FieldVisibility visibility = FieldVisibility::Public;
+            if (previous().type == TokenType::Private) {
+                visibility = FieldVisibility::Private;
+            } else if (previous().type == TokenType::Protected) {
+                visibility = FieldVisibility::Protected;
+            }
             consume(TokenType::Field, "'field' attendu");
             const Token& fieldName = consumeName( "Nom de champ attendu");
             std::string typeName = parseTypeName();
-            fields.emplace_back(fieldName.lexeme, std::move(typeName), isPublic);
-        } else {
-            consume(TokenType::Function, "Méthode 'function' attendue dans la classe");
+            fields.emplace_back(fieldName.lexeme, std::move(typeName), visibility);
+        } else if (match(TokenType::Function)) {
             methods.push_back(parseFunction());
+        } else {
+            error("Déclaration attendue dans la classe (field, function, static, abstract)");
         }
     }
 
     consume(TokenType::End, "'end' attendu pour fermer la classe");
     auto node = std::make_unique<ClassNode>(
         std::move(className), std::move(baseClass), std::move(interfaceNames),
-        std::move(fields), std::move(methods));
+        std::move(fields), std::move(methods), isAbstract);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -455,7 +489,9 @@ std::vector<ParameterNode> Parser::parseParameters() {
     return params;
 }
 
-std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
+std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
+                                                    bool isStatic,
+                                                    bool isAbstract) {
     const Token& nameToken = consumeName("Nom de fonction attendu");
     std::string funcName = nameToken.lexeme;
     std::vector<std::string> typeParams = parseTypeParams();
@@ -482,7 +518,7 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
 
     auto node = std::make_unique<FunctionNode>(
         std::move(funcName), std::move(params), std::move(returnType),
-        returnsResult, std::move(body), std::move(typeParams));
+        returnsResult, std::move(body), std::move(typeParams), isStatic, isAbstract);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -1072,6 +1108,11 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::This)) {
         return std::make_unique<ThisExpressionNode>();
+    }
+
+    if (match(TokenType::Super)) {
+        auto expr = std::make_unique<SuperExpressionNode>();
+        return finishCall(std::move(expr));
     }
 
     if (match(TokenType::Map)) {
