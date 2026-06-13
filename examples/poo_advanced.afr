@@ -3,7 +3,7 @@ final class Config
     end
 
     function init(n text)
-        set this.name to n
+        set this.name = n
     end
 
     destroy
@@ -13,7 +13,7 @@ end
 
 create cfg = new Config("app")
 say cfg.name
-set cfg.name to "server"
+set cfg.name = "server"
 say cfg.name
 
 say "poo advanced complete"

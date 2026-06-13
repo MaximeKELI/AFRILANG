@@ -20,12 +20,9 @@ create pets list of Animal = list of new Dog(), new Cat()
 
 say length of pets
 
-for each pet in pets
+for each pet in pets do
     pet.speak()
 end
-
-say pets at 0
-say pets at 1
 
 add new Dog() to pets
 

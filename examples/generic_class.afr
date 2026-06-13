@@ -1,8 +1,8 @@
 class Box<T>
-    field T value
+    field value T
 
     function init(v T)
-        set this.value to v
+        set this.value = v
     end
 
     function get() returns T

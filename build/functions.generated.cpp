@@ -12,6 +12,8 @@
 
 class Calculator {
 public:
+    virtual ~Calculator() = default;
+
     virtual double compute(double x, double y) {
         #line 15 "/home/maxime/AFRILANG/build/../examples/functions.afr"
         return (x + (y * 2));

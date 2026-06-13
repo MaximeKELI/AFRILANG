@@ -65,6 +65,9 @@ private:
                       const ClassInfo* ownerClass) const;
     void emitCallArgument(std::ostream& out, const ExpressionNode& arg,
                         const AfrType& paramType, const ClassInfo* ownerClass) const;
+    void emitListElement(std::ostream& out, const ExpressionNode& elem,
+                         const std::string& listElemCpp,
+                         const ClassInfo* ownerClass) const;
     static std::string classStorageCpp(const AfrType& type);
     static std::string classStorageCpp(const std::string& className);
 

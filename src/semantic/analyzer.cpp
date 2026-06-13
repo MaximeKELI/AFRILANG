@@ -514,7 +514,8 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
 
     activeTypeParams_.clear();
 
-    if (declaredReturn.kind != TypeKind::Void && !hasReturn && func.name != "init") {
+    if (declaredReturn.kind != TypeKind::Void && !hasReturn && func.name != "init" &&
+        !func.body.empty()) {
         errorAt(func, "Fonction '" + func.name + "' déclare un retour '" +
               func.returnTypeName + "' mais ne contient pas de 'return'");
     }
@@ -1107,9 +1108,26 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         AfrType elemType = analyzeExpression(*list->elements[0], scope);
         for (std::size_t i = 1; i < list->elements.size(); ++i) {
             AfrType t = analyzeExpression(*list->elements[i], scope);
-            if (!isAssignable(elemType, t)) {
-                errorAt(expr, "Types incohérents dans la liste");
+            if (isAssignable(elemType, t)) continue;
+            if (elemType.kind == TypeKind::Class && t.kind == TypeKind::Class) {
+                if (isSubclassOf(t.className, elemType.className)) continue;
+                if (isSubclassOf(elemType.className, t.className)) {
+                    elemType = t;
+                    continue;
+                }
+                const ClassInfo* cls = findClass(elemType.className);
+                bool merged = false;
+                while (cls && !cls->baseClass.empty()) {
+                    if (isSubclassOf(t.className, cls->baseClass)) {
+                        elemType = AfrType::classType(cls->baseClass);
+                        merged = true;
+                        break;
+                    }
+                    cls = findClass(cls->baseClass);
+                }
+                if (merged) continue;
             }
+            errorAt(expr, "Types incohérents dans la liste");
         }
         return AfrType::listType(elemType);
     }

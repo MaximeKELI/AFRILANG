@@ -20,6 +20,8 @@ public:
 
 class Circle : public Shape {
 public:
+    virtual ~Circle() = default;
+
     double radius;
 
     Circle(double r) {
@@ -36,6 +38,8 @@ public:
 
 class Counter {
 public:
+    virtual ~Counter() = default;
+
     inline static double count = 0;
 
     static double nextId() {
@@ -49,6 +53,8 @@ public:
 
 class Animal {
 public:
+    virtual ~Animal() = default;
+
     std::string species;
 
     Animal(std::string aSpecies) {
@@ -65,6 +71,8 @@ public:
 
 class Dog : public Animal {
 public:
+    virtual ~Dog() = default;
+
     std::string name;
 
     Dog(std::string aSpecies, std::string aName) : Animal(aSpecies) {

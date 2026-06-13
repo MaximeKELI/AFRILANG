@@ -12,6 +12,8 @@
 
 class Animal {
 public:
+    virtual ~Animal() = default;
+
     virtual void speak() {
         #line 3 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
         std::cout << "..." << std::endl;
@@ -21,6 +23,8 @@ public:
 
 class Dog : public Animal {
 public:
+    virtual ~Dog() = default;
+
     std::string name;
 
     Dog(std::string aName) {
@@ -37,6 +41,8 @@ public:
 
 class Cat : public Animal {
 public:
+    virtual ~Cat() = default;
+
     virtual void speak() override {
         #line 21 "/home/maxime/AFRILANG/build/../examples/poo_demo.afr"
         std::cout << "Meow!" << std::endl;

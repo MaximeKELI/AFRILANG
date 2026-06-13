@@ -59,6 +59,13 @@ int main() {
     #line 34 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << longWords[static_cast<size_t>(0)] << std::endl;
     #line 36 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
+    std::string joined = afrilang::runtime::collections::reduceText(words, [&](std::string acc, std::string w) -> std::string {
+    #line 37 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
+    return ((acc + w) + ",");
+    }, "");
+    #line 40 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
+    std::cout << joined << std::endl;
+    #line 42 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << "natural list ops complete" << std::endl;
     return 0;
 }

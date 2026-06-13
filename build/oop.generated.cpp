@@ -12,6 +12,8 @@
 
 class Person {
 public:
+    virtual ~Person() = default;
+
     virtual void speak() {
         #line 3 "/home/maxime/AFRILANG/build/../examples/oop.afr"
         std::cout << "Bonjour, je suis une Personne" << std::endl;
@@ -26,6 +28,8 @@ public:
 
 class Dog {
 public:
+    virtual ~Dog() = default;
+
     virtual void speak() {
         #line 13 "/home/maxime/AFRILANG/build/../examples/oop.afr"
         std::cout << "Woof!" << std::endl;

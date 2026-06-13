@@ -12,6 +12,8 @@
 
 class Person {
 public:
+    virtual ~Person() = default;
+
     std::string name;
     double age;
 

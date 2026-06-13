@@ -74,6 +74,18 @@ namespace collections {
         return afrilang::runtime::collections::filterText(items, fn);
     }
 
+    std::string reduceText(std::vector<std::string> items, std::function<std::string(std::string, std::string)> fn, std::string initial) {
+        return afrilang::runtime::collections::reduceText(items, fn, initial);
+    }
+
+    std::vector<double> flatMapNumbers(std::vector<double> items, std::function<std::vector<double>(double)> fn) {
+        return afrilang::runtime::collections::flatMapNumbers(items, fn);
+    }
+
+    std::vector<std::string> flatMapText(std::vector<std::string> items, std::function<std::vector<std::string>(std::string)> fn) {
+        return afrilang::runtime::collections::flatMapText(items, fn);
+    }
+
 } // namespace collections
 
 namespace str {
