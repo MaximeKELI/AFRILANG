@@ -390,6 +390,14 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
     return out.str();
 }
 
+namespace {
+
+std::string mangleGlobalFunctionName(const std::string& name) {
+    return "afr_" + name;
+}
+
+} // namespace
+
 void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
                                  const ClassInfo* ownerClass, int indentLevel) const {
     const std::string returnCpp = functionReturnCpp(func);
@@ -409,7 +417,8 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     if (ownerClass) {
         out << "virtual ";
     }
-    out << returnCpp << " " << func.name << "(" << paramList(func) << ")";
+    const std::string emittedName = ownerClass ? func.name : mangleGlobalFunctionName(func.name);
+    out << returnCpp << " " << emittedName << "(" << paramList(func) << ")";
 
     if (ownerClass) {
         bool shouldOverride = false;
@@ -1123,6 +1132,15 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             const auto it = semantic_.functions.find(id->name);
             if (it != semantic_.functions.end() && it->second.isExtern) {
                 externSig = &it->second;
+            }
+            if (it != semantic_.functions.end() && !it->second.isExtern) {
+                out << mangleGlobalFunctionName(id->name) << "(";
+                for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                    if (i > 0) out << ", ";
+                    emitExpression(out, *call->arguments[i], ownerClass);
+                }
+                out << ")";
+                return;
             }
         }
 
