@@ -964,6 +964,7 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
         return target.recordName == value.recordName;
     }
     if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
+        if (!isConcreteTypeName(target.listElementTypeName)) return true;
         return target.listElementTypeName == value.listElementTypeName;
     }
     if (target.kind == TypeKind::Result && value.kind == TypeKind::Result) {
@@ -974,6 +975,14 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     }
     if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
         return target.className == value.className;
+    }
+    return false;
+}
+
+bool SemanticAnalyzer::isConcreteTypeName(const std::string& name) const {
+    if (name == "number" || name == "text" || name == "bool") return true;
+    if (result_.classes.count(name) || result_.records.count(name) || result_.enums.count(name)) {
+        return true;
     }
     return false;
 }
@@ -1085,15 +1094,16 @@ std::unordered_map<std::string, AfrType> SemanticAnalyzer::inferGenericSubst(
                       paramType.className + "'");
             }
         } else if (paramType.kind == TypeKind::List && argType.kind == TypeKind::List) {
-            AfrType paramElem = paramType.listElementType();
-            if (paramElem.kind == TypeKind::TypeVar) {
+            const std::string& elemName = paramType.listElementTypeName;
+            if (std::find(sig.typeParams.begin(), sig.typeParams.end(), elemName) !=
+                sig.typeParams.end()) {
                 AfrType concreteElem = argType.listElementType();
-                const auto it = subst.find(paramElem.className);
+                const auto it = subst.find(elemName);
                 if (it == subst.end()) {
-                    subst[paramElem.className] = concreteElem;
+                    subst[elemName] = concreteElem;
                 } else if (!isAssignable(it->second, concreteElem)) {
                     errorAt(at, "Types incompatibles pour le paramètre de type '" +
-                          paramElem.className + "'");
+                          elemName + "'");
                 }
             }
         }
