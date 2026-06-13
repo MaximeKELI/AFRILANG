@@ -18,9 +18,11 @@ std::string CodeGenerator::generate() const {
 void CodeGenerator::generate(std::ostream& out) const {
     emitHeader(out);
     emitRecords(out);
+    emitInterfaces(out);
     emitClasses(out);
     emitModules(out);
     emitGlobalFunctions(out);
+    emitTests(out);
     emitMain(out);
 }
 
@@ -39,6 +41,17 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
+
+    bool needsResult = false;
+    for (const auto& func : program_.functions) {
+        if (func->returnsResult) needsResult = true;
+    }
+    for (const auto& cls : program_.classes) {
+        for (const auto& method : cls->methods) {
+            if (method->returnsResult) needsResult = true;
+        }
+    }
+    if (needsResult) out << "#include \"result.hpp\"\n";
     out << "\n";
 }
 
@@ -107,6 +120,19 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     }
 
     out << "};\n\n";
+}
+
+void CodeGenerator::emitInterfaces(std::ostream& out) const {
+    for (const auto& iface : program_.interfaces) {
+        out << "class " << iface->name << " {\npublic:\n";
+        out << "    virtual ~" << iface->name << "() = default;\n";
+        for (const auto& method : iface->methods) {
+            const std::string ret = functionReturnCpp(*method);
+            out << "    virtual " << ret << " " << method->name
+                << "(" << paramList(*method) << ") = 0;\n";
+        }
+        out << "};\n\n";
+    }
 }
 
 void CodeGenerator::emitClasses(std::ostream& out) const {

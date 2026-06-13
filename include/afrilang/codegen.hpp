@@ -26,11 +26,16 @@ private:
     const SemanticResult& semantic_;
     std::string runtimeDir_;
 
+    mutable const FunctionNode* currentFunction_ = nullptr;
+    mutable bool inTest_ = false;
+
     void emitHeader(std::ostream& out) const;
     void emitRecords(std::ostream& out) const;
+    void emitInterfaces(std::ostream& out) const;
     void emitClasses(std::ostream& out) const;
     void emitModules(std::ostream& out) const;
     void emitGlobalFunctions(std::ostream& out) const;
+    void emitTests(std::ostream& out) const;
     void emitMain(std::ostream& out) const;
 
     void emitClass(std::ostream& out, const ClassNode& cls) const;
@@ -48,6 +53,9 @@ private:
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);
     static std::string paramList(const FunctionNode& func);
+    static std::string functionReturnCpp(const FunctionNode& func);
+    static std::string resultTypeAlias(const std::string& innerTypeName);
+    static std::string sanitizeTestName(const std::string& name);
 
     bool usesStdlibModule(const std::string& name) const;
     void emitStdlibFunction(std::ostream& out, const std::string& moduleName,
