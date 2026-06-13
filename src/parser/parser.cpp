@@ -173,6 +173,11 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 classes.push_back(parseClass(false, true));
             } else if (match(TokenType::Class)) {
                 classes.push_back(parseClass(false, false));
+            } else if (match(TokenType::Async)) {
+                consume(TokenType::Function, "'function' attendu après 'async'");
+                auto func = parseFunction();
+                func->isAsync = true;
+                functions.push_back(std::move(func));
             } else if (match(TokenType::Function)) {
                 functions.push_back(parseFunction());
             } else if (match(TokenType::Test)) {
@@ -260,10 +265,15 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
             classes.push_back(parseClass(false, false));
         } else if (match(TokenType::Record)) {
             records.push_back(parseRecord());
+        } else if (match(TokenType::Async)) {
+            consume(TokenType::Function, "'function' attendu après 'async'");
+            auto func = parseFunction();
+            func->isAsync = true;
+            functions.push_back(std::move(func));
         } else if (match(TokenType::Function)) {
             functions.push_back(parseFunction());
         } else {
-            error("Déclaration attendue dans le module (class, record, function)");
+            error("Déclaration attendue dans le module (class, record, function, async function)");
         }
     }
 

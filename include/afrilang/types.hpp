@@ -19,7 +19,8 @@ enum class TypeKind {
     Optional,
     Enum,
     TypeVar,
-    Function
+    Function,
+    Task
 };
 
 struct AfrType {
@@ -87,8 +88,15 @@ struct AfrType {
         t.listElementTypeName = std::move(returnTypeName);
         return t;
     }
+    static AfrType taskType(AfrType inner) {
+        AfrType t;
+        t.kind = TypeKind::Task;
+        t.listElementTypeName = inner.toTypeName();
+        return t;
+    }
 
     std::vector<std::string> functionParamTypeNames() const;
+    AfrType taskInnerType() const;
     AfrType functionReturnType() const;
 
     AfrType resultInnerType() const;
@@ -111,6 +119,8 @@ struct AfrType {
             case TypeKind::TypeVar: return className;
             case TypeKind::Function:
                 return "function " + className + " to " + listElementTypeName;
+            case TypeKind::Task:
+                return "task " + taskInnerType().toTypeName();
         }
         return "void";
     }
@@ -140,6 +150,8 @@ struct AfrType {
             case TypeKind::Enum:   return className;
             case TypeKind::TypeVar: return className;
             case TypeKind::Function: return toCppFunctionType();
+            case TypeKind::Task:
+                return "afrilang::runtime::async::Task<" + taskInnerType().toCpp() + ">";
         }
         return "void";
     }
@@ -165,6 +177,9 @@ struct AfrType {
             return className == other.className &&
                    listElementTypeName == other.listElementTypeName;
         }
+        if (kind == TypeKind::Task) {
+            return listElementTypeName == other.listElementTypeName;
+        }
         return true;
     }
 
@@ -181,6 +196,9 @@ inline AfrType typeFromName(const std::string& name) {
     if (name == "pointer") return AfrType::pointer();
     if (name.size() > 5 && name.substr(0, 5) == "list ") {
         return AfrType::listTypeFromName(name.substr(5));
+    }
+    if (name.size() > 5 && name.substr(0, 5) == "task ") {
+        return AfrType::taskType(typeFromName(name.substr(5)));
     }
     if (name.size() > 4 && name.substr(0, 4) == "map ") {
         const std::size_t toPos = name.find(" to ");
@@ -266,6 +284,10 @@ inline AfrType AfrType::resultInnerType() const {
 }
 
 inline AfrType AfrType::optionalInnerType() const {
+    return typeFromName(listElementTypeName);
+}
+
+inline AfrType AfrType::taskInnerType() const {
     return typeFromName(listElementTypeName);
 }
 

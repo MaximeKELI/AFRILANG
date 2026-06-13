@@ -23,6 +23,7 @@ enum class TokenType {
     Const, Step,
     Filter, Reduce, Where, FlatMap,
     Super, Static, Abstract, Protected, Final, Property, Destroy,
+    Async, Await, Task,
 
     // Littéraux et identifiants
     Identifier,
@@ -147,6 +148,9 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Final:          return "final";
         case TokenType::Property:       return "property";
         case TokenType::Destroy:        return "destroy";
+        case TokenType::Async:          return "async";
+        case TokenType::Await:          return "await";
+        case TokenType::Task:           return "task";
         case TokenType::Question:       return "?";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";

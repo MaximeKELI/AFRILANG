@@ -449,6 +449,13 @@ struct FilterEachExpressionNode : ExpressionNode {
         , condition(std::move(condition)) {}
 };
 
+struct AwaitExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> value;
+
+    explicit AwaitExpressionNode(std::unique_ptr<ExpressionNode> value)
+        : value(std::move(value)) {}
+};
+
 struct ReduceExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> list;
     std::unique_ptr<ExpressionNode> initial;
@@ -496,6 +503,7 @@ struct FunctionNode : ASTNode {
     bool isStatic = false;
     bool isAbstract = false;
     bool isFinal = false;
+    bool isAsync = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
@@ -506,7 +514,8 @@ struct FunctionNode : ASTNode {
                  std::vector<std::string> typeParams = {},
                  bool isStatic = false,
                  bool isAbstract = false,
-                 bool isFinal = false)
+                 bool isFinal = false,
+                 bool isAsync = false)
         : name(std::move(name))
         , typeParams(std::move(typeParams))
         , parameters(std::move(parameters))
@@ -515,6 +524,7 @@ struct FunctionNode : ASTNode {
         , isStatic(isStatic)
         , isAbstract(isAbstract)
         , isFinal(isFinal)
+        , isAsync(isAsync)
         , body(std::move(body)) {}
 };
 

@@ -93,6 +93,9 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"final",     TokenType::Final},
     {"property",  TokenType::Property},
     {"destroy",   TokenType::Destroy},
+    {"async",     TokenType::Async},
+    {"await",     TokenType::Await},
+    {"task",      TokenType::Task},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}
