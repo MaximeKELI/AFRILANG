@@ -3,6 +3,9 @@
 ## Unreleased
 
 ### Language
+- **Default parameters** — `function f(x number, y number = 0)`
+- **Numeric for loops** — `for i from 1 to 10 do` / `step 2`
+- **Constants** — `create const NAME = value`
 - **Maps** — `map of "k" to v`, `empty map text to number`, indexing with `at`
 - **Exceptions** — `try` / `catch error e` / `raise`
 - **String interpolation** — `"Hello {name}"`
@@ -15,6 +18,7 @@
 - `std/time` — now, formatTimestamp
 - `std/re` — match, replace (regex)
 - `std/http` — httpPost added
+- `std/collections` — sortNumbers, sortText, reverse, contains, indexOf, sum
 
 ### Tooling
 - `afrilang lint` — static analysis entry point

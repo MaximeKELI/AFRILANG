@@ -57,6 +57,40 @@ function identity<T>(x T) returns T
 end
 ```
 
-## Versioning
+## Default parameters
+
+```afr
+function greet(name text, prefix text = "Hello") returns text
+    return join(list of prefix, " ", name)
+end
+
+say greet("World")
+say greet("Africa", "Bonjour")
+```
+
+## Numeric for loops
+
+```afr
+for i from 1 to 10 do
+    say i
+end
+
+for n from 0 to 10 step 2 do
+    say n
+end
+```
+
+## Constants
+
+```afr
+create const MAX = 100
+create const NAME text = "AFRILANG"
+```
+
+## Modules
+
+Import with `import "std/io"` and `use io`.
+
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections.
 
 Compiler version follows semantic versioning. Breaking syntax changes require a minor/major bump and CHANGELOG entry.

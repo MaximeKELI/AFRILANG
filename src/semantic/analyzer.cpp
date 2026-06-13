@@ -228,6 +228,10 @@ void SemanticAnalyzer::registerClasses() {
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
+                sig.requiredParamCount = countRequiredParams(method->parameters);
+                validateFunctionDefaults(*method, [&](const std::string& msg) {
+                    errorAt(*method, msg);
+                });
                 info.methods[method->name] = std::move(sig);
             }
             result_.classes[cls->name] = info;
