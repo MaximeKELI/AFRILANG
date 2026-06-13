@@ -56,6 +56,7 @@ private:
                         const ClassInfo* ownerClass) const;
 
     std::string resolveVariableType(const std::string& name) const;
+    AfrType inferExpressionAfrType(const ExpressionNode& expr) const;
     std::string inferExpressionType(const ExpressionNode& expr) const;
     std::string classPrefix(const ClassInfo* ownerClass) const;
 

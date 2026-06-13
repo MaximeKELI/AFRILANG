@@ -61,6 +61,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <iostream>\n";
     out << "#include <string>\n";
     out << "#include <vector>\n";
+    out << "#include <unordered_map>\n";
+    out << "#include <stdexcept>\n";
 
     bool needsOptional = false;
     for (const auto& [_, t] : semantic_.globalVariables) {
@@ -74,16 +76,31 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsJson = false;
     bool needsFs = false;
     bool needsHttp = false;
+    bool needsStr = false;
+    bool needsLog = false;
+    bool needsMath = false;
+    bool needsTime = false;
+    bool needsRe = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
         if (module->name == "fs") needsFs = true;
         if (module->name == "http") needsHttp = true;
+        if (module->name == "str") needsStr = true;
+        if (module->name == "log") needsLog = true;
+        if (module->name == "math") needsMath = true;
+        if (module->name == "time") needsTime = true;
+        if (module->name == "re") needsRe = true;
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
     if (needsFs) out << "#include \"fs.hpp\"\n";
     if (needsHttp) out << "#include \"http.hpp\"\n";
+    if (needsStr) out << "#include \"str.hpp\"\n";
+    if (needsLog) out << "#include \"log.hpp\"\n";
+    if (needsMath) out << "#include \"math.hpp\"\n";
+    if (needsTime) out << "#include \"time.hpp\"\n";
+    if (needsRe) out << "#include \"re.hpp\"\n";
 
     bool needsResult = false;
     for (const auto& func : program_.functions) {
