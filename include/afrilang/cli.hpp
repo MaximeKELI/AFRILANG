@@ -15,6 +15,7 @@ struct CompileOptions {
     std::string outputExecutable;
     std::string runtimeDir;
     std::string sourcePath;
+    std::string crossTarget = "native";
 };
 
 struct CompileResult {

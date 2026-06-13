@@ -1,0 +1,96 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  background: #0f1419;
+  color: #e7ecf3;
+  line-height: 1.5;
+}
+
+header {
+  padding: 2rem;
+  border-bottom: 1px solid #243044;
+  background: #151c27;
+}
+
+header a { color: #7eb6ff; text-decoration: none; }
+
+main { max-width: 960px; margin: 0 auto; padding: 2rem; }
+
+.hero { text-align: center; padding: 2rem 0 3rem; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #3d7eff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #151c27;
+  border: 1px solid #243044;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+pre {
+  background: #0a0e14;
+  padding: 0.75rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #8b98a8;
+}
+
+.playground textarea {
+  width: 100%;
+  min-height: 220px;
+  background: #0a0e14;
+  color: #e7ecf3;
+  border: 1px solid #243044;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+button {
+  background: #3d7eff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#output {
+  min-height: 120px;
+  white-space: pre-wrap;
+}
+
+#status { color: #8b98a8; }

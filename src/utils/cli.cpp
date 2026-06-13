@@ -1,5 +1,7 @@
 #include "afrilang/cli.hpp"
 #include "afrilang/lsp.hpp"
+#include "afrilang/pkg.hpp"
+#include "afrilang/serve.hpp"
 
 #include "afrilang/codegen.hpp"
 #include "afrilang/compiler.hpp"
@@ -39,6 +41,10 @@ static void printUsage() {
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
+    std::cerr << "  afrilang pkg list            Lister les paquets\n";
+    std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
+    std::cerr << "  afrilang pkg install         Installer les dépendances\n";
+    std::cerr << "  afrilang serve [port]        Playground web local\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
     std::cerr << "  afrilang <fichier.afr> [opts] Mode legacy\n\n";
     std::cerr << "Options (mode legacy):\n";
@@ -86,6 +92,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                                                      : options.runtimeDir);
     codegen.setSourceFile(srcPath.string());
     codegen.setDebugSymbols(options.debugSymbols);
+    codegen.setCrossTarget(options.crossTarget);
 
     result.generatedCpp = baseName + ".generated.cpp";
     result.executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
