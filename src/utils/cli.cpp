@@ -156,7 +156,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "result.afr", "interfaces.afr", "tests.afr",
         "ffi.afr", "pkg_demo.afr",
         "natural.afr", "educational.afr",
-        "advanced.afr", "fs_demo.afr"
+        "advanced.afr", "fs_demo.afr",
+        "generics.afr"
     };
 
     CompileOptions opts;

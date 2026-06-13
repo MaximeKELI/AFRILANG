@@ -132,6 +132,14 @@ void Formatter::formatParameters(std::ostream& out,
 void Formatter::formatFunctionSignature(std::ostream& out, const FunctionNode& func,
                                         bool signatureOnly) const {
     out << "function " << func.name;
+    if (!func.typeParams.empty()) {
+        out << "<";
+        for (std::size_t i = 0; i < func.typeParams.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << func.typeParams[i];
+        }
+        out << ">";
+    }
     formatParameters(out, func.parameters);
     if (!func.returnTypeName.empty()) {
         out << " returns ";

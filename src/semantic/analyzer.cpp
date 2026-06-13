@@ -850,20 +850,20 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                       std::to_string(call->arguments.size()));
             }
 
-            for (std::size_t i = 0; i < call->arguments.size(); ++i) {
-                AfrType argType = analyzeExpression(*call->arguments[i], scope);
-                if (!isAssignable(sig->paramTypes[i], argType)) {
+            std::vector<AfrType> argTypes;
+            argTypes.reserve(call->arguments.size());
+            for (const auto& arg : call->arguments) {
+                argTypes.push_back(analyzeExpression(*arg, scope));
+            }
+
+            for (std::size_t i = 0; i < argTypes.size(); ++i) {
+                if (!isAssignable(sig->paramTypes[i], argTypes[i])) {
                     errorAt(expr, "Type incompatible pour l'argument " + std::to_string(i + 1) +
                           " de '" + id->name + "'");
                 }
             }
 
             if (!sig->typeParams.empty()) {
-                std::vector<AfrType> argTypes;
-                argTypes.reserve(call->arguments.size());
-                for (const auto& arg : call->arguments) {
-                    argTypes.push_back(analyzeExpression(*arg, scope));
-                }
                 const auto subst = inferGenericSubst(*sig, argTypes, expr);
                 return substituteType(sig->returnType, subst);
             }

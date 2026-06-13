@@ -7,8 +7,30 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 namespace afrilang {
+
+namespace {
+
+std::string cppTypeFromAfrName(const std::string& typeName,
+                               const std::vector<std::string>& typeParams) {
+    const auto isParam = [&](const std::string& n) {
+        return std::find(typeParams.begin(), typeParams.end(), n) != typeParams.end();
+    };
+    if (isParam(typeName)) return typeName;
+    if (typeName.rfind("list ", 0) == 0) {
+        const std::string elem = typeName.substr(5);
+        if (isParam(elem)) return "std::vector<" + elem + ">";
+    }
+    if (!typeName.empty() && typeName.back() == '?') {
+        const std::string inner = typeName.substr(0, typeName.size() - 1);
+        if (isParam(inner)) return "std::optional<" + inner + ">";
+    }
+    return typeFromName(typeName).toCpp();
+}
+
+} // namespace
 
 CodeGenerator::CodeGenerator(const ProgramNode& program, const SemanticResult& semantic)
     : program_(program), semantic_(semantic) {}
@@ -331,7 +353,7 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
     for (std::size_t i = 0; i < func.parameters.size(); ++i) {
         if (i > 0) out << ", ";
         const auto& param = func.parameters[i];
-        out << typeFromName(param.typeName).toCpp() << " " << param.name;
+        out << cppTypeFromAfrName(param.typeName, func.typeParams) << " " << param.name;
     }
     return out.str();
 }
@@ -339,6 +361,17 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
 void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
                                  const ClassInfo* ownerClass, int indentLevel) const {
     const std::string returnCpp = functionReturnCpp(func);
+
+    if (!func.typeParams.empty()) {
+        indent(out, indentLevel);
+        out << "template<typename";
+        for (std::size_t i = 0; i < func.typeParams.size(); ++i) {
+            if (i == 0) out << " ";
+            else out << ", typename ";
+            out << func.typeParams[i];
+        }
+        out << ">\n";
+    }
 
     indent(out, indentLevel);
     if (ownerClass) {
@@ -1038,7 +1071,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 std::string CodeGenerator::functionReturnCpp(const FunctionNode& func) {
     if (func.returnTypeName.empty()) return "void";
     if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
-    return typeFromName(func.returnTypeName).toCpp();
+    return cppTypeFromAfrName(func.returnTypeName, func.typeParams);
 }
 
 std::string CodeGenerator::resultTypeAlias(const std::string& innerTypeName) {
