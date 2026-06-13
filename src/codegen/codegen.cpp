@@ -85,8 +85,14 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
     if (it != semantic_.classes.end()) classInfo = &it->second;
 
     out << "class " << cls.name;
+    bool firstBase = true;
     if (!cls.baseClassName.empty()) {
         out << " : public " << cls.baseClassName;
+        firstBase = false;
+    }
+    for (const auto& iface : cls.interfaceNames) {
+        out << (firstBase ? " : public " : ", public ") << iface;
+        firstBase = false;
     }
     out << " {\n";
 
@@ -207,9 +213,7 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
 
 void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
                                  const ClassInfo* ownerClass, int indentLevel) const {
-    const std::string returnCpp = func.returnTypeName.empty()
-        ? "void"
-        : typeFromName(func.returnTypeName).toCpp();
+    const std::string returnCpp = functionReturnCpp(func);
 
     indent(out, indentLevel);
     if (ownerClass) {
@@ -217,18 +221,48 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     }
     out << returnCpp << " " << func.name << "(" << paramList(func) << ")";
 
-    if (ownerClass && !ownerClass->baseClass.empty()) {
-        auto baseIt = semantic_.classes.find(ownerClass->baseClass);
-        if (baseIt != semantic_.classes.end() &&
-            baseIt->second.methods.count(func.name)) {
-            out << " override";
+    if (ownerClass) {
+        bool shouldOverride = false;
+        if (!ownerClass->baseClass.empty()) {
+            auto baseIt = semantic_.classes.find(ownerClass->baseClass);
+            if (baseIt != semantic_.classes.end() &&
+                baseIt->second.methods.count(func.name)) {
+                shouldOverride = true;
+            }
         }
+        for (const auto& ifaceName : semantic_.classes.at(ownerClass->name).name == ownerClass->name
+                 ? std::vector<std::string>{} : std::vector<std::string>{}) {
+            (void)ifaceName;
+        }
+        (void)shouldOverride;
+        // override if base or interface defines method
+        for (const auto& cls : program_.classes) {
+            if (cls->name != ownerClass->name) continue;
+            for (const auto& iface : cls->interfaceNames) {
+                auto iit = semantic_.interfaces.find(iface);
+                if (iit != semantic_.interfaces.end() &&
+                    iit->second.methods.count(func.name)) {
+                    shouldOverride = true;
+                }
+            }
+            if (!cls->baseClassName.empty()) {
+                auto baseIt = semantic_.classes.find(cls->baseClassName);
+                if (baseIt != semantic_.classes.end() &&
+                    baseIt->second.methods.count(func.name)) {
+                    shouldOverride = true;
+                }
+            }
+        }
+        if (shouldOverride) out << " override";
     }
 
     out << " {\n";
+    const FunctionNode* saved = currentFunction_;
+    currentFunction_ = &func;
     for (const auto& stmt : func.body) {
         emitStatement(out, *stmt, indentLevel + 1, ownerClass);
     }
+    currentFunction_ = saved;
     indent(out, indentLevel);
     out << "}\n";
 }
