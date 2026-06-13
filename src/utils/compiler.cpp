@@ -110,6 +110,9 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     for (auto& func : source.functions) {
         target.functions.push_back(std::move(func));
     }
+    for (auto& ext : source.externs) {
+        target.externs.push_back(std::move(ext));
+    }
 }
 
 void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir) {

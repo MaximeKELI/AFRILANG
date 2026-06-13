@@ -16,6 +16,7 @@ SemanticResult SemanticAnalyzer::analyze() {
     registerInterfaces();
     registerClasses();
     registerModules();
+    registerExterns();
     analyzeProgram();
     return result_;
 }
@@ -191,6 +192,26 @@ void SemanticAnalyzer::registerModules() {
         if (result_.modules.count(module->name) && result_.modules[module->name].name.empty()) {
             // already registered
         }
+    }
+}
+
+void SemanticAnalyzer::registerExterns() {
+    for (const auto& ext : program_.externs) {
+        if (result_.functions.count(ext->name)) {
+            errorAt(*ext, "Fonction '" + ext->name + "' déjà déclarée");
+        }
+
+        MethodSignature sig;
+        sig.name = ext->name;
+        sig.isExtern = true;
+        sig.externLibrary = ext->library;
+        sig.returnType = ext->returnTypeName.empty()
+            ? AfrType::voidType()
+            : typeFromName(ext->returnTypeName);
+        for (const auto& param : ext->parameters) {
+            sig.paramTypes.push_back(typeFromName(param.typeName));
+        }
+        result_.functions[ext->name] = std::move(sig);
     }
 }
 
