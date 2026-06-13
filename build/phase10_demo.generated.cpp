@@ -58,6 +58,26 @@ namespace collections {
         return afrilang::runtime::collections::sumNumbers(items);
     }
 
+    std::vector<double> mapNumbers(std::vector<double> items, std::function<double(double)> fn) {
+        return afrilang::runtime::collections::mapNumbers(items, fn);
+    }
+
+    std::vector<double> filterNumbers(std::vector<double> items, std::function<bool(double)> fn) {
+        return afrilang::runtime::collections::filterNumbers(items, fn);
+    }
+
+    double reduceNumbers(std::vector<double> items, std::function<double(double, double)> fn, double initial) {
+        return afrilang::runtime::collections::reduceNumbers(items, fn, initial);
+    }
+
+    std::vector<std::string> mapText(std::vector<std::string> items, std::function<std::string(std::string)> fn) {
+        return afrilang::runtime::collections::mapText(items, fn);
+    }
+
+    std::vector<std::string> filterText(std::vector<std::string> items, std::function<bool(std::string)> fn) {
+        return afrilang::runtime::collections::filterText(items, fn);
+    }
+
 } // namespace collections
 
 namespace str {

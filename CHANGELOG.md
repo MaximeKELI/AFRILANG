@@ -4,6 +4,7 @@
 
 ### Language
 - **Lambdas** — `function(x number) returns number ... end` as expression
+- **map / filter / reduce** — `mapNumbers`, `filterNumbers`, `reduceNumbers`, `mapText`, `filterText` in `std/collections`
 - **Default parameters** — `function f(x number, y number = 0)`
 - **Numeric for loops** — `for i from 1 to 10 do` / `step 2`
 - **Constants** — `create const NAME = value`
@@ -27,7 +28,7 @@
 
 ### Examples
 - `examples/maps.afr`, `examples/exceptions.afr`, `examples/phase9_demo.afr`
-- `examples/defaults.afr`, `examples/phase10_demo.afr`, `examples/lambdas.afr`
+- `examples/lambdas.afr`, `examples/list_ops.afr`
 
 ## Prior releases
 - Generics on functions, enums/match, null-safety, LSP, pkg registry, playground

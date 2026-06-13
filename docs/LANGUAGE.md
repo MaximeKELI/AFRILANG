@@ -105,6 +105,29 @@ say apply(doubleIt, 10)
 
 Type fonction : `function number to number`, `function number, text to text`, etc.
 
+## map / filter / reduce (listes + lambdas)
+
+```afr
+import "std/collections"
+use collections
+
+create doubled = mapNumbers(nums, function(x number) returns number
+    return x * 2
+end)
+
+create big = filterNumbers(nums, function(x number) returns bool
+    if x is greater than 3 then
+        return yes
+    else
+        return no
+    end
+end)
+
+create total = reduceNumbers(nums, function(acc number, x number) returns number
+    return acc + x
+end, 0)
+```
+
 ## Modules
 
 Import with `import "std/io"` and `use io`.

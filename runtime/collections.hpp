@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -60,6 +61,48 @@ inline double sumNumbers(const std::vector<double>& items) {
     double total = 0.0;
     for (double v : items) total += v;
     return total;
+}
+
+inline std::vector<double> mapNumbers(const std::vector<double>& items,
+                                      std::function<double(double)> fn) {
+    std::vector<double> out;
+    out.reserve(items.size());
+    for (double v : items) out.push_back(fn(v));
+    return out;
+}
+
+inline std::vector<double> filterNumbers(const std::vector<double>& items,
+                                         std::function<bool(double)> fn) {
+    std::vector<double> out;
+    for (double v : items) {
+        if (fn(v)) out.push_back(v);
+    }
+    return out;
+}
+
+inline double reduceNumbers(const std::vector<double>& items,
+                            std::function<double(double, double)> fn,
+                            double initial) {
+    double acc = initial;
+    for (double v : items) acc = fn(acc, v);
+    return acc;
+}
+
+inline std::vector<std::string> mapText(const std::vector<std::string>& items,
+                                        std::function<std::string(std::string)> fn) {
+    std::vector<std::string> out;
+    out.reserve(items.size());
+    for (const auto& s : items) out.push_back(fn(s));
+    return out;
+}
+
+inline std::vector<std::string> filterText(const std::vector<std::string>& items,
+                                           std::function<bool(std::string)> fn) {
+    std::vector<std::string> out;
+    for (const auto& s : items) {
+        if (fn(s)) out.push_back(s);
+    }
+    return out;
 }
 
 } // namespace afrilang::runtime::collections
