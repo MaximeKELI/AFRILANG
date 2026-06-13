@@ -7,26 +7,36 @@ Coloration syntaxique, diagnostics LSP, complétion, formatage et exécution de 
 - [AFRILANG](https://github.com/afrilang/afrilang) compilé et accessible dans le `PATH` (`afrilang --help`)
 - Node.js 18+ (pour installer les dépendances de l'extension)
 
-## Installation locale (Cursor)
+## Installation locale
 
-`cursor --install-extension .` peut échouer silencieusement sur certaines versions. Utilisez le script :
+Un script installe l'extension dans **Cursor**, **VS Code** et **VSCodium** (lien symbolique, méthode fiable) :
 
 ```bash
 cd /chemin/vers/AFRILANG/vscode-afrilang
-./install-cursor.sh
+./install.sh
 ```
 
-Puis dans Cursor : **Developer: Reload Window**.
+Équivalent : `./install-cursor.sh`
 
-### VS Code
+Puis dans l'éditeur : **Developer: Reload Window**.
+
+### Par éditeur (alternative)
+
+| Éditeur | Dossier extension |
+|---------|-------------------|
+| Cursor | `~/.cursor/extensions/afrilang.afrilang-*` |
+| VS Code | `~/.vscode/extensions/afrilang.afrilang-*` |
+| VSCodium | `~/.vscode-oss/extensions/afrilang.afrilang-*` |
+
+Installation manuelle :
 
 ```bash
-cd vscode-afrilang
-npm install
-code --install-extension .
+cd vscode-afrilang && npm install
+code --install-extension .      # VS Code
+codium --install-extension .    # VSCodium
 ```
 
-Rechargez la fenêtre (*Developer: Reload Window*).
+`cursor --install-extension .` peut échouer silencieusement — préférez `./install.sh`.
 
 ## Configuration
 
