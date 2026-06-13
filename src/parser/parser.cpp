@@ -407,7 +407,12 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract, bool isFinal) {
             properties.emplace_back(propName.lexeme, std::move(typeName), visibility);
             consume(TokenType::End, "'end' attendu pour fermer 'property'");
         } else if (match(TokenType::Static)) {
-            if (match(TokenType::Function)) {
+            if (match(TokenType::Async)) {
+                consume(TokenType::Function, "'function' attendu après 'static async'");
+                auto method = parseFunction(false, true, false);
+                method->isAsync = true;
+                methods.push_back(std::move(method));
+            } else if (match(TokenType::Function)) {
                 methods.push_back(parseFunction(false, true, false));
             } else {
                 FieldVisibility visibility = FieldVisibility::Public;
@@ -440,10 +445,15 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract, bool isFinal) {
             const Token& fieldName = consumeName( "Nom de champ attendu");
             std::string typeName = parseTypeName();
             fields.emplace_back(fieldName.lexeme, std::move(typeName), visibility);
+        } else if (match(TokenType::Async)) {
+            consume(TokenType::Function, "'function' attendu après 'async'");
+            auto method = parseFunction();
+            method->isAsync = true;
+            methods.push_back(std::move(method));
         } else if (match(TokenType::Function)) {
             methods.push_back(parseFunction());
         } else {
-            error("Déclaration attendue dans la classe (field, function, static, abstract)");
+            error("Déclaration attendue dans la classe (field, function, static, abstract, async)");
         }
     }
 
@@ -496,6 +506,10 @@ std::string Parser::parseTypeName() {
     if (match(TokenType::TypeNumber)) base = "number";
     else if (match(TokenType::TypeText))   base = "text";
     else if (match(TokenType::TypeBool))   base = "bool";
+    else if (match(TokenType::Task)) {
+        std::string innerType = parseTypeName();
+        return "task " + innerType;
+    }
     else if (match(TokenType::List)) {
         match(TokenType::Of);
         std::string elementType = parseTypeName();
@@ -1070,6 +1084,12 @@ std::unique_ptr<ExpressionNode> Parser::parseFactor() {
 }
 
 std::unique_ptr<ExpressionNode> Parser::parseUnary() {
+    if (match(TokenType::Await)) {
+        auto value = parseUnary();
+        auto node = std::make_unique<AwaitExpressionNode>(std::move(value));
+        setLoc(*node);
+        return node;
+    }
     if (match(TokenType::Minus)) {
         return std::make_unique<UnaryOpNode>("-", parseUnary());
     }
