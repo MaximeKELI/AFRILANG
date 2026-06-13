@@ -109,6 +109,8 @@ struct AfrType {
             case TypeKind::Optional: return optionalInnerType().toTypeName() + "?";
             case TypeKind::Enum:   return className;
             case TypeKind::TypeVar: return className;
+            case TypeKind::Function:
+                return "function " + className + " to " + listElementTypeName;
         }
         return "void";
     }
@@ -116,6 +118,7 @@ struct AfrType {
     AfrType listElementType() const;
     AfrType mapKeyType() const;
     AfrType mapValueType() const;
+    std::string toCppFunctionType() const;
 
     std::string toCpp() const {
         switch (kind) {
@@ -137,6 +140,10 @@ struct AfrType {
             case TypeKind::TypeVar: return className;
             case TypeKind::Function: return toCppFunctionType();
         }
+        return "void";
+    }
+
+    static std::string resultCppAlias(const std::string& innerTypeName) {
         return "afrilang::runtime::AfrResult_" + innerTypeName;
     }
 
@@ -153,6 +160,10 @@ struct AfrType {
         if (kind == TypeKind::Optional) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Enum) return className == other.className;
         if (kind == TypeKind::TypeVar) return className == other.className;
+        if (kind == TypeKind::Function) {
+            return className == other.className &&
+                   listElementTypeName == other.listElementTypeName;
+        }
         return true;
     }
 
@@ -177,7 +188,56 @@ inline AfrType typeFromName(const std::string& name) {
                                              name.substr(toPos + 4));
         }
     }
+    if (name.size() > 9 && name.rfind("function ", 0) == 0) {
+        const std::size_t toPos = name.rfind(" to ");
+        if (toPos != std::string::npos) {
+            return AfrType::functionType(name.substr(9, toPos - 9), name.substr(toPos + 4));
+        }
+    }
     return AfrType::classType(name);
+}
+
+inline std::vector<std::string> splitTypeList(const std::string& raw) {
+    std::vector<std::string> parts;
+    std::string current;
+    for (char c : raw) {
+        if (c == ',') {
+            if (!current.empty()) {
+                while (!current.empty() && current.front() == ' ') current.erase(current.begin());
+                while (!current.empty() && current.back() == ' ') current.pop_back();
+                parts.push_back(current);
+                current.clear();
+            }
+        } else {
+            current += c;
+        }
+    }
+    if (!current.empty()) {
+        while (!current.empty() && current.front() == ' ') current.erase(current.begin());
+        while (!current.empty() && current.back() == ' ') current.pop_back();
+        parts.push_back(current);
+    }
+    return parts;
+}
+
+inline std::vector<std::string> AfrType::functionParamTypeNames() const {
+    return splitTypeList(className);
+}
+
+inline AfrType AfrType::functionReturnType() const {
+    return typeFromName(listElementTypeName);
+}
+
+inline std::string AfrType::toCppFunctionType() const {
+    const AfrType ret = functionReturnType();
+    std::string sig = ret.toCpp() + "(";
+    const auto params = functionParamTypeNames();
+    for (std::size_t i = 0; i < params.size(); ++i) {
+        if (i > 0) sig += ", ";
+        sig += typeFromName(params[i]).toCpp();
+    }
+    sig += ")";
+    return "std::function<" + sig + ">";
 }
 
 inline AfrType AfrType::listElementType() const {
