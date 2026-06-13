@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFRILANG Playground</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="/">AFRILANG</a> Playground</h1>
+    <p>Écrivez du code AFRILANG et exécutez-le en direct</p>
+  </header>
+  <main class="playground">
+    <textarea id="editor" spellcheck="false">say "Bonjour depuis le playground!"
+
+create x = 10
+say x + 5
+</textarea>
+    <div class="toolbar">
+      <button id="run">Exécuter</button>
+      <span id="status"></span>
+    </div>
+    <pre id="output"></pre>
+  </main>
+  <script>
+    const editor = document.getElementById('editor');
+    const output = document.getElementById('output');
+    const status = document.getElementById('status');
+    document.getElementById('run').addEventListener('click', async () => {
+      status.textContent = 'Compilation...';
+      output.textContent = '';
+      try {
+        const res = await fetch('/api/run', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ source: editor.value })
+        });
+        const data = await res.json();
+        output.textContent = data.output || '(aucune sortie)';
+        status.textContent = data.ok ? 'OK' : 'Erreur (code ' + data.exitCode + ')';
+      } catch (e) {
+        status.textContent = 'Erreur réseau';
+        output.textContent = String(e);
+      }
+    });
+  </script>
+</body>
+</html>
