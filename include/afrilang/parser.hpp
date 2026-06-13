@@ -40,8 +40,10 @@ private:
     std::unique_ptr<ImportNode> parseImport();
     std::unique_ptr<ModuleNode> parseModule();
     std::unique_ptr<RecordNode> parseRecord();
+    std::unique_ptr<InterfaceNode> parseInterface();
+    std::unique_ptr<TestNode> parseTest();
     std::unique_ptr<ClassNode> parseClass();
-    std::unique_ptr<FunctionNode> parseFunction();
+    std::unique_ptr<FunctionNode> parseFunction(bool signatureOnly = false);
     FieldNode parseField();
     std::unique_ptr<StatementNode> parseStatement();
     std::unique_ptr<StatementNode> parseSayStatement();
@@ -52,6 +54,7 @@ private:
     std::unique_ptr<StatementNode> parseRepeatStatement();
     std::unique_ptr<StatementNode> parseForEachStatement();
     std::unique_ptr<StatementNode> parseReturnStatement();
+    std::unique_ptr<StatementNode> parseAssertStatement();
     std::unique_ptr<StatementNode> parseAskStatement();
     std::unique_ptr<StatementNode> parseUseStatement();
     std::unique_ptr<StatementNode> parseAddToListStatement();

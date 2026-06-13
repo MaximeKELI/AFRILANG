@@ -11,7 +11,8 @@ enum class TypeKind {
     Bool,
     List,
     Class,
-    Record
+    Record,
+    Result
 };
 
 struct AfrType {
@@ -39,6 +40,16 @@ struct AfrType {
     static AfrType recordType(std::string name) {
         return {TypeKind::Record, {}, std::move(name), {}};
     }
+    static AfrType resultType(AfrType inner) {
+        AfrType t;
+        t.kind = TypeKind::Result;
+        t.listElementTypeName = inner.toTypeName();
+        return t;
+    }
+
+    AfrType resultInnerType() const {
+        return typeFromName(listElementTypeName);
+    }
 
     std::string toTypeName() const {
         switch (kind) {
@@ -49,6 +60,7 @@ struct AfrType {
             case TypeKind::List:   return "list " + listElementTypeName;
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
+            case TypeKind::Result: return resultInnerType().toTypeName() + " or error";
         }
         return "void";
     }
@@ -64,8 +76,13 @@ struct AfrType {
             case TypeKind::List:   return "std::vector<" + listElementType().toCpp() + ">";
             case TypeKind::Class:  return className;
             case TypeKind::Record: return recordName;
+            case TypeKind::Result: return "afrilang::runtime::AfrResult_" + listElementTypeName;
         }
         return "void";
+    }
+
+    static std::string resultCppAlias(const std::string& innerTypeName) {
+        return "afrilang::runtime::AfrResult_" + innerTypeName;
     }
 
     bool operator==(const AfrType& other) const {
@@ -73,6 +90,7 @@ struct AfrType {
         if (kind == TypeKind::Class) return className == other.className;
         if (kind == TypeKind::Record) return recordName == other.recordName;
         if (kind == TypeKind::List) return listElementTypeName == other.listElementTypeName;
+        if (kind == TypeKind::Result) return listElementTypeName == other.listElementTypeName;
         return true;
     }
 

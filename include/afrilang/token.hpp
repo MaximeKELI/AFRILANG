@@ -15,6 +15,7 @@ enum class TokenType {
     Module, Use, Import, Record, Field, Public, Private,
     Set, This, Ask, Into, At, Add, Length, Of, Empty, List,
     True, False, Yes, No,
+    Interface, Implements, Test, Assert, ErrorKw,
 
     // Littéraux et identifiants
     Identifier,
@@ -105,6 +106,11 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::False:          return "false";
         case TokenType::Yes:            return "yes";
         case TokenType::No:             return "no";
+        case TokenType::Interface:      return "interface";
+        case TokenType::Implements:     return "implements";
+        case TokenType::Test:           return "test";
+        case TokenType::Assert:         return "assert";
+        case TokenType::ErrorKw:        return "error";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";

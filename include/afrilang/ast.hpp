@@ -69,6 +69,12 @@ struct UnaryOpNode : ExpressionNode {
         : op(std::move(op)), operand(std::move(operand)) {}
 };
 
+struct IsErrorCheckNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> value;
+    explicit IsErrorCheckNode(std::unique_ptr<ExpressionNode> value)
+        : value(std::move(value)) {}
+};
+
 struct CallExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> callee;
     std::vector<std::unique_ptr<ExpressionNode>> arguments;
@@ -171,9 +177,10 @@ struct AddToListStatementNode : StatementNode {
 };
 
 struct ReturnStatementNode : StatementNode {
+    bool isError = false;
     std::unique_ptr<ExpressionNode> value;
-    explicit ReturnStatementNode(std::unique_ptr<ExpressionNode> value)
-        : value(std::move(value)) {}
+    explicit ReturnStatementNode(std::unique_ptr<ExpressionNode> value, bool isError = false)
+        : isError(isError), value(std::move(value)) {}
 };
 
 struct IfStatementNode : StatementNode {
@@ -242,6 +249,14 @@ struct ExpressionStatementNode : StatementNode {
         : expression(std::move(expression)) {}
 };
 
+struct AssertStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> condition;
+    std::string label;
+
+    AssertStatementNode(std::unique_ptr<ExpressionNode> condition, std::string label = "")
+        : condition(std::move(condition)), label(std::move(label)) {}
+};
+
 // ── Déclarations ─────────────────────────────────────────────────────────────
 
 struct ParameterNode {
@@ -265,30 +280,52 @@ struct FunctionNode : ASTNode {
     std::string name;
     std::vector<ParameterNode> parameters;
     std::string returnTypeName;
+    bool returnsResult = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
                  std::vector<ParameterNode> parameters,
                  std::string returnTypeName,
+                 bool returnsResult,
                  std::vector<std::unique_ptr<StatementNode>> body)
         : name(std::move(name))
         , parameters(std::move(parameters))
         , returnTypeName(std::move(returnTypeName))
+        , returnsResult(returnsResult)
         , body(std::move(body)) {}
+};
+
+struct InterfaceNode : ASTNode {
+    std::string name;
+    std::vector<std::unique_ptr<FunctionNode>> methods;
+
+    InterfaceNode(std::string name, std::vector<std::unique_ptr<FunctionNode>> methods)
+        : name(std::move(name)), methods(std::move(methods)) {}
+};
+
+struct TestNode : ASTNode {
+    std::string name;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    TestNode(std::string name, std::vector<std::unique_ptr<StatementNode>> body)
+        : name(std::move(name)), body(std::move(body)) {}
 };
 
 struct ClassNode : ASTNode {
     std::string name;
     std::string baseClassName;
+    std::vector<std::string> interfaceNames;
     std::vector<FieldNode> fields;
     std::vector<std::unique_ptr<FunctionNode>> methods;
 
     ClassNode(std::string name,
               std::string baseClassName,
+              std::vector<std::string> interfaceNames,
               std::vector<FieldNode> fields,
               std::vector<std::unique_ptr<FunctionNode>> methods)
         : name(std::move(name))
         , baseClassName(std::move(baseClassName))
+        , interfaceNames(std::move(interfaceNames))
         , fields(std::move(fields))
         , methods(std::move(methods)) {}
 };
@@ -325,22 +362,28 @@ struct ImportNode : ASTNode {
 struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<ImportNode>> imports;
     std::vector<std::unique_ptr<ModuleNode>> modules;
+    std::vector<std::unique_ptr<InterfaceNode>> interfaces;
     std::vector<std::unique_ptr<RecordNode>> records;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<FunctionNode>> functions;
+    std::vector<std::unique_ptr<TestNode>> tests;
     std::vector<std::unique_ptr<StatementNode>> statements;
 
     ProgramNode(std::vector<std::unique_ptr<ImportNode>> imports,
                 std::vector<std::unique_ptr<ModuleNode>> modules,
+                std::vector<std::unique_ptr<InterfaceNode>> interfaces,
                 std::vector<std::unique_ptr<RecordNode>> records,
                 std::vector<std::unique_ptr<ClassNode>> classes,
                 std::vector<std::unique_ptr<FunctionNode>> functions,
+                std::vector<std::unique_ptr<TestNode>> tests,
                 std::vector<std::unique_ptr<StatementNode>> statements)
         : imports(std::move(imports))
         , modules(std::move(modules))
+        , interfaces(std::move(interfaces))
         , records(std::move(records))
         , classes(std::move(classes))
         , functions(std::move(functions))
+        , tests(std::move(tests))
         , statements(std::move(statements)) {}
 };
 
