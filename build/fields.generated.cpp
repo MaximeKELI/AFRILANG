@@ -32,14 +32,10 @@ public:
 
 int main() {
     #line 16 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    Person person(std::string{}, double{});
+    auto bob = Person("Bob", 25);
     #line 17 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    person.greet();
-    #line 19 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    Person bob(std::string{}, double{});
-    #line 20 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    bob.name = "Bob";
-    #line 21 "/home/maxime/AFRILANG/build/../examples/fields.afr"
+    bob.greet();
+    #line 18 "/home/maxime/AFRILANG/build/../examples/fields.afr"
     std::cout << bob.name << std::endl;
     return 0;
 }
