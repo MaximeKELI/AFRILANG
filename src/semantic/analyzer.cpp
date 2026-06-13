@@ -346,6 +346,10 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
     for (const auto& param : func.parameters) {
         sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func.typeParams));
     }
+    sig.requiredParamCount = countRequiredParams(func.parameters);
+    validateFunctionDefaults(func, [&](const std::string& msg) {
+        errorAt(func, msg);
+    });
     result_.functions[func.name] = sig;
 
     analyzeFunctionBody(func, nullptr);
@@ -386,6 +390,7 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
     std::unordered_map<std::string, AfrType> scope;
     activeTypeParams_ = func.typeParams;
+    constVariables_.clear();
 
     if (ownerClass) {
         for (const auto& [name, field] : ownerClass->fields) {
@@ -495,6 +500,15 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         }
 
         scope[assign->name] = valueType;
+        if (assign->isConst) {
+            if (constVariables_.count(assign->name)) {
+                errorAt(*assign, "Variable constante '" + assign->name + "' déjà déclarée");
+            }
+            constVariables_.insert(assign->name);
+            if (isGlobalScope) {
+                result_.constVariables.insert(assign->name);
+            }
+        }
         if (isGlobalScope) {
             result_.globalVariables[assign->name] = valueType;
         }
@@ -505,6 +519,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         AfrType valueType = analyzeExpression(*set->value, scope);
 
         if (const auto* id = dynamic_cast<const IdentifierNode*>(set->target.get())) {
+            if (constVariables_.count(id->name) || result_.constVariables.count(id->name)) {
+                errorAt(*set, "Variable constante '" + id->name + "' ne peut pas être modifiée");
+            }
             auto it = scope.find(id->name);
             if (it == scope.end()) {
                 auto globalIt = result_.globalVariables.find(id->name);
