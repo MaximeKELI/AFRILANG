@@ -47,9 +47,7 @@ struct AfrType {
         return t;
     }
 
-    AfrType resultInnerType() const {
-        return typeFromName(listElementTypeName);
-    }
+    AfrType resultInnerType() const;
 
     std::string toTypeName() const {
         switch (kind) {
@@ -108,6 +106,10 @@ inline AfrType typeFromName(const std::string& name) {
 }
 
 inline AfrType AfrType::listElementType() const {
+    return typeFromName(listElementTypeName);
+}
+
+inline AfrType AfrType::resultInnerType() const {
     return typeFromName(listElementTypeName);
 }
 
