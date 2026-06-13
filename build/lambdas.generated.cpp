@@ -9,7 +9,7 @@
 #include <functional>
 #include "str.hpp"
 
-double apply(std::function<double(double)> fn, double value) {
+double afr_apply(std::function<double(double)> fn, double value) {
     #line 13 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
     return fn(value);
 }
@@ -30,13 +30,13 @@ int main() {
     #line 10 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
     std::cout << addFive(10) << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
-    std::cout << apply(doubleIt, 10) << std::endl;
+    std::cout << afr_apply(doubleIt, 10) << std::endl;
     #line 17 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
-    std::cout << apply(addFive, 100) << std::endl;
+    std::cout << afr_apply(addFive, 100) << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
     std::function<double(double)> pipeline = [&](double x) -> double {
     #line 20 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
-    return apply(addFive, apply(doubleIt, x));
+    return afr_apply(addFive, afr_apply(doubleIt, x));
     };
     #line 23 "/home/maxime/AFRILANG/build/../examples/lambdas.afr"
     std::cout << pipeline(3) << std::endl;
