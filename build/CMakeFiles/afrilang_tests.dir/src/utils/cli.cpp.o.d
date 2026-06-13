@@ -133,6 +133,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
+ /home/maxime/AFRILANG/include/afrilang/lsp.hpp \
  /home/maxime/AFRILANG/include/afrilang/codegen.hpp \
  /home/maxime/AFRILANG/include/afrilang/ast.hpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
