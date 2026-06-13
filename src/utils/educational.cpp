@@ -6,46 +6,46 @@
 namespace afrilang {
 
 static std::string explainKeyword(const std::string& keyword) {
-    if (keyword == "say" || keyword == "dire") {
+    if (keyword == "say") {
         return "Affiche du texte ou une valeur à l'écran (équivalent de print() en Python, cout en C++).";
     }
-    if (keyword == "create" || keyword == "creer") {
+    if (keyword == "create") {
         return "Déclare une nouvelle variable avec une valeur initiale.";
     }
-    if (keyword == "if" || keyword == "si") {
+    if (keyword == "if") {
         return "Exécute un bloc de code seulement si la condition est vraie.";
     }
-    if (keyword == "while" || keyword == "tant" || keyword == "tantque") {
+    if (keyword == "while") {
         return "Répète un bloc tant que la condition reste vraie.";
     }
-    if (keyword == "repeat" || keyword == "repeter") {
+    if (keyword == "repeat") {
         return "Répète un bloc un nombre fixe de fois.";
     }
-    if (keyword == "for" || keyword == "pour") {
+    if (keyword == "for") {
         return "Parcourt chaque élément d'une liste (for-each).";
     }
-    if (keyword == "function" || keyword == "fonction") {
+    if (keyword == "function") {
         return "Définit une fonction réutilisable avec paramètres et valeur de retour.";
     }
-    if (keyword == "class" || keyword == "classe") {
+    if (keyword == "class") {
         return "Définit un type objet avec méthodes et champs (programmation orientée objet).";
     }
-    if (keyword == "return" || keyword == "retourne") {
+    if (keyword == "return") {
         return "Renvoie une valeur depuis une fonction.";
     }
-    if (keyword == "ask" || keyword == "demander") {
+    if (keyword == "ask") {
         return "Demande une saisie à l'utilisateur et la stocke dans une variable.";
     }
-    if (keyword == "set" || keyword == "definir") {
+    if (keyword == "set") {
         return "Modifie la valeur d'une variable ou d'un champ existant.";
     }
-    if (keyword == "assert" || keyword == "affirmer") {
+    if (keyword == "assert") {
         return "Vérifie qu'une condition est vraie ; échoue si ce n'est pas le cas.";
     }
-    if (keyword == "import" || keyword == "importer") {
+    if (keyword == "import") {
         return "Importe du code depuis un autre fichier .afr.";
     }
-    if (keyword == "use" || keyword == "utiliser") {
+    if (keyword == "use") {
         return "Active un module importé pour l'utiliser sans préfixe.";
     }
     return {};

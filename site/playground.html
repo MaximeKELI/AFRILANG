@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,42 +12,34 @@
     <img src="/icon.png" alt="" class="logo" width="48" height="48">
     <div>
       <h1><a href="/">AFRILANG</a> Playground</h1>
-      <p>Écrivez du code AFRILANG et exécutez-le en direct</p>
+      <p>Write AFRILANG code and run it live</p>
     </div>
   </header>
   <main class="playground">
-    <textarea id="editor" spellcheck="false">say "Bonjour depuis le playground!"
-
-create x = 10
-say x + 5
-</textarea>
-    <div class="toolbar">
-      <button id="run">Exécuter</button>
-      <span id="status"></span>
+    <div class="playground-grid">
+      <section class="panel">
+        <div class="panel-header">
+          <label for="examples">Example</label>
+          <select id="examples">
+            <option value="hello">Hello World</option>
+            <option value="natural">Natural syntax</option>
+            <option value="oop">Classes</option>
+            <option value="advanced">Enums &amp; match</option>
+          </select>
+        </div>
+        <textarea id="editor" spellcheck="false"></textarea>
+        <div class="toolbar">
+          <button id="run" type="button">Run</button>
+          <button id="fmt" type="button" class="secondary">Format</button>
+          <span id="status"></span>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="panel-header">Output</div>
+        <pre id="output">(click Run)</pre>
+      </section>
     </div>
-    <pre id="output"></pre>
   </main>
-  <script>
-    const editor = document.getElementById('editor');
-    const output = document.getElementById('output');
-    const status = document.getElementById('status');
-    document.getElementById('run').addEventListener('click', async () => {
-      status.textContent = 'Compilation...';
-      output.textContent = '';
-      try {
-        const res = await fetch('/api/run', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ source: editor.value })
-        });
-        const data = await res.json();
-        output.textContent = data.output || '(aucune sortie)';
-        status.textContent = data.ok ? 'OK' : 'Erreur (code ' + data.exitCode + ')';
-      } catch (e) {
-        status.textContent = 'Erreur réseau';
-        output.textContent = String(e);
-      }
-    });
-  </script>
+  <script src="/playground.js"></script>
 </body>
 </html>

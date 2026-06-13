@@ -1,0 +1,11 @@
+say "Hello from AFRILANG natural syntax!"
+
+if 42 is greater than 40 then
+    say "The condition is true"
+else
+    say "Impossible"
+end
+
+repeat 3 times
+    say "Hello"
+end

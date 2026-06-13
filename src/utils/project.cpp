@@ -52,6 +52,7 @@ ProjectConfig loadProjectConfig(const std::string& path) {
         else if (key == "version") config.version = value;
         else if (key == "main") config.mainFile = value;
         else if (key == "output") config.output = value;
+        else if (key == "description") config.description = value;
         else if (key == "stdlib") config.stdlibPath = value;
     }
     return config;

@@ -15,7 +15,8 @@ enum class TypeKind {
     Result,
     Pointer,
     Optional,
-    Enum
+    Enum,
+    TypeVar
 };
 
 struct AfrType {
@@ -59,6 +60,9 @@ struct AfrType {
     static AfrType enumType(std::string name) {
         return {TypeKind::Enum, std::move(name), {}, {}};
     }
+    static AfrType typeVar(std::string name) {
+        return {TypeKind::TypeVar, std::move(name), {}, {}};
+    }
 
     AfrType resultInnerType() const;
     AfrType optionalInnerType() const;
@@ -76,6 +80,7 @@ struct AfrType {
             case TypeKind::Result: return resultInnerType().toTypeName() + " or error";
             case TypeKind::Optional: return optionalInnerType().toTypeName() + "?";
             case TypeKind::Enum:   return className;
+            case TypeKind::TypeVar: return className;
         }
         return "void";
     }
@@ -96,6 +101,7 @@ struct AfrType {
             case TypeKind::Optional:
                 return "std::optional<" + optionalInnerType().toCpp() + ">";
             case TypeKind::Enum:   return className;
+            case TypeKind::TypeVar: return className;
         }
         return "void";
     }
@@ -112,6 +118,7 @@ struct AfrType {
         if (kind == TypeKind::Result) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Optional) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Enum) return className == other.className;
+        if (kind == TypeKind::TypeVar) return className == other.className;
         return true;
     }
 

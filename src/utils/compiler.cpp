@@ -75,6 +75,10 @@ void Compiler::handleStdlibImport(ProgramNode& program, const std::string& impor
         StdlibRegistry::injectIoModule(program);
     } else if (mod == "json") {
         StdlibRegistry::injectJsonModule(program);
+    } else if (mod == "fs") {
+        StdlibRegistry::injectFsModule(program);
+    } else if (mod == "http") {
+        StdlibRegistry::injectHttpModule(program);
     }
 }
 

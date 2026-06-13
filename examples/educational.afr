@@ -1,6 +1,6 @@
-expliquer dire "Ce message est expliqué puis affiché"
+explain say "This message is explained then printed"
 
-explain creer x = 10
+explain create x = 10
 say x
 
-dire "Programme terminé"
+say "Program finished"

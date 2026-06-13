@@ -43,8 +43,10 @@ static void printUsage() {
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
     std::cerr << "  afrilang pkg list            Lister les paquets\n";
+    std::cerr << "  afrilang pkg search [query]  Rechercher un paquet\n";
     std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
+    std::cerr << "  afrilang pkg publish <dir>   Publier dans le registre local\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
     std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
@@ -153,8 +155,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "fields.afr", "records.afr", "full_demo.afr", "stdlib_demo.afr",
         "result.afr", "interfaces.afr", "tests.afr",
         "ffi.afr", "pkg_demo.afr",
-        "french.afr", "educational.afr",
-        "advanced.afr"
+        "natural.afr", "educational.afr",
+        "advanced.afr", "fs_demo.afr"
     };
 
     CompileOptions opts;
@@ -403,13 +405,17 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|add|install> [name]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|publish> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
         const std::string root = detectAfrilangRoot();
         const std::string dir = fs::current_path().string();
         if (sub == "list") return PkgRegistry::cmdList(root);
+        if (sub == "search") {
+            const std::string query = argc >= 4 ? argv[3] : "";
+            return PkgRegistry::cmdSearch(root, query);
+        }
         if (sub == "add") {
             if (argc < 4) {
                 std::cerr << "Usage: afrilang pkg add <name>\n";
@@ -418,6 +424,10 @@ int runCli(int argc, char* argv[]) {
             return PkgRegistry::cmdAdd(dir, argv[3], root);
         }
         if (sub == "install") return PkgRegistry::cmdInstall(dir, root);
+        if (sub == "publish") {
+            const std::string pkgDir = argc >= 4 ? argv[3] : dir;
+            return PkgRegistry::cmdPublish(pkgDir, root);
+        }
         std::cerr << "Sous-commande pkg inconnue: " << sub << "\n";
         return 1;
     }

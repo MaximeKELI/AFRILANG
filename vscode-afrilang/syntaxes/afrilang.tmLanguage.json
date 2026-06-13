@@ -2,12 +2,30 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "AFRILANG",
   "scopeName": "source.afrilang",
-  "patterns": [{ "include": "#keywords" }, { "include": "#strings" }],
+  "patterns": [
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#constants" },
+    { "include": "#strings" },
+    { "include": "#numbers" }
+  ],
   "repository": {
     "keywords": {
       "patterns": [{
         "name": "keyword.control.afrilang",
-        "match": "\\b(class|function|end|if|then|else|while|do|for|each|return|interface|implements|test|assert|error|create|say|module|use|import|record|extends|returns|repeat|times|stop|skip)\\b"
+        "match": "\\b(class|function|end|if|then|else|while|do|for|each|return|interface|implements|test|assert|error|create|say|module|use|import|record|extends|returns|repeat|times|stop|skip|enum|case|match|default|with|defined|nothing|ask|into|new|public|private|empty|explain|is|greater|than|less|equal|and|or|not|set|this|add|length|of|from|extern)\\b"
+      }]
+    },
+    "types": {
+      "patterns": [{
+        "name": "storage.type.afrilang",
+        "match": "\\b(number|text|bool|list)\\b|\\btext\\?"
+      }]
+    },
+    "constants": {
+      "patterns": [{
+        "name": "constant.language.afrilang",
+        "match": "\\b(true|false|yes|no)\\b"
       }]
     },
     "strings": {
@@ -15,6 +33,12 @@
         "name": "string.quoted.double.afrilang",
         "begin": "\"", "end": "\"",
         "patterns": [{ "name": "constant.character.escape.afrilang", "match": "\\\\." }]
+      }]
+    },
+    "numbers": {
+      "patterns": [{
+        "name": "constant.numeric.afrilang",
+        "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
       }]
     }
   }

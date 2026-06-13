@@ -69,8 +69,8 @@ private:
     bool matchToOrThan();
     void consumeToOrThan(const std::string& message);
     void consumeIntoOrEn(const std::string& message);
-    void skipOptionalQueAfterWhile();
 
+    std::vector<std::string> parseTypeParams();
     std::string parseTypeName();
     std::vector<ParameterNode> parseParameters();
     std::vector<std::unique_ptr<StatementNode>> parseBlock();

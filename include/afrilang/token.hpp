@@ -30,6 +30,7 @@ enum class TokenType {
     Dot, Equals, Comma, LeftParen, RightParen,
     LeftBracket, RightBracket,
     Question,
+    AngleOpen, AngleClose,
 
     // Fin de fichier
     Eof
@@ -140,6 +141,8 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::RightParen:     return ")";
         case TokenType::LeftBracket:    return "[";
         case TokenType::RightBracket:   return "]";
+        case TokenType::AngleOpen:      return "<";
+        case TokenType::AngleClose:     return ">";
         case TokenType::Eof:            return "fin de fichier";
     }
     return "inconnu";

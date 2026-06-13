@@ -33,6 +33,7 @@ private:
     void formatExpression(std::ostream& out, const ExpressionNode& expr) const;
     void formatClass(std::ostream& out, const ClassNode& cls) const;
     void formatRecord(std::ostream& out, const RecordNode& record) const;
+    void formatEnum(std::ostream& out, const EnumNode& en) const;
     void formatInterface(std::ostream& out, const InterfaceNode& iface) const;
     void formatModule(std::ostream& out, const ModuleNode& module) const;
     void formatTest(std::ostream& out, const TestNode& test) const;

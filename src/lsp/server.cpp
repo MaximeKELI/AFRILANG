@@ -7,17 +7,23 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace afrilang {
+
+static std::unordered_map<std::string, std::string> g_documents;
 
 static const std::vector<std::string> kKeywords = {
     "class", "function", "end", "create", "if", "then", "else", "say",
     "while", "do", "repeat", "times", "for", "each", "in", "return",
     "interface", "implements", "test", "assert", "error", "extends",
     "returns", "module", "use", "import", "record", "field", "number",
-    "text", "bool", "list", "true", "false", "stop", "skip",
-    "explain", "expliquer", "dire", "si", "alors", "sinon", "fin"
+    "text", "bool", "list", "true", "false", "stop", "skip", "nothing",
+    "enum", "case", "match", "default", "with", "defined", "ask", "into",
+    "new", "public", "private", "empty", "of", "at", "to", "from",
+    "explain", "yes", "no", "is", "greater", "than", "less", "equal",
+    "and", "or", "not", "set", "this", "add", "length", "extern"
 };
 
 static std::string jsonEscape(const std::string& s) {
@@ -36,9 +42,10 @@ static std::string jsonEscape(const std::string& s) {
     return out;
 }
 
-static std::string jsonGetString(const std::string& json, const std::string& key) {
+static std::string jsonGetString(const std::string& json, const std::string& key,
+                                 std::size_t from = 0) {
     const std::string needle = "\"" + key + "\":\"";
-    const auto pos = json.find(needle);
+    const auto pos = json.find(needle, from);
     if (pos == std::string::npos) return {};
 
     std::size_t i = pos + needle.size();
@@ -61,6 +68,19 @@ static std::string uriToPath(const std::string& uri) {
         return uri.substr(prefix.size());
     }
     return uri;
+}
+
+static std::string documentUri(const std::string& body) {
+    return jsonGetString(body, "uri");
+}
+
+static std::string extractDocumentText(const std::string& body) {
+    const auto changesPos = body.find("\"contentChanges\"");
+    if (changesPos != std::string::npos) {
+        const std::string text = jsonGetString(body, "text", changesPos);
+        if (!text.empty()) return text;
+    }
+    return jsonGetString(body, "text");
 }
 
 static std::string readMessage() {
@@ -101,7 +121,7 @@ static void publishDiagnostics(const std::string& uri, const std::string& source
         item << "{\"range\":{\"start\":{\"line\":" << std::max(0, e.line() - 1)
              << ",\"character\":" << std::max(0, e.column() - 1)
              << "},\"end\":{\"line\":" << std::max(0, e.line() - 1)
-             << ",\"character\":" << std::max(0, e.column()) << "}},"
+             << ",\"character\":" << std::max(0, e.column() + 1) << "}},"
              << "\"severity\":1,\"source\":\"afrilang\","
              << "\"message\":\"" << jsonEscape(e.what()) << "\"}";
         diags.push_back(item.str());
@@ -133,10 +153,54 @@ static std::string completionItems() {
     return out.str();
 }
 
+static std::string formatDocument(const std::string& uri, const std::string& source) {
+    const std::string path = uriToPath(uri);
+    try {
+        SourceManager sources;
+        sources.addFile(path.empty() ? "<buffer>" : path, source);
+        auto program = parseSourceProgram(source, path.empty() ? "<buffer>" : path, &sources);
+        Formatter formatter(*program);
+        const std::string formatted = formatter.format();
+        if (formatted == source) return "[]";
+
+        int endLine = 0;
+        int endChar = 0;
+        for (char c : source) {
+            if (c == '\n') {
+                ++endLine;
+                endChar = 0;
+            } else {
+                ++endChar;
+            }
+        }
+
+        std::ostringstream out;
+        out << "[{\"range\":{\"start\":{\"line\":0,\"character\":0},"
+            << "\"end\":{\"line\":" << endLine << ",\"character\":" << endChar << "}},"
+            << "\"newText\":\"" << jsonEscape(formatted) << "\"}]";
+        return out.str();
+    } catch (const CompileError&) {
+        return "[]";
+    }
+}
+
 static int extractId(const std::string& body) {
     const auto idPos = body.find("\"id\":");
     if (idPos == std::string::npos) return 0;
-    return std::stoi(body.substr(idPos + 5));
+    std::size_t i = idPos + 5;
+    while (i < body.size() && (body[i] == ' ' || body[i] == '\t')) ++i;
+    int id = 0;
+    while (i < body.size() && body[i] >= '0' && body[i] <= '9') {
+        id = id * 10 + (body[i] - '0');
+        ++i;
+    }
+    return id;
+}
+
+static void updateDocument(const std::string& uri, const std::string& text) {
+    if (uri.empty()) return;
+    g_documents[uri] = text;
+    publishDiagnostics(uri, text);
 }
 
 int runLspServer() {
@@ -146,26 +210,36 @@ int runLspServer() {
 
         if (body.find("\"method\":\"initialize\"") != std::string::npos) {
             sendResponse(extractId(body),
-                "{\"capabilities\":{\"textDocumentSync\":1,"
-                "\"completionProvider\":{\"triggerCharacters\":[\".\",\" \"]}}}");
+                "{\"capabilities\":{"
+                "\"textDocumentSync\":1,"
+                "\"completionProvider\":{\"triggerCharacters\":[\".\",\" \"]},"
+                "\"documentFormattingProvider\":true"
+                "},"
+                "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"0.3.0\"}"
+                "}");
         } else if (body.find("\"method\":\"initialized\"") != std::string::npos) {
-            // no response
-        } else if (body.find("\"method\":\"textDocument/didOpen\"") != std::string::npos ||
-                   body.find("\"method\":\"textDocument/didChange\"") != std::string::npos) {
-            const std::string uri = jsonGetString(body, "uri");
-            std::string text = jsonGetString(body, "text");
-            if (text.empty()) {
-                const auto textPos = body.find("\"text\":\"");
-                if (textPos != std::string::npos) {
-                    text = jsonGetString(body.substr(textPos), "text");
-                }
-            }
-            publishDiagnostics(uri.empty() ? "file://<buffer>" : uri, text);
+            // notification, no response
+        } else if (body.find("\"method\":\"textDocument/didOpen\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            updateDocument(uri, extractDocumentText(body));
+        } else if (body.find("\"method\":\"textDocument/didChange\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            updateDocument(uri, extractDocumentText(body));
+        } else if (body.find("\"method\":\"textDocument/didClose\"") != std::string::npos) {
+            g_documents.erase(documentUri(body));
         } else if (body.find("\"method\":\"textDocument/completion\"") != std::string::npos) {
             sendResponse(extractId(body),
                 "{\"isIncomplete\":false,\"items\":" + completionItems() + "}");
+        } else if (body.find("\"method\":\"textDocument/formatting\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            const auto it = g_documents.find(uri);
+            const std::string edits = it != g_documents.end()
+                ? formatDocument(uri, it->second)
+                : "[]";
+            sendResponse(extractId(body), edits);
         } else if (body.find("\"method\":\"shutdown\"") != std::string::npos) {
             sendResponse(extractId(body), "null");
+        } else if (body.find("\"method\":\"exit\"") != std::string::npos) {
             break;
         }
     }

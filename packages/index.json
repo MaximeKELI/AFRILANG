@@ -1,0 +1,5 @@
+{
+  "packages": [
+    {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)"}
+  ]
+}

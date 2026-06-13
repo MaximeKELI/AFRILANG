@@ -15,6 +15,7 @@ struct ProjectConfig {
     std::string mainFile = "src/main.afr";
     std::string output = "build/app";
     std::string stdlibPath;
+    std::string description;
     std::unordered_map<std::string, std::string> dependencies;
 };
 

@@ -1,12 +1,19 @@
 {
   "name": "afrilang",
   "displayName": "AFRILANG",
-  "description": "Support AFRILANG — langage naturel compilé",
-  "version": "0.2.0",
+  "description": "Support AFRILANG — coloration, LSP, formatage et exécution",
+  "version": "0.3.0",
   "publisher": "afrilang",
+  "license": "MIT",
   "icon": "icons/icon.png",
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Programming Languages"],
+  "keywords": ["afrilang", "africa", "natural language"],
+  "main": "./extension.js",
+  "activationEvents": ["onLanguage:afrilang"],
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
   "contributes": {
     "languages": [{
       "id": "afrilang",
@@ -27,8 +34,74 @@
       "language": "afrilang",
       "scopeName": "source.afrilang",
       "path": "./syntaxes/afrilang.tmLanguage.json"
-    }]
-  },
-  "main": "./extension.js",
-  "activationEvents": ["onLanguage:afrilang"]
+    }],
+    "configuration": {
+      "title": "AFRILANG",
+      "properties": {
+        "afrilang.serverPath": {
+          "type": "string",
+          "default": "afrilang",
+          "description": "Chemin vers l'exécutable afrilang (doit être dans le PATH ou chemin absolu)."
+        },
+        "afrilang.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Trace des échanges LSP dans la sortie « AFRILANG LSP »."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "afrilang.runFile",
+        "title": "AFRILANG: Exécuter le fichier",
+        "icon": "$(play)"
+      },
+      {
+        "command": "afrilang.checkFile",
+        "title": "AFRILANG: Vérifier le fichier",
+        "icon": "$(check)"
+      },
+      {
+        "command": "afrilang.restartServer",
+        "title": "AFRILANG: Redémarrer le serveur LSP",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "when": "resourceLangId == afrilang",
+          "command": "afrilang.runFile",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceLangId == afrilang",
+          "command": "afrilang.runFile",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == afrilang",
+          "command": "afrilang.checkFile",
+          "group": "navigation@2"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "afrilang.runFile",
+          "when": "resourceLangId == afrilang"
+        },
+        {
+          "command": "afrilang.checkFile",
+          "when": "resourceLangId == afrilang"
+        },
+        {
+          "command": "afrilang.restartServer",
+          "when": "resourceLangId == afrilang"
+        }
+      ]
+    }
+  }
 }

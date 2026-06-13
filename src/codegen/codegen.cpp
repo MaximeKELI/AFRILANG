@@ -50,12 +50,18 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
 
     bool needsIo = false;
     bool needsJson = false;
+    bool needsFs = false;
+    bool needsHttp = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
+        if (module->name == "fs") needsFs = true;
+        if (module->name == "http") needsHttp = true;
     }
     if (needsIo) out << "#include \"io.hpp\"\n";
     if (needsJson) out << "#include \"json.hpp\"\n";
+    if (needsFs) out << "#include \"fs.hpp\"\n";
+    if (needsHttp) out << "#include \"http.hpp\"\n";
 
     bool needsResult = false;
     for (const auto& func : program_.functions) {
@@ -990,7 +996,7 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 }
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
-    return name == "io" || name == "json";
+    return name == "io" || name == "json" || name == "fs" || name == "http";
 }
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,

@@ -22,9 +22,9 @@ SemanticResult SemanticAnalyzer::analyze() {
     return result_;
 }
 
-static AfrType resolveFunctionReturnType(const FunctionNode& func) {
+AfrType SemanticAnalyzer::resolveFunctionReturnType(const FunctionNode& func) const {
     if (func.returnTypeName.empty()) return AfrType::voidType();
-    AfrType inner = typeFromName(func.returnTypeName);
+    AfrType inner = resolveTypeForGeneric(func.returnTypeName, func.typeParams);
     return func.returnsResult ? AfrType::resultType(inner) : inner;
 }
 
@@ -195,10 +195,11 @@ void SemanticAnalyzer::registerClasses() {
         for (const auto& func : module->functions) {
             MethodSignature sig;
             sig.name = func->name;
+            sig.typeParams = func->typeParams;
             sig.returnType = resolveFunctionReturnType(*func);
             sig.returnsResult = func->returnsResult;
             for (const auto& param : func->parameters) {
-                sig.paramTypes.push_back(typeFromName(param.typeName));
+                sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func->typeParams));
             }
             modInfo.functions[func->name] = sig;
         }
@@ -271,7 +272,8 @@ void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
 }
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
-    const bool isStdlib = (module.name == "io" || module.name == "json");
+    const bool isStdlib = (module.name == "io" || module.name == "json" ||
+                           module.name == "fs" || module.name == "http");
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
@@ -290,10 +292,11 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
 
     MethodSignature sig;
     sig.name = func.name;
+    sig.typeParams = func.typeParams;
     sig.returnType = resolveFunctionReturnType(func);
     sig.returnsResult = func.returnsResult;
     for (const auto& param : func.parameters) {
-        sig.paramTypes.push_back(typeFromName(param.typeName));
+        sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func.typeParams));
     }
     result_.functions[func.name] = sig;
 
@@ -334,6 +337,7 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
 
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
     std::unordered_map<std::string, AfrType> scope;
+    activeTypeParams_ = func.typeParams;
 
     if (ownerClass) {
         for (const auto& [name, field] : ownerClass->fields) {
@@ -342,7 +346,7 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     }
 
     for (const auto& param : func.parameters) {
-        scope[param.name] = typeFromName(param.typeName);
+        scope[param.name] = resolveTypeForGeneric(param.typeName, func.typeParams);
     }
 
     AfrType declaredReturn = resolveFunctionReturnType(func);
@@ -359,6 +363,8 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     }
 
     if (ownerClass) currentClass_ = savedClass;
+
+    activeTypeParams_.clear();
 
     if (declaredReturn.kind != TypeKind::Void && !hasReturn && func.name != "init") {
         errorAt(func, "Fonction '" + func.name + "' déclare un retour '" +
@@ -852,6 +858,16 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 }
             }
 
+            if (!sig->typeParams.empty()) {
+                std::vector<AfrType> argTypes;
+                argTypes.reserve(call->arguments.size());
+                for (const auto& arg : call->arguments) {
+                    argTypes.push_back(analyzeExpression(*arg, scope));
+                }
+                const auto subst = inferGenericSubst(*sig, argTypes, expr);
+                return substituteType(sig->returnType, subst);
+            }
+
             return sig->returnType;
         }
 
@@ -934,6 +950,10 @@ bool SemanticAnalyzer::isBoolean(const AfrType& type) const {
 
 bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value) const {
     if (target == value) return true;
+    if (target.kind == TypeKind::TypeVar) return true;
+    if (value.kind == TypeKind::TypeVar && target.kind == value.kind) {
+        return target.className == value.className;
+    }
     if (target.kind == TypeKind::Number && value.kind == TypeKind::Number) return true;
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
@@ -993,6 +1013,93 @@ AfrType SemanticAnalyzer::resolveTypeName(const std::string& name) const {
     if (result_.enums.count(name)) return AfrType::enumType(name);
     if (result_.records.count(name)) return AfrType::recordType(name);
     return typeFromName(name);
+}
+
+AfrType SemanticAnalyzer::resolveTypeForGeneric(const std::string& name,
+                                                const std::vector<std::string>& typeParams) const {
+    for (const auto& tp : typeParams) {
+        if (name == tp) return AfrType::typeVar(tp);
+    }
+    if (name.size() > 5 && name.rfind("list ", 0) == 0) {
+        const std::string elem = name.substr(5);
+        for (const auto& tp : typeParams) {
+            if (elem == tp) return AfrType::listType(AfrType::typeVar(tp));
+        }
+    }
+    if (!name.empty() && name.back() == '?') {
+        const std::string inner = name.substr(0, name.size() - 1);
+        for (const auto& tp : typeParams) {
+            if (inner == tp) return AfrType::optionalType(AfrType::typeVar(tp));
+        }
+    }
+    return resolveTypeName(name);
+}
+
+AfrType SemanticAnalyzer::substituteType(
+    AfrType type, const std::unordered_map<std::string, AfrType>& subst) const {
+    if (type.kind == TypeKind::TypeVar) {
+        const auto it = subst.find(type.className);
+        if (it != subst.end()) return it->second;
+        return type;
+    }
+    if (type.kind == TypeKind::List) {
+        AfrType elem = typeFromName(type.listElementTypeName);
+        if (elem.kind == TypeKind::TypeVar) {
+            const auto it = subst.find(elem.className);
+            if (it != subst.end()) return AfrType::listType(it->second);
+        }
+    }
+    if (type.kind == TypeKind::Optional) {
+        AfrType inner = type.optionalInnerType();
+        if (inner.kind == TypeKind::TypeVar) {
+            const auto it = subst.find(inner.className);
+            if (it != subst.end()) return AfrType::optionalType(it->second);
+        }
+    }
+    if (type.kind == TypeKind::Result) {
+        AfrType inner = type.resultInnerType();
+        if (inner.kind == TypeKind::TypeVar) {
+            const auto it = subst.find(inner.className);
+            if (it != subst.end()) return AfrType::resultType(it->second);
+        }
+    }
+    return type;
+}
+
+std::unordered_map<std::string, AfrType> SemanticAnalyzer::inferGenericSubst(
+    const MethodSignature& sig,
+    const std::vector<AfrType>& argTypes,
+    const ASTNode& at) const {
+    std::unordered_map<std::string, AfrType> subst;
+
+    for (std::size_t i = 0; i < argTypes.size() && i < sig.paramTypes.size(); ++i) {
+        const AfrType& paramType = sig.paramTypes[i];
+        const AfrType& argType = argTypes[i];
+
+        if (paramType.kind == TypeKind::TypeVar) {
+            const auto it = subst.find(paramType.className);
+            if (it == subst.end()) {
+                subst[paramType.className] = argType;
+            } else if (!isAssignable(it->second, argType)) {
+                errorAt(at, "Types incompatibles pour le paramètre de type '" +
+                      paramType.className + "'");
+            }
+        } else if (paramType.kind == TypeKind::List && argType.kind == TypeKind::List) {
+            AfrType paramElem = paramType.listElementType();
+            if (paramElem.kind == TypeKind::TypeVar) {
+                AfrType concreteElem = argType.listElementType();
+                const auto it = subst.find(paramElem.className);
+                if (it == subst.end()) {
+                    subst[paramElem.className] = concreteElem;
+                } else if (!isAssignable(it->second, concreteElem)) {
+                    errorAt(at, "Types incompatibles pour le paramètre de type '" +
+                          paramElem.className + "'");
+                }
+            }
+        }
+    }
+
+    return subst;
 }
 
 const MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,

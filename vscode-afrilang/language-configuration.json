@@ -4,5 +4,9 @@
   "autoClosingPairs": [
     { "open": "\"", "close": "\"" },
     { "open": "(", "close": ")" }
-  ]
+  ],
+  "indentationRules": {
+    "increaseIndentPattern": "\\b(then|do|else|case|default)\\b\\s*$",
+    "decreaseIndentPattern": "^\\s*end\\b"
+  }
 }

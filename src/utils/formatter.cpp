@@ -48,6 +48,12 @@ void Formatter::format(std::ostream& out) const {
         needBlank = true;
     }
 
+    for (const auto& en : program_.enums) {
+        if (needBlank) out << "\n";
+        formatEnum(out, *en);
+        needBlank = true;
+    }
+
     for (const auto& cls : program_.classes) {
         if (needBlank) out << "\n";
         formatClass(out, *cls);
@@ -193,6 +199,25 @@ void Formatter::formatRecord(std::ostream& out, const RecordNode& record) const 
         writeIndent(out);
         out << "field " << field.name << " ";
         formatType(out, field.typeName);
+        out << "\n";
+    }
+    --indent_;
+    writeln(out, "end");
+}
+
+void Formatter::formatEnum(std::ostream& out, const EnumNode& en) const {
+    writeln(out, "enum " + en.name);
+    ++indent_;
+    for (const auto& c : en.cases) {
+        writeIndent(out);
+        out << "case " << c.name;
+        if (!c.fields.empty()) {
+            out << " with";
+            for (std::size_t i = 0; i < c.fields.size(); ++i) {
+                out << " " << c.fields[i].name << " ";
+                formatType(out, c.fields[i].typeName);
+            }
+        }
         out << "\n";
     }
     --indent_;
@@ -351,6 +376,29 @@ void Formatter::formatStatement(std::ostream& out, const StatementNode& stmt) co
         return;
     }
 
+    if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
+        writeIndent(out);
+        out << "match ";
+        formatExpression(out, *matchStmt->subject);
+        out << "\n";
+        ++indent_;
+        for (const auto& arm : matchStmt->arms) {
+            writeIndent(out);
+            if (arm.isDefault) {
+                out << "default\n";
+            } else {
+                out << "case " << arm.caseName << " then\n";
+            }
+            ++indent_;
+            formatStatements(out, arm.body);
+            --indent_;
+            writeln(out, "end");
+        }
+        --indent_;
+        writeln(out, "end");
+        return;
+    }
+
     if (const auto* whileStmt = dynamic_cast<const WhileStatementNode*>(&stmt)) {
         writeIndent(out);
         out << "while ";
@@ -438,6 +486,29 @@ void Formatter::formatExpression(std::ostream& out, const ExpressionNode& expr) 
     if (const auto* errCheck = dynamic_cast<const IsErrorCheckNode*>(&expr)) {
         formatExpression(out, *errCheck->value);
         out << " is error";
+        return;
+    }
+
+    if (const auto* isDef = dynamic_cast<const IsDefinedCheckNode*>(&expr)) {
+        formatExpression(out, *isDef->value);
+        out << " is defined";
+        return;
+    }
+
+    if (dynamic_cast<const NothingLiteralNode*>(&expr)) {
+        out << "nothing";
+        return;
+    }
+
+    if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
+        out << enumCase->enumName << "." << enumCase->caseName;
+        if (!enumCase->arguments.empty()) {
+            out << " with";
+            for (const auto& arg : enumCase->arguments) {
+                out << " ";
+                formatExpression(out, *arg);
+            }
+        }
         return;
     }
 

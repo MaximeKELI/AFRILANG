@@ -203,15 +203,7 @@ std::unique_ptr<ExternDeclNode> Parser::parseExtern() {
 }
 
 bool Parser::matchToOrThan() {
-    if (match(TokenType::To) || match(TokenType::Than)) return true;
-    if (check(TokenType::Identifier)) {
-        const std::string& lex = peek().lexeme;
-        if (lex == "a" || lex == "à") {
-            advance();
-            return true;
-        }
-    }
-    return false;
+    return match(TokenType::To) || match(TokenType::Than);
 }
 
 void Parser::consumeToOrThan(const std::string& message) {
@@ -220,16 +212,7 @@ void Parser::consumeToOrThan(const std::string& message) {
 
 void Parser::consumeIntoOrEn(const std::string& message) {
     if (!match(TokenType::Into)) {
-        std::string name;
-        if (!matchName(name) || name != "en") {
-            error(message);
-        }
-    }
-}
-
-void Parser::skipOptionalQueAfterWhile() {
-    if (check(TokenType::Identifier) && peek().lexeme == "que") {
-        advance();
+        error(message);
     }
 }
 
@@ -394,6 +377,19 @@ std::unique_ptr<ClassNode> Parser::parseClass() {
     return node;
 }
 
+std::vector<std::string> Parser::parseTypeParams() {
+    if (!match(TokenType::AngleOpen)) return {};
+
+    std::vector<std::string> params;
+    do {
+        const Token& param = consumeName("Nom de paramètre de type attendu");
+        params.push_back(param.lexeme);
+    } while (match(TokenType::Comma));
+
+    consume(TokenType::AngleClose, "'>' attendu après les paramètres de type");
+    return params;
+}
+
 std::string Parser::parseTypeName() {
     std::string base;
     if (match(TokenType::TypeNumber)) base = "number";
@@ -428,6 +424,7 @@ std::vector<ParameterNode> Parser::parseParameters() {
 std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
     const Token& nameToken = consumeName("Nom de fonction attendu");
     std::string funcName = nameToken.lexeme;
+    std::vector<std::string> typeParams = parseTypeParams();
 
     consume(TokenType::LeftParen, "'(' attendu après le nom de la fonction");
     std::vector<ParameterNode> params = parseParameters();
@@ -451,7 +448,7 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly) {
 
     auto node = std::make_unique<FunctionNode>(
         std::move(funcName), std::move(params), std::move(returnType),
-        returnsResult, std::move(body));
+        returnsResult, std::move(body), std::move(typeParams));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -592,7 +589,6 @@ std::unique_ptr<StatementNode> Parser::parseIfStatement() {
 }
 
 std::unique_ptr<StatementNode> Parser::parseWhileStatement() {
-    skipOptionalQueAfterWhile();
     auto condition = parseComparison();
     consume(TokenType::Do, "'do' attendu après la condition");
 
@@ -733,17 +729,17 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
         std::string op;
 
         if (match(TokenType::Greater)) {
-            consumeToOrThan("'than' ou 'à' attendu après 'greater'/'supérieur'");
+            consumeToOrThan("'than' attendu après 'greater'");
             op = ">";
         } else if (match(TokenType::Less)) {
-            consumeToOrThan("'than' ou 'à' attendu après 'less'/'inférieur'");
+            consumeToOrThan("'than' attendu après 'less'");
             op = "<";
         } else if (match(TokenType::Equal)) {
-            consumeToOrThan("'to' ou 'à' attendu après 'equal'/'égal'");
+            consumeToOrThan("'to' attendu après 'equal'");
             op = "==";
         } else if (match(TokenType::Not)) {
             consume(TokenType::Equal, "'equal' attendu après 'not'");
-            consumeToOrThan("'to' ou 'à' attendu après 'equal'");
+            consumeToOrThan("'to' attendu après 'equal'");
             op = "!=";
         } else {
             error("Comparateur attendu après 'is' (greater than, less than, equal to, not equal to)");

@@ -114,6 +114,20 @@ static std::string runSource(const std::string& source) {
     }
 }
 
+static std::string formatSource(const std::string& source) {
+    const std::string sessionPath = "/tmp/afrilang_playground.afr";
+    try {
+        SourceManager sources;
+        sources.addFile(sessionPath, source);
+        auto program = parseSourceProgram(source, sessionPath, &sources);
+        Formatter formatter(*program);
+        const std::string formatted = formatter.format();
+        return "{\"ok\":true,\"source\":\"" + jsonEscape(formatted) + "\"}";
+    } catch (const CompileError& e) {
+        return "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\"}";
+    }
+}
+
 static std::string contentTypeFor(const fs::path& path) {
     const std::string ext = path.extension().string();
     if (ext == ".html") return "text/html; charset=utf-8";
@@ -166,6 +180,14 @@ static void handleClient(int client, const fs::path& siteRoot) {
         const auto bodyPos = request.find("\r\n\r\n");
         const std::string body = bodyPos != std::string::npos ? request.substr(bodyPos + 4) : "";
         const std::string result = runSource(jsonGetSource(body));
+        sendResponse(client, 200, "application/json", result);
+        return;
+    }
+
+    if (method == "POST" && path == "/api/fmt") {
+        const auto bodyPos = request.find("\r\n\r\n");
+        const std::string body = bodyPos != std::string::npos ? request.substr(bodyPos + 4) : "";
+        const std::string result = formatSource(jsonGetSource(body));
         sendResponse(client, 200, "application/json", result);
         return;
     }

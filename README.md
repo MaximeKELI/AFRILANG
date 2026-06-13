@@ -108,6 +108,8 @@ say readFile("/tmp/test.txt")
 |--------|-----------|
 | `std/io` | `readFile`, `writeFile`, `fileExists`, `readLine` |
 | `std/json` | `parse`, `stringify`, `getString`, `getNumber`, `makeObject` |
+| `std/fs` | `listDir`, `makeDir`, `removeFile`, `fileSize` |
+| `std/http` | `httpGet` (via `curl`, HTTPS supporté) |
 
 ### Messages d'erreur enrichis
 
@@ -129,6 +131,8 @@ make                          # compiler le compilateur
 ctest                         # tests unitaires + intégration
 ./afrilang test ..            # compiler tous les exemples
 ```
+
+CI GitHub Actions (`.github/workflows/ci.yml`) : build, `ctest` et compilation de tous les exemples à chaque push/PR.
 
 ## Utilisation (legacy)
 
@@ -389,20 +393,35 @@ end
 
 Les blocs `test` sont compilés et exécutés automatiquement au lancement du programme. `assert` vérifie une condition et incrémente un compteur d'échecs en cas d'erreur.
 
-### Extension VS Code / LSP
+### Extension VS Code / Cursor
 
-Un serveur LSP minimal est disponible via `afrilang lsp` (stdio). L'extension dans `vscode-afrilang/` fournit coloration syntaxique et lance le serveur. Les diagnostics utilisent le contenu du buffer ouvert.
+L'extension dans `vscode-afrilang/` fournit :
 
-**Icône** — la carte d'Afrique apparaît :
-- dans le panneau **Extensions** (icône de l'extension) ;
-- à côté des fichiers `.afr` dans l'explorateur (thème d'icônes par défaut du langage) ;
-- partout si vous choisissez le thème d'icônes **AFRILANG** : *Fichier → Préférences → Thème de fichiers → AFRILANG*.
+- **LSP complet** — diagnostics en temps réel, complétion des mots-clés, formatage (`Shift+Alt+F`)
+- **Coloration** — syntaxe anglaise + enums, match, null-safety
+- **Commandes** — exécuter / vérifier un fichier `.afr` depuis l'éditeur
+- **Icône** — carte d'Afrique dans Extensions et à côté des fichiers `.afr`
 
-Installation locale :
+Installation :
 
 ```bash
-cd vscode-afrilang && code --install-extension .
+cd build && cmake .. && make          # compiler afrilang
+cd ../vscode-afrilang
+npm install
+code --install-extension .              # Cursor: cursor --install-extension .
 ```
+
+Configuration (`settings.json`) :
+
+```json
+{
+  "afrilang.serverPath": "/chemin/vers/AFRILANG/build/afrilang",
+  "editor.formatOnSave": true,
+  "[afrilang]": { "editor.tabSize": 4 }
+}
+```
+
+Voir `vscode-afrilang/README.md` pour le détail.
 
 ### Formateur (`afrilang fmt`)
 
@@ -455,9 +474,13 @@ Types FFI : `number`, `text` (→ `const char*`), `pointer` (→ `void*`).
 
 ```bash
 afrilang pkg list              # paquets disponibles dans packages/
+afrilang pkg search math       # recherche par nom ou description
 afrilang pkg add math          # copie dans vendor/ + afrilang.toml
 afrilang pkg install           # installe toutes les dépendances
+afrilang pkg publish ./my_pkg  # publie dans packages/ (registre local)
 ```
+
+Registre local : `packages/index.json` (généré à la publication).
 
 Dans `afrilang.toml` :
 
@@ -490,33 +513,35 @@ afrilang serve        # http://localhost:8080
 afrilang serve 3000   # port personnalisé
 ```
 
-Le site dans `site/` propose un éditeur en ligne avec exécution via `/api/run`.
+Le site dans `site/` propose un éditeur en ligne avec :
+- exemples préchargés (Hello, OOP, enums/match)
+- exécution via `/api/run`
+- formatage via `/api/fmt`
+- raccourci **Ctrl+Enter** pour exécuter
 
-### Bilinguisme FR/EN natif
+### Syntaxe anglaise
 
-AFRILANG accepte les mots-clés en **français** et en **anglais** (mélange autorisé) :
+AFRILANG utilise une **syntaxe en anglais** à la manière du langage naturel :
 
 ```afr
-si age est superieur a 18 alors
-    dire "Adulte"
-sinon
-    dire "Mineur"
-fin
+if age is greater than 18 then
+    say "Adult"
+else
+    say "Minor"
+end
 
-repeter 3 fois
-    dire "Bonjour"
-fin
+repeat 3 times
+    say "Hello"
+end
 ```
-
-Correspondances : `si/if`, `dire/say`, `creer/create`, `fin/end`, `alors/then`, `sinon/else`, `fonction/function`, `classe/class`, `tantque/while`, `faire/do`, etc.
 
 ### Mode éducatif
 
-**Dans le code** — prefixe `explain` / `expliquer` :
+**Dans le code** — prefixe `explain` :
 
 ```afr
-expliquer dire "Bonjour"
-explain creer x = 10
+explain say "Hello"
+explain create x = 10
 ```
 
 Affiche une explication pédagogique puis exécute l'instruction.
@@ -542,7 +567,7 @@ create s = Status.Ok
 create e = Status.Error with "failed"
 ```
 
-**Pattern matching** — `match` / `selon` sur une valeur enum :
+**Pattern matching** — `match` sur une valeur enum :
 
 ```afr
 match s
@@ -555,7 +580,7 @@ match s
 end
 ```
 
-**Null-safety** — types optionnels (`text?`) et `nothing` / `rien` :
+**Null-safety** — types optionnels (`text?`) et `nothing` :
 
 ```afr
 create nickname text? = nothing
@@ -563,8 +588,6 @@ if nickname is defined then
     say nickname
 end
 ```
-
-Alias français : `enumeration`, `cas`, `avec`, `selon`, `rien`, `defini`.
 
 ## Exemples
 
@@ -587,8 +610,9 @@ Alias français : `enumeration`, `cas`, `avec`, `selon`, `rien`, `defini`.
 | `examples/tests.afr` | Tests intégrés et assert |
 | `examples/ffi.afr` | FFI — appels C (libm) |
 | `examples/pkg_demo.afr` | Paquets — import pkg/math |
-| `examples/french.afr` | Syntaxe française native |
-| `examples/educational.afr` | Mode éducatif explain/expliquer |
+| `examples/natural.afr` | Syntaxe naturelle anglaise |
+| `examples/educational.afr` | Mode éducatif explain |
+| `examples/fs_demo.afr` | Stdlib fs (listDir, makeDir, fileSize) |
 | `examples/advanced.afr` | Enums, match, null-safety |
 
 ## Compiler tous les exemples

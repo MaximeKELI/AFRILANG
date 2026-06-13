@@ -2,6 +2,8 @@
 
 #include "afrilang/project.hpp"
 
+#include <algorithm>
+#include <cctype>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -40,6 +42,7 @@ PackageInfo PkgRegistry::loadManifest(const std::string& packageDir) {
     ProjectConfig cfg = loadProjectConfig(manifest.string());
     info.name = cfg.name;
     info.version = cfg.version;
+    info.description = cfg.description;
     info.mainFile = cfg.mainFile.empty() ? "math.afr" : cfg.mainFile;
     return info;
 }
@@ -100,6 +103,53 @@ static void ensureDependencyInToml(const fs::path& tomlPath, const std::string& 
 
     std::ofstream out(tomlPath);
     out << text;
+}
+
+static std::string jsonEscape(const std::string& s) {
+    std::string out;
+    for (char c : s) {
+        switch (c) {
+            case '"': out += "\\\""; break;
+            case '\\': out += "\\\\"; break;
+            default: out += c; break;
+        }
+    }
+    return out;
+}
+
+static bool containsIgnoreCase(const std::string& haystack, const std::string& needle) {
+    if (needle.empty()) return true;
+    auto lower = [](unsigned char c) { return static_cast<char>(std::tolower(c)); };
+    std::string h;
+    h.resize(haystack.size());
+    std::transform(haystack.begin(), haystack.end(), h.begin(), lower);
+    std::string n;
+    n.resize(needle.size());
+    std::transform(needle.begin(), needle.end(), n.begin(), lower);
+    return h.find(n) != std::string::npos;
+}
+
+int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
+    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
+    const fs::path indexPath = packagesDir / "index.json";
+    const auto packages = listAvailable(afrilangRoot);
+
+    std::ostringstream json;
+    json << "{\n  \"packages\": [\n";
+    for (std::size_t i = 0; i < packages.size(); ++i) {
+        const auto& pkg = packages[i];
+        json << "    {\"name\":\"" << jsonEscape(pkg.name) << "\","
+             << "\"version\":\"" << jsonEscape(pkg.version) << "\","
+             << "\"description\":\"" << jsonEscape(pkg.description) << "\"}";
+        if (i + 1 < packages.size()) json << ',';
+        json << '\n';
+    }
+    json << "  ]\n}\n";
+
+    std::ofstream out(indexPath);
+    if (!out) return 1;
+    out << json.str();
+    return 0;
 }
 
 int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packageName,
@@ -167,8 +217,58 @@ int PkgRegistry::cmdList(const std::string& afrilangRoot) {
 
     std::cout << "Paquets disponibles:\n\n";
     for (const auto& pkg : packages) {
-        std::cout << "  " << pkg.name << "@" << pkg.version << "\n";
+        std::cout << "  " << pkg.name << "@" << pkg.version;
+        if (!pkg.description.empty()) {
+            std::cout << " — " << pkg.description;
+        }
+        std::cout << "\n";
     }
+    return 0;
+}
+
+int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& query) {
+    const auto packages = listAvailable(afrilangRoot);
+    bool found = false;
+    for (const auto& pkg : packages) {
+        if (!query.empty() &&
+            !containsIgnoreCase(pkg.name, query) &&
+            !containsIgnoreCase(pkg.description, query)) {
+            continue;
+        }
+        found = true;
+        std::cout << pkg.name << "@" << pkg.version;
+        if (!pkg.description.empty()) std::cout << " — " << pkg.description;
+        std::cout << "\n";
+    }
+    if (!found) {
+        std::cout << "Aucun paquet trouvé";
+        if (!query.empty()) std::cout << " pour '" << query << "'";
+        std::cout << ".\n";
+    }
+    return 0;
+}
+
+int PkgRegistry::cmdPublish(const std::string& packageDir, const std::string& afrilangRoot) {
+    const fs::path src = fs::absolute(packageDir);
+    const fs::path manifest = src / "manifest.toml";
+    if (!fs::exists(manifest)) {
+        std::cerr << "Erreur: manifest.toml introuvable dans " << src << "\n";
+        return 1;
+    }
+
+    PackageInfo info = loadManifest(src.string());
+    if (info.name.empty()) {
+        std::cerr << "Erreur: champ 'name' manquant dans manifest.toml\n";
+        return 1;
+    }
+    if (info.version.empty()) info.version = "0.1.0";
+
+    const fs::path dst = fs::path(afrilangRoot) / "packages" / info.name;
+    copyDirectory(src, dst);
+    rebuildIndex(afrilangRoot);
+
+    std::cout << "Paquet publié: " << info.name << "@" << info.version
+              << " → packages/" << info.name << "\n";
     return 0;
 }
 

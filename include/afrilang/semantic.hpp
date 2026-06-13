@@ -13,6 +13,7 @@ namespace afrilang {
 
 struct MethodSignature {
     std::string name;
+    std::vector<std::string> typeParams;
     std::vector<AfrType> paramTypes;
     AfrType returnType;
     bool isConstructor = false;
@@ -121,6 +122,17 @@ private:
     const MethodSignature* findFunction(const std::string& name) const;
     const EnumInfo* findEnum(const std::string& name) const;
     AfrType resolveTypeName(const std::string& name) const;
+    AfrType resolveTypeForGeneric(const std::string& name,
+                                  const std::vector<std::string>& typeParams) const;
+    AfrType resolveFunctionReturnType(const FunctionNode& func) const;
+    AfrType substituteType(AfrType type,
+                           const std::unordered_map<std::string, AfrType>& subst) const;
+    std::unordered_map<std::string, AfrType> inferGenericSubst(
+        const MethodSignature& sig,
+        const std::vector<AfrType>& argTypes,
+        const ASTNode& at) const;
+
+    std::vector<std::string> activeTypeParams_;
 
     [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
     [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,

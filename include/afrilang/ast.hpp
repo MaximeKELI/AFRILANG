@@ -319,6 +319,7 @@ struct FieldNode {
 
 struct FunctionNode : ASTNode {
     std::string name;
+    std::vector<std::string> typeParams;
     std::vector<ParameterNode> parameters;
     std::string returnTypeName;
     bool returnsResult = false;
@@ -328,8 +329,10 @@ struct FunctionNode : ASTNode {
                  std::vector<ParameterNode> parameters,
                  std::string returnTypeName,
                  bool returnsResult,
-                 std::vector<std::unique_ptr<StatementNode>> body)
+                 std::vector<std::unique_ptr<StatementNode>> body,
+                 std::vector<std::string> typeParams = {})
         : name(std::move(name))
+        , typeParams(std::move(typeParams))
         , parameters(std::move(parameters))
         , returnTypeName(std::move(returnTypeName))
         , returnsResult(returnsResult)
