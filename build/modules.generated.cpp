@@ -13,12 +13,12 @@ namespace Math {
 } // namespace Math
 
 namespace Math {
-    double afr_add(double a, double b) {
+    double add(double a, double b) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/modules.afr"
         return (a + b);
     }
 
-    double afr_multiply(double a, double b) {
+    double multiply(double a, double b) {
         #line 7 "/home/maxime/AFRILANG/build/../examples/modules.afr"
         return (a * b);
     }
