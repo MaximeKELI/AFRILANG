@@ -417,7 +417,9 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     if (ownerClass) {
         out << "virtual ";
     }
-    const std::string emittedName = ownerClass ? func.name : mangleGlobalFunctionName(func.name);
+    const std::string emittedName = (ownerClass || indentLevel > 0)
+        ? func.name
+        : mangleGlobalFunctionName(func.name);
     out << returnCpp << " " << emittedName << "(" << paramList(func) << ")";
 
     if (ownerClass) {
