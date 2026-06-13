@@ -149,7 +149,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "hello.afr", "oop.afr", "conditions.afr", "inheritance.afr",
         "functions.afr", "while.afr", "lists.afr", "modules.afr",
         "fields.afr", "records.afr", "full_demo.afr", "stdlib_demo.afr",
-        "result.afr", "interfaces.afr", "tests.afr"
+        "result.afr", "interfaces.afr", "tests.afr",
+        "ffi.afr", "pkg_demo.afr"
     };
 
     CompileOptions opts;
