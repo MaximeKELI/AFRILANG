@@ -291,6 +291,13 @@ void SemanticAnalyzer::registerExterns() {
 }
 
 void SemanticAnalyzer::analyzeProgram() {
+    std::unordered_map<std::string, AfrType> scope;
+    for (const auto& stmt : program_.statements) {
+        if (dynamic_cast<const UseStatementNode*>(stmt.get())) {
+            analyzeStatement(*stmt, scope, true);
+        }
+    }
+
     for (const auto& record : program_.records) {
         analyzeRecord(*record);
     }
