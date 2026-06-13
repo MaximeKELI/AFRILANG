@@ -140,9 +140,9 @@ int main() {
         #line 6 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         #line 7 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         #line 13 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << afr_greet("World") << std::endl;
+    std::cout << afr_greet(std::string("World")) << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << afr_greet("Africa", "Bonjour") << std::endl;
+    std::cout << afr_greet(std::string("Africa"), std::string("Bonjour")) << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     const double PI = 3.14159;
     #line 17 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"

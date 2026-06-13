@@ -84,8 +84,8 @@ int main() {
     #line 12 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
     std::cout << afr_power(2, 10) << std::endl;
     #line 18 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << afr_label("System ready") << std::endl;
+    std::cout << afr_label(std::string("System ready")) << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << afr_label("Warning", "warn") << std::endl;
+    std::cout << afr_label(std::string("Warning"), std::string("warn")) << std::endl;
     return 0;
 }

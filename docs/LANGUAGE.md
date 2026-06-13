@@ -42,12 +42,16 @@ rex.speak()
 Fonctionnalités POO :
 - **Classes** — `class Nom ... end` avec méthodes `function ... end`
 - **Instanciation** — `new Classe` ou `new Classe(arg1, arg2)` (constructeur `init`)
-- **Champs** — `public field` / `private field`, accès via `this.champ` ou `obj.champ`
-- **Héritage** — `class Enfant extends Parent` avec redéfinition de méthodes (`override` en C++)
+- **Champs** — `public field` / `private field` / `protected field`, accès via `this.champ` ou `obj.champ`
+- **Héritage** — `class Enfant extends Parent` avec redéfinition (`override` en C++)
+- **super** — `super(arg)` dans `init`, `super.methode()` pour appeler le parent
+- **static** — `static field` / `static function`, appel via `Classe.methode()`
+- **abstract** — `abstract class` et `abstract function` (pas d'instanciation)
+- **Polymorphisme** — `create pet Animal = new Dog("Rex")` puis `pet.methode()` (dispatch virtuel)
 - **Interfaces** — `interface I ... end` et `class C implements I, J`
-- **Records** — structs légers (`record Point ... end`) pour données sans méthodes
+- **Records** — structs légers (`record Point ... end`)
 
-Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/fields.afr`, `examples/interfaces.afr`, `examples/poo_demo.afr`
+Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/fields.afr`, `examples/interfaces.afr`, `examples/poo_demo.afr`, `examples/oop_full.afr`
 
 ## Maps
 

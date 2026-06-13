@@ -40,7 +40,7 @@ int main() {
     #line 20 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << result << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    auto message = afr_greet("AFRILANG");
+    auto message = afr_greet(std::string("AFRILANG"));
     #line 23 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << message << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/functions.afr"
