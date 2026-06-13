@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 #include "math.hpp"
 #include "str.hpp"
@@ -62,12 +63,12 @@ namespace str {
 
 } // namespace str
 
-double power(double base, double exp = 2) {
+double afr_power(double base, double exp = 2) {
     #line 8 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
     return math::pow(base, exp);
 }
 
-std::string label(std::string message, std::string tag = "info") {
+std::string afr_label(std::string message, std::string tag = "info") {
     #line 15 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
     return afrilang::runtime::str::concat({afrilang::runtime::str::toString(tag), afrilang::runtime::str::toString(" "), afrilang::runtime::str::toString(message)});
 }
@@ -79,12 +80,12 @@ int main() {
     #line 4 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
         #line 5 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
         #line 11 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << power(3) << std::endl;
+    std::cout << afr_power(3) << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << power(2, 10) << std::endl;
+    std::cout << afr_power(2, 10) << std::endl;
     #line 18 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << label("System ready") << std::endl;
+    std::cout << afr_label("System ready") << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << label("Warning", "warn") << std::endl;
+    std::cout << afr_label("Warning", "warn") << std::endl;
     return 0;
 }

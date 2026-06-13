@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stdexcept>
+#include <functional>
 #include "str.hpp"
 #include "math.hpp"
 #include "collections.hpp"
@@ -105,7 +106,7 @@ namespace math {
 
 } // namespace math
 
-std::string greet(std::string name, std::string prefix = "Hello") {
+std::string afr_greet(std::string name, std::string prefix = "Hello") {
     #line 10 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     return afrilang::runtime::str::concat({afrilang::runtime::str::toString(prefix), afrilang::runtime::str::toString(" "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString("!")});
 }
@@ -119,9 +120,9 @@ int main() {
         #line 6 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         #line 7 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         #line 13 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << greet("World") << std::endl;
+    std::cout << afr_greet("World") << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << greet("Africa", "Bonjour") << std::endl;
+    std::cout << afr_greet("Africa", "Bonjour") << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     const double PI = 3.14159;
     #line 17 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
