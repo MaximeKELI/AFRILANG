@@ -451,8 +451,13 @@ std::vector<std::string> Parser::parseTypeParams() {
 
     std::vector<std::string> params;
     do {
-        const Token& param = consumeName("Nom de paramètre de type attendu");
-        params.push_back(param.lexeme);
+        if (match(TokenType::TypeNumber)) params.push_back("number");
+        else if (match(TokenType::TypeText)) params.push_back("text");
+        else if (match(TokenType::TypeBool)) params.push_back("bool");
+        else {
+            const Token& param = consumeName("Nom de paramètre de type attendu");
+            params.push_back(param.lexeme);
+        }
     } while (match(TokenType::Comma));
 
     consume(TokenType::AngleClose, "'>' attendu après les paramètres de type");
@@ -1138,7 +1143,8 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     }
 
     if (match(TokenType::This)) {
-        return std::make_unique<ThisExpressionNode>();
+        auto expr = std::make_unique<ThisExpressionNode>();
+        return finishCall(std::move(expr));
     }
 
     if (match(TokenType::Super)) {

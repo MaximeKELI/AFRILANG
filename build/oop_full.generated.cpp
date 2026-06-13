@@ -103,7 +103,7 @@ int main() {
     #line 59 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
     rex->describe();
     #line 61 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
-    std::unique_ptr<Animal> pet = std::make_unique<Dog>("Canis", "Buddy");
+    std::unique_ptr<Dog> pet = std::make_unique<Dog>("Canis", "Buddy");
     #line 62 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
     pet->describe();
     #line 64 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"

@@ -89,6 +89,14 @@ std::string mangleGlobalFunctionName(const std::string& name) {
     return "afr_" + name;
 }
 
+std::string instantiatedClassStorageCpp(const NewExpressionNode& newExpr) {
+    if (newExpr.typeArgs.empty()) {
+        return "std::unique_ptr<" + newExpr.className + ">";
+    }
+    return "std::unique_ptr<" + newExpr.className + "<" +
+           joinGenericArgs(newExpr.typeArgs) + ">>";
+}
+
 bool expressionUsesNaturalListOps(const ExpressionNode& expr) {
     if (dynamic_cast<const MapEachExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const FilterEachExpressionNode*>(&expr)) return true;
@@ -904,22 +912,18 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(assign->value.get())) {
-            AfrType storedType = assign->typeName.empty()
-                ? AfrType::classType(newExpr->className)
-                : typeFromName(assign->typeName);
-            out << constPrefix << classStorageCpp(storedType) << " " << assign->name << " = ";
+            out << constPrefix << instantiatedClassStorageCpp(*newExpr) << " " << assign->name
+                << " = ";
             emitExpression(out, *assign->value, ownerClass);
             out << ";\n";
             return;
         }
 
         if (const auto* newCall = dynamic_cast<const CallExpressionNode*>(assign->value.get())) {
-            if (dynamic_cast<const NewExpressionNode*>(newCall->callee.get())) {
-                AfrType storedType = assign->typeName.empty()
-                    ? AfrType::classType(
-                          static_cast<const NewExpressionNode*>(newCall->callee.get())->className)
-                    : typeFromName(assign->typeName);
-                out << constPrefix << classStorageCpp(storedType) << " " << assign->name << " = ";
+            if (const auto* newExpr =
+                    dynamic_cast<const NewExpressionNode*>(newCall->callee.get())) {
+                out << constPrefix << instantiatedClassStorageCpp(*newExpr) << " "
+                    << assign->name << " = ";
                 emitExpression(out, *assign->value, ownerClass);
                 out << ";\n";
                 return;
@@ -1015,11 +1019,23 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
 
     if (const auto* set = dynamic_cast<const SetStatementNode*>(&stmt)) {
         if (const auto* member = dynamic_cast<const MemberAccessNode*>(set->target.get())) {
-            const AfrType objectType = inferExpressionAfrType(*member->object);
-            if (objectType.kind == TypeKind::Class &&
-                classHasProperty(semantic_, objectType.className, member->member)) {
-                emitReceiver(out, *member->object, ownerClass);
-                out << propertySetterName(member->member) << "(";
+            std::string className;
+            if (dynamic_cast<const ThisExpressionNode*>(member->object.get()) && ownerClass) {
+                className = ownerClass->name;
+            } else {
+                const AfrType objectType = inferExpressionAfrType(*member->object);
+                if (objectType.kind == TypeKind::Class) {
+                    className = objectType.className;
+                }
+            }
+            if (!className.empty() &&
+                classHasProperty(semantic_, className, member->member)) {
+                if (dynamic_cast<const ThisExpressionNode*>(member->object.get())) {
+                    out << propertySetterName(member->member) << "(";
+                } else {
+                    emitReceiver(out, *member->object, ownerClass);
+                    out << propertySetterName(member->member) << "(";
+                }
                 emitExpression(out, *set->value, ownerClass);
                 out << ");\n";
                 return;
@@ -1718,12 +1734,12 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
     if (dynamic_cast<const BoolLiteralNode*>(&expr)) return "bool";
 
     if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
-        return classStorageCpp(newExpr->className);
+        return instantiatedClassStorageCpp(*newExpr);
     }
 
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         if (const auto* newCallee = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
-            return classStorageCpp(newCallee->className);
+            return instantiatedClassStorageCpp(*newCallee);
         }
     }
 
