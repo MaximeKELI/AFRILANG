@@ -1,5 +1,8 @@
 {
   "packages": [
-    {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)"}
+    {"name": "math", "version": "0.1.0", "description": "Basic math utilities (square, pi, twice)"},
+    {"name": "config", "version": "0.1.0", "description": "Load TOML/JSON config files"},
+    {"name": "datetime", "version": "0.1.0", "description": "Date and time helpers"},
+    {"name": "cli", "version": "0.1.0", "description": "CLI argument parsing helpers"}
   ]
 }

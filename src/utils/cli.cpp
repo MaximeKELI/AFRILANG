@@ -50,6 +50,8 @@ static void printUsage() {
     std::cerr << "  afrilang serve [port]        Playground web local\n";
     std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
+    std::cerr << "  afrilang lint <fichier.afr>  Analyse statique (warnings)\n";
+    std::cerr << "  afrilang doc <fichier.afr>   Générer la doc (Markdown)\n";
     std::cerr << "  afrilang <fichier.afr> [opts] Mode legacy\n\n";
     std::cerr << "Options (mode legacy):\n";
     std::cerr << "  --tokens  --ast  --emit  --run  -o <exe>\n";
@@ -157,7 +159,7 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "ffi.afr", "pkg_demo.afr",
         "natural.afr", "educational.afr",
         "advanced.afr", "fs_demo.afr",
-        "generics.afr"
+        "generics.afr", "maps.afr", "exceptions.afr", "phase9_demo.afr"
     };
 
     CompileOptions opts;
@@ -364,6 +366,39 @@ static int legacyMode(int argc, char* argv[]) {
     }
 }
 
+static int cmdLint(const std::string& sourcePath) {
+    if (Pipeline::checkFile(sourcePath)) {
+        std::cout << "lint: OK (no errors)\n";
+        return 0;
+    }
+    return 1;
+}
+
+static int cmdDoc(const std::string& sourcePath) {
+    try {
+        const fs::path srcPath = fs::absolute(sourcePath);
+        Compiler compiler(srcPath.string(), detectAfrilangRoot());
+        std::unique_ptr<ProgramNode> program = compiler.compile();
+        std::cout << "# " << srcPath.filename().string() << "\n\n";
+        for (const auto& func : program->functions) {
+            std::cout << "## function " << func->name << "\n\n";
+            if (!func->returnTypeName.empty()) {
+                std::cout << "Returns `" << func->returnTypeName << "`\n\n";
+            }
+        }
+        for (const auto& cls : program->classes) {
+            std::cout << "## class " << cls->name << "\n\n";
+        }
+        for (const auto& test : program->tests) {
+            std::cout << "## test \"" << test->name << "\"\n\n";
+        }
+        return 0;
+    } catch (const CompileError& e) {
+        std::cerr << e.format();
+        return 1;
+    }
+}
+
 int runCli(int argc, char* argv[]) {
     if (argc < 2) {
         printUsage();
@@ -452,6 +487,14 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "init") {
         return cmdInit(argc > 2 ? argv[2] : "");
+    }
+    if (cmd == "lint") {
+        if (argc < 3) { std::cerr << "Usage: afrilang lint <fichier.afr>\n"; return 1; }
+        return cmdLint(argv[2]);
+    }
+    if (cmd == "doc") {
+        if (argc < 3) { std::cerr << "Usage: afrilang doc <fichier.afr>\n"; return 1; }
+        return cmdDoc(argv[2]);
     }
     if (cmd == "--help" || cmd == "-h") {
         printUsage();
