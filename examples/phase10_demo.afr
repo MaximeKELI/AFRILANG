@@ -1,0 +1,36 @@
+import "std/collections"
+
+use collections
+
+function greet(name text, prefix text = "Hello") returns text
+    return join(list of prefix, " ", name, "!")
+end
+
+say greet("World")
+say greet("Africa", "Bonjour")
+
+create const PI = 3.14159
+say PI
+
+create nums = list of 3, 1, 4, 1, 5
+say sortNumbers(nums)
+say sum(nums)
+say reverseNumbers(nums)
+say containsNumber(nums, 4)
+say indexOfNumber(nums, 5)
+
+create words = list of "zebra", "apple", "mango"
+say sortText(words)
+say containsText(words, "apple")
+
+create total = 0
+for i from 1 to 5 do
+    set total = total + i
+end
+say total
+
+for n from 0 to 10 step 2 do
+    say n
+end
+
+say "Phase 10 demo complete"

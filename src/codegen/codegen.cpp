@@ -378,7 +378,7 @@ std::string CodeGenerator::paramList(const FunctionNode& func) {
         if (param.defaultValue) {
             out << " = ";
             if (const auto* str = dynamic_cast<const StringLiteralNode*>(param.defaultValue.get())) {
-                out << "\"" << escapeCppString(str->value) << "\"";
+                out << "\"" << escapeString(str->value) << "\"";
             } else if (const auto* num = dynamic_cast<const NumberLiteralNode*>(param.defaultValue.get())) {
                 out << num->value;
             } else if (const auto* boolean = dynamic_cast<const BoolLiteralNode*>(param.defaultValue.get())) {
