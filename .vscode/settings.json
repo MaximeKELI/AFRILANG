@@ -1,0 +1,7 @@
+{
+  "afrilang.serverPath": "${workspaceFolder}/build/afrilang",
+  "workbench.iconTheme": "afrilang-icons",
+  "[afrilang]": {
+    "editor.tabSize": 4
+  }
+}

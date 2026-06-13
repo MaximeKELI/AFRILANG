@@ -1,17 +1,106 @@
 const vscode = require('vscode');
 const path = require('path');
-const { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } = require('vscode-languageclient/node');
+const fs = require('fs');
+const { exec } = require('child_process');
+const { promisify } = require('util');
+const { LanguageClient, TransportKind } = require('vscode-languageclient/node');
+
+const execAsync = promisify(exec);
 
 /** @type {LanguageClient | undefined} */
 let client;
 
-function getServerPath() {
+/** @type {vscode.OutputChannel | undefined} */
+let outputChannel;
+
+function isAfrilangDocument(document) {
+  if (!document) return false;
+  return document.languageId === 'afrilang' || document.fileName.endsWith('.afr');
+}
+
+function resolveServerPath() {
   const config = vscode.workspace.getConfiguration('afrilang');
-  return config.get('serverPath', 'afrilang');
+  let serverPath = config.get('serverPath', 'afrilang');
+
+  // Expand ${workspaceFolder} if present
+  const folder = vscode.workspace.workspaceFolders?.[0];
+  if (folder && serverPath.includes('${workspaceFolder}')) {
+    serverPath = serverPath.replace(/\$\{workspaceFolder\}/g, folder.uri.fsPath);
+  }
+
+  if (serverPath !== 'afrilang' && fs.existsSync(serverPath)) {
+    return serverPath;
+  }
+
+  if (folder) {
+    const candidates = [
+      path.join(folder.uri.fsPath, 'build', 'afrilang'),
+      path.join(folder.uri.fsPath, 'afrilang'),
+    ];
+    for (const candidate of candidates) {
+      if (fs.existsSync(candidate)) return candidate;
+    }
+  }
+
+  return serverPath;
+}
+
+function verifyServerPath(serverPath) {
+  if (serverPath === 'afrilang') return true;
+  return fs.existsSync(serverPath);
+}
+
+function getOutputChannel() {
+  if (!outputChannel) {
+    outputChannel = vscode.window.createOutputChannel('AFRILANG');
+  }
+  return outputChannel;
+}
+
+async function runAfrilangCommand(subcommand, filePath) {
+  const serverPath = resolveServerPath();
+
+  if (!verifyServerPath(serverPath)) {
+    const msg = `Exécutable introuvable : ${serverPath}\n` +
+      'Compilez le projet (cd build && make) ou configurez afrilang.serverPath.';
+    vscode.window.showErrorMessage(msg);
+    getOutputChannel().appendLine(msg);
+    return;
+  }
+
+  const channel = getOutputChannel();
+  channel.clear();
+  channel.show(true);
+  channel.appendLine(`> "${serverPath}" ${subcommand} "${filePath}"`);
+  channel.appendLine('');
+
+  try {
+    const { stdout, stderr } = await execAsync(
+      `"${serverPath}" ${subcommand} "${filePath}"`,
+      { cwd: path.dirname(filePath), maxBuffer: 10 * 1024 * 1024 }
+    );
+    if (stdout) channel.appendLine(stdout);
+    if (stderr) channel.appendLine(stderr);
+    channel.appendLine('');
+    channel.appendLine('--- Terminé ---');
+  } catch (err) {
+    if (err.stdout) channel.appendLine(err.stdout);
+    if (err.stderr) channel.appendLine(err.stderr);
+    channel.appendLine(`Erreur (code ${err.code ?? '?'}): ${err.message}`);
+    vscode.window.showErrorMessage(`AFRILANG: échec de ${subcommand}`);
+  }
 }
 
 function startLanguageClient(context) {
-  const serverPath = getServerPath();
+  const serverPath = resolveServerPath();
+
+  if (!verifyServerPath(serverPath)) {
+    const msg = `AFRILANG LSP: exécutable introuvable (${serverPath}). ` +
+      'Définissez afrilang.serverPath dans settings.json.';
+    vscode.window.showWarningMessage(msg);
+    getOutputChannel().appendLine(msg);
+    return Promise.resolve();
+  }
 
   const serverOptions = {
     command: serverPath,
@@ -25,27 +114,28 @@ function startLanguageClient(context) {
     synchronize: {
       fileEvents: vscode.workspace.createFileSystemWatcher('**/*.afr')
     },
-    outputChannelName: 'AFRILANG LSP'
+    outputChannel: getOutputChannel()
   };
 
-  client = new LanguageClient('afrilang', 'AFRILANG Language Server', serverOptions, clientOptions);
+  client = new LanguageClient(
+    'afrilang',
+    'AFRILANG Language Server',
+    serverOptions,
+    clientOptions
+  );
   return client.start();
 }
 
 function registerRunCommand(context) {
   const disposable = vscode.commands.registerCommand('afrilang.runFile', async () => {
     const editor = vscode.window.activeTextEditor;
-    if (!editor || editor.document.languageId !== 'afrilang') {
+    if (!editor || !isAfrilangDocument(editor.document)) {
       vscode.window.showWarningMessage('Ouvrez un fichier .afr pour l\'exécuter.');
       return;
     }
 
     await editor.document.save();
-    const filePath = editor.document.uri.fsPath;
-    const serverPath = getServerPath();
-    const terminal = vscode.window.createTerminal({ name: 'AFRILANG', cwd: path.dirname(filePath) });
-    terminal.show();
-    terminal.sendText(`"${serverPath}" run "${filePath}"`);
+    await runAfrilangCommand('run', editor.document.uri.fsPath);
   });
   context.subscriptions.push(disposable);
 }
@@ -53,25 +143,23 @@ function registerRunCommand(context) {
 function registerCheckCommand(context) {
   const disposable = vscode.commands.registerCommand('afrilang.checkFile', async () => {
     const editor = vscode.window.activeTextEditor;
-    if (!editor || editor.document.languageId !== 'afrilang') {
+    if (!editor || !isAfrilangDocument(editor.document)) {
       vscode.window.showWarningMessage('Ouvrez un fichier .afr pour le vérifier.');
       return;
     }
 
     await editor.document.save();
-    const filePath = editor.document.uri.fsPath;
-    const serverPath = getServerPath();
-    const terminal = vscode.window.createTerminal({ name: 'AFRILANG', cwd: path.dirname(filePath) });
-    terminal.show();
-    terminal.sendText(`"${serverPath}" check "${filePath}"`);
+    await runAfrilangCommand('check', editor.document.uri.fsPath);
   });
   context.subscriptions.push(disposable);
 }
 
 function registerRestartCommand(context) {
   const disposable = vscode.commands.registerCommand('afrilang.restartServer', async () => {
-    if (!client) return;
-    await client.stop();
+    if (client) {
+      await client.stop();
+      client = undefined;
+    }
     await startLanguageClient(context);
     vscode.window.showInformationMessage('Serveur AFRILANG redémarré.');
   });
@@ -85,6 +173,7 @@ function activate(context) {
   registerRestartCommand(context);
   startLanguageClient(context).catch((err) => {
     vscode.window.showErrorMessage(`AFRILANG LSP: ${err.message}`);
+    getOutputChannel().appendLine(`LSP error: ${err.message}`);
   });
 }
 

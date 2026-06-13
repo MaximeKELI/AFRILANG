@@ -1,7 +1,10 @@
 {
   "iconDefinitions": {
     "_afr_file": {
-      "iconPath": "./afr-dark.png"
+      "iconPath": {
+        "light": "./afr-light.png",
+        "dark": "./afr-dark.png"
+      }
     }
   },
   "fileExtensions": {

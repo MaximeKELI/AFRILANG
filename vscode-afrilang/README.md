@@ -7,16 +7,23 @@ Coloration syntaxique, diagnostics LSP, complétion, formatage et exécution de 
 - [AFRILANG](https://github.com/afrilang/afrilang) compilé et accessible dans le `PATH` (`afrilang --help`)
 - Node.js 18+ (pour installer les dépendances de l'extension)
 
-## Installation locale
+## Installation locale (Cursor)
+
+`cursor --install-extension .` peut échouer silencieusement sur certaines versions. Utilisez le script :
 
 ```bash
-# 1. Compiler le compilateur
-cd /chemin/vers/AFRILANG/build && cmake .. && make
+cd /chemin/vers/AFRILANG/vscode-afrilang
+./install-cursor.sh
+```
 
-# 2. Installer l'extension
-cd ../vscode-afrilang
+Puis dans Cursor : **Developer: Reload Window**.
+
+### VS Code
+
+```bash
+cd vscode-afrilang
 npm install
-code --install-extension .    # ou dans Cursor: cursor --install-extension .
+code --install-extension .
 ```
 
 Rechargez la fenêtre (*Developer: Reload Window*).
@@ -45,7 +52,26 @@ Exemple `settings.json` :
 - **Formatage** — `Shift+Alt+F` ou format on save via LSP
 - **Exécuter** — bouton ▶ dans l'éditeur ou commande *AFRILANG: Exécuter le fichier*
 - **Vérifier** — *AFRILANG: Vérifier le fichier* (`afrilang check`)
-- **Icône** — carte d'Afrique pour `.afr` (thème d'icônes *AFRILANG* optionnel)
+- **Icône** — carte d'Afrique pour les fichiers `.afr`
+
+### Icône des fichiers `.afr`
+
+Les fichiers `.afr` affichent le logo AFRILANG dans l'explorateur (VS Code / Cursor récent).
+
+Si l'icône n'apparaît pas :
+
+1. **Réinstallez** l'extension après mise à jour :
+   ```bash
+   cd vscode-afrilang && cursor --install-extension . --force
+   ```
+2. **Rechargez** la fenêtre : *Developer: Reload Window*
+3. **Optionnel** — activez le thème d'icônes AFRILANG dans `settings.json` :
+   ```json
+   {
+     "workbench.iconTheme": "afrilang-icons"
+   }
+   ```
+   Ou : *Preferences → File Icon Theme → AFRILANG*
 
 ## Commandes
 

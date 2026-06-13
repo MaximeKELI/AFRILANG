@@ -2,7 +2,7 @@
   "name": "afrilang",
   "displayName": "AFRILANG",
   "description": "Support AFRILANG — coloration, LSP, formatage et exécution",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "publisher": "afrilang",
   "license": "MIT",
   "icon": "icons/icon.png",
@@ -10,7 +10,7 @@
   "categories": ["Programming Languages"],
   "keywords": ["afrilang", "africa", "natural language"],
   "main": "./extension.js",
-  "activationEvents": ["onLanguage:afrilang"],
+  "activationEvents": ["onLanguage:afrilang", "onStartupFinished"],
   "dependencies": {
     "vscode-languageclient": "^9.0.1"
   },
@@ -21,8 +21,8 @@
       "extensions": [".afr"],
       "configuration": "./language-configuration.json",
       "icon": {
-        "light": "./icons/afr-light.png",
-        "dark": "./icons/afr-dark.png"
+        "light": "icons/afr-light.png",
+        "dark": "icons/afr-dark.png"
       }
     }],
     "iconThemes": [{
@@ -40,8 +40,8 @@
       "properties": {
         "afrilang.serverPath": {
           "type": "string",
-          "default": "afrilang",
-          "description": "Chemin vers l'exécutable afrilang (doit être dans le PATH ou chemin absolu)."
+          "default": "${workspaceFolder}/build/afrilang",
+          "description": "Chemin vers l'exécutable afrilang (absolu ou ${workspaceFolder}/build/afrilang)."
         },
         "afrilang.trace.server": {
           "type": "string",

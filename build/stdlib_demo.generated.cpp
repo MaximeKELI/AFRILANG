@@ -4,8 +4,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include <stdexcept>
 #include "io.hpp"
 #include "json.hpp"
+#include "str.hpp"
 
 namespace io {
 } // namespace io
