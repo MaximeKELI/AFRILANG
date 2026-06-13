@@ -678,6 +678,7 @@ CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o: /home/maxime/AFRILANG/src
   /home/maxime/AFRILANG/include/afrilang/ast.hpp \
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/error.hpp \
+  /home/maxime/AFRILANG/include/afrilang/lexer.hpp \
   /home/maxime/AFRILANG/include/afrilang/parser.hpp \
   /home/maxime/AFRILANG/include/afrilang/token.hpp \
   /usr/include/alloca.h \
