@@ -137,7 +137,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
     const std::vector<std::string> examples = {
         "hello.afr", "oop.afr", "conditions.afr", "inheritance.afr",
         "functions.afr", "while.afr", "lists.afr", "modules.afr",
-        "fields.afr", "records.afr", "full_demo.afr"
+        "fields.afr", "records.afr", "full_demo.afr", "stdlib_demo.afr",
+        "result.afr", "interfaces.afr", "tests.afr"
     };
 
     CompileOptions opts;
