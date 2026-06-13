@@ -1192,6 +1192,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -1239,6 +1240,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1267,6 +1269,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -1281,6 +1284,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/memory \
@@ -3835,6 +3839,10 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/arpa/inet.h:
 
+/usr/include/c++/13/functional:
+
+/usr/include/c++/13/array:
+
 /home/maxime/AFRILANG/include/afrilang/parser.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
@@ -3990,6 +3998,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/locale_facets.tcc:
 
 /usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/compare:
 
 /usr/include/c++/13/system_error:
 
@@ -4380,6 +4390,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/typeinfo:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+
+/usr/include/c++/13/bits/std_function.h:
 
 /usr/include/c++/13/bits/char_traits.h:
 

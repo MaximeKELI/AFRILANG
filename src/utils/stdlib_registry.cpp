@@ -6,11 +6,17 @@ namespace afrilang {
 
 namespace {
 
-std::unique_ptr<FunctionNode> makeStubFunction(const std::string& name,
-                                               std::vector<ParameterNode> params,
-                                               std::string returnType) {
+std::unique_ptr<FunctionNode> makeStubFunction(
+    const std::string& name,
+    std::initializer_list<std::pair<std::string, std::string>> params,
+    std::string returnType) {
+    std::vector<ParameterNode> paramNodes;
+    paramNodes.reserve(params.size());
+    for (const auto& [pname, ptype] : params) {
+        paramNodes.emplace_back(pname, ptype, nullptr);
+    }
     return std::make_unique<FunctionNode>(
-        name, std::move(params), std::move(returnType), false,
+        name, std::move(paramNodes), std::move(returnType), false,
         std::vector<std::unique_ptr<StatementNode>>{});
 }
 
