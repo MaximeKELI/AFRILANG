@@ -18,7 +18,9 @@ std::unique_ptr<FunctionNode> makeStubFunction(
     }
     return std::make_unique<FunctionNode>(
         name, std::move(paramNodes), std::move(returnType), false,
-        std::vector<std::unique_ptr<StatementNode>>{}, {}, false, false, false, isAsync);
+        std::vector<std::unique_ptr<StatementNode>>{},
+        std::vector<std::string>{},
+        false, false, false, isAsync);
 }
 
 bool hasModule(const ProgramNode& program, const std::string& name) {
