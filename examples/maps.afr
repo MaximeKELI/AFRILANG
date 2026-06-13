@@ -11,5 +11,5 @@ for each name, score in scores do
     say score
 end
 
-create empty = empty map text to number
-say length of empty
+create emptyMap = empty map text to number
+say length of emptyMap
