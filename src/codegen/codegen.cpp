@@ -63,6 +63,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <vector>\n";
     out << "#include <unordered_map>\n";
     out << "#include <stdexcept>\n";
+    out << "#include <functional>\n";
 
     bool needsOptional = false;
     for (const auto& [_, t] : semantic_.globalVariables) {
