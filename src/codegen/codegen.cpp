@@ -296,6 +296,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "collections") needsCollections = true;
         if (module->name == "args") needsArgs = true;
         if (module->name == "path") needsPath = true;
+        if (module->name == "async") { /* async.hpp via usesAsync */ }
     }
     for (const auto& modName : semantic_.usedModules) {
         if (modName == "args") needsArgs = true;

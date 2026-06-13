@@ -100,6 +100,7 @@ void Compiler::handleStdlibImport(ProgramNode& program, const std::string& impor
     else if (mod == "collections") StdlibRegistry::injectCollectionsModule(program);
     else if (mod == "args") StdlibRegistry::injectArgsModule(program);
     else if (mod == "path") StdlibRegistry::injectPathModule(program);
+    else if (mod == "async") StdlibRegistry::injectAsyncModule(program);
 }
 
 std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {

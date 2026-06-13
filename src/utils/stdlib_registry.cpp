@@ -9,7 +9,8 @@ namespace {
 std::unique_ptr<FunctionNode> makeStubFunction(
     const std::string& name,
     std::initializer_list<std::pair<std::string, std::string>> params,
-    std::string returnType) {
+    std::string returnType,
+    bool isAsync = false) {
     std::vector<ParameterNode> paramNodes;
     paramNodes.reserve(params.size());
     for (const auto& [pname, ptype] : params) {
@@ -17,7 +18,7 @@ std::unique_ptr<FunctionNode> makeStubFunction(
     }
     return std::make_unique<FunctionNode>(
         name, std::move(paramNodes), std::move(returnType), false,
-        std::vector<std::unique_ptr<StatementNode>>{});
+        std::vector<std::unique_ptr<StatementNode>>{}, {}, false, false, false, isAsync);
 }
 
 bool hasModule(const ProgramNode& program, const std::string& name) {
@@ -57,7 +58,8 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
            path == "std/re" || path == "std/re.afr" ||
            path == "std/collections" || path == "std/collections.afr" ||
            path == "std/args" || path == "std/args.afr" ||
-           path == "std/path" || path == "std/path.afr";
+           path == "std/path" || path == "std/path.afr" ||
+           path == "std/async" || path == "std/async.afr";
 }
 
 std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
@@ -82,6 +84,9 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     }
     if (path.find("std/path") != std::string::npos || path.find("path.afr") != std::string::npos) {
         return "path";
+    }
+    if (path.find("std/async") != std::string::npos || path.find("async.afr") != std::string::npos) {
+        return "async";
     }
     if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
         return "fs";
@@ -207,6 +212,12 @@ void StdlibRegistry::injectPathModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("extension", {{"path", "text"}}, "text"));
     fns.push_back(makeStubFunction("isAbsolute", {{"path", "text"}}, "bool"));
     injectModule(program, "path", std::move(fns));
+}
+
+void StdlibRegistry::injectAsyncModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("sleep", {{"ms", "number"}}, "", true));
+    injectModule(program, "async", std::move(fns));
 }
 
 } // namespace afrilang
