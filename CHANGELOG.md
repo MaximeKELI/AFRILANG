@@ -26,6 +26,7 @@
 
 ### Examples
 - `examples/maps.afr`, `examples/exceptions.afr`, `examples/phase9_demo.afr`
+- `examples/defaults.afr`, `examples/phase10_demo.afr`
 
 ## Prior releases
 - Generics on functions, enums/match, null-safety, LSP, pkg registry, playground
