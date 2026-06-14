@@ -183,7 +183,8 @@ private:
 
     [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
     [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,
-                              const std::vector<std::string>& nameHints = {}) const;
+                              const std::vector<std::string>& nameHints = {},
+                              ErrorCode code = ErrorCode::Semantic) const;
 };
 
 } // namespace afrilang
