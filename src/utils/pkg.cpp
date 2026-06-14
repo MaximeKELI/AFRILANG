@@ -200,7 +200,21 @@ int PkgRegistry::cmdInstall(const std::string& projectDir, const std::string& af
 
     int failures = 0;
     for (const auto& [name, version] : config.dependencies) {
-        (void)version;
+        const fs::path src = fs::path(afrilangRoot) / "packages" / name;
+        if (!fs::exists(src)) {
+            std::cerr << "Erreur: paquet '" << name << "' introuvable.\n";
+            ++failures;
+            continue;
+        }
+        PackageInfo info = loadManifest(src.string());
+        if (info.name.empty()) info.name = name;
+        const std::string actualVersion = info.version.empty() ? "0.1.0" : info.version;
+        if (!version.empty() && !semverSatisfies(version, actualVersion)) {
+            std::cerr << "Erreur: '" << name << "' requiert " << version
+                      << " mais le registre fournit " << actualVersion << "\n";
+            ++failures;
+            continue;
+        }
         if (cmdAdd(projectDir, name, afrilangRoot) != 0) {
             ++failures;
         }

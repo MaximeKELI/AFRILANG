@@ -80,8 +80,7 @@ static std::string jsonEscape(const std::string& s) {
 static std::string runSource(const std::string& source) {
     const std::string sessionPath = "/tmp/afrilang_playground.afr";
     const std::string cppPath = "/tmp/afrilang_playground.generated.cpp";
-    const std::string exePath = "/tmp/afrilang_playground";
-    const std::string outPath = "/tmp/afrilang_playground_out.txt";
+    const std::string exePath = "/tmp/afrilang_playground.bin";
 
     try {
         SourceManager sources;
@@ -98,17 +97,15 @@ static std::string runSource(const std::string& source) {
             return "{\"ok\":false,\"output\":\"Erreur de compilation g++\",\"exitCode\":1}";
         }
 
-        const std::string cmd = exePath + " > " + outPath + " 2>&1";
-        const int code = std::system(cmd.c_str());
-
-        std::ifstream outFile(outPath);
-        std::ostringstream buffer;
-        buffer << outFile.rdbuf();
+        const ExecResult exec = execWithTimeout(exePath, {}, 5);
 
         std::ostringstream json;
-        json << "{\"ok\":" << (code == 0 ? "true" : "false")
-             << ",\"output\":\"" << jsonEscape(buffer.str())
-             << "\",\"exitCode\":" << code << "}";
+        json << "{\"ok\":" << (exec.exitCode == 0 && !exec.timedOut ? "true" : "false")
+             << ",\"output\":\"" << jsonEscape(exec.output);
+        if (exec.timedOut) {
+            json << "\\n[timeout: exécution limitée à 5s]";
+        }
+        json << "\",\"exitCode\":" << exec.exitCode << "}";
         return json.str();
     } catch (const CompileError& e) {
         return "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\",\"exitCode\":1}";
