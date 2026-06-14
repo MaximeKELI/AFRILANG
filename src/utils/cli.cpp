@@ -448,11 +448,31 @@ static int legacyMode(int argc, char* argv[]) {
 }
 
 static int cmdLint(const std::string& sourcePath) {
-    if (Pipeline::checkFile(sourcePath)) {
-        std::cout << "lint: OK (no errors)\n";
+    try {
+        const fs::path srcPath = fs::absolute(sourcePath);
+        Compiler compiler(srcPath.string(), detectAfrilangRoot());
+        std::unique_ptr<ProgramNode> program = compiler.compile();
+        SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
+        const SemanticResult semantic = analyzer.analyze();
+        int warnings = 0;
+        for (const auto& w : semantic.warnings) {
+            std::cout << "warning";
+            if (w.line > 0) {
+                std::cout << " [" << w.line << ":" << w.column << "]";
+            }
+            std::cout << ": " << w.message << "\n";
+            ++warnings;
+        }
+        if (warnings == 0) {
+            std::cout << "lint: OK (no errors, no warnings)\n";
+        } else {
+            std::cout << "lint: " << warnings << " warning(s), no errors\n";
+        }
         return 0;
+    } catch (const CompileError& e) {
+        std::cerr << e.format();
+        return 1;
     }
-    return 1;
 }
 
 static int cmdDoc(const std::string& sourcePath) {

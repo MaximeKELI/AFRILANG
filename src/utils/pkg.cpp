@@ -1,6 +1,7 @@
 #include "afrilang/pkg.hpp"
 
 #include "afrilang/project.hpp"
+#include "afrilang/semver.hpp"
 
 #include <algorithm>
 #include <cctype>

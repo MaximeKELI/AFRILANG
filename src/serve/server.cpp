@@ -191,8 +191,9 @@ static void handleClient(int client, const fs::path& siteRoot) {
     }
 
     if (path == "/") path = "/index.html";
-    const fs::path filePath = siteRoot / path.substr(1);
-    if (!fs::exists(filePath) || !fs::is_regular_file(filePath)) {
+    const fs::path filePath = fs::weakly_canonical(siteRoot / path.substr(1));
+    if (!isPathInsideRoot(fs::weakly_canonical(siteRoot).string(), filePath.string()) ||
+        !fs::exists(filePath) || !fs::is_regular_file(filePath)) {
         sendResponse(client, 404, "text/plain", "404 Not Found");
         return;
     }
