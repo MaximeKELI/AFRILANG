@@ -1,7 +1,0 @@
-module template
-
-function fill(pattern text, value text) returns text
-end
-
-function fill2(pattern text, a text, b text) returns text
-end
