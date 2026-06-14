@@ -11,13 +11,13 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/maps.afr"
-    std::unordered_map<std::string, double> scores = {{"alice", 95}, {"bob", 88}, {"carol", 91}};
+    std::unordered_map<std::string, double> scores = {{"alice", 95LL}, {"bob", 88LL}, {"carol", 91LL}};
     #line 3 "/home/maxime/AFRILANG/build/../examples/maps.afr"
     std::cout << scores["alice"] << std::endl;
     #line 4 "/home/maxime/AFRILANG/build/../examples/maps.afr"
     std::cout << scores.size() << std::endl;
     #line 6 "/home/maxime/AFRILANG/build/../examples/maps.afr"
-    scores["dave"] = 76;
+    scores["dave"] = 76LL;
     #line 7 "/home/maxime/AFRILANG/build/../examples/maps.afr"
     std::cout << scores["dave"] << std::endl;
     #line 9 "/home/maxime/AFRILANG/build/../examples/maps.afr"

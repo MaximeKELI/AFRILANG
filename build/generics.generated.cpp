@@ -18,16 +18,16 @@ T afr_identity(const T& x) {
 template<typename T>
 T afr_first(std::vector<T> items) {
     #line 6 "/home/maxime/AFRILANG/build/../examples/generics.afr"
-    return items[0];
+    return items[0LL];
 }
 
 int main() {
     #line 9 "/home/maxime/AFRILANG/build/../examples/generics.afr"
-    std::cout << afr_identity(42) << std::endl;
+    std::cout << afr_identity(42LL) << std::endl;
     #line 10 "/home/maxime/AFRILANG/build/../examples/generics.afr"
     std::cout << afr_identity(std::string("hello")) << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/generics.afr"
-    std::vector<double> nums = {10, 20, 30};
+    std::vector<std::int64_t> nums = {10LL, 20LL, 30LL};
     #line 13 "/home/maxime/AFRILANG/build/../examples/generics.afr"
     std::cout << afr_first(nums) << std::endl;
     #line 15 "/home/maxime/AFRILANG/build/../examples/generics.afr"

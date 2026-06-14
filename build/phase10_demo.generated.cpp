@@ -160,38 +160,38 @@ int main() {
     #line 17 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << PI << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::vector<double> nums = {3, 1, 4, 1, 5};
+    std::vector<std::int64_t> nums = {3LL, 1LL, 4LL, 1LL, 5LL};
     #line 20 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<double> sorted = collections::sortNumbers(nums);
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << sorted[static_cast<size_t>(0)] << std::endl;
+    std::cout << sorted[static_cast<size_t>(0LL)] << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << sorted[static_cast<size_t>(4)] << std::endl;
+    std::cout << sorted[static_cast<size_t>(4LL)] << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << collections::sumNumbers(nums) << std::endl;
     #line 24 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << collections::containsNumber(nums, 4) << std::endl;
+    std::cout << collections::containsNumber(nums, 4LL) << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << collections::indexOfNumber(nums, 5) << std::endl;
+    std::cout << collections::indexOfNumber(nums, 5LL) << std::endl;
     #line 27 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<std::string> words = {"zebra", "apple", "mango"};
     #line 28 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<std::string> ordered = collections::sortText(words);
     #line 29 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::cout << ordered[static_cast<size_t>(0)] << std::endl;
+    std::cout << ordered[static_cast<size_t>(0LL)] << std::endl;
     #line 30 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << collections::containsText(words, "apple") << std::endl;
     #line 32 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    double total = 0;
+    std::int64_t total = 0LL;
     #line 33 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    for (double i = 1; i <= 5; i += 1.0) {
+    for (double i = 1LL; i <= 5LL; i += 1.0) {
         #line 34 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         total = (total + i);
     }
     #line 36 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << total << std::endl;
     #line 38 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    for (double n = 0; n <= 10; n += 2) {
+    for (double n = 0LL; n <= 10LL; n += 2LL) {
         #line 39 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
         std::cout << n << std::endl;
     }

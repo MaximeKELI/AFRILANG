@@ -11,7 +11,7 @@
 
 double afr_divide(double a, double b) {
     #line 4 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"
-    if ((b == 0)) {
+    if ((b == 0LL)) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"
         throw std::runtime_error("division by zero");
     }
@@ -23,9 +23,9 @@ int main() {
     #line 11 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"
     try {
         #line 9 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"
-        std::cout << afr_divide(10, 2) << std::endl;
+        std::cout << afr_divide(10LL, 2LL) << std::endl;
         #line 10 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"
-        std::cout << afr_divide(10, 0) << std::endl;
+        std::cout << afr_divide(10LL, 0LL) << std::endl;
     } catch (const std::exception& _afr_ex) {
         std::string e = _afr_ex.what();
         #line 12 "/home/maxime/AFRILANG/build/../examples/exceptions.afr"

@@ -118,20 +118,20 @@ int main() {
     #line 4 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
         #line 5 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
         #line 7 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::vector<double> nums = {1, 2, 3, 4, 5};
+    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL, 4LL, 5LL};
     #line 9 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<double> doubled = collections::mapNumbers(nums, [&](double x) -> double {
     #line 10 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    return (x * 2);
+    return (x * 2LL);
     });
     #line 13 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << doubled[static_cast<size_t>(0)] << std::endl;
+    std::cout << doubled[static_cast<size_t>(0LL)] << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << doubled[static_cast<size_t>(4)] << std::endl;
+    std::cout << doubled[static_cast<size_t>(4LL)] << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<double> bigOnes = collections::filterNumbers(nums, [&](double x) -> bool {
     #line 21 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    if ((x > 3)) {
+    if ((x > 3LL)) {
         #line 18 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
         return true;
     } else {
@@ -142,14 +142,14 @@ int main() {
     #line 24 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << bigOnes.size() << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << bigOnes[static_cast<size_t>(0)] << std::endl;
+    std::cout << bigOnes[static_cast<size_t>(0LL)] << std::endl;
     #line 26 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << bigOnes[static_cast<size_t>(1)] << std::endl;
+    std::cout << bigOnes[static_cast<size_t>(1LL)] << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     double total = collections::reduceNumbers(nums, [&](double acc, double x) -> double {
     #line 29 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     return (acc + x);
-    }, 0);
+    }, 0LL);
     #line 32 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << total << std::endl;
     #line 34 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
@@ -160,9 +160,9 @@ int main() {
     return (w + "!");
     });
     #line 40 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << upper[static_cast<size_t>(0)] << std::endl;
+    std::cout << upper[static_cast<size_t>(0LL)] << std::endl;
     #line 41 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << upper[static_cast<size_t>(2)] << std::endl;
+    std::cout << upper[static_cast<size_t>(2LL)] << std::endl;
     #line 43 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<std::string> longWords = collections::filterText(words, [&](std::string w) -> bool {
     #line 48 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
@@ -177,7 +177,7 @@ int main() {
     #line 51 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << longWords.size() << std::endl;
     #line 52 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::cout << longWords[static_cast<size_t>(0)] << std::endl;
+    std::cout << longWords[static_cast<size_t>(0LL)] << std::endl;
     #line 54 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << "list ops complete" << std::endl;
     return 0;

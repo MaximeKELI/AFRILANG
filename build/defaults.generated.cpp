@@ -80,9 +80,9 @@ int main() {
     #line 4 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
         #line 5 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
         #line 11 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << afr_power(3) << std::endl;
+    std::cout << afr_power(3LL) << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
-    std::cout << afr_power(2, 10) << std::endl;
+    std::cout << afr_power(2LL, 10LL) << std::endl;
     #line 18 "/home/maxime/AFRILANG/build/../examples/defaults.afr"
     std::cout << afr_label(std::string("System ready")) << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/defaults.afr"

@@ -110,7 +110,7 @@ int main() {
         #line 11 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::string name = "AFRILANG";
     #line 12 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    double version = 1;
+    std::int64_t version = 1LL;
     #line 13 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << afrilang::runtime::str::concat({afrilang::runtime::str::toString("Welcome to "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString(" v"), afrilang::runtime::str::toString(version), afrilang::runtime::str::toString("!")}) << std::endl;
     #line 15 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
@@ -118,9 +118,9 @@ int main() {
     #line 16 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     logging::warn("this is a warning");
     #line 18 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    double value = math::pow(2, 10);
+    double value = math::pow(2LL, 10LL);
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    std::cout << math::abs(-42) << std::endl;
+    std::cout << math::abs(-42LL) << std::endl;
     #line 20 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << math::floor(3.9) << std::endl;
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"

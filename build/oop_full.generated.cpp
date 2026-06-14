@@ -44,7 +44,7 @@ public:
 
     static double nextId() {
         #line 21 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
-        Counter::count = (Counter::count + 1);
+        Counter::count = (Counter::count + 1LL);
         #line 22 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
         return Counter::count;
     }
@@ -91,7 +91,7 @@ public:
 
 int main() {
     #line 52 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
-    std::unique_ptr<Circle> circle = std::make_unique<Circle>(5);
+    std::unique_ptr<Circle> circle = std::make_unique<Circle>(5LL);
     #line 53 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"
     std::cout << circle->area() << std::endl;
     #line 55 "/home/maxime/AFRILANG/build/../examples/oop_full.afr"

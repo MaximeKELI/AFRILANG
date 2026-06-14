@@ -31,7 +31,7 @@ public:
 
 int main() {
     #line 13 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
-    std::unique_ptr<Box<double>> numbers = std::make_unique<Box<double>>(42);
+    std::unique_ptr<Box<double>> numbers = std::make_unique<Box<double>>(42LL);
     #line 14 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
     std::cout << numbers->get() << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/generic_class.afr"
