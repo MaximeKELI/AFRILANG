@@ -1221,7 +1221,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         return;
     }
 
-    if (const auto* use = dynamic_cast<const UseStatementNode*>(&stmt)) {
+    if (dynamic_cast<const UseStatementNode*>(&stmt)) {
         return;
     }
 
@@ -1267,10 +1267,6 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         out << ", ";
         emitExpression(out, *drawText->fontSize, ownerClass);
         out << ");\n";
-        return;
-    }
-
-    if (dynamic_cast<const UseStatementNode*>(&stmt)) {
         return;
     }
 
@@ -1623,6 +1619,26 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             if (i > 0) out << ", ";
             emitExpression(out, *enumCase->arguments[i], ownerClass);
         }
+        out << ")";
+        return;
+    }
+
+    if (dynamic_cast<const WindowIsOpenExpressionNode*>(&expr)) {
+        out << "afrilang::runtime::ui::isOpen()";
+        return;
+    }
+
+    if (const auto* button = dynamic_cast<const ButtonClickedExpressionNode*>(&expr)) {
+        out << "afrilang::runtime::ui::drawButton(";
+        emitExpression(out, *button->label, ownerClass);
+        out << ", ";
+        emitExpression(out, *button->x, ownerClass);
+        out << ", ";
+        emitExpression(out, *button->y, ownerClass);
+        out << ", ";
+        emitExpression(out, *button->width, ownerClass);
+        out << ", ";
+        emitExpression(out, *button->height, ownerClass);
         out << ")";
         return;
     }
