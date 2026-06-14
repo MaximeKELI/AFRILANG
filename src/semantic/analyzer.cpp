@@ -416,12 +416,7 @@ void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
 }
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
-    const bool isStdlib = (module.name == "io" || module.name == "json" ||
-                           module.name == "fs" || module.name == "http" ||
-                           module.name == "str" || module.name == "logging" ||
-                           module.name == "math" || module.name == "chrono" ||
-                           module.name == "re" || module.name == "collections" ||
-                           module.name == "async" || module.name == "ui");
+    const bool isStdlib = StdlibRegistry::isStdlibModule(module.name);
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
