@@ -10,7 +10,8 @@ say content
 create parsed = parse(content)
 say getString(parsed, "lang")
 
-create ok = fileExists("/tmp/afrilang_test.txt")
+create numDoc = parse("{\"value\": 42}")
+say getNumber(numDoc, "value")
 if ok is equal to false then
     writeFile("/tmp/afrilang_test.txt", "Hello from stdlib io")
 end
