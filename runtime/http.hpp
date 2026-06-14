@@ -13,6 +13,14 @@
 #include <string>
 #include <vector>
 
+#if defined(__has_include)
+#if __has_include(<openssl/ssl.h>)
+#include <openssl/err.h>
+#include <openssl/ssl.h>
+#define AFRILANG_HAS_OPENSSL 1
+#endif
+#endif
+
 namespace afrilang {
 namespace runtime {
 namespace http {
@@ -84,7 +92,7 @@ inline int connectHost(const std::string& host, std::uint16_t port) {
     return fd;
 }
 
-inline bool sendAll(int fd, const std::string& data) {
+inline bool sendAllFd(int fd, const std::string& data) {
     std::size_t sent = 0;
     while (sent < data.size()) {
         const ssize_t n = send(fd, data.data() + sent, data.size() - sent, 0);
@@ -94,7 +102,7 @@ inline bool sendAll(int fd, const std::string& data) {
     return true;
 }
 
-inline std::string readResponseBody(int fd, std::size_t maxBytes = 1024 * 1024) {
+inline std::string readResponseBodyRaw(int fd, std::size_t maxBytes = 1024 * 1024) {
     std::string raw;
     char buffer[4096];
     while (raw.size() < maxBytes) {
@@ -124,12 +132,96 @@ inline std::string readResponseBody(int fd, std::size_t maxBytes = 1024 * 1024) 
     return body;
 }
 
-inline std::string httpRequest(const std::string& method, const std::string& url,
-                               const std::string& body = {}) {
-    ParsedUrl parsed;
-    if (!parseUrl(url, parsed)) return {};
-    if (parsed.useTls) return {}; // TLS natif : tier 2
+#ifdef AFRILANG_HAS_OPENSSL
+inline bool sendAllSsl(SSL* ssl, const std::string& data) {
+    std::size_t sent = 0;
+    while (sent < data.size()) {
+        const int n = SSL_write(ssl, data.data() + sent,
+                                static_cast<int>(data.size() - sent));
+        if (n <= 0) return false;
+        sent += static_cast<std::size_t>(n);
+    }
+    return true;
+}
 
+inline std::string readResponseBodySsl(SSL* ssl, std::size_t maxBytes = 1024 * 1024) {
+    std::string raw;
+    char buffer[4096];
+    while (raw.size() < maxBytes) {
+        const int n = SSL_read(ssl, buffer, sizeof(buffer));
+        if (n <= 0) break;
+        raw.append(buffer, static_cast<std::size_t>(n));
+    }
+    const auto headerEnd = raw.find("\r\n\r\n");
+    if (headerEnd == std::string::npos) return raw;
+    return raw.substr(headerEnd + 4);
+}
+
+inline std::string httpsRequest(const std::string& method, const ParsedUrl& parsed,
+                                const std::string& body = {}) {
+    static bool sslInit = false;
+    if (!sslInit) {
+        SSL_library_init();
+        SSL_load_error_strings();
+        OpenSSL_add_all_algorithms();
+        sslInit = true;
+    }
+
+    const int fd = connectHost(parsed.host, parsed.port);
+    if (fd < 0) return {};
+
+    SSL_CTX* ctx = SSL_CTX_new(TLS_client_method());
+    if (!ctx) {
+        close(fd);
+        return {};
+    }
+    SSL* ssl = SSL_new(ctx);
+    if (!ssl) {
+        SSL_CTX_free(ctx);
+        close(fd);
+        return {};
+    }
+    SSL_set_fd(ssl, fd);
+    SSL_set_tlsext_host_name(ssl, parsed.host.c_str());
+
+    if (SSL_connect(ssl) != 1) {
+        SSL_free(ssl);
+        SSL_CTX_free(ctx);
+        close(fd);
+        return {};
+    }
+
+    std::ostringstream request;
+    request << method << " " << parsed.path << " HTTP/1.1\r\n";
+    request << "Host: " << parsed.host << "\r\n";
+    request << "Connection: close\r\n";
+    request << "User-Agent: afrilang/1.0\r\n";
+    if (!body.empty()) {
+        request << "Content-Type: application/json\r\n";
+        request << "Content-Length: " << body.size() << "\r\n";
+    }
+    request << "\r\n";
+    if (!body.empty()) request << body;
+
+    if (!sendAllSsl(ssl, request.str())) {
+        SSL_shutdown(ssl);
+        SSL_free(ssl);
+        SSL_CTX_free(ctx);
+        close(fd);
+        return {};
+    }
+
+    const std::string response = readResponseBodySsl(ssl);
+    SSL_shutdown(ssl);
+    SSL_free(ssl);
+    SSL_CTX_free(ctx);
+    close(fd);
+    return response;
+}
+#endif
+
+inline std::string httpRequestPlain(const std::string& method, const ParsedUrl& parsed,
+                                    const std::string& body = {}) {
     const int fd = connectHost(parsed.host, parsed.port);
     if (fd < 0) return {};
 
@@ -145,13 +237,27 @@ inline std::string httpRequest(const std::string& method, const std::string& url
     request << "\r\n";
     if (!body.empty()) request << body;
 
-    if (!sendAll(fd, request.str())) {
+    if (!sendAllFd(fd, request.str())) {
         close(fd);
         return {};
     }
-    const std::string response = readResponseBody(fd);
+    const std::string response = readResponseBodyRaw(fd);
     close(fd);
     return response;
+}
+
+inline std::string httpRequest(const std::string& method, const std::string& url,
+                               const std::string& body = {}) {
+    ParsedUrl parsed;
+    if (!parseUrl(url, parsed)) return {};
+    if (parsed.useTls) {
+#ifdef AFRILANG_HAS_OPENSSL
+        return httpsRequest(method, parsed, body);
+#else
+        return {};
+#endif
+    }
+    return httpRequestPlain(method, parsed, body);
 }
 
 inline std::string httpGet(const std::string& url) {

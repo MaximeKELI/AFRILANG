@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
 #include <functional>
 #include <string>
 #include <vector>
@@ -55,6 +56,30 @@ inline double indexOfText(const std::vector<std::string>& items, const std::stri
         if (items[i] == value) return static_cast<double>(i);
     }
     return -1.0;
+}
+
+template <typename T>
+inline std::vector<T> sliceVec(const std::vector<T>& items, std::size_t start, std::size_t end) {
+    if (start > items.size()) start = items.size();
+    if (end > items.size()) end = items.size();
+    if (start > end) return {};
+    return std::vector<T>(items.begin() + static_cast<std::ptrdiff_t>(start),
+                          items.begin() + static_cast<std::ptrdiff_t>(end));
+}
+
+inline std::vector<double> sliceNumbers(const std::vector<double>& items, double start,
+                                        double end) {
+    return sliceVec(items, static_cast<std::size_t>(start), static_cast<std::size_t>(end));
+}
+
+inline std::vector<std::string> sliceText(const std::vector<std::string>& items, double start,
+                                          double end) {
+    return sliceVec(items, static_cast<std::size_t>(start), static_cast<std::size_t>(end));
+}
+
+inline std::vector<std::int64_t> sliceIntegers(const std::vector<std::int64_t>& items,
+                                               double start, double end) {
+    return sliceVec(items, static_cast<std::size_t>(start), static_cast<std::size_t>(end));
 }
 
 inline double sumNumbers(const std::vector<double>& items) {
