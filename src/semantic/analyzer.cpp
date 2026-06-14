@@ -1628,11 +1628,20 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 
             AfrType objectType = analyzeExpression(*member->object, scope);
 
-            if (objectType.kind != TypeKind::Class) {
+            if (objectType.kind != TypeKind::Class && objectType.kind != TypeKind::Interface) {
                 errorAt(expr, "Appel de méthode sur un type non objet");
             }
 
-            const MethodSignature* sig = findMethod(objectType.className, member->member);
+            const MethodSignature* sig = nullptr;
+            if (objectType.kind == TypeKind::Interface) {
+                const auto iit = result_.interfaces.find(objectType.className);
+                if (iit != result_.interfaces.end()) {
+                    const auto mit = iit->second.methods.find(member->member);
+                    if (mit != iit->second.methods.end()) sig = &mit->second;
+                }
+            } else {
+                sig = findMethod(objectType.className, member->member);
+            }
             if (!sig) {
                 errorAt(expr, "Méthode '" + member->member + "' introuvable dans '" + objectType.className + "'");
             }
