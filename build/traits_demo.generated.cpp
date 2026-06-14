@@ -13,6 +13,21 @@
 namespace Shapes {
 } // namespace Shapes
 
+struct Kind {
+    enum class Tag { Circle, Square };
+    Tag tag;
+    static Kind make_Circle() {
+        Kind v;
+        v.tag = Tag::Circle;
+        return v;
+    }
+    static Kind make_Square() {
+        Kind v;
+        v.tag = Tag::Square;
+        return v;
+    }
+};
+
 class Speakable {
 public:
     virtual ~Speakable() = default;

@@ -103,6 +103,30 @@ end
 
 Liaison de payload : `case Error with msg then` lie `msg` au champ `message`.
 
+**Exhaustivité** : tous les cas doivent être couverts ou un `default` doit être présent.
+
+## Interfaces (traits)
+
+```afr
+interface Speakable
+    function speak()
+end
+
+class Dog implements Speakable
+    function speak()
+        say "Woof!"
+    end
+end
+
+create pet Speakable = new Dog()
+create pets list of Speakable = list of new Dog()
+pet.speak()
+```
+
+- Vérification des **signatures** à l'implémentation (paramètres, retour)
+- Variables et listes **typées par interface**
+- Polymorphisme via `std::unique_ptr<Interface>` + virtual
+
 ## String interpolation
 
 ```afr

@@ -7,6 +7,9 @@
 - **Modules export/private** — `export function`, `private function`, appel qualifié `Module.fn`
 - **Génériques explicites** — `identity<number>(42)`
 - **Match avec liaison** — `case Error with msg then`
+- **Match exhaustif** — erreur si cas enum manquant sans `default`
+- **Interfaces / traits** — vérification de signature, variables `Speakable`, `list of Speakable`
+- **Enums dans modules** — `module M` peut contenir `enum`
 - **Interfaces graphiques** — fenêtres SDL2, texte, boutons (`open window`, `draw text`, `button ... is clicked`)
 - **async / await (complet)** — `returns T or error`, await dans tests, scheduler + thread pool
 - **flatMap each** — `flatMap each x in list do return list of ... end`
@@ -40,7 +43,7 @@
 - `phase11_demo.afr` — démo complète phase 11
 - `async_demo.afr` — async/await + std/async
 - `async_full.afr` — async + Result + tests await + scheduler
-- `language_demo.afr` — syntaxe FR, export/private, match binding, génériques explicites
+- `traits_demo.afr` — interfaces, listes polymorphes, enum en module, match exhaustif
 - `gui_demo.afr` — interface graphique SDL2
 - `polymorphic_list.afr`, `generic_class.afr`, `poo_advanced.afr`, `args_path_demo.afr`
 
