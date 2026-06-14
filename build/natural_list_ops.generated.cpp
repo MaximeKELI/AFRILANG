@@ -13,9 +13,9 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL, 4LL, 5LL};
+    std::vector<double> nums = {1LL, 2LL, 3LL, 4LL, 5LL};
     #line 3 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    std::vector<double> doubled = afrilang::runtime::collections::mapNumbers(nums, [&](std::int64_t x) -> double {
+    std::vector<double> doubled = afrilang::runtime::collections::mapNumbers(nums, [&](double x) -> double {
     #line 4 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     return (x * 2LL);
     });
@@ -24,7 +24,7 @@ int main() {
     #line 8 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << doubled[static_cast<size_t>(4LL)] << std::endl;
     #line 10 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    std::vector<std::int64_t> bigOnes = afrilang::runtime::collections::filterNumbers(nums, [&](std::int64_t x) -> bool {
+    std::vector<double> bigOnes = afrilang::runtime::collections::filterNumbers(nums, [&](double x) -> bool {
         return (x > 3LL);
     });
     #line 12 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
@@ -34,7 +34,7 @@ int main() {
     #line 14 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << bigOnes[static_cast<size_t>(1LL)] << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    std::int64_t total = afrilang::runtime::collections::reduceNumbers(nums, [&](std::int64_t acc, std::int64_t x) -> std::int64_t {
+    double total = afrilang::runtime::collections::reduceNumbers(nums, [&](double acc, double x) -> double {
     #line 17 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     return (acc + x);
     }, 0LL);
@@ -67,9 +67,9 @@ int main() {
     #line 40 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << joined << std::endl;
     #line 42 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    std::vector<std::int64_t> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](std::int64_t n) -> std::vector<std::int64_t> {
+    std::vector<double> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](double n) -> std::vector<double> {
     #line 43 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
-    return std::vector<std::int64_t>{n, (n * 100LL)};
+    return std::vector<double>{n, (n * 100LL)};
     });
     #line 46 "/home/maxime/AFRILANG/build/../examples/natural_list_ops.afr"
     std::cout << expanded.size() << std::endl;

@@ -128,11 +128,11 @@ using namespace args;
 int main(int argc, char** argv) {
     afrilang::runtime::args::init(argc, argv);
     #line 38 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL};
+    std::vector<double> nums = {1LL, 2LL, 3LL};
     #line 40 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::vector<std::int64_t> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](std::int64_t n) -> std::vector<std::int64_t> {
+    std::vector<double> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](double n) -> std::vector<double> {
     #line 41 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    return std::vector<std::int64_t>{n, (n * 10LL)};
+    return std::vector<double>{n, (n * 10LL)};
     });
     #line 44 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
     std::cout << expanded.size() << std::endl;

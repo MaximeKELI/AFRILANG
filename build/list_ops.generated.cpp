@@ -119,7 +119,7 @@ int main() {
     #line 4 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
         #line 5 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
         #line 7 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL, 4LL, 5LL};
+    std::vector<double> nums = {1LL, 2LL, 3LL, 4LL, 5LL};
     #line 9 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<double> doubled = collections::mapNumbers(nums, [&](double x) -> double {
     #line 10 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"

@@ -111,7 +111,7 @@ int main() {
         #line 11 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::string name = "AFRILANG";
     #line 12 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    std::int64_t version = 1LL;
+    double version = 1LL;
     #line 13 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << afrilang::runtime::str::concat({afrilang::runtime::str::toString("Welcome to "), afrilang::runtime::str::toString(name), afrilang::runtime::str::toString(" v"), afrilang::runtime::str::toString(version), afrilang::runtime::str::toString("!")}) << std::endl;
     #line 15 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"

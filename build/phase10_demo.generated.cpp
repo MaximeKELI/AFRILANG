@@ -161,7 +161,7 @@ int main() {
     #line 17 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << PI << std::endl;
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::vector<std::int64_t> nums = {3LL, 1LL, 4LL, 1LL, 5LL};
+    std::vector<double> nums = {3LL, 1LL, 4LL, 1LL, 5LL};
     #line 20 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<double> sorted = collections::sortNumbers(nums);
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
@@ -183,7 +183,7 @@ int main() {
     #line 30 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << collections::containsText(words, "apple") << std::endl;
     #line 32 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    std::int64_t total = 0LL;
+    double total = 0LL;
     #line 33 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     for (double i = 1LL; i <= 5LL; i += 1.0) {
         #line 34 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
