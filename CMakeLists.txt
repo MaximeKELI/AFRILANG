@@ -17,6 +17,7 @@ set(AFRILANG_SOURCES
     src/utils/diagnostics.cpp
     src/utils/project.cpp
     src/utils/stdlib_registry.cpp
+    src/utils/stdlib_catalog.cpp
     src/utils/formatter.cpp
     src/utils/pkg.cpp
     src/utils/educational.cpp

@@ -1,4 +1,5 @@
 #include "afrilang/semantic.hpp"
+#include "afrilang/stdlib_registry.hpp"
 
 #include "afrilang/error.hpp"
 
