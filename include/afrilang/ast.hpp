@@ -351,7 +351,9 @@ struct ExplainStatementNode : StatementNode {
 };
 
 struct MatchArmNode {
+    enum class CaseKind { Enum, Text, Number };
     std::string caseName;
+    CaseKind caseKind = CaseKind::Enum;
     std::vector<std::string> bindNames;
     bool isDefault = false;
     std::vector<std::unique_ptr<StatementNode>> body;
@@ -368,6 +370,7 @@ struct MatchStatementNode : StatementNode {
 
 struct MatchExprArmNode {
     std::string caseName;
+    MatchArmNode::CaseKind caseKind = MatchArmNode::CaseKind::Enum;
     std::vector<std::string> bindNames;
     bool isDefault = false;
     std::unique_ptr<ExpressionNode> value;
