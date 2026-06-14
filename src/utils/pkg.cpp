@@ -66,13 +66,31 @@ std::vector<PackageInfo> PkgRegistry::listAvailable(const std::string& afrilangR
 }
 
 static void copyDirectory(const fs::path& src, const fs::path& dst) {
+    const fs::path canonicalSrc = fs::weakly_canonical(src);
     fs::create_directories(dst);
-    for (const auto& entry : fs::recursive_directory_iterator(src)) {
+    for (const auto& entry : fs::recursive_directory_iterator(
+             src, fs::directory_options::skip_permission_denied)) {
         const fs::path rel = fs::relative(entry.path(), src);
+        for (const auto& part : rel) {
+            validatePathComponent(part.string());
+        }
         const fs::path target = dst / rel;
+
+        if (entry.is_symlink()) {
+            const fs::path linkTarget = fs::read_symlink(entry.path());
+            const fs::path resolved = linkTarget.is_absolute()
+                                          ? fs::weakly_canonical(linkTarget)
+                                          : fs::weakly_canonical(entry.path().parent_path() /
+                                                                 linkTarget);
+            if (!isPathInsideRoot(canonicalSrc.string(), resolved.string())) {
+                securityViolation("Lien symbolique hors du paquet: " + entry.path().string());
+            }
+            continue;
+        }
+
         if (entry.is_directory()) {
             fs::create_directories(target);
-        } else {
+        } else if (entry.is_regular_file()) {
             fs::create_directories(target.parent_path());
             fs::copy_file(entry.path(), target, fs::copy_options::overwrite_existing);
         }
