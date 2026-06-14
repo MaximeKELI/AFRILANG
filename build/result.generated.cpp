@@ -12,7 +12,7 @@
 
 afrilang::runtime::AfrResult_number afr_divide(double a, double b) {
     #line 4 "/home/maxime/AFRILANG/build/../examples/result.afr"
-    if ((b == 0)) {
+    if ((b == 0LL)) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/result.afr"
         afrilang::runtime::AfrResult_number _result;
         _result.isError = true;
@@ -27,7 +27,7 @@ afrilang::runtime::AfrResult_number afr_divide(double a, double b) {
 
 int main() {
     #line 8 "/home/maxime/AFRILANG/build/../examples/result.afr"
-    afrilang::runtime::AfrResult_number ok = afr_divide(10, 2);
+    afrilang::runtime::AfrResult_number ok = afr_divide(10LL, 2LL);
     #line 13 "/home/maxime/AFRILANG/build/../examples/result.afr"
     if (ok.isError) {
         #line 10 "/home/maxime/AFRILANG/build/../examples/result.afr"
@@ -37,7 +37,7 @@ int main() {
         std::cout << ok.value << std::endl;
     }
     #line 15 "/home/maxime/AFRILANG/build/../examples/result.afr"
-    afrilang::runtime::AfrResult_number bad = afr_divide(10, 0);
+    afrilang::runtime::AfrResult_number bad = afr_divide(10LL, 0LL);
     #line 20 "/home/maxime/AFRILANG/build/../examples/result.afr"
     if (bad.isError) {
         #line 17 "/home/maxime/AFRILANG/build/../examples/result.afr"

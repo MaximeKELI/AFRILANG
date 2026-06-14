@@ -25,7 +25,7 @@ namespace Math {
 
     double twice(double x) {
         #line 11 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
-        return (x * 2);
+        return (x * 2LL);
     }
 
 } // namespace Math
@@ -35,9 +35,9 @@ using namespace Math;
 int main() {
     #line 3 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         #line 5 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
-    std::cout << Math::square(5) << std::endl;
+    std::cout << Math::square(5LL) << std::endl;
     #line 6 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
-    std::cout << Math::twice(21) << std::endl;
+    std::cout << Math::twice(21LL) << std::endl;
     #line 7 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
     std::cout << Math::pi() << std::endl;
     return 0;

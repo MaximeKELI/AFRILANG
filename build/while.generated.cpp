@@ -11,25 +11,25 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/while.afr"
-    double count = 0;
+    double count = 0LL;
     #line 6 "/home/maxime/AFRILANG/build/../examples/while.afr"
-    while ((count < 5)) {
+    while ((count < 5LL)) {
         #line 4 "/home/maxime/AFRILANG/build/../examples/while.afr"
         std::cout << count << std::endl;
         #line 5 "/home/maxime/AFRILANG/build/../examples/while.afr"
-        count = (count + 1);
+        count = (count + 1LL);
     }
     #line 8 "/home/maxime/AFRILANG/build/../examples/while.afr"
     std::cout << "Done counting" << std::endl;
     #line 10 "/home/maxime/AFRILANG/build/../examples/while.afr"
-    double score = 75;
+    double score = 75LL;
     #line 20 "/home/maxime/AFRILANG/build/../examples/while.afr"
-    if ((score > 90)) {
+    if ((score > 90LL)) {
         #line 13 "/home/maxime/AFRILANG/build/../examples/while.afr"
         std::cout << "Excellent" << std::endl;
     } else {
         #line 19 "/home/maxime/AFRILANG/build/../examples/while.afr"
-        if ((score > 60)) {
+        if ((score > 60LL)) {
             #line 16 "/home/maxime/AFRILANG/build/../examples/while.afr"
             std::cout << "Passed" << std::endl;
         } else {

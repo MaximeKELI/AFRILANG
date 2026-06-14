@@ -16,7 +16,7 @@ public:
 
     virtual double compute(double x, double y) {
         #line 15 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-        return (x + (y * 2));
+        return (x + (y * 2LL));
     }
 
 };
@@ -38,7 +38,7 @@ double afr_square(double n) {
 
 int main() {
     #line 19 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    double result = afr_add(10, 32);
+    double result = afr_add(10LL, 32LL);
     #line 20 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << result << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/functions.afr"
@@ -46,12 +46,12 @@ int main() {
     #line 23 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << message << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    double squared = afr_square(7);
+    double squared = afr_square(7LL);
     #line 26 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << squared << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::unique_ptr<Calculator> calc = std::make_unique<Calculator>();
     #line 29 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    std::cout << calc->compute(5, 3) << std::endl;
+    std::cout << calc->compute(5LL, 3LL) << std::endl;
     return 0;
 }

@@ -35,7 +35,7 @@ public:
 
 int main() {
     #line 16 "/home/maxime/AFRILANG/build/../examples/fields.afr"
-    std::unique_ptr<Person> bob = std::make_unique<Person>("Bob", 25);
+    std::unique_ptr<Person> bob = std::make_unique<Person>("Bob", 25LL);
     #line 17 "/home/maxime/AFRILANG/build/../examples/fields.afr"
     bob->greet();
     #line 18 "/home/maxime/AFRILANG/build/../examples/fields.afr"
