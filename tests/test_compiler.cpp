@@ -4,6 +4,7 @@
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/i18n.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/semver.hpp"
 #include "afrilang/utf8.hpp"
 

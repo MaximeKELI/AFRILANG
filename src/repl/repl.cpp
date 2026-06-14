@@ -166,6 +166,7 @@ static std::string trim(const std::string& s) {
 
 int runRepl() {
     std::cout << "AFRILANG REPL v2.0 — tapez :help pour l'aide\n\n";
+    secureSandboxRoot();
 
     std::string session;
     bool pasteMode = false;
