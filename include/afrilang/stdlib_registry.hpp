@@ -24,8 +24,13 @@ public:
     static void injectAsyncModule(ProgramNode& program);
     static void injectUiModule(ProgramNode& program);
 
+    static void injectModuleByName(ProgramNode& program, const std::string& moduleName);
+    static void injectCatalogModule(ProgramNode& program, const std::string& moduleName);
+
     static bool isStdlibImport(const std::string& path);
     static std::string stdlibModuleName(const std::string& path);
+    static bool isStdlibModule(const std::string& moduleName);
+    static bool isLegacyStdlibModule(const std::string& moduleName);
 };
 
 } // namespace afrilang
