@@ -4,6 +4,7 @@
 #include "afrilang/codegen.hpp"
 #include "afrilang/formatter.hpp"
 #include "afrilang/sandbox.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
 
 #include <arpa/inet.h>
@@ -12,16 +13,47 @@
 #include <unistd.h>
 
 #include <cctype>
+#include <ctime>
 #include <cstring>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 
 namespace fs = std::filesystem;
 
 namespace afrilang {
+
+namespace {
+
+struct RateBucket {
+    int count = 0;
+    std::time_t windowStart = 0;
+};
+
+std::unordered_map<std::string, RateBucket> g_rateLimits;
+
+bool checkRateLimit(const std::string& clientIp) {
+    const auto limits = securityLimits(SecurityContext::NetworkServe);
+    const std::time_t now = std::time(nullptr);
+    RateBucket& bucket = g_rateLimits[clientIp];
+    if (now - bucket.windowStart >= 60) {
+        bucket.count = 0;
+        bucket.windowStart = now;
+    }
+    ++bucket.count;
+    return bucket.count <= limits.maxServeRequestsPerMinute;
+}
+
+std::string clientIpString(const sockaddr_in& addr) {
+    char buf[INET_ADDRSTRLEN] = {};
+    inet_ntop(AF_INET, &addr.sin_addr, buf, sizeof(buf));
+    return buf;
+}
+
+} // namespace
 
 static std::string urlDecode(const std::string& value) {
     std::string out;
@@ -77,10 +109,50 @@ static std::string jsonEscape(const std::string& s) {
     return out;
 }
 
+static std::size_t parseContentLength(const std::string& headers) {
+    const std::string key = "content-length:";
+    std::istringstream stream(headers);
+    std::string line;
+    while (std::getline(stream, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        std::string lower = line;
+        for (char& c : lower) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+        if (lower.rfind(key, 0) == 0) {
+            return static_cast<std::size_t>(std::stoul(lower.substr(key.size())));
+        }
+    }
+    return 0;
+}
+
+static std::string readRequestBody(int client, const std::string& headers,
+                                   const std::string& initialBody) {
+    const std::size_t maxBody = securityLimits(SecurityContext::NetworkServe).maxServeBodyBytes;
+    const std::size_t contentLength = parseContentLength(headers);
+    if (contentLength > maxBody) {
+        securityViolation("Corps HTTP trop volumineux (max " + std::to_string(maxBody) + ")");
+    }
+
+    std::string body = initialBody;
+    while (body.size() < contentLength) {
+        char buffer[4096];
+        const std::size_t remaining = contentLength - body.size();
+        const std::size_t chunk = std::min(remaining, sizeof(buffer));
+        const ssize_t n = recv(client, buffer, chunk, 0);
+        if (n <= 0) break;
+        body.append(buffer, static_cast<std::size_t>(n));
+        if (body.size() > maxBody) {
+            securityViolation("Corps HTTP trop volumineux");
+        }
+    }
+    return body;
+}
+
 static std::string runSource(const std::string& source) {
-    const std::string sessionPath = "/tmp/afrilang_playground.afr";
-    const std::string cppPath = "/tmp/afrilang_playground.generated.cpp";
-    const std::string exePath = "/tmp/afrilang_playground.bin";
+    validateSourceContent(source, "playground", SecurityContext::NetworkServe);
+
+    const std::string sessionPath = secureTempPath("playground.afr");
+    const std::string cppPath = secureTempPath("playground.generated.cpp");
+    const std::string exePath = secureTempPath("playground.bin");
 
     try {
         SourceManager sources;
@@ -97,13 +169,23 @@ static std::string runSource(const std::string& source) {
             return "{\"ok\":false,\"output\":\"Erreur de compilation g++\",\"exitCode\":1}";
         }
 
-        const ExecResult exec = execWithTimeout(exePath, {}, 5);
+        const auto limits = securityLimits(SecurityContext::NetworkServe);
+        ProcessConfig config;
+        config.timeoutSeconds = limits.execTimeoutSeconds;
+        config.maxMemoryMb = limits.maxMemoryMb;
+        config.maxCpuSeconds = limits.maxCpuSeconds;
+        config.maxOutputBytes = limits.maxOutputBytes;
+
+        const ExecResult exec = execSandboxed(exePath, {}, config);
 
         std::ostringstream json;
         json << "{\"ok\":" << (exec.exitCode == 0 && !exec.timedOut ? "true" : "false")
              << ",\"output\":\"" << jsonEscape(exec.output);
         if (exec.timedOut) {
-            json << "\\n[timeout: exécution limitée à 5s]";
+            json << "\\n[timeout: exécution limitée à " << limits.execTimeoutSeconds << "s]";
+        }
+        if (exec.outputTruncated) {
+            json << "\\n[sortie tronquée]";
         }
         json << "\",\"exitCode\":" << exec.exitCode << "}";
         return json.str();
@@ -113,7 +195,8 @@ static std::string runSource(const std::string& source) {
 }
 
 static std::string formatSource(const std::string& source) {
-    const std::string sessionPath = "/tmp/afrilang_playground.afr";
+    validateSourceContent(source, "playground fmt", SecurityContext::NetworkServe);
+    const std::string sessionPath = secureTempPath("playground_fmt.afr");
     try {
         SourceManager sources;
         sources.addFile(sessionPath, source);
@@ -151,20 +234,40 @@ static void sendResponse(int client, int status, const std::string& contentType,
     response << "HTTP/1.1 " << status << " OK\r\n";
     response << "Content-Type: " << contentType << "\r\n";
     response << "Content-Length: " << body.size() << "\r\n";
-    response << "Access-Control-Allow-Origin: *\r\n";
+    response << "X-Content-Type-Options: nosniff\r\n";
+    response << "X-Frame-Options: DENY\r\n";
+    response << "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; "
+                "style-src 'self' 'unsafe-inline'\r\n";
+    if (!allowPublicServe()) {
+        response << "Access-Control-Allow-Origin: http://127.0.0.1\r\n";
+    } else {
+        response << "Access-Control-Allow-Origin: *\r\n";
+    }
     response << "Connection: close\r\n\r\n";
     response << body;
     const std::string data = response.str();
     send(client, data.data(), data.size(), 0);
 }
 
-static void handleClient(int client, const fs::path& siteRoot) {
+static void handleClient(int client, const fs::path& siteRoot, const std::string& clientIp) {
+    if (!checkRateLimit(clientIp)) {
+        sendResponse(client, 429, "application/json",
+                     "{\"ok\":false,\"output\":\"Trop de requêtes — réessayez plus tard\","
+                     "\"exitCode\":1}");
+        return;
+    }
+
     char buffer[8192];
     const ssize_t n = recv(client, buffer, sizeof(buffer) - 1, 0);
     if (n <= 0) return;
     buffer[n] = '\0';
 
-    std::string request(buffer);
+    std::string request(buffer, static_cast<std::size_t>(n));
+    const auto headerEnd = request.find("\r\n\r\n");
+    const std::string headers = headerEnd != std::string::npos ? request.substr(0, headerEnd) : "";
+    const std::string initialBody =
+        headerEnd != std::string::npos ? request.substr(headerEnd + 4) : "";
+
     const auto lineEnd = request.find("\r\n");
     const std::string line = request.substr(0, lineEnd);
     const auto sp1 = line.find(' ');
@@ -175,18 +278,27 @@ static void handleClient(int client, const fs::path& siteRoot) {
     std::string path = urlDecode(line.substr(sp1 + 1, sp2 - sp1 - 1));
 
     if (method == "POST" && path == "/api/run") {
-        const auto bodyPos = request.find("\r\n\r\n");
-        const std::string body = bodyPos != std::string::npos ? request.substr(bodyPos + 4) : "";
-        const std::string result = runSource(jsonGetSource(body));
-        sendResponse(client, 200, "application/json", result);
+        try {
+            const std::string body = readRequestBody(client, headers, initialBody);
+            const std::string result = runSource(jsonGetSource(body));
+            sendResponse(client, 200, "application/json", result);
+        } catch (const CompileError& e) {
+            sendResponse(client, 413, "application/json",
+                         "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) +
+                             "\",\"exitCode\":1}");
+        }
         return;
     }
 
     if (method == "POST" && path == "/api/fmt") {
-        const auto bodyPos = request.find("\r\n\r\n");
-        const std::string body = bodyPos != std::string::npos ? request.substr(bodyPos + 4) : "";
-        const std::string result = formatSource(jsonGetSource(body));
-        sendResponse(client, 200, "application/json", result);
+        try {
+            const std::string body = readRequestBody(client, headers, initialBody);
+            const std::string result = formatSource(jsonGetSource(body));
+            sendResponse(client, 200, "application/json", result);
+        } catch (const CompileError& e) {
+            sendResponse(client, 413, "application/json",
+                         "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\"}");
+        }
         return;
     }
 
@@ -202,6 +314,14 @@ static void handleClient(int client, const fs::path& siteRoot) {
 }
 
 int runHttpServer(int port, const std::string& siteRoot) {
+    if (isSecureMode() && !allowNetworkServe()) {
+        std::cerr << "Erreur: le serveur playground est désactivé en mode sécurisé.\n";
+        std::cerr << "Définir AFRILANG_ALLOW_SERVE=1 pour l'activer (localhost uniquement).\n";
+        return 1;
+    }
+
+    secureSandboxRoot();
+
     const int serverFd = socket(AF_INET, SOCK_STREAM, 0);
     if (serverFd < 0) {
         std::cerr << "Erreur: impossible de créer le socket.\n";
@@ -213,21 +333,29 @@ int runHttpServer(int port, const std::string& siteRoot) {
 
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = htons(static_cast<uint16_t>(port));
+    if (allowPublicServe()) {
+        addr.sin_addr.s_addr = INADDR_ANY;
+        std::cout << "ATTENTION: serveur exposé sur toutes les interfaces (AFRILANG_SERVE_PUBLIC=1).\n";
+    } else {
+        inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
+    }
 
     if (bind(serverFd, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) < 0) {
         std::cerr << "Erreur: bind sur le port " << port << ".\n";
         close(serverFd);
+        cleanupSecureSandbox();
         return 1;
     }
 
     if (listen(serverFd, 8) < 0) {
         close(serverFd);
+        cleanupSecureSandbox();
         return 1;
     }
 
-    std::cout << "AFRILANG playground: http://localhost:" << port << "/\n";
+    const char* bindHost = allowPublicServe() ? "0.0.0.0" : "127.0.0.1";
+    std::cout << "AFRILANG playground: http://" << bindHost << ":" << port << "/\n";
     std::cout << "Appuyez sur Ctrl+C pour arrêter.\n";
 
     while (true) {
@@ -235,11 +363,12 @@ int runHttpServer(int port, const std::string& siteRoot) {
         socklen_t len = sizeof(clientAddr);
         const int client = accept(serverFd, reinterpret_cast<sockaddr*>(&clientAddr), &len);
         if (client < 0) continue;
-        handleClient(client, siteRoot);
+        handleClient(client, siteRoot, clientIpString(clientAddr));
         close(client);
     }
 
     close(serverFd);
+    cleanupSecureSandbox();
     return 0;
 }
 

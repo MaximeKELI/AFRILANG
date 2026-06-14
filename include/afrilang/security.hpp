@@ -34,8 +34,10 @@ bool allowPublicServe();
 
 SecurityLimits securityLimits(SecurityContext ctx);
 
-void validateSourceContent(const std::string& source, const std::string& label);
-void validateSourceSize(std::size_t bytes, const std::string& label);
+void validateSourceContent(const std::string& source, const std::string& label,
+                           SecurityContext ctx = SecurityContext::TrustedCompile);
+void validateSourceSize(std::size_t bytes, const std::string& label,
+                        SecurityContext ctx = SecurityContext::TrustedCompile);
 void validatePathComponent(const std::string& component);
 void validateProgramSize(const struct ProgramNode& program);
 

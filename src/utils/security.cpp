@@ -70,8 +70,9 @@ SecurityLimits securityLimits(SecurityContext ctx) {
     return limits;
 }
 
-void validateSourceContent(const std::string& source, const std::string& label) {
-    validateSourceSize(source.size(), label);
+void validateSourceContent(const std::string& source, const std::string& label,
+                           SecurityContext ctx) {
+    validateSourceSize(source.size(), label, ctx);
     if (source.find('\0') != std::string::npos) {
         securityViolation("Octets nuls interdits dans " + label);
     }
@@ -81,8 +82,8 @@ void validateSourceContent(const std::string& source, const std::string& label) 
     }
 }
 
-void validateSourceSize(std::size_t bytes, const std::string& label) {
-    const auto limits = securityLimits(SecurityContext::TrustedCompile);
+void validateSourceSize(std::size_t bytes, const std::string& label, SecurityContext ctx) {
+    const auto limits = securityLimits(ctx);
     if (bytes > limits.maxSourceBytes) {
         securityViolation("Source trop volumineuse (" + std::to_string(bytes) +
                           " octets, max " + std::to_string(limits.maxSourceBytes) + "): " + label);
