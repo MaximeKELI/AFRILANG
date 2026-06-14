@@ -121,7 +121,7 @@ pid_t spawnProcess(const std::string& executable,
     }
     argv.push_back(nullptr);
 
-    execv(executable.c_str(), argv.data());
+    execvp(executable.c_str(), argv.data());
     _exit(127);
 }
 
