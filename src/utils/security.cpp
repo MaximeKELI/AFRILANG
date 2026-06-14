@@ -63,7 +63,7 @@ SecurityLimits securityLimits(SecurityContext ctx) {
         case SecurityContext::TrustedCompile:
             limits.execTimeoutSeconds = 30;
             limits.compileTimeoutSeconds = 120;
-            limits.maxMemoryMb = 512;
+            limits.maxMemoryMb = 2048;
             limits.maxCpuSeconds = 120;
             break;
     }
