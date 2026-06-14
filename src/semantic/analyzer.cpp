@@ -1841,6 +1841,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "Membre '" + member->member + "' introuvable dans '" + objectType.className + "'");
         }
 
+        if (objectType.kind == TypeKind::Interface) {
+            const auto iit = result_.interfaces.find(objectType.className);
+            if (iit != result_.interfaces.end()) {
+                const auto mit = iit->second.methods.find(member->member);
+                if (mit != iit->second.methods.end()) {
+                    return mit->second.returnType;
+                }
+            }
+            errorAt(expr, "Méthode '" + member->member + "' introuvable dans l'interface '" +
+                  objectType.className + "'");
+        }
+
         if (objectType.kind == TypeKind::Enum) {
             const EnumInfo* en = findEnum(objectType.className);
             if (en) {
@@ -2006,6 +2018,49 @@ bool SemanticAnalyzer::isSubclassOf(const std::string& derived, const std::strin
     const ClassInfo* cls = findClass(derived);
     while (cls && !cls->baseClass.empty()) {
         if (cls->baseClass == base) return true;
+        cls = findClass(cls->baseClass);
+    }
+    return false;
+}
+
+bool SemanticAnalyzer::signaturesCompatible(const MethodSignature& required,
+                                              const MethodSignature& impl) const {
+    if (required.name != impl.name) return false;
+    if (required.returnsResult != impl.returnsResult) return false;
+    if (required.isAsync != impl.isAsync) return false;
+    if (required.paramTypes.size() != impl.paramTypes.size()) return false;
+    if (required.requiredParamCount != impl.requiredParamCount) return false;
+
+    for (std::size_t i = 0; i < required.paramTypes.size(); ++i) {
+        if (required.paramTypes[i] != impl.paramTypes[i]) return false;
+    }
+
+    if (required.returnType.kind == TypeKind::Void && impl.returnType.kind == TypeKind::Void) {
+        return true;
+    }
+    if (required.returnType.kind == TypeKind::Void || impl.returnType.kind == TypeKind::Void) {
+        return false;
+    }
+    return isAssignable(required.returnType, impl.returnType);
+}
+
+bool SemanticAnalyzer::implementsInterface(const std::string& className,
+                                           const std::string& ifaceName) const {
+    if (!result_.interfaces.count(ifaceName)) return false;
+
+    const ClassInfo* cls = findClass(className);
+    while (cls) {
+        for (const auto& declared : cls->interfaceNames) {
+            if (declared != ifaceName) continue;
+
+            const InterfaceInfo& iface = result_.interfaces.at(ifaceName);
+            for (const auto& [methodName, reqSig] : iface.methods) {
+                const MethodSignature* impl = findMethod(className, methodName);
+                if (!impl || !signaturesCompatible(reqSig, *impl)) return false;
+            }
+            return true;
+        }
+        if (cls->baseClass.empty()) break;
         cls = findClass(cls->baseClass);
     }
     return false;
