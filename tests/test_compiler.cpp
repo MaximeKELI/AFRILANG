@@ -11,6 +11,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <cstdlib>
 
 static int failures = 0;
 

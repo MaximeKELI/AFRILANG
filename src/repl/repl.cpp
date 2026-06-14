@@ -334,6 +334,7 @@ int runRepl() {
         }
     }
 
+    cleanupSecureSandbox();
     return 0;
 }
 
