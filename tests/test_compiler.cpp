@@ -206,6 +206,56 @@ static void testCompileUnionsDemo() {
     analyzer.analyze();
 }
 
+static void testSecureModeDefault() {
+    unsetenv("AFRILANG_INSECURE");
+    expect(afrilang::isSecureMode(), "secure mode enabled by default");
+}
+
+static void testSecureModeInsecure() {
+    setenv("AFRILANG_INSECURE", "1", 1);
+    expect(!afrilang::isSecureMode(), "AFRILANG_INSECURE disables secure mode");
+    unsetenv("AFRILANG_INSECURE");
+}
+
+static void testSourceSizeLimit() {
+    unsetenv("AFRILANG_INSECURE");
+    const std::string huge(600 * 1024, 'x');
+    bool caught = false;
+    try {
+        afrilang::validateSourceContent(huge, "test");
+    } catch (const afrilang::CompileError& e) {
+        caught = e.code() == afrilang::ErrorCode::SecurityViolation;
+    }
+    expect(caught, "oversized source rejected in secure mode");
+}
+
+static void testPathComponentValidation() {
+    bool caught = false;
+    try {
+        afrilang::validatePathComponent("..");
+    } catch (const afrilang::CompileError& e) {
+        caught = e.code() == afrilang::ErrorCode::SecurityViolation;
+    }
+    expect(caught, "path traversal component rejected");
+}
+
+static void testNetworkServeGate() {
+    unsetenv("AFRILANG_INSECURE");
+    unsetenv("AFRILANG_ALLOW_SERVE");
+    expect(!afrilang::allowNetworkServe(), "serve blocked without AFRILANG_ALLOW_SERVE");
+    setenv("AFRILANG_ALLOW_SERVE", "1", 1);
+    expect(afrilang::allowNetworkServe(), "serve allowed with AFRILANG_ALLOW_SERVE=1");
+    unsetenv("AFRILANG_ALLOW_SERVE");
+}
+
+static void testSecureTempPath() {
+    const std::string path = afrilang::secureTempPath("unit_test.tmp");
+    expect(!path.empty(), "secure temp path generated");
+    expect(path.find("/tmp/afrilang") == std::string::npos || path.find("sandbox") != std::string::npos,
+           "temp path uses sandbox directory");
+    afrilang::cleanupSecureSandbox();
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -227,6 +277,12 @@ int main() {
     testCompileExample();
     testCompileOperatorsDemo();
     testCompileUnionsDemo();
+    testSecureModeDefault();
+    testSecureModeInsecure();
+    testSourceSizeLimit();
+    testPathComponentValidation();
+    testNetworkServeGate();
+    testSecureTempPath();
 
     std::cout << "\n";
     if (failures == 0) {
