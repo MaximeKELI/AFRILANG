@@ -664,3 +664,7 @@ cd build && make examples
 | `length of x` | `x.size()` |
 | `add v to list` | `list.push_back(v)` |
 | `function f<T>(x T) returns T` | `template<typename T> T f(T x)` |
+
+## Licence
+
+MIT — voir [LICENSE](LICENSE). Signalement de vulnérabilités : [SECURITY.md](SECURITY.md). Contribution : [CONTRIBUTING.md](CONTRIBUTING.md).
