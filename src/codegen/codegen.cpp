@@ -1,6 +1,7 @@
 #include "afrilang/codegen.hpp"
 
 #include "afrilang/educational.hpp"
+#include "afrilang/stdlib_catalog.hpp"
 
 #include <cstdlib>
 #include <cctype>
@@ -360,6 +361,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsCollections = false;
     bool needsArgs = false;
     bool needsPath = false;
+    bool needsSimpleLibs = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
@@ -373,6 +375,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "collections") needsCollections = true;
         if (module->name == "args") needsArgs = true;
         if (module->name == "path") needsPath = true;
+        if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (module->name == "async") { /* async.hpp via usesAsync */ }
     }
     for (const auto& modName : semantic_.usedModules) {
