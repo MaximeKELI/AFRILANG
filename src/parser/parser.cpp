@@ -255,23 +255,35 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
     std::vector<std::unique_ptr<FunctionNode>> functions;
 
     while (!check(TokenType::End) && !isAtEnd()) {
+        match(TokenType::Export);
+        const bool isPrivate = match(TokenType::Private);
+
         if (match(TokenType::Abstract)) {
             consume(TokenType::Class, "'class' attendu après 'abstract'");
-            classes.push_back(parseClass(true, false));
+            auto cls = parseClass(true, false);
+            cls->modulePrivate = isPrivate;
+            classes.push_back(std::move(cls));
         } else if (match(TokenType::Final)) {
             consume(TokenType::Class, "'class' attendu après 'final'");
-            classes.push_back(parseClass(false, true));
+            auto cls = parseClass(false, true);
+            cls->modulePrivate = isPrivate;
+            classes.push_back(std::move(cls));
         } else if (match(TokenType::Class)) {
-            classes.push_back(parseClass(false, false));
+            auto cls = parseClass(false, false);
+            cls->modulePrivate = isPrivate;
+            classes.push_back(std::move(cls));
         } else if (match(TokenType::Record)) {
             records.push_back(parseRecord());
         } else if (match(TokenType::Async)) {
             consume(TokenType::Function, "'function' attendu après 'async'");
             auto func = parseFunction();
             func->isAsync = true;
+            func->modulePrivate = isPrivate;
             functions.push_back(std::move(func));
         } else if (match(TokenType::Function)) {
-            functions.push_back(parseFunction());
+            auto func = parseFunction();
+            func->modulePrivate = isPrivate;
+            functions.push_back(std::move(func));
         } else {
             error("Déclaration attendue dans le module (class, record, function, async function)");
         }
@@ -944,9 +956,14 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
         } else {
             consume(TokenType::Case, "'case' attendu dans match");
             const Token& caseToken = consumeName("Nom de cas attendu");
-            consume(TokenType::Then, "'then' attendu après le cas");
             MatchArmNode arm;
             arm.caseName = caseToken.lexeme;
+            if (match(TokenType::With)) {
+                do {
+                    arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
+                } while (match(TokenType::Comma));
+            }
+            consume(TokenType::Then, "'then' attendu après le cas");
             arm.body = parseBlock();
             consume(TokenType::End, "'end' attendu pour fermer le case");
             arms.push_back(std::move(arm));
@@ -1422,6 +1439,8 @@ std::unique_ptr<ExpressionNode> Parser::parsePostfix(std::unique_ptr<ExpressionN
 }
 
 std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNode> callee) {
+    std::vector<std::string> typeArgs;
+
     while (true) {
         if (match(TokenType::Dot)) {
             const Token& member = consumeName("Nom de membre attendu après '.'");
@@ -1441,6 +1460,10 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             continue;
         }
 
+        if (check(TokenType::AngleOpen)) {
+            typeArgs = parseTypeParams();
+        }
+
         if (match(TokenType::LeftParen)) {
             std::vector<std::unique_ptr<ExpressionNode>> arguments;
             if (!check(TokenType::RightParen)) {
@@ -1449,7 +1472,9 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
                 } while (match(TokenType::Comma));
             }
             consume(TokenType::RightParen, "')' attendu après les arguments");
-            callee = std::make_unique<CallExpressionNode>(std::move(callee), std::move(arguments));
+            callee = std::make_unique<CallExpressionNode>(
+                std::move(callee), std::move(arguments), std::move(typeArgs));
+            typeArgs.clear();
             continue;
         }
 

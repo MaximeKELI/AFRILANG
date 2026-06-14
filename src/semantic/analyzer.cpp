@@ -317,6 +317,7 @@ void SemanticAnalyzer::registerClasses() {
                 });
                 info.methods[method->name] = std::move(sig);
             }
+            info.modulePrivate = cls->modulePrivate;
             result_.classes[cls->name] = info;
             modInfo.classes[cls->name] = info;
         }
@@ -336,6 +337,7 @@ void SemanticAnalyzer::registerClasses() {
             validateFunctionDefaults(*func, [&](const std::string& msg) {
                 errorAt(*func, msg);
             });
+            sig.modulePrivate = func->modulePrivate;
             modInfo.functions[func->name] = sig;
         }
 
@@ -417,15 +419,20 @@ void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
     const bool isStdlib = StdlibRegistry::isStdlibModule(module.name);
+    currentModuleName_ = module.name;
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
     }
-    if (isStdlib) return;
+    if (isStdlib) {
+        currentModuleName_.clear();
+        return;
+    }
 
     for (const auto& func : module.functions) {
         analyzeFunctionBody(*func, nullptr);
     }
+    currentModuleName_.clear();
 }
 
 void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
@@ -1013,8 +1020,22 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 errorAt(*matchStmt, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
             }
             auto armScope = scope;
-            for (const auto& [fname, ftype] : caseIt->second.fields) {
-                armScope[fname] = ftype;
+            if (!caseIt->second.fields.empty()) {
+                if (arm.bindNames.empty()) {
+                    for (const auto& [fname, ftype] : caseIt->second.fields) {
+                        armScope[fname] = ftype;
+                    }
+                } else {
+                    if (arm.bindNames.size() != caseIt->second.fields.size()) {
+                        errorAt(*matchStmt, "Nombre de liaisons incorrect pour le cas '" +
+                              arm.caseName + "' (attendu " +
+                              std::to_string(caseIt->second.fields.size()) + ", reçu " +
+                              std::to_string(arm.bindNames.size()) + ")");
+                    }
+                    for (std::size_t bi = 0; bi < arm.bindNames.size(); ++bi) {
+                        armScope[arm.bindNames[bi]] = caseIt->second.fields[bi].second;
+                    }
+                }
             }
             for (const auto& bodyStmt : arm.body) {
                 analyzeStatement(*bodyStmt, armScope, isGlobalScope);
@@ -1092,6 +1113,7 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 
         for (const auto& [modName, mod] : result_.modules) {
             if (result_.usedModules.count(modName) && mod.functions.count(id->name)) {
+                if (mod.functions.at(id->name).modulePrivate) continue;
                 return mod.functions.at(id->name).returnType;
             }
         }
@@ -1491,6 +1513,58 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
 
             if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                const auto modIt = result_.modules.find(classId->name);
+                if (modIt != result_.modules.end()) {
+                    const auto fnIt = modIt->second.functions.find(member->member);
+                    if (fnIt != modIt->second.functions.end()) {
+                        const MethodSignature* sig = &fnIt->second;
+                        const bool sameModule = currentModuleName_ == classId->name;
+                        if (sig->modulePrivate && !sameModule) {
+                            errorAt(expr, "Fonction privée '" + member->member +
+                                  "' du module '" + classId->name + "'");
+                        }
+                        if (!sameModule && !result_.usedModules.count(classId->name)) {
+                            errorAt(expr, "Utilisez 'use " + classId->name + "' ou appelez " +
+                                  classId->name + "." + member->member);
+                        }
+                        if (call->arguments.size() < sig->requiredParamCount ||
+                            call->arguments.size() > sig->paramTypes.size()) {
+                            errorAt(expr, "Fonction '" + member->member + "' attend entre " +
+                                  std::to_string(sig->requiredParamCount) + " et " +
+                                  std::to_string(sig->paramTypes.size()) + " argument(s), reçu " +
+                                  std::to_string(call->arguments.size()));
+                        }
+                        std::vector<AfrType> argTypes;
+                        argTypes.reserve(call->arguments.size());
+                        for (const auto& arg : call->arguments) {
+                            argTypes.push_back(analyzeExpression(*arg, scope));
+                        }
+                        for (std::size_t i = 0; i < argTypes.size(); ++i) {
+                            if (!isAssignable(sig->paramTypes[i], argTypes[i])) {
+                                errorAt(expr, "Type incompatible pour l'argument " +
+                                      std::to_string(i + 1) + " de '" + member->member + "'");
+                            }
+                        }
+                        if (!sig->typeParams.empty()) {
+                            if (!call->typeArgs.empty()) {
+                                if (call->typeArgs.size() != sig->typeParams.size()) {
+                                    errorAt(expr, "Nombre de paramètres de type incorrect pour '" +
+                                          member->member + "'");
+                                }
+                                std::unordered_map<std::string, AfrType> subst;
+                                for (std::size_t ti = 0; ti < sig->typeParams.size(); ++ti) {
+                                    subst[sig->typeParams[ti]] =
+                                        resolveTypeForGeneric(call->typeArgs[ti], {});
+                                }
+                                return substituteType(sig->returnType, subst);
+                            }
+                            return substituteType(sig->returnType,
+                                                  inferGenericSubst(*sig, argTypes, expr));
+                        }
+                        return sig->returnType;
+                    }
+                }
+
                 if (result_.classes.count(classId->name) &&
                     !scope.count(classId->name) &&
                     result_.globalVariables.find(classId->name) == result_.globalVariables.end()) {
@@ -1582,9 +1656,19 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
 
             const MethodSignature* sig = findFunction(id->name);
+            if (!sig && !currentModuleName_.empty()) {
+                const auto modIt = result_.modules.find(currentModuleName_);
+                if (modIt != result_.modules.end()) {
+                    const auto fnIt = modIt->second.functions.find(id->name);
+                    if (fnIt != modIt->second.functions.end()) {
+                        sig = &fnIt->second;
+                    }
+                }
+            }
             if (!sig) {
                 for (const auto& [modName, mod] : result_.modules) {
                     if (result_.usedModules.count(modName) && mod.functions.count(id->name)) {
+                        if (mod.functions.at(id->name).modulePrivate) continue;
                         sig = &mod.functions.at(id->name);
                         break;
                     }
@@ -1616,6 +1700,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             }
 
             if (!sig->typeParams.empty()) {
+                if (!call->typeArgs.empty()) {
+                    if (call->typeArgs.size() != sig->typeParams.size()) {
+                        errorAt(expr, "Nombre de paramètres de type incorrect pour '" +
+                              id->name + "'");
+                    }
+                    std::unordered_map<std::string, AfrType> subst;
+                    for (std::size_t ti = 0; ti < sig->typeParams.size(); ++ti) {
+                        subst[sig->typeParams[ti]] =
+                            resolveTypeForGeneric(call->typeArgs[ti], {});
+                    }
+                    return substituteType(sig->returnType, subst);
+                }
                 const auto subst = inferGenericSubst(*sig, argTypes, expr);
                 return substituteType(sig->returnType, subst);
             }

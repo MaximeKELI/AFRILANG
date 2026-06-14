@@ -215,7 +215,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "polymorphic_list.afr", "generic_class.afr", "poo_advanced.afr",
         "args_path_demo.afr", "phase11_demo.afr", "async_demo.afr", "async_full.afr",
         "gui_demo.afr", "simple_libs_demo.afr", "medium_libs_demo.afr",
-        "complex_libs_demo.afr"
+        "complex_libs_demo.afr",
+        "language_demo.afr"
     };
 
     CompileOptions opts;

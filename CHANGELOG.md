@@ -3,6 +3,10 @@
 ## Unreleased
 
 ### Language
+- **Syntaxe bilingue FR/EN** — alias français (`dire`, `si`, `fin`, `fonction`, `cas`, `defaut`, …)
+- **Modules export/private** — `export function`, `private function`, appel qualifié `Module.fn`
+- **Génériques explicites** — `identity<number>(42)`
+- **Match avec liaison** — `case Error with msg then`
 - **Interfaces graphiques** — fenêtres SDL2, texte, boutons (`open window`, `draw text`, `button ... is clicked`)
 - **async / await (complet)** — `returns T or error`, await dans tests, scheduler + thread pool
 - **flatMap each** — `flatMap each x in list do return list of ... end`
@@ -36,6 +40,7 @@
 - `phase11_demo.afr` — démo complète phase 11
 - `async_demo.afr` — async/await + std/async
 - `async_full.afr` — async + Result + tests await + scheduler
+- `language_demo.afr` — syntaxe FR, export/private, match binding, génériques explicites
 - `gui_demo.afr` — interface graphique SDL2
 - `polymorphic_list.afr`, `generic_class.afr`, `poo_advanced.afr`, `args_path_demo.afr`
 

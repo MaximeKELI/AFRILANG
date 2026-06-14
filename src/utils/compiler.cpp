@@ -137,6 +137,9 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     for (auto& mod : source.modules) {
         target.modules.push_back(std::move(mod));
     }
+    for (auto& iface : source.interfaces) {
+        target.interfaces.push_back(std::move(iface));
+    }
     for (auto& rec : source.records) {
         target.records.push_back(std::move(rec));
     }

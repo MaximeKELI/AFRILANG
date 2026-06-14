@@ -135,7 +135,6 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"importer",  TokenType::Import},
     {"exporter",  TokenType::Export},
     {"en",        TokenType::Into},
-    {"a",         TokenType::To},
     {"et",        TokenType::And},
     {"ou",        TokenType::Or},
     {"avec",      TokenType::With},

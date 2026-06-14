@@ -81,6 +81,28 @@ catch error e
 end
 ```
 
+## Enums et pattern matching
+
+```afr
+enum Status
+    case Ok
+    case Error with message text
+end
+
+create e = Status.Error with "failed"
+
+match e
+    case Error with msg then
+        say msg
+    end
+    default
+        say "other"
+    end
+end
+```
+
+Liaison de payload : `case Error with msg then` lie `msg` au champ `message`.
+
 ## String interpolation
 
 ```afr
@@ -92,7 +114,33 @@ say "Hello {name}!"
 
 Import with `import "std/io"` and `use io`.
 
+```afr
+module Math
+    export function add(a number, b number) returns number
+        return a + b
+    end
+
+    private function helper(x number) returns number
+        return x * 2
+    end
+end
+
+use Math
+say add(3, 4)
+say Math.add(5, 6)    -- accès qualifié sans ambiguïté
+```
+
+- **`export function`** — API publique du module (documentation explicite)
+- **`private function` / `private class`** — invisible via `use` (accessible dans le module)
+- **`Module.fn(...)`** — appel qualifié sans `use`
+
 Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, plus **151 simple** (`std/nom`), **102 medium** (`std/m/nom`), **210 complex** (`std/c/nom`) — see `docs/STDLIB_*.md`.
+
+## Syntaxe bilingue (français / anglais)
+
+Les mots-clés anglais acceptent des **alias français** (ex. `dire` = `say`, `si`/`alors`/`sinon`, `fin` = `end`, `creer` = `create`, `fonction` = `function`, `classe` = `class`, `utiliser` = `use`, `importer` = `import`, `tantque` = `while`, `cas`/`defaut`/`avec` pour `match`, types `nombre`/`texte`/`booleen`, etc.).
+
+Exemple : `examples/language_demo.afr`
 
 ## Generics
 
@@ -100,6 +148,9 @@ Available stdlib modules: io, json, fs, http, str, log, math, time, re, collecti
 function identity<T>(x T) returns T
     return x
 end
+
+say identity(42)              -- inférence
+say identity<number>(42)      -- paramètre de type explicite
 ```
 
 ## Default parameters

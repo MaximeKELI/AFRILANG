@@ -64,6 +64,16 @@ std::string joinGenericArgs(const std::vector<std::string>& args) {
     return joined.str();
 }
 
+std::string cppTypeFromAfrType(const AfrType& type) {
+    switch (type.kind) {
+        case TypeKind::Number: return "double";
+        case TypeKind::Text: return "std::string";
+        case TypeKind::Bool: return "bool";
+        case TypeKind::Void: return "void";
+        default: return "auto";
+    }
+}
+
 std::string propertyBackingField(const std::string& name) {
     return "_" + name;
 }
@@ -1375,6 +1385,22 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                 out << "else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
                     << ") {\n";
             }
+            if (!arm.isDefault && !arm.bindNames.empty()) {
+                const auto enumIt = semantic_.enums.find(enumName);
+                if (enumIt != semantic_.enums.end()) {
+                    const auto caseIt = enumIt->second.cases.find(arm.caseName);
+                    if (caseIt != enumIt->second.cases.end()) {
+                        for (std::size_t bi = 0;
+                             bi < arm.bindNames.size() && bi < caseIt->second.fields.size();
+                             ++bi) {
+                            indent(out, indentLevel + 2);
+                            out << cppTypeFromAfrType(caseIt->second.fields[bi].second) << " "
+                                << arm.bindNames[bi] << " = _afr_match."
+                                << caseIt->second.fields[bi].first << ";\n";
+                        }
+                    }
+                }
+            }
             for (const auto& bodyStmt : arm.body) {
                 emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
             }
@@ -1854,7 +1880,11 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
             if (it != semantic_.functions.end() && !it->second.isExtern) {
                 globalSig = &it->second;
-                out << mangleGlobalFunctionName(id->name) << "(";
+                out << mangleGlobalFunctionName(id->name);
+                if (!globalSig->typeParams.empty() && !call->typeArgs.empty()) {
+                    out << "<" << joinGenericArgs(call->typeArgs) << ">";
+                }
+                out << "(";
                 for (std::size_t i = 0; i < call->arguments.size(); ++i) {
                     if (i > 0) out << ", ";
                     const AfrType paramType = i < globalSig->paramTypes.size()
@@ -1880,6 +1910,23 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
 
             if (const auto* classId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                const auto modIt = semantic_.modules.find(classId->name);
+                if (modIt != semantic_.modules.end() &&
+                    modIt->second.functions.count(member->member)) {
+                    const MethodSignature& modSig = modIt->second.functions.at(member->member);
+                    out << classId->name << "::" << member->member;
+                    if (!modSig.typeParams.empty() && !call->typeArgs.empty()) {
+                        out << "<" << joinGenericArgs(call->typeArgs) << ">";
+                    }
+                    out << "(";
+                    for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+                        if (i > 0) out << ", ";
+                        emitExpression(out, *call->arguments[i], ownerClass);
+                    }
+                    out << ")";
+                    return;
+                }
+
                 if (semantic_.classes.count(classId->name)) {
                     out << classId->name << "::" << member->member << "(";
                     for (std::size_t i = 0; i < call->arguments.size(); ++i) {
