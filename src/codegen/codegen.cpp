@@ -102,6 +102,20 @@ std::string mangleGlobalFunctionName(const std::string& name) {
     return "afr_" + name;
 }
 
+AfrType resolveCodegenDeclType(const std::string& name, const SemanticResult& semantic) {
+    if (semantic.interfaces.count(name)) return AfrType::interfaceType(name);
+    if (semantic.enums.count(name)) return AfrType::enumType(name);
+    if (semantic.records.count(name)) return AfrType::recordType(name);
+    return typeFromName(name);
+}
+
+std::string storageCppForType(const AfrType& type) {
+    if (type.kind == TypeKind::Class || type.kind == TypeKind::Interface) {
+        return "std::unique_ptr<" + type.className + ">";
+    }
+    return type.toCpp();
+}
+
 std::string instantiatedClassStorageCpp(const NewExpressionNode& newExpr) {
     if (newExpr.typeArgs.empty()) {
         return "std::unique_ptr<" + newExpr.className + ">";
@@ -784,7 +798,10 @@ std::string CodeGenerator::paramList(const FunctionNode& func, const ClassInfo* 
 }
 
 std::string CodeGenerator::classStorageCpp(const AfrType& type) {
-    return "std::unique_ptr<" + type.className + ">";
+    if (type.kind == TypeKind::Interface || type.kind == TypeKind::Class) {
+        return "std::unique_ptr<" + type.className + ">";
+    }
+    return type.toCpp();
 }
 
 std::string CodeGenerator::classStorageCpp(const std::string& className) {
@@ -804,7 +821,8 @@ bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
     }
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&object)) {
         const auto it = semantic_.globalVariables.find(id->name);
-        if (it != semantic_.globalVariables.end() && it->second.kind == TypeKind::Class) {
+        if (it != semantic_.globalVariables.end() &&
+            (it->second.kind == TypeKind::Class || it->second.kind == TypeKind::Interface)) {
             return true;
         }
     }
@@ -1057,8 +1075,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(assign->value.get())) {
-            out << constPrefix << instantiatedClassStorageCpp(*newExpr) << " " << assign->name
-                << " = ";
+            const std::string storage = !assign->typeName.empty()
+                ? storageCppForType(resolveCodegenDeclType(assign->typeName, semantic_))
+                : instantiatedClassStorageCpp(*newExpr);
+            out << constPrefix << storage << " " << assign->name << " = ";
             emitExpression(out, *assign->value, ownerClass);
             out << ";\n";
             return;
@@ -1067,8 +1087,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         if (const auto* newCall = dynamic_cast<const CallExpressionNode*>(assign->value.get())) {
             if (const auto* newExpr =
                     dynamic_cast<const NewExpressionNode*>(newCall->callee.get())) {
-                out << constPrefix << instantiatedClassStorageCpp(*newExpr) << " "
-                    << assign->name << " = ";
+                const std::string storage = !assign->typeName.empty()
+                    ? storageCppForType(resolveCodegenDeclType(assign->typeName, semantic_))
+                    : instantiatedClassStorageCpp(*newExpr);
+                out << constPrefix << storage << " " << assign->name << " = ";
                 emitExpression(out, *assign->value, ownerClass);
                 out << ";\n";
                 return;
@@ -1152,8 +1174,8 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
 
         std::string typeCpp;
         if (!assign->typeName.empty()) {
-            const AfrType declared = typeFromName(assign->typeName);
-            typeCpp = declared.kind == TypeKind::Class
+            const AfrType declared = resolveCodegenDeclType(assign->typeName, semantic_);
+            typeCpp = (declared.kind == TypeKind::Class || declared.kind == TypeKind::Interface)
                 ? classStorageCpp(declared)
                 : declared.toCpp();
         } else {
@@ -1220,7 +1242,8 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         emitExpression(out, *addTo->list, ownerClass);
         out << ".push_back(";
         if (listType.kind == TypeKind::List &&
-            listType.listElementType().kind == TypeKind::Class &&
+            (listType.listElementType().kind == TypeKind::Class ||
+             listType.listElementType().kind == TypeKind::Interface) &&
             dynamic_cast<const IdentifierNode*>(addTo->value.get())) {
             out << "std::move(";
             emitExpression(out, *addTo->value, ownerClass);
