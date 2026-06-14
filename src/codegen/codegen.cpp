@@ -2161,6 +2161,28 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         return;
     }
 
+    if (moduleName == "ui") {
+        const std::string rt = "afrilang::runtime::ui::" + func.name;
+        if (func.returnTypeName.empty()) {
+            out << rt << "(";
+            for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << func.parameters[i].name;
+            }
+            out << ");\n";
+        } else {
+            out << "return " << rt << "(";
+            for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << func.parameters[i].name;
+            }
+            out << ");\n";
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
     if (func.isAsync && moduleName == "http") {
         if (func.name == "httpGetAsync") {
             out << "return afrilang::runtime::async::runBlockingTask([url]() { "

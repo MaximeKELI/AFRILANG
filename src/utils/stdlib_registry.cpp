@@ -61,7 +61,8 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
            path == "std/collections" || path == "std/collections.afr" ||
            path == "std/args" || path == "std/args.afr" ||
            path == "std/path" || path == "std/path.afr" ||
-           path == "std/async" || path == "std/async.afr";
+           path == "std/async" || path == "std/async.afr" ||
+           path == "std/ui" || path == "std/ui.afr";
 }
 
 std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
@@ -89,6 +90,9 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     }
     if (path.find("std/async") != std::string::npos || path.find("async.afr") != std::string::npos) {
         return "async";
+    }
+    if (path.find("std/ui") != std::string::npos || path.find("ui.afr") != std::string::npos) {
+        return "ui";
     }
     if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
         return "fs";
@@ -223,6 +227,19 @@ void StdlibRegistry::injectAsyncModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("sleep", {{"ms", "number"}}, "", true));
     injectModule(program, "async", std::move(fns));
+}
+
+void StdlibRegistry::injectUiModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("openWindow", {{"title", "text"}, {"width", "number"}, {"height", "number"}}, ""));
+    fns.push_back(makeStubFunction("closeWindow", {}, ""));
+    fns.push_back(makeStubFunction("isOpen", {}, "bool"));
+    fns.push_back(makeStubFunction("beginFrame", {}, ""));
+    fns.push_back(makeStubFunction("clearBackground", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawText", {{"text", "text"}, {"x", "number"}, {"y", "number"}, {"size", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawButton", {{"label", "text"}, {"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("showFrame", {}, ""));
+    injectModule(program, "ui", std::move(fns));
 }
 
 } // namespace afrilang

@@ -22,6 +22,7 @@ public:
     static void injectArgsModule(ProgramNode& program);
     static void injectPathModule(ProgramNode& program);
     static void injectAsyncModule(ProgramNode& program);
+    static void injectUiModule(ProgramNode& program);
 
     static bool isStdlibImport(const std::string& path);
     static std::string stdlibModuleName(const std::string& path);
