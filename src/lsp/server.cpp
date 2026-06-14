@@ -482,6 +482,46 @@ int runLspServer() {
             }
             refs << "]";
             sendResponse(extractId(body), refs.str());
+        } else if (body.find("\"method\":\"textDocument/rename\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            const int line = jsonGetInt(body, "line");
+            const int character = jsonGetInt(body, "character");
+            const std::string newName = jsonGetString(body, "newName");
+            const auto docIt = g_documents.find(uri);
+            std::string word;
+            if (docIt != g_documents.end()) {
+                word = wordAtPosition(docIt->second, line, character);
+            }
+            std::ostringstream edit;
+            edit << "{\"changes\":{\"" << jsonEscape(uri) << "\":[";
+            bool first = true;
+            if (!word.empty() && !newName.empty() && docIt != g_documents.end()) {
+                std::istringstream stream(docIt->second);
+                std::string lineText;
+                int lineNo = 0;
+                while (std::getline(stream, lineText)) {
+                    std::size_t pos = 0;
+                    while ((pos = lineText.find(word, pos)) != std::string::npos) {
+                        const bool leftOk = pos == 0 ||
+                            !std::isalnum(static_cast<unsigned char>(lineText[pos - 1]));
+                        const bool rightOk = pos + word.size() >= lineText.size() ||
+                            !std::isalnum(static_cast<unsigned char>(lineText[pos + word.size()]));
+                        if (leftOk && rightOk) {
+                            if (!first) edit << ',';
+                            first = false;
+                            edit << "{\"range\":{\"start\":{\"line\":" << lineNo
+                                 << ",\"character\":" << static_cast<int>(pos)
+                                 << "},\"end\":{\"line\":" << lineNo
+                                 << ",\"character\":" << static_cast<int>(pos + word.size())
+                                 << "}},\"newText\":\"" << jsonEscape(newName) << "\"}";
+                        }
+                        pos += word.size();
+                    }
+                    ++lineNo;
+                }
+            }
+            edit << "]}}";
+            sendResponse(extractId(body), edit.str());
         } else if (body.find("\"method\":\"textDocument/formatting\"") != std::string::npos) {
             const std::string uri = documentUri(body);
             const auto it = g_documents.find(uri);

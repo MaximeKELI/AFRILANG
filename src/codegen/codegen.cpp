@@ -2470,6 +2470,22 @@ AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const 
         auto it = semantic_.globalVariables.find(id->name);
         if (it != semantic_.globalVariables.end()) return it->second;
     }
+    if (const auto* num = dynamic_cast<const NumberLiteralNode*>(&expr)) {
+        (void)num;
+        return AfrType::number();
+    }
+    if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
+        (void)str;
+        return AfrType::text();
+    }
+    if (const auto* slice = dynamic_cast<const SliceExpressionNode*>(&expr)) {
+        return inferExpressionAfrType(*slice->object);
+    }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        if (!list->elementTypeName.empty()) {
+            return AfrType::listType(typeFromName(list->elementTypeName));
+        }
+    }
     if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
         return AfrType::classType(newExpr->className);
     }

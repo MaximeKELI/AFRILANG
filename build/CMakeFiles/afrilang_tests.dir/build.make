@@ -508,6 +508,8 @@ afrilang_tests: CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o
 afrilang_tests: CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o
 afrilang_tests: CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o
 afrilang_tests: CMakeFiles/afrilang_tests.dir/build.make
+afrilang_tests: /usr/lib/x86_64-linux-gnu/libssl.so
+afrilang_tests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 afrilang_tests: CMakeFiles/afrilang_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable afrilang_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/afrilang_tests.dir/link.txt --verbose=$(VERBOSE)

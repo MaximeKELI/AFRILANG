@@ -1634,6 +1634,15 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             continue;
         }
 
+        if (match(TokenType::From)) {
+            auto start = parseExpression();
+            consume(TokenType::To, "'to' attendu dans l'expression slice");
+            auto end = parseExpression();
+            callee = std::make_unique<SliceExpressionNode>(std::move(callee), std::move(start),
+                                                           std::move(end));
+            continue;
+        }
+
         break;
     }
 
