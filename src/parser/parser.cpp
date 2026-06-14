@@ -1026,10 +1026,18 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
             arms.push_back(std::move(arm));
         } else {
             consume(TokenType::Case, "'case' attendu dans match");
-            const Token& caseToken = consumeName("Nom de cas attendu");
             MatchArmNode arm;
-            arm.caseName = caseToken.lexeme;
-            if (match(TokenType::With)) {
+            if (match(TokenType::StringLiteral)) {
+                arm.caseKind = MatchArmNode::CaseKind::Text;
+                arm.caseName = previous().lexeme;
+            } else if (match(TokenType::NumberLiteral)) {
+                arm.caseKind = MatchArmNode::CaseKind::Number;
+                arm.caseName = previous().lexeme;
+            } else {
+                const Token& caseToken = consumeName("Nom de cas attendu");
+                arm.caseName = caseToken.lexeme;
+            }
+            if (arm.caseKind == MatchArmNode::CaseKind::Enum && match(TokenType::With)) {
                 do {
                     arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
                 } while (match(TokenType::Comma));
@@ -1071,10 +1079,18 @@ std::unique_ptr<ExpressionNode> Parser::parseMatchExpression() {
             arms.push_back(std::move(arm));
         } else {
             consume(TokenType::Case, "'case' attendu dans match");
-            const Token& caseToken = consumeName("Nom de cas attendu");
             MatchExprArmNode arm;
-            arm.caseName = caseToken.lexeme;
-            if (match(TokenType::With)) {
+            if (match(TokenType::StringLiteral)) {
+                arm.caseKind = MatchArmNode::CaseKind::Text;
+                arm.caseName = previous().lexeme;
+            } else if (match(TokenType::NumberLiteral)) {
+                arm.caseKind = MatchArmNode::CaseKind::Number;
+                arm.caseName = previous().lexeme;
+            } else {
+                const Token& caseToken = consumeName("Nom de cas attendu");
+                arm.caseName = caseToken.lexeme;
+            }
+            if (arm.caseKind == MatchArmNode::CaseKind::Enum && match(TokenType::With)) {
                 do {
                     arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
                 } while (match(TokenType::Comma));
