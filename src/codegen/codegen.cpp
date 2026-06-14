@@ -477,6 +477,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
+    if (needsSql) out << "#include \"sql.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
@@ -2719,6 +2720,13 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     args.push_back("-fstack-protector-strong");
     args.push_back("-D_FORTIFY_SOURCE=2");
     args.push_back("-fPIE");
+    if (needsHttp) {
+        linkLibraries_.insert("-lssl");
+        linkLibraries_.insert("-lcrypto");
+    }
+    if (needsSql) {
+        linkLibraries_.insert("-lsqlite3");
+    }
     if (semantic_.usesAsync && crossTarget_ != "wasm32") {
         args.push_back("-fcoroutines");
         args.push_back("-pthread");
