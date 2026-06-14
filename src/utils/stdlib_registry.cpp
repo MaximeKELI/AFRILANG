@@ -40,6 +40,7 @@ void injectModule(ProgramNode& program, const std::string& name,
         name,
         std::vector<std::unique_ptr<ClassNode>>{},
         std::vector<std::unique_ptr<RecordNode>>{},
+        std::vector<std::unique_ptr<EnumNode>>{},
         std::vector<std::unique_ptr<FunctionNode>>{});
     for (auto& fn : functions) {
         module->functions.push_back(std::move(fn));
