@@ -936,7 +936,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             if (!forEach->valueName.empty()) {
                 errorAt(*forEach, "Deux variables dans 'for each' requièrent une map");
             }
-            scope[forEach->itemName] = containerType.listElementType();
+            scope[forEach->itemName] = resolveTypeName(containerType.listElementTypeName);
         } else if (containerType.kind == TypeKind::Map) {
             if (forEach->valueName.empty()) {
                 errorAt(*forEach, "'for each key, value in map' requiert deux variables");
