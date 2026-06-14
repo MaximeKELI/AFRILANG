@@ -524,16 +524,16 @@ void CodeGenerator::emitRecords(std::ostream& out) const {
 }
 
 void CodeGenerator::emitEnums(std::ostream& out) const {
-    for (const auto& en : program_.enums) {
+    auto emitOne = [&](const EnumNode& en) {
         const EnumInfo* info = nullptr;
-        auto it = semantic_.enums.find(en->name);
+        auto it = semantic_.enums.find(en.name);
         if (it != semantic_.enums.end()) info = &it->second;
 
-        out << "struct " << en->name << " {\n";
+        out << "struct " << en.name << " {\n";
         out << "    enum class Tag {";
-        for (std::size_t i = 0; i < en->cases.size(); ++i) {
+        for (std::size_t i = 0; i < en.cases.size(); ++i) {
             if (i > 0) out << ',';
-            out << " " << en->cases[i].name;
+            out << " " << en.cases[i].name;
         }
         out << " };\n";
         out << "    Tag tag;\n";
@@ -549,8 +549,8 @@ void CodeGenerator::emitEnums(std::ostream& out) const {
             }
         }
 
-        for (const auto& c : en->cases) {
-            out << "    static " << en->name << " make_" << c.name << "(";
+        for (const auto& c : en.cases) {
+            out << "    static " << en.name << " make_" << c.name << "(";
             if (info && info->cases.count(c.name)) {
                 const auto& fields = info->cases.at(c.name).fields;
                 for (std::size_t i = 0; i < fields.size(); ++i) {
@@ -559,7 +559,7 @@ void CodeGenerator::emitEnums(std::ostream& out) const {
                 }
             }
             out << ") {\n";
-            out << "        " << en->name << " v;\n";
+            out << "        " << en.name << " v;\n";
             out << "        v.tag = Tag::" << c.name << ";\n";
             if (info && info->cases.count(c.name)) {
                 for (const auto& [fname, _] : info->cases.at(c.name).fields) {
@@ -571,6 +571,15 @@ void CodeGenerator::emitEnums(std::ostream& out) const {
         }
 
         out << "};\n\n";
+    };
+
+    for (const auto& en : program_.enums) {
+        emitOne(*en);
+    }
+    for (const auto& module : program_.modules) {
+        for (const auto& en : module->enums) {
+            emitOne(*en);
+        }
     }
 }
 
