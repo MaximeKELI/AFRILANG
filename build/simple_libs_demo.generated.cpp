@@ -125,27 +125,27 @@ int main() {
         #line 14 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
         #line 15 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
         #line 17 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto tempF = celsius::cToF(20);
+    double tempF = celsius::cToF(20);
     #line 18 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << format::formatNumber(tempF, 1) << std::endl;
     #line 20 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto greeting = i18n::greetFr("AFRILANG");
+    std::string greeting = i18n::greetFr("AFRILANG");
     #line 21 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << greeting << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto label = upper::toUpper("bonjour");
+    std::string label = upper::toUpper("bonjour");
     #line 24 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << label << std::endl;
     #line 26 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto angle = trig::sinDeg(90);
+    double angle = trig::sinDeg(90);
     #line 27 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << format::formatNumber(angle, 4) << std::endl;
     #line 29 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto code = hex::toHex(255);
+    std::string code = hex::toHex(255);
     #line 30 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << code << std::endl;
     #line 32 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
-    auto score = quiz::scorePercent(8, 10);
+    double score = quiz::scorePercent(8, 10);
     #line 33 "/home/maxime/AFRILANG/build/../examples/simple_libs_demo.afr"
     std::cout << format::formatNumber(score, 1) << std::endl;
     return 0;

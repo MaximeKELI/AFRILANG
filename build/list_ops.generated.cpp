@@ -120,7 +120,7 @@ int main() {
         #line 7 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<double> nums = {1, 2, 3, 4, 5};
     #line 9 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    auto doubled = collections::mapNumbers(nums, [&](double x) -> double {
+    std::vector<double> doubled = collections::mapNumbers(nums, [&](double x) -> double {
     #line 10 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     return (x * 2);
     });
@@ -129,7 +129,7 @@ int main() {
     #line 14 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << doubled[static_cast<size_t>(4)] << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    auto bigOnes = collections::filterNumbers(nums, [&](double x) -> bool {
+    std::vector<double> bigOnes = collections::filterNumbers(nums, [&](double x) -> bool {
     #line 21 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     if ((x > 3)) {
         #line 18 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
@@ -146,7 +146,7 @@ int main() {
     #line 26 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << bigOnes[static_cast<size_t>(1)] << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    auto total = collections::reduceNumbers(nums, [&](double acc, double x) -> double {
+    double total = collections::reduceNumbers(nums, [&](double acc, double x) -> double {
     #line 29 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     return (acc + x);
     }, 0);
@@ -155,7 +155,7 @@ int main() {
     #line 34 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::vector<std::string> words = {"hi", "hello", "hey"};
     #line 36 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    auto upper = collections::mapText(words, [&](std::string w) -> std::string {
+    std::vector<std::string> upper = collections::mapText(words, [&](std::string w) -> std::string {
     #line 37 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     return (w + "!");
     });
@@ -164,7 +164,7 @@ int main() {
     #line 41 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     std::cout << upper[static_cast<size_t>(2)] << std::endl;
     #line 43 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
-    auto longWords = collections::filterText(words, [&](std::string w) -> bool {
+    std::vector<std::string> longWords = collections::filterText(words, [&](std::string w) -> bool {
     #line 48 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"
     if (str::contains(w, "el")) {
         #line 45 "/home/maxime/AFRILANG/build/../examples/list_ops.afr"

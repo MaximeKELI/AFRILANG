@@ -142,21 +142,21 @@ int main() {
         #line 10 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
         #line 11 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
         #line 13 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
-    auto words = textstats::wordCount("bonjour le monde afrilang");
+    double words = textstats::wordCount("bonjour le monde afrilang");
     #line 14 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::cout << format::formatNumber(words, 0) << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::vector<double> nums = {3, 7, 2, 9, 4};
     #line 17 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
-    auto avg = numstats::mean(nums);
+    double avg = numstats::mean(nums);
     #line 18 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::cout << format::formatNumber(avg, 2) << std::endl;
     #line 20 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
-    auto host = uriparse::getHost("https://example.com/path?q=1");
+    std::string host = uriparse::getHost("https://example.com/path?q=1");
     #line 21 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::cout << host << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
-    auto days = datecalc::daysBetween("2024-01-01", "2024-12-31");
+    double days = datecalc::daysBetween("2024-01-01", "2024-12-31");
     #line 24 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::cout << format::formatNumber(days, 0) << std::endl;
     return 0;

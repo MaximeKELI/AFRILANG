@@ -130,11 +130,11 @@ int main() {
         #line 8 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
         #line 9 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
         #line 11 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    auto dist = nlplevenshtein::distance("kitten", "sitting");
+    double dist = nlplevenshtein::distance("kitten", "sitting");
     #line 12 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(dist, 0) << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    auto sim = nlplevenshtein::similarity("hello", "hallo");
+    double sim = nlplevenshtein::similarity("hello", "hallo");
     #line 15 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(sim, 3) << std::endl;
     #line 17 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
@@ -142,7 +142,7 @@ int main() {
     #line 18 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::vector<double> numsB = {2, 4, 6, 8, 10};
     #line 19 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    auto corr = statcorrel::pearson(numsA, numsB);
+    double corr = statcorrel::pearson(numsA, numsB);
     #line 20 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(corr, 3) << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
@@ -150,7 +150,7 @@ int main() {
     #line 23 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::vector<double> vecB = {1, 1, 0};
     #line 24 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    auto cos = mlcosine::cosineSim(vecA, vecB);
+    double cos = mlcosine::cosineSim(vecA, vecB);
     #line 25 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(cos, 3) << std::endl;
     return 0;
