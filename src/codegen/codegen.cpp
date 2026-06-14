@@ -854,8 +854,10 @@ void CodeGenerator::emitCallArgument(std::ostream& out, const ExpressionNode& ar
         out << ")";
         return;
     }
-    if (paramType.kind == TypeKind::Class && usesPointerAccess(arg)) {
-        out << "*";
+    if (paramType.kind == TypeKind::Class || paramType.kind == TypeKind::Interface) {
+        if (usesPointerAccess(arg)) {
+            out << "*";
+        }
     }
     emitExpression(out, arg, ownerClass);
 }
@@ -1497,7 +1499,8 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             indent(out, indentLevel + 1);
             out << "auto& " << forEach->valueName << " = _afr_pair.second;\n";
         } else if (containerType.kind == TypeKind::List &&
-                   containerType.listElementType().kind == TypeKind::Class) {
+                   (containerType.listElementType().kind == TypeKind::Class ||
+                    containerType.listElementType().kind == TypeKind::Interface)) {
             out << "for (auto& _afr_ptr : ";
             emitExpression(out, *forEach->list, ownerClass);
             out << ") {\n";
