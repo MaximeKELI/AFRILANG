@@ -55,7 +55,7 @@ int main() {
     }
 })();
     #line 23 "/home/maxime/AFRILANG/build/../examples/match_expr_demo.afr"
-    std::int64_t code = ([&]() -> std::int64_t {
+    double code = ([&]() -> double {
     Status _afr_match = s;
     if (_afr_match.tag == Status::Tag::Ok) {
         return 0LL;

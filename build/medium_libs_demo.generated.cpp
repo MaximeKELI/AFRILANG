@@ -147,7 +147,7 @@ int main() {
     #line 14 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     std::cout << format::formatNumber(words, 0LL) << std::endl;
     #line 16 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
-    std::vector<std::int64_t> nums = {3LL, 7LL, 2LL, 9LL, 4LL};
+    std::vector<double> nums = {3LL, 7LL, 2LL, 9LL, 4LL};
     #line 17 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"
     double avg = numstats::mean(nums);
     #line 18 "/home/maxime/AFRILANG/build/../examples/medium_libs_demo.afr"

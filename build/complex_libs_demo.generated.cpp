@@ -139,17 +139,17 @@ int main() {
     #line 15 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(sim, 3LL) << std::endl;
     #line 17 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<std::int64_t> numsA = {1LL, 2LL, 3LL, 4LL, 5LL};
+    std::vector<double> numsA = {1LL, 2LL, 3LL, 4LL, 5LL};
     #line 18 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<std::int64_t> numsB = {2LL, 4LL, 6LL, 8LL, 10LL};
+    std::vector<double> numsB = {2LL, 4LL, 6LL, 8LL, 10LL};
     #line 19 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double corr = statcorrel::pearson(numsA, numsB);
     #line 20 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     std::cout << format::formatNumber(corr, 3LL) << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<std::int64_t> vecA = {1LL, 0LL, 1LL};
+    std::vector<double> vecA = {1LL, 0LL, 1LL};
     #line 23 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<std::int64_t> vecB = {1LL, 1LL, 0LL};
+    std::vector<double> vecB = {1LL, 1LL, 0LL};
     #line 24 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double cos = mlcosine::cosineSim(vecA, vecB);
     #line 25 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
