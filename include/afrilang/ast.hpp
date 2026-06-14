@@ -99,11 +99,15 @@ struct EnumCaseExprNode : ExpressionNode {
 
 struct CallExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> callee;
+    std::vector<std::string> typeArgs;
     std::vector<std::unique_ptr<ExpressionNode>> arguments;
 
     CallExpressionNode(std::unique_ptr<ExpressionNode> callee,
-                       std::vector<std::unique_ptr<ExpressionNode>> arguments = {})
-        : callee(std::move(callee)), arguments(std::move(arguments)) {}
+                       std::vector<std::unique_ptr<ExpressionNode>> arguments = {},
+                       std::vector<std::string> typeArgs = {})
+        : callee(std::move(callee))
+        , typeArgs(std::move(typeArgs))
+        , arguments(std::move(arguments)) {}
 };
 
 struct MemberAccessNode : ExpressionNode {
@@ -335,6 +339,7 @@ struct ExplainStatementNode : StatementNode {
 
 struct MatchArmNode {
     std::string caseName;
+    std::vector<std::string> bindNames;
     bool isDefault = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 };
@@ -569,6 +574,7 @@ struct FunctionNode : ASTNode {
     bool isAbstract = false;
     bool isFinal = false;
     bool isAsync = false;
+    bool modulePrivate = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
@@ -632,6 +638,7 @@ struct ClassNode : ASTNode {
     std::vector<std::unique_ptr<StatementNode>> destroyBody;
     bool isAbstract = false;
     bool isFinal = false;
+    bool modulePrivate = false;
 
     ClassNode(std::string name,
               std::string baseClassName,

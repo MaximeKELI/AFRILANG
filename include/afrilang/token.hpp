@@ -12,7 +12,7 @@ enum class TokenType {
     And, Or, Not, Extends, Returns, Return,
     TypeNumber, TypeText, TypeBool,
     While, Do, For, Each, In, Stop, Skip,
-    Module, Use, Import, Record, Field, Public, Private,
+    Module, Use, Import, Export, Record, Field, Public, Private,
     Set, This, Ask, Into, At, Add, Length, Of, Empty, List,
     True, False, Yes, No,
     Interface, Implements, Test, Assert, ErrorKw,
@@ -98,6 +98,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Module:         return "module";
         case TokenType::Use:            return "use";
         case TokenType::Import:         return "import";
+        case TokenType::Export:         return "export";
         case TokenType::Record:         return "record";
         case TokenType::Field:          return "field";
         case TokenType::Public:         return "public";

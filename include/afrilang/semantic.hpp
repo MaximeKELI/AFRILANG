@@ -25,6 +25,7 @@ struct MethodSignature {
     bool isFinal = false;
     bool isAsync = false;
     std::string externLibrary;
+    bool modulePrivate = false;
 };
 
 struct FieldInfo {
@@ -45,6 +46,7 @@ struct ClassInfo {
     std::string baseClass;
     bool isAbstract = false;
     bool isFinal = false;
+    bool modulePrivate = false;
     std::vector<std::string> typeParams;
     std::unordered_map<std::string, FieldInfo> fields;
     std::unordered_map<std::string, PropertyInfo> properties;
@@ -104,6 +106,7 @@ private:
     const ProgramNode& program_;
     const SourceManager* sources_;
     std::string currentFile_;
+    std::string currentModuleName_;
     SemanticResult result_;
     int loopDepth_ = 0;
     int asyncContextDepth_ = 0;
