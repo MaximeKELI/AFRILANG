@@ -124,6 +124,7 @@ private:
     void registerClasses();
     void registerModules();
     void registerExterns();
+    void collectLintWarnings();
     void analyzeProgram();
     void analyzeClass(const ClassNode& cls);
     void analyzeTest(const TestNode& test);

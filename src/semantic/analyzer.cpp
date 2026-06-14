@@ -402,7 +402,14 @@ void SemanticAnalyzer::registerModules() {
 }
 
 void SemanticAnalyzer::registerExterns() {
+    static const std::unordered_set<std::string> kAllowedLibs = {
+        "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
+    };
     for (const auto& ext : program_.externs) {
+        if (!kAllowedLibs.count(ext->library)) {
+            errorAt(*ext, "Bibliothèque FFI non autorisée: '" + ext->library + "'",
+                    {}, ErrorCode::FfiLibraryDenied);
+        }
         if (result_.functions.count(ext->name)) {
             errorAt(*ext, "Fonction '" + ext->name + "' déjà déclarée");
         }
@@ -418,6 +425,33 @@ void SemanticAnalyzer::registerExterns() {
             sig.paramTypes.push_back(typeFromName(param.typeName));
         }
         result_.functions[ext->name] = std::move(sig);
+    }
+}
+
+void SemanticAnalyzer::collectLintWarnings() {
+    std::unordered_set<std::string> declaredModules;
+    for (const auto& stmt : program_.statements) {
+        if (const auto* use = dynamic_cast<const UseStatementNode*>(stmt.get())) {
+            declaredModules.insert(use->moduleName);
+        }
+    }
+    for (const auto& mod : declaredModules) {
+        if (!result_.usedModules.count(mod)) {
+            LintWarning w;
+            w.message = "Module '" + mod + "' importé via 'use' mais jamais utilisé";
+            w.file = currentFile_;
+            result_.warnings.push_back(std::move(w));
+        }
+    }
+    for (const auto& func : program_.functions) {
+        if (func->body.empty() && !func->isAbstract) {
+            LintWarning w;
+            w.message = "Fonction '" + func->name + "' a un corps vide";
+            w.line = func->loc.line;
+            w.column = func->loc.column;
+            w.file = currentFile_;
+            result_.warnings.push_back(std::move(w));
+        }
     }
 }
 
