@@ -51,9 +51,11 @@ void applyChildLimits(const ProcessConfig& config) {
     rl.rlim_cur = 64;
     rl.rlim_max = 64;
     setrlimit(RLIMIT_NOFILE, &rl);
-    rl.rlim_cur = 32;
-    rl.rlim_max = 32;
-    setrlimit(RLIMIT_NPROC, &rl);
+    if (config.limitProcessCount) {
+        rl.rlim_cur = 32;
+        rl.rlim_max = 32;
+        setrlimit(RLIMIT_NPROC, &rl);
+    }
 }
 
 std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool& truncated) {

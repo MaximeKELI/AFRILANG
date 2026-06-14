@@ -178,6 +178,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         config.maxMemoryMb = limits.maxMemoryMb;
         config.maxCpuSeconds = limits.maxCpuSeconds;
         config.maxOutputBytes = limits.maxOutputBytes;
+        config.limitProcessCount = true;
         const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
         if (!exec.output.empty()) {
             std::cout << exec.output;

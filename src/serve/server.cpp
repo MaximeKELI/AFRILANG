@@ -175,6 +175,7 @@ static std::string runSource(const std::string& source) {
         config.maxMemoryMb = limits.maxMemoryMb;
         config.maxCpuSeconds = limits.maxCpuSeconds;
         config.maxOutputBytes = limits.maxOutputBytes;
+        config.limitProcessCount = true;
 
         const ExecResult exec = execSandboxed(exePath, {}, config);
 

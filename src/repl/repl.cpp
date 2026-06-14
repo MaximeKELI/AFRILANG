@@ -64,6 +64,7 @@ bool Pipeline::evalReplSource(const std::string& source, std::string& errorOut) 
         config.maxMemoryMb = securityLimits(SecurityContext::UntrustedExec).maxMemoryMb;
         config.maxCpuSeconds = securityLimits(SecurityContext::UntrustedExec).maxCpuSeconds;
         config.maxOutputBytes = securityLimits(SecurityContext::UntrustedExec).maxOutputBytes;
+        config.limitProcessCount = true;
 
         const ExecResult exec = execSandboxed(exePath, {}, config);
         if (!exec.output.empty()) {

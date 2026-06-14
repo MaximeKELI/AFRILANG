@@ -21,6 +21,7 @@ struct ProcessConfig {
     std::size_t maxCpuSeconds = 5;
     bool applyResourceLimits = true;
     bool newSession = true;
+    bool limitProcessCount = false;
 };
 
 ExecResult execWithTimeout(const std::string& executable,
