@@ -1217,7 +1217,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         std::vector<std::string> hints;
         for (const auto& [name, _] : scope) hints.push_back(name);
         for (const auto& [name, _] : result_.globalVariables) hints.push_back(name);
-        errorAt(expr, "Variable '" + id->name + "' non déclarée", hints);
+        errorAt(expr, "Variable '" + id->name + "' non déclarée", hints,
+                ErrorCode::UndeclaredVariable);
     }
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
@@ -2400,7 +2401,8 @@ const MethodSignature* SemanticAnalyzer::findOperator(const std::string& classNa
 }
 
 [[noreturn]] void SemanticAnalyzer::errorAt(const ASTNode& node, const std::string& message,
-                                            const std::vector<std::string>& nameHints) const {
+                                            const std::vector<std::string>& nameHints,
+                                            ErrorCode code) const {
     std::string snippet;
     if (sources_) {
         if (const SourceFile* file = sources_->getFile(currentFile_)) {
@@ -2419,8 +2421,7 @@ const MethodSignature* SemanticAnalyzer::findOperator(const std::string& classNa
         sug = findSimilarNames(badName, nameHints);
     }
 
-    throw CompileError(message, node.loc.line, node.loc.column,
-                       currentFile_, snippet, sug);
+    throw CompileError(message, node.loc.line, node.loc.column, currentFile_, snippet, sug, code);
 }
 
 } // namespace afrilang
