@@ -1221,6 +1221,55 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         return;
     }
 
+    if (const auto* use = dynamic_cast<const UseStatementNode*>(&stmt)) {
+        return;
+    }
+
+    if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(&stmt)) {
+        out << "afrilang::runtime::ui::openWindow(";
+        emitExpression(out, *openWin->title, ownerClass);
+        out << ", ";
+        emitExpression(out, *openWin->width, ownerClass);
+        out << ", ";
+        emitExpression(out, *openWin->height, ownerClass);
+        out << ");\n";
+        return;
+    }
+
+    if (dynamic_cast<const CloseWindowStatementNode*>(&stmt)) {
+        out << "afrilang::runtime::ui::closeWindow();\n";
+        return;
+    }
+
+    if (dynamic_cast<const ShowFrameStatementNode*>(&stmt)) {
+        out << "afrilang::runtime::ui::showFrame();\n";
+        return;
+    }
+
+    if (const auto* clearBg = dynamic_cast<const ClearBackgroundStatementNode*>(&stmt)) {
+        out << "afrilang::runtime::ui::clearBackground(";
+        emitExpression(out, *clearBg->red, ownerClass);
+        out << ", ";
+        emitExpression(out, *clearBg->green, ownerClass);
+        out << ", ";
+        emitExpression(out, *clearBg->blue, ownerClass);
+        out << ");\n";
+        return;
+    }
+
+    if (const auto* drawText = dynamic_cast<const DrawTextStatementNode*>(&stmt)) {
+        out << "afrilang::runtime::ui::drawText(";
+        emitExpression(out, *drawText->text, ownerClass);
+        out << ", ";
+        emitExpression(out, *drawText->x, ownerClass);
+        out << ", ";
+        emitExpression(out, *drawText->y, ownerClass);
+        out << ", ";
+        emitExpression(out, *drawText->fontSize, ownerClass);
+        out << ");\n";
+        return;
+    }
+
     if (dynamic_cast<const UseStatementNode*>(&stmt)) {
         return;
     }
