@@ -9,6 +9,8 @@
 #include "afrilang/lexer.hpp"
 #include "afrilang/parser.hpp"
 #include "afrilang/project.hpp"
+#include "afrilang/sandbox.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
@@ -170,8 +172,20 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
     if (options.runAfter) {
         std::cout << "--- Exécution ---\n";
-        const int code = std::system(("./" + result.executable).c_str());
-        std::cout << "--- Fin (code: " << code << ") ---\n";
+        const auto limits = securityLimits(SecurityContext::TrustedCompile);
+        ProcessConfig config;
+        config.timeoutSeconds = limits.execTimeoutSeconds;
+        config.maxMemoryMb = limits.maxMemoryMb;
+        config.maxCpuSeconds = limits.maxCpuSeconds;
+        config.maxOutputBytes = limits.maxOutputBytes;
+        const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
+        if (!exec.output.empty()) {
+            std::cout << exec.output;
+        }
+        if (exec.timedOut) {
+            std::cerr << "Exécution interrompue (timeout " << config.timeoutSeconds << "s)\n";
+        }
+        std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
     }
 
     return result;
