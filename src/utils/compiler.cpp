@@ -90,15 +90,13 @@ std::string Compiler::resolvePath(const std::string& baseDir,
     if (StdlibRegistry::isStdlibImport(importPath)) {
         return importPath;
     }
-    if (PkgRegistry::isPkgImport(importPath)) {
-        return PkgRegistry::resolvePkgImport(importPath, projectDir_, afrilangRoot_);
-    }
     fs::path resolved = fs::path(baseDir) / importPath;
     const std::string canonical = normalizePath(resolved.string());
     if (!afrilangRoot_.empty()) {
         const fs::path root = fs::weakly_canonical(fs::path(afrilangRoot_));
+        const fs::path proj = fs::weakly_canonical(fs::path(projectDir_));
         if (!isPathInsideRoot(root.string(), canonical) &&
-            !isPathInsideRoot(fs::weakly_canonical(fs::path(projectDir_)).string(), canonical)) {
+            !isPathInsideRoot(proj.string(), canonical)) {
             throw CompileError("Import hors du projet: " + importPath, 0, 0, entryPath_, {},
                                {}, ErrorCode::ImportNotFound);
         }
