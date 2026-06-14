@@ -1,0 +1,22 @@
+module mlsvm
+
+function svmSum(v list number) returns number
+end
+
+function svmMean(v list number) returns number
+end
+
+function svmMin(v list number) returns number
+end
+
+function svmMax(v list number) returns number
+end
+
+function svmVar(v list number) returns number
+end
+
+function svmStd(v list number) returns number
+end
+
+function svmNorm(v list number) returns list number
+end

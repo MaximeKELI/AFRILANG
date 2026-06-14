@@ -1,0 +1,25 @@
+module csvsample
+
+function sampSum(v list number) returns number
+end
+
+function sampMean(v list number) returns number
+end
+
+function sampMin(v list number) returns number
+end
+
+function sampMax(v list number) returns number
+end
+
+function sampVar(v list number) returns number
+end
+
+function sampStd(v list number) returns number
+end
+
+function sampNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

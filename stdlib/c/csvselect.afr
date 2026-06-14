@@ -1,0 +1,25 @@
+module csvselect
+
+function seleSum(v list number) returns number
+end
+
+function seleMean(v list number) returns number
+end
+
+function seleMin(v list number) returns number
+end
+
+function seleMax(v list number) returns number
+end
+
+function seleVar(v list number) returns number
+end
+
+function seleStd(v list number) returns number
+end
+
+function seleNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

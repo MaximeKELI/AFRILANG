@@ -477,6 +477,33 @@ src/utils/compiler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.s
 .PHONY : src/utils/compiler.cpp.s
 
+src/utils/complex_catalog.o: src/utils/complex_catalog.cpp.o
+.PHONY : src/utils/complex_catalog.o
+
+# target to build an object file
+src/utils/complex_catalog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o
+.PHONY : src/utils/complex_catalog.cpp.o
+
+src/utils/complex_catalog.i: src/utils/complex_catalog.cpp.i
+.PHONY : src/utils/complex_catalog.i
+
+# target to preprocess a source file
+src/utils/complex_catalog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.i
+.PHONY : src/utils/complex_catalog.cpp.i
+
+src/utils/complex_catalog.s: src/utils/complex_catalog.cpp.s
+.PHONY : src/utils/complex_catalog.s
+
+# target to generate assembly for a file
+src/utils/complex_catalog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.s
+.PHONY : src/utils/complex_catalog.cpp.s
+
 src/utils/diagnostics.o: src/utils/diagnostics.cpp.o
 .PHONY : src/utils/diagnostics.o
 
@@ -763,6 +790,9 @@ help:
 	@echo "... src/utils/compiler.o"
 	@echo "... src/utils/compiler.i"
 	@echo "... src/utils/compiler.s"
+	@echo "... src/utils/complex_catalog.o"
+	@echo "... src/utils/complex_catalog.i"
+	@echo "... src/utils/complex_catalog.s"
 	@echo "... src/utils/diagnostics.o"
 	@echo "... src/utils/diagnostics.i"
 	@echo "... src/utils/diagnostics.s"

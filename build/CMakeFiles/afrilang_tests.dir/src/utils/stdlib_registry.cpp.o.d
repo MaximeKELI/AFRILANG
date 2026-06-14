@@ -158,4 +158,5 @@ CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
- /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp
+ /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
+ /home/maxime/AFRILANG/include/afrilang/complex_catalog.hpp

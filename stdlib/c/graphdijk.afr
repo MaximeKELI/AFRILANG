@@ -1,0 +1,22 @@
+module graphdijk
+
+function dijkstra(adj list number, n number, start number) returns list number
+end
+
+function shortestWeighted(adj list number, n number, start number, goal number) returns number
+end
+
+function dijkstraPath(adj list number, n number, start number, goal number) returns list number
+end
+
+function minEdgeWeight(adj list number, n number) returns number
+end
+
+function maxEdgeWeight(adj list number, n number) returns number
+end
+
+function avgEdgeWeight(adj list number, n number) returns number
+end
+
+function edgeCount(adj list number, n number) returns number
+end

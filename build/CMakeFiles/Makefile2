@@ -84,12 +84,12 @@ clean: CMakeFiles/examples.dir/clean
 CMakeFiles/afrilang.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target afrilang"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 "Built target afrilang"
 .PHONY : CMakeFiles/afrilang.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/afrilang.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/afrilang.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 0
 .PHONY : CMakeFiles/afrilang.dir/rule
@@ -110,12 +110,12 @@ CMakeFiles/afrilang.dir/clean:
 CMakeFiles/afrilang_tests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38 "Built target afrilang_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Built target afrilang_tests"
 .PHONY : CMakeFiles/afrilang_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/afrilang_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/afrilang_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 0
 .PHONY : CMakeFiles/afrilang_tests.dir/rule
@@ -136,12 +136,12 @@ CMakeFiles/afrilang_tests.dir/clean:
 CMakeFiles/examples.dir/all: CMakeFiles/afrilang.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/examples.dir/build.make CMakeFiles/examples.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/examples.dir/build.make CMakeFiles/examples.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=39 "Built target examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=41 "Built target examples"
 .PHONY : CMakeFiles/examples.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/examples.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/examples.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxime/AFRILANG/build/CMakeFiles 0
 .PHONY : CMakeFiles/examples.dir/rule

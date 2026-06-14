@@ -1,0 +1,22 @@
+module geomclip
+
+function clipSum(v list number) returns number
+end
+
+function clipMean(v list number) returns number
+end
+
+function clipMin(v list number) returns number
+end
+
+function clipMax(v list number) returns number
+end
+
+function clipVar(v list number) returns number
+end
+
+function clipStd(v list number) returns number
+end
+
+function clipNorm(v list number) returns list number
+end

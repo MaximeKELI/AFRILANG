@@ -1,0 +1,25 @@
+module simbirth
+
+function birtSum(v list number) returns number
+end
+
+function birtMean(v list number) returns number
+end
+
+function birtMin(v list number) returns number
+end
+
+function birtMax(v list number) returns number
+end
+
+function birtVar(v list number) returns number
+end
+
+function birtStd(v list number) returns number
+end
+
+function birtNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end

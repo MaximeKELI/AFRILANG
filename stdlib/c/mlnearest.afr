@@ -1,0 +1,22 @@
+module mlnearest
+
+function nearSum(v list number) returns number
+end
+
+function nearMean(v list number) returns number
+end
+
+function nearMin(v list number) returns number
+end
+
+function nearMax(v list number) returns number
+end
+
+function nearVar(v list number) returns number
+end
+
+function nearStd(v list number) returns number
+end
+
+function nearNorm(v list number) returns list number
+end

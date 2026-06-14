@@ -1,0 +1,22 @@
+module mldecision
+
+function deciSum(v list number) returns number
+end
+
+function deciMean(v list number) returns number
+end
+
+function deciMin(v list number) returns number
+end
+
+function deciMax(v list number) returns number
+end
+
+function deciVar(v list number) returns number
+end
+
+function deciStd(v list number) returns number
+end
+
+function deciNorm(v list number) returns list number
+end

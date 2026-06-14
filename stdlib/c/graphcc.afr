@@ -1,0 +1,22 @@
+module graphcc
+
+function connectedComponents(adj list number, n number) returns list number
+end
+
+function componentCount(adj list number, n number) returns number
+end
+
+function largestComponentSize(adj list number, n number) returns number
+end
+
+function sameComponent(adj list number, n number, a number, b number) returns bool
+end
+
+function componentSizes(adj list number, n number) returns list number
+end
+
+function outDegreeSum(adj list number, n number) returns list number
+end
+
+function isolateCount(adj list number, n number) returns number
+end

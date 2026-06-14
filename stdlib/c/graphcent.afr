@@ -1,0 +1,22 @@
+module graphcent
+
+function degreeCentrality(adj list number, n number) returns list number
+end
+
+function closenessCentrality(adj list number, n number) returns list number
+end
+
+function betweennessApprox(adj list number, n number) returns list number
+end
+
+function eigenvectorCentrality(adj list number, n number) returns list number
+end
+
+function pageRank(adj list number, n number, damping number) returns list number
+end
+
+function hubScore(adj list number, n number) returns list number
+end
+
+function mostCentral(adj list number, n number) returns number
+end

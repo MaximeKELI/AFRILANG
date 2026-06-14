@@ -1,0 +1,22 @@
+module sigwavelet
+
+function waveSum(v list number) returns number
+end
+
+function waveMean(v list number) returns number
+end
+
+function waveMin(v list number) returns number
+end
+
+function waveMax(v list number) returns number
+end
+
+function waveVar(v list number) returns number
+end
+
+function waveStd(v list number) returns number
+end
+
+function waveNorm(v list number) returns list number
+end

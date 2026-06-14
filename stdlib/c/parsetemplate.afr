@@ -1,0 +1,22 @@
+module parsetemplate
+
+function tempLen(s text) returns number
+end
+
+function tempUpper(s text) returns text
+end
+
+function tempLower(s text) returns text
+end
+
+function tempTrim(s text) returns text
+end
+
+function tempSplit(s text, delim text) returns list text
+end
+
+function tempJoin(parts list text, delim text) returns text
+end
+
+function tempReplace(s text, from text, to text) returns text
+end

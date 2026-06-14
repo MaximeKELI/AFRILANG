@@ -1,0 +1,22 @@
+module fingreeks
+
+function greeSum(v list number) returns number
+end
+
+function greeMean(v list number) returns number
+end
+
+function greeMin(v list number) returns number
+end
+
+function greeMax(v list number) returns number
+end
+
+function greeVar(v list number) returns number
+end
+
+function greeStd(v list number) returns number
+end
+
+function greeNorm(v list number) returns list number
+end

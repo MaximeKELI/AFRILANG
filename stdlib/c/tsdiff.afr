@@ -1,0 +1,19 @@
+module tsdiff
+
+function diff(v list number, order number) returns list number
+end
+
+function pctChange(v list number) returns list number
+end
+
+function logReturn(v list number) returns list number
+end
+
+function cumReturn(v list number) returns list number
+end
+
+function seasonalDiff(v list number, period number) returns list number
+end
+
+function integrate(v list number, start number) returns list number
+end

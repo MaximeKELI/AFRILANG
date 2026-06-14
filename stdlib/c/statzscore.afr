@@ -1,0 +1,19 @@
+module statzscore
+
+function zScores(v list number) returns list number
+end
+
+function zScore(v list number, val number) returns number
+end
+
+function isOutlierZ(v list number, val number, threshold number) returns bool
+end
+
+function standardize(v list number) returns list number
+end
+
+function destandardize(z list number, mean number, stddev number) returns list number
+end
+
+function zMean(v list number) returns number
+end

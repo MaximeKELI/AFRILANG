@@ -1,0 +1,22 @@
+module graphkruskal
+
+function kruskalMst(adj list number, n number) returns number
+end
+
+function kruskalEdges(adj list number, n number) returns list number
+end
+
+function unionFindComponents(adj list number, n number) returns number
+end
+
+function edgeListSize(adj list number, n number) returns number
+end
+
+function kruskalForestWeight(adj list number, n number) returns number
+end
+
+function maxSpanningForest(adj list number, n number) returns number
+end
+
+function compareKruskalPrim(adj list number, n number) returns number
+end

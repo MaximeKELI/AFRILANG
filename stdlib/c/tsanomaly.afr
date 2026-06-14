@@ -1,0 +1,22 @@
+module tsanomaly
+
+function anomSum(v list number) returns number
+end
+
+function anomMean(v list number) returns number
+end
+
+function anomMin(v list number) returns number
+end
+
+function anomMax(v list number) returns number
+end
+
+function anomVar(v list number) returns number
+end
+
+function anomStd(v list number) returns number
+end
+
+function anomNorm(v list number) returns list number
+end

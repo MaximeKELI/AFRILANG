@@ -1,0 +1,25 @@
+module simrandomwalk
+
+function randSum(v list number) returns number
+end
+
+function randMean(v list number) returns number
+end
+
+function randMin(v list number) returns number
+end
+
+function randMax(v list number) returns number
+end
+
+function randVar(v list number) returns number
+end
+
+function randStd(v list number) returns number
+end
+
+function randNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end

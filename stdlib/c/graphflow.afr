@@ -1,0 +1,22 @@
+module graphflow
+
+function maxFlow(adj list number, n number, source number, sink number) returns number
+end
+
+function minCutValue(adj list number, n number, source number, sink number) returns number
+end
+
+function flowMatrix(adj list number, n number, source number, sink number) returns list number
+end
+
+function bottleneckCapacity(adj list number, n number) returns number
+end
+
+function outFlowSum(adj list number, n number, node number) returns number
+end
+
+function inFlowSum(adj list number, n number, node number) returns number
+end
+
+function isFlowConserved(adj list number, n number, source number, sink number) returns bool
+end

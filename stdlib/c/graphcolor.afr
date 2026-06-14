@@ -1,0 +1,22 @@
+module graphcolor
+
+function greedyColor(adj list number, n number) returns list number
+end
+
+function chromaticNumber(adj list number, n number) returns number
+end
+
+function isValidColoring(adj list number, n number, colors list number) returns bool
+end
+
+function colorClasses(adj list number, n number) returns list number
+end
+
+function conflictCount(adj list number, n number, colors list number) returns number
+end
+
+function welshPowell(adj list number, n number) returns list number
+end
+
+function sameColorNeighbors(adj list number, n number, node number) returns number
+end

@@ -1,0 +1,19 @@
+module compvarint
+
+function varintEncode(data list number) returns list number
+end
+
+function varintDecode(encoded list number) returns list number
+end
+
+function varintRatio(data list number) returns number
+end
+
+function varintSize(data list number) returns number
+end
+
+function varintCompressed(data list number) returns number
+end
+
+function varintRoundTrip(data list number) returns bool
+end

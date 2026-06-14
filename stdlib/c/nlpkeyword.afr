@@ -1,0 +1,22 @@
+module nlpkeyword
+
+function keywLen(s text) returns number
+end
+
+function keywUpper(s text) returns text
+end
+
+function keywLower(s text) returns text
+end
+
+function keywTrim(s text) returns text
+end
+
+function keywSplit(s text, delim text) returns list text
+end
+
+function keywJoin(parts list text, delim text) returns text
+end
+
+function keywReplace(s text, from text, to text) returns text
+end

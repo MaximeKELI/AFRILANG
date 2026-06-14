@@ -1,0 +1,25 @@
+module csvnormalize
+
+function normSum(v list number) returns number
+end
+
+function normMean(v list number) returns number
+end
+
+function normMin(v list number) returns number
+end
+
+function normMax(v list number) returns number
+end
+
+function normVar(v list number) returns number
+end
+
+function normStd(v list number) returns number
+end
+
+function normNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

@@ -1,0 +1,22 @@
+module mlgradient
+
+function gradSum(v list number) returns number
+end
+
+function gradMean(v list number) returns number
+end
+
+function gradMin(v list number) returns number
+end
+
+function gradMax(v list number) returns number
+end
+
+function gradVar(v list number) returns number
+end
+
+function gradStd(v list number) returns number
+end
+
+function gradNorm(v list number) returns list number
+end

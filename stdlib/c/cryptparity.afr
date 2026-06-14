@@ -1,0 +1,25 @@
+module cryptparity
+
+function pariLen(s text) returns number
+end
+
+function pariUpper(s text) returns text
+end
+
+function pariLower(s text) returns text
+end
+
+function pariTrim(s text) returns text
+end
+
+function pariSplit(s text, delim text) returns list text
+end
+
+function pariJoin(parts list text, delim text) returns text
+end
+
+function pariReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

@@ -1,0 +1,25 @@
+module cryptmd5
+
+function md5Len(s text) returns number
+end
+
+function md5Upper(s text) returns text
+end
+
+function md5Lower(s text) returns text
+end
+
+function md5Trim(s text) returns text
+end
+
+function md5Split(s text, delim text) returns list text
+end
+
+function md5Join(parts list text, delim text) returns text
+end
+
+function md5Replace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

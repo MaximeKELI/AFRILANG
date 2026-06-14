@@ -1,0 +1,19 @@
+module parsehex
+
+function decode(hex text) returns list number
+end
+
+function encode(bytes list number) returns text
+end
+
+function nibbleCount(hex text) returns number
+end
+
+function byteCount(hex text) returns number
+end
+
+function isHex(s text) returns bool
+end
+
+function roundTrip(bytes list number) returns bool
+end

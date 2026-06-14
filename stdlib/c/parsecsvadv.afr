@@ -1,0 +1,25 @@
+module parsecsvadv
+
+function csvLen(s text) returns number
+end
+
+function csvUpper(s text) returns text
+end
+
+function csvLower(s text) returns text
+end
+
+function csvTrim(s text) returns text
+end
+
+function csvSplit(s text, delim text) returns list text
+end
+
+function csvJoin(parts list text, delim text) returns text
+end
+
+function csvReplace(s text, from text, to text) returns text
+end
+
+function parseRow(line text, delim text) returns list text
+end

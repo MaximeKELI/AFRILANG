@@ -1,0 +1,19 @@
+module simmonte
+
+function estimatePi(samples number, seed number) returns number
+end
+
+function integrate(samples number, seed number, a number, b number) returns number
+end
+
+function randomNormal(n number, seed number) returns list number
+end
+
+function confidence95(samples list number) returns list number
+end
+
+function bootstrapMean(data list number, samples number, seed number) returns number
+end
+
+function varianceReduction(samples number, seed number) returns number
+end

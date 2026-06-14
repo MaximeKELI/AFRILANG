@@ -1,0 +1,19 @@
+module tsema
+
+function ema(v list number, alpha number) returns list number
+end
+
+function emaSpan(v list number, span number) returns list number
+end
+
+function macd(v list number) returns list number
+end
+
+function macdSignal(v list number) returns list number
+end
+
+function histogram(v list number) returns list number
+end
+
+function lastEma(v list number, alpha number) returns number
+end

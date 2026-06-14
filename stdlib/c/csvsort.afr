@@ -1,0 +1,19 @@
+module csvsort
+
+function sortAsc(col list number) returns list number
+end
+
+function sortDesc(col list number) returns list number
+end
+
+function argsort(col list number) returns list number
+end
+
+function rank(col list number) returns list number
+end
+
+function topK(col list number, k number) returns list number
+end
+
+function bottomK(col list number, k number) returns list number
+end

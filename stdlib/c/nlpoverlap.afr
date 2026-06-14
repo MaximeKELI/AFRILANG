@@ -1,0 +1,22 @@
+module nlpoverlap
+
+function overLen(s text) returns number
+end
+
+function overUpper(s text) returns text
+end
+
+function overLower(s text) returns text
+end
+
+function overTrim(s text) returns text
+end
+
+function overSplit(s text, delim text) returns list text
+end
+
+function overJoin(parts list text, delim text) returns text
+end
+
+function overReplace(s text, from text, to text) returns text
+end

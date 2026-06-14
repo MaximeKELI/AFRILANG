@@ -1,0 +1,22 @@
+module sigmatrix
+
+function matrSum(v list number) returns number
+end
+
+function matrMean(v list number) returns number
+end
+
+function matrMin(v list number) returns number
+end
+
+function matrMax(v list number) returns number
+end
+
+function matrVar(v list number) returns number
+end
+
+function matrStd(v list number) returns number
+end
+
+function matrNorm(v list number) returns list number
+end

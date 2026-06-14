@@ -1,0 +1,22 @@
+module statquartile
+
+function q1(v list number) returns number
+end
+
+function q2(v list number) returns number
+end
+
+function q3(v list number) returns number
+end
+
+function iqr(v list number) returns number
+end
+
+function quartiles(v list number) returns list number
+end
+
+function fiveNum(v list number) returns list number
+end
+
+function outlierFence(v list number) returns list number
+end

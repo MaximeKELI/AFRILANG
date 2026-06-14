@@ -1,0 +1,22 @@
+module graphprim
+
+function primMst(adj list number, n number) returns number
+end
+
+function primParents(adj list number, n number) returns list number
+end
+
+function primOrder(adj list number, n number) returns list number
+end
+
+function mstEdgeCount(adj list number, n number) returns number
+end
+
+function lightestEdge(adj list number, n number) returns number
+end
+
+function heaviestMstEdge(adj list number, n number) returns number
+end
+
+function isPrimConnected(adj list number, n number) returns bool
+end

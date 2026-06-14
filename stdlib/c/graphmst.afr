@@ -1,0 +1,19 @@
+module graphmst
+
+function mstWeightPrim(adj list number, n number) returns number
+end
+
+function mstWeightKruskal(adj list number, n number) returns number
+end
+
+function mstEdges(adj list number, n number) returns number
+end
+
+function compareMstAlgos(adj list number, n number) returns number
+end
+
+function forestMstWeight(adj list number, n number) returns number
+end
+
+function isConnectedForMst(adj list number, n number) returns bool
+end

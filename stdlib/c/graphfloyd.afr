@@ -1,0 +1,19 @@
+module graphfloyd
+
+function floydWarshall(adj list number, n number) returns list number
+end
+
+function pairDistance(adj list number, n number, a number, b number) returns number
+end
+
+function closureReachable(adj list number, n number) returns list number
+end
+
+function graphDensity(adj list number, n number) returns number
+end
+
+function avgShortestPath(adj list number, n number) returns number
+end
+
+function transitiveClosure(adj list number, n number) returns list number
+end

@@ -1,0 +1,22 @@
+module parsejsonadv
+
+function jsonLen(s text) returns number
+end
+
+function jsonUpper(s text) returns text
+end
+
+function jsonLower(s text) returns text
+end
+
+function jsonTrim(s text) returns text
+end
+
+function jsonSplit(s text, delim text) returns list text
+end
+
+function jsonJoin(parts list text, delim text) returns text
+end
+
+function jsonReplace(s text, from text, to text) returns text
+end

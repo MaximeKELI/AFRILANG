@@ -1,0 +1,22 @@
+module finvar
+
+function varSum(v list number) returns number
+end
+
+function varMean(v list number) returns number
+end
+
+function varMin(v list number) returns number
+end
+
+function varMax(v list number) returns number
+end
+
+function varVar(v list number) returns number
+end
+
+function varStd(v list number) returns number
+end
+
+function varNorm(v list number) returns list number
+end

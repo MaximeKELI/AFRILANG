@@ -1,0 +1,25 @@
+module cryptaeslite
+
+function aeslLen(s text) returns number
+end
+
+function aeslUpper(s text) returns text
+end
+
+function aeslLower(s text) returns text
+end
+
+function aeslTrim(s text) returns text
+end
+
+function aeslSplit(s text, delim text) returns list text
+end
+
+function aeslJoin(parts list text, delim text) returns text
+end
+
+function aeslReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

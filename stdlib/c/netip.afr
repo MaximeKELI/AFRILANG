@@ -1,0 +1,22 @@
+module netip
+
+function parseOctets(ip text) returns list number
+end
+
+function toInt(ip text) returns number
+end
+
+function fromInt(n number) returns text
+end
+
+function isPrivate(ip text) returns bool
+end
+
+function isValid(ip text) returns bool
+end
+
+function sameSubnet(a text, b text, mask number) returns bool
+end
+
+function broadcast(ip text, mask number) returns text
+end

@@ -1,0 +1,22 @@
+module netport
+
+function portLen(s text) returns number
+end
+
+function portUpper(s text) returns text
+end
+
+function portLower(s text) returns text
+end
+
+function portTrim(s text) returns text
+end
+
+function portSplit(s text, delim text) returns list text
+end
+
+function portJoin(parts list text, delim text) returns text
+end
+
+function portReplace(s text, from text, to text) returns text
+end

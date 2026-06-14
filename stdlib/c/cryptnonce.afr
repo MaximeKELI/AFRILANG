@@ -1,0 +1,25 @@
+module cryptnonce
+
+function noncLen(s text) returns number
+end
+
+function noncUpper(s text) returns text
+end
+
+function noncLower(s text) returns text
+end
+
+function noncTrim(s text) returns text
+end
+
+function noncSplit(s text, delim text) returns list text
+end
+
+function noncJoin(parts list text, delim text) returns text
+end
+
+function noncReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

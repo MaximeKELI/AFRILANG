@@ -1,0 +1,22 @@
+module finfutures
+
+function futuSum(v list number) returns number
+end
+
+function futuMean(v list number) returns number
+end
+
+function futuMin(v list number) returns number
+end
+
+function futuMax(v list number) returns number
+end
+
+function futuVar(v list number) returns number
+end
+
+function futuStd(v list number) returns number
+end
+
+function futuNorm(v list number) returns list number
+end

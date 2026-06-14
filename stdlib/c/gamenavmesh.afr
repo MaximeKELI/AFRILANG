@@ -1,0 +1,22 @@
+module gamenavmesh
+
+function pointInTri(px number, py number, ax number, ay number, bx number, by number, cx number, cy number) returns bool
+end
+
+function triArea(ax number, ay number, bx number, by number, cx number, cy number) returns number
+end
+
+function portalMid(a list number, b list number) returns list number
+end
+
+function navDistance(a list number, b list number) returns number
+end
+
+function funnelCost(path list number) returns number
+end
+
+function centroid(ax number, ay number, bx number, by number, cx number, cy number) returns list number
+end
+
+function meshQuality(ax number, ay number, bx number, by number, cx number, cy number) returns number
+end

@@ -1,0 +1,22 @@
+module netcidr
+
+function prefixLen(cidr text) returns number
+end
+
+function hostCount(cidr text) returns number
+end
+
+function maskFromPrefix(prefix number) returns number
+end
+
+function ipToInt(ip text) returns number
+end
+
+function networkInt(cidr text) returns number
+end
+
+function containsIp(cidr text, ip text) returns bool
+end
+
+function broadcastInt(cidr text) returns number
+end

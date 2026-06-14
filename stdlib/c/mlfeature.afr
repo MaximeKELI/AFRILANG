@@ -1,0 +1,22 @@
+module mlfeature
+
+function featSum(v list number) returns number
+end
+
+function featMean(v list number) returns number
+end
+
+function featMin(v list number) returns number
+end
+
+function featMax(v list number) returns number
+end
+
+function featVar(v list number) returns number
+end
+
+function featStd(v list number) returns number
+end
+
+function featNorm(v list number) returns list number
+end

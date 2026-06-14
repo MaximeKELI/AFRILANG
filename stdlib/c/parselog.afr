@@ -1,0 +1,22 @@
+module parselog
+
+function logLen(s text) returns number
+end
+
+function logUpper(s text) returns text
+end
+
+function logLower(s text) returns text
+end
+
+function logTrim(s text) returns text
+end
+
+function logSplit(s text, delim text) returns list text
+end
+
+function logJoin(parts list text, delim text) returns text
+end
+
+function logReplace(s text, from text, to text) returns text
+end

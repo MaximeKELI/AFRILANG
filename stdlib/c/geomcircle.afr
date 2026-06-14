@@ -1,0 +1,19 @@
+module geomcircle
+
+function area(r number) returns number
+end
+
+function circumference(r number) returns number
+end
+
+function contains(cx number, cy number, r number, px number, py number) returns bool
+end
+
+function pointAt(cx number, cy number, r number, angle number) returns list number
+end
+
+function euclidean2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function intersectArea(r1 number, r2 number, d number) returns number
+end

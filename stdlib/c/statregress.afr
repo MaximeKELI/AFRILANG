@@ -1,0 +1,25 @@
+module statregress
+
+function regSum(v list number) returns number
+end
+
+function regMean(v list number) returns number
+end
+
+function regMin(v list number) returns number
+end
+
+function regMax(v list number) returns number
+end
+
+function regVar(v list number) returns number
+end
+
+function regStd(v list number) returns number
+end
+
+function regNorm(v list number) returns list number
+end
+
+function linearRegress(x list number, y list number) returns list number
+end

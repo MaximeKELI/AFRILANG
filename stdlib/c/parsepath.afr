@@ -1,0 +1,22 @@
+module parsepath
+
+function pathLen(s text) returns number
+end
+
+function pathUpper(s text) returns text
+end
+
+function pathLower(s text) returns text
+end
+
+function pathTrim(s text) returns text
+end
+
+function pathSplit(s text, delim text) returns list text
+end
+
+function pathJoin(parts list text, delim text) returns text
+end
+
+function pathReplace(s text, from text, to text) returns text
+end

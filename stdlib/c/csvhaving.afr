@@ -1,0 +1,25 @@
+module csvhaving
+
+function haviSum(v list number) returns number
+end
+
+function haviMean(v list number) returns number
+end
+
+function haviMin(v list number) returns number
+end
+
+function haviMax(v list number) returns number
+end
+
+function haviVar(v list number) returns number
+end
+
+function haviStd(v list number) returns number
+end
+
+function haviNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

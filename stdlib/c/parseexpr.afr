@@ -1,0 +1,22 @@
+module parseexpr
+
+function exprLen(s text) returns number
+end
+
+function exprUpper(s text) returns text
+end
+
+function exprLower(s text) returns text
+end
+
+function exprTrim(s text) returns text
+end
+
+function exprSplit(s text, delim text) returns list text
+end
+
+function exprJoin(parts list text, delim text) returns text
+end
+
+function exprReplace(s text, from text, to text) returns text
+end

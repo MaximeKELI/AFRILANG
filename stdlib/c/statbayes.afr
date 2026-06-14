@@ -1,0 +1,22 @@
+module statbayes
+
+function bayesUpdate(prior number, likelihood number, evidence number) returns number
+end
+
+function posteriorOdds(priorOdds number, likelihoodRatio number) returns number
+end
+
+function priorFromOdds(odds number) returns number
+end
+
+function oddsFromPrior(prior number) returns number
+end
+
+function bayesFactor(likelihoodH1 number, likelihoodH0 number) returns number
+end
+
+function credibleInterval(samples list number) returns list number
+end
+
+function expectedLoss(losses list number, probs list number) returns number
+end

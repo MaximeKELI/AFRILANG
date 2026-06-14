@@ -1,0 +1,25 @@
+module csvrollup
+
+function rollSum(v list number) returns number
+end
+
+function rollMean(v list number) returns number
+end
+
+function rollMin(v list number) returns number
+end
+
+function rollMax(v list number) returns number
+end
+
+function rollVar(v list number) returns number
+end
+
+function rollStd(v list number) returns number
+end
+
+function rollNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

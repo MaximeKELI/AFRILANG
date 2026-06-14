@@ -1,0 +1,19 @@
+module mllinear
+
+function dot(a list number, b list number) returns number
+end
+
+function predict(weights list number, features list number, bias number) returns number
+end
+
+function mse(weights list number, X list number, y list number, dims number) returns number
+end
+
+function gradientStep(weights list number, X list number, y list number, lr number, dims number) returns list number
+end
+
+function trainEpochs(weights list number, X list number, y list number, lr number, epochs number, dims number) returns list number
+end
+
+function sigmoid(x number) returns number
+end

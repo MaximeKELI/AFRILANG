@@ -1,0 +1,22 @@
+module graphdfs
+
+function dfsOrder(adj list number, n number, start number) returns list number
+end
+
+function dfsRecursiveMark(adj list number, n number) returns list number
+end
+
+function hasCycleUndirected(adj list number, n number) returns bool
+end
+
+function countComponents(adj list number, n number) returns number
+end
+
+function topoSortDfs(adj list number, n number) returns list number
+end
+
+function isTree(adj list number, n number) returns bool
+end
+
+function dfsPathExists(adj list number, n number, start number, goal number) returns bool
+end

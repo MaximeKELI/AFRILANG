@@ -1,0 +1,22 @@
+module geombezier
+
+function beziSum(v list number) returns number
+end
+
+function beziMean(v list number) returns number
+end
+
+function beziMin(v list number) returns number
+end
+
+function beziMax(v list number) returns number
+end
+
+function beziVar(v list number) returns number
+end
+
+function beziStd(v list number) returns number
+end
+
+function beziNorm(v list number) returns list number
+end

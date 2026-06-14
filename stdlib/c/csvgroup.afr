@@ -1,0 +1,19 @@
+module csvgroup
+
+function groupSum(values list number, keys list number) returns list number
+end
+
+function groupCount(keys list number) returns list number
+end
+
+function groupMean(values list number, keys list number) returns list number
+end
+
+function uniqueKeys(keys list number) returns list number
+end
+
+function groupMax(values list number, keys list number) returns list number
+end
+
+function numGroups(keys list number) returns number
+end

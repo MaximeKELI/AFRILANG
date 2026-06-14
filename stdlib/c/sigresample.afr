@@ -1,0 +1,22 @@
+module sigresample
+
+function resaSum(v list number) returns number
+end
+
+function resaMean(v list number) returns number
+end
+
+function resaMin(v list number) returns number
+end
+
+function resaMax(v list number) returns number
+end
+
+function resaVar(v list number) returns number
+end
+
+function resaStd(v list number) returns number
+end
+
+function resaNorm(v list number) returns list number
+end

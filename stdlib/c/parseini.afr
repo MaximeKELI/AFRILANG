@@ -1,0 +1,22 @@
+module parseini
+
+function iniLen(s text) returns number
+end
+
+function iniUpper(s text) returns text
+end
+
+function iniLower(s text) returns text
+end
+
+function iniTrim(s text) returns text
+end
+
+function iniSplit(s text, delim text) returns list text
+end
+
+function iniJoin(parts list text, delim text) returns text
+end
+
+function iniReplace(s text, from text, to text) returns text
+end

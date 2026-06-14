@@ -1,0 +1,19 @@
+module nlpjaccard
+
+function similarity(a text, b text) returns number
+end
+
+function tokenJaccard(a text, b text) returns number
+end
+
+function distance(a text, b text) returns number
+end
+
+function ngramJaccard(a text, b text, n number) returns number
+end
+
+function overlap(a text, b text) returns number
+end
+
+function dice(a text, b text) returns number
+end

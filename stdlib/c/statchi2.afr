@@ -1,0 +1,19 @@
+module statchi2
+
+function chi2Stat(observed list number, expected list number) returns number
+end
+
+function cramersV(chi2 number, n number, k number) returns number
+end
+
+function expectedUniform(total number, bins number) returns list number
+end
+
+function goodnessOfFit(observed list number, expected list number) returns number
+end
+
+function residuals(observed list number, expected list number) returns list number
+end
+
+function df(bins number) returns number
+end

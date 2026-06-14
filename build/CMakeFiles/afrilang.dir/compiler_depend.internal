@@ -3077,7 +3077,6 @@ CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o
 
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o
  /home/maxime/AFRILANG/src/utils/medium_catalog.cpp
- /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

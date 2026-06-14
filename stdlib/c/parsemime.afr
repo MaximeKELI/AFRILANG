@@ -1,0 +1,22 @@
+module parsemime
+
+function mimeLen(s text) returns number
+end
+
+function mimeUpper(s text) returns text
+end
+
+function mimeLower(s text) returns text
+end
+
+function mimeTrim(s text) returns text
+end
+
+function mimeSplit(s text, delim text) returns list text
+end
+
+function mimeJoin(parts list text, delim text) returns text
+end
+
+function mimeReplace(s text, from text, to text) returns text
+end

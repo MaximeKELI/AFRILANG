@@ -1,0 +1,25 @@
+module simlorenz
+
+function loreSum(v list number) returns number
+end
+
+function loreMean(v list number) returns number
+end
+
+function loreMin(v list number) returns number
+end
+
+function loreMax(v list number) returns number
+end
+
+function loreVar(v list number) returns number
+end
+
+function loreStd(v list number) returns number
+end
+
+function loreNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end

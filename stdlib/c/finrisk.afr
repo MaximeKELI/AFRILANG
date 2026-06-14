@@ -1,0 +1,22 @@
+module finrisk
+
+function riskSum(v list number) returns number
+end
+
+function riskMean(v list number) returns number
+end
+
+function riskMin(v list number) returns number
+end
+
+function riskMax(v list number) returns number
+end
+
+function riskVar(v list number) returns number
+end
+
+function riskStd(v list number) returns number
+end
+
+function riskNorm(v list number) returns list number
+end

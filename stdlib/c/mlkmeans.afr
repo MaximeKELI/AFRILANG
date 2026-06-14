@@ -1,0 +1,19 @@
+module mlkmeans
+
+function kmeans(points list number, k number, dims number) returns list number
+end
+
+function assignClusters(points list number, centroids list number, dims number) returns list number
+end
+
+function inertia(points list number, centroids list number, dims number) returns number
+end
+
+function clusterSizes(labels list number, k number) returns list number
+end
+
+function silhouetteSample(points list number, labels list number, idx number, dims number) returns number
+end
+
+function elbowK(points list number, maxK number, dims number) returns number
+end

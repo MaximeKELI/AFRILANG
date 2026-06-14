@@ -1,0 +1,22 @@
+module mltfidf
+
+function tfidSum(v list number) returns number
+end
+
+function tfidMean(v list number) returns number
+end
+
+function tfidMin(v list number) returns number
+end
+
+function tfidMax(v list number) returns number
+end
+
+function tfidVar(v list number) returns number
+end
+
+function tfidStd(v list number) returns number
+end
+
+function tfidNorm(v list number) returns list number
+end

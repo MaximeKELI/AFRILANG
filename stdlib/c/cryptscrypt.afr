@@ -1,0 +1,25 @@
+module cryptscrypt
+
+function scryLen(s text) returns number
+end
+
+function scryUpper(s text) returns text
+end
+
+function scryLower(s text) returns text
+end
+
+function scryTrim(s text) returns text
+end
+
+function scrySplit(s text, delim text) returns list text
+end
+
+function scryJoin(parts list text, delim text) returns text
+end
+
+function scryReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

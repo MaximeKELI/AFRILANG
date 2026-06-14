@@ -1,0 +1,19 @@
+module statmedian
+
+function median(v list number) returns number
+end
+
+function medAbsDev(v list number) returns number
+end
+
+function trimmedMean(v list number, pct number) returns number
+end
+
+function movingMedian(v list number, win number) returns list number
+end
+
+function weightedMedian(v list number, w list number) returns number
+end
+
+function medianDiff(a list number, b list number) returns number
+end

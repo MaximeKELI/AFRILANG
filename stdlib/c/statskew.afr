@@ -1,0 +1,19 @@
+module statskew
+
+function skewness(v list number) returns number
+end
+
+function kurtosisExcess(v list number) returns number
+end
+
+function moment3(v list number) returns number
+end
+
+function moment4(v list number) returns number
+end
+
+function jarqueBera(v list number) returns number
+end
+
+function isSymmetric(v list number) returns bool
+end

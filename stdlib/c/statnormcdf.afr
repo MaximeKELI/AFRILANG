@@ -1,0 +1,19 @@
+module statnormcdf
+
+function normPdf(x number, mu number, sigma number) returns number
+end
+
+function normCdfApprox(x number, mu number, sigma number) returns number
+end
+
+function zFromP(p number) returns number
+end
+
+function standardize(x number, mu number, sigma number) returns number
+end
+
+function logLikelihood(data list number, mu number, sigma number) returns number
+end
+
+function bivariatePdf(x number, y number, rho number) returns number
+end

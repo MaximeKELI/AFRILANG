@@ -3063,7 +3063,6 @@ CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: /home/maxime/AFRILANG/src/uti
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: /home/maxime/AFRILANG/src/utils/medium_catalog.cpp \
-  /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

@@ -1,0 +1,22 @@
+module geomline
+
+function lineSum(v list number) returns number
+end
+
+function lineMean(v list number) returns number
+end
+
+function lineMin(v list number) returns number
+end
+
+function lineMax(v list number) returns number
+end
+
+function lineVar(v list number) returns number
+end
+
+function lineStd(v list number) returns number
+end
+
+function lineNorm(v list number) returns list number
+end

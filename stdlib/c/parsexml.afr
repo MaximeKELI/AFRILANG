@@ -1,0 +1,22 @@
+module parsexml
+
+function xmlLen(s text) returns number
+end
+
+function xmlUpper(s text) returns text
+end
+
+function xmlLower(s text) returns text
+end
+
+function xmlTrim(s text) returns text
+end
+
+function xmlSplit(s text, delim text) returns list text
+end
+
+function xmlJoin(parts list text, delim text) returns text
+end
+
+function xmlReplace(s text, from text, to text) returns text
+end

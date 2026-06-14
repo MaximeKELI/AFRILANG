@@ -1,0 +1,19 @@
+module comprunlen
+
+function runlenEncode(data list number) returns list number
+end
+
+function runlenDecode(encoded list number) returns list number
+end
+
+function runlenRatio(data list number) returns number
+end
+
+function runlenSize(data list number) returns number
+end
+
+function runlenCompressed(data list number) returns number
+end
+
+function runlenRoundTrip(data list number) returns bool
+end

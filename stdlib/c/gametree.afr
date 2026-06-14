@@ -1,0 +1,25 @@
+module gametree
+
+function branchingFactor(children list number) returns number
+end
+
+function treeDepth(depths list number) returns number
+end
+
+function minimaxLeaf(values list number, maxNode bool) returns number
+end
+
+function expectimax(values list number, probs list number) returns number
+end
+
+function alphaBetaWindow(alpha number, beta number) returns list number
+end
+
+function gameTreeSize(branching number, depth number) returns number
+end
+
+function plyCount(moves list number) returns number
+end
+
+function bestChild(scores list number) returns number
+end

@@ -1,0 +1,22 @@
+module graphclique
+
+function maxCliqueSize(adj list number, n number) returns number
+end
+
+function cliqueNumber(adj list number, n number) returns number
+end
+
+function isClique(adj list number, n number, nodes list number) returns bool
+end
+
+function cliqueCover(adj list number, n number) returns number
+end
+
+function triangleCount(adj list number, n number) returns number
+end
+
+function clusteringCoeff(adj list number, n number) returns list number
+end
+
+function density(adj list number, n number) returns number
+end

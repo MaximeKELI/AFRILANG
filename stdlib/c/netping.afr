@@ -1,0 +1,22 @@
+module netping
+
+function pingLen(s text) returns number
+end
+
+function pingUpper(s text) returns text
+end
+
+function pingLower(s text) returns text
+end
+
+function pingTrim(s text) returns text
+end
+
+function pingSplit(s text, delim text) returns list text
+end
+
+function pingJoin(parts list text, delim text) returns text
+end
+
+function pingReplace(s text, from text, to text) returns text
+end

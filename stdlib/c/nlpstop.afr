@@ -1,0 +1,22 @@
+module nlpstop
+
+function stopLen(s text) returns number
+end
+
+function stopUpper(s text) returns text
+end
+
+function stopLower(s text) returns text
+end
+
+function stopTrim(s text) returns text
+end
+
+function stopSplit(s text, delim text) returns list text
+end
+
+function stopJoin(parts list text, delim text) returns text
+end
+
+function stopReplace(s text, from text, to text) returns text
+end

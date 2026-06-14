@@ -1,0 +1,22 @@
+module graphbipart
+
+function isBipartite(adj list number, n number) returns bool
+end
+
+function bipartiteColors(adj list number, n number) returns list number
+end
+
+function partitionSizes(adj list number, n number) returns list number
+end
+
+function crossEdgeCount(adj list number, n number) returns number
+end
+
+function sameSideEdges(adj list number, n number) returns number
+end
+
+function bipartiteDensity(adj list number, n number) returns number
+end
+
+function hasOddCycle(adj list number, n number) returns bool
+end

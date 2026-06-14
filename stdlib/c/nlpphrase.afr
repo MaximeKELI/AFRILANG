@@ -1,0 +1,22 @@
+module nlpphrase
+
+function phraLen(s text) returns number
+end
+
+function phraUpper(s text) returns text
+end
+
+function phraLower(s text) returns text
+end
+
+function phraTrim(s text) returns text
+end
+
+function phraSplit(s text, delim text) returns list text
+end
+
+function phraJoin(parts list text, delim text) returns text
+end
+
+function phraReplace(s text, from text, to text) returns text
+end

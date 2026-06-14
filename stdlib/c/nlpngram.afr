@@ -1,0 +1,22 @@
+module nlpngram
+
+function ngraLen(s text) returns number
+end
+
+function ngraUpper(s text) returns text
+end
+
+function ngraLower(s text) returns text
+end
+
+function ngraTrim(s text) returns text
+end
+
+function ngraSplit(s text, delim text) returns list text
+end
+
+function ngraJoin(parts list text, delim text) returns text
+end
+
+function ngraReplace(s text, from text, to text) returns text
+end

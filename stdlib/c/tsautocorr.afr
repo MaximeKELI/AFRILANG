@@ -1,0 +1,22 @@
+module tsautocorr
+
+function autoSum(v list number) returns number
+end
+
+function autoMean(v list number) returns number
+end
+
+function autoMin(v list number) returns number
+end
+
+function autoMax(v list number) returns number
+end
+
+function autoVar(v list number) returns number
+end
+
+function autoStd(v list number) returns number
+end
+
+function autoNorm(v list number) returns list number
+end

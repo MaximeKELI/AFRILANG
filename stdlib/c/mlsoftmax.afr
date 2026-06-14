@@ -1,0 +1,19 @@
+module mlsoftmax
+
+function softmax(logits list number) returns list number
+end
+
+function crossEntropy(probs list number, target number) returns number
+end
+
+function argmax(v list number) returns number
+end
+
+function oneHot(idx number, size number) returns list number
+end
+
+function logSoftmax(logits list number) returns list number
+end
+
+function entropy(probs list number) returns number
+end

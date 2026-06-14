@@ -1,0 +1,19 @@
+module graphshort
+
+function allPairsBfs(adj list number, n number) returns list number
+end
+
+function eccentricity(adj list number, n number) returns list number
+end
+
+function graphDiameter(adj list number, n number) returns number
+end
+
+function graphRadius(adj list number, n number) returns number
+end
+
+function centerNodes(adj list number, n number) returns list number
+end
+
+function peripheryNodes(adj list number, n number) returns list number
+end

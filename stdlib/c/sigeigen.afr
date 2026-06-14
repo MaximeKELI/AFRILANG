@@ -1,0 +1,22 @@
+module sigeigen
+
+function eigeSum(v list number) returns number
+end
+
+function eigeMean(v list number) returns number
+end
+
+function eigeMin(v list number) returns number
+end
+
+function eigeMax(v list number) returns number
+end
+
+function eigeVar(v list number) returns number
+end
+
+function eigeStd(v list number) returns number
+end
+
+function eigeNorm(v list number) returns list number
+end

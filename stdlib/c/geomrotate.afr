@@ -1,0 +1,22 @@
+module geomrotate
+
+function rotaSum(v list number) returns number
+end
+
+function rotaMean(v list number) returns number
+end
+
+function rotaMin(v list number) returns number
+end
+
+function rotaMax(v list number) returns number
+end
+
+function rotaVar(v list number) returns number
+end
+
+function rotaStd(v list number) returns number
+end
+
+function rotaNorm(v list number) returns list number
+end

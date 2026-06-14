@@ -1,0 +1,22 @@
+module mlensemble
+
+function enseSum(v list number) returns number
+end
+
+function enseMean(v list number) returns number
+end
+
+function enseMin(v list number) returns number
+end
+
+function enseMax(v list number) returns number
+end
+
+function enseVar(v list number) returns number
+end
+
+function enseStd(v list number) returns number
+end
+
+function enseNorm(v list number) returns list number
+end

@@ -1,0 +1,22 @@
+module geomhull
+
+function hullSum(v list number) returns number
+end
+
+function hullMean(v list number) returns number
+end
+
+function hullMin(v list number) returns number
+end
+
+function hullMax(v list number) returns number
+end
+
+function hullVar(v list number) returns number
+end
+
+function hullStd(v list number) returns number
+end
+
+function hullNorm(v list number) returns list number
+end

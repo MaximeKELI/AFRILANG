@@ -1,0 +1,22 @@
+module finoption
+
+function blackScholes(spot number, strike number, rate number, vol number, time number) returns number
+end
+
+function putPrice(spot number, strike number, rate number, vol number, time number) returns number
+end
+
+function intrinsic(spot number, strike number) returns number
+end
+
+function timeValue(spot number, strike number, rate number, vol number, time number) returns number
+end
+
+function delta(spot number, strike number, rate number, vol number, time number) returns number
+end
+
+function gamma(spot number, strike number, rate number, vol number, time number) returns number
+end
+
+function vega(spot number, strike number, rate number, vol number, time number) returns number
+end

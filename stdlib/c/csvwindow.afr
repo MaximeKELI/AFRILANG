@@ -1,0 +1,25 @@
+module csvwindow
+
+function windSum(v list number) returns number
+end
+
+function windMean(v list number) returns number
+end
+
+function windMin(v list number) returns number
+end
+
+function windMax(v list number) returns number
+end
+
+function windVar(v list number) returns number
+end
+
+function windStd(v list number) returns number
+end
+
+function windNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

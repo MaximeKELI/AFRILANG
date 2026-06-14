@@ -1,0 +1,22 @@
+module gameminimax
+
+function minimax(board list number, depth number, maximizing bool) returns number
+end
+
+function bestMove(board list number, depth number) returns number
+end
+
+function evaluate(board list number) returns number
+end
+
+function isTerminal(board list number) returns bool
+end
+
+function negamax(board list number, depth number, color number) returns number
+end
+
+function depthReached(depth number) returns number
+end
+
+function scoreDiff(board list number) returns number
+end

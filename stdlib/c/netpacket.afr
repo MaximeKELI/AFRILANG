@@ -1,0 +1,22 @@
+module netpacket
+
+function packLen(s text) returns number
+end
+
+function packUpper(s text) returns text
+end
+
+function packLower(s text) returns text
+end
+
+function packTrim(s text) returns text
+end
+
+function packSplit(s text, delim text) returns list text
+end
+
+function packJoin(parts list text, delim text) returns text
+end
+
+function packReplace(s text, from text, to text) returns text
+end

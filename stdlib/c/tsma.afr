@@ -1,0 +1,19 @@
+module tsma
+
+function sma(v list number, win number) returns list number
+end
+
+function wma(v list number, win number) returns list number
+end
+
+function dema(v list number, win number) returns list number
+end
+
+function crossover(v list number, fast number, slow number) returns list number
+end
+
+function signal(v list number, fast number, slow number) returns number
+end
+
+function trend(v list number, win number) returns number
+end

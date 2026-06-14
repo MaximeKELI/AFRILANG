@@ -1,0 +1,19 @@
+module gameflood
+
+function floodFill(grid list number, width number, start number, newVal number) returns list number
+end
+
+function connectedRegion(grid list number, width number, start number) returns number
+end
+
+function countRegions(grid list number, width number) returns number
+end
+
+function fillDist(grid list number, width number, start number) returns list number
+end
+
+function reachable(grid list number, width number, start number) returns number
+end
+
+function boundary(grid list number, width number, start number) returns list number
+end

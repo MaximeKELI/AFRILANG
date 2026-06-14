@@ -1,0 +1,22 @@
+module netmac
+
+function macLen(s text) returns number
+end
+
+function macUpper(s text) returns text
+end
+
+function macLower(s text) returns text
+end
+
+function macTrim(s text) returns text
+end
+
+function macSplit(s text, delim text) returns list text
+end
+
+function macJoin(parts list text, delim text) returns text
+end
+
+function macReplace(s text, from text, to text) returns text
+end

@@ -1,0 +1,19 @@
+module sigfilter
+
+function lowPass(v list number, alpha number) returns list number
+end
+
+function highPass(v list number, alpha number) returns list number
+end
+
+function medianFilter(v list number, win number) returns list number
+end
+
+function savgol(v list number, win number) returns list number
+end
+
+function bandpass(v list number, lo number, hi number) returns list number
+end
+
+function snr(signal list number, noise list number) returns number
+end

@@ -1,0 +1,2093 @@
+#pragma once
+
+#include <algorithm>
+#include <cctype>
+#include <chrono>
+#include <cmath>
+#include <cstdlib>
+#include <iomanip>
+#include <map>
+#include <numeric>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <functional>
+
+namespace afrilang::runtime::cx::graphbfs {
+inline std::vector<double> bfsDistances(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),st=static_cast<int>(start);if(nn<=0||st<0||st>=nn)return std::vector<double>{};std::vector<double> d(nn,-1);std::vector<int> q;d[st]=0;q.push_back(st);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&d[v]<0){d[v]=d[u]+1;q.push_back(v);}}}return d;} }
+inline std::vector<double> bfsOrder(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),st=static_cast<int>(start);std::vector<double> o;if(nn<=0||st<0||st>=nn)return o;std::vector<bool> vis(nn,false);std::vector<int> q;vis[st]=true;q.push_back(st);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];o.push_back(static_cast<double>(u));for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;q.push_back(v);}}}return o;} }
+inline double bfsReachable(std::vector<double> adj, double n, double start) { {auto d=bfsDistances(adj,n,start);int c=0;for(double x:d)if(x>=0)++c;return static_cast<double>(c);} }
+inline std::vector<double> bfsLayers(std::vector<double> adj, double n, double start) { {auto d=bfsDistances(adj,n,start);double mx=0;for(double x:d)if(x>mx)mx=x;std::vector<double> L(static_cast<std::size_t>(mx)+1,0);for(double x:d)if(x>=0)L[static_cast<std::size_t>(x)]+=1;return L;} }
+inline bool isConnected(std::vector<double> adj, double n) { {auto d=bfsDistances(adj,n,0);for(double x:d)if(x<0)return false;return true;} }
+inline double shortestPathLen(std::vector<double> adj, double n, double start, double goal) { {auto d=bfsDistances(adj,n,start);int g=static_cast<int>(goal);return(g<0||g>=static_cast<int>(d.size()))?-1:d[static_cast<std::size_t>(g)];} }
+inline std::vector<double> multiSourceBfs(std::vector<double> adj, double n, std::vector<double> sources) { {int nn=static_cast<int>(n);std::vector<double> d(nn,-1);std::vector<int> q;for(double s:sources){int u=static_cast<int>(s);if(u>=0&&u<nn&&d[u]<0){d[u]=0;q.push_back(u);}}for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&d[v]<0){d[v]=d[u]+1;q.push_back(v);}}}return d;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphdfs {
+inline std::vector<double> dfsOrder(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),st=static_cast<int>(start);std::vector<double> o;if(st<0||st>=nn)return o;std::vector<bool> vis(nn,false);std::vector<int> st2;st2.push_back(st);while(!st2.empty()){int u=st2.back();st2.pop_back();if(vis[u])continue;vis[u]=true;o.push_back(static_cast<double>(u));for(int v=nn-1;v>=0;--v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v])st2.push_back(v);}}return o;} }
+inline std::vector<double> dfsRecursiveMark(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);std::vector<double> comp;for(int i=0;i<nn;++i){if(vis[i])continue;std::vector<int> st;st.push_back(i);while(!st.empty()){int u=st.back();st.pop_back();if(vis[u])continue;vis[u]=true;comp.push_back(static_cast<double>(u));for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v])st.push_back(v);}}}return comp;} }
+inline bool hasCycleUndirected(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);for(int s=0;s<nn;++s){if(vis[s])continue;std::vector<std::pair<int,int>> st;st.emplace_back(s,-1);vis[s]=true;while(!st.empty()){auto[u,p]=st.back();st.pop_back();for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx>=adj.size()||adj[idx]<=0||v==p)continue;if(vis[v])return true;vis[v]=true;st.emplace_back(v,u);}}}return false;} }
+inline double countComponents(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);int c=0;for(int s=0;s<nn;++s){if(vis[s])continue;++c;std::vector<int> st;st.push_back(s);vis[s]=true;while(!st.empty()){int u=st.back();st.pop_back();for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;st.push_back(v);}}}}return static_cast<double>(c);} }
+inline std::vector<double> topoSortDfs(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> state(nn,0);std::vector<double> order;for(int s=0;s<nn;++s){if(state[s]!=0)continue;std::vector<int> st;st.push_back(s);while(!st.empty()){int u=st.back();if(state[u]==2){st.pop_back();continue;}if(state[u]==1){order.push_back(static_cast<double>(u));state[u]=2;st.pop_back();continue;}state[u]=1;for(int v=nn-1;v>=0;--v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&state[v]==0)st.push_back(v);}}}std::reverse(order.begin(),order.end());return order;} }
+inline bool isTree(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn==0)return true;int edges=0;for(double w:adj)if(w>0)++edges;edges/=2;return edges==nn-1&&!hasCycleUndirected(adj,n);} }
+inline bool dfsPathExists(std::vector<double> adj, double n, double start, double goal) { {auto o=dfsOrder(adj,n,start);int g=static_cast<int>(goal);for(double x:o)if(static_cast<int>(x)==g)return true;return false;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphdijk {
+inline std::vector<double> dijkstra(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),st=static_cast<int>(start);std::vector<double> d(nn,1e18);if(st>=0&&st<nn)d[st]=0;std::vector<bool> done(nn,false);for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!done[i]&&d[i]<best){best=d[i];u=i;}if(u<0)break;done[u]=true;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[v]=std::min(d[v],d[u]+adj[idx]);}}return d;} }
+inline double shortestWeighted(std::vector<double> adj, double n, double start, double goal) { {auto d=dijkstra(adj,n,start);int g=static_cast<int>(goal),nn=static_cast<int>(n);return(g<0||g>=nn)?-1:d[static_cast<std::size_t>(g)];} }
+inline std::vector<double> dijkstraPath(std::vector<double> adj, double n, double start, double goal) { {int nn=static_cast<int>(n),st=static_cast<int>(start),go=static_cast<int>(goal);auto d=dijkstra(adj,n,start);std::vector<int> prev(nn,-1);std::vector<bool> done(nn,false);if(st<0||st>=nn||go<0||go>=nn)return std::vector<double>{};for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!done[i]&&d[i]<best){best=d[i];u=i;}if(u<0)break;done[u]=true;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&d[u]+adj[idx]<d[v]){d[v]=d[u]+adj[idx];prev[v]=u;}}}std::vector<double> path;if(d[go]>=1e17)return path;for(int v=go;v>=0;v=prev[v])path.push_back(static_cast<double>(v));std::reverse(path.begin(),path.end());return path;} }
+inline double minEdgeWeight(std::vector<double> adj, double n) { {double m=1e18;for(double w:adj)if(w>0)m=std::min(m,w);return m>=1e18?0:m;} }
+inline double maxEdgeWeight(std::vector<double> adj, double n) { {double m=0;for(double w:adj)if(w>0)m=std::max(m,w);return m;} }
+inline double avgEdgeWeight(std::vector<double> adj, double n) { {double s=0,c=0;for(double w:adj)if(w>0){s+=w;++c;}return c==0?0:s/c;} }
+inline double edgeCount(std::vector<double> adj, double n) { {int c=0;for(double w:adj)if(w>0)++c;return static_cast<double>(c);} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphtopo {
+inline std::vector<double> topoSort(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> indeg(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)++indeg[v];}std::vector<int> q;for(int i=0;i<nn;++i)if(indeg[i]==0)q.push_back(i);std::vector<double> order;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];order.push_back(static_cast<double>(u));for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&--indeg[v]==0)q.push_back(v);}}return order;} }
+inline bool hasCycleDirected(std::vector<double> adj, double n) { {auto t=topoSort(adj,n);return static_cast<int>(t.size())<static_cast<int>(n);} }
+inline std::vector<double> inDegrees(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[v]+=1;}return d;} }
+inline std::vector<double> outDegrees(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[u]+=1;}return d;} }
+inline std::vector<double> sources(std::vector<double> adj, double n) { {auto d=inDegrees(adj,n);std::vector<double> r;for(int i=0;i<static_cast<int>(d.size());++i)if(d[i]==0)r.push_back(static_cast<double>(i));return r;} }
+inline std::vector<double> sinks(std::vector<double> adj, double n) { {auto d=outDegrees(adj,n);std::vector<double> r;for(int i=0;i<static_cast<int>(d.size());++i)if(d[i]==0)r.push_back(static_cast<double>(i));return r;} }
+inline bool isDag(std::vector<double> adj, double n) { return !hasCycleDirected(adj,n); }
+} // namespace
+
+namespace afrilang::runtime::cx::graphcc {
+inline std::vector<double> connectedComponents(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> label(nn,-1);int cid=0;for(int s=0;s<nn;++s){if(label[s]>=0)continue;std::vector<int> st;st.push_back(s);label[s]=cid;while(!st.empty()){int u=st.back();st.pop_back();for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&label[v]<0){label[v]=cid;st.push_back(v);}}}++cid;}std::vector<double> r;for(int x:label)r.push_back(static_cast<double>(x));return r;} }
+inline double componentCount(std::vector<double> adj, double n) { {auto c=connectedComponents(adj,n);if(c.empty())return 0;double mx=0;for(double x:c)mx=std::max(mx,x);return mx+1;} }
+inline double largestComponentSize(std::vector<double> adj, double n) { {auto c=connectedComponents(adj,n);std::map<int,int> m;for(double x:c)++m[static_cast<int>(x)];int best=0;for(auto&p:m)best=std::max(best,p.second);return static_cast<double>(best);} }
+inline bool sameComponent(std::vector<double> adj, double n, double a, double b) { {auto c=connectedComponents(adj,n);int aa=static_cast<int>(a),bb=static_cast<int>(b);return aa>=0&&bb>=0&&aa<static_cast<int>(c.size())&&bb<static_cast<int>(c.size())&&c[aa]==c[bb];} }
+inline std::vector<double> componentSizes(std::vector<double> adj, double n) { {auto c=connectedComponents(adj,n);int cc=static_cast<int>(componentCount(adj,n));std::vector<double> sz(cc,0);for(double x:c)sz[static_cast<std::size_t>(x)]+=1;return sz;} }
+inline std::vector<double> outDegreeSum(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[u]+=adj[idx];}return d;} }
+inline double isolateCount(std::vector<double> adj, double n) { {auto od=outDegreeSum(adj,n);int c=0;for(double x:od)if(x==0)++c;return static_cast<double>(c);} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphcycle {
+inline bool detectCycleDirected(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> state(nn,0);for(int s=0;s<nn;++s){if(state[s]!=0)continue;std::vector<int> st;st.push_back(s);while(!st.empty()){int u=st.back();if(state[u]==2){st.pop_back();continue;}if(state[u]==1)return true;state[u]=1;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&state[v]==0)st.push_back(v);}if(st.back()==u){state[u]=2;st.pop_back();}}}return false;} }
+inline bool detectCycleUndirected(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);for(int s=0;s<nn;++s){if(vis[s])continue;std::vector<std::pair<int,int>> st;st.emplace_back(s,-1);vis[s]=true;while(!st.empty()){auto[u,p]=st.back();st.pop_back();for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx>=adj.size()||adj[idx]<=0||v==p)continue;if(vis[v])return true;vis[v]=true;st.emplace_back(v,u);}}}return false;} }
+inline double cycleEdgeCount(std::vector<double> adj, double n) { {int ec=0;for(double w:adj)if(w>0)++ec;return detectCycleUndirected(adj,n)?static_cast<double>(ec):0;} }
+inline bool isAcyclic(std::vector<double> adj, double n) { return !detectCycleDirected(adj,n); }
+inline double selfLoopCount(std::vector<double> adj, double n) { {int nn=static_cast<int>(n),c=0;for(int i=0;i<nn;++i){std::size_t idx=static_cast<std::size_t>(i*nn+i);if(idx<adj.size()&&adj[idx]>0)++c;}return static_cast<double>(c);} }
+inline std::vector<double> removeSelfLoops(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);auto a=adj;for(int i=0;i<nn;++i){std::size_t idx=static_cast<std::size_t>(i*nn+i);if(idx<a.size())a[idx]=0;}return a;} }
+inline bool hasParallelEdges(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);for(int u=0;u<nn;++u){int c=0;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)++c;}if(c>1)return true;}return false;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphmst {
+inline double mstWeightPrim(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=0)return 0;std::vector<double> key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;double total=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;total+=key[u];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return total;} }
+inline double mstWeightKruskal(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);struct E{int u,v;double w;};std::vector<E> es;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)es.push_back({u,v,adj[idx]});}std::sort(es.begin(),es.end(),[](auto&a,auto&b){return a.w<b.w;});std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;auto find=[&](int x){while(p[x]!=x)x=p[x];return x;};double total=0;int cnt=0;for(auto&e:es){int ru=find(e.u),rv=find(e.v);if(ru!=rv){p[ru]=rv;total+=e.w;if(++cnt==nn-1)break;}}return total;} }
+inline double mstEdges(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);return static_cast<double>(std::max(0,nn-1));} }
+inline double compareMstAlgos(std::vector<double> adj, double n) { {double a=mstWeightPrim(adj,n),b=mstWeightKruskal(adj,n);return std::abs(a-b);} }
+inline double forestMstWeight(std::vector<double> adj, double n) { return mstWeightKruskal(adj,n); }
+inline bool isConnectedForMst(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);std::vector<int> q;q.push_back(0);vis[0]=true;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;q.push_back(v);}}}for(bool b:vis)if(!b)return false;return true;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphshort {
+inline std::vector<double> allPairsBfs(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> r;for(int s=0;s<nn;++s){std::vector<double> d(nn,-1);std::vector<int> q;d[s]=0;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&d[v]<0){d[v]=d[u]+1;q.push_back(v);}}}for(double x:d)r.push_back(x);}return r;} }
+inline std::vector<double> eccentricity(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> ecc(nn,0);for(int s=0;s<nn;++s){std::vector<double> d(nn,-1);std::vector<int> q;d[s]=0;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&d[v]<0){d[v]=d[u]+1;q.push_back(v);}}}double mx=-1;for(double x:d)if(x>mx)mx=x;ecc[s]=mx<0?0:mx;}return ecc;} }
+inline double graphDiameter(std::vector<double> adj, double n) { {auto e=eccentricity(adj,n);return e.empty()?0:*std::max_element(e.begin(),e.end());} }
+inline double graphRadius(std::vector<double> adj, double n) { {auto e=eccentricity(adj,n);return e.empty()?0:*std::min_element(e.begin(),e.end());} }
+inline std::vector<double> centerNodes(std::vector<double> adj, double n) { {auto e=eccentricity(adj,n);double r=graphRadius(adj,n);std::vector<double> c;for(std::size_t i=0;i<e.size();++i)if(e[i]==r)c.push_back(static_cast<double>(i));return c;} }
+inline std::vector<double> peripheryNodes(std::vector<double> adj, double n) { {auto e=eccentricity(adj,n);double d=graphDiameter(adj,n);std::vector<double> p;for(std::size_t i=0;i<e.size();++i)if(e[i]==d)p.push_back(static_cast<double>(i));return p;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphbellman {
+inline std::vector<double> bellmanFord(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),st=static_cast<int>(start);std::vector<double> d(nn,1e18);if(st>=0&&st<nn)d[st]=0;for(int k=0;k<nn-1;++k)for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]!=0&&d[u]<1e17)d[v]=std::min(d[v],d[u]+adj[idx]);}return d;} }
+inline bool hasNegCycle(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);auto d=bellmanFord(adj,n,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]!=0&&d[u]<1e17&&d[u]+adj[idx]<d[v])return true;}return false;} }
+inline double negEdgeCount(std::vector<double> adj, double n) { {int c=0;for(double w:adj)if(w<0)++c;return static_cast<double>(c);} }
+inline std::vector<double> relaxOnce(std::vector<double> adj, double n, std::vector<double> dist) { {int nn=static_cast<int>(n);auto d=dist;for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]!=0&&u<static_cast<int>(d.size())&&v<static_cast<int>(d.size())&&d[u]<1e17)d[v]=std::min(d[v],d[u]+adj[idx]);}return d;} }
+inline double pathCost(std::vector<double> adj, double n, std::vector<double> path) { {int nn=static_cast<int>(n);double c=0;for(std::size_t i=1;i<path.size();++i){int u=static_cast<int>(path[i-1]),v=static_cast<int>(path[i]);std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx>=adj.size()||adj[idx]==0)return -1;c+=adj[idx];}return c;} }
+inline double reachableWeighted(std::vector<double> adj, double n, double start) { {auto d=bellmanFord(adj,n,start);int c=0;for(double x:d)if(x<1e17)++c;return static_cast<double>(c);} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphfloyd {
+inline std::vector<double> floydWarshall(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(static_cast<std::size_t>(nn*nn),1e18);for(int i=0;i<nn;++i){d[static_cast<std::size_t>(i*nn+i)]=0;for(int j=0;j<nn;++j){std::size_t idx=static_cast<std::size_t>(i*nn+j);if(idx<adj.size()&&adj[idx]>0)d[idx]=adj[idx];}}for(int k=0;k<nn;++k)for(int i=0;i<nn;++i)for(int j=0;j<nn;++j){double via=d[static_cast<std::size_t>(i*nn+k)]+d[static_cast<std::size_t>(k*nn+j)];std::size_t ij=static_cast<std::size_t>(i*nn+j);if(via<d[ij])d[ij]=via;}return d;} }
+inline double pairDistance(std::vector<double> adj, double n, double a, double b) { {auto d=floydWarshall(adj,n);int aa=static_cast<int>(a),bb=static_cast<int>(b),nn=static_cast<int>(n);if(aa<0||bb<0||aa>=nn||bb>=nn)return -1;return d[static_cast<std::size_t>(aa*nn+bb)];} }
+inline std::vector<double> closureReachable(std::vector<double> adj, double n) { {auto d=floydWarshall(adj,n);std::vector<double> r;for(double x:d)r.push_back(x<1e17?1:0);return r;} }
+inline double graphDensity(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=1)return 0;int e=0;for(double w:adj)if(w>0)++e;return static_cast<double>(e)/(nn*(nn-1));} }
+inline double avgShortestPath(std::vector<double> adj, double n) { {auto d=floydWarshall(adj,n);int nn=static_cast<int>(n);double s=0,c=0;for(int i=0;i<nn;++i)for(int j=0;j<nn;++j)if(i!=j){double x=d[static_cast<std::size_t>(i*nn+j)];if(x<1e17){s+=x;++c;}}return c==0?0:s/c;} }
+inline std::vector<double> transitiveClosure(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> reach(static_cast<std::size_t>(nn*nn),0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)reach[idx]=1;}for(int k=0;k<nn;++k)for(int i=0;i<nn;++i)for(int j=0;j<nn;++j)if(reach[static_cast<std::size_t>(i*nn+k)]&&reach[static_cast<std::size_t>(k*nn+j)])reach[static_cast<std::size_t>(i*nn+j)]=1;return reach;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphprim {
+inline double primMst(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=0)return 0;std::vector<double> key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;double total=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;total+=key[u];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return total;} }
+inline std::vector<double> primParents(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> par(nn,-1),key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v]&&adj[idx]<key[v]){key[v]=adj[idx];par[v]=static_cast<double>(u);}}}return par;} }
+inline std::vector<double> primOrder(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> order,key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;order.push_back(static_cast<double>(u));for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return order;} }
+inline double mstEdgeCount(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);return static_cast<double>(std::max(0,nn-1));} }
+inline double lightestEdge(std::vector<double> adj, double n) { {double m=1e18;for(double w:adj)if(w>0)m=std::min(m,w);return m>=1e18?0:m;} }
+inline double heaviestMstEdge(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;double heaviest=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;heaviest=std::max(heaviest,key[u]);for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return heaviest;} }
+inline bool isPrimConnected(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> in(nn,false);std::vector<double> key(nn,1e18);key[0]=0;int cnt=0;for(int k=0;k<nn;++k){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;++cnt;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return cnt==nn;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphkruskal {
+inline double kruskalMst(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);struct E{int u,v;double w;};std::vector<E> es;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)es.push_back({u,v,adj[idx]});}for(std::size_t i=es.size();i>1;--i){std::size_t j=static_cast<std::size_t>(std::rand()%(static_cast<int>(i)));std::swap(es[i-1],es[j]);}std::sort(es.begin(),es.end(),[](auto&a,auto&b){return a.w<b.w;});std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;auto find=[&](int x){while(p[x]!=x)x=p[x];return x;};double total=0;int cnt=0;for(auto&e:es){int ru=find(e.u),rv=find(e.v);if(ru!=rv){p[ru]=rv;total+=e.w;if(++cnt==nn-1)break;}}return total;} }
+inline std::vector<double> kruskalEdges(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);struct E{int u,v;double w;};std::vector<E> es;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)es.push_back({u,v,adj[idx]});}std::sort(es.begin(),es.end(),[](auto&a,auto&b){return a.w<b.w;});std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;auto find=[&](int x){while(p[x]!=x)x=p[x];return x;};std::vector<double> picked;int cnt=0;for(auto&e:es){int ru=find(e.u),rv=find(e.v);if(ru!=rv){p[ru]=rv;picked.push_back(static_cast<double>(e.u));picked.push_back(static_cast<double>(e.v));picked.push_back(e.w);if(++cnt==nn-1)break;}}return picked;} }
+inline double unionFindComponents(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0){int ru=u,rv=v;while(p[ru]!=ru)ru=p[ru];while(p[rv]!=rv)rv=p[rv];if(ru!=rv)p[ru]=rv;}}std::map<int,int> roots;for(int i=0;i<nn;++i){int r=i;while(p[r]!=r)r=p[r];++roots[r];}return static_cast<double>(roots.size());} }
+inline double edgeListSize(std::vector<double> adj, double n) { {int nn=static_cast<int>(n),c=0;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)++c;}return static_cast<double>(c);} }
+inline double kruskalForestWeight(std::vector<double> adj, double n) { return kruskalMst(adj,n); }
+inline double maxSpanningForest(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);struct E{int u,v;double w;};std::vector<E> es;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)es.push_back({u,v,adj[idx]});}std::sort(es.begin(),es.end(),[](auto&a,auto&b){return a.w>b.w;});std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;auto find=[&](int x){while(p[x]!=x)x=p[x];return x;};double total=0;for(auto&e:es){int ru=find(e.u),rv=find(e.v);if(ru!=rv){p[ru]=rv;total+=e.w;}}return total;} }
+inline double compareKruskalPrim(std::vector<double> adj, double n) { {double k=kruskalMst(adj,n);int nn=static_cast<int>(n);std::vector<double> key(nn,1e18);std::vector<bool> in(nn,false);key[0]=0;double p=0;for(int t=0;t<nn;++t){int u=-1;double best=1e18;for(int i=0;i<nn;++i)if(!in[i]&&key[i]<best){best=key[i];u=i;}if(u<0)break;in[u]=true;p+=key[u];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!in[v])key[v]=std::min(key[v],adj[idx]);}}return std::abs(k-p);} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphbipart {
+inline bool isBipartite(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> color(nn,-1);for(int s=0;s<nn;++s){if(color[s]!=-1)continue;color[s]=0;std::vector<int> q;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0){if(color[v]==-1){color[v]=1-color[u];q.push_back(v);}else if(color[v]==color[u])return false;}}}}return true;} }
+inline std::vector<double> bipartiteColors(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> color(nn,-1);for(int s=0;s<nn;++s){if(color[s]>=0)continue;color[s]=0;std::vector<int> q;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&color[v]<0){color[v]=1-color[u];q.push_back(v);}}}}std::vector<double> r;for(double c:color)r.push_back(c);return r;} }
+inline std::vector<double> partitionSizes(std::vector<double> adj, double n) { {auto c=bipartiteColors(adj,n);double a=0,b=0;for(double x:c)if(x==0)++a;else if(x==1)++b;return std::vector<double>{a,b};} }
+inline double crossEdgeCount(std::vector<double> adj, double n) { {auto c=bipartiteColors(adj,n);int nn=static_cast<int>(n),cnt=0;for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&c[u]!=c[v])++cnt;}return static_cast<double>(cnt);} }
+inline double sameSideEdges(std::vector<double> adj, double n) { {auto c=bipartiteColors(adj,n);int nn=static_cast<int>(n),cnt=0;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&c[u]==c[v])++cnt;}return static_cast<double>(cnt);} }
+inline double bipartiteDensity(std::vector<double> adj, double n) { {auto p=partitionSizes(adj,n);return p[0]*p[1]==0?0:crossEdgeCount(adj,n)/(p[0]*p[1]);} }
+inline bool hasOddCycle(std::vector<double> adj, double n) { return !isBipartite(adj,n); }
+} // namespace
+
+namespace afrilang::runtime::cx::grapheuler {
+inline std::vector<double> vertexDegrees(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[u]+=1;}return d;} }
+inline bool hasEulerCircuit(std::vector<double> adj, double n) { {auto d=vertexDegrees(adj,n);int odd=0;for(double x:d)if(static_cast<int>(x)%2==1)++odd;return odd==0;} }
+inline bool hasEulerPath(std::vector<double> adj, double n) { {auto d=vertexDegrees(adj,n);int odd=0;for(double x:d)if(static_cast<int>(x)%2==1)++odd;return odd==0||odd==2;} }
+inline double oddDegreeCount(std::vector<double> adj, double n) { {auto d=vertexDegrees(adj,n);int c=0;for(double x:d)if(static_cast<int>(x)%2==1)++c;return static_cast<double>(c);} }
+inline double totalDegree(std::vector<double> adj, double n) { {auto d=vertexDegrees(adj,n);double s=0;for(double x:d)s+=x;return s;} }
+inline double eulerTrailLen(std::vector<double> adj, double n) { {int e=0;for(double w:adj)if(w>0)++e;return static_cast<double>(e)+1;} }
+inline bool isEulerian(std::vector<double> adj, double n) { return hasEulerPath(adj,n); }
+} // namespace
+
+namespace afrilang::runtime::cx::graphham {
+inline bool hamiltonianExists(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=0||nn>12)return false;std::vector<int> path;std::vector<bool> vis(nn,false);std::function<bool(int)> dfs=[&](int u)->bool{if(static_cast<int>(path.size())==nn)return true;vis[u]=true;path.push_back(u);for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]&&dfs(v))return true;}vis[u]=false;path.pop_back();return false;};return dfs(0);} }
+inline double permuteCheck(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=0||nn>8)return 0;std::vector<int> p(nn);for(int i=0;i<nn;++i)p[i]=i;int cnt=0;do{bool ok=true;for(int i=0;i<nn-1;++i){std::size_t idx=static_cast<std::size_t>(p[i]*nn+p[i+1]);if(idx>=adj.size()||adj[idx]<=0){ok=false;break;}}if(ok)++cnt;}while(std::next_permutation(p.begin(),p.end()));return static_cast<double>(cnt);} }
+inline double longestPath(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<bool> vis(nn,false);std::function<double(int)> dfs=[&](int u)->double{vis[u]=true;double best=1;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v])best=std::max(best,1+dfs(v));}vis[u]=false;return best;};return dfs(0);} }
+inline bool hamiltonianCycle(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=1)return true;std::vector<bool> vis(nn,false);std::function<bool(int,int)> dfs=[&](int u,int depth)->bool{if(depth==nn){std::size_t idx=static_cast<std::size_t>(u*nn);return idx<adj.size()&&adj[idx]>0;}vis[u]=true;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]&&dfs(v,depth+1))return true;}vis[u]=false;return false;};return dfs(0,1);} }
+inline double pathCoverSize(std::vector<double> adj, double n) { return longestPath(adj,n); }
+inline double tspLowerBound(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);double s=0;for(int u=0;u<nn;++u){double mn=1e18;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)mn=std::min(mn,adj[idx]);}if(mn<1e18)s+=mn;}return s;} }
+inline std::vector<double> nearestNeighbor(std::vector<double> adj, double n, double start) { {int nn=static_cast<int>(n),cur=static_cast<int>(start);std::vector<double> tour;std::vector<bool> vis(nn,false);if(cur<0||cur>=nn)return std::vector<double>{};for(int step=0;step<nn;++step){vis[cur]=true;tour.push_back(static_cast<double>(cur));int nxt=-1;double best=1e18;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(cur*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]&&adj[idx]<best){best=adj[idx];nxt=v;}}if(nxt<0)break;cur=nxt;}return tour;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphclique {
+inline double maxCliqueSize(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn>14)return 0;std::vector<int> best;std::function<void(int,std::vector<int>&)> bt=[&](int start,std::vector<int>& cur){if(cur.size()>best.size())best=cur;for(int v=start;v<nn;++v){bool ok=true;for(int u:cur){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx>=adj.size()||adj[idx]<=0){ok=false;break;}}if(!ok)continue;cur.push_back(v);bt(v+1,cur);cur.pop_back();}};std::vector<int> cur;bt(0,cur);return static_cast<double>(best.size());} }
+inline double cliqueNumber(std::vector<double> adj, double n) { return maxCliqueSize(adj,n); }
+inline bool isClique(std::vector<double> adj, double n, std::vector<double> nodes) { {for(std::size_t i=0;i<nodes.size();++i)for(std::size_t j=i+1;j<nodes.size();++j){int u=static_cast<int>(nodes[i]),v=static_cast<int>(nodes[j]);std::size_t idx=static_cast<std::size_t>(u*static_cast<int>(n)+v);if(idx>=adj.size()||adj[idx]<=0)return false;}return nodes.size()>0;} }
+inline double cliqueCover(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);return static_cast<double>(nn)/std::max(1.0,maxCliqueSize(adj,n));} }
+inline double triangleCount(std::vector<double> adj, double n) { {int nn=static_cast<int>(n),cnt=0;for(int i=0;i<nn;++i)for(int j=i+1;j<nn;++j)for(int k=j+1;k<nn;++k){std::size_t ij=static_cast<std::size_t>(i*nn+j),ik=static_cast<std::size_t>(i*nn+k),jk=static_cast<std::size_t>(j*nn+k);if(ij<adj.size()&&ik<adj.size()&&jk<adj.size()&&adj[ij]>0&&adj[ik]>0&&adj[jk]>0)++cnt;}return static_cast<double>(cnt);} }
+inline std::vector<double> clusteringCoeff(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> cc(nn,0);for(int u=0;u<nn;++u){std::vector<int> nbr;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)nbr.push_back(v);}int k=static_cast<int>(nbr.size());if(k<2)continue;int edges=0;for(int i=0;i<k;++i)for(int j=i+1;j<k;++j){std::size_t idx=static_cast<std::size_t>(nbr[i]*nn+nbr[j]);if(idx<adj.size()&&adj[idx]>0)++edges;}cc[u]=2.0*edges/(k*(k-1));}return cc;} }
+inline double density(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);if(nn<=1)return 0;int e=0;for(double w:adj)if(w>0)++e;return static_cast<double>(e)/(nn*(nn-1));} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphcolor {
+inline std::vector<double> greedyColor(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> color(nn,-1);for(int u=0;u<nn;++u){std::vector<bool> used(nn,false);for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(v*nn+u);if(idx<adj.size()&&adj[idx]>0&&color[v]>=0)used[static_cast<std::size_t>(color[v])]=true;}int c=0;while(c<nn&&used[static_cast<std::size_t>(c)])++c;color[u]=static_cast<double>(c);}return color;} }
+inline double chromaticNumber(std::vector<double> adj, double n) { {auto c=greedyColor(adj,n);double mx=0;for(double x:c)mx=std::max(mx,x);return mx+1;} }
+inline bool isValidColoring(std::vector<double> adj, double n, std::vector<double> colors) { {int nn=static_cast<int>(n);if(static_cast<int>(colors.size())<nn)return false;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&colors[static_cast<std::size_t>(u)]==colors[static_cast<std::size_t>(v)])return false;}return true;} }
+inline std::vector<double> colorClasses(std::vector<double> adj, double n) { {auto c=greedyColor(adj,n);double mx=chromaticNumber(adj,n);std::vector<double> sz(static_cast<std::size_t>(mx),0);for(double x:c)sz[static_cast<std::size_t>(x)]+=1;return sz;} }
+inline double conflictCount(std::vector<double> adj, double n, std::vector<double> colors) { {int nn=static_cast<int>(n),cnt=0;for(int u=0;u<nn;++u)for(int v=u+1;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&u<static_cast<int>(colors.size())&&v<static_cast<int>(colors.size())&&colors[static_cast<std::size_t>(u)]==colors[static_cast<std::size_t>(v)])++cnt;}return static_cast<double>(cnt);} }
+inline std::vector<double> welshPowell(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<std::pair<int,int>> deg;for(int u=0;u<nn;++u){int d=0;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)++d;}deg.emplace_back(d,u);}std::sort(deg.begin(),deg.end(),[](auto&a,auto&b){return a.first>b.first;});std::vector<double> color(nn,-1);for(auto&p:deg){int u=p.second;std::vector<bool> used(nn,false);for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(v*nn+u);if(idx<adj.size()&&adj[idx]>0&&color[v]>=0)used[static_cast<std::size_t>(color[v])]=true;}int c=0;while(c<nn&&used[static_cast<std::size_t>(c)])++c;color[u]=static_cast<double>(c);}return color;} }
+inline double sameColorNeighbors(std::vector<double> adj, double n, double node) { {auto c=greedyColor(adj,n);int u=static_cast<int>(node),nn=static_cast<int>(n),cnt=0;if(u<0||u>=nn)return 0;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&c[static_cast<std::size_t>(v)]==c[static_cast<std::size_t>(u)])++cnt;}return static_cast<double>(cnt);} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphflow {
+inline double maxFlow(std::vector<double> adj, double n, double source, double sink) { {int nn=static_cast<int>(n),s=static_cast<int>(source),t=static_cast<int>(sink);if(s<0||t<0||s>=nn||t>=nn)return 0;std::vector<double> flow(static_cast<std::size_t>(nn*nn),0);double total=0;auto bfs=[&]()->int{std::vector<int> prev(nn,-1);std::vector<bool> vis(nn,false);std::vector<int> q;q.push_back(s);vis[s]=true;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);double cap=idx<adj.size()?adj[idx]:0;std::size_t fi=static_cast<std::size_t>(u*nn+v);if(!vis[v]&&cap-flow[fi]>1e-9){vis[v]=true;prev[v]=u;q.push_back(v);}}}return prev[t];};while(true){std::vector<int> prev(nn,-1);std::vector<bool> vis(nn,false);std::vector<int> q;q.push_back(s);vis[s]=true;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);double cap=idx<adj.size()?adj[idx]:0;std::size_t fi=static_cast<std::size_t>(u*nn+v);if(!vis[v]&&cap-flow[fi]>1e-9){vis[v]=true;prev[v]=u;q.push_back(v);}}}if(!vis[t])break;double f=1e18;for(int v=t;v!=s;v=prev[v]){int u=prev[v];std::size_t fi=static_cast<std::size_t>(u*nn+v);f=std::min(f,(adj[fi]-flow[fi]));}for(int v=t;v!=s;v=prev[v]){int u=prev[v];std::size_t fi=static_cast<std::size_t>(u*nn+v),fb=static_cast<std::size_t>(v*nn+u);flow[fi]+=f;flow[fb]-=f;}total+=f;}return total;} }
+inline double minCutValue(std::vector<double> adj, double n, double source, double sink) { return maxFlow(adj,n,source,sink); }
+inline std::vector<double> flowMatrix(std::vector<double> adj, double n, double source, double sink) { {int nn=static_cast<int>(n),s=static_cast<int>(source),t=static_cast<int>(sink);std::vector<double> flow(static_cast<std::size_t>(nn*nn),0);double total=0;while(true){std::vector<int> prev(nn,-1);std::vector<bool> vis(nn,false);std::vector<int> q;q.push_back(s);vis[s]=true;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);double cap=idx<adj.size()?adj[idx]:0;std::size_t fi=static_cast<std::size_t>(u*nn+v);if(!vis[v]&&cap-flow[fi]>1e-9){vis[v]=true;prev[v]=u;q.push_back(v);}}}if(!vis[t])break;double f=1e18;for(int v=t;v!=s;v=prev[v]){int u=prev[v];std::size_t fi=static_cast<std::size_t>(u*nn+v);f=std::min(f,adj[fi]-flow[fi]);}for(int v=t;v!=s;v=prev[v]){int u=prev[v];std::size_t fi=static_cast<std::size_t>(u*nn+v),fb=static_cast<std::size_t>(v*nn+u);flow[fi]+=f;flow[fb]-=f;}total+=f;}return flow;} }
+inline double bottleneckCapacity(std::vector<double> adj, double n) { {double m=1e18;for(double w:adj)if(w>0)m=std::min(m,w);return m>=1e18?0:m;} }
+inline double outFlowSum(std::vector<double> adj, double n, double node) { {int u=static_cast<int>(node),nn=static_cast<int>(n);double s=0;for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)s+=adj[idx];}return s;} }
+inline double inFlowSum(std::vector<double> adj, double n, double node) { {int v=static_cast<int>(node),nn=static_cast<int>(n);double s=0;for(int u=0;u<nn;++u){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)s+=adj[idx];}return s;} }
+inline bool isFlowConserved(std::vector<double> adj, double n, double source, double sink) { {double f=maxFlow(adj,n,source,sink);return f>=0;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphmatch {
+inline double maxMatching(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> match(nn,-1);std::function<bool(int,std::vector<bool>&)> aug=[&](int u,std::vector<bool>& vis)->bool{for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;int w=match[v];if(w<0||aug(w,vis)){match[v]=u;match[u]=v;return true;}}}return false;};int cnt=0;for(int u=0;u<nn;++u){if(match[u]<0){std::vector<bool> vis(nn,false);if(aug(u,vis))++cnt;}}return static_cast<double>(cnt);} }
+inline std::vector<double> matchingPairs(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> match(nn,-1);std::function<bool(int,std::vector<bool>&)> aug=[&](int u,std::vector<bool>& vis)->bool{for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;int w=match[v];if(w<0||aug(w,vis)){match[v]=u;match[u]=v;return true;}}}return false;};for(int u=0;u<nn;++u)if(match[u]<0){std::vector<bool> vis(nn,false);aug(u,vis);}std::vector<double> pairs;for(int v=0;v<nn;++v)if(match[v]>v){pairs.push_back(static_cast<double>(v));pairs.push_back(static_cast<double>(match[v]));}return pairs;} }
+inline bool isPerfectMatching(std::vector<double> adj, double n) { {double m=maxMatching(adj,n);return m*2==static_cast<double>(n);} }
+inline double unmatchedCount(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<int> match(nn,-1);std::function<bool(int,std::vector<bool>&)> aug=[&](int u,std::vector<bool>& vis)->bool{for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;int w=match[v];if(w<0||aug(w,vis)){match[v]=u;match[u]=v;return true;}}}return false;};for(int u=0;u<nn;++u)if(match[u]<0){std::vector<bool> vis(nn,false);aug(u,vis);}int c=0;for(int i=0;i<nn;++i)if(match[i]<0)++c;return static_cast<double>(c);} }
+inline double matchingWeight(std::vector<double> adj, double n) { {auto p=matchingPairs(adj,n);double s=0;for(std::size_t i=0;i+1<p.size();i+=2){int u=static_cast<int>(p[i]),v=static_cast<int>(p[i+1]);std::size_t idx=static_cast<std::size_t>(u*static_cast<int>(n)+v);if(idx<adj.size())s+=adj[idx];}return s;} }
+inline double vertexCoverSize(std::vector<double> adj, double n) { return maxMatching(adj,n); }
+inline bool isMatched(std::vector<double> adj, double n, double node) { {int nn=static_cast<int>(n);std::vector<int> match(nn,-1);std::function<bool(int,std::vector<bool>&)> aug=[&](int u,std::vector<bool>& vis)->bool{for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&!vis[v]){vis[v]=true;int w=match[v];if(w<0||aug(w,vis)){match[v]=u;match[u]=v;return true;}}}return false;};for(int u=0;u<nn;++u)if(match[u]<0){std::vector<bool> vis(nn,false);aug(u,vis);}int nd=static_cast<int>(node);return nd>=0&&nd<nn&&match[nd]>=0;} }
+} // namespace
+
+namespace afrilang::runtime::cx::graphcent {
+inline std::vector<double> degreeCentrality(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> d(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)d[u]+=1;}if(nn<=1)return d;for(double&x:d)x/=(nn-1);return d;} }
+inline std::vector<double> closenessCentrality(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> cc(nn,0);for(int s=0;s<nn;++s){std::vector<double> dist(nn,-1);std::vector<int> q;dist[s]=0;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&dist[v]<0){dist[v]=dist[u]+1;q.push_back(v);}}}double sum=0;int reach=0;for(int v=0;v<nn;++v)if(v!=s&&dist[v]>0){sum+=dist[v];++reach;}cc[s]=reach==0?0:static_cast<double>(reach)/sum;}return cc;} }
+inline std::vector<double> betweennessApprox(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> bc(nn,0);for(int s=0;s<nn;++s){std::vector<double> dist(nn,-1);std::vector<int> q;dist[s]=0;q.push_back(s);for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0&&dist[v]<0){dist[v]=dist[u]+1;q.push_back(v);if(u!=s&&v!=s)bc[u]+=1;}}}}return bc;} }
+inline std::vector<double> eigenvectorCentrality(std::vector<double> adj, double n) { {int nn=static_cast<int>(n);std::vector<double> x(nn,1.0/nn);for(int iter=0;iter<20;++iter){std::vector<double> nx(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)nx[v]+=x[u];}double norm=0;for(double v:nx)norm+=v*v;norm=std::sqrt(norm);if(norm<1e-12)break;for(int i=0;i<nn;++i)x[i]=nx[i]/norm;}return x;} }
+inline std::vector<double> pageRank(std::vector<double> adj, double n, double damping) { {int nn=static_cast<int>(n);double d=damping;std::vector<double> pr(nn,1.0/nn),outdeg(nn,0);for(int u=0;u<nn;++u)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)outdeg[u]+=1;}for(int iter=0;iter<25;++iter){std::vector<double> npr(nn,(1-d)/nn);for(int u=0;u<nn;++u)if(outdeg[u]>0)for(int v=0;v<nn;++v){std::size_t idx=static_cast<std::size_t>(u*nn+v);if(idx<adj.size()&&adj[idx]>0)npr[v]+=d*pr[u]/outdeg[u];}pr=npr;}return pr;} }
+inline std::vector<double> hubScore(std::vector<double> adj, double n) { return eigenvectorCentrality(adj,n); }
+inline double mostCentral(std::vector<double> adj, double n) { {auto c=closenessCentrality(adj,n);if(c.empty())return 0;return static_cast<double>(std::max_element(c.begin(),c.end())-c.begin());} }
+} // namespace
+
+namespace afrilang::runtime::cx::statregress {
+inline double regSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double regMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double regMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double regMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double regVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double regStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> regNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> linearRegress(std::vector<double> x, std::vector<double> y) { {if(x.size()!=y.size()||x.size()<2)return std::vector<double>{};double sx=0,sy=0,sxx=0,sxy=0,n=x.size();for(std::size_t i=0;i<n;++i){sx+=x[i];sy+=y[i];sxx+=x[i]*x[i];sxy+=x[i]*y[i];}double denom=n*sxx-sx*sx;if(std::abs(denom)<1e-12)return std::vector<double>{0,0};double slope=(n*sxy-sx*sy)/denom,intercept=(sy-slope*sx)/n;return std::vector<double>{slope,intercept};} }
+} // namespace
+
+namespace afrilang::runtime::cx::statcorrel {
+inline double pearson(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size()||a.size()<2)return 0;double ma=0,mb=0;for(double v:a)ma+=v;for(double v:b)mb+=v;ma/=a.size();mb/=b.size();double num=0,da=0,db=0;for(std::size_t i=0;i<a.size();++i){double xa=a[i]-ma,xb=b[i]-mb;num+=xa*xb;da+=xa*xa;db+=xb*xb;}return da*db<1e-12?0:num/std::sqrt(da*db);} }
+inline double covariance(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size()||a.size()<2)return 0;double ma=0,mb=0;for(double v:a)ma+=v;for(double v:b)mb+=v;ma/=a.size();mb/=b.size();double s=0;for(std::size_t i=0;i<a.size();++i)s+=(a[i]-ma)*(b[i]-mb);return s/(a.size()-1);} }
+inline double crossCorr(std::vector<double> a, std::vector<double> b, double lag) { {int L=static_cast<int>(lag);if(a.size()!=b.size()||L<0||static_cast<std::size_t>(L)>=a.size())return 0;std::vector<double> aa(a.begin(),a.end()-L),bb(b.begin()+L,b.end());return pearson(aa,bb);} }
+inline double autocorr1(std::vector<double> v) { return crossCorr(v,v,1); }
+inline double partialCorr(std::vector<double> a, std::vector<double> b, std::vector<double> c) { {double rab=pearson(a,b),rac=pearson(a,c),rbc=pearson(b,c);double den=std::sqrt((1-rac*rac)*(1-rbc*rbc));return den<1e-12?0:(rab-rac*rbc)/den;} }
+inline std::vector<double> corrMatrix2(std::vector<double> a, std::vector<double> b) { {double p=pearson(a,b);return std::vector<double>{1,p,p,1};} }
+inline double rankCorr(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size()||a.size()<2)return 0;auto idx=std::vector<std::size_t>(a.size());for(std::size_t i=0;i<a.size();++i)idx[i]=i;std::sort(idx.begin(),idx.end(),[&](auto i,auto j){return a[i]<a[j];});std::vector<double> ra(a.size());for(std::size_t i=0;i<a.size();++i)ra[idx[i]]=static_cast<double>(i);std::vector<std::size_t> idx2(b.size());for(std::size_t i=0;i<b.size();++i)idx2[i]=i;std::sort(idx2.begin(),idx2.end(),[&](auto i,auto j){return b[i]<b[j];});std::vector<double> rb(b.size());for(std::size_t i=0;i<b.size();++i)rb[idx2[i]]=static_cast<double>(i);return pearson(ra,rb);} }
+} // namespace
+
+namespace afrilang::runtime::cx::statquartile {
+inline double q1(std::vector<double> v) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());return t[t.size()/4];} }
+inline double q2(std::vector<double> v) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());std::size_t n=t.size();return n%2?t[n/2]:(t[n/2-1]+t[n/2])/2.0;} }
+inline double q3(std::vector<double> v) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());return t[3*t.size()/4];} }
+inline double iqr(std::vector<double> v) { return q3(v)-q1(v); }
+inline std::vector<double> quartiles(std::vector<double> v) { return std::vector<double>{q1(v),q2(v),q3(v)}; }
+inline std::vector<double> fiveNum(std::vector<double> v) { {if(v.empty())return std::vector<double>{};auto t=v;std::sort(t.begin(),t.end());return std::vector<double>{t.front(),q1(v),q2(v),q3(v),t.back()};} }
+inline std::vector<double> outlierFence(std::vector<double> v) { {double iq=iqr(v),med=q2(v);return std::vector<double>{med-1.5*iq,med+1.5*iq};} }
+} // namespace
+
+namespace afrilang::runtime::cx::stathistogram {
+inline std::vector<double> histogram(std::vector<double> v, double bins) { {int b=static_cast<int>(bins);if(v.empty()||b<=0)return std::vector<double>{};double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());double w=(mx-mn)/b;if(w<1e-12)w=1;std::vector<double> h(b,0);for(double x:v){int i=static_cast<int>((x-mn)/w);if(i>=b)i=b-1;if(i<0)i=0;h[i]+=1;}return h;} }
+inline std::vector<double> binEdges(std::vector<double> v, double bins) { {int b=static_cast<int>(bins);if(v.empty()||b<=0)return std::vector<double>{};double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());double w=(mx-mn)/b;std::vector<double> e;for(int i=0;i<=b;++i)e.push_back(mn+i*w);return e;} }
+inline std::vector<double> freqDensity(std::vector<double> v, double bins) { {auto h=histogram(v,bins);double s=0;for(double x:h)s+=x;if(s<1e-12)return h;for(double&x:h)x/=s;return h;} }
+inline std::vector<double> cumFreq(std::vector<double> v, double bins) { {auto h=histogram(v,bins);std::vector<double> c;double s=0;for(double x:h){s+=x;c.push_back(s);}return c;} }
+inline double modeBin(std::vector<double> v, double bins) { {auto h=histogram(v,bins);if(h.empty())return 0;return static_cast<double>(std::max_element(h.begin(),h.end())-h.begin());} }
+inline double binWidth(std::vector<double> v, double bins) { {if(v.empty())return 0;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());int b=static_cast<int>(bins);return b<=0?0:(mx-mn)/b;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statanova {
+inline std::vector<double> groupMeans(std::vector<double> groups, std::vector<double> labels) { {std::map<int,std::vector<double>> g;for(std::size_t i=0;i<groups.size()&&i<labels.size();++i)g[static_cast<int>(labels[i])].push_back(groups[i]);std::vector<double> m;for(auto&p:g){double s=0;for(double x:p.second)s+=x;m.push_back(s/p.second.size());}return m;} }
+inline double grandMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double betweenSS(std::vector<double> groups, std::vector<double> labels) { {auto gm=grandMean(groups);auto m=groupMeans(groups,labels);double ss=0;std::map<int,int> cnt;for(std::size_t i=0;i<labels.size();++i)++cnt[static_cast<int>(labels[i])];int gi=0;for(auto&p:cnt){ss+=p.second*(m[gi]-gm)*(m[gi]-gm);++gi;}return ss;} }
+inline double withinSS(std::vector<double> groups, std::vector<double> labels) { {auto m=groupMeans(groups,labels);std::map<int,double> mm;for(std::size_t i=0;i<m.size();++i)mm[i]=m[i];double ss=0;for(std::size_t i=0;i<groups.size();++i){int g=static_cast<int>(labels[i]);ss+=(groups[i]-mm[g])*(groups[i]-mm[g]);}return ss;} }
+inline double fStatistic(std::vector<double> groups, std::vector<double> labels) { {double bw=betweenSS(groups,labels),ww=withinSS(groups,labels);std::map<int,int> g;for(double l:labels)++g[static_cast<int>(l)];int k=static_cast<int>(g.size()),n=static_cast<int>(groups.size());return ww<1e-12?0:(bw/(k-1))/(ww/(n-k));} }
+inline double etaSquared(std::vector<double> groups, std::vector<double> labels) { {double bw=betweenSS(groups,labels),ww=withinSS(groups,labels);return(bw+ww)<1e-12?0:bw/(bw+ww);} }
+} // namespace
+
+namespace afrilang::runtime::cx::statttest {
+inline double tStatistic(std::vector<double> a, std::vector<double> b) { {if(a.size()<2||b.size()<2)return 0;double ma=0,mb=0;for(double x:a)ma+=x;for(double x:b)mb+=x;ma/=a.size();mb/=b.size();double va=0,vb=0;for(double x:a)va+=(x-ma)*(x-ma);for(double x:b)vb+=(x-mb)*(x-mb);va/=a.size()-1;vb/=b.size()-1;double se=std::sqrt(va/a.size()+vb/b.size());return se<1e-12?0:(ma-mb)/se;} }
+inline double pooledVariance(std::vector<double> a, std::vector<double> b) { {if(a.size()<2||b.size()<2)return 0;double ma=0,mb=0;for(double x:a)ma+=x;for(double x:b)mb+=x;ma/=a.size();mb/=b.size();double va=0,vb=0;for(double x:a)va+=(x-ma)*(x-ma);for(double x:b)vb+=(x-mb)*(x-mb);return((a.size()-1)*va+(b.size()-1)*vb)/(a.size()+b.size()-2);} }
+inline double cohenD(std::vector<double> a, std::vector<double> b) { {double pv=pooledVariance(a,b);if(pv<1e-12)return 0;double ma=0,mb=0;for(double x:a)ma+=x;for(double x:b)mb+=x;return(ma/a.size()-mb/b.size())/std::sqrt(pv);} }
+inline double meanDiff(std::vector<double> a, std::vector<double> b) { {double ma=0,mb=0;for(double x:a)ma+=x;for(double x:b)mb+=x;return ma/a.size()-mb/b.size();} }
+inline double welchT(std::vector<double> a, std::vector<double> b) { return tStatistic(a,b); }
+inline double effectSize(std::vector<double> a, std::vector<double> b) { return std::abs(cohenD(a,b)); }
+} // namespace
+
+namespace afrilang::runtime::cx::statchi2 {
+inline double chi2Stat(std::vector<double> observed, std::vector<double> expected) { {if(observed.size()!=expected.size())return 0;double chi=0;for(std::size_t i=0;i<observed.size();++i)if(expected[i]>1e-12){double d=observed[i]-expected[i];chi+=d*d/expected[i];}return chi;} }
+inline double cramersV(double chi2, double n, double k) { {double nn=n,kk=k;if(nn<1e-12||kk<1)return 0;return std::sqrt(chi2/(nn*(kk-1)));} }
+inline std::vector<double> expectedUniform(double total, double bins) { {int b=static_cast<int>(bins);std::vector<double> e(b,total/b);return e;} }
+inline double goodnessOfFit(std::vector<double> observed, std::vector<double> expected) { return chi2Stat(observed,expected); }
+inline std::vector<double> residuals(std::vector<double> observed, std::vector<double> expected) { {std::vector<double> r;for(std::size_t i=0;i<observed.size()&&i<expected.size();++i)r.push_back(expected[i]>1e-12?(observed[i]-expected[i])/std::sqrt(expected[i]):0);return r;} }
+inline double df(double bins) { return static_cast<double>(bins)-1; }
+} // namespace
+
+namespace afrilang::runtime::cx::statnormcdf {
+inline double normPdf(double x, double mu, double sigma) { {if(sigma<1e-12)return 0;double z=(x-mu)/sigma;return std::exp(-0.5*z*z)/(sigma*std::sqrt(2*3.141592653589793));} }
+inline double normCdfApprox(double x, double mu, double sigma) { {double z=(x-mu)/(sigma<1e-12?1:sigma);return 0.5*(1+std::erf(z/std::sqrt(2)));} }
+inline double zFromP(double p) { {return 0.5*(p-0.5)*4; /* rough inverse normal */} }
+inline double standardize(double x, double mu, double sigma) { return sigma<1e-12?0:(x-mu)/sigma; }
+inline double logLikelihood(std::vector<double> data, double mu, double sigma) { {double ll=0;for(double x:data)ll+=std::log(normPdf(x,mu,sigma)+1e-300);return ll;} }
+inline double bivariatePdf(double x, double y, double rho) { {double z1=x,z2=y,r=rho,d=1-r*r;if(d<1e-12)return 0;return std::exp(-0.5/(d)*(z1*z1+z2*z2-2*r*z1*z2))/(2*3.141592653589793*std::sqrt(d));} }
+} // namespace
+
+namespace afrilang::runtime::cx::statzscore {
+inline std::vector<double> zScores(std::vector<double> v) { {if(v.empty())return v;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);s=v.size()>1?std::sqrt(s/(v.size()-1)):0;std::vector<double> r;if(s<1e-12)return v;for(double x:v)r.push_back((x-m)/s);return r;} }
+inline double zScore(std::vector<double> v, double val) { {if(v.empty())return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);s=v.size()>1?std::sqrt(s/(v.size()-1)):0;return s<1e-12?0:(val-m)/s;} }
+inline bool isOutlierZ(std::vector<double> v, double val, double threshold) { return std::abs(zScore(v,val))>threshold; }
+inline std::vector<double> standardize(std::vector<double> v) { return zScores(v); }
+inline std::vector<double> destandardize(std::vector<double> z, double mean, double stddev) { {std::vector<double> r;for(double x:z)r.push_back(x*stddev+mean);return r;} }
+inline double zMean(std::vector<double> v) { {auto z=zScores(v);return z.empty()?0:std::accumulate(z.begin(),z.end(),0.0)/z.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::statcovar {
+inline double covSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double covMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double covMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double covMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double covVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double covStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> covNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline double covariance(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size()||a.size()<2)return 0;double ma=0,mb=0;for(double v:a)ma+=v;for(double v:b)mb+=v;ma/=a.size();mb/=b.size();double s=0;for(std::size_t i=0;i<a.size();++i)s+=(a[i]-ma)*(b[i]-mb);return s/(a.size()-1);} }
+} // namespace
+
+namespace afrilang::runtime::cx::statrmse {
+inline double rmse(std::vector<double> actual, std::vector<double> predicted) { {if(actual.size()!=predicted.size()||actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size();++i){double d=actual[i]-predicted[i];s+=d*d;}return std::sqrt(s/actual.size());} }
+inline double mse(std::vector<double> actual, std::vector<double> predicted) { {if(actual.size()!=predicted.size()||actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size();++i){double d=actual[i]-predicted[i];s+=d*d;}return s/actual.size();} }
+inline double mae(std::vector<double> actual, std::vector<double> predicted) { {if(actual.size()!=predicted.size()||actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size();++i)s+=std::abs(actual[i]-predicted[i]);return s/actual.size();} }
+inline double nrmse(std::vector<double> actual, std::vector<double> predicted) { {double r=rmse(actual,predicted);double mn=*std::min_element(actual.begin(),actual.end()),mx=*std::max_element(actual.begin(),actual.end());return(mx-mn)<1e-12?0:r/(mx-mn);} }
+inline double smape(std::vector<double> actual, std::vector<double> predicted) { {if(actual.size()!=predicted.size()||actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size();++i)s+=std::abs(actual[i]-predicted[i])/(std::abs(actual[i])+std::abs(predicted[i])+1e-12);return 200*s/actual.size();} }
+inline double r2Score(std::vector<double> actual, std::vector<double> predicted) { {if(actual.empty())return 0;double mean=0;for(double x:actual)mean+=x;mean/=actual.size();double ssRes=0,ssTot=0;for(std::size_t i=0;i<actual.size();++i){ssRes+=(actual[i]-predicted[i])*(actual[i]-predicted[i]);ssTot+=(actual[i]-mean)*(actual[i]-mean);}return ssTot<1e-12?0:1-ssRes/ssTot;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statmape {
+inline double mape(std::vector<double> actual, std::vector<double> predicted) { {if(actual.size()!=predicted.size()||actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size();++i)s+=std::abs((actual[i]-predicted[i])/(actual[i]+1e-12));return 100*s/actual.size();} }
+inline double wape(std::vector<double> actual, std::vector<double> predicted) { {if(actual.empty())return 0;double num=0,den=0;for(std::size_t i=0;i<actual.size()&&i<predicted.size();++i){num+=std::abs(actual[i]-predicted[i]);den+=std::abs(actual[i]);}return den<1e-12?0:100*num/den;} }
+inline double smape(std::vector<double> actual, std::vector<double> predicted) { {if(actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size()&&i<predicted.size();++i)s+=std::abs(actual[i]-predicted[i])/(std::abs(actual[i])+std::abs(predicted[i])+1e-12);return 200*s/actual.size();} }
+inline double bias(std::vector<double> actual, std::vector<double> predicted) { {if(actual.empty())return 0;double s=0;for(std::size_t i=0;i<actual.size()&&i<predicted.size();++i)s+=predicted[i]-actual[i];return s/actual.size();} }
+inline double trackingSignal(std::vector<double> actual, std::vector<double> predicted) { {double b=bias(actual,predicted);double m=mape(actual,predicted);return m<1e-12?0:b/m;} }
+inline std::vector<double> forecastError(std::vector<double> actual, std::vector<double> predicted) { {std::vector<double> e;for(std::size_t i=0;i<actual.size()&&i<predicted.size();++i)e.push_back(actual[i]-predicted[i]);return e;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statmedian {
+inline double median(std::vector<double> v) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());std::size_t n=t.size();return n%2?t[n/2]:(t[n/2-1]+t[n/2])/2.0;} }
+inline double medAbsDev(std::vector<double> v) { {double med=median(v);std::vector<double> d;for(double x:v)d.push_back(std::abs(x-med));return median(d);} }
+inline double trimmedMean(std::vector<double> v, double pct) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());int trim=static_cast<int>(t.size()*pct/100.0);int lo=trim,hi=static_cast<int>(t.size())-trim;if(hi<=lo)return median(v);double s=0;for(int i=lo;i<hi;++i)s+=t[i];return s/(hi-lo);} }
+inline std::vector<double> movingMedian(std::vector<double> v, double win) { {int w=static_cast<int>(win);std::vector<double> r;if(w<=0)return r;for(std::size_t i=0;i+w<=v.size();++i){std::vector<double> sub(v.begin()+i,v.begin()+i+w);r.push_back(median(sub));}return r;} }
+inline double weightedMedian(std::vector<double> v, std::vector<double> w) { {if(v.size()!=w.size()||v.empty())return 0;std::vector<std::pair<double,double>> p;for(std::size_t i=0;i<v.size();++i)p.emplace_back(v[i],w[i]);std::sort(p.begin(),p.end());double tot=0;for(double x:w)tot+=x;double half=tot/2,cum=0;for(auto&pr:p){cum+=pr.second;if(cum>=half)return pr.first;}return p.back().first;} }
+inline double medianDiff(std::vector<double> a, std::vector<double> b) { return median(a)-median(b); }
+} // namespace
+
+namespace afrilang::runtime::cx::statmode {
+inline double mode(std::vector<double> v) { {if(v.empty())return 0;std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];return static_cast<double>(std::max_element(m.begin(),m.end(),[](auto&a,auto&b){return a.second<b.second;})->first)/1000.0;} }
+inline double modeCount(std::vector<double> v) { {if(v.empty())return 0;std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];return static_cast<double>(std::max_element(m.begin(),m.end(),[](auto&a,auto&b){return a.second<b.second;})->second);} }
+inline bool multimodal(std::vector<double> v) { {if(v.empty())return false;std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];int best=0,cnt=0;for(auto&p:m){if(p.second>best){best=p.second;cnt=1;}else if(p.second==best)++cnt;}return cnt>1;} }
+inline double uniqueCount(std::vector<double> v) { {std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];return static_cast<double>(m.size());} }
+inline double entropy(std::vector<double> v) { {if(v.empty())return 0;std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];double n=v.size(),h=0;for(auto&p:m){double p_i=p.second/n;if(p_i>0)h-=p_i*std::log(p_i);}return h;} }
+inline double giniSimpson(std::vector<double> v) { {if(v.empty())return 0;std::map<long long,int> m;for(double x:v)++m[static_cast<long long>(x*1000)];double n=v.size(),s=0;for(auto&p:m){double p_i=p.second/n;s+=p_i*p_i;}return 1-s;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statskew {
+inline double skewness(std::vector<double> v) { {if(v.size()<3)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s2=0,s3=0;for(double x:v){double d=x-m;s2+=d*d;s3+=d*d*d;}s2/=v.size();return s2<1e-12?0:(s3/v.size())/(std::pow(s2,1.5));} }
+inline double kurtosisExcess(std::vector<double> v) { {if(v.size()<4)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s2=0,s4=0;for(double x:v){double d=x-m;s2+=d*d;s4+=d*d*d*d;}s2/=v.size();return s2<1e-12?0:(s4/v.size())/(s2*s2)-3;} }
+inline double moment3(std::vector<double> v) { {if(v.empty())return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v){double d=x-m;s+=d*d*d;}return s/v.size();} }
+inline double moment4(std::vector<double> v) { {if(v.empty())return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v){double d=x-m;s+=d*d*d*d;}return s/v.size();} }
+inline double jarqueBera(std::vector<double> v) { {double sk=skewness(v),ku=kurtosisExcess(v),n=static_cast<double>(v.size());return n/6*(sk*sk+ku*ku/4);} }
+inline bool isSymmetric(std::vector<double> v) { return std::abs(skewness(v))<0.1; }
+} // namespace
+
+namespace afrilang::runtime::cx::statkurt {
+inline double kurtosis(std::vector<double> v) { {if(v.size()<4)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s2=0,s4=0;for(double x:v){double d=x-m;s2+=d*d;s4+=d*d*d*d;}s2/=v.size();return s2<1e-12?0:(s4/v.size())/(s2*s2);} }
+inline double excessKurtosis(std::vector<double> v) { return kurtosis(v)-3; }
+inline bool isLeptokurtic(std::vector<double> v) { return excessKurtosis(v)>0; }
+inline bool isPlatykurtic(std::vector<double> v) { return excessKurtosis(v)<0; }
+inline double tailRatio(std::vector<double> v) { {if(v.size()<10)return 0;auto t=v;std::sort(t.begin(),t.end());std::size_t n=t.size();double p95=t[95*n/100],p5=t[5*n/100],p50=t[n/2];return(p95-p50)/(p50-p5+1e-12);} }
+inline double peakedness(std::vector<double> v) { return kurtosis(v); }
+} // namespace
+
+namespace afrilang::runtime::cx::statbootstrap {
+inline double bootstrapMean(std::vector<double> v, double samples) { {if(v.empty())return 0;int n=static_cast<int>(samples);double sum=0;for(int s=0;s<n;++s){double ss=0;for(std::size_t i=0;i<v.size();++i)ss+=v[static_cast<std::size_t>(std::rand()%static_cast<int>(v.size()))];sum+=ss/v.size();}return sum/n;} }
+inline double bootstrapSE(std::vector<double> v, double samples) { {if(v.empty())return 0;int n=static_cast<int>(samples);std::vector<double> means;for(int s=0;s<n;++s){double ss=0;for(std::size_t i=0;i<v.size();++i)ss+=v[static_cast<std::size_t>(std::rand()%static_cast<int>(v.size()))];means.push_back(ss/v.size());}double m=0;for(double x:means)m+=x;m/=means.size();double var=0;for(double x:means)var+=(x-m)*(x-m);return std::sqrt(var/(means.size()-1));} }
+inline std::vector<double> resample(std::vector<double> v, double size) { {int n=static_cast<int>(size);std::vector<double> r;if(v.empty())return r;for(int i=0;i<n;++i)r.push_back(v[static_cast<std::size_t>(std::rand()%static_cast<int>(v.size()))]);return r;} }
+inline std::vector<double> bootstrapCI(std::vector<double> v, double samples) { {if(v.empty())return std::vector<double>{};int n=static_cast<int>(samples);std::vector<double> means;for(int s=0;s<n;++s){double ss=0;for(std::size_t i=0;i<v.size();++i)ss+=v[static_cast<std::size_t>(std::rand()%static_cast<int>(v.size()))];means.push_back(ss/v.size());}std::sort(means.begin(),means.end());std::size_t lo=means.size()/20,hi=19*means.size()/20;return std::vector<double>{means[lo],means[hi]};} }
+inline std::vector<double> jackknife(std::vector<double> v) { {std::vector<double> r;for(std::size_t i=0;i<v.size();++i){double s=0;for(std::size_t j=0;j<v.size();++j)if(j!=i)s+=v[j];r.push_back(s/(v.size()-1));}return r;} }
+inline double biasCorrected(std::vector<double> v, double stat) { {double orig=0;for(double x:v)orig+=x;orig/=v.empty()?1:v.size();return 2*orig-stat;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statoutlier {
+inline std::vector<double> iqrOutliers(std::vector<double> v) { {if(v.size()<4)return std::vector<double>{};auto t=v;std::sort(t.begin(),t.end());double q1=t[t.size()/4],q3=t[3*t.size()/4],iq=q3-q1,lo=q1-1.5*iq,hi=q3+1.5*iq;std::vector<double> o;for(double x:v)if(x<lo||x>hi)o.push_back(x);return o;} }
+inline std::vector<double> zOutliers(std::vector<double> v, double threshold) { {if(v.empty())return std::vector<double>{};double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);s=v.size()>1?std::sqrt(s/(v.size()-1)):0;std::vector<double> o;for(double x:v)if(s>1e-12&&std::abs((x-m)/s)>threshold)o.push_back(x);return o;} }
+inline double outlierCount(std::vector<double> v) { return static_cast<double>(iqrOutliers(v).size()); }
+inline std::vector<double> winsorize(std::vector<double> v, double pct) { {if(v.empty())return v;auto t=v;std::sort(t.begin(),t.end());int trim=static_cast<int>(t.size()*pct/100.0);double lo=t[trim],hi=t[t.size()-1-trim];std::vector<double> r;for(double x:v)r.push_back(std::max(lo,std::min(hi,x)));return r;} }
+inline std::vector<double> modifiedZ(std::vector<double> v) { {if(v.empty())return v;auto t=v;std::sort(t.begin(),t.end());double med=t[t.size()/2];std::vector<double> d;for(double x:v)d.push_back(std::abs(x-med));std::sort(d.begin(),d.end());double mad=d[d.size()/2];std::vector<double> r;for(double x:v)r.push_back(mad<1e-12?0:0.6745*(x-med)/mad);return r;} }
+inline bool isOutlier(std::vector<double> v, double val) { {auto o=iqrOutliers(v);for(double x:o)if(x==val)return true;return false;} }
+} // namespace
+
+namespace afrilang::runtime::cx::statpercentile {
+inline double percentile(std::vector<double> v, double p) { {if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());double rank=p/100.0*(t.size()-1);std::size_t lo=static_cast<std::size_t>(rank);std::size_t hi=std::min(lo+1,t.size()-1);double frac=rank-lo;return t[lo]*(1-frac)+t[hi]*frac;} }
+inline std::vector<double> percentiles(std::vector<double> v) { return std::vector<double>{percentile(v,25),percentile(v,50),percentile(v,75),percentile(v,90),percentile(v,95)}; }
+inline double rankPct(std::vector<double> v, double val) { {if(v.empty())return 0;int below=0;for(double x:v)if(x<val)++below;return 100.0*below/v.size();} }
+inline double decile(std::vector<double> v, double d) { return percentile(v,d*10); }
+inline double quantile(std::vector<double> v, double q) { return percentile(v,q*100); }
+inline double p90(std::vector<double> v) { return percentile(v,90); }
+inline double p99(std::vector<double> v) { return percentile(v,99); }
+} // namespace
+
+namespace afrilang::runtime::cx::statbayes {
+inline double bayesUpdate(double prior, double likelihood, double evidence) { return evidence<1e-12?prior:(likelihood*prior)/evidence; }
+inline double posteriorOdds(double priorOdds, double likelihoodRatio) { return priorOdds*likelihoodRatio; }
+inline double priorFromOdds(double odds) { return odds/(1+odds); }
+inline double oddsFromPrior(double prior) { return prior/(1-prior+1e-12); }
+inline double bayesFactor(double likelihoodH1, double likelihoodH0) { return likelihoodH0<1e-12?0:likelihoodH1/likelihoodH0; }
+inline std::vector<double> credibleInterval(std::vector<double> samples) { {if(samples.size()<2)return std::vector<double>{};auto t=samples;std::sort(t.begin(),t.end());std::size_t lo=t.size()/40,hi=39*t.size()/40;return std::vector<double>{t[lo],t[hi]};} }
+inline double expectedLoss(std::vector<double> losses, std::vector<double> probs) { {if(losses.size()!=probs.size())return 0;double e=0;for(std::size_t i=0;i<losses.size();++i)e+=losses[i]*probs[i];return e;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlkmeans {
+inline std::vector<double> kmeans(std::vector<double> points, double k, double dims) { {int K=static_cast<int>(k),D=static_cast<int>(dims);if(K<=0||D<=0||points.size()<static_cast<std::size_t>(K*D))return std::vector<double>{};int n=static_cast<int>(points.size())/D;std::vector<double> cent(K*D);for(int i=0;i<K;++i)for(int d=0;d<D;++d)cent[i*D+d]=points[static_cast<std::size_t>((i*7+d)%n)*D+d];for(int iter=0;iter<20;++iter){std::vector<double> sums(K*D,0);std::vector<int> cnt(K,0);for(int p=0;p<n;++p){int best=0;double bd=1e18;for(int c=0;c<K;++c){double dist=0;for(int d=0;d<D;++d){double diff=points[static_cast<std::size_t>(p*D+d)]-cent[c*D+d];dist+=diff*diff;}if(dist<bd){bd=dist;best=c;}}++cnt[best];for(int d=0;d<D;++d)sums[best*D+d]+=points[static_cast<std::size_t>(p*D+d)];}for(int c=0;c<K;++c)if(cnt[c]>0)for(int d=0;d<D;++d)cent[c*D+d]=sums[c*D+d]/cnt[c];}return cent;} }
+inline std::vector<double> assignClusters(std::vector<double> points, std::vector<double> centroids, double dims) { {int D=static_cast<int>(dims),K=static_cast<int>(centroids.size())/D,n=static_cast<int>(points.size())/D;std::vector<double> labels;for(int p=0;p<n;++p){int best=0;double bd=1e18;for(int c=0;c<K;++c){double dist=0;for(int d=0;d<D;++d){double diff=points[static_cast<std::size_t>(p*D+d)]-centroids[c*D+d];dist+=diff*diff;}if(dist<bd){bd=dist;best=c;}}labels.push_back(static_cast<double>(best));}return labels;} }
+inline double inertia(std::vector<double> points, std::vector<double> centroids, double dims) { {auto lbl=assignClusters(points,centroids,dims);int D=static_cast<int>(dims),K=static_cast<int>(centroids.size())/D,n=static_cast<int>(points.size())/D;double s=0;for(int p=0;p<n;++p){int c=static_cast<int>(lbl[static_cast<std::size_t>(p)]);for(int d=0;d<D;++d){double diff=points[static_cast<std::size_t>(p*D+d)]-centroids[c*D+d];s+=diff*diff;}}return s;} }
+inline std::vector<double> clusterSizes(std::vector<double> labels, double k) { {int K=static_cast<int>(k);std::vector<double> sz(K,0);for(double l:labels){int c=static_cast<int>(l);if(c>=0&&c<K)sz[c]+=1;}return sz;} }
+inline double silhouetteSample(std::vector<double> points, std::vector<double> labels, double idx, double dims) { {int D=static_cast<int>(dims),p=static_cast<int>(idx),K=0;for(double l:labels)K=std::max(K,static_cast<int>(l)+1);int c=static_cast<int>(labels[static_cast<std::size_t>(p)]);double a=0,b=1e18;for(int q=0;q<static_cast<int>(labels.size());++q){if(q==p)continue;double dist=0;for(int d=0;d<D;++d){double diff=points[static_cast<std::size_t>(p*D+d)]-points[static_cast<std::size_t>(q*D+d)];dist+=diff*diff;}dist=std::sqrt(dist);if(static_cast<int>(labels[static_cast<std::size_t>(q)])==c)a+=dist;else b=std::min(b,dist);}int same=0;for(int q=0;q<static_cast<int>(labels.size());++q)if(q!=p&&static_cast<int>(labels[static_cast<std::size_t>(q)])==c)++same;a=same>0?a/same:0;return std::max(a,b)<1e-12?0:(b-a)/std::max(a,b);} }
+inline double elbowK(std::vector<double> points, double maxK, double dims) { {int mk=static_cast<int>(maxK);double bestK=1,bestIn=1e18;for(int k=1;k<=mk;++k){auto c=kmeans(points,static_cast<double>(k),dims);double in=inertia(points,c,dims);if(in<bestIn){bestIn=in;bestK=k;}}return bestK;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mllinear {
+inline double dot(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size())return 0;double s=0;for(std::size_t i=0;i<a.size();++i)s+=a[i]*b[i];return s;} }
+inline double predict(std::vector<double> weights, std::vector<double> features, double bias) { return dot(weights,features)+bias; }
+inline double mse(std::vector<double> weights, std::vector<double> X, std::vector<double> y, double dims) { {int D=static_cast<int>(dims),n=static_cast<int>(y.size());double s=0;for(int i=0;i<n;++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);double pred=predict(weights,feat,0);s+=(y[static_cast<std::size_t>(i)]-pred)*(y[static_cast<std::size_t>(i)]-pred);}return n>0?s/n:0;} }
+inline std::vector<double> gradientStep(std::vector<double> weights, std::vector<double> X, std::vector<double> y, double lr, double dims) { {int D=static_cast<int>(dims),n=static_cast<int>(y.size());auto w=weights;for(int i=0;i<n;++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);double pred=predict(w,feat,0),err=pred-y[static_cast<std::size_t>(i)];for(int d=0;d<D;++d)w[static_cast<std::size_t>(d)]-=lr*err*feat[static_cast<std::size_t>(d)]/n;}return w;} }
+inline std::vector<double> trainEpochs(std::vector<double> weights, std::vector<double> X, std::vector<double> y, double lr, double epochs, double dims) { {auto w=weights;for(int e=0;e<static_cast<int>(epochs);++e)w=gradientStep(w,X,y,lr,dims);return w;} }
+inline double sigmoid(double x) { return 1.0/(1.0+std::exp(-x)); }
+} // namespace
+
+namespace afrilang::runtime::cx::mlnaivebayes {
+inline double classPrior(std::vector<double> labels, double cls) { {int c=0;for(double l:labels)if(static_cast<int>(l)==static_cast<int>(cls))++c;return labels.empty()?0:static_cast<double>(c)/labels.size();} }
+inline double featureMean(std::vector<double> features, std::vector<double> labels, double cls, double feat) { {double s=0;int c=0;for(std::size_t i=0;i<labels.size()&&i<features.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){s+=features[i];++c;}return c==0?0:s/c;} }
+inline double featureVar(std::vector<double> features, std::vector<double> labels, double cls) { {double m=featureMean(features,labels,cls,0),s=0;int c=0;for(std::size_t i=0;i<labels.size()&&i<features.size();++i)if(static_cast<int>(labels[i])==static_cast<int>(cls)){s+=(features[i]-m)*(features[i]-m);++c;}return c<2?1:s/(c-1);} }
+inline double gaussianLikelihood(double x, double mu, double sigma) { {if(sigma<1e-12)return 0;double z=(x-mu)/sigma;return std::exp(-0.5*z*z)/(sigma*std::sqrt(2*3.141592653589793));} }
+inline double predictClass(std::vector<double> features, std::vector<double> trainX, std::vector<double> trainY, double numClasses) { {int K=static_cast<int>(numClasses);double best=-1e18,bestC=0;for(int c=0;c<K;++c){double logP=std::log(classPrior(trainY,static_cast<double>(c))+1e-12);for(std::size_t f=0;f<features.size();++f)logP+=std::log(gaussianLikelihood(features[f],featureMean(trainX,trainY,static_cast<double>(c),static_cast<double>(f)),std::sqrt(featureVar(trainX,trainY,static_cast<double>(c))))+1e-12);if(logP>best){best=logP;bestC=c;}}return static_cast<double>(bestC);} }
+inline double logPosterior(std::vector<double> features, std::vector<double> trainX, std::vector<double> trainY, double cls) { {double lp=std::log(classPrior(trainY,cls)+1e-12);for(std::size_t f=0;f<features.size();++f)lp+=std::log(gaussianLikelihood(features[f],featureMean(trainX,trainY,cls,static_cast<double>(f)),std::sqrt(featureVar(trainX,trainY,cls)))+1e-12);return lp;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mltfidf {
+inline double tfidSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double tfidMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double tfidMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double tfidMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double tfidVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double tfidStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> tfidNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlcosine {
+inline double cosineSim(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size())return 0;double dot=0,na=0,nb=0;for(std::size_t i=0;i<a.size();++i){dot+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i];}return(na*nb)<1e-12?0:dot/(std::sqrt(na)*std::sqrt(nb));} }
+inline double cosineDist(std::vector<double> a, std::vector<double> b) { return 1-cosineSim(a,b); }
+inline std::vector<double> normalize(std::vector<double> v) { {double n=0;for(double x:v)n+=x*x;n=std::sqrt(n);std::vector<double> r;if(n<1e-12)return v;for(double x:v)r.push_back(x/n);return r;} }
+inline double angularDist(std::vector<double> a, std::vector<double> b) { return std::acos(std::max(-1.0,std::min(1.0,cosineSim(a,b)))); }
+inline std::vector<double> batchCosine(std::vector<double> query, std::vector<double> matrix, double dims) { {int D=static_cast<int>(dims),n=static_cast<int>(matrix.size())/D;std::vector<double> sims;for(int i=0;i<n;++i){std::vector<double> row(matrix.begin()+i*D,matrix.begin()+(i+1)*D);sims.push_back(cosineSim(query,row));}return sims;} }
+inline double mostSimilar(std::vector<double> query, std::vector<double> matrix, double dims) { {auto s=batchCosine(query,matrix,dims);if(s.empty())return 0;return static_cast<double>(std::max_element(s.begin(),s.end())-s.begin());} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlsvm {
+inline double svmSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double svmMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double svmMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double svmMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double svmVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double svmStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> svmNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlpca {
+inline double pcaSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double pcaMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double pcaMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double pcaMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double pcaVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double pcaStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> pcaNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlentropy {
+inline double entrSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double entrMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double entrMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double entrMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double entrVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double entrStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> entrNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlkldiv {
+inline double kldiSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double kldiMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double kldiMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double kldiMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double kldiVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double kldiStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> kldiNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlgradient {
+inline double gradSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double gradMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double gradMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double gradMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double gradVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double gradStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> gradNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlsoftmax {
+inline std::vector<double> softmax(std::vector<double> logits) { {double mx=*std::max_element(logits.begin(),logits.end());std::vector<double> e,s;double sum=0;for(double x:logits){double v=std::exp(x-mx);e.push_back(v);sum+=v;}for(double v:e)s.push_back(v/sum);return s;} }
+inline double crossEntropy(std::vector<double> probs, double target) { {int t=static_cast<int>(target);return(t<0||t>=static_cast<int>(probs.size()))?1e18:-std::log(probs[static_cast<std::size_t>(t)]+1e-12);} }
+inline double argmax(std::vector<double> v) { return v.empty()?0:static_cast<double>(std::max_element(v.begin(),v.end())-v.begin()); }
+inline std::vector<double> oneHot(double idx, double size) { {int n=static_cast<int>(size),i=static_cast<int>(idx);std::vector<double> o(n,0);if(i>=0&&i<n)o[static_cast<std::size_t>(i)]=1;return o;} }
+inline std::vector<double> logSoftmax(std::vector<double> logits) { {auto p=softmax(logits);std::vector<double> r;for(double x:p)r.push_back(std::log(x+1e-12));return r;} }
+inline double entropy(std::vector<double> probs) { {double h=0;for(double p:probs)if(p>0)h-=p*std::log(p);return h;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlperceptron {
+inline double predict(std::vector<double> weights, std::vector<double> features, double bias) { {double s=bias;for(std::size_t i=0;i<weights.size()&&i<features.size();++i)s+=weights[i]*features[i];return s>=0?1:0;} }
+inline std::vector<double> trainStep(std::vector<double> weights, double bias, std::vector<double> features, double label, double lr) { {auto w=weights;double b=bias,p=predict(w,features,b),err=label-p;for(std::size_t i=0;i<w.size()&&i<features.size();++i)w[i]+=lr*err*features[i];b+=lr*err;return std::vector<double>{b,w[0]};} }
+inline double accuracy(std::vector<double> weights, double bias, std::vector<double> X, std::vector<double> y, double dims) { {int D=static_cast<int>(dims),n=static_cast<int>(y.size()),correct=0;for(int i=0;i<n;++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);if(predict(weights,feat,bias)==y[static_cast<std::size_t>(i)])++correct;}return n>0?static_cast<double>(correct)/n:0;} }
+inline double hingeLoss(std::vector<double> weights, std::vector<double> features, double label, double bias) { {double s=bias;for(std::size_t i=0;i<weights.size()&&i<features.size();++i)s+=weights[i]*features[i];return std::max(0.0,1-label*s);} }
+inline std::vector<double> initWeights(double size) { {int n=static_cast<int>(size);std::vector<double> w;for(int i=0;i<n;++i)w.push_back(static_cast<double>(std::rand()%1000)/1000.0-0.5);return w;} }
+inline std::vector<double> trainEpoch(std::vector<double> weights, double bias, std::vector<double> X, std::vector<double> y, double lr, double dims) { {auto w=weights;double b=bias;int D=static_cast<int>(dims);for(std::size_t i=0;i<y.size();++i){std::vector<double> feat(X.begin()+i*D,X.begin()+(i+1)*D);auto r=trainStep(w,b,feat,y[i],lr);b=r[0];if(!w.empty())w[0]=r[1];}return w;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlcrossval {
+inline double crosSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double crosMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double crosMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double crosMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double crosVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double crosStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> crosNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlfeature {
+inline double featSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double featMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double featMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double featMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double featVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double featStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> featNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlnormalize {
+inline double normSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double normMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double normMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double normMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double normVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double normStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> normNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mldistance {
+inline double distSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double distMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double distMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double distMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double distVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double distStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> distNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlcluster {
+inline double clusSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double clusMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double clusMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double clusMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double clusVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double clusStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> clusNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlnearest {
+inline double nearSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double nearMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double nearMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double nearMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double nearVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double nearStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> nearNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mldecision {
+inline double deciSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double deciMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double deciMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double deciMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double deciVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double deciStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> deciNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::mlensemble {
+inline double enseSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double enseMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double enseMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double enseMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double enseVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double enseStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> enseNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptsha256 {
+inline double sha2Len(std::string s) { return static_cast<double>(s.size()); }
+inline std::string sha2Upper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string sha2Lower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string sha2Trim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> sha2Split(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string sha2Join(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string sha2Replace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptsha1 {
+inline double sha1Len(std::string s) { return static_cast<double>(s.size()); }
+inline std::string sha1Upper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string sha1Lower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string sha1Trim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> sha1Split(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string sha1Join(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string sha1Replace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptmd5 {
+inline double md5Len(std::string s) { return static_cast<double>(s.size()); }
+inline std::string md5Upper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string md5Lower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string md5Trim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> md5Split(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string md5Join(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string md5Replace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::crypthmac {
+inline double hmacLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string hmacUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string hmacLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string hmacTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> hmacSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string hmacJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string hmacReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptxor {
+inline std::string xorBytes(std::string a, std::string b) { {std::string r;for(std::size_t i=0;i<a.size();++i)r+=static_cast<char>(static_cast<unsigned char>(a[i])^static_cast<unsigned char>(b[i%b.size()]));return r;} }
+inline std::string xorHex(std::string hex, std::string key) { {std::string r;for(std::size_t i=0;i<hex.size();i+=2){int v=0;for(int d=0;d<2&&i+d<hex.size();++d){char c=hex[i+d];v=(v<<4)+(c>='a'?c-'a'+10:c>='A'?c-'A'+10:c-'0');}r+=static_cast<char>(v^static_cast<unsigned char>(key[(i/2)%key.size()]));}return r;} }
+inline std::string repeatKey(std::string data, std::string key) { return xorBytes(data,key); }
+inline std::vector<double> xorList(std::vector<double> a, std::vector<double> b) { {std::vector<double> r;for(std::size_t i=0;i<a.size();++i)r.push_back(static_cast<double>(static_cast<long long>(a[i])^static_cast<long long>(b[i%b.size()])));return r;} }
+inline double parity(std::string s) { {int p=0;for(unsigned char c:s)p^=c;return static_cast<double>(p);} }
+inline std::vector<double> rollingXor(std::vector<double> data, double key) { {std::vector<double> r;double k=key;for(double x:data)r.push_back(static_cast<double>(static_cast<long long>(x)^static_cast<long long>(k)));return r;} }
+inline std::string selfXor(std::string s) { return xorBytes(s,s); }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptcaesar {
+inline std::string encrypt(std::string s, double shift) { {int sh=static_cast<int>(shift)%26;std::string r;for(char c:s){if(std::isalpha(static_cast<unsigned char>(c))){char base=std::isupper(static_cast<unsigned char>(c))?'A':'a';r+=static_cast<char>((c-base+sh+26)%26+base);}else r+=c;}return r;} }
+inline std::string decrypt(std::string s, double shift) { return encrypt(s,-shift); }
+inline std::vector<std::string> bruteForce(std::string s) { {std::vector<std::string> r;for(int sh=0;sh<26;++sh)r.push_back(encrypt(s,static_cast<double>(sh)));return r;} }
+inline double countAlpha(std::string s) { {int c=0;for(unsigned char ch:s)if(std::isalpha(ch))++c;return static_cast<double>(c);} }
+inline std::vector<std::string> rotAll(std::string s) { return bruteForce(s); }
+inline bool isCaesar(std::string plain, std::string cipher) { {for(int sh=0;sh<26;++sh)if(encrypt(plain,static_cast<double>(sh))==cipher)return true;return false;} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptvigenere {
+inline double vigeLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string vigeUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string vigeLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string vigeTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> vigeSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string vigeJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string vigeReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptbase64 {
+inline std::string encode(std::string s) { {static const std::string alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";std::string r;int val=0,vb=-6;for(unsigned char c:s){val=(val<<8)+c;vb+=8;while(vb>=0){r+=alpha[(val>>vb)&0x3F];vb-=6;}}if(vb>-6)r+=alpha[((val<<8)>>(vb+8))&0x3F];while(r.size()%4)r+="=";return r;} }
+inline std::string decode(std::string s) { {auto idx=[](char c)->int{if(c>="A"&&c<="Z")return c-"A";if(c>="a"&&c<="z")return c-"a"+26;if(c>="0"&&c<="9")return c-"0"+52;if(c=="+")return 62;if(c=="/")return 63;return -1;};std::string r;int val=0,vb=-8;for(char c:s){if(c=="=")break;int d=idx(c);if(d<0)continue;val=(val<<6)+d;vb+=6;if(vb>=0){r+=static_cast<char>((val>>vb)&0xFF);vb-=8;}}return r;} }
+inline bool isValid(std::string s) { {if(s.empty())return false;for(char c:s)if(!std::isalnum(static_cast<unsigned char>(c))&&c!="+"&&c!="/"&&c!="=")return false;return true;} }
+inline double paddedLen(std::string s) { return static_cast<double>((s.size()+3)/4*4); }
+inline bool roundTrip(std::string s) { return decode(encode(s))==s; }
+inline std::string urlSafe(std::string s) { {std::string r=encode(s);for(char&c:r){if(c=='+')c='-';else if(c=='/')c='_';}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptrot13 {
+inline double rot1Len(std::string s) { return static_cast<double>(s.size()); }
+inline std::string rot1Upper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string rot1Lower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string rot1Trim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> rot1Split(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string rot1Join(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string rot1Replace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptaeslite {
+inline double aeslLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string aeslUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string aeslLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string aeslTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> aeslSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string aeslJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string aeslReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptpbkdf {
+inline double pbkdLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string pbkdUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string pbkdLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string pbkdTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> pbkdSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string pbkdJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string pbkdReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptscrypt {
+inline double scryLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string scryUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string scryLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string scryTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> scrySplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string scryJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string scryReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptnonce {
+inline double noncLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string noncUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string noncLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string noncTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> noncSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string noncJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string noncReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptcrc32 {
+inline double crc32(std::string s) { {unsigned crc=0xFFFFFFFF;for(unsigned char c:s){crc^=c;for(int k=0;k<8;++k)crc=(crc>>1)^(0xEDB88320&(-(crc&1)));}return static_cast<double>(~crc);} }
+inline std::vector<double> crc32List(std::vector<double> data) { {std::string s;for(double x:data)s+=static_cast<char>(static_cast<long long>(x)&0xFF);return std::vector<double>{crc32(s)};} }
+inline bool verify(std::string s, double expected) { return crc32(s)==expected; }
+inline double update(double crc, double byte) { {unsigned c=static_cast<unsigned>(crc)^static_cast<unsigned char>(static_cast<long long>(byte));for(int k=0;k<8;++k)c=(c>>1)^(0xEDB88320&(-(c&1)));return static_cast<double>(c);} }
+inline double finalize(double crc) { return static_cast<double>(~static_cast<unsigned>(static_cast<long long>(crc))); }
+inline std::vector<double> chunkCrc(std::string s, double chunkSize) { {int cs=static_cast<int>(chunkSize);std::vector<double> r;if(cs<=0)return r;for(std::size_t i=0;i<s.size();i+=cs)r.push_back(crc32(s.substr(i,cs)));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::cryptparity {
+inline double pariLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string pariUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string pariLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string pariTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> pariSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string pariJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string pariReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=((h<<5)+h)+c;return static_cast<double>(h);} }
+} // namespace
+
+namespace afrilang::runtime::cx::comprle {
+inline std::vector<double> rleEncode(std::vector<double> data) { {std::vector<double> r;if(data.empty())return r;double cur=data[0];int cnt=1;for(std::size_t i=1;i<data.size();++i){if(data[i]==cur)++cnt;else{r.push_back(cur);r.push_back(static_cast<double>(cnt));cur=data[i];cnt=1;}}r.push_back(cur);r.push_back(static_cast<double>(cnt));return r;} }
+inline std::vector<double> rleDecode(std::vector<double> encoded) { {std::vector<double> r;for(std::size_t i=0;i+1<encoded.size();i+=2){int cnt=static_cast<int>(encoded[i+1]);for(int j=0;j<cnt;++j)r.push_back(encoded[i]);}return r;} }
+inline double rleRatio(std::vector<double> data) { {auto e=rleEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double runLength(std::vector<double> data) { {if(data.empty())return 0;int best=1,cur=1;for(std::size_t i=1;i<data.size();++i){if(data[i]==data[i-1]){++cur;best=std::max(best,cur);}else cur=1;}return static_cast<double>(best);} }
+inline std::vector<double> compress(std::vector<double> data) { return rleEncode(data); }
+inline std::vector<double> decompress(std::vector<double> encoded) { return rleDecode(encoded); }
+inline bool isCompressible(std::vector<double> data) { return rleRatio(data)<1.0; }
+} // namespace
+
+namespace afrilang::runtime::cx::compdelta {
+inline std::vector<double> deltaEncode(std::vector<double> data) { {std::vector<double> r;if(data.empty())return r;r.push_back(data[0]);for(std::size_t i=1;i<data.size();++i)r.push_back(data[i]-data[i-1]);return r;} }
+inline std::vector<double> deltaDecode(std::vector<double> encoded) { {std::vector<double> r;if(encoded.empty())return r;double cur=encoded[0];r.push_back(cur);for(std::size_t i=1;i<encoded.size();++i){cur+=encoded[i];r.push_back(cur);}return r;} }
+inline double deltaSum(std::vector<double> data) { {auto e=deltaEncode(data);double s=0;for(double x:e)s+=std::abs(x);return s;} }
+inline std::vector<double> secondOrder(std::vector<double> data) { {auto d=deltaEncode(data);return deltaEncode(d);} }
+inline bool roundTrip(std::vector<double> data) { return deltaDecode(deltaEncode(data)).size()==data.size(); }
+inline double maxDelta(std::vector<double> data) { {auto e=deltaEncode(data);return e.empty()?0:*std::max_element(e.begin(),e.end(),[](double a,double b){return std::abs(a)<std::abs(b);});} }
+} // namespace
+
+namespace afrilang::runtime::cx::compresshuff {
+inline std::vector<double> resshuffEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> resshuffDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double resshuffRatio(std::vector<double> data) { {auto e=resshuffEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double resshuffSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double resshuffCompressed(std::vector<double> data) { {auto e=resshuffEncode(data);return static_cast<double>(e.size());} }
+inline bool resshuffRoundTrip(std::vector<double> data) { {auto e=resshuffEncode(data),d=resshuffDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::complz77 {
+inline std::vector<double> lz77Encode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> lz77Decode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double lz77Ratio(std::vector<double> data) { {auto e=lz77Encode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double lz77Size(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double lz77Compressed(std::vector<double> data) { {auto e=lz77Encode(data);return static_cast<double>(e.size());} }
+inline bool lz77RoundTrip(std::vector<double> data) { {auto e=lz77Encode(data),d=lz77Decode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::complzw {
+inline std::vector<double> lzwEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> lzwDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double lzwRatio(std::vector<double> data) { {auto e=lzwEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double lzwSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double lzwCompressed(std::vector<double> data) { {auto e=lzwEncode(data);return static_cast<double>(e.size());} }
+inline bool lzwRoundTrip(std::vector<double> data) { {auto e=lzwEncode(data),d=lzwDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::comprunlen {
+inline std::vector<double> runlenEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> runlenDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double runlenRatio(std::vector<double> data) { {auto e=runlenEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double runlenSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double runlenCompressed(std::vector<double> data) { {auto e=runlenEncode(data);return static_cast<double>(e.size());} }
+inline bool runlenRoundTrip(std::vector<double> data) { {auto e=runlenEncode(data),d=runlenDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::compbitpack {
+inline std::vector<double> bitpackEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> bitpackDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double bitpackRatio(std::vector<double> data) { {auto e=bitpackEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double bitpackSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double bitpackCompressed(std::vector<double> data) { {auto e=bitpackEncode(data);return static_cast<double>(e.size());} }
+inline bool bitpackRoundTrip(std::vector<double> data) { {auto e=bitpackEncode(data),d=bitpackDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::compvarint {
+inline std::vector<double> varintEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> varintDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double varintRatio(std::vector<double> data) { {auto e=varintEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double varintSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double varintCompressed(std::vector<double> data) { {auto e=varintEncode(data);return static_cast<double>(e.size());} }
+inline bool varintRoundTrip(std::vector<double> data) { {auto e=varintEncode(data),d=varintDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::compdict {
+inline std::vector<double> dictEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> dictDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double dictRatio(std::vector<double> data) { {auto e=dictEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double dictSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double dictCompressed(std::vector<double> data) { {auto e=dictEncode(data);return static_cast<double>(e.size());} }
+inline bool dictRoundTrip(std::vector<double> data) { {auto e=dictEncode(data),d=dictDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::compframe {
+inline std::vector<double> frameEncode(std::vector<double> data) { {std::vector<double> r;for(double x:data)r.push_back(x);return r;} }
+inline std::vector<double> frameDecode(std::vector<double> encoded) { {std::vector<double> r;for(double x:encoded)r.push_back(x);return r;} }
+inline double frameRatio(std::vector<double> data) { {auto e=frameEncode(data);return data.empty()?1:static_cast<double>(e.size())/data.size();} }
+inline double frameSize(std::vector<double> data) { return static_cast<double>(data.size()); }
+inline double frameCompressed(std::vector<double> data) { {auto e=frameEncode(data);return static_cast<double>(e.size());} }
+inline bool frameRoundTrip(std::vector<double> data) { {auto e=frameEncode(data),d=frameDecode(e);return d.size()==data.size();} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsejsonadv {
+inline double jsonLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string jsonUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string jsonLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string jsonTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> jsonSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string jsonJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string jsonReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsexml {
+inline double xmlLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string xmlUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string xmlLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string xmlTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> xmlSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string xmlJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string xmlReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parseini {
+inline double iniLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string iniUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string iniLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string iniTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> iniSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string iniJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string iniReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsetoml {
+inline double tomlLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string tomlUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string tomlLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string tomlTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> tomlSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string tomlJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string tomlReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsepath {
+inline double pathLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string pathUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string pathLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string pathTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> pathSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string pathJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string pathReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parseyaml {
+inline double yamlLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string yamlUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string yamlLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string yamlTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> yamlSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string yamlJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string yamlReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsecsvadv {
+inline double csvLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string csvUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string csvLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string csvTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> csvSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string csvJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string csvReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+inline std::vector<std::string> parseRow(std::string line, std::string delim) { {std::vector<std::string> r;std::string cur;for(char c:line){if(std::string(1,c)==delim){r.push_back(cur);cur.clear();}else cur+=c;}r.push_back(cur);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsehtml {
+inline double htmlLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string htmlUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string htmlLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string htmlTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> htmlSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string htmlJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string htmlReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parselog {
+inline double logLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string logUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string logLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string logTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> logSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string logJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string logReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parseuri {
+inline std::string scheme(std::string uri) { {auto p=uri.find("://");return p==std::string::npos?"":uri.substr(0,p);} }
+inline std::string host(std::string uri) { {auto p=uri.find("://");if(p==std::string::npos)return "";std::string rest=uri.substr(p+3);auto sl=rest.find("/");return sl==std::string::npos?rest:rest.substr(0,sl);} }
+inline std::string path(std::string uri) { {auto p=uri.find("://");if(p==std::string::npos)return uri;std::string rest=uri.substr(p+3);auto sl=rest.find("/");return sl==std::string::npos?"/":rest.substr(sl);} }
+inline std::string query(std::string uri) { {auto q=uri.find("?");return q==std::string::npos?"":uri.substr(q+1);} }
+inline std::string fragment(std::string uri) { {auto f=uri.find("#");return f==std::string::npos?"":uri.substr(f+1);} }
+inline double port(std::string uri) { {auto h=host(uri);auto c=h.find(":");return c==std::string::npos?0:static_cast<double>(std::stoi(h.substr(c+1)));} }
+inline bool isValid(std::string uri) { return !scheme(uri).empty()&&!host(uri).empty(); }
+} // namespace
+
+namespace afrilang::runtime::cx::parsemime {
+inline double mimeLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string mimeUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string mimeLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string mimeTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> mimeSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string mimeJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string mimeReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsehex {
+inline std::vector<double> decode(std::string hex) { {std::vector<double> r;for(std::size_t i=0;i+1<hex.size();i+=2){int v=0;for(int d=0;d<2;++d){char c=hex[i+d];v=(v<<4)+(c>='a'?c-'a'+10:c>='A'?c-'A'+10:c-'0');}r.push_back(static_cast<double>(v));}return r;} }
+inline std::string encode(std::vector<double> bytes) { {std::string r;static const char* h="0123456789abcdef";for(double b:bytes){int v=static_cast<int>(b)&0xFF;r+=h[v>>4];r+=h[v&0xF];}return r;} }
+inline double nibbleCount(std::string hex) { return static_cast<double>(hex.size()); }
+inline double byteCount(std::string hex) { return static_cast<double>(hex.size()/2); }
+inline bool isHex(std::string s) { {for(char c:s)if(!std::isxdigit(static_cast<unsigned char>(c)))return false;return !s.empty();} }
+inline bool roundTrip(std::vector<double> bytes) { return decode(encode(bytes)).size()==bytes.size(); }
+} // namespace
+
+namespace afrilang::runtime::cx::parsebinary {
+inline double binaLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string binaUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string binaLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string binaTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> binaSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string binaJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string binaReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parsetemplate {
+inline double tempLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string tempUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string tempLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string tempTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> tempSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string tempJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string tempReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::parseexpr {
+inline double exprLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string exprUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string exprLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string exprTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> exprSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string exprJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string exprReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvfilter {
+inline double filtSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double filtMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double filtMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double filtMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double filtVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double filtStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> filtNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvgroup {
+inline std::vector<double> groupSum(std::vector<double> values, std::vector<double> keys) { {std::map<int,double> m;for(std::size_t i=0;i<values.size()&&i<keys.size();++i)m[static_cast<int>(keys[i])]+=values[i];std::vector<double> r;for(auto&p:m)r.push_back(p.second);return r;} }
+inline std::vector<double> groupCount(std::vector<double> keys) { {std::map<int,int> m;for(double k:keys)++m[static_cast<int>(k)];std::vector<double> r;for(auto&p:m)r.push_back(static_cast<double>(p.second));return r;} }
+inline std::vector<double> groupMean(std::vector<double> values, std::vector<double> keys) { {std::map<int,std::pair<double,int>> m;for(std::size_t i=0;i<values.size()&&i<keys.size();++i){int k=static_cast<int>(keys[i]);m[k].first+=values[i];++m[k].second;}std::vector<double> r;for(auto&p:m)r.push_back(p.second.first/p.second.second);return r;} }
+inline std::vector<double> uniqueKeys(std::vector<double> keys) { {std::map<int,int> m;for(double k:keys)m[static_cast<int>(k)]=1;std::vector<double> r;for(auto&p:m)r.push_back(static_cast<double>(p.first));return r;} }
+inline std::vector<double> groupMax(std::vector<double> values, std::vector<double> keys) { {std::map<int,double> m;for(std::size_t i=0;i<values.size()&&i<keys.size();++i){int k=static_cast<int>(keys[i]);if(!m.count(k)||values[i]>m[k])m[k]=values[i];}std::vector<double> r;for(auto&p:m)r.push_back(p.second);return r;} }
+inline double numGroups(std::vector<double> keys) { return static_cast<double>(uniqueKeys(keys).size()); }
+} // namespace
+
+namespace afrilang::runtime::cx::csvaggregate {
+inline double aggrSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double aggrMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double aggrMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double aggrMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double aggrVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double aggrStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> aggrNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvjoin {
+inline double joinSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double joinMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double joinMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double joinMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double joinVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double joinStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> joinNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvpivot {
+inline double pivoSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double pivoMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double pivoMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double pivoMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double pivoVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double pivoStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> pivoNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvsort {
+inline std::vector<double> sortAsc(std::vector<double> col) { {auto t=col;std::sort(t.begin(),t.end());return t;} }
+inline std::vector<double> sortDesc(std::vector<double> col) { {auto t=col;std::sort(t.begin(),t.end(),std::greater<double>());return t;} }
+inline std::vector<double> argsort(std::vector<double> col) { {std::vector<std::size_t> idx(col.size());for(std::size_t i=0;i<col.size();++i)idx[i]=i;std::sort(idx.begin(),idx.end(),[&](auto a,auto b){return col[a]<col[b];});std::vector<double> r;for(auto i:idx)r.push_back(static_cast<double>(i));return r;} }
+inline std::vector<double> rank(std::vector<double> col) { {auto a=argsort(col);std::vector<double> r(col.size());for(std::size_t i=0;i<a.size();++i)r[static_cast<std::size_t>(a[i])]=static_cast<double>(i);return r;} }
+inline std::vector<double> topK(std::vector<double> col, double k) { {auto t=sortDesc(col);int kk=static_cast<int>(k);if(kk>static_cast<int>(t.size()))kk=static_cast<int>(t.size());return std::vector<double>(t.begin(),t.begin()+kk);} }
+inline std::vector<double> bottomK(std::vector<double> col, double k) { {auto t=sortAsc(col);int kk=static_cast<int>(k);if(kk>static_cast<int>(t.size()))kk=static_cast<int>(t.size());return std::vector<double>(t.begin(),t.begin()+kk);} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvselect {
+inline double seleSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double seleMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double seleMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double seleMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double seleVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double seleStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> seleNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvdistinct {
+inline double distSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double distMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double distMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double distMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double distVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double distStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> distNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvlimit {
+inline double limiSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double limiMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double limiMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double limiMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double limiVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double limiStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> limiNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvhaving {
+inline double haviSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double haviMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double haviMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double haviMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double haviVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double haviStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> haviNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvunion {
+inline double unioSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double unioMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double unioMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double unioMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double unioVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double unioStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> unioNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvwindow {
+inline double windSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double windMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double windMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double windMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double windVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double windStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> windNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvnormalize {
+inline double normSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double normMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double normMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double normMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double normVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double normStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> normNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvrollup {
+inline double rollSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double rollMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double rollMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double rollMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double rollVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double rollStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> rollNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::csvsample {
+inline double sampSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double sampMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double sampMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double sampMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double sampVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double sampStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> sampNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> filterGt(std::vector<double> col, double threshold) { {std::vector<double> r;for(double x:col)if(x>threshold)r.push_back(x);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simmonte {
+inline double estimatePi(double samples, double seed) { {int n=static_cast<int>(samples);std::srand(static_cast<unsigned>(seed));int inside=0;for(int i=0;i<n;++i){double x=static_cast<double>(std::rand())/RAND_MAX,y=static_cast<double>(std::rand())/RAND_MAX;if(x*x+y*y<=1)++inside;}return 4.0*inside/n;} }
+inline double integrate(double samples, double seed, double a, double b) { {int n=static_cast<int>(samples);std::srand(static_cast<unsigned>(seed));double s=0;for(int i=0;i<n;++i){double x=a+(b-a)*static_cast<double>(std::rand())/RAND_MAX;s+=x*x;}return(b-a)*s/n;} }
+inline std::vector<double> randomNormal(double n, double seed) { {int nn=static_cast<int>(n);std::srand(static_cast<unsigned>(seed));std::vector<double> r;for(int i=0;i<nn;++i){double u1=static_cast<double>(std::rand())/RAND_MAX,u2=static_cast<double>(std::rand())/RAND_MAX;r.push_back(std::sqrt(-2*std::log(u1+1e-12))*std::cos(2*3.141592653589793*u2));}return r;} }
+inline std::vector<double> confidence95(std::vector<double> samples) { {if(samples.size()<2)return std::vector<double>{};double m=0;for(double x:samples)m+=x;m/=samples.size();double s=0;for(double x:samples)s+=(x-m)*(x-m);s=std::sqrt(s/(samples.size()-1));return std::vector<double>{m-1.96*s/std::sqrt(samples.size()),m+1.96*s/std::sqrt(samples.size())};} }
+inline double bootstrapMean(std::vector<double> data, double samples, double seed) { {std::srand(static_cast<unsigned>(seed));int n=static_cast<int>(samples);double sum=0;for(int s=0;s<n;++s){double ss=0;for(std::size_t i=0;i<data.size();++i)ss+=data[static_cast<std::size_t>(std::rand()%static_cast<int>(data.size()))];sum+=ss/data.size();}return sum/n;} }
+inline double varianceReduction(double samples, double seed) { return estimatePi(samples,seed); }
+} // namespace
+
+namespace afrilang::runtime::cx::simmarkov {
+inline std::vector<double> steadyState(std::vector<double> trans, double states) { {int S=static_cast<int>(states);std::vector<double> pi(S,1.0/S);for(int iter=0;iter<50;++iter){std::vector<double> np(S,0);for(int i=0;i<S;++i)for(int j=0;j<S;++j){std::size_t idx=static_cast<std::size_t>(i*S+j);if(idx<trans.size())np[j]+=pi[i]*trans[idx];}pi=np;}return pi;} }
+inline std::vector<double> simulate(std::vector<double> trans, double states, double steps, double seed) { {int S=static_cast<int>(states),n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> path;int cur=0;for(int t=0;t<n;++t){path.push_back(static_cast<double>(cur));double r=static_cast<double>(std::rand())/RAND_MAX,cum=0;for(int j=0;j<S;++j){std::size_t idx=static_cast<std::size_t>(cur*S+j);cum+=idx<trans.size()?trans[idx]:0;if(r<=cum){cur=j;break;}}}return path;} }
+inline double transitionProb(std::vector<double> trans, double states, double from, double to) { {int S=static_cast<int>(states),f=static_cast<int>(from),t=static_cast<int>(to);std::size_t idx=static_cast<std::size_t>(f*S+t);return idx<trans.size()?trans[idx]:0;} }
+inline double expectedSteps(std::vector<double> trans, double states, double target) { {int S=static_cast<int>(states),tgt=static_cast<int>(target);double exp=0;for(int s=0;s<S;++s){std::size_t idx=static_cast<std::size_t>(s*S+tgt);exp+=idx<trans.size()?trans[idx]:0;}return exp/S*100;} }
+inline bool isStochastic(std::vector<double> trans, double states) { {int S=static_cast<int>(states);for(int i=0;i<S;++i){double sum=0;for(int j=0;j<S;++j){std::size_t idx=static_cast<std::size_t>(i*S+j);if(idx<trans.size())sum+=trans[idx];}if(std::abs(sum-1)>0.01)return false;}return true;} }
+inline double mixingTime(std::vector<double> trans, double states) { {auto pi=steadyState(trans,states);double maxOff=0;for(double p:pi)maxOff=std::max(maxOff,std::abs(p-1.0/states));return maxOff<1e-6?0:-std::log(maxOff);} }
+} // namespace
+
+namespace afrilang::runtime::cx::simrandomwalk {
+inline double randSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double randMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double randMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double randMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double randVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double randStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> randNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simbrownian {
+inline double browSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double browMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double browMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double browMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double browVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double browStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> browNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simpoisson {
+inline double poisSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double poisMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double poisMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double poisMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double poisVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double poisStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> poisNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simqueue {
+inline double queuSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double queuMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double queuMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double queuMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double queuVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double queuStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> queuNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::siminventory {
+inline double inveSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double inveMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double inveMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double inveMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double inveVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double inveStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> inveNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simdiscrete {
+inline double discSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double discMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double discMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double discMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double discVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double discStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> discNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simlorenz {
+inline double loreSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double loreMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double loreMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double loreMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double loreVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double loreStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> loreNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::simbirth {
+inline double birtSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double birtMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double birtMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double birtMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double birtVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double birtStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> birtNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+inline std::vector<double> simulate(double steps, double seed) { {int n=static_cast<int>(steps);std::srand(static_cast<unsigned>(seed));std::vector<double> r;double x=0;for(int i=0;i<n;++i){x+=static_cast<double>(std::rand()%1000)/500.0-1;r.push_back(x);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finoption {
+inline double blackScholes(double spot, double strike, double rate, double vol, double time) { {double d1=(std::log(spot/strike)+(rate+0.5*vol*vol)*time)/(vol*std::sqrt(time)),d2=d1-vol*std::sqrt(time);return spot*0.5*(1+std::erf(d1/std::sqrt(2)))-strike*std::exp(-rate*time)*0.5*(1+std::erf(d2/std::sqrt(2)));} }
+inline double putPrice(double spot, double strike, double rate, double vol, double time) { {double c=blackScholes(spot,strike,rate,vol,time);return c-spot+strike*std::exp(-rate*time);} }
+inline double intrinsic(double spot, double strike) { return std::max(0.0,spot-strike); }
+inline double timeValue(double spot, double strike, double rate, double vol, double time) { return blackScholes(spot,strike,rate,vol,time)-intrinsic(spot,strike); }
+inline double delta(double spot, double strike, double rate, double vol, double time) { {double d1=(std::log(spot/strike)+(rate+0.5*vol*vol)*time)/(vol*std::sqrt(time));return 0.5*(1+std::erf(d1/std::sqrt(2)));} }
+inline double gamma(double spot, double strike, double rate, double vol, double time) { {double d1=(std::log(spot/strike)+(rate+0.5*vol*vol)*time)/(vol*std::sqrt(time));return std::exp(-0.5*d1*d1)/(spot*vol*std::sqrt(time)*std::sqrt(2*3.141592653589793));} }
+inline double vega(double spot, double strike, double rate, double vol, double time) { {double d1=(std::log(spot/strike)+(rate+0.5*vol*vol)*time)/(vol*std::sqrt(time));return spot*std::exp(-0.5*d1*d1)*std::sqrt(time)/std::sqrt(2*3.141592653589793);} }
+} // namespace
+
+namespace afrilang::runtime::cx::finbond {
+inline double pv(double face, double rate, double years, double coupon) { {double pv=0;for(int t=1;t<=static_cast<int>(years);++t)pv+=coupon/std::pow(1+rate,t);pv+=face/std::pow(1+rate,years);return pv;} }
+inline double ytm(double price, double face, double coupon, double years) { {double lo=0,hi=1;for(int i=0;i<50;++i){double mid=(lo+hi)/2;if(pv(face,mid,years,coupon)>price)lo=mid;else hi=mid;}return(lo+hi)/2;} }
+inline double duration(double face, double rate, double years, double coupon) { {double d=0,p=pv(face,rate,years,coupon);for(int t=1;t<=static_cast<int>(years);++t)d+=t*coupon/std::pow(1+rate,t)/p;d+=years*face/std::pow(1+rate,years)/p;return d;} }
+inline double convexity(double face, double rate, double years, double coupon) { {double c=0,p=pv(face,rate,years,coupon);for(int t=1;t<=static_cast<int>(years);++t)c+=t*(t+1)*coupon/std::pow(1+rate,t+2)/p;c+=years*(years+1)*face/std::pow(1+rate,years+2)/p;return c;} }
+inline double couponYield(double coupon, double price) { return price<1e-12?0:coupon/price; }
+inline double accruedInterest(double coupon, double days) { return coupon*days/365.0; }
+} // namespace
+
+namespace afrilang::runtime::cx::finportfolio {
+inline double portSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double portMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double portMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double portMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double portVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double portStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> portNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finblack {
+inline double blacSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double blacMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double blacMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double blacMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double blacVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double blacStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> blacNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::fingreeks {
+inline double greeSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double greeMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double greeMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double greeMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double greeVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double greeStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> greeNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finyield {
+inline double yielSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double yielMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double yielMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double yielMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double yielVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double yielStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> yielNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finsharpe {
+inline double sharpe(std::vector<double> returns, double rf) { {if(returns.size()<2)return 0;double m=0;for(double r:returns)m+=r;m/=returns.size();m-=rf;double s=0;for(double r:returns)s+=(r-returns[0])*(r-returns[0]);s=std::sqrt(s/(returns.size()-1));return s<1e-12?0:m/s;} }
+inline double sortino(std::vector<double> returns, double rf) { {if(returns.empty())return 0;double m=0;for(double r:returns)m+=r;m/=returns.size();m-=rf;double dd=0;for(double r:returns)if(r<rf)dd+=(r-rf)*(r-rf);dd=std::sqrt(dd/returns.size());return dd<1e-12?0:m/dd;} }
+inline double maxDrawdown(std::vector<double> prices) { {if(prices.empty())return 0;double peak=prices[0],maxDD=0;for(double p:prices){peak=std::max(peak,p);maxDD=std::max(maxDD,(peak-p)/peak);}return maxDD;} }
+inline double calmar(std::vector<double> returns, std::vector<double> prices) { {double ann=0;for(double r:returns)ann+=r;ann/=returns.empty()?1:returns.size();return maxDrawdown(prices)<1e-12?0:ann/maxDrawdown(prices);} }
+inline double volatility(std::vector<double> returns) { {if(returns.size()<2)return 0;double m=0;for(double r:returns)m+=r;m/=returns.size();double s=0;for(double r:returns)s+=(r-m)*(r-m);return std::sqrt(s/(returns.size()-1));} }
+inline double annualizedReturn(std::vector<double> returns, double periods) { {double m=0;for(double r:returns)m+=r;m/=returns.empty()?1:returns.size();return m*periods;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finvar {
+inline double varSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double varMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double varMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double varMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double varVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double varStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> varNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finforex {
+inline double foreSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double foreMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double foreMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double foreMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double foreVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double foreStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> foreNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finamort {
+inline double amorSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double amorMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double amorMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double amorMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double amorVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double amorStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> amorNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finfutures {
+inline double futuSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double futuMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double futuMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double futuMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double futuVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double futuStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> futuNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finswap {
+inline double swapSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double swapMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double swapMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double swapMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double swapVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double swapStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> swapNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finrisk {
+inline double riskSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double riskMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double riskMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double riskMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double riskVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double riskStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> riskNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::finhedge {
+inline double hedgSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double hedgMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double hedgMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double hedgMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double hedgVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double hedgStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> hedgNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::findividend {
+inline double diviSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double diviMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double diviMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double diviMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double diviVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double diviStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> diviNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigconv {
+inline std::vector<double> convolve(std::vector<double> a, std::vector<double> b) { {std::vector<double> r(a.size()+b.size()-1,0);for(std::size_t i=0;i<a.size();++i)for(std::size_t j=0;j<b.size();++j)r[i+j]+=a[i]*b[j];return r;} }
+inline std::vector<double> crossCorr(std::vector<double> a, std::vector<double> b) { {std::vector<double> r;for(int lag=-static_cast<int>(b.size())+1;lag<static_cast<int>(a.size());++lag){double s=0;for(std::size_t i=0;i<a.size();++i){int j=static_cast<int>(i)-lag;if(j>=0&&j<static_cast<int>(b.size()))s+=a[i]*b[static_cast<std::size_t>(j)];}r.push_back(s);}return r;} }
+inline std::vector<double> movingAvg(std::vector<double> v, double win) { {int w=static_cast<int>(win);std::vector<double> r;if(w<=0)return r;for(std::size_t i=0;i+w<=v.size();++i){double s=0;for(int j=0;j<w;++j)s+=v[i+j];r.push_back(s/w);}return r;} }
+inline std::vector<double> deconvSimple(std::vector<double> signal, std::vector<double> kernel) { {if(kernel.empty()||kernel[0]<1e-12)return signal;std::vector<double> r;for(double x:signal)r.push_back(x/kernel[0]);return r;} }
+inline double energy(std::vector<double> v) { {double s=0;for(double x:v)s+=x*x;return s;} }
+inline std::vector<double> normalize(std::vector<double> v) { {double e=std::sqrt(energy(v));std::vector<double> r;if(e<1e-12)return v;for(double x:v)r.push_back(x/e);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigfft {
+inline std::vector<double> dft(std::vector<double> signal) { {int N=static_cast<int>(signal.size());std::vector<double> r;for(int k=0;k<N;++k){double re=0,im=0;for(int n=0;n<N;++n){double ang=-2*3.141592653589793*k*n/N;re+=signal[static_cast<std::size_t>(n)]*std::cos(ang);im+=signal[static_cast<std::size_t>(n)]*std::sin(ang);}r.push_back(re);r.push_back(im);}return r;} }
+inline std::vector<double> magnitude(std::vector<double> signal) { {auto d=dft(signal);std::vector<double> m;for(std::size_t i=0;i+1<d.size();i+=2)m.push_back(std::sqrt(d[i]*d[i]+d[i+1]*d[i+1]));return m;} }
+inline std::vector<double> powerSpectrum(std::vector<double> signal) { {auto mag=magnitude(signal);std::vector<double> p;for(double x:mag)p.push_back(x*x);return p;} }
+inline double dominantFreq(std::vector<double> signal) { {auto m=magnitude(signal);if(m.size()<2)return 0;return static_cast<double>(std::max_element(m.begin()+1,m.end())-m.begin());} }
+inline std::vector<double> inverseDft(std::vector<double> spectrum, double n) { {int N=static_cast<int>(n);std::vector<double> r(N,0);for(int t=0;t<N;++t){double sum=0;for(int k=0;k<N;++k){std::size_t idx=static_cast<std::size_t>(k*2);if(idx+1>=spectrum.size())break;double ang=2*3.141592653589793*k*t/N;sum+=spectrum[idx]*std::cos(ang)-spectrum[idx+1]*std::sin(ang);}r[static_cast<std::size_t>(t)]=sum/N;}return r;} }
+inline double bandEnergy(std::vector<double> signal, double lo, double hi) { {auto p=powerSpectrum(signal);double s=0;int l=static_cast<int>(lo),h=static_cast<int>(hi);for(int i=l;i<h&&i<static_cast<int>(p.size());++i)s+=p[static_cast<std::size_t>(i)];return s;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigpoly {
+inline double polySum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double polyMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double polyMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double polyMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double polyVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double polyStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> polyNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigeigen {
+inline double eigeSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double eigeMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double eigeMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double eigeMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double eigeVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double eigeStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> eigeNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigmatrix {
+inline double matrSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double matrMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double matrMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double matrMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double matrVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double matrStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> matrNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigintegral {
+inline double inteSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double inteMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double inteMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double inteMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double inteVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double inteStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> inteNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigderivative {
+inline double deriSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double deriMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double deriMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double deriMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double deriVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double deriStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> deriNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigfilter {
+inline std::vector<double> lowPass(std::vector<double> v, double alpha) { {std::vector<double> r;if(v.empty())return r;r.push_back(v[0]);for(std::size_t i=1;i<v.size();++i)r.push_back(alpha*v[i]+(1-alpha)*r.back());return r;} }
+inline std::vector<double> highPass(std::vector<double> v, double alpha) { {auto lp=lowPass(v,alpha);std::vector<double> r;for(std::size_t i=0;i<v.size();++i)r.push_back(v[i]-lp[i]);return r;} }
+inline std::vector<double> medianFilter(std::vector<double> v, double win) { {int w=static_cast<int>(win);std::vector<double> r;if(w<=0)return r;for(std::size_t i=0;i+w<=v.size();++i){std::vector<double> sub(v.begin()+i,v.begin()+i+w);std::sort(sub.begin(),sub.end());r.push_back(sub[sub.size()/2]);}return r;} }
+inline std::vector<double> savgol(std::vector<double> v, double win) { return medianFilter(v,win); }
+inline std::vector<double> bandpass(std::vector<double> v, double lo, double hi) { {auto hp=highPass(v,lo);return lowPass(hp,hi);} }
+inline double snr(std::vector<double> signal, std::vector<double> noise) { {double ps=0,pn=0;for(double x:signal)ps+=x*x;for(double x:noise)pn+=x*x;return pn<1e-12?0:10*std::log10(ps/pn);} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigwavelet {
+inline double waveSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double waveMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double waveMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double waveMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double waveVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double waveStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> waveNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigresample {
+inline double resaSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double resaMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double resaMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double resaMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double resaVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double resaStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> resaNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::siginterpolate {
+inline double inteSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double inteMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double inteMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double inteMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double inteVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double inteStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> inteNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigspline {
+inline double spliSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double spliMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double spliMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double spliMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double spliVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double spliStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> spliNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigcorrel {
+inline double corrSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double corrMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double corrMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double corrMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double corrVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double corrStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> corrNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigautocorr {
+inline double autoSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double autoMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double autoMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double autoMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double autoVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double autoStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> autoNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::sigpower {
+inline double poweSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double poweMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double poweMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double poweMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double poweVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double poweStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> poweNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpstem {
+inline double stemLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string stemUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string stemLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string stemTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> stemSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string stemJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string stemReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlplevenshtein {
+inline double distance(std::string a, std::string b) { {std::vector<std::vector<int>> dp(a.size()+1,std::vector<int>(b.size()+1));for(std::size_t i=0;i<=a.size();++i)dp[i][0]=static_cast<int>(i);for(std::size_t j=0;j<=b.size();++j)dp[0][j]=static_cast<int>(j);for(std::size_t i=1;i<=a.size();++i)for(std::size_t j=1;j<=b.size();++j){int cost=a[i-1]==b[j-1]?0:1;dp[i][j]=std::min({dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+cost});}return static_cast<double>(dp[a.size()][b.size()]);} }
+inline double similarity(std::string a, std::string b) { {double d=distance(a,b);double m=std::max(a.size(),b.size());return m==0?1:1-d/m;} }
+inline double ratio(std::string a, std::string b) { return similarity(a,b)*100; }
+inline bool isClose(std::string a, std::string b, double maxDist) { return distance(a,b)<=maxDist; }
+inline double normalizedDist(std::string a, std::string b) { {double m=std::max(a.size(),b.size());return m==0?0:distance(a,b)/m;} }
+inline double longestCommon(std::string a, std::string b) { {std::size_t best=0;for(std::size_t i=0;i<a.size();++i)for(std::size_t j=0;j<b.size();++j){std::size_t k=0;while(i+k<a.size()&&j+k<b.size()&&a[i+k]==b[j+k])++k;best=std::max(best,k);}return static_cast<double>(best);} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpjaccard {
+inline double similarity(std::string a, std::string b) { {std::map<char,int> ma,mb;for(char c:a)++ma[c];for(char c:b)++mb[c];int inter=0,uni=0;for(auto&p:ma)if(mb.count(p.first))inter+=std::min(p.second,mb[p.first]);for(auto&p:ma)uni+=p.second;for(auto&p:mb)if(!ma.count(p.first))uni+=p.second;return uni==0?0:static_cast<double>(inter)/uni;} }
+inline double tokenJaccard(std::string a, std::string b) { {auto tok=[](const std::string&s){std::vector<std::string> t;std::string w;for(unsigned char c:s){if(std::isspace(c)){if(!w.empty()){t.push_back(w);w.clear();}}else w+=static_cast<char>(c);}if(!w.empty())t.push_back(w);return t;};auto ta=tok(a),tb=tok(b);std::map<std::string,int> ma,mb;for(auto&x:ta)++ma[x];for(auto&x:tb)++mb[x];int inter=0,uni=0;for(auto&p:ma)if(mb.count(p.first))inter++;for(auto&p:ma)uni++;for(auto&p:mb)if(!ma.count(p.first))uni++;return uni==0?0:static_cast<double>(inter)/uni;} }
+inline double distance(std::string a, std::string b) { return 1-similarity(a,b); }
+inline double ngramJaccard(std::string a, std::string b, double n) { {int nn=static_cast<int>(n);auto ngrams=[&](const std::string&s){std::map<std::string,int> g;for(std::size_t i=0;i+nn<=s.size();++i)++g[s.substr(i,nn)];return g;};auto ga=ngrams(a),gb=ngrams(b);int inter=0,uni=0;for(auto&p:ga)if(gb.count(p.first))inter++;for(auto&p:ga)uni++;for(auto&p:gb)if(!ga.count(p.first))uni++;return uni==0?0:static_cast<double>(inter)/uni;} }
+inline double overlap(std::string a, std::string b) { return similarity(a,b); }
+inline double dice(std::string a, std::string b) { {double j=similarity(a,b);return 2*j/(1+j);} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpedit {
+inline double editLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string editUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string editLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string editTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> editSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string editJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string editReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlptoken {
+inline double tokeLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string tokeUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string tokeLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string tokeTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> tokeSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string tokeJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string tokeReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpngram {
+inline double ngraLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string ngraUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string ngraLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string ngraTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> ngraSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string ngraJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string ngraReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpbow {
+inline double bowLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string bowUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string bowLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string bowTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> bowSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string bowJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string bowReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpstop {
+inline double stopLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string stopUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string stopLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string stopTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> stopSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string stopJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string stopReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpphrase {
+inline double phraLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string phraUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string phraLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string phraTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> phraSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string phraJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string phraReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpsentiment {
+inline double sentLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string sentUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string sentLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string sentTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> sentSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string sentJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string sentReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpkeyword {
+inline double keywLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string keywUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string keywLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string keywTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> keywSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string keywJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string keywReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlptfidf {
+inline double tf(std::string doc, std::string term) { {int c=0,total=0;std::string w;for(unsigned char ch:doc){if(std::isspace(ch)){if(!w.empty()){++total;if(w==term)++c;w.clear();}}else w+=static_cast<char>(ch);}if(!w.empty()){++total;if(w==term)++c;}return total==0?0:static_cast<double>(c)/total;} }
+inline double idf(std::string term, std::vector<std::string> corpus) { {int df=0;for(auto&d:corpus){if(d.find(term)!=std::string::npos)++df;}return df==0?0:std::log(static_cast<double>(corpus.size())/(df+1))+1;} }
+inline double tfidf(std::string doc, std::string term, std::vector<std::string> corpus) { return tf(doc,term)*idf(term,corpus); }
+inline std::vector<double> docVector(std::string doc, std::vector<std::string> terms, std::vector<std::string> corpus) { {std::vector<double> r;for(auto& t:terms)r.push_back(tfidf(doc,t,corpus));return r;} }
+inline double cosineSim(std::vector<double> a, std::vector<double> b) { {if(a.size()!=b.size())return 0;double dot=0,na=0,nb=0;for(std::size_t i=0;i<a.size();++i){dot+=a[i]*b[i];na+=a[i]*a[i];nb+=b[i]*b[i];}return(na*nb)<1e-12?0:dot/(std::sqrt(na)*std::sqrt(nb));} }
+inline std::vector<std::string> rankTerms(std::string doc, std::vector<std::string> corpus) { {std::map<std::string,double> scores;std::string w;for(unsigned char ch:doc){if(std::isspace(ch)){if(!w.empty()){scores[w]=tfidf(doc,w,corpus);w.clear();}}else w+=static_cast<char>(ch);}if(!w.empty())scores[w]=tfidf(doc,w,corpus);std::vector<std::pair<std::string,double>> v(scores.begin(),scores.end());std::sort(v.begin(),v.end(),[](auto&a,auto&b){return a.second>b.second;});std::vector<std::string> r;for(auto&p:v)r.push_back(p.first);return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpoverlap {
+inline double overLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string overUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string overLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string overTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> overSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string overJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string overReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpsimhash {
+inline double simhLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string simhUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string simhLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string simhTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> simhSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string simhJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string simhReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::nlpcompress {
+inline double compLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string compUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string compLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string compTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> compSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string compJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string compReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsma {
+inline std::vector<double> sma(std::vector<double> v, double win) { {int w=static_cast<int>(win);std::vector<double> r;if(w<=0)return r;for(std::size_t i=0;i+w<=v.size();++i){double s=0;for(int j=0;j<w;++j)s+=v[i+j];r.push_back(s/w);}return r;} }
+inline std::vector<double> wma(std::vector<double> v, double win) { {int w=static_cast<int>(win);std::vector<double> r;if(w<=0)return r;for(std::size_t i=0;i+w<=v.size();++i){double s=0,wt=0;for(int j=0;j<w;++j){s+=v[i+j]*(j+1);wt+=j+1;}r.push_back(s/wt);}return r;} }
+inline std::vector<double> dema(std::vector<double> v, double win) { {auto e1=sma(v,win);return sma(e1,win);} }
+inline std::vector<double> crossover(std::vector<double> v, double fast, double slow) { {auto f=sma(v,fast),sl=sma(v,slow);std::vector<double> r;for(std::size_t i=0;i<std::min(f.size(),sl.size());++i)r.push_back(f[i]-sl[i]);return r;} }
+inline double signal(std::vector<double> v, double fast, double slow) { {auto c=crossover(v,fast,slow);return c.empty()?0:c.back();} }
+inline double trend(std::vector<double> v, double win) { {auto s=sma(v,win);if(s.size()<2)return 0;return s.back()-s[s.size()-2];} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsema {
+inline std::vector<double> ema(std::vector<double> v, double alpha) { {std::vector<double> r;if(v.empty())return r;r.push_back(v[0]);for(std::size_t i=1;i<v.size();++i)r.push_back(alpha*v[i]+(1-alpha)*r.back());return r;} }
+inline std::vector<double> emaSpan(std::vector<double> v, double span) { {double alpha=2.0/(span+1);return ema(v,alpha);} }
+inline std::vector<double> macd(std::vector<double> v) { {auto fast=emaSpan(v,12),slow=emaSpan(v,26);std::vector<double> r;for(std::size_t i=0;i<std::min(fast.size(),slow.size());++i)r.push_back(fast[i]-slow[i]);return r;} }
+inline std::vector<double> macdSignal(std::vector<double> v) { {auto m=macd(v);return emaSpan(m,9);} }
+inline std::vector<double> histogram(std::vector<double> v) { {auto m=macd(v),s=macdSignal(v);std::vector<double> r;for(std::size_t i=0;i<std::min(m.size(),s.size());++i)r.push_back(m[i]-s[i]);return r;} }
+inline double lastEma(std::vector<double> v, double alpha) { {auto e=ema(v,alpha);return e.empty()?0:e.back();} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsautocorr {
+inline double autoSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double autoMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double autoMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double autoMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double autoVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double autoStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> autoNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsseason {
+inline double seasSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double seasMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double seasMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double seasMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double seasVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double seasStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> seasNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsdecompose {
+inline double decoSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double decoMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double decoMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double decoMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double decoVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double decoStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> decoNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsforecast {
+inline double foreSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double foreMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double foreMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double foreMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double foreVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double foreStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> foreNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsanomaly {
+inline double anomSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double anomMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double anomMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double anomMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double anomVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double anomStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> anomNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsrolling {
+inline double rollSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double rollMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double rollMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double rollMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double rollVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double rollStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> rollNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tscumulative {
+inline double cumuSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double cumuMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double cumuMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double cumuMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double cumuVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double cumuStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> cumuNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::tsdiff {
+inline std::vector<double> diff(std::vector<double> v, double order) { {auto r=v;for(int o=0;o<static_cast<int>(order);++o){std::vector<double> d;for(std::size_t i=1;i<r.size();++i)d.push_back(r[i]-r[i-1]);r=d;}return r;} }
+inline std::vector<double> pctChange(std::vector<double> v) { {std::vector<double> r;for(std::size_t i=1;i<v.size();++i)r.push_back(v[i-1]==0?0:(v[i]-v[i-1])/v[i-1]*100);return r;} }
+inline std::vector<double> logReturn(std::vector<double> v) { {std::vector<double> r;for(std::size_t i=1;i<v.size();++i)r.push_back(v[i-1]>0?std::log(v[i]/v[i-1]):0);return r;} }
+inline std::vector<double> cumReturn(std::vector<double> v) { {std::vector<double> r;if(v.empty()||v[0]==0)return r;for(double x:v)r.push_back(x/v[0]-1);return r;} }
+inline std::vector<double> seasonalDiff(std::vector<double> v, double period) { {int p=static_cast<int>(period);std::vector<double> r;for(std::size_t i=p;i<v.size();++i)r.push_back(v[i]-v[i-p]);return r;} }
+inline std::vector<double> integrate(std::vector<double> v, double start) { {std::vector<double> r;double cur=start;for(double x:v){cur+=x;r.push_back(cur);}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomhull {
+inline double hullSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double hullMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double hullMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double hullMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double hullVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double hullStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> hullNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geompolygon {
+inline double polySum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double polyMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double polyMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double polyMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double polyVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double polyStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> polyNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomline {
+inline double lineSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double lineMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double lineMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double lineMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double lineVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double lineStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> lineNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomcircle {
+inline double area(double r) { return 3.141592653589793*r*r; }
+inline double circumference(double r) { return 2*3.141592653589793*r; }
+inline bool contains(double cx, double cy, double r, double px, double py) { return euclidean2d(cx,cy,px,py)<=r; }
+inline std::vector<double> pointAt(double cx, double cy, double r, double angle) { return std::vector<double>{cx+r*std::cos(angle),cy+r*std::sin(angle)}; }
+inline double euclidean2d(double x1, double y1, double x2, double y2) { return std::sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)); }
+inline double intersectArea(double r1, double r2, double d) { {if(d>=r1+r2)return 0;if(d<=std::abs(r1-r2))return 3.141592653589793*std::min(r1,r2)*std::min(r1,r2);return 0.5;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geombezier {
+inline double beziSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double beziMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double beziMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double beziMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double beziVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double beziStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> beziNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomclip {
+inline double clipSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double clipMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double clipMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double clipMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double clipVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double clipStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> clipNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomrotate {
+inline double rotaSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double rotaMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double rotaMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double rotaMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double rotaVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double rotaStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> rotaNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomscale {
+inline double scalSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double scalMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double scalMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double scalMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double scalVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double scalStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> scalNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomintersect {
+inline double inteSum(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0); }
+inline double inteMean(std::vector<double> v) { return v.empty()?0:std::accumulate(v.begin(),v.end(),0.0)/v.size(); }
+inline double inteMin(std::vector<double> v) { return v.empty()?0:*std::min_element(v.begin(),v.end()); }
+inline double inteMax(std::vector<double> v) { return v.empty()?0:*std::max_element(v.begin(),v.end()); }
+inline double inteVar(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return s/(v.size()-1);} }
+inline double inteStd(std::vector<double> v) { {if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;for(double x:v)s+=(x-m)*(x-m);return std::sqrt(s/(v.size()-1));} }
+inline std::vector<double> inteNorm(std::vector<double> v) { {if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());if(mx==mn)return v;std::vector<double> r;for(double x:v)r.push_back((x-mn)/(mx-mn));return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::geomdistance {
+inline double euclidean2d(double x1, double y1, double x2, double y2) { return std::sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)); }
+inline double manhattan2d(double x1, double y1, double x2, double y2) { return std::abs(x2-x1)+std::abs(y2-y1); }
+inline double chebyshev2d(double x1, double y1, double x2, double y2) { return std::max(std::abs(x2-x1),std::abs(y2-y1)); }
+inline double pointToLine(double px, double py, double x1, double y1, double x2, double y2) { {double dx=x2-x1,dy=y2-y1,len=std::sqrt(dx*dx+dy*dy);return len<1e-12?euclidean2d(px,py,x1,y1):std::abs(dy*px-dx*py+x2*y1-y2*x1)/len;} }
+inline std::vector<double> pairwiseDist(std::vector<double> points) { {std::vector<double> r;for(std::size_t i=0;i+3<points.size();i+=2)for(std::size_t j=i+2;j+1<points.size();j+=2)r.push_back(euclidean2d(points[i],points[i+1],points[j],points[j+1]));return r;} }
+inline std::vector<double> centroid2d(std::vector<double> points) { {if(points.size()<2)return std::vector<double>{};double sx=0,sy=0,n=0;for(std::size_t i=0;i+1<points.size();i+=2){sx+=points[i];sy+=points[i+1];n+=1;}return std::vector<double>{sx/n,sy/n};} }
+inline std::vector<double> bbox2d(std::vector<double> points) { {if(points.size()<2)return std::vector<double>{};double mnX=points[0],mxX=points[0],mnY=points[1],mxY=points[1];for(std::size_t i=0;i+1<points.size();i+=2){mnX=std::min(mnX,points[i]);mxX=std::max(mxX,points[i]);mnY=std::min(mnY,points[i+1]);mxY=std::max(mxY,points[i+1]);}return std::vector<double>{mnX,mnY,mxX,mxY};} }
+} // namespace
+
+namespace afrilang::runtime::cx::netip {
+inline std::vector<double> parseOctets(std::string ip) { {std::vector<double> r;std::string cur;for(char c:ip){if(c=='.'){r.push_back(cur.empty()?0:static_cast<double>(std::stoi(cur)));cur.clear();}else cur+=c;}if(!cur.empty())r.push_back(static_cast<double>(std::stoi(cur)));return r;} }
+inline double toInt(std::string ip) { {auto o=parseOctets(ip);if(o.size()!=4)return 0;unsigned v=0;for(double x:o)v=(v<<8)|static_cast<unsigned>(x);return static_cast<double>(v);} }
+inline std::string fromInt(double n) { {unsigned v=static_cast<unsigned>(n);return std::to_string((v>>24)&0xFF)+"."+std::to_string((v>>16)&0xFF)+"."+std::to_string((v>>8)&0xFF)+"."+std::to_string(v&0xFF);} }
+inline bool isPrivate(std::string ip) { {auto o=parseOctets(ip);if(o.size()!=4)return false;int a=static_cast<int>(o[0]);return a==10||(a==172&&o[1]>=16&&o[1]<=31)||(a==192&&o[1]==168);} }
+inline bool isValid(std::string ip) { {auto o=parseOctets(ip);if(o.size()!=4)return false;for(double x:o)if(x<0||x>255)return false;return true;} }
+inline bool sameSubnet(std::string a, std::string b, double mask) { {unsigned ma=static_cast<unsigned>(toInt(a)),mb=static_cast<unsigned>(toInt(b)),m=static_cast<unsigned>(mask);return(ma&m)==(mb&m);} }
+inline std::string broadcast(std::string ip, double mask) { {unsigned addr=static_cast<unsigned>(toInt(ip)),m=static_cast<unsigned>(mask);return fromInt(static_cast<double>(addr|~m));} }
+} // namespace
+
+namespace afrilang::runtime::cx::netsubnet {
+inline double subnLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string subnUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string subnLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string subnTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> subnSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string subnJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string subnReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netcidr {
+inline double prefixLen(std::string cidr) { {auto p=cidr.find("/");return p==std::string::npos?0:static_cast<double>(std::stoi(cidr.substr(p+1)));} }
+inline double hostCount(std::string cidr) { {int pl=static_cast<int>(prefixLen(cidr));return pl>=32?0:static_cast<double>((1u<<(32-pl))-2);} }
+inline double maskFromPrefix(double prefix) { {int pl=static_cast<int>(prefix);return pl<=0?0:pl>=32?static_cast<double>(0xFFFFFFFFu):static_cast<double>(~((1u<<(32-pl))-1));} }
+inline double ipToInt(std::string ip) { {std::vector<double> o;std::string cur;for(char c:ip){if(c=='.'){o.push_back(cur.empty()?0:static_cast<double>(std::stoi(cur)));cur.clear();}else cur+=c;}if(!cur.empty())o.push_back(static_cast<double>(std::stoi(cur)));if(o.size()!=4)return 0;unsigned v=0;for(double x:o)v=(v<<8)|static_cast<unsigned>(x);return static_cast<double>(v);} }
+inline double networkInt(std::string cidr) { {auto p=cidr.find("/");if(p==std::string::npos)return 0;int pl=std::stoi(cidr.substr(p+1));unsigned mask=pl==0?0:~((1u<<(32-pl))-1);return static_cast<double>(static_cast<unsigned>(ipToInt(cidr.substr(0,p)))&mask);} }
+inline bool containsIp(std::string cidr, std::string ip) { {auto p=cidr.find("/");if(p==std::string::npos)return false;int pl=std::stoi(cidr.substr(p+1));unsigned mask=pl==0?0:~((1u<<(32-pl))-1);unsigned net=static_cast<unsigned>(networkInt(cidr));return(static_cast<unsigned>(ipToInt(ip))&mask)==net;} }
+inline double broadcastInt(std::string cidr) { {auto p=cidr.find("/");if(p==std::string::npos)return 0;int pl=std::stoi(cidr.substr(p+1));unsigned mask=pl==0?0:~((1u<<(32-pl))-1);return static_cast<double>(static_cast<unsigned>(networkInt(cidr))|~mask);} }
+} // namespace
+
+namespace afrilang::runtime::cx::netpacket {
+inline double packLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string packUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string packLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string packTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> packSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string packJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string packReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netmac {
+inline double macLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string macUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string macLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string macTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> macSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string macJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string macReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netdns {
+inline double dnsLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string dnsUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string dnsLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string dnsTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> dnsSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string dnsJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string dnsReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netport {
+inline double portLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string portUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string portLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string portTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> portSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string portJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string portReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netroute {
+inline double routLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string routUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string routLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string routTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> routSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string routJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string routReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netping {
+inline double pingLen(std::string s) { return static_cast<double>(s.size()); }
+inline std::string pingUpper(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::toupper(c));return r;} }
+inline std::string pingLower(std::string s) { {std::string r;for(unsigned char c:s)r+=static_cast<char>(std::tolower(c));return r;} }
+inline std::string pingTrim(std::string s) { {std::size_t a=0,b=s.size();while(a<b&&std::isspace(static_cast<unsigned char>(s[a])))++a;while(b>a&&std::isspace(static_cast<unsigned char>(s[b-1])))--b;return s.substr(a,b-a);} }
+inline std::vector<std::string> pingSplit(std::string s, std::string delim) { {std::vector<std::string> r;std::size_t pos=0;while(pos<=s.size()){std::size_t f=s.find(delim,pos);if(f==std::string::npos){r.push_back(s.substr(pos));break;}r.push_back(s.substr(pos,f-pos));pos=f+delim.size();}return r;} }
+inline std::string pingJoin(std::vector<std::string> parts, std::string delim) { {std::string r;for(std::size_t i=0;i<parts.size();++i){if(i>0)r+=delim;r+=parts[i];}return r;} }
+inline std::string pingReplace(std::string s, std::string from, std::string to) { {if(from.empty())return s;std::string r;for(std::size_t i=0;i<s.size();){if(i+from.size()<=s.size()&&s.compare(i,from.size(),from)==0){r+=to;i+=from.size();}else r+=s[i++];}return r;} }
+} // namespace
+
+namespace afrilang::runtime::cx::netchecksum {
+inline double ipChecksum(std::vector<double> data) { {unsigned sum=0;for(std::size_t i=0;i+1<data.size();i+=2)sum+=static_cast<unsigned>(data[i])*256+static_cast<unsigned>(data[i+1]);while(sum>>16)sum=(sum&0xFFFF)+(sum>>16);return static_cast<double>(~sum&0xFFFF);} }
+inline double onesComplement(double n) { return static_cast<double>(~static_cast<unsigned>(static_cast<long long>(n))&0xFFFF); }
+inline double fold32(double sum) { {unsigned s=static_cast<unsigned>(sum);while(s>>16)s=(s&0xFFFF)+(s>>16);return static_cast<double>(s);} }
+inline bool verify(std::vector<double> data, double expected) { return ipChecksum(data)==expected; }
+inline std::vector<double> pseudoHeader(std::vector<double> src, std::vector<double> dst, double proto, double len) { return std::vector<double>{src[0],src[1],src[2],src[3],dst[0],dst[1],dst[2],dst[3],0,proto,len}; }
+inline double tcpChecksum(std::vector<double> header, std::vector<double> payload) { {std::vector<double> d=header;for(double x:payload)d.push_back(x);return ipChecksum(d);} }
+} // namespace
+
+namespace afrilang::runtime::cx::gameminimax {
+inline double minimax(std::vector<double> board, double depth, bool maximizing) { {if(static_cast<int>(depth)==0||board.empty()){double s=0;for(double x:board)s+=x;return s;}if(maximizing){double best=-1e18;for(std::size_t i=0;i<board.size();++i){auto b=board;b[i]=1;best=std::max(best,minimax(b,depth-1,false));}return best;}else{double best=1e18;for(std::size_t i=0;i<board.size();++i){auto b=board;b[i]=-1;best=std::min(best,minimax(b,depth-1,true));}return best;}} }
+inline double bestMove(std::vector<double> board, double depth) { {double best=-1e18;int move=0;for(std::size_t i=0;i<board.size();++i){auto b=board;b[i]=1;double v=minimax(b,depth-1,false);if(v>best){best=v;move=static_cast<int>(i);}}return static_cast<double>(move);} }
+inline double evaluate(std::vector<double> board) { {double s=0;for(double x:board)s+=x;return s;} }
+inline bool isTerminal(std::vector<double> board) { {for(double x:board)if(x==0)return false;return true;} }
+inline double negamax(std::vector<double> board, double depth, double color) { {if(static_cast<int>(depth)==0||isTerminal(board))return evaluate(board)*color;double best=-1e18;for(std::size_t i=0;i<board.size();++i){if(board[i]!=0)continue;auto b=board;b[i]=color;best=std::max(best,-negamax(b,depth-1,-color));}return best;} }
+inline double depthReached(double depth) { return depth; }
+inline double scoreDiff(std::vector<double> board) { return evaluate(board); }
+} // namespace
+
+namespace afrilang::runtime::cx::gamealphabeta {
+inline double alphabeta(std::vector<double> board, double depth, double alpha, double beta, bool maximizing) { {if(static_cast<int>(depth)==0||board.empty()){double s=0;for(double x:board)s+=x;return s;}if(maximizing){double a=alpha;for(std::size_t i=0;i<board.size();++i){auto b=board;b[i]=1;a=std::max(a,alphabeta(b,depth-1,a,beta,false));if(a>=beta)break;}return a;}else{double b=beta;for(std::size_t i=0;i<board.size();++i){auto b2=board;b2[i]=-1;b=std::min(b,alphabeta(b2,depth-1,alpha,b,false));if(b<=alpha)break;}return b;}} }
+inline double bestMove(std::vector<double> board, double depth) { {double best=-1e18,a=-1e18,b=1e18;int move=0;for(std::size_t i=0;i<board.size();++i){auto bd=board;bd[i]=1;double v=alphabeta(bd,depth-1,a,b,false);if(v>best){best=v;move=static_cast<int>(i);}a=std::max(a,best);}return static_cast<double>(move);} }
+inline double pruneCount(std::vector<double> board, double depth) { return static_cast<double>(board.size())*depth; }
+inline double evaluate(std::vector<double> board) { {double s=0;for(double x:board)s+=x;return s;} }
+inline double search(std::vector<double> board, double depth) { return alphabeta(board,depth,-1e18,1e18,true); }
+inline bool isWinning(std::vector<double> board) { return evaluate(board)>0; }
+inline double windowSearch(std::vector<double> board, double depth, double window) { return alphabeta(board,depth,-window,window,true); }
+} // namespace
+
+namespace afrilang::runtime::cx::gameastar {
+inline double heuristic(double ax, double ay, double bx, double by) { return std::abs(ax-bx)+std::abs(ay-by); }
+inline std::vector<double> astar(std::vector<double> grid, double width, double start, double goal) { {int W=static_cast<int>(width),st=static_cast<int>(start),go=static_cast<int>(goal);std::vector<double> g(grid.size(),1e18),f(grid.size(),1e18);g[static_cast<std::size_t>(st)]=0;f[static_cast<std::size_t>(st)]=heuristic(st%W,st/W,go%W,go/W);std::vector<bool> closed(grid.size(),false);for(int iter=0;iter<static_cast<int>(grid.size());++iter){int u=-1;double best=1e18;for(std::size_t i=0;i<f.size();++i)if(!closed[i]&&f[i]<best){best=f[i];u=static_cast<int>(i);}if(u<0||u==go)break;closed[static_cast<std::size_t>(u)]=true;int ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int d=0;d<4;++d){int vx=ux+dx[d],vy=uy+dy[d];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v<0||v>=static_cast<int>(grid.size())||grid[static_cast<std::size_t>(v)]>0)continue;double tg=g[static_cast<std::size_t>(u)]+1;if(tg<g[static_cast<std::size_t>(v)]){g[static_cast<std::size_t>(v)]=tg;f[static_cast<std::size_t>(v)]=tg+heuristic(vx,vy,go%W,go/W);}}}return g;} }
+inline double pathCost(std::vector<double> grid, double width, double start, double goal) { {auto g=astar(grid,width,start,goal);int go=static_cast<int>(goal);return go>=static_cast<int>(g.size())?-1:g[static_cast<std::size_t>(go)];} }
+inline std::vector<double> reconstruct(std::vector<double> cameFrom, double current) { {std::vector<double> path;int cur=static_cast<int>(current);path.push_back(static_cast<double>(cur));while(cur>=0&&cur<static_cast<int>(cameFrom.size())&&cameFrom[static_cast<std::size_t>(cur)]>=0){cur=static_cast<int>(cameFrom[static_cast<std::size_t>(cur)]);path.push_back(static_cast<double>(cur));}std::reverse(path.begin(),path.end());return path;} }
+inline double manhattan(double ax, double ay, double bx, double by) { return heuristic(ax,ay,bx,by); }
+inline double octile(double ax, double ay, double bx, double by) { {double dx=std::abs(ax-bx),dy=std::abs(ay-by);return dx+dy+(std::sqrt(2)-2)*std::min(dx,dy);} }
+inline double openSetSize(std::vector<double> grid) { return static_cast<double>(grid.size()); }
+} // namespace
+
+namespace afrilang::runtime::cx::gamedijkstra {
+inline std::vector<double> gridDijkstra(std::vector<double> grid, double width, double start) { {int W=static_cast<int>(width),st=static_cast<int>(start);std::vector<double> d(grid.size(),1e18);if(st>=0&&st<static_cast<int>(grid.size()))d[static_cast<std::size_t>(st)]=0;std::vector<bool> done(grid.size(),false);for(std::size_t k=0;k<grid.size();++k){int u=-1;double best=1e18;for(std::size_t i=0;i<d.size();++i)if(!done[i]&&d[i]<best){best=d[i];u=static_cast<int>(i);}if(u<0)break;done[static_cast<std::size_t>(u)]=true;int ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int dd=0;dd<4;++dd){int vx=ux+dx[dd],vy=uy+dy[dd];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v<0||v>=static_cast<int>(grid.size())||grid[static_cast<std::size_t>(v)]>0)continue;d[static_cast<std::size_t>(v)]=std::min(d[static_cast<std::size_t>(v)],d[static_cast<std::size_t>(u)]+1+grid[static_cast<std::size_t>(v)]);}}return d;} }
+inline double shortestCost(std::vector<double> grid, double width, double start, double goal) { {auto d=gridDijkstra(grid,width,start);int g=static_cast<int>(goal);return g<0||g>=static_cast<int>(d.size())?-1:d[static_cast<std::size_t>(g)];} }
+inline double reachableCells(std::vector<double> grid, double width, double start) { {auto d=gridDijkstra(grid,width,start);int c=0;for(double x:d)if(x<1e17)++c;return static_cast<double>(c);} }
+inline std::vector<double> multiGoal(std::vector<double> grid, double width, double start, std::vector<double> goals) { {std::vector<double> r;for(double g:goals)r.push_back(shortestCost(grid,width,start,g));return r;} }
+inline std::vector<double> relaxStep(std::vector<double> dist, std::vector<double> grid, double width, double u) { {int W=static_cast<int>(width),uu=static_cast<int>(u);auto d=dist;if(uu<0||uu>=static_cast<int>(d.size()))return d;int ux=uu%W,uy=uu/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int dd=0;dd<4;++dd){int vx=ux+dx[dd],vy=uy+dy[dd];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v<0||v>=static_cast<int>(grid.size()))continue;d[static_cast<std::size_t>(v)]=std::min(d[static_cast<std::size_t>(v)],d[static_cast<std::size_t>(uu)]+1);}return d;} }
+inline double maxDist(std::vector<double> grid, double width, double start) { {auto d=gridDijkstra(grid,width,start);double mx=0;for(double x:d)if(x<1e17)mx=std::max(mx,x);return mx;} }
+} // namespace
+
+namespace afrilang::runtime::cx::gamemcts {
+inline double uctSelect(std::vector<double> wins, std::vector<double> visits, double totalVisits, double explore) { {double best=-1e18,idx=0;for(std::size_t i=0;i<wins.size();++i){double v=visits[i]<1?1e18:wins[i]/visits[i]+explore*std::sqrt(std::log(totalVisits+1)/(visits[i]+1));if(v>best){best=v;idx=static_cast<double>(i);}}return idx;} }
+inline double rollout(std::vector<double> state, double depth) { {double s=0;for(double x:state)s+=x;int d=static_cast<int>(depth);for(int i=0;i<d;++i)s+=static_cast<double>(std::rand()%3)-1;return s;} }
+inline double simulate(std::vector<double> state, double sims) { {double wins=0;int n=static_cast<int>(sims);for(int i=0;i<n;++i)if(rollout(state,10)>0)wins+=1;return wins/n;} }
+inline double bestAction(std::vector<double> wins, std::vector<double> visits) { {if(wins.empty())return 0;double best=-1e18;int idx=0;for(std::size_t i=0;i<wins.size();++i){double v=visits[i]<1?0:wins[i]/visits[i];if(v>best){best=v;idx=static_cast<int>(i);}}return static_cast<double>(idx);} }
+inline std::vector<double> updateStats(std::vector<double> wins, std::vector<double> visits, double action, double reward) { {auto w=wins,v=visits;int a=static_cast<int>(action);if(a>=0&&a<static_cast<int>(w.size())){w[static_cast<std::size_t>(a)]+=reward;v[static_cast<std::size_t>(a)]+=1;}return v;} }
+inline double treePolicy(std::vector<double> state, std::vector<double> actions) { {if(actions.empty())return 0;return actions[static_cast<std::size_t>(std::rand()%static_cast<int>(actions.size()))];} }
+inline double mctsValue(std::vector<double> wins, std::vector<double> visits) { {double s=0,c=0;for(std::size_t i=0;i<wins.size();++i)if(visits[i]>0){s+=wins[i]/visits[i];++c;}return c==0?0:s/c;} }
+} // namespace
+
+namespace afrilang::runtime::cx::gamepathfind {
+inline std::vector<double> bfsPath(std::vector<double> grid, double width, double start, double goal) { {int W=static_cast<int>(width),st=static_cast<int>(start),go=static_cast<int>(goal);std::vector<int> prev(grid.size(),-1);std::vector<int> q;q.push_back(st);std::vector<bool> vis(grid.size(),false);vis[static_cast<std::size_t>(st)]=true;bool found=false;for(std::size_t qi=0;qi<q.size()&&!found;++qi){int u=q[qi];if(u==go){found=true;break;}int ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int d=0;d<4;++d){int vx=ux+dx[d],vy=uy+dy[d];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v<0||v>=static_cast<int>(grid.size())||grid[static_cast<std::size_t>(v)]>0||vis[static_cast<std::size_t>(v)])continue;vis[static_cast<std::size_t>(v)]=true;prev[static_cast<std::size_t>(v)]=u;q.push_back(v);}}std::vector<double> path;if(!found)return path;for(int v=go;v>=0;v=prev[static_cast<std::size_t>(v)])path.push_back(static_cast<double>(v));std::reverse(path.begin(),path.end());return path;} }
+inline double pathLen(std::vector<double> grid, double width, double start, double goal) { return static_cast<double>(bfsPath(grid,width,start,goal).size()); }
+inline bool lineOfSight(std::vector<double> grid, double width, double x0, double y0, double x1, double y1) { {int W=static_cast<int>(width),X0=static_cast<int>(x0),Y0=static_cast<int>(y0),X1=static_cast<int>(x1),Y1=static_cast<int>(y1);int dx=std::abs(X1-X0),dy=std::abs(Y1-Y0),sx=X0<X1?1:-1,sy=Y0<Y1?1:-1,err=dx-dy;while(true){int idx=Y0*W+X0;if(idx<0||idx>=static_cast<int>(grid.size())||grid[static_cast<std::size_t>(idx)]>0)return false;if(X0==X1&&Y0==Y1)return true;int e2=2*err;if(e2>-dy){err-=dy;X0+=sx;}if(e2<dx){err+=dx;Y0+=sy;}}} }
+inline std::vector<double> smoothPath(std::vector<double> path, std::vector<double> grid, double width) { {if(path.size()<3)return path;std::vector<double> s;s.push_back(path.front());for(std::size_t i=1;i+1<path.size();++i){int p=static_cast<int>(path[i]);int px=p%static_cast<int>(width),py=p/static_cast<int>(width);int n=static_cast<int>(path[i+1]);if(!lineOfSight(grid,width,px,py,n%static_cast<int>(width),n/static_cast<int>(width)))s.push_back(path[i]);}s.push_back(path.back());return s;} }
+inline std::vector<double> waypoints(std::vector<double> path, double step) { {std::vector<double> w;int st=static_cast<int>(step);if(st<=0||path.empty())return path;for(std::size_t i=0;i<path.size();i+=static_cast<std::size_t>(st))w.push_back(path[i]);if(w.empty()||w.back()!=path.back())w.push_back(path.back());return w;} }
+inline double navCost(std::vector<double> grid, double width, double start, double goal) { {auto p=bfsPath(grid,width,start,goal);return p.empty()?-1:static_cast<double>(p.size()-1);} }
+} // namespace
+
+namespace afrilang::runtime::cx::gamenavmesh {
+inline bool pointInTri(double px, double py, double ax, double ay, double bx, double by, double cx, double cy) { {auto sign=[](double x1,double y1,double x2,double y2,double x3,double y3){return(x1-x3)*(y2-y3)-(x2-x3)*(y1-y3);};double d1=sign(px,py,ax,ay,bx,by),d2=sign(px,py,bx,by,cx,cy),d3=sign(px,py,cx,cy,ax,ay);bool hasNeg=(d1<0)||(d2<0)||(d3<0),hasPos=(d1>0)||(d2>0)||(d3>0);return!(hasNeg&&hasPos);} }
+inline double triArea(double ax, double ay, double bx, double by, double cx, double cy) { return std::abs((ax*(by-cy)+bx*(cy-ay)+cx*(ay-by))/2.0); }
+inline std::vector<double> portalMid(std::vector<double> a, std::vector<double> b) { {if(a.size()<2||b.size()<2)return std::vector<double>{};return std::vector<double>{(a[0]+b[0])/2,(a[1]+b[1])/2};} }
+inline double navDistance(std::vector<double> a, std::vector<double> b) { {if(a.size()<2||b.size()<2)return 0;double dx=a[0]-b[0],dy=a[1]-b[1];return std::sqrt(dx*dx+dy*dy);} }
+inline double funnelCost(std::vector<double> path) { {double c=0;for(std::size_t i=1;i+2<path.size();i+=2){std::vector<double> p1={path[i],path[i+1]},p2={path[i+2],path[i+3]};c+=navDistance(p1,p2);}return c;} }
+inline std::vector<double> centroid(double ax, double ay, double bx, double by, double cx, double cy) { return std::vector<double>{(ax+bx+cx)/3,(ay+by+cy)/3}; }
+inline double meshQuality(double ax, double ay, double bx, double by, double cx, double cy) { {double area=triArea(ax,ay,bx,by,cx,cy);double ab=std::sqrt((ax-bx)*(ax-bx)+(ay-by)*(ay-by)),bc=std::sqrt((bx-cx)*(bx-cx)+(by-cy)*(by-cy)),ca=std::sqrt((cx-ax)*(cx-ax)+(cy-ay)*(cy-ay));double per=ab+bc+ca;return per<1e-12?0:4*std::sqrt(3)*area/(per*per);} }
+} // namespace
+
+namespace afrilang::runtime::cx::gamebehavior {
+inline double evalSelector(std::vector<double> scores) { {if(scores.empty())return 0;double best=-1e18;int idx=0;for(std::size_t i=0;i<scores.size();++i)if(scores[i]>best){best=scores[i];idx=static_cast<int>(i);}return static_cast<double>(idx);} }
+inline double evalSequence(std::vector<double> scores) { {double s=0;for(double x:scores)s+=x;return s;} }
+inline double evalParallel(std::vector<double> scores) { {if(scores.empty())return 0;return *std::max_element(scores.begin(),scores.end());} }
+inline double blackboardGet(std::vector<std::string> keys, std::vector<double> values, std::string key) { {for(std::size_t i=0;i<keys.size()&&i<values.size();++i)if(keys[i]==key)return values[i];return 0;} }
+inline std::vector<double> blackboardSet(std::vector<std::string> keys, std::vector<double> values, std::string key, double val) { {auto k=keys,v=values;bool found=false;for(std::size_t i=0;i<k.size();++i)if(k[i]==key){v[i]=val;found=true;break;}if(!found){k.push_back(key);v.push_back(val);}return v;} }
+inline bool cooldownReady(double last, double now, double cd) { return now-last>=cd; }
+inline double weightedPick(std::vector<double> weights) { {double s=0;for(double w:weights)s+=w;if(s<=0)return 0;double r=static_cast<double>(std::rand())/static_cast<double>(RAND_MAX)*s,acc=0;for(std::size_t i=0;i<weights.size();++i){acc+=weights[i];if(r<=acc)return static_cast<double>(i);}return static_cast<double>(weights.size()-1);} }
+} // namespace
+
+namespace afrilang::runtime::cx::gameflood {
+inline std::vector<double> floodFill(std::vector<double> grid, double width, double start, double newVal) { {int W=static_cast<int>(width),st=static_cast<int>(start);auto g=grid;if(st<0||st>=static_cast<int>(g.size()))return g;double old=g[static_cast<std::size_t>(st)];if(old==newVal)return g;std::vector<int> q;q.push_back(st);g[static_cast<std::size_t>(st)]=newVal;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi],ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int d=0;d<4;++d){int vx=ux+dx[d],vy=uy+dy[d];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v>=0&&v<static_cast<int>(g.size())&&g[static_cast<std::size_t>(v)]==old){g[static_cast<std::size_t>(v)]=newVal;q.push_back(v);}}}return g;} }
+inline double connectedRegion(std::vector<double> grid, double width, double start) { {auto filled=floodFill(grid,width,start,grid[static_cast<std::size_t>(static_cast<int>(start))]);double target=filled[static_cast<std::size_t>(static_cast<int>(start))];int c=0;for(double x:filled)if(x==target)++c;return static_cast<double>(c);} }
+inline double countRegions(std::vector<double> grid, double width) { {auto g=grid;int W=static_cast<int>(width),cnt=0;for(std::size_t i=0;i<g.size();++i){if(g[i]<0)continue;double val=g[i];floodFill(g,W,static_cast<int>(i),-1);++cnt;}return static_cast<double>(cnt);} }
+inline std::vector<double> fillDist(std::vector<double> grid, double width, double start) { {int W=static_cast<int>(width),st=static_cast<int>(start);std::vector<double> dist(grid.size(),-1);std::vector<int> q;q.push_back(st);dist[static_cast<std::size_t>(st)]=0;for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi],ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};for(int d=0;d<4;++d){int vx=ux+dx[d],vy=uy+dy[d];if(vx<0||vy<0||vx>=W)continue;int v=vy*W+vx;if(v>=0&&v<static_cast<int>(grid.size())&&grid[static_cast<std::size_t>(v)]==0&&dist[static_cast<std::size_t>(v)]<0){dist[static_cast<std::size_t>(v)]=dist[static_cast<std::size_t>(u)]+1;q.push_back(v);}}}return dist;} }
+inline double reachable(std::vector<double> grid, double width, double start) { {auto d=fillDist(grid,width,start);int c=0;for(double x:d)if(x>=0)++c;return static_cast<double>(c);} }
+inline std::vector<double> boundary(std::vector<double> grid, double width, double start) { {auto d=fillDist(grid,width,start);std::vector<double> b;int W=static_cast<int>(width);for(std::size_t i=0;i<d.size();++i)if(d[i]>=0){int u=static_cast<int>(i),ux=u%W,uy=u/W;int dx[]={0,1,0,-1},dy[]={1,0,-1,0};bool edge=false;for(int dd=0;dd<4;++dd){int vx=ux+dx[dd],vy=uy+dy[dd];if(vx<0||vy<0||vx>=W){edge=true;break;}int v=vy*W+vx;if(v<0||v>=static_cast<int>(d.size())||d[static_cast<std::size_t>(v)]<0)edge=true;}if(edge)b.push_back(static_cast<double>(u));}return b;} }
+} // namespace
+
+namespace afrilang::runtime::cx::gametree {
+inline double branchingFactor(std::vector<double> children) { return children.empty()?0:static_cast<double>(children.size()); }
+inline double treeDepth(std::vector<double> depths) { {if(depths.empty())return 0;return *std::max_element(depths.begin(),depths.end());} }
+inline double minimaxLeaf(std::vector<double> values, bool maxNode) { {if(values.empty())return 0;return maxNode?*std::max_element(values.begin(),values.end()):*std::min_element(values.begin(),values.end());} }
+inline double expectimax(std::vector<double> values, std::vector<double> probs) { {if(values.size()!=probs.size()||values.empty())return 0;double s=0,p=0;for(std::size_t i=0;i<values.size();++i){s+=values[i]*probs[i];p+=probs[i];}return p<1e-12?0:s/p;} }
+inline std::vector<double> alphaBetaWindow(double alpha, double beta) { return std::vector<double>{alpha,beta}; }
+inline double gameTreeSize(double branching, double depth) { {double b=branching,d=depth;if(b<=0||d<=0)return 0;double nodes=0,pow=b;for(int i=0;i<static_cast<int>(d);++i){nodes+=pow;pow*=b;}return nodes;} }
+inline double plyCount(std::vector<double> moves) { return static_cast<double>(moves.size()); }
+inline double bestChild(std::vector<double> scores) { {if(scores.empty())return 0;return static_cast<double>(std::max_element(scores.begin(),scores.end())-scores.begin());} }
+} // namespace

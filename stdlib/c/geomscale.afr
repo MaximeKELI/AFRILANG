@@ -1,0 +1,22 @@
+module geomscale
+
+function scalSum(v list number) returns number
+end
+
+function scalMean(v list number) returns number
+end
+
+function scalMin(v list number) returns number
+end
+
+function scalMax(v list number) returns number
+end
+
+function scalVar(v list number) returns number
+end
+
+function scalStd(v list number) returns number
+end
+
+function scalNorm(v list number) returns list number
+end

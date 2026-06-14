@@ -1,0 +1,25 @@
+module cryptsha1
+
+function sha1Len(s text) returns number
+end
+
+function sha1Upper(s text) returns text
+end
+
+function sha1Lower(s text) returns text
+end
+
+function sha1Trim(s text) returns text
+end
+
+function sha1Split(s text, delim text) returns list text
+end
+
+function sha1Join(parts list text, delim text) returns text
+end
+
+function sha1Replace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

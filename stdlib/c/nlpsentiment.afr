@@ -1,0 +1,22 @@
+module nlpsentiment
+
+function sentLen(s text) returns number
+end
+
+function sentUpper(s text) returns text
+end
+
+function sentLower(s text) returns text
+end
+
+function sentTrim(s text) returns text
+end
+
+function sentSplit(s text, delim text) returns list text
+end
+
+function sentJoin(parts list text, delim text) returns text
+end
+
+function sentReplace(s text, from text, to text) returns text
+end

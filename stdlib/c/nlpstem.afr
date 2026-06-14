@@ -1,0 +1,22 @@
+module nlpstem
+
+function stemLen(s text) returns number
+end
+
+function stemUpper(s text) returns text
+end
+
+function stemLower(s text) returns text
+end
+
+function stemTrim(s text) returns text
+end
+
+function stemSplit(s text, delim text) returns list text
+end
+
+function stemJoin(parts list text, delim text) returns text
+end
+
+function stemReplace(s text, from text, to text) returns text
+end

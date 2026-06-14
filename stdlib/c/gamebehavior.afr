@@ -1,0 +1,22 @@
+module gamebehavior
+
+function evalSelector(scores list number) returns number
+end
+
+function evalSequence(scores list number) returns number
+end
+
+function evalParallel(scores list number) returns number
+end
+
+function blackboardGet(keys list text, values list number, key text) returns number
+end
+
+function blackboardSet(keys list text, values list number, key text, val number) returns list number
+end
+
+function cooldownReady(last number, now number, cd number) returns bool
+end
+
+function weightedPick(weights list number) returns number
+end

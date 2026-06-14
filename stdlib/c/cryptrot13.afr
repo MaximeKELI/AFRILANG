@@ -1,0 +1,25 @@
+module cryptrot13
+
+function rot1Len(s text) returns number
+end
+
+function rot1Upper(s text) returns text
+end
+
+function rot1Lower(s text) returns text
+end
+
+function rot1Trim(s text) returns text
+end
+
+function rot1Split(s text, delim text) returns list text
+end
+
+function rot1Join(parts list text, delim text) returns text
+end
+
+function rot1Replace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end

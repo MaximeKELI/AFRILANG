@@ -1,0 +1,22 @@
+module tscumulative
+
+function cumuSum(v list number) returns number
+end
+
+function cumuMean(v list number) returns number
+end
+
+function cumuMin(v list number) returns number
+end
+
+function cumuMax(v list number) returns number
+end
+
+function cumuVar(v list number) returns number
+end
+
+function cumuStd(v list number) returns number
+end
+
+function cumuNorm(v list number) returns list number
+end

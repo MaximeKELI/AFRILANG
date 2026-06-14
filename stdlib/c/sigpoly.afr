@@ -1,0 +1,22 @@
+module sigpoly
+
+function polySum(v list number) returns number
+end
+
+function polyMean(v list number) returns number
+end
+
+function polyMin(v list number) returns number
+end
+
+function polyMax(v list number) returns number
+end
+
+function polyVar(v list number) returns number
+end
+
+function polyStd(v list number) returns number
+end
+
+function polyNorm(v list number) returns list number
+end

@@ -1,0 +1,25 @@
+module csvdistinct
+
+function distSum(v list number) returns number
+end
+
+function distMean(v list number) returns number
+end
+
+function distMin(v list number) returns number
+end
+
+function distMax(v list number) returns number
+end
+
+function distVar(v list number) returns number
+end
+
+function distStd(v list number) returns number
+end
+
+function distNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end

@@ -1,0 +1,22 @@
+module statpercentile
+
+function percentile(v list number, p number) returns number
+end
+
+function percentiles(v list number) returns list number
+end
+
+function rankPct(v list number, val number) returns number
+end
+
+function decile(v list number, d number) returns number
+end
+
+function quantile(v list number, q number) returns number
+end
+
+function p90(v list number) returns number
+end
+
+function p99(v list number) returns number
+end

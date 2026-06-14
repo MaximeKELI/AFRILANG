@@ -1,0 +1,19 @@
+module compframe
+
+function frameEncode(data list number) returns list number
+end
+
+function frameDecode(encoded list number) returns list number
+end
+
+function frameRatio(data list number) returns number
+end
+
+function frameSize(data list number) returns number
+end
+
+function frameCompressed(data list number) returns number
+end
+
+function frameRoundTrip(data list number) returns bool
+end

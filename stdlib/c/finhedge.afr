@@ -1,0 +1,22 @@
+module finhedge
+
+function hedgSum(v list number) returns number
+end
+
+function hedgMean(v list number) returns number
+end
+
+function hedgMin(v list number) returns number
+end
+
+function hedgMax(v list number) returns number
+end
+
+function hedgVar(v list number) returns number
+end
+
+function hedgStd(v list number) returns number
+end
+
+function hedgNorm(v list number) returns list number
+end

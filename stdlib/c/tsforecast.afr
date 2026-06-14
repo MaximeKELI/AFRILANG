@@ -1,0 +1,22 @@
+module tsforecast
+
+function foreSum(v list number) returns number
+end
+
+function foreMean(v list number) returns number
+end
+
+function foreMin(v list number) returns number
+end
+
+function foreMax(v list number) returns number
+end
+
+function foreVar(v list number) returns number
+end
+
+function foreStd(v list number) returns number
+end
+
+function foreNorm(v list number) returns list number
+end
