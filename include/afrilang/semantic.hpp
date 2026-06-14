@@ -96,6 +96,7 @@ struct SemanticResult {
     std::unordered_set<std::string> usedModules;
     bool usesAsync = false;
     bool usesUi = false;
+    std::vector<LintWarning> warnings;
 };
 
 class SemanticAnalyzer {

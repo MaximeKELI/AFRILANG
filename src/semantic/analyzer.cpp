@@ -97,6 +97,7 @@ SemanticResult SemanticAnalyzer::analyze() {
     registerModules();
     registerExterns();
     analyzeProgram();
+    collectLintWarnings();
     return result_;
 }
 
