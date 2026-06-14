@@ -116,18 +116,9 @@ void StdlibRegistry::injectCatalogModule(ProgramNode& program,
     std::vector<std::unique_ptr<FunctionNode>> fns;
     for (std::size_t i = 0; i < spec->functionCount; ++i) {
         const StdlibFuncSpec& fn = spec->functions[i];
-        std::vector<std::pair<std::string, std::string>> params;
-        for (std::size_t p = 0; p < fn.paramCount; ++p) {
-            params.emplace_back(fn.params[p].name, fn.params[p].typeName);
-        }
-        std::initializer_list<std::pair<std::string, std::string>> init =
-            params.empty() ? std::initializer_list<std::pair<std::string, std::string>>{}
-                           : std::initializer_list<std::pair<std::string, std::string>>(
-                                 params.begin(), params.end());
-        (void)init;
         std::vector<ParameterNode> paramNodes;
-        for (const auto& [pname, ptype] : params) {
-            paramNodes.emplace_back(pname, ptype, nullptr);
+        for (std::size_t p = 0; p < fn.paramCount; ++p) {
+            paramNodes.emplace_back(fn.params[p].name, fn.params[p].typeName, nullptr);
         }
         fns.push_back(std::make_unique<FunctionNode>(
             fn.name, std::move(paramNodes),

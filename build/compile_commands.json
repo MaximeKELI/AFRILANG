@@ -61,6 +61,12 @@
 },
 {
   "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o -c /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
   "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o -c /home/maxime/AFRILANG/src/utils/formatter.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/formatter.cpp",
   "output": "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o"
@@ -154,6 +160,12 @@
   "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o -c /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp",
   "output": "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o -c /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o"
 },
 {
   "directory": "/home/maxime/AFRILANG/build",

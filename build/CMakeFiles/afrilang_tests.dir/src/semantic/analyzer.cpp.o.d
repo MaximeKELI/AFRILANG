@@ -168,6 +168,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
+ /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
  /home/maxime/AFRILANG/include/afrilang/error.hpp \
  /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \

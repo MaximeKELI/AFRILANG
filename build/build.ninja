@@ -119,6 +119,13 @@ build CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILER__afr
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
 
+build CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp || cmake_object_order_depends_target_afrilang
+  DEP_FILE = CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d
+  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/home/maxime/AFRILANG/include
+  OBJECT_DIR = CMakeFiles/afrilang.dir
+  OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
+
 build CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/formatter.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d
   FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
@@ -169,7 +176,7 @@ build CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang_unsca
 #############################################
 # Link the executable afrilang
 
-build afrilang: CXX_EXECUTABLE_LINKER__afrilang_Debug CMakeFiles/afrilang.dir/main.cpp.o CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang.dir/src/parser/parser.cpp.o CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang.dir/src/utils/project.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o CMakeFiles/afrilang.dir/src/serve/server.cpp.o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o
+build afrilang: CXX_EXECUTABLE_LINKER__afrilang_Debug CMakeFiles/afrilang.dir/main.cpp.o CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang.dir/src/parser/parser.cpp.o CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang.dir/src/utils/project.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o CMakeFiles/afrilang.dir/src/serve/server.cpp.o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/afrilang.dir
   POST_BUILD = :
@@ -266,6 +273,14 @@ build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILE
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
 
+build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp || cmake_object_order_depends_target_afrilang_tests
+  DEFINES = -DAFRILANG_TESTING=1
+  DEP_FILE = CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o.d
+  FLAGS = -g -std=c++17
+  INCLUDES = -I/home/maxime/AFRILANG/include
+  OBJECT_DIR = CMakeFiles/afrilang_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
+
 build CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/formatter.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
   DEP_FILE = CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o.d
@@ -322,7 +337,7 @@ build CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang
 #############################################
 # Link the executable afrilang_tests
 
-build afrilang_tests: CXX_EXECUTABLE_LINKER__afrilang_tests_Debug CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o
+build afrilang_tests: CXX_EXECUTABLE_LINKER__afrilang_tests_Debug CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   POST_BUILD = :

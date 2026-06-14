@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-8ec128ac96a31622e957.json",
+					"jsonFile" : "directory-.-Debug-d178d504a2e7012ebfbf.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.14"
@@ -44,21 +44,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "afrilang::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-afrilang-Debug-50a05e46e9e6062af757.json",
+					"jsonFile" : "target-afrilang-Debug-5628dd5ce2800f574a38.json",
 					"name" : "afrilang",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "afrilang_tests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-afrilang_tests-Debug-c8cd61a7fe159c8a8218.json",
+					"jsonFile" : "target-afrilang_tests-Debug-0a6e6d331160685806f3.json",
 					"name" : "afrilang_tests",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "examples::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-examples-Debug-5a6244953e304808fb5c.json",
+					"jsonFile" : "target-examples-Debug-80d708c9eba075e160a0.json",
 					"name" : "examples",
 					"projectIndex" : 0
 				}
