@@ -168,6 +168,17 @@ struct InterpolatedStringNode : ExpressionNode {
         : parts(std::move(parts)) {}
 };
 
+struct SliceExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> object;
+    std::unique_ptr<ExpressionNode> start;
+    std::unique_ptr<ExpressionNode> end;
+
+    SliceExpressionNode(std::unique_ptr<ExpressionNode> object,
+                        std::unique_ptr<ExpressionNode> start,
+                        std::unique_ptr<ExpressionNode> end)
+        : object(std::move(object)), start(std::move(start)), end(std::move(end)) {}
+};
+
 struct IndexExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> object;
     std::unique_ptr<ExpressionNode> index;

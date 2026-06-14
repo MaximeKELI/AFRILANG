@@ -1558,6 +1558,14 @@ std::unique_ptr<ExpressionNode> Parser::parsePostfix(std::unique_ptr<ExpressionN
             expr = std::make_unique<IndexExpressionNode>(std::move(expr), std::move(index));
             continue;
         }
+        if (match(TokenType::From)) {
+            auto start = parseExpression();
+            consume(TokenType::To, "'to' attendu dans l'expression slice");
+            auto end = parseExpression();
+            expr = std::make_unique<SliceExpressionNode>(std::move(expr), std::move(start),
+                                                         std::move(end));
+            continue;
+        }
         break;
     }
     return expr;
