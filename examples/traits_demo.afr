@@ -24,8 +24,6 @@ for each s in speakers do
     s.speak()
 end
 
-say pet.getName()
-
 module Shapes
     enum Kind
         case Circle
