@@ -92,7 +92,7 @@ say "Hello {name}!"
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, plus **151 simple modules** (see `docs/STDLIB_SIMPLE.md`).
 
 ## Generics
 
@@ -273,7 +273,7 @@ Compilation : `-lSDL2 -lSDL2_ttf` (SDL2 + SDL2_ttf requis).
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, plus **151 simple modules** (see `docs/STDLIB_SIMPLE.md`).
 
 ### std/args
 
