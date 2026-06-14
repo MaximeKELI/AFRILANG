@@ -440,3 +440,48 @@ afrilang repl
 ```
 
 Commandes : `:help`, `:reset`, `:show`, `:run`, `:load fichier.afr`, `:type expr`, `:history`, `:paste` / `:end`, `:quit`
+
+## Foreign Function Interface (FFI)
+
+```afr
+extern from "m" function sin(x number) returns number
+```
+
+Bibliothèques autorisées : `m`, `pthread`, `dl`, `curl`, `c`.
+
+Types FFI : `number` → `double`, `text` → `const char*`, `bool`, `pointer`.
+
+## Identifiants et encodage
+
+- Fichiers source : **UTF-8** obligatoire
+- Identifiants : ASCII `[A-Za-z_][A-Za-z0-9_]*` ou **Unicode** (lettres UTF-8)
+- Mots réservés : voir section « Syntaxe bilingue »
+
+## Gestion de paquets
+
+```toml
+[dependencies]
+math = "0.1.0"
+```
+
+Commandes : `afrilang pkg add math`, `pkg install`, `pkg list`, `pkg publish`.
+
+Le lockfile `afrilang.lock` fige les versions installées. Semver 2.0 appliqué à l'installation.
+
+## Grammaire (EBNF, extrait)
+
+```ebnf
+program     = { declaration | statement } ;
+declaration = class_decl | function_decl | enum_decl | module_decl | extern_decl ;
+statement   = "say" expression
+              | "create" identifier [ type ] "=" expression
+              | "if" expression "then" block [ "else" block ] "end"
+              | "match" expression match_arm { match_arm } "end" ;
+expression  = literal | identifier | call | binary_op | "match" expression ... ;
+```
+
+## Politique de compatibilité
+
+- **1.x** : compatibilité source ascendante pour les programmes valides 1.0
+- Numéros d'erreur stables (`E3002`, etc.)
+- Variable d'environnement `AFRILANG_LOCALE=en|fr` pour les messages

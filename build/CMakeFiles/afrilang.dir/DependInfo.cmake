@@ -22,11 +22,15 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/utils/diagnostics.cpp" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/educational.cpp" "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/formatter.cpp" "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/i18n.cpp" "CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/medium_catalog.cpp" "CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/pkg.cpp" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/project.cpp" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/sandbox.cpp" "CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/semver.cpp" "CMakeFiles/afrilang.dir/src/utils/semver.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/semver.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp" "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/utf8.cpp" "CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

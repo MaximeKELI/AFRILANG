@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-### Language
+### Governance & standards (1.0)
+- Root **MIT LICENSE**, **SECURITY.md**, **CONTRIBUTING.md**, **CODE_OF_CONDUCT.md**, **NOTICE** (SPDX)
+- **Spec 1.0** — FFI, EBNF extract, UTF-8 identifiers, semver pkg, error codes
+- **LSP 1.0** — publishDiagnostics, hover, definition, FR/EN completion
+- **Playground hardened** — exec timeout, path traversal blocked, no shell
+- **Lint warnings** — unused modules, empty functions
+- **40+ unit tests**, Docker reproducible build, CI matrix g++/clang++
 - **Syntaxe bilingue FR/EN** — alias français (`dire`, `si`, `fin`, `fonction`, `cas`, `defaut`, …)
 - **Modules export/private** — `export function`, `private function`, appel qualifié `Module.fn`
 - **Génériques explicites** — `identity<number>(42)`

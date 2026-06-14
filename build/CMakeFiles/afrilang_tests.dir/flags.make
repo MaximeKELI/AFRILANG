@@ -6,5 +6,5 @@ CXX_DEFINES = -DAFRILANG_TESTING=1
 
 CXX_INCLUDES = -I/home/maxime/AFRILANG/include
 
-CXX_FLAGS = -std=c++17
+CXX_FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
 

@@ -585,6 +585,33 @@ src/utils/formatter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.s
 .PHONY : src/utils/formatter.cpp.s
 
+src/utils/i18n.o: src/utils/i18n.cpp.o
+.PHONY : src/utils/i18n.o
+
+# target to build an object file
+src/utils/i18n.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o
+.PHONY : src/utils/i18n.cpp.o
+
+src/utils/i18n.i: src/utils/i18n.cpp.i
+.PHONY : src/utils/i18n.i
+
+# target to preprocess a source file
+src/utils/i18n.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/i18n.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.i
+.PHONY : src/utils/i18n.cpp.i
+
+src/utils/i18n.s: src/utils/i18n.cpp.s
+.PHONY : src/utils/i18n.s
+
+# target to generate assembly for a file
+src/utils/i18n.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/i18n.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.s
+.PHONY : src/utils/i18n.cpp.s
+
 src/utils/medium_catalog.o: src/utils/medium_catalog.cpp.o
 .PHONY : src/utils/medium_catalog.o
 
@@ -666,6 +693,60 @@ src/utils/project.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.s
 .PHONY : src/utils/project.cpp.s
 
+src/utils/sandbox.o: src/utils/sandbox.cpp.o
+.PHONY : src/utils/sandbox.o
+
+# target to build an object file
+src/utils/sandbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o
+.PHONY : src/utils/sandbox.cpp.o
+
+src/utils/sandbox.i: src/utils/sandbox.cpp.i
+.PHONY : src/utils/sandbox.i
+
+# target to preprocess a source file
+src/utils/sandbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.i
+.PHONY : src/utils/sandbox.cpp.i
+
+src/utils/sandbox.s: src/utils/sandbox.cpp.s
+.PHONY : src/utils/sandbox.s
+
+# target to generate assembly for a file
+src/utils/sandbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.s
+.PHONY : src/utils/sandbox.cpp.s
+
+src/utils/semver.o: src/utils/semver.cpp.o
+.PHONY : src/utils/semver.o
+
+# target to build an object file
+src/utils/semver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/semver.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o
+.PHONY : src/utils/semver.cpp.o
+
+src/utils/semver.i: src/utils/semver.cpp.i
+.PHONY : src/utils/semver.i
+
+# target to preprocess a source file
+src/utils/semver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/semver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.i
+.PHONY : src/utils/semver.cpp.i
+
+src/utils/semver.s: src/utils/semver.cpp.s
+.PHONY : src/utils/semver.s
+
+# target to generate assembly for a file
+src/utils/semver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/semver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.s
+.PHONY : src/utils/semver.cpp.s
+
 src/utils/stdlib_catalog.o: src/utils/stdlib_catalog.cpp.o
 .PHONY : src/utils/stdlib_catalog.o
 
@@ -719,6 +800,33 @@ src/utils/stdlib_registry.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.s
 .PHONY : src/utils/stdlib_registry.cpp.s
+
+src/utils/utf8.o: src/utils/utf8.cpp.o
+.PHONY : src/utils/utf8.o
+
+# target to build an object file
+src/utils/utf8.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.o
+.PHONY : src/utils/utf8.cpp.o
+
+src/utils/utf8.i: src/utils/utf8.cpp.i
+.PHONY : src/utils/utf8.i
+
+# target to preprocess a source file
+src/utils/utf8.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/utf8.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.i
+.PHONY : src/utils/utf8.cpp.i
+
+src/utils/utf8.s: src/utils/utf8.cpp.s
+.PHONY : src/utils/utf8.s
+
+# target to generate assembly for a file
+src/utils/utf8.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/utf8.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.s
+.PHONY : src/utils/utf8.cpp.s
 
 tests/test_compiler.o: tests/test_compiler.cpp.o
 .PHONY : tests/test_compiler.o
@@ -802,6 +910,9 @@ help:
 	@echo "... src/utils/formatter.o"
 	@echo "... src/utils/formatter.i"
 	@echo "... src/utils/formatter.s"
+	@echo "... src/utils/i18n.o"
+	@echo "... src/utils/i18n.i"
+	@echo "... src/utils/i18n.s"
 	@echo "... src/utils/medium_catalog.o"
 	@echo "... src/utils/medium_catalog.i"
 	@echo "... src/utils/medium_catalog.s"
@@ -811,12 +922,21 @@ help:
 	@echo "... src/utils/project.o"
 	@echo "... src/utils/project.i"
 	@echo "... src/utils/project.s"
+	@echo "... src/utils/sandbox.o"
+	@echo "... src/utils/sandbox.i"
+	@echo "... src/utils/sandbox.s"
+	@echo "... src/utils/semver.o"
+	@echo "... src/utils/semver.i"
+	@echo "... src/utils/semver.s"
 	@echo "... src/utils/stdlib_catalog.o"
 	@echo "... src/utils/stdlib_catalog.i"
 	@echo "... src/utils/stdlib_catalog.s"
 	@echo "... src/utils/stdlib_registry.o"
 	@echo "... src/utils/stdlib_registry.i"
 	@echo "... src/utils/stdlib_registry.s"
+	@echo "... src/utils/utf8.o"
+	@echo "... src/utils/utf8.i"
+	@echo "... src/utils/utf8.s"
 	@echo "... tests/test_compiler.o"
 	@echo "... tests/test_compiler.i"
 	@echo "... tests/test_compiler.s"

@@ -483,12 +483,29 @@ static int cmdDoc(const std::string& sourcePath) {
         std::cout << "# " << srcPath.filename().string() << "\n\n";
         for (const auto& func : program->functions) {
             std::cout << "## function " << func->name << "\n\n";
+            if (!func->parameters.empty()) {
+                std::cout << "**Parameters:** ";
+                for (std::size_t i = 0; i < func->parameters.size(); ++i) {
+                    if (i > 0) std::cout << ", ";
+                    std::cout << func->parameters[i].name << " `" << func->parameters[i].typeName << "`";
+                }
+                std::cout << "\n\n";
+            }
             if (!func->returnTypeName.empty()) {
-                std::cout << "Returns `" << func->returnTypeName << "`\n\n";
+                std::cout << "**Returns:** `" << func->returnTypeName << "`\n\n";
             }
         }
         for (const auto& cls : program->classes) {
             std::cout << "## class " << cls->name << "\n\n";
+            for (const auto& method : cls->methods) {
+                if (method->isOperator) continue;
+                std::cout << "- `" << method->name << "`";
+                if (!method->returnTypeName.empty()) {
+                    std::cout << " → `" << method->returnTypeName << "`";
+                }
+                std::cout << "\n";
+            }
+            std::cout << "\n";
         }
         for (const auto& test : program->tests) {
             std::cout << "## test \"" << test->name << "\"\n\n";

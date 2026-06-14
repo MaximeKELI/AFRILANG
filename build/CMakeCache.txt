@@ -17,6 +17,9 @@
 //Value Computed by CMake
 AFRILANG_BINARY_DIR:STATIC=/home/maxime/AFRILANG/build
 
+//Enable coverage reporting
+AFRILANG_ENABLE_COVERAGE:BOOL=OFF
+
 //Value Computed by CMake
 AFRILANG_IS_TOP_LEVEL:STATIC=ON
 
@@ -31,7 +34,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
