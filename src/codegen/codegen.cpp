@@ -2145,7 +2145,7 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
 std::string CodeGenerator::resolveVariableType(const std::string& name) const {
     auto it = semantic_.globalVariables.find(name);
     if (it != semantic_.globalVariables.end()) {
-        if (it->second.kind == TypeKind::Class) {
+        if (it->second.kind == TypeKind::Class || it->second.kind == TypeKind::Interface) {
             return classStorageCpp(it->second);
         }
         return it->second.toCpp();
