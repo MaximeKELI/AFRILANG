@@ -173,6 +173,8 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o
  /home/maxime/AFRILANG/include/afrilang/educational.hpp
  /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp
+ /home/maxime/AFRILANG/include/afrilang/security.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp
@@ -1368,6 +1370,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/error.hpp
  /home/maxime/AFRILANG/include/afrilang/i18n.hpp
+ /home/maxime/AFRILANG/include/afrilang/security.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp

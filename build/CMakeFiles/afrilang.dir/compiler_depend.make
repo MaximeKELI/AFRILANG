@@ -171,6 +171,8 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/src/cod
   /home/maxime/AFRILANG/include/afrilang/educational.hpp \
   /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
   /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
+  /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
+  /home/maxime/AFRILANG/include/afrilang/security.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
   /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
@@ -1361,6 +1363,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG/src/s
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/error.hpp \
   /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
+  /home/maxime/AFRILANG/include/afrilang/security.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
   /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
@@ -5002,8 +5005,6 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 
 /usr/include/arpa/inet.h:
 
-/home/maxime/AFRILANG/include/afrilang/sandbox.hpp:
-
 /usr/include/c++/13/functional:
 
 /usr/include/c++/13/array:
@@ -5052,6 +5053,8 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 
 /usr/include/c++/13/bits/fs_fwd.h:
 
+/usr/include/c++/13/bits/fs_dir.h:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
@@ -5067,6 +5070,10 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
 /usr/include/c++/13/exception:
+
+/usr/include/c++/13/bits/chrono.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/c++/13/bits/basic_string.h:
 
@@ -5200,11 +5207,11 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 
 /usr/include/c++/13/cstddef:
 
+/home/maxime/AFRILANG/include/afrilang/sandbox.hpp:
+
 /usr/include/c++/13/bits/stl_algo.h:
 
 /usr/include/c++/13/bits/erase_if.h:
-
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
@@ -5476,6 +5483,12 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 
 /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp:
 
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/home/maxime/AFRILANG/include/afrilang/security.hpp:
+
+/usr/include/c++/13/algorithm:
+
 /usr/include/c++/13/bits/stringfwd.h:
 
 /home/maxime/AFRILANG/include/afrilang/semantic.hpp:
@@ -5493,8 +5506,6 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 /home/maxime/AFRILANG/include/afrilang/codegen.hpp:
 
 /home/maxime/AFRILANG/src/lexer/lexer.cpp:
-
-/usr/include/c++/13/algorithm:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -5563,8 +5574,6 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/13/sstream:
-
-/usr/include/c++/13/bits/fs_dir.h:
 
 /usr/include/c++/13/bits/stl_heap.h:
 
@@ -5637,7 +5646,3 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/maxime/AFRILANG/src/utils/ut
 /usr/include/c++/13/backward/auto_ptr.h:
 
 /home/maxime/AFRILANG/include/afrilang/lsp.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
-/usr/include/c++/13/bits/chrono.h:
