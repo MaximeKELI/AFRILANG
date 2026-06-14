@@ -395,6 +395,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
+    if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
@@ -2126,7 +2127,7 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "async" || name == "ui";
+           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name);
 }
 
 namespace {
