@@ -1,6 +1,6 @@
 union Shape
     case Circle with radius number
-    case Rect with width number, height number
+    case Rect with w number, h number
 end
 
 create circle = Shape.Circle with 5
@@ -8,10 +8,10 @@ create rect = Shape.Rect with 10, 3
 
 match circle
     case Circle with r then
-        say "circle radius " + r
+        say "circle radius {r}"
     end
     case Rect with w, h then
-        say "rect " + w + "x" + h
+        say "rect {w}x{h}"
     end
 end
 

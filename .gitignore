@@ -1,0 +1,78 @@
+# Build
+/build/
+*.generated.cpp
+*.o
+*.a
+*.so
+
+# Compiled example binaries (repo root)
+/hello
+/conditions
+/inheritance
+/functions
+/while
+/lists
+/modules
+/fields
+/records
+/full_demo
+/stdlib_demo
+/result
+/interfaces
+/ffi
+/pkg_demo
+/natural
+/educational
+/advanced
+/fs_demo
+/generics
+/maps
+/exceptions
+/phase9_demo
+/defaults
+/phase10_demo
+/lambdas
+/list_ops
+/natural_list_ops
+/poo_demo
+/oop_full
+/polymorphic_list
+/generic_class
+/poo_advanced
+/args_path_demo
+/phase11_demo
+/async_demo
+/async_full
+/gui_demo
+/simple_libs_demo
+/medium_libs_demo
+/complex_libs_demo
+/language_demo
+/traits_demo
+/match_expr_demo
+/unions_demo
+/operators_demo
+/tests
+/oop
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lock / vendor (project-local)
+/vendor/
+
+# Coverage
+*.gcno
+*.gcda
+coverage/
+*.info
+
+# Node (extension)
+vscode-afrilang/node_modules/

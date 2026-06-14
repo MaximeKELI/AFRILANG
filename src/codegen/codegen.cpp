@@ -1423,7 +1423,12 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << ";\n";
             return;
         }
+        const bool returningClassValue =
+            currentFunction_ && !currentFunction_->returnTypeName.empty() &&
+            typeFromName(currentFunction_->returnTypeName).kind == TypeKind::Class &&
+            assignValueIsNewExpression(*ret->value);
         out << "return ";
+        if (returningClassValue) out << "*";
         emitExpression(out, *ret->value, ownerClass);
         out << ";\n";
         return;

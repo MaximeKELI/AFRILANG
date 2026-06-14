@@ -1,0 +1,11 @@
+AFRILANG
+SPDX-License-Identifier: MIT
+Copyright (c) 2025 Maxime KELI
+
+This project includes the VS Code extension under vscode-afrilang/ (same license).
+
+Third-party runtime dependencies (when building user programs):
+  - C++ standard library (compiler-provided)
+  - SDL2 / SDL2_ttf (optional, GUI programs)
+  - libcurl (optional, HTTP stdlib)
+  - libm, libpthread (system)
