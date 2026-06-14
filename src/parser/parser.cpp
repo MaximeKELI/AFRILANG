@@ -252,13 +252,16 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
 
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<RecordNode>> records;
+    std::vector<std::unique_ptr<EnumNode>> enums;
     std::vector<std::unique_ptr<FunctionNode>> functions;
 
     while (!check(TokenType::End) && !isAtEnd()) {
         match(TokenType::Export);
         const bool isPrivate = match(TokenType::Private);
 
-        if (match(TokenType::Abstract)) {
+        if (match(TokenType::Enum)) {
+            enums.push_back(parseEnum());
+        } else if (match(TokenType::Abstract)) {
             consume(TokenType::Class, "'class' attendu après 'abstract'");
             auto cls = parseClass(true, false);
             cls->modulePrivate = isPrivate;
@@ -291,7 +294,8 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
 
     consume(TokenType::End, "'end' attendu pour fermer le module");
     auto node = std::make_unique<ModuleNode>(
-        std::move(moduleName), std::move(classes), std::move(records), std::move(functions));
+        std::move(moduleName), std::move(classes), std::move(records),
+        std::move(enums), std::move(functions));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
