@@ -1,5 +1,6 @@
 #include "afrilang/stdlib_registry.hpp"
 #include "afrilang/stdlib_catalog.hpp"
+#include "afrilang/medium_catalog.hpp"
 
 #include <vector>
 
@@ -68,7 +69,8 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
     return isLegacyStdlibModule(moduleName) ||
-           stdlibCatalogIsSimpleModule(moduleName);
+           stdlibCatalogIsSimpleModule(moduleName) ||
+           mediumCatalogIsMediumModule(moduleName);
 }
 
 bool StdlibRegistry::isStdlibImport(const std::string& path) {
@@ -80,6 +82,9 @@ bool StdlibRegistry::isStdlibImport(const std::string& path) {
         normalized == "log" || normalized == "time" || normalized == "chrono" ||
         normalized == "logging") {
         return true;
+    }
+    if (normalized.rfind("m/", 0) == 0) {
+        return mediumCatalogFindModule(normalized.substr(2)) != nullptr;
     }
     return stdlibCatalogFindModule(normalized) != nullptr;
 }
@@ -102,6 +107,13 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
 
+    if (normalized.rfind("m/", 0) == 0) {
+        if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {
+            return spec->moduleName;
+        }
+        return "";
+    }
+
     if (const StdlibModuleSpec* spec = stdlibCatalogFindModule(normalized)) {
         return spec->moduleName;
     }
@@ -111,6 +123,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
 void StdlibRegistry::injectCatalogModule(ProgramNode& program,
                                          const std::string& moduleName) {
     const StdlibModuleSpec* spec = stdlibCatalogFindModule(moduleName);
+    if (!spec) spec = mediumCatalogFindModule(moduleName);
     if (!spec) return;
 
     std::vector<std::unique_ptr<FunctionNode>> fns;

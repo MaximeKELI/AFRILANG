@@ -1,0 +1,13 @@
+module percentile2
+
+function percentileRank(v list number, value number) returns number
+end
+
+function percentileValue(v list number, p number) returns number
+end
+
+function trimMean(v list number, pct number) returns number
+end
+
+function geometricMean(v list number) returns number
+end

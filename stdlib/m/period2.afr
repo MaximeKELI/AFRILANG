@@ -1,0 +1,13 @@
+module period2
+
+function monthsBetween(d1 text, d2 text) returns number
+end
+
+function yearsBetween(d1 text, d2 text) returns number
+end
+
+function addMonths(date text, months number) returns text
+end
+
+function endOfMonth(date text) returns text
+end

@@ -1,0 +1,16 @@
+module listsort
+
+function sortAsc(v list number) returns list number
+end
+
+function sortDesc(v list number) returns list number
+end
+
+function sortTextAsc(v list text) returns list text
+end
+
+function sortTextDesc(v list text) returns list text
+end
+
+function isSorted(v list number) returns bool
+end

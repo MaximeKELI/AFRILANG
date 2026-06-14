@@ -1,0 +1,13 @@
+module listscale
+
+function rescale(v list number, newMin number, newMax number) returns list number
+end
+
+function clip(v list number, lo number, hi number) returns list number
+end
+
+function absValues(v list number) returns list number
+end
+
+function negateAll(v list number) returns list number
+end

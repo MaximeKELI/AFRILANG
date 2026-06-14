@@ -1,0 +1,13 @@
+module mimeparse2
+
+function mainType(mime text) returns text
+end
+
+function subType(mime text) returns text
+end
+
+function isText(mime text) returns bool
+end
+
+function isImage(mime text) returns bool
+end

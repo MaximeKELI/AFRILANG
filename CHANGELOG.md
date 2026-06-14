@@ -15,7 +15,8 @@
 - **Default parameters**, **for from/to/step**, **const**, **maps**, **exceptions**, **interpolation**
 
 ### Standard library
-- **151 bibliothèques simples** — maths, texte, conversions, géo, web, etc. (`import "std/nom"`)
+- **151 bibliothèques simples** — maths, texte, conversions (`import "std/nom"`)
+- **102 bibliothèques moyennes** — stats, listes, dates, URL, finance (`import "std/m/nom"`)
 - `std/ui` — openWindow, drawText, drawButton, showFrame (SDL2)
 - `std/async` — sleep(ms) via scheduler (timers)
 - `std/http` — httpGetAsync, httpPostAsync (thread pool)

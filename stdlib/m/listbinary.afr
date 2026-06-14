@@ -1,0 +1,13 @@
+module listbinary
+
+function binarySearch(v list number, target number) returns number
+end
+
+function lowerBound(v list number, target number) returns number
+end
+
+function upperBound(v list number, target number) returns number
+end
+
+function insertSorted(v list number, val number) returns list number
+end

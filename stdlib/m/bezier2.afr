@@ -1,0 +1,13 @@
+module bezier2
+
+function quadBezier(p0 number, p1 number, p2 number, t number) returns number
+end
+
+function cubicBezier(p0 number, p1 number, p2 number, p3 number, t number) returns number
+end
+
+function bezierTangent(p0 number, p1 number, p2 number, t number) returns number
+end
+
+function bezierPoint2d(x0 number, y0 number, x1 number, y1 number, x2 number, y2 number, t number) returns list number
+end

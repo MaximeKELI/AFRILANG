@@ -2,6 +2,7 @@
 
 #include "afrilang/educational.hpp"
 #include "afrilang/stdlib_catalog.hpp"
+#include "afrilang/medium_catalog.hpp"
 
 #include <cstdlib>
 #include <cctype>
@@ -362,6 +363,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsArgs = false;
     bool needsPath = false;
     bool needsSimpleLibs = false;
+    bool needsMediumLibs = false;
     for (const auto& module : program_.modules) {
         if (module->name == "io") needsIo = true;
         if (module->name == "json") needsJson = true;
@@ -376,6 +378,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "args") needsArgs = true;
         if (module->name == "path") needsPath = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
+        if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (module->name == "async") { /* async.hpp via usesAsync */ }
     }
     for (const auto& modName : semantic_.usedModules) {
@@ -396,6 +399,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
+    if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
@@ -2127,7 +2131,8 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name);
+           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
+           mediumCatalogIsMediumModule(name);
 }
 
 namespace {
@@ -2189,6 +2194,28 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
     if (stdlibCatalogIsSimpleModule(moduleName)) {
         const std::string rt = "afrilang::runtime::" + moduleName + "::" + func.name;
+        if (func.returnTypeName.empty()) {
+            out << rt << "(";
+            for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << func.parameters[i].name;
+            }
+            out << ");\n";
+        } else {
+            out << "return " << rt << "(";
+            for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << func.parameters[i].name;
+            }
+            out << ");\n";
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
+    if (mediumCatalogIsMediumModule(moduleName)) {
+        const std::string rt = "afrilang::runtime::med::" + moduleName + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {

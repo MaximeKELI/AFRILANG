@@ -1,0 +1,13 @@
+module polygon2
+
+function areaTriangle(base number, height number) returns number
+end
+
+function perimeterRect(w number, h number) returns number
+end
+
+function areaRect(w number, h number) returns number
+end
+
+function diagonal(w number, h number) returns number
+end

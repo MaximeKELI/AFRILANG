@@ -1,0 +1,13 @@
+module matdet2
+
+function det3x3(m list number) returns list number
+end
+
+function det2x2(m list number) returns number
+end
+
+function isSingular(m list number) returns bool
+end
+
+function cofactor2(m list number) returns list number
+end

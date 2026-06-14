@@ -1,0 +1,13 @@
+module matstats
+
+function rowSum(m list number, cols number) returns list number
+end
+
+function colSum(m list number, rows number, cols number) returns list number
+end
+
+function frobeniusNorm(m list number) returns number
+end
+
+function maxAbs(m list number) returns number
+end

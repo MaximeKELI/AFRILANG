@@ -1,0 +1,16 @@
+module datecalc
+
+function daysBetween(d1 text, d2 text) returns number
+end
+
+function addDays(date text, days number) returns text
+end
+
+function isLeapYear(year number) returns bool
+end
+
+function daysInMonth(year number, month number) returns number
+end
+
+function weekday(date text) returns number
+end

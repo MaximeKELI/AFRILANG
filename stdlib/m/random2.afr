@@ -1,0 +1,13 @@
+module random2
+
+function seedRandom(seed number) returns number
+end
+
+function randomRange(lo number, hi number) returns number
+end
+
+function randomList(count number, lo number, hi number) returns list number
+end
+
+function shuffleList(v list number, seed number) returns list number
+end

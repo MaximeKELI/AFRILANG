@@ -1,0 +1,13 @@
+module taxcalc2
+
+function incomeTax(income number, rate number) returns number
+end
+
+function netIncome(gross number, rate number) returns number
+end
+
+function vatAmount(price number, rate number) returns number
+end
+
+function priceWithVat(price number, rate number) returns number
+end

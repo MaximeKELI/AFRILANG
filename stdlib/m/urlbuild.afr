@@ -1,0 +1,13 @@
+module urlbuild
+
+function buildUrl(scheme text, host text, path text) returns text
+end
+
+function buildWithQuery(base text, query text) returns text
+end
+
+function encodeParam(key text, value text) returns text
+end
+
+function joinParams(params list text) returns text
+end

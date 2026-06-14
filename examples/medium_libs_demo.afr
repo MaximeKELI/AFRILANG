@@ -1,0 +1,24 @@
+import "std/m/textstats"
+import "std/m/numstats"
+import "std/m/uriparse"
+import "std/m/datecalc"
+import "std/format"
+
+use textstats
+use numstats
+use uriparse
+use datecalc
+use format
+
+create words = wordCount("bonjour le monde afrilang")
+say formatNumber(words, 0)
+
+create nums = list of 3, 7, 2, 9, 4
+create avg = mean(nums)
+say formatNumber(avg, 2)
+
+create host = getHost("https://example.com/path?q=1")
+say host
+
+create days = daysBetween("2024-01-01", "2024-12-31")
+say formatNumber(days, 0)

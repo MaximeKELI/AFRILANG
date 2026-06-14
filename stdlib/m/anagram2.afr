@@ -1,0 +1,13 @@
+module anagram2
+
+function normalizeWord(s text) returns text
+end
+
+function areAnagrams(a text, b text) returns bool
+end
+
+function anagramKey(s text) returns text
+end
+
+function sortLetters(s text) returns text
+end

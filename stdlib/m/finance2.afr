@@ -1,0 +1,13 @@
+module finance2
+
+function futureValue(pv number, rate number, periods number) returns number
+end
+
+function presentValue(fv number, rate number, periods number) returns number
+end
+
+function annuity(payment number, rate number, periods number) returns number
+end
+
+function payment(pv number, rate number, periods number) returns number
+end

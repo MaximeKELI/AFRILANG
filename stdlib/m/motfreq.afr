@@ -1,0 +1,13 @@
+module motfreq
+
+function wordFrequency(s text, word text) returns number
+end
+
+function mostFrequentWord(s text) returns text
+end
+
+function uniqueWords(s text) returns number
+end
+
+function lexicalDensity(s text) returns number
+end

@@ -1,0 +1,13 @@
+module bondcalc2
+
+function bondPrice(face number, coupon number, rate number, years number) returns number
+end
+
+function yieldToMaturity(price number, face number, coupon number, years number) returns number
+end
+
+function currentYield(coupon number, price number) returns number
+end
+
+function duration(years number, coupon number) returns number
+end

@@ -1,0 +1,13 @@
+module ngrams
+
+function bigrams(s text) returns list text
+end
+
+function trigrams(s text) returns list text
+end
+
+function charBigrams(s text) returns list text
+end
+
+function ngramCount(s text, n number) returns number
+end

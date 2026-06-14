@@ -1,0 +1,16 @@
+module listpartition
+
+function partitionAt(v list number, pivot number) returns list number
+end
+
+function splitHalf(v list number) returns list number
+end
+
+function secondHalf(v list number) returns list number
+end
+
+function filterGt(v list number, threshold number) returns list number
+end
+
+function filterLt(v list number, threshold number) returns list number
+end

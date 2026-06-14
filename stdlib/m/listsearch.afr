@@ -1,0 +1,13 @@
+module listsearch
+
+function linearSearch(v list number, target number) returns number
+end
+
+function contains(v list number, target number) returns bool
+end
+
+function countValue(v list number, target number) returns number
+end
+
+function lastIndexOf(v list number, target number) returns number
+end

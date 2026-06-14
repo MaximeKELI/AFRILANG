@@ -1,0 +1,13 @@
+module listquantile
+
+function quantile(v list number, q number) returns number
+end
+
+function percentile(v list number, p number) returns number
+end
+
+function decile(v list number, d number) returns number
+end
+
+function rankOf(v list number) returns list number
+end

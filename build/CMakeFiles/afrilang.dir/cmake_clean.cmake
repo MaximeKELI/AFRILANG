@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o"
   "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d"
+  "CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o"
+  "CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o"
   "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/utils/project.cpp.o"

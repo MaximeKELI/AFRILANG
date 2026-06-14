@@ -1,0 +1,13 @@
+module emailparse2
+
+function localPart(email text) returns text
+end
+
+function domainPart(email text) returns text
+end
+
+function isValidEmail(email text) returns bool
+end
+
+function normalizeEmail(email text) returns text
+end

@@ -1,0 +1,13 @@
+module queryparse
+
+function parseQuery(query text) returns list text
+end
+
+function getParam(query text, key text) returns text
+end
+
+function paramCount(query text) returns number
+end
+
+function hasParam(query text, key text) returns bool
+end

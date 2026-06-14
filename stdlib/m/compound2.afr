@@ -1,0 +1,13 @@
+module compound2
+
+function compoundAnnual(principal number, rate number, years number) returns number
+end
+
+function compoundMonthly(principal number, rate number, months number) returns number
+end
+
+function effectiveRate(nominal number, periods number) returns number
+end
+
+function doublingTime(rate number) returns number
+end

@@ -1,0 +1,13 @@
+module agecalc
+
+function ageYears(birth text, today text) returns number
+end
+
+function ageMonths(birth text, today text) returns number
+end
+
+function ageDays(birth text, today text) returns number
+end
+
+function isBirthday(birth text, today text) returns bool
+end

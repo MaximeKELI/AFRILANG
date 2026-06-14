@@ -1,0 +1,13 @@
+module listrotate2
+
+function rotateLeft(v list number, n number) returns list number
+end
+
+function rotateRight(v list number, n number) returns list number
+end
+
+function reverseList(v list number) returns list number
+end
+
+function shuffleSeed(v list number, seed number) returns list number
+end

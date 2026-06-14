@@ -1,0 +1,13 @@
+module listzip2
+
+function zipAdd(a list number, b list number) returns list number
+end
+
+function zipMul(a list number, b list number) returns list number
+end
+
+function zipSub(a list number, b list number) returns list number
+end
+
+function zipMax(a list number, b list number) returns list number
+end

@@ -1,0 +1,13 @@
+module palindrom2
+
+function isPalindrome(s text) returns bool
+end
+
+function longestPalindromeLen(s text) returns number
+end
+
+function reverseAlphaNum(s text) returns text
+end
+
+function isPalindromeWord(w text) returns bool
+end

@@ -1,0 +1,13 @@
+module portfolio2
+
+function weightedReturn(returns list number, weights list number) returns number
+end
+
+function portfolioValue(shares list number, prices list number) returns number
+end
+
+function rebalance(values list number, target list number) returns list number
+end
+
+function diversification(weights list number) returns number
+end

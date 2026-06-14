@@ -1,0 +1,13 @@
+module amortize2
+
+function monthlyInterest(balance number, rate number) returns number
+end
+
+function principalPart(payment number, interest number) returns number
+end
+
+function remainingBalance(balance number, payment number, interest number) returns number
+end
+
+function amortSchedule(balance number, rate number, payment number, months number) returns list number
+end

@@ -1,0 +1,13 @@
+module gamestats2
+
+function scoreMultiplier(score number, multiplier number) returns number
+end
+
+function xpForLevel(level number) returns number
+end
+
+function levelFromXp(xp number) returns number
+end
+
+function damageCalc(attack number, defense number) returns number
+end

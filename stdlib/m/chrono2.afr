@@ -1,0 +1,13 @@
+module chrono2
+
+function elapsedDays(start text, end text) returns number
+end
+
+function isWeekend(date text) returns bool
+end
+
+function nextWeekday(date text) returns text
+end
+
+function businessDays(start text, end text) returns number
+end

@@ -1,0 +1,13 @@
+module csvbuild2
+
+function buildRow(fields list text) returns text
+end
+
+function escapeField(field text) returns text
+end
+
+function buildCsv(rows list text) returns text
+end
+
+function quoteField(field text) returns text
+end

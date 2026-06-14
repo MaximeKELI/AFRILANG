@@ -558,6 +558,33 @@ src/utils/formatter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.s
 .PHONY : src/utils/formatter.cpp.s
 
+src/utils/medium_catalog.o: src/utils/medium_catalog.cpp.o
+.PHONY : src/utils/medium_catalog.o
+
+# target to build an object file
+src/utils/medium_catalog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o
+.PHONY : src/utils/medium_catalog.cpp.o
+
+src/utils/medium_catalog.i: src/utils/medium_catalog.cpp.i
+.PHONY : src/utils/medium_catalog.i
+
+# target to preprocess a source file
+src/utils/medium_catalog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.i
+.PHONY : src/utils/medium_catalog.cpp.i
+
+src/utils/medium_catalog.s: src/utils/medium_catalog.cpp.s
+.PHONY : src/utils/medium_catalog.s
+
+# target to generate assembly for a file
+src/utils/medium_catalog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.s
+.PHONY : src/utils/medium_catalog.cpp.s
+
 src/utils/pkg.o: src/utils/pkg.cpp.o
 .PHONY : src/utils/pkg.o
 
@@ -745,6 +772,9 @@ help:
 	@echo "... src/utils/formatter.o"
 	@echo "... src/utils/formatter.i"
 	@echo "... src/utils/formatter.s"
+	@echo "... src/utils/medium_catalog.o"
+	@echo "... src/utils/medium_catalog.i"
+	@echo "... src/utils/medium_catalog.s"
 	@echo "... src/utils/pkg.o"
 	@echo "... src/utils/pkg.i"
 	@echo "... src/utils/pkg.s"

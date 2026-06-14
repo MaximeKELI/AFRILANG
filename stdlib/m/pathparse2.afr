@@ -1,0 +1,16 @@
+module pathparse2
+
+function basename(path text) returns text
+end
+
+function dirname(path text) returns text
+end
+
+function extension(path text) returns text
+end
+
+function stem(path text) returns text
+end
+
+function joinPath(a text, b text) returns text
+end

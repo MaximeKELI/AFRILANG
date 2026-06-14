@@ -1,0 +1,13 @@
+module matmul2
+
+function mul2x2(a list number, b list number) returns list number
+end
+
+function mulScalar(m list number, s number) returns list number
+end
+
+function dot2(a list number, b list number) returns number
+end
+
+function norm2(v list number) returns number
+end

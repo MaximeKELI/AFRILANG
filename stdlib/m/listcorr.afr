@@ -1,0 +1,13 @@
+module listcorr
+
+function covariance(a list number, b list number) returns number
+end
+
+function correlation(a list number, b list number) returns number
+end
+
+function dotProduct(a list number, b list number) returns number
+end
+
+function euclidean(a list number, b list number) returns number
+end

@@ -1,0 +1,13 @@
+module physics2
+
+function kineticEnergy(mass number, velocity number) returns number
+end
+
+function potentialEnergy(mass number, height number) returns number
+end
+
+function momentum(mass number, velocity number) returns number
+end
+
+function force(mass number, accel number) returns number
+end

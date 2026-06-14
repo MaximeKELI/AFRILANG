@@ -1,0 +1,13 @@
+module httpparse2
+
+function statusClass(code number) returns number
+end
+
+function isClientError(code number) returns bool
+end
+
+function isServerError(code number) returns bool
+end
+
+function statusText(code number) returns text
+end

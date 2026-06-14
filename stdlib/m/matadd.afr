@@ -1,0 +1,13 @@
+module matadd
+
+function add(a list number, b list number) returns list number
+end
+
+function sub(a list number, b list number) returns list number
+end
+
+function neg(m list number) returns list number
+end
+
+function addScalar(m list number, s number) returns list number
+end

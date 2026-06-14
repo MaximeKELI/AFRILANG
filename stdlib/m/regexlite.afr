@@ -1,0 +1,16 @@
+module regexlite
+
+function matchDigits(s text) returns bool
+end
+
+function matchAlpha(s text) returns bool
+end
+
+function matchAlnum(s text) returns bool
+end
+
+function extractDigits(s text) returns text
+end
+
+function extractAlpha(s text) returns text
+end

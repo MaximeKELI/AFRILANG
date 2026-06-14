@@ -1,0 +1,13 @@
+module distance3
+
+function manhattan2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function chebyshev2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function cosineSimilarity(a list number, b list number) returns number
+end
+
+function hammingDist(a text, b text) returns number
+end

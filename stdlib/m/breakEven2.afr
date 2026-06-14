@@ -1,0 +1,13 @@
+module breakEven2
+
+function breakEvenUnits(fixedCost number, price number, varCost number) returns number
+end
+
+function breakEvenRevenue(fixedCost number, margin number) returns number
+end
+
+function contributionMargin(price number, varCost number) returns number
+end
+
+function marginOfSafety(currentSales number, breakEven number) returns number
+end

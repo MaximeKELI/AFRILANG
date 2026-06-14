@@ -1,0 +1,16 @@
+module textstats
+
+function wordCount(s text) returns number
+end
+
+function charCount(s text) returns number
+end
+
+function lineCount(s text) returns number
+end
+
+function avgWordLen(s text) returns number
+end
+
+function digitCount(s text) returns number
+end
