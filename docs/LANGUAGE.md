@@ -103,6 +103,26 @@ end
 
 Liaison de payload : `case Error with msg then` lie `msg` au champ `message`.
 
+**Union taguée** — alias de `enum` pour les types somme :
+
+```afr
+union Shape
+    case Circle with radius number
+    case Rect with width number, height number
+end
+
+create s = Shape.Circle with 5
+
+match s
+    case Circle with r then
+        say r
+    end
+    case Rect with w, h then
+        say w
+    end
+end
+```
+
 **Exhaustivité** : tous les cas doivent être couverts ou un `default` doit être présent.
 
 ### Match en expression
@@ -145,6 +165,30 @@ pet.speak()
 - Vérification des **signatures** à l'implémentation (paramètres, retour)
 - Variables et listes **typées par interface**
 - Polymorphisme via `std::unique_ptr<Interface>` + virtual
+
+## Surcharge d'opérateurs
+
+Dans une classe, déclarez des opérateurs binaires :
+
+```afr
+class Vector
+    public field x number
+    public field y number
+
+    function init(ax number, ay number)
+        set this.x = ax
+        set this.y = ay
+    end
+
+    operator + (other Vector) returns Vector
+        return new Vector(x + other.x, y + other.y)
+    end
+end
+
+create c = a + b
+```
+
+Opérateurs supportés : `+`, `-`, `*`, `/`, `==`, `!=`, `<`, `>`.
 
 ## String interpolation
 

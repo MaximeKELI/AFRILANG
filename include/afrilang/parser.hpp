@@ -48,9 +48,11 @@ private:
     std::unique_ptr<TestNode> parseTest();
     std::unique_ptr<ClassNode> parseClass(bool isAbstract = false, bool isFinal = false);
     std::unique_ptr<FunctionNode> parseFunction(bool signatureOnly = false,
-                                                bool isStatic = false,
-                                                bool isAbstract = false,
-                                                bool isFinal = false);
+                                                    bool isStatic = false,
+                                                    bool isAbstract = false,
+                                                    bool isFinal = false);
+    std::unique_ptr<FunctionNode> parseOperatorMethod();
+    std::string parseOperatorSymbol();
     FieldNode parseField();
     std::unique_ptr<StatementNode> parseStatement();
     std::unique_ptr<StatementNode> parseSayStatement();

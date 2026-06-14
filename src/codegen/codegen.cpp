@@ -48,6 +48,42 @@ std::string capitalizeName(const std::string& name) {
     return out;
 }
 
+const MethodSignature* findClassOperator(const SemanticResult& semantic,
+                                         const std::string& className,
+                                         const std::string& opSymbol) {
+    const ClassInfo* cls = nullptr;
+    auto it = semantic.classes.find(className);
+    if (it != semantic.classes.end()) cls = &it->second;
+    while (cls) {
+        auto oit = cls->operators.find(opSymbol);
+        if (oit != cls->operators.end()) return &oit->second;
+        if (cls->baseClass.empty()) break;
+        auto bit = semantic.classes.find(cls->baseClass);
+        if (bit == semantic.classes.end()) break;
+        cls = &bit->second;
+    }
+    return nullptr;
+}
+
+AfrType expressionOperandType(const ExpressionNode& expr, const SemanticResult& semantic) {
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
+        auto vit = semantic.globalVariables.find(id->name);
+        if (vit != semantic.globalVariables.end()) return vit->second;
+    }
+    if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
+        return AfrType::classType(newExpr->className);
+    }
+    return AfrType::voidType();
+}
+
+bool assignValueIsNewExpression(const ExpressionNode& value) {
+    if (dynamic_cast<const NewExpressionNode*>(&value)) return true;
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&value)) {
+        return dynamic_cast<const NewExpressionNode*>(call->callee.get()) != nullptr;
+    }
+    return false;
+}
+
 std::string cppGenericArg(const std::string& afr) {
     if (afr == "number") return "double";
     if (afr == "text") return "std::string";
@@ -942,6 +978,7 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
         if (shouldOverride) out << " override";
     }
     if (func.isFinal) out << " final";
+    if (func.isOperator && ownerClass && !func.isStatic) out << " const";
 
     out << " {\n";
     const FunctionNode* saved = currentFunction_;
@@ -1191,16 +1228,36 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         std::string typeCpp;
+        AfrType resolvedType = AfrType::voidType();
         if (!assign->typeName.empty()) {
             const AfrType declared = resolveCodegenDeclType(assign->typeName, semantic_);
+            resolvedType = declared;
             typeCpp = (declared.kind == TypeKind::Class || declared.kind == TypeKind::Interface)
                 ? classStorageCpp(declared)
                 : declared.toCpp();
         } else {
-            typeCpp = inferExpressionType(*assign->value);
+            const auto vit = semantic_.globalVariables.find(assign->name);
+            if (vit != semantic_.globalVariables.end()) {
+                resolvedType = vit->second;
+                typeCpp = (vit->second.kind == TypeKind::Class ||
+                           vit->second.kind == TypeKind::Interface)
+                    ? classStorageCpp(vit->second)
+                    : vit->second.toCpp();
+            } else {
+                typeCpp = inferExpressionType(*assign->value);
+            }
         }
+        const bool wrapUnique =
+            typeCpp.rfind("std::unique_ptr<", 0) == 0 &&
+            !assignValueIsNewExpression(*assign->value) &&
+            (resolvedType.kind == TypeKind::Class ||
+             resolvedType.kind == TypeKind::Interface);
         out << constPrefix << typeCpp << " " << assign->name << " = ";
+        if (wrapUnique) {
+            out << "std::make_unique<" << resolvedType.className << ">(";
+        }
         emitExpression(out, *assign->value, ownerClass);
+        if (wrapUnique) out << ")";
         out << ";\n";
         return;
     }
@@ -1664,6 +1721,24 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 return;
             }
         }
+
+        const AfrType leftType = expressionOperandType(*bin->left, semantic_);
+        if (leftType.kind == TypeKind::Class) {
+            if (const MethodSignature* opSig =
+                    findClassOperator(semantic_, leftType.className, bin->op)) {
+                out << "(";
+                emitReceiver(out, *bin->left, ownerClass);
+                out << "operator" << bin->op << "(";
+                if (!opSig->paramTypes.empty()) {
+                    emitCallArgument(out, *bin->right, opSig->paramTypes[0], ownerClass);
+                } else {
+                    emitExpression(out, *bin->right, ownerClass);
+                }
+                out << "))";
+                return;
+            }
+        }
+
         out << "(";
         emitExpression(out, *bin->left, ownerClass);
         out << " " << bin->op << " ";
@@ -2236,6 +2311,17 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
                 return "std::string";
             }
         }
+        const AfrType leftType = expressionOperandType(*bin->left, semantic_);
+        if (leftType.kind == TypeKind::Class) {
+            if (const MethodSignature* opSig =
+                    findClassOperator(semantic_, leftType.className, bin->op)) {
+                if (opSig->returnType.kind == TypeKind::Class ||
+                    opSig->returnType.kind == TypeKind::Interface) {
+                    return classStorageCpp(opSig->returnType);
+                }
+                return opSig->returnType.toCpp();
+            }
+        }
         if (bin->op == ">" || bin->op == "<" || bin->op == "==" || bin->op == "!=" ||
             bin->op == "&&" || bin->op == "||") {
             return "bool";
@@ -2263,6 +2349,9 @@ AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const 
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
         auto it = semantic_.globalVariables.find(id->name);
         if (it != semantic_.globalVariables.end()) return it->second;
+    }
+    if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
+        return AfrType::classType(newExpr->className);
     }
     if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
         return AfrType::mapType(typeFromName(emptyMap->keyTypeName),

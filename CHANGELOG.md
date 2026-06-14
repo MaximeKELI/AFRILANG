@@ -8,6 +8,8 @@
 - **Génériques explicites** — `identity<number>(42)`
 - **Match avec liaison** — `case Error with msg then`
 - **Match en expression** — `create x = match e then case Ok then "ok" end end`
+- **Unions taguées** — `union Shape` (alias de `enum` avec payload)
+- **Surcharge d'opérateurs** — `operator + (other Vector) returns Vector` dans les classes
 - **Interfaces / traits** — vérification de signature, variables `Speakable`, `list of Speakable`
 - **Enums dans modules** — `module M` peut contenir `enum`
 - **Interfaces graphiques** — fenêtres SDL2, texte, boutons (`open window`, `draw text`, `button ... is clicked`)

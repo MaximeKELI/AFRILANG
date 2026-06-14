@@ -218,7 +218,9 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "complex_libs_demo.afr",
         "language_demo.afr",
         "traits_demo.afr",
-        "match_expr_demo.afr"
+        "match_expr_demo.afr",
+        "unions_demo.afr",
+        "operators_demo.afr"
     };
 
     CompileOptions opts;

@@ -54,6 +54,7 @@ struct ClassInfo {
     std::unordered_map<std::string, FieldInfo> fields;
     std::unordered_map<std::string, PropertyInfo> properties;
     std::unordered_map<std::string, MethodSignature> methods;
+    std::unordered_map<std::string, MethodSignature> operators;
 };
 
 struct RecordInfo {

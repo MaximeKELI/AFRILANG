@@ -268,6 +268,8 @@ void SemanticAnalyzer::registerClasses() {
             sig.isAbstract = method->isAbstract;
             sig.isFinal = method->isFinal;
             sig.isAsync = method->isAsync;
+            sig.isOperator = method->isOperator;
+            sig.operatorSymbol = method->operatorSymbol;
             sig.typeParams = cls->typeParams.empty()
                 ? method->typeParams
                 : cls->typeParams;
@@ -284,7 +286,17 @@ void SemanticAnalyzer::registerClasses() {
                 errorAt(*method, msg);
             });
 
-            info.methods[method->name] = std::move(sig);
+            if (method->isOperator) {
+                if (method->parameters.size() != 1) {
+                    errorAt(*method, "Un opérateur binaire requiert exactement un paramètre");
+                }
+                if (info.operators.count(method->operatorSymbol)) {
+                    errorAt(*method, "Opérateur '" + method->operatorSymbol + "' déjà défini");
+                }
+                info.operators[method->operatorSymbol] = std::move(sig);
+            } else {
+                info.methods[method->name] = std::move(sig);
+            }
         }
 
         result_.classes[cls->name] = std::move(info);
@@ -333,6 +345,8 @@ void SemanticAnalyzer::registerClasses() {
                 sig.isStatic = method->isStatic;
                 sig.isAbstract = method->isAbstract;
                 sig.isAsync = method->isAsync;
+                sig.isOperator = method->isOperator;
+                sig.operatorSymbol = method->operatorSymbol;
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
@@ -340,7 +354,11 @@ void SemanticAnalyzer::registerClasses() {
                 validateFunctionDefaults(*method, [&](const std::string& msg) {
                     errorAt(*method, msg);
                 });
-                info.methods[method->name] = std::move(sig);
+                if (method->isOperator) {
+                    info.operators[method->operatorSymbol] = std::move(sig);
+                } else {
+                    info.methods[method->name] = std::move(sig);
+                }
             }
             info.modulePrivate = cls->modulePrivate;
             result_.classes[cls->name] = info;
@@ -1173,6 +1191,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 
         if (bin->op == "&&" || bin->op == "||") {
             return AfrType::boolType();
+        }
+
+        if (left.kind == TypeKind::Class) {
+            if (const MethodSignature* opSig = findOperator(left.className, bin->op)) {
+                if (opSig->paramTypes.size() != 1) {
+                    errorAt(expr, "Opérateur '" + bin->op + "' invalide");
+                }
+                if (!isAssignable(opSig->paramTypes[0], right)) {
+                    errorAt(expr, "Type incompatible pour l'opérande droit de '" + bin->op + "'");
+                }
+                return opSig->returnType;
+            }
         }
 
         if (bin->op == ">" || bin->op == "<" || bin->op == "==" || bin->op == "!=") {
@@ -2315,6 +2345,19 @@ MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,
                                               const std::string& methodName) {
     return const_cast<MethodSignature*>(
         static_cast<const SemanticAnalyzer*>(this)->findMethod(className, methodName));
+}
+
+const MethodSignature* SemanticAnalyzer::findOperator(const std::string& className,
+                                                      const std::string& opSymbol) const {
+    const ClassInfo* cls = findClass(className);
+    while (cls) {
+        auto it = cls->operators.find(opSymbol);
+        if (it != cls->operators.end()) return &it->second;
+
+        if (cls->baseClass.empty()) break;
+        cls = findClass(cls->baseClass);
+    }
+    return nullptr;
 }
 
 [[noreturn]] void SemanticAnalyzer::error(const std::string& message, int line, int column) const {

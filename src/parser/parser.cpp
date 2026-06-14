@@ -165,6 +165,8 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 records.push_back(parseRecord());
             } else if (match(TokenType::Enum)) {
                 enums.push_back(parseEnum());
+            } else if (match(TokenType::Union)) {
+                enums.push_back(parseEnum());
             } else if (match(TokenType::Abstract)) {
                 consume(TokenType::Class, "'class' attendu après 'abstract'");
                 classes.push_back(parseClass(true, false));
@@ -260,6 +262,8 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
         const bool isPrivate = match(TokenType::Private);
 
         if (match(TokenType::Enum)) {
+            enums.push_back(parseEnum());
+        } else if (match(TokenType::Union)) {
             enums.push_back(parseEnum());
         } else if (match(TokenType::Abstract)) {
             consume(TokenType::Class, "'class' attendu après 'abstract'");
@@ -466,6 +470,8 @@ std::unique_ptr<ClassNode> Parser::parseClass(bool isAbstract, bool isFinal) {
             auto method = parseFunction();
             method->isAsync = true;
             methods.push_back(std::move(method));
+        } else if (match(TokenType::Operator)) {
+            methods.push_back(parseOperatorMethod());
         } else if (match(TokenType::Function)) {
             methods.push_back(parseFunction());
         } else {
@@ -596,6 +602,61 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
         std::move(funcName), std::move(params), std::move(returnType),
         returnsResult, std::move(body), std::move(typeParams), isStatic, isAbstract, isFinal);
     node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::string Parser::parseOperatorSymbol() {
+    if (match(TokenType::Plus)) return "+";
+    if (match(TokenType::Minus)) return "-";
+    if (match(TokenType::Star)) return "*";
+    if (match(TokenType::Slash)) return "/";
+    if (match(TokenType::Greater)) {
+        consumeToOrThan("'than' attendu après 'greater'");
+        return ">";
+    }
+    if (match(TokenType::Less)) {
+        consumeToOrThan("'than' attendu après 'less'");
+        return "<";
+    }
+    if (match(TokenType::Equal)) {
+        consumeToOrThan("'to' attendu après 'equal'");
+        return "==";
+    }
+    if (match(TokenType::Not)) {
+        consume(TokenType::Equal, "'equal' attendu après 'not'");
+        consumeToOrThan("'to' attendu après 'equal'");
+        return "!=";
+    }
+    error("Symbole d'opérateur attendu (+, -, *, /, ==, !=, <, >)");
+    return "+";
+}
+
+std::unique_ptr<FunctionNode> Parser::parseOperatorMethod() {
+    std::string opSymbol = parseOperatorSymbol();
+
+    consume(TokenType::LeftParen, "'(' attendu après l'opérateur");
+    std::vector<ParameterNode> params = parseParameters();
+    consume(TokenType::RightParen, "')' attendu");
+
+    std::string returnType;
+    bool returnsResult = false;
+    if (match(TokenType::Returns)) {
+        returnType = parseTypeName();
+        if (match(TokenType::Or)) {
+            consume(TokenType::ErrorKw, "'error' attendu après 'or'");
+            returnsResult = true;
+        }
+    }
+
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer l'opérateur");
+
+    const std::string internalName = "operator" + opSymbol;
+    auto node = std::make_unique<FunctionNode>(
+        internalName, std::move(params), std::move(returnType),
+        returnsResult, std::move(body), {}, false, false, false, false,
+        true, opSymbol);
+    setLoc(*node);
     return node;
 }
 
