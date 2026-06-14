@@ -31,6 +31,8 @@ static const std::vector<std::string> kKeywords = {
     "const", "map", "filter", "reduce", "flatMap", "where",
     "try", "catch", "raise", "final", "abstract", "static", "property", "destroy",
     "async", "await", "task",
+    "open", "window", "titled", "close", "clear", "background", "color",
+    "draw", "button", "clicked", "show", "frame", "size", "width", "height",
     "super", "explain", "yes", "no", "is", "greater", "than", "less", "equal",
     "and", "or", "not", "set", "this", "add", "length", "extern"
 };

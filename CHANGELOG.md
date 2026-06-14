@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Language
+- **Interfaces graphiques** — fenêtres SDL2, texte, boutons (`open window`, `draw text`, `button ... is clicked`)
 - **async / await (complet)** — `returns T or error`, await dans tests, scheduler + thread pool
 - **flatMap each** — `flatMap each x in list do return list of ... end`
 - **reduce text** — `reduce` naturel sur listes de `text`
@@ -14,6 +15,7 @@
 - **Default parameters**, **for from/to/step**, **const**, **maps**, **exceptions**, **interpolation**
 
 ### Standard library
+- `std/ui` — openWindow, drawText, drawButton, showFrame (SDL2)
 - `std/async` — sleep(ms) via scheduler (timers)
 - `std/http` — httpGetAsync, httpPostAsync (thread pool)
 - `std/io` — readFileAsync
@@ -31,6 +33,7 @@
 - `phase11_demo.afr` — démo complète phase 11
 - `async_demo.afr` — async/await + std/async
 - `async_full.afr` — async + Result + tests await + scheduler
+- `gui_demo.afr` — interface graphique SDL2
 - `polymorphic_list.afr`, `generic_class.afr`, `poo_advanced.afr`, `args_path_demo.afr`
 
 ## 0.4.0
