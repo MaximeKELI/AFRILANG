@@ -1085,8 +1085,30 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
     if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
         AfrType subjectType = analyzeExpression(*matchStmt->subject, scope);
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+            for (const auto& arm : matchStmt->arms) {
+                if (arm.isDefault) {
+                    for (const auto& bodyStmt : arm.body) {
+                        analyzeStatement(*bodyStmt, scope, isGlobalScope);
+                    }
+                    continue;
+                }
+                if (subjectType.kind == TypeKind::Text &&
+                    arm.caseKind != MatchArmNode::CaseKind::Text) {
+                    errorAt(*matchStmt, "Cas texte attendu dans match sur text");
+                }
+                if (subjectType.kind == TypeKind::Number &&
+                    arm.caseKind != MatchArmNode::CaseKind::Number) {
+                    errorAt(*matchStmt, "Cas numérique attendu dans match sur number");
+                }
+                for (const auto& bodyStmt : arm.body) {
+                    analyzeStatement(*bodyStmt, scope, isGlobalScope);
+                }
+            }
+            return;
+        }
         if (subjectType.kind != TypeKind::Enum) {
-            errorAt(*matchStmt, "'match' requiert une valeur de type enum");
+            errorAt(*matchStmt, "'match' requiert une valeur de type enum, text ou number");
         }
         const EnumInfo* en = findEnum(subjectType.className);
         if (!en) errorAt(*matchStmt, "Enum '" + subjectType.className + "' introuvable");
@@ -1974,8 +1996,25 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 
     if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
         AfrType subjectType = analyzeExpression(*matchExpr->subject, scope);
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+            AfrType resultType;
+            bool hasResult = false;
+            for (const auto& arm : matchExpr->arms) {
+                if (!arm.value) {
+                    errorAt(*matchExpr, "Bras match sans expression");
+                }
+                AfrType armType = analyzeExpression(*arm.value, scope);
+                if (!hasResult) {
+                    resultType = armType;
+                    hasResult = true;
+                } else if (!isAssignable(resultType, armType) && !isAssignable(armType, resultType)) {
+                    errorAt(*matchExpr, "Types incohérents dans match expression");
+                }
+            }
+            return hasResult ? resultType : AfrType::voidType();
+        }
         if (subjectType.kind != TypeKind::Enum) {
-            errorAt(*matchExpr, "'match' requiert une valeur de type enum");
+            errorAt(*matchExpr, "'match' requiert une valeur de type enum, text ou number");
         }
         const EnumInfo* en = findEnum(subjectType.className);
         if (!en) errorAt(*matchExpr, "Enum '" + subjectType.className + "' introuvable");
@@ -2009,13 +2048,10 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             if (caseIt == en->cases.end()) {
                 errorAt(*matchExpr, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
             }
-            coveredCases.insert(arm.caseName);
-
-            if (!arm.value) {
-                errorAt(*matchExpr, "Cas '" + arm.caseName + "' sans expression dans match expression");
+            if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
+                errorAt(*matchExpr, "Cas littéral incompatible avec match enum");
             }
-
-            auto armScope = scope;
+            coveredCases.insert(arm.caseName);
             if (!caseIt->second.fields.empty()) {
                 if (arm.bindNames.empty()) {
                     for (const auto& [fname, ftype] : caseIt->second.fields) {
