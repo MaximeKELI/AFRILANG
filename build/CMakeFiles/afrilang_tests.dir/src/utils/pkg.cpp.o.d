@@ -168,11 +168,13 @@ CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: \
  /usr/include/c++/13/bits/stl_relops.h \
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
  /usr/include/c++/13/stdexcept \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /usr/include/c++/13/unordered_set \
- /usr/include/c++/13/bits/unordered_set.h /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/unordered_set.h \
+ /home/maxime/AFRILANG/include/afrilang/semver.hpp \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \

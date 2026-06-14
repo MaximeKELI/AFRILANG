@@ -157,6 +157,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
@@ -186,7 +187,9 @@ CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o: \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/parser.hpp \
  /home/maxime/AFRILANG/include/afrilang/pkg.hpp \
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
+ /home/maxime/AFRILANG/include/afrilang/utf8.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/cstdint /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/limits \

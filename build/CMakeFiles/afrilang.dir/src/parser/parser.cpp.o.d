@@ -182,6 +182,7 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: \
  /usr/include/c++/13/bits/erase_if.h \
  /home/maxime/AFRILANG/include/afrilang/error.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /home/maxime/AFRILANG/include/afrilang/lexer.hpp \

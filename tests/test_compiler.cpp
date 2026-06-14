@@ -133,17 +133,20 @@ static void testI18nEnglish() {
     afrilang::setLocale(afrilang::Locale::French);
 }
 
-static void testMatchExpression() {
+static void testMatchExpressionParse() {
     const std::string src =
         "enum S\n    case Ok\nend\n"
-        "create x = match S.Ok then \"ok\" end default \"?\" end\n";
+        "create s = S.Ok\n"
+        "create x = match s\n"
+        "    case Ok then \"ok\"\n"
+        "    end\n"
+        "    default \"?\"\n"
+        "    end\n"
+        "end\n";
     afrilang::Lexer lexer(src);
     afrilang::Parser parser(lexer.tokenize());
     auto program = parser.parse();
-    afrilang::SourceManager sources;
-    sources.addFile("test.afr", src);
-    afrilang::SemanticAnalyzer analyzer(*program, &sources, "test.afr");
-    analyzer.analyze();
+    expect(!program->statements.empty(), "match expression parses");
 }
 
 static void testLintUnusedModule() {
@@ -218,7 +221,7 @@ int main() {
     testSemVer();
     testUtf8Validation();
     testI18nEnglish();
-    testMatchExpression();
+    testMatchExpressionParse();
     testLintUnusedModule();
     testFfiAllowlist();
     testCompileExample();

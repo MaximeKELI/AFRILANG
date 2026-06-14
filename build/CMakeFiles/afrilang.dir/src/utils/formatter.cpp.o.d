@@ -157,6 +157,7 @@ CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
  /usr/include/c++/13/stdexcept /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
