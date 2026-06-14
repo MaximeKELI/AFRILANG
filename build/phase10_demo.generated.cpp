@@ -162,7 +162,7 @@ int main() {
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<double> nums = {3, 1, 4, 1, 5};
     #line 20 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    auto sorted = collections::sortNumbers(nums);
+    std::vector<double> sorted = collections::sortNumbers(nums);
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << sorted[static_cast<size_t>(0)] << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
@@ -176,7 +176,7 @@ int main() {
     #line 27 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::vector<std::string> words = {"zebra", "apple", "mango"};
     #line 28 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
-    auto ordered = collections::sortText(words);
+    std::vector<std::string> ordered = collections::sortText(words);
     #line 29 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"
     std::cout << ordered[static_cast<size_t>(0)] << std::endl;
     #line 30 "/home/maxime/AFRILANG/build/../examples/phase10_demo.afr"

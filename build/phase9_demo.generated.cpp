@@ -118,7 +118,7 @@ int main() {
     #line 16 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     logging::warn("this is a warning");
     #line 18 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    auto value = math::pow(2, 10);
+    double value = math::pow(2, 10);
     #line 19 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << math::abs(-42) << std::endl;
     #line 20 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
@@ -126,7 +126,7 @@ int main() {
     #line 21 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << value << std::endl;
     #line 23 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    auto nowTs = chrono::now();
+    double nowTs = chrono::now();
     #line 24 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << chrono::formatTimestamp(nowTs) << std::endl;
     #line 26 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
@@ -134,7 +134,7 @@ int main() {
     #line 27 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::contains("hello world", "world") << std::endl;
     #line 29 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
-    auto parts = str::split("a,b,c", ",");
+    std::vector<std::string> parts = str::split("a,b,c", ",");
     #line 30 "/home/maxime/AFRILANG/build/../examples/phase9_demo.afr"
     std::cout << str::join(parts, "-") << std::endl;
     return 0;
