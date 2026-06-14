@@ -19,6 +19,7 @@ enum class TokenType {
     Extern, From,
     Explain,
     Enum, Case, Match, Default, With, Nothing, Defined,
+    Union, Operator,
     Map, Try, Catch, Raise,
     Const, Step,
     Filter, Reduce, Where, FlatMap,
@@ -126,6 +127,8 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::From:           return "from";
         case TokenType::Explain:        return "explain";
         case TokenType::Enum:           return "enum";
+        case TokenType::Union:          return "union";
+        case TokenType::Operator:       return "operator";
         case TokenType::Case:           return "case";
         case TokenType::Match:          return "match";
         case TokenType::Default:        return "default";

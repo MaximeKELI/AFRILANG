@@ -26,6 +26,8 @@ struct MethodSignature {
     bool isAsync = false;
     std::string externLibrary;
     bool modulePrivate = false;
+    bool isOperator = false;
+    std::string operatorSymbol;
 };
 
 struct FieldInfo {

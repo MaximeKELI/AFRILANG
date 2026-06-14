@@ -71,6 +71,8 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"from",     TokenType::From},
     {"explain",  TokenType::Explain},
     {"enum",     TokenType::Enum},
+    {"union",    TokenType::Union},
+    {"operator", TokenType::Operator},
     {"case",     TokenType::Case},
     {"match",    TokenType::Match},
     {"default",  TokenType::Default},

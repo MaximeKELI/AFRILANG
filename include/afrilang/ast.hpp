@@ -591,6 +591,8 @@ struct FunctionNode : ASTNode {
     bool isAbstract = false;
     bool isFinal = false;
     bool isAsync = false;
+    bool isOperator = false;
+    std::string operatorSymbol;
     bool modulePrivate = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 
@@ -603,7 +605,9 @@ struct FunctionNode : ASTNode {
                  bool isStatic = false,
                  bool isAbstract = false,
                  bool isFinal = false,
-                 bool isAsync = false)
+                 bool isAsync = false,
+                 bool isOperator = false,
+                 std::string operatorSymbol = {})
         : name(std::move(name))
         , typeParams(std::move(typeParams))
         , parameters(std::move(parameters))
@@ -613,6 +617,8 @@ struct FunctionNode : ASTNode {
         , isAbstract(isAbstract)
         , isFinal(isFinal)
         , isAsync(isAsync)
+        , isOperator(isOperator)
+        , operatorSymbol(std::move(operatorSymbol))
         , body(std::move(body)) {}
 };
 
