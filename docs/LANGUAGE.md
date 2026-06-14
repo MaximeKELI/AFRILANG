@@ -105,6 +105,25 @@ Liaison de payload : `case Error with msg then` lie `msg` au champ `message`.
 
 **Exhaustivité** : tous les cas doivent être couverts ou un `default` doit être présent.
 
+### Match en expression
+
+Retourne une valeur (utilisable dans `create`, `say`, `return`, etc.) :
+
+```afr
+create label = match s
+    case Ok then "success"
+    end
+    case Error with msg then msg
+    end
+    default "unknown"
+    end
+end
+
+say match Status.Ok then "ok" end default "?" end
+```
+
+Chaque bras : `case Nom then <expression> end` ou `default <expression> end`.
+
 ## Interfaces (traits)
 
 ```afr

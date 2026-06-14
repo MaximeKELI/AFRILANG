@@ -7,7 +7,7 @@
 - **Modules export/private** — `export function`, `private function`, appel qualifié `Module.fn`
 - **Génériques explicites** — `identity<number>(42)`
 - **Match avec liaison** — `case Error with msg then`
-- **Match exhaustif** — erreur si cas enum manquant sans `default`
+- **Match en expression** — `create x = match e then case Ok then "ok" end end`
 - **Interfaces / traits** — vérification de signature, variables `Speakable`, `list of Speakable`
 - **Enums dans modules** — `module M` peut contenir `enum`
 - **Interfaces graphiques** — fenêtres SDL2, texte, boutons (`open window`, `draw text`, `button ... is clicked`)

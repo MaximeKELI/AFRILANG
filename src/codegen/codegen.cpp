@@ -1909,13 +1909,11 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         emitExpression(out, *matchExpr->subject, ownerClass);
         out << ";\n";
 
-        for (std::size_t i = 0; i < matchExpr->arms.size(); ++i) {
-            const auto& arm = matchExpr->arms[i];
-            if (arm.isDefault) {
-                out << "    return ";
-                emitExpression(out, *arm.value, ownerClass);
-                out << ";\n";
-            } else if (i == 0) {
+        std::size_t nonDefaultIdx = 0;
+        for (const auto& arm : matchExpr->arms) {
+            if (arm.isDefault) continue;
+
+            if (nonDefaultIdx == 0) {
                 out << "    if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
                     << ") {\n";
             } else {
@@ -1923,7 +1921,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                     << ") {\n";
             }
 
-            if (!arm.isDefault && !arm.bindNames.empty()) {
+            if (!arm.bindNames.empty()) {
                 const auto enumIt = semantic_.enums.find(enumName);
                 if (enumIt != semantic_.enums.end()) {
                     const auto caseIt = enumIt->second.cases.find(arm.caseName);
@@ -1940,10 +1938,18 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 }
             }
 
-            if (!arm.isDefault) {
-                out << "        return ";
+            out << "        return ";
+            emitExpression(out, *arm.value, ownerClass);
+            out << ";\n    }\n";
+            ++nonDefaultIdx;
+        }
+
+        for (const auto& arm : matchExpr->arms) {
+            if (arm.isDefault) {
+                out << "    else {\n        return ";
                 emitExpression(out, *arm.value, ownerClass);
                 out << ";\n    }\n";
+                break;
             }
         }
 
