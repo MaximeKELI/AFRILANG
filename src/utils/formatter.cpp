@@ -516,10 +516,6 @@ void Formatter::formatExpression(std::ostream& out, const ExpressionNode& expr) 
         return;
     }
 
-    if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {
-        (void)awaitExpr;
-    }
-
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
         out << '"' << str->value << '"';
         return;

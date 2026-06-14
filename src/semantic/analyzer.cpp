@@ -106,7 +106,7 @@ AfrType SemanticAnalyzer::resolveFunctionReturnTypeWithParams(
     } else {
         inner = resolveTypeForGeneric(func.returnTypeName, typeParams);
     }
-    if (func.returnsResult) return AfrType::resultType(inner);
+    if (func.returnsResult) inner = AfrType::resultType(inner);
     if (func.isAsync) return AfrType::taskType(inner);
     return inner;
 }
@@ -436,9 +436,6 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
     if (result_.functions.count(func.name)) {
         errorAt(func, "Fonction '" + func.name + "' déjà définie");
     }
-    if (func.isAsync && func.returnsResult) {
-        errorAt(func, "'async function' ne supporte pas 'returns ... or error'");
-    }
 
     MethodSignature sig;
     sig.name = func.name;
@@ -486,17 +483,16 @@ void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
 }
 
 void SemanticAnalyzer::analyzeTest(const TestNode& test) {
+    const int savedAsync = asyncContextDepth_;
+    asyncContextDepth_ = 1;
     std::unordered_map<std::string, AfrType> scope;
     for (const auto& stmt : test.body) {
         analyzeStatement(*stmt, scope, false);
     }
+    asyncContextDepth_ = savedAsync;
 }
 
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
-    if (func.isAsync && func.returnsResult) {
-        errorAt(func, "'async function' ne supporte pas 'returns ... or error'");
-    }
-
     std::unordered_map<std::string, AfrType> scope;
     activeTypeParams_ = func.typeParams;
     if (activeTypeParams_.empty() && ownerClass && !ownerClass->typeParams.empty()) {

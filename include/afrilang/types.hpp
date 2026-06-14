@@ -190,6 +190,10 @@ inline AfrType typeFromName(const std::string& name) {
     if (!name.empty() && name.back() == '?') {
         return AfrType::optionalType(typeFromName(name.substr(0, name.size() - 1)));
     }
+    const std::size_t orErrorPos = name.find(" or error");
+    if (orErrorPos != std::string::npos) {
+        return AfrType::resultType(typeFromName(name.substr(0, orErrorPos)));
+    }
     if (name == "number") return AfrType::number();
     if (name == "text")   return AfrType::text();
     if (name == "bool")   return AfrType::boolType();

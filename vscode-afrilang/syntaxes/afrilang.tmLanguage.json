@@ -13,7 +13,7 @@
     "keywords": {
       "patterns": [{
         "name": "keyword.control.afrilang",
-        "match": "\\b(class|function|end|if|then|else|while|do|for|each|return|interface|implements|test|assert|error|create|say|module|use|import|record|extends|returns|repeat|times|stop|skip|enum|case|match|default|with|defined|nothing|ask|into|new|public|private|protected|empty|explain|is|greater|than|less|equal|and|or|not|set|this|add|length|of|from|extern|map|filter|reduce|flatMap|where|super|static|abstract|final|property|destroy|try|catch|raise|const|step)\\b"
+        "match": "\\b(class|function|end|if|then|else|while|do|for|each|return|interface|implements|test|assert|error|create|say|module|use|import|record|extends|returns|repeat|times|stop|skip|enum|case|match|default|with|defined|nothing|ask|into|new|public|private|protected|empty|explain|is|greater|than|less|equal|and|or|not|set|this|add|length|of|from|extern|map|filter|reduce|flatMap|where|super|static|abstract|final|property|destroy|async|await|task|try|catch|raise|const|step)\\b"
       }]
     },
     "types": {

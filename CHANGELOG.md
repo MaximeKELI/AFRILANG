@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Language
+- **async / await (complet)** — `returns T or error`, await dans tests, scheduler + thread pool
 - **flatMap each** — `flatMap each x in list do return list of ... end`
 - **reduce text** — `reduce` naturel sur listes de `text`
 - **Listes polymorphes** — `list of Animal` avec `unique_ptr` et sous-types
@@ -13,6 +14,9 @@
 - **Default parameters**, **for from/to/step**, **const**, **maps**, **exceptions**, **interpolation**
 
 ### Standard library
+- `std/async` — sleep(ms) via scheduler (timers)
+- `std/http` — httpGetAsync, httpPostAsync (thread pool)
+- `std/io` — readFileAsync
 - `std/args` — count, at, all (arguments CLI)
 - `std/path` — join, basename, dirname, extension, isAbsolute
 - `std/collections` — map/filter/reduce/flatMap, sort, reverse, contains, indexOf, sum
@@ -25,6 +29,8 @@
 
 ### Examples
 - `phase11_demo.afr` — démo complète phase 11
+- `async_demo.afr` — async/await + std/async
+- `async_full.afr` — async + Result + tests await + scheduler
 - `polymorphic_list.afr`, `generic_class.afr`, `poo_advanced.afr`, `args_path_demo.afr`
 
 ## 0.4.0

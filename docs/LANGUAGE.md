@@ -92,7 +92,7 @@ say "Hello {name}!"
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async.
 
 ## Generics
 
@@ -195,11 +195,54 @@ create total = reduceNumbers(nums, function(acc number, x number) returns number
 end, 0)
 ```
 
+## Async / await
+
+Les fonctions `async` retournent implicitement un `task T` (coroutines C++20).  
+Support complet : `returns T or error`, `await` dans les tests, I/O async.
+
+```afr
+import "std/async"
+use async
+
+async function wait(ms number) returns text or error
+    if ms is less than 0 then
+        return error "invalid delay"
+    end
+    await sleep(ms)
+    return "ready"
+end
+
+async function main()
+    create r = await wait(10)
+    if r is error then
+        say r.message
+    else
+        say r.value
+    end
+end
+
+test "async in test block"
+    create r = await wait(1)
+    assert r.value is equal to "ready"
+end
+
+await main()
+```
+
+| Fonctionnalité | Détail |
+|----------------|--------|
+| `async function` | Retourne `task T` ou `task (T or error)` |
+| `await` | Global, fonctions async, blocs `test` |
+| `std/async` | `sleep(ms)` — scheduler avec file de timers |
+| `std/http` | `httpGetAsync`, `httpPostAsync` — thread pool |
+| `std/io` | `readFileAsync` — lecture fichier non bloquante |
+| Compilation | C++20 coroutines (`-std=c++20 -fcoroutines -pthread`) |
+
 ## Modules
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async.
 
 ### std/args
 

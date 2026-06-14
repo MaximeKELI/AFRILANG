@@ -228,6 +228,83 @@ bool programUsesNaturalListOps(const ProgramNode& program) {
     return false;
 }
 
+bool expressionUsesAwait(const ExpressionNode& expr) {
+    if (dynamic_cast<const AwaitExpressionNode*>(&expr)) return true;
+
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        return expressionUsesAwait(*bin->left) || expressionUsesAwait(*bin->right);
+    }
+    if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
+        return expressionUsesAwait(*unary->operand);
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        if (expressionUsesAwait(*call->callee)) return true;
+        for (const auto& arg : call->arguments) {
+            if (expressionUsesAwait(*arg)) return true;
+        }
+    }
+    if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
+        return expressionUsesAwait(*member->object);
+    }
+    if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        return expressionUsesAwait(*index->object) || expressionUsesAwait(*index->index);
+    }
+    if (const auto* length = dynamic_cast<const LengthExpressionNode*>(&expr)) {
+        return expressionUsesAwait(*length->object);
+    }
+    if (const auto* list = dynamic_cast<const ListLiteralNode*>(&expr)) {
+        for (const auto& elem : list->elements) {
+            if (expressionUsesAwait(*elem)) return true;
+        }
+    }
+    if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
+        for (const auto& stmt : lambda->body) {
+            if (const auto* say = dynamic_cast<const SayStatementNode*>(stmt.get())) {
+                if (expressionUsesAwait(*say->value)) return true;
+            } else if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
+                if (ret->value && expressionUsesAwait(*ret->value)) return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool statementUsesAwait(const StatementNode& stmt) {
+    if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
+        return expressionUsesAwait(*assign->value);
+    }
+    if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
+        return expressionUsesAwait(*say->value);
+    }
+    if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        return ret->value && expressionUsesAwait(*ret->value);
+    }
+    if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(&stmt)) {
+        return expressionUsesAwait(*exprStmt->expression);
+    }
+    if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(&stmt)) {
+        if (expressionUsesAwait(*ifStmt->condition)) return true;
+        for (const auto& s : ifStmt->thenBody) {
+            if (statementUsesAwait(*s)) return true;
+        }
+        for (const auto& s : ifStmt->elseBody) {
+            if (statementUsesAwait(*s)) return true;
+        }
+    }
+    if (const auto* assertStmt = dynamic_cast<const AssertStatementNode*>(&stmt)) {
+        return expressionUsesAwait(*assertStmt->condition);
+    }
+    return false;
+}
+
+bool statementUsesAwaitInBlock(
+    const std::vector<std::unique_ptr<StatementNode>>& stmts) {
+    for (const auto& stmt : stmts) {
+        if (statementUsesAwait(*stmt)) return true;
+    }
+    return false;
+}
+
 } // namespace
 
 CodeGenerator::CodeGenerator(const ProgramNode& program, const SemanticResult& semantic)
@@ -836,13 +913,33 @@ void CodeGenerator::emitTests(std::ostream& out) const {
 
     for (const auto& test : program_.tests) {
         const std::string fn = "afr_test_" + sanitizeTestName(test->name);
+        const bool wrapAsync = statementUsesAwaitInBlock(test->body);
+
         out << "void " << fn << "() {\n";
-        bool saved = inTest_;
+        bool savedTest = inTest_;
         inTest_ = true;
-        for (const auto& stmt : test->body) {
-            emitStatement(out, *stmt, 1, nullptr);
+
+        if (wrapAsync) {
+            out << "    afrilang::runtime::async::run([]() -> afrilang::runtime::async::Task<void> {\n";
         }
-        inTest_ = saved;
+
+        const bool savedAsync = inAsyncCoroutine_;
+        if (wrapAsync) inAsyncCoroutine_ = true;
+
+        const int indentLevel = wrapAsync ? 2 : 1;
+        for (const auto& stmt : test->body) {
+            emitStatement(out, *stmt, indentLevel, nullptr);
+        }
+
+        if (wrapAsync) {
+            indent(out, 2);
+            out << "co_return;\n";
+            indent(out, 1);
+            out << "}());\n";
+        }
+
+        inAsyncCoroutine_ = savedAsync;
+        inTest_ = savedTest;
         out << "}\n\n";
     }
 }
@@ -1140,7 +1237,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             emitExpression(out, *ret->value, ownerClass);
             out << ";\n";
             indent(out, indentLevel);
-            out << "return _result;\n";
+            out << (useCoReturn ? "co_return" : "return") << " _result;\n";
             return;
         }
         if (currentFunction_ && currentFunction_->returnsResult) {
@@ -1151,7 +1248,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             emitExpression(out, *ret->value, ownerClass);
             out << ";\n";
             indent(out, indentLevel);
-            out << "return _result;\n";
+            out << (useCoReturn ? "co_return" : "return") << " _result;\n";
             return;
         }
         if (useCoReturn) {
@@ -1178,7 +1275,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         if (inTest_) {
             out << "++afr_tests_failed;\n";
             indent(out, indentLevel + 1);
-            out << "return;\n";
+            out << (inAsyncCoroutine_ ? "co_return" : "return") << ";\n";
         } else {
             out << "std::exit(1);\n";
         }
@@ -1994,6 +2091,33 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         return;
     }
 
+    if (func.isAsync && moduleName == "http") {
+        if (func.name == "httpGetAsync") {
+            out << "return afrilang::runtime::async::runBlockingTask([url]() { "
+                << "return afrilang::runtime::http::httpGet(url); });\n";
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+        if (func.name == "httpPostAsync") {
+            out << "return afrilang::runtime::async::runBlockingTask([url, body]() { "
+                << "return afrilang::runtime::http::httpPost(url, body); });\n";
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+    }
+
+    if (func.isAsync && moduleName == "io") {
+        if (func.name == "readFileAsync") {
+            out << "return afrilang::runtime::async::runBlockingTask([path]() { "
+                << "return afrilang::runtime::io::readFile(path); });\n";
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+    }
+
     const std::string rt = "afrilang::runtime::" + runtimeModuleName(moduleName) +
                            "::" + func.name;
 
@@ -2024,15 +2148,19 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 std::string CodeGenerator::functionReturnCpp(const FunctionNode& func,
                                              const ClassInfo* ownerClass) {
     if (func.returnTypeName.empty() && !func.isAsync) return "void";
-    if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
     if (func.isAsync) {
         if (func.returnTypeName.empty()) {
             return "afrilang::runtime::async::Task<void>";
+        }
+        if (func.returnsResult) {
+            return "afrilang::runtime::async::Task<" +
+                   resultTypeAlias(func.returnTypeName) + ">";
         }
         return "afrilang::runtime::async::Task<" +
                cppTypeFromAfrName(func.returnTypeName, effectiveTypeParams(func, ownerClass)) +
                ">";
     }
+    if (func.returnsResult) return resultTypeAlias(func.returnTypeName);
     return cppTypeFromAfrName(func.returnTypeName, effectiveTypeParams(func, ownerClass));
 }
 
@@ -2063,7 +2191,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         " -O2 -Wall -Wextra";
     if (semantic_.usesAsync &&
         (crossTarget_ != "wasm32")) {
-        command += " -fcoroutines";
+        command += " -fcoroutines -pthread";
     }
     if (debugSymbols_) {
         command += " -g";

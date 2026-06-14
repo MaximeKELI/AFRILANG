@@ -105,6 +105,7 @@ void StdlibRegistry::injectIoModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("writeFile", {{"path", "text"}, {"content", "text"}}, ""));
     fns.push_back(makeStubFunction("fileExists", {{"path", "text"}}, "bool"));
     fns.push_back(makeStubFunction("readLine", {}, "text"));
+    fns.push_back(makeStubFunction("readFileAsync", {{"path", "text"}}, "text", true));
     injectModule(program, "io", std::move(fns));
 }
 
@@ -131,6 +132,8 @@ void StdlibRegistry::injectHttpModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("httpGet", {{"url", "text"}}, "text"));
     fns.push_back(makeStubFunction("httpPost", {{"url", "text"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpGetAsync", {{"url", "text"}}, "text", true));
+    fns.push_back(makeStubFunction("httpPostAsync", {{"url", "text"}, {"body", "text"}}, "text", true));
     injectModule(program, "http", std::move(fns));
 }
 

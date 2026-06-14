@@ -30,6 +30,7 @@ static const std::vector<std::string> kKeywords = {
     "new", "public", "private", "protected", "empty", "of", "at", "to", "from", "step",
     "const", "map", "filter", "reduce", "flatMap", "where",
     "try", "catch", "raise", "final", "abstract", "static", "property", "destroy",
+    "async", "await", "task",
     "super", "explain", "yes", "no", "is", "greater", "than", "less", "equal",
     "and", "or", "not", "set", "this", "add", "length", "extern"
 };
