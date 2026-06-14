@@ -7,19 +7,24 @@
 
 namespace afrilang {
 
+enum class ErrorCode;
+
 class CompileError : public std::runtime_error {
 public:
     CompileError(std::string message, int line, int column,
                  std::string file = "",
                  std::string sourceLine = "",
-                 std::vector<std::string> suggestions = {});
+                 std::vector<std::string> suggestions = {},
+                 ErrorCode code = static_cast<ErrorCode>(0));
 
     int line() const { return line_; }
     int column() const { return column_; }
     const std::string& file() const { return file_; }
     const std::vector<std::string>& suggestions() const { return suggestions_; }
+    ErrorCode code() const { return code_; }
 
     std::string format() const;
+    std::string formatJson() const;
 
 private:
     std::string message_;
@@ -28,6 +33,14 @@ private:
     std::string file_;
     std::string sourceLine_;
     std::vector<std::string> suggestions_;
+    ErrorCode code_;
+};
+
+struct LintWarning {
+    int line = 0;
+    int column = 0;
+    std::string message;
+    std::string file;
 };
 
 struct SourceFile {

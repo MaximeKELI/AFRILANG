@@ -3,8 +3,10 @@
 #include <chrono>
 #include <cstdlib>
 #include <cstring>
+#include <fcntl.h>
 #include <filesystem>
 #include <fstream>
+#include <signal.h>
 #include <sstream>
 #include <sys/wait.h>
 #include <unistd.h>

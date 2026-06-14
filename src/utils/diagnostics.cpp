@@ -1,5 +1,8 @@
 #include "afrilang/diagnostics.hpp"
 
+#include "afrilang/i18n.hpp"
+#include "afrilang/utf8.hpp"
+
 #include <algorithm>
 #include <cctype>
 #include <sstream>
@@ -8,7 +11,8 @@ namespace afrilang {
 
 CompileError::CompileError(std::string message, int line, int column,
                            std::string file, std::string sourceLine,
-                           std::vector<std::string> suggestions)
+                           std::vector<std::string> suggestions,
+                           ErrorCode code)
     : std::runtime_error("")
     , message_(std::move(message))
     , line_(line)
@@ -16,39 +20,42 @@ CompileError::CompileError(std::string message, int line, int column,
     , file_(std::move(file))
     , sourceLine_(std::move(sourceLine))
     , suggestions_(std::move(suggestions))
+    , code_(code == static_cast<ErrorCode>(0) ? ErrorCode::Generic : code)
 {
     static_cast<std::runtime_error&>(*this) = std::runtime_error(format());
 }
 
 std::string CompileError::format() const {
     std::ostringstream out;
-
-    if (!file_.empty()) {
-        out << "Erreur dans " << file_ << ":" << line_ << ":" << column_ << "\n";
-    } else if (line_ > 0) {
-        out << "Erreur ligne " << line_ << ", colonne " << column_ << "\n";
-    }
-
+    out << formatErrorHeader(file_, line_, column_, code_);
     out << "  " << message_ << "\n";
 
     if (!sourceLine_.empty()) {
         out << "\n  " << sourceLine_ << "\n  ";
-        const int caretPos = std::max(0, column_ - 1);
-        for (int i = 0; i < caretPos; ++i) {
-            out << (sourceLine_[static_cast<std::size_t>(i)] == '\t' ? '\t' : ' ');
+        const std::size_t caretPos = utf8DisplayWidthBefore(sourceLine_, column_);
+        for (std::size_t i = 0; i < caretPos; ++i) {
+            out << ' ';
         }
         out << "^\n";
     }
 
     if (!suggestions_.empty()) {
-        out << "\n  Suggestion";
-        if (suggestions_.size() > 1) out << "s";
-        out << " :\n";
+        out << "\n  " << formatSuggestionLabel(static_cast<int>(suggestions_.size())) << "\n";
         for (const auto& s : suggestions_) {
             out << "    - " << s << "\n";
         }
     }
 
+    return out.str();
+}
+
+std::string CompileError::formatJson() const {
+    std::ostringstream out;
+    out << "{\"code\":\"" << errorCodeString(code_) << "\","
+        << "\"message\":\"" << message_ << "\","
+        << "\"line\":" << line_ << ","
+        << "\"column\":" << column_ << ","
+        << "\"file\":\"" << file_ << "\"}";
     return out.str();
 }
 
@@ -119,7 +126,7 @@ std::vector<std::string> findSimilarNames(const std::string& name,
 
     std::vector<std::string> results;
     for (int i = 0; i < maxResults && i < static_cast<int>(scored.size()); ++i) {
-        results.push_back("vouliez-vous dire '" + scored[static_cast<std::size_t>(i)].name + "' ?");
+        results.push_back(formatDidYouMean(scored[static_cast<std::size_t>(i)].name));
     }
     return results;
 }
