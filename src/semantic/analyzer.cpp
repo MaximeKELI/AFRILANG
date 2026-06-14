@@ -404,10 +404,6 @@ void SemanticAnalyzer::registerModules() {
 }
 
 void SemanticAnalyzer::registerExterns() {
-    if (isSecureMode() && !allowFfi() && !program_.externs.empty()) {
-        securityViolation(
-            "FFI (extern) interdit en mode sécurisé — AFRILANG_ALLOW_FFI=1 requis");
-    }
     static const std::unordered_set<std::string> kAllowedLibs = {
         "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
     };

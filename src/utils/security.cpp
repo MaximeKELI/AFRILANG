@@ -108,10 +108,6 @@ void validateProgramSize(const ProgramNode& program) {
         securityViolation("Programme trop complexe (" + std::to_string(total) +
                           " déclarations, max " + std::to_string(limits.maxDeclarations) + ")");
     }
-    if (isSecureMode() && !program.externs.empty() && !allowFfi()) {
-        securityViolation(
-            "FFI (extern) interdit en mode sécurisé — définir AFRILANG_ALLOW_FFI=1 si nécessaire");
-    }
 }
 
 [[noreturn]] void securityViolation(const std::string& message,

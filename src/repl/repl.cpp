@@ -17,7 +17,9 @@ namespace fs = std::filesystem;
 
 namespace afrilang {
 
-static const char* kReplSessionPath = "/tmp/afrilang_repl_session.afr";
+static std::string replSessionPath() {
+    return secureTempPath("repl_session.afr");
+}
 
 static void printReplHelp() {
     std::cout << "Commandes REPL:\n";
@@ -30,11 +32,7 @@ static void printReplHelp() {
     std::cout << "  :history           — historique des lignes saisies\n";
     std::cout << "  :paste             — coller un bloc multi-lignes (terminer par :end)\n";
     std::cout << "  :quit              — quitter\n";
-    std::cout << "\nChaque ligne valide est compilée et exécutée.\n";
-}
-
-static std::string replSessionPath() {
-    return secureTempPath("repl_session.afr");
+    std::cout << "\nChaque ligne valide est compilée et exécutée (sandbox, timeout 5s).\n";
 }
 
 bool Pipeline::evalReplSource(const std::string& source, std::string& errorOut) {
@@ -313,8 +311,8 @@ int runRepl() {
 
         try {
             SourceManager sources;
-            sources.addFile(kReplSessionPath, session);
-            parseSourceProgram(session, kReplSessionPath, &sources);
+            sources.addFile(replSessionPath(), session);
+            parseSourceProgram(session, replSessionPath(), &sources);
             tryEval(session);
         } catch (const CompileError& e) {
             const std::string msg = e.what();
