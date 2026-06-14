@@ -1953,6 +1953,14 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
         }
 
+        bool hasDefault = false;
+        for (const auto& arm : matchExpr->arms) {
+            if (arm.isDefault) { hasDefault = true; break; }
+        }
+        if (!hasDefault) {
+            out << "    throw std::runtime_error(\"match: cas non couvert\");\n";
+        }
+
         out << "})()";
         return;
     }
