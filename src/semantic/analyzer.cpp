@@ -612,7 +612,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             const auto* list = static_cast<const ListLiteralNode*>(assign->value.get());
             AfrType elemType;
             if (!assign->typeName.empty()) {
-                AfrType declared = typeFromName(assign->typeName);
+                AfrType declared = resolveTypeName(assign->typeName);
                 if (declared.kind == TypeKind::List) {
                     elemType = declared.listElementType();
                 }
@@ -632,7 +632,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 AfrType firstType = analyzeExpression(*list->elements[0], scope);
                 valueType = AfrType::listType(firstType);
             } else if (!assign->typeName.empty()) {
-                AfrType declared = typeFromName(assign->typeName);
+                AfrType declared = resolveTypeName(assign->typeName);
                 if (declared.kind == TypeKind::List) {
                     valueType = declared;
                 } else {
@@ -2088,6 +2088,25 @@ const EnumInfo* SemanticAnalyzer::findEnum(const std::string& name) const {
 }
 
 AfrType SemanticAnalyzer::resolveTypeName(const std::string& name) const {
+    if (!name.empty() && name.back() == '?') {
+        return AfrType::optionalType(resolveTypeName(name.substr(0, name.size() - 1)));
+    }
+    const std::size_t orErrorPos = name.find(" or error");
+    if (orErrorPos != std::string::npos) {
+        return AfrType::resultType(resolveTypeName(name.substr(0, orErrorPos)));
+    }
+    if (name.size() > 5 && name.rfind("list ", 0) == 0) {
+        return AfrType::listType(resolveTypeName(name.substr(5)));
+    }
+    if (name.size() > 5 && name.rfind("task ", 0) == 0) {
+        return AfrType::taskType(resolveTypeName(name.substr(5)));
+    }
+    if (name.size() > 4 && name.rfind("map ", 0) == 0) {
+        const std::size_t toPos = name.find(" to ");
+        if (toPos != std::string::npos) {
+            return AfrType::mapTypeFromNames(name.substr(4, toPos - 4), name.substr(toPos + 4));
+        }
+    }
     if (result_.enums.count(name)) return AfrType::enumType(name);
     if (result_.records.count(name)) return AfrType::recordType(name);
     if (result_.interfaces.count(name)) return AfrType::interfaceType(name);
