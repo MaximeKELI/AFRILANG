@@ -281,6 +281,7 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
 
     CompileOptions opts;
     opts.runtimeDir = (root / "runtime").string();
+    opts.useCache = false;
 
     std::cout << "[examples]\n";
     for (const auto& ex : examples) {

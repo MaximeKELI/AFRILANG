@@ -412,6 +412,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <iostream>\n";
     out << "#include <string>\n";
     out << "#include <vector>\n";
+    out << "#include <cstdint>\n";
     out << "#include <unordered_map>\n";
     out << "#include <stdexcept>\n";
     out << "#include <functional>\n";
