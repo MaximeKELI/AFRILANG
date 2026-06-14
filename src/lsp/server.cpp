@@ -368,7 +368,8 @@ int runLspServer() {
                 "\"documentFormattingProvider\":true,"
                 "\"hoverProvider\":true,"
                 "\"definitionProvider\":true,"
-                "\"referencesProvider\":true"
+                "\"referencesProvider\":true,"
+                "\"renameProvider\":true"
                 "},"
                 "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"1.0.0\"}"
                 "}");

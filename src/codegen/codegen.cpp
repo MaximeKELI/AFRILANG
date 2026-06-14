@@ -500,6 +500,13 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         out << "#include <cmath>\n";
         out << "#include <cstring>\n";
     }
+    if (needsHttp) {
+        linkLibraries_.insert("-lssl");
+        linkLibraries_.insert("-lcrypto");
+    }
+    if (needsSql) {
+        linkLibraries_.insert("-lsqlite3");
+    }
     out << "\n";
 }
 
@@ -2041,6 +2048,41 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        AfrType subjectType = inferExpressionAfrType(*matchExpr->subject);
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+            const std::string resultCpp = matchExpr->resultTypeName.empty()
+                ? "auto"
+                : typeFromName(matchExpr->resultTypeName).toCpp();
+            out << "([&]() -> " << resultCpp << " {\n";
+            out << "    auto _afr_match = ";
+            emitExpression(out, *matchExpr->subject, ownerClass);
+            out << ";\n";
+            std::size_t nonDefaultIdx = 0;
+            for (const auto& arm : matchExpr->arms) {
+                if (arm.isDefault) continue;
+                out << "    " << (nonDefaultIdx == 0 ? "if" : "else if") << " (_afr_match == ";
+                if (subjectType.kind == TypeKind::Text) {
+                    out << "\"" << arm.caseName << "\"";
+                } else {
+                    out << arm.caseName;
+                }
+                out << ") {\n        return ";
+                emitExpression(out, *arm.value, ownerClass);
+                out << ";\n    }\n";
+                ++nonDefaultIdx;
+            }
+            for (const auto& arm : matchExpr->arms) {
+                if (arm.isDefault) {
+                    out << "    else {\n        return ";
+                    emitExpression(out, *arm.value, ownerClass);
+                    out << ";\n    }\n";
+                    break;
+                }
+            }
+            out << "})()";
+            return;
+        }
+
         std::string enumName;
         if (const auto* id = dynamic_cast<const IdentifierNode*>(matchExpr->subject.get())) {
             auto vit = semantic_.globalVariables.find(id->name);
@@ -2720,13 +2762,6 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     args.push_back("-fstack-protector-strong");
     args.push_back("-D_FORTIFY_SOURCE=2");
     args.push_back("-fPIE");
-    if (needsHttp) {
-        linkLibraries_.insert("-lssl");
-        linkLibraries_.insert("-lcrypto");
-    }
-    if (needsSql) {
-        linkLibraries_.insert("-lsqlite3");
-    }
     if (semantic_.usesAsync && crossTarget_ != "wasm32") {
         args.push_back("-fcoroutines");
         args.push_back("-pthread");

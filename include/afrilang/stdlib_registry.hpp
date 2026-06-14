@@ -22,6 +22,7 @@ public:
     static void injectArgsModule(ProgramNode& program);
     static void injectPathModule(ProgramNode& program);
     static void injectAsyncModule(ProgramNode& program);
+    static void injectSqlModule(ProgramNode& program);
     static void injectUiModule(ProgramNode& program);
 
     static void injectModuleByName(ProgramNode& program, const std::string& moduleName);

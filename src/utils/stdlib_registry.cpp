@@ -66,6 +66,7 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "http" || moduleName == "str" || moduleName == "logging" ||
            moduleName == "math" || moduleName == "chrono" || moduleName == "re" ||
            moduleName == "collections" || moduleName == "args" || moduleName == "path" ||
+           moduleName == "sql" ||
            moduleName == "async" || moduleName == "ui";
 }
 
@@ -170,6 +171,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "collections") injectCollectionsModule(program);
     else if (moduleName == "args") injectArgsModule(program);
     else if (moduleName == "path") injectPathModule(program);
+    else if (moduleName == "sql") injectSqlModule(program);
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
     else injectCatalogModule(program, moduleName);
@@ -300,6 +302,13 @@ void StdlibRegistry::injectAsyncModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("sleep", {{"ms", "number"}}, "", true));
     injectModule(program, "async", std::move(fns));
+}
+
+void StdlibRegistry::injectSqlModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("query", {{"path", "text"}, {"sql", "text"}}, "text"));
+    fns.push_back(makeStubFunction("exec", {{"path", "text"}, {"sql", "text"}}, "bool"));
+    injectModule(program, "sql", std::move(fns));
 }
 
 void StdlibRegistry::injectUiModule(ProgramNode& program) {
