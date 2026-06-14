@@ -980,6 +980,54 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
     return node;
 }
 
+bool Parser::startsMatchArmStatement() const {
+    return check(TokenType::Explain) || check(TokenType::Say) || check(TokenType::Create) ||
+           check(TokenType::Set) || check(TokenType::Match) || check(TokenType::If) ||
+           check(TokenType::While) || check(TokenType::Repeat) || check(TokenType::For) ||
+           check(TokenType::Return) || check(TokenType::Assert) || check(TokenType::Ask) ||
+           check(TokenType::Use) || check(TokenType::Try) || check(TokenType::Raise);
+}
+
+std::unique_ptr<ExpressionNode> Parser::parseMatchExpression() {
+    auto subject = parseExpression();
+    std::vector<MatchExprArmNode> arms;
+
+    while (!check(TokenType::End) && !isAtEnd()) {
+        if (match(TokenType::Default)) {
+            MatchExprArmNode arm;
+            arm.isDefault = true;
+            if (startsMatchArmStatement()) {
+                error("Dans un match expression, 'default' attend une expression, pas un bloc");
+            }
+            arm.value = parseExpression();
+            consume(TokenType::End, "'end' attendu pour fermer default");
+            arms.push_back(std::move(arm));
+        } else {
+            consume(TokenType::Case, "'case' attendu dans match");
+            const Token& caseToken = consumeName("Nom de cas attendu");
+            MatchExprArmNode arm;
+            arm.caseName = caseToken.lexeme;
+            if (match(TokenType::With)) {
+                do {
+                    arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
+                } while (match(TokenType::Comma));
+            }
+            consume(TokenType::Then, "'then' attendu après le cas");
+            if (startsMatchArmStatement()) {
+                error("Dans un match expression, utilisez une expression après 'then' (pas un bloc)");
+            }
+            arm.value = parseExpression();
+            consume(TokenType::End, "'end' attendu pour fermer le case");
+            arms.push_back(std::move(arm));
+        }
+    }
+
+    consume(TokenType::End, "'end' attendu pour fermer match");
+    auto node = std::make_unique<MatchExpressionNode>(std::move(subject), std::move(arms));
+    setLoc(*node);
+    return node;
+}
+
 std::unique_ptr<StatementNode> Parser::parseReturnStatement() {
     if (match(TokenType::ErrorKw)) {
         auto msg = parseExpression();

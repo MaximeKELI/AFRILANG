@@ -67,6 +67,8 @@ private:
     std::unique_ptr<ExpressionNode> parseFilterEachExpression();
     std::unique_ptr<ExpressionNode> parseReduceExpression();
     std::unique_ptr<StatementNode> parseMatchStatement();
+    std::unique_ptr<ExpressionNode> parseMatchExpression();
+    bool startsMatchArmStatement() const;
     std::unique_ptr<StatementNode> parseReturnStatement();
     std::unique_ptr<StatementNode> parseAssertStatement();
     std::unique_ptr<StatementNode> parseAskStatement();

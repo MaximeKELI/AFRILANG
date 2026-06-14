@@ -353,6 +353,23 @@ struct MatchStatementNode : StatementNode {
         : subject(std::move(subject)), arms(std::move(arms)) {}
 };
 
+struct MatchExprArmNode {
+    std::string caseName;
+    std::vector<std::string> bindNames;
+    bool isDefault = false;
+    std::unique_ptr<ExpressionNode> value;
+};
+
+struct MatchExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> subject;
+    std::vector<MatchExprArmNode> arms;
+    std::string resultTypeName;
+
+    MatchExpressionNode(std::unique_ptr<ExpressionNode> subject,
+                        std::vector<MatchExprArmNode> arms)
+        : subject(std::move(subject)), arms(std::move(arms)) {}
+};
+
 struct AssertStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> condition;
     std::string label;
