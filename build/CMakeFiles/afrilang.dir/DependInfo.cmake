@@ -27,6 +27,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/utils/pkg.cpp" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/project.cpp" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/sandbox.cpp" "CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/security.cpp" "CMakeFiles/afrilang.dir/src/utils/security.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/security.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/semver.cpp" "CMakeFiles/afrilang.dir/src/utils/semver.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/semver.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp" "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o" "gcc" "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d"

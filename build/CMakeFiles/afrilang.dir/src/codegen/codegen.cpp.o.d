@@ -185,6 +185,8 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/educational.hpp \
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
+ /home/maxime/AFRILANG/include/afrilang/security.hpp \
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
  /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
  /home/maxime/AFRILANG/include/afrilang/complex_catalog.hpp \

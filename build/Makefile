@@ -720,6 +720,33 @@ src/utils/sandbox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.s
 .PHONY : src/utils/sandbox.cpp.s
 
+src/utils/security.o: src/utils/security.cpp.o
+.PHONY : src/utils/security.o
+
+# target to build an object file
+src/utils/security.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/security.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o
+.PHONY : src/utils/security.cpp.o
+
+src/utils/security.i: src/utils/security.cpp.i
+.PHONY : src/utils/security.i
+
+# target to preprocess a source file
+src/utils/security.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/security.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.i
+.PHONY : src/utils/security.cpp.i
+
+src/utils/security.s: src/utils/security.cpp.s
+.PHONY : src/utils/security.s
+
+# target to generate assembly for a file
+src/utils/security.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/security.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.s
+.PHONY : src/utils/security.cpp.s
+
 src/utils/semver.o: src/utils/semver.cpp.o
 .PHONY : src/utils/semver.o
 
@@ -925,6 +952,9 @@ help:
 	@echo "... src/utils/sandbox.o"
 	@echo "... src/utils/sandbox.i"
 	@echo "... src/utils/sandbox.s"
+	@echo "... src/utils/security.o"
+	@echo "... src/utils/security.i"
+	@echo "... src/utils/security.s"
 	@echo "... src/utils/semver.o"
 	@echo "... src/utils/semver.i"
 	@echo "... src/utils/semver.s"

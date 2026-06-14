@@ -35,6 +35,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o.d"
+  "CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o"
+  "CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o"
