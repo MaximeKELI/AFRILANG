@@ -159,6 +159,8 @@ private:
     MethodSignature* findMethod(const std::string& className, const std::string& methodName);
     const MethodSignature* findMethod(const std::string& className,
                                       const std::string& methodName) const;
+    const MethodSignature* findOperator(const std::string& className,
+                                        const std::string& opSymbol) const;
     const MethodSignature* findFunction(const std::string& name) const;
     const EnumInfo* findEnum(const std::string& name) const;
     AfrType resolveTypeName(const std::string& name) const;
