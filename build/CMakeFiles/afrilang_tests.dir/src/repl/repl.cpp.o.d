@@ -188,6 +188,8 @@ CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/formatter.hpp \
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
+ /home/maxime/AFRILANG/include/afrilang/security.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/cstdint /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/limits \

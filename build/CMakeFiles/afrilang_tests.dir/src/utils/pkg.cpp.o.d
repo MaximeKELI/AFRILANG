@@ -173,6 +173,8 @@ CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
+ /home/maxime/AFRILANG/include/afrilang/security.hpp \
  /home/maxime/AFRILANG/include/afrilang/semver.hpp \
  /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
