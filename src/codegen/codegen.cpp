@@ -437,6 +437,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsCollections = false;
     bool needsArgs = false;
     bool needsPath = false;
+    bool needsSql = false;
     bool needsSimpleLibs = false;
     bool needsMediumLibs = false;
     bool needsComplexLibs = false;
@@ -453,6 +454,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "collections") needsCollections = true;
         if (module->name == "args") needsArgs = true;
         if (module->name == "path") needsPath = true;
+        if (module->name == "sql") needsSql = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
@@ -1471,6 +1473,45 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
+        AfrType subjectType = inferExpressionAfrType(*matchStmt->subject);
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+            indent(out, indentLevel);
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto _afr_match = ";
+            emitExpression(out, *matchStmt->subject, ownerClass);
+            out << ";\n";
+            for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
+                const auto& arm = matchStmt->arms[i];
+                indent(out, indentLevel + 1);
+                if (arm.isDefault) {
+                    out << "else {\n";
+                } else if (i == 0) {
+                    out << "if (";
+                } else {
+                    out << "else if (";
+                }
+                if (!arm.isDefault) {
+                    out << "_afr_match == ";
+                    if (subjectType.kind == TypeKind::Text) {
+                        out << "\"" << arm.caseName << "\"";
+                    } else {
+                        out << arm.caseName;
+                    }
+                    out << ") {\n";
+                }
+                for (const auto& bodyStmt : arm.body) {
+                    emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+                }
+                indent(out, indentLevel + 1);
+                out << "}";
+                if (i + 1 == matchStmt->arms.size()) out << "\n";
+            }
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+
         std::string enumName;
         if (const auto* id = dynamic_cast<const IdentifierNode*>(matchStmt->subject.get())) {
             auto vit = semantic_.globalVariables.find(id->name);
@@ -1894,6 +1935,20 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             emitExpression(out, *index->index, ownerClass);
         }
         out << "]";
+        return;
+    }
+
+    if (const auto* slice = dynamic_cast<const SliceExpressionNode*>(&expr)) {
+        const AfrType listType = inferExpressionAfrType(*slice->object);
+        const AfrType elemType = listType.listElementType();
+        out << "([&]() { const auto& _afr_lst = ";
+        emitExpression(out, *slice->object, ownerClass);
+        out << "; const std::size_t _afr_s = static_cast<std::size_t>(";
+        emitExpression(out, *slice->start, ownerClass);
+        out << "); const std::size_t _afr_e = static_cast<std::size_t>(";
+        emitExpression(out, *slice->end, ownerClass);
+        out << "); return std::vector<" << elemType.toCpp()
+            << ">(_afr_lst.begin() + _afr_s, _afr_lst.begin() + _afr_e); })()";
         return;
     }
 
