@@ -284,6 +284,12 @@ bool expressionUsesAwait(const ExpressionNode& expr) {
             if (expressionUsesAwait(*elem)) return true;
         }
     }
+    if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        if (expressionUsesAwait(*matchExpr->subject)) return true;
+        for (const auto& arm : matchExpr->arms) {
+            if (arm.value && expressionUsesAwait(*arm.value)) return true;
+        }
+    }
     if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(&expr)) {
         for (const auto& stmt : lambda->body) {
             if (const auto* say = dynamic_cast<const SayStatementNode*>(stmt.get())) {
@@ -1881,6 +1887,70 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        std::string enumName;
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(matchExpr->subject.get())) {
+            auto vit = semantic_.globalVariables.find(id->name);
+            if (vit != semantic_.globalVariables.end() &&
+                vit->second.kind == TypeKind::Enum) {
+                enumName = vit->second.className;
+            }
+        }
+        if (enumName.empty()) {
+            enumName = inferExpressionType(*matchExpr->subject);
+        }
+
+        const std::string resultCpp = matchExpr->resultTypeName.empty()
+            ? "auto"
+            : typeFromName(matchExpr->resultTypeName).toCpp();
+
+        out << "([&]() -> " << resultCpp << " {\n";
+        out << "    " << enumName << " _afr_match = ";
+        emitExpression(out, *matchExpr->subject, ownerClass);
+        out << ";\n";
+
+        for (std::size_t i = 0; i < matchExpr->arms.size(); ++i) {
+            const auto& arm = matchExpr->arms[i];
+            if (arm.isDefault) {
+                out << "    return ";
+                emitExpression(out, *arm.value, ownerClass);
+                out << ";\n";
+            } else if (i == 0) {
+                out << "    if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
+                    << ") {\n";
+            } else {
+                out << "    else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
+                    << ") {\n";
+            }
+
+            if (!arm.isDefault && !arm.bindNames.empty()) {
+                const auto enumIt = semantic_.enums.find(enumName);
+                if (enumIt != semantic_.enums.end()) {
+                    const auto caseIt = enumIt->second.cases.find(arm.caseName);
+                    if (caseIt != enumIt->second.cases.end()) {
+                        for (std::size_t bi = 0;
+                             bi < arm.bindNames.size() && bi < caseIt->second.fields.size();
+                             ++bi) {
+                            out << "        "
+                                << cppTypeFromAfrType(caseIt->second.fields[bi].second) << " "
+                                << arm.bindNames[bi] << " = _afr_match."
+                                << caseIt->second.fields[bi].first << ";\n";
+                        }
+                    }
+                }
+            }
+
+            if (!arm.isDefault) {
+                out << "        return ";
+                emitExpression(out, *arm.value, ownerClass);
+                out << ";\n    }\n";
+            }
+        }
+
+        out << "})()";
+        return;
+    }
+
     if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
         if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(call->callee.get())) {
             const std::string classCpp = newExpr->typeArgs.empty()
@@ -2093,6 +2163,15 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
 
     if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
         return typeFromName(reduce->resultTypeName).toCpp();
+    }
+
+    if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        if (!matchExpr->resultTypeName.empty()) {
+            return typeFromName(matchExpr->resultTypeName).toCpp();
+        }
+        if (!matchExpr->arms.empty() && matchExpr->arms[0].value) {
+            return inferExpressionType(*matchExpr->arms[0].value);
+        }
     }
 
     if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
