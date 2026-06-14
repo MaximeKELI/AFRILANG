@@ -3509,7 +3509,7 @@ cx('gamebehavior', [
     ('blackboardGet', 'number', [('keys', 'list text'), ('values', 'list number'), ('key', 'text')],
      '{for(std::size_t i=0;i<keys.size()&&i<values.size();++i)if(keys[i]==key)return values[i];return 0;}'),
     ('blackboardSet', 'list number', [('keys', 'list text'), ('values', 'list number'), ('key', 'text'), ('val', 'number')],
-     '{auto k=keys,v=values;bool found=false;for(std::size_t i=0;i<k.size();++i)if(k[i]==key){v[i]=val;found=true;break;}if(!found){k.push_back(key);v.push_back(val);}return v;}'),
+     '{std::vector<double> v=values;bool found=false;for(std::size_t i=0;i<keys.size()&&i<v.size();++i)if(keys[i]==key){v[i]=val;found=true;break;}if(!found)v.push_back(val);return v;}'),
     ('cooldownReady', 'bool', [('last', 'number'), ('now', 'number'), ('cd', 'number')],
      'return now-last>=cd;'),
     ('weightedPick', 'number', [('weights', 'list number')],

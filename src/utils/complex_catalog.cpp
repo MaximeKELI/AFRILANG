@@ -4615,6 +4615,10 @@ const StdlibFuncSpec kMFuncs_182[] = {
 };
 
 const StdlibParamSpec kMParams_183[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
     {"r", "number"},
     {"r", "number"},
     {"cx", "number"},
@@ -4626,10 +4630,6 @@ const StdlibParamSpec kMParams_183[] = {
     {"cy", "number"},
     {"r", "number"},
     {"angle", "number"},
-    {"x1", "number"},
-    {"y1", "number"},
-    {"x2", "number"},
-    {"y2", "number"},
     {"r1", "number"},
     {"r2", "number"},
     {"d", "number"},
@@ -4637,11 +4637,11 @@ const StdlibParamSpec kMParams_183[] = {
 };
 
 const StdlibFuncSpec kMFuncs_183[] = {
-    {"area", "number", 1, &kMParams_183[0]},
-    {"circumference", "number", 1, &kMParams_183[1]},
-    {"contains", "bool", 5, &kMParams_183[2]},
-    {"pointAt", "list number", 4, &kMParams_183[7]},
-    {"euclidean2d", "number", 4, &kMParams_183[11]},
+    {"euclidean2d", "number", 4, &kMParams_183[0]},
+    {"area", "number", 1, &kMParams_183[4]},
+    {"circumference", "number", 1, &kMParams_183[5]},
+    {"contains", "bool", 5, &kMParams_183[6]},
+    {"pointAt", "list number", 4, &kMParams_183[11]},
     {"intersectArea", "number", 3, &kMParams_183[15]},
     {nullptr, nullptr, 0, nullptr}
 };

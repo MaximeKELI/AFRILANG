@@ -1,5 +1,8 @@
 module geomcircle
 
+function euclidean2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
 function area(r number) returns number
 end
 
@@ -10,9 +13,6 @@ function contains(cx number, cy number, r number, px number, py number) returns 
 end
 
 function pointAt(cx number, cy number, r number, angle number) returns list number
-end
-
-function euclidean2d(x1 number, y1 number, x2 number, y2 number) returns number
 end
 
 function intersectArea(r1 number, r2 number, d number) returns number

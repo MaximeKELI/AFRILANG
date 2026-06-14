@@ -2185,11 +2185,11 @@
 
 `import "std/c/geomcircle"` · `use geomcircle`
 
+- `euclidean2d(x1 number, y1 number, x2 number, y2 number) → number`
 - `area(r number) → number`
 - `circumference(r number) → number`
 - `contains(cx number, cy number, r number, px number, py number) → bool`
 - `pointAt(cx number, cy number, r number, angle number) → list number`
-- `euclidean2d(x1 number, y1 number, x2 number, y2 number) → number`
 - `intersectArea(r1 number, r2 number, d number) → number`
 
 ## std/c/geombezier

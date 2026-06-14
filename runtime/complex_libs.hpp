@@ -667,8 +667,8 @@ inline double hash32(std::string s) { {unsigned h=5381;for(unsigned char c:s)h=(
 
 namespace afrilang::runtime::cx::cryptbase64 {
 inline std::string encode(std::string s) { {static const std::string alpha="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";std::string r;int val=0,vb=-6;for(unsigned char c:s){val=(val<<8)+c;vb+=8;while(vb>=0){r+=alpha[(val>>vb)&0x3F];vb-=6;}}if(vb>-6)r+=alpha[((val<<8)>>(vb+8))&0x3F];while(r.size()%4)r+="=";return r;} }
-inline std::string decode(std::string s) { {auto idx=[](char c)->int{if(c>="A"&&c<="Z")return c-"A";if(c>="a"&&c<="z")return c-"a"+26;if(c>="0"&&c<="9")return c-"0"+52;if(c=="+")return 62;if(c=="/")return 63;return -1;};std::string r;int val=0,vb=-8;for(char c:s){if(c=="=")break;int d=idx(c);if(d<0)continue;val=(val<<6)+d;vb+=6;if(vb>=0){r+=static_cast<char>((val>>vb)&0xFF);vb-=8;}}return r;} }
-inline bool isValid(std::string s) { {if(s.empty())return false;for(char c:s)if(!std::isalnum(static_cast<unsigned char>(c))&&c!="+"&&c!="/"&&c!="=")return false;return true;} }
+inline std::string decode(std::string s) { {auto idx=[](char c)->int{if(c>='A'&&c<='Z')return c-'A';if(c>='a'&&c<='z')return c-'a'+26;if(c>='0'&&c<='9')return c-'0'+52;if(c=='+')return 62;if(c=='/')return 63;return -1;};std::string r;int val=0,vb=-8;for(char c:s){if(c=='=')break;int d=idx(c);if(d<0)continue;val=(val<<6)+d;vb+=6;if(vb>=0){r+=static_cast<char>((val>>vb)&0xFF);vb-=8;}}return r;} }
+inline bool isValid(std::string s) { {if(s.empty())return false;for(char c:s)if(!std::isalnum(static_cast<unsigned char>(c))&&c!='+'&&c!='/'&&c!='=')return false;return true;} }
 inline double paddedLen(std::string s) { return static_cast<double>((s.size()+3)/4*4); }
 inline bool roundTrip(std::string s) { return decode(encode(s))==s; }
 inline std::string urlSafe(std::string s) { {std::string r=encode(s);for(char&c:r){if(c=='+')c='-';else if(c=='/')c='_';}return r;} }
@@ -1827,11 +1827,11 @@ inline std::vector<double> lineNorm(std::vector<double> v) { {if(v.empty())retur
 } // namespace
 
 namespace afrilang::runtime::cx::geomcircle {
+inline double euclidean2d(double x1, double y1, double x2, double y2) { return std::sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)); }
 inline double area(double r) { return 3.141592653589793*r*r; }
 inline double circumference(double r) { return 2*3.141592653589793*r; }
 inline bool contains(double cx, double cy, double r, double px, double py) { return euclidean2d(cx,cy,px,py)<=r; }
 inline std::vector<double> pointAt(double cx, double cy, double r, double angle) { return std::vector<double>{cx+r*std::cos(angle),cy+r*std::sin(angle)}; }
-inline double euclidean2d(double x1, double y1, double x2, double y2) { return std::sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)); }
 inline double intersectArea(double r1, double r2, double d) { {if(d>=r1+r2)return 0;if(d<=std::abs(r1-r2))return 3.141592653589793*std::min(r1,r2)*std::min(r1,r2);return 0.5;} }
 } // namespace
 
@@ -2067,7 +2067,7 @@ inline double evalSelector(std::vector<double> scores) { {if(scores.empty())retu
 inline double evalSequence(std::vector<double> scores) { {double s=0;for(double x:scores)s+=x;return s;} }
 inline double evalParallel(std::vector<double> scores) { {if(scores.empty())return 0;return *std::max_element(scores.begin(),scores.end());} }
 inline double blackboardGet(std::vector<std::string> keys, std::vector<double> values, std::string key) { {for(std::size_t i=0;i<keys.size()&&i<values.size();++i)if(keys[i]==key)return values[i];return 0;} }
-inline std::vector<double> blackboardSet(std::vector<std::string> keys, std::vector<double> values, std::string key, double val) { {auto k=keys,v=values;bool found=false;for(std::size_t i=0;i<k.size();++i)if(k[i]==key){v[i]=val;found=true;break;}if(!found){k.push_back(key);v.push_back(val);}return v;} }
+inline std::vector<double> blackboardSet(std::vector<std::string> keys, std::vector<double> values, std::string key, double val) { {std::vector<double> v=values;bool found=false;for(std::size_t i=0;i<keys.size()&&i<v.size();++i)if(keys[i]==key){v[i]=val;found=true;break;}if(!found)v.push_back(val);return v;} }
 inline bool cooldownReady(double last, double now, double cd) { return now-last>=cd; }
 inline double weightedPick(std::vector<double> weights) { {double s=0;for(double w:weights)s+=w;if(s<=0)return 0;double r=static_cast<double>(std::rand())/static_cast<double>(RAND_MAX)*s,acc=0;for(std::size_t i=0;i<weights.size();++i){acc+=weights[i];if(r<=acc)return static_cast<double>(i);}return static_cast<double>(weights.size()-1);} }
 } // namespace
