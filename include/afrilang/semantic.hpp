@@ -47,6 +47,7 @@ struct ClassInfo {
     bool isAbstract = false;
     bool isFinal = false;
     bool modulePrivate = false;
+    std::vector<std::string> interfaceNames;
     std::vector<std::string> typeParams;
     std::unordered_map<std::string, FieldInfo> fields;
     std::unordered_map<std::string, PropertyInfo> properties;
@@ -151,6 +152,8 @@ private:
     bool canAccessField(const FieldInfo& field, const ClassInfo& ownerClass,
                         const ClassInfo* accessingClass) const;
     bool isSubclassOf(const std::string& derived, const std::string& base) const;
+    bool implementsInterface(const std::string& className, const std::string& ifaceName) const;
+    bool signaturesCompatible(const MethodSignature& required, const MethodSignature& impl) const;
     MethodSignature* findMethod(const std::string& className, const std::string& methodName);
     const MethodSignature* findMethod(const std::string& className,
                                       const std::string& methodName) const;

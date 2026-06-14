@@ -690,15 +690,18 @@ struct ModuleNode : ASTNode {
     std::string name;
     std::vector<std::unique_ptr<ClassNode>> classes;
     std::vector<std::unique_ptr<RecordNode>> records;
+    std::vector<std::unique_ptr<EnumNode>> enums;
     std::vector<std::unique_ptr<FunctionNode>> functions;
 
     ModuleNode(std::string name,
                std::vector<std::unique_ptr<ClassNode>> classes,
                std::vector<std::unique_ptr<RecordNode>> records,
+               std::vector<std::unique_ptr<EnumNode>> enums,
                std::vector<std::unique_ptr<FunctionNode>> functions)
         : name(std::move(name))
         , classes(std::move(classes))
         , records(std::move(records))
+        , enums(std::move(enums))
         , functions(std::move(functions)) {}
 };
 

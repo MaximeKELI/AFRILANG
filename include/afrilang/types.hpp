@@ -13,6 +13,7 @@ enum class TypeKind {
     List,
     Map,
     Class,
+    Interface,
     Record,
     Result,
     Pointer,
@@ -36,6 +37,9 @@ struct AfrType {
     static AfrType pointer() { return {TypeKind::Pointer, {}, {}, {}}; }
     static AfrType classType(std::string name) {
         return {TypeKind::Class, std::move(name), {}, {}};
+    }
+    static AfrType interfaceType(std::string name) {
+        return {TypeKind::Interface, std::move(name), {}, {}};
     }
     static AfrType listType(AfrType element) {
         AfrType t;
@@ -112,6 +116,7 @@ struct AfrType {
             case TypeKind::List:   return "list " + listElementTypeName;
             case TypeKind::Map:    return "map " + className + " to " + listElementTypeName;
             case TypeKind::Class:  return className;
+            case TypeKind::Interface: return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return resultInnerType().toTypeName() + " or error";
             case TypeKind::Optional: return optionalInnerType().toTypeName() + "?";
@@ -143,6 +148,7 @@ struct AfrType {
                 return "std::unordered_map<" + mapKeyType().toCpp() + ", " +
                        mapValueType().toCpp() + ">";
             case TypeKind::Class:  return className;
+            case TypeKind::Interface: return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return "afrilang::runtime::AfrResult_" + listElementTypeName;
             case TypeKind::Optional:
@@ -163,6 +169,7 @@ struct AfrType {
     bool operator==(const AfrType& other) const {
         if (kind != other.kind) return false;
         if (kind == TypeKind::Class) return className == other.className;
+        if (kind == TypeKind::Interface) return className == other.className;
         if (kind == TypeKind::Record) return recordName == other.recordName;
         if (kind == TypeKind::List) return listElementTypeName == other.listElementTypeName;
         if (kind == TypeKind::Map) {
@@ -269,7 +276,7 @@ inline AfrType AfrType::listElementType() const {
 
 inline std::string AfrType::listElementCpp() const {
     const AfrType elem = listElementType();
-    if (elem.kind == TypeKind::Class) {
+    if (elem.kind == TypeKind::Class || elem.kind == TypeKind::Interface) {
         return "std::unique_ptr<" + elem.className + ">";
     }
     return elem.toCpp();
