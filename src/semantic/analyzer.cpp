@@ -1390,6 +1390,18 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         errorAt(expr, "Indexation sur un type non-liste/non-map");
     }
 
+    if (const auto* slice = dynamic_cast<const SliceExpressionNode*>(&expr)) {
+        AfrType objectType = analyzeExpression(*slice->object, scope);
+        if (objectType.kind != TypeKind::List) {
+            errorAt(expr, "Slice requiert une liste");
+        }
+        if (!isNumeric(analyzeExpression(*slice->start, scope)) ||
+            !isNumeric(analyzeExpression(*slice->end, scope))) {
+            errorAt(expr, "Indices de slice doivent être numériques");
+        }
+        return objectType;
+    }
+
     if (const auto* length = dynamic_cast<const LengthExpressionNode*>(&expr)) {
         AfrType objectType = analyzeExpression(*length->object, scope);
         if (objectType.kind != TypeKind::List && objectType.kind != TypeKind::Map) {
@@ -2055,6 +2067,12 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 errorAt(*matchExpr, "Cas littéral incompatible avec match enum");
             }
             coveredCases.insert(arm.caseName);
+
+            if (!arm.value) {
+                errorAt(*matchExpr, "Cas '" + arm.caseName + "' sans expression dans match expression");
+            }
+
+            auto armScope = scope;
             if (!caseIt->second.fields.empty()) {
                 if (arm.bindNames.empty()) {
                     for (const auto& [fname, ftype] : caseIt->second.fields) {
