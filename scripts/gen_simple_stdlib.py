@@ -274,8 +274,8 @@ MODULES: list[tuple] = [
         ("formatPercent", "text", [("n", "number")], "return formatNumber(n, 1) + \"%\";"),
     ]),
     ("currency", "currency", [
-        ("formatEuro", "text", [("n", "number")], "return formatNumber(n, 2) + \" EUR\";"),
-        ("formatDollar", "text", [("n", "number")], "return \"$\" + formatNumber(n, 2);"),
+        ("formatEuro", "text", [("n", "number")], "{ std::ostringstream os; os << std::fixed << std::setprecision(2) << n; return os.str() + \" EUR\"; }"),
+        ("formatDollar", "text", [("n", "number")], "{ std::ostringstream os; os << std::fixed << std::setprecision(2) << n; return \"$\" + os.str(); }"),
     ]),
     ("stopwatch", "stopwatch", [
         ("nowMs", "number", [("ignored", "number")], "(void)ignored; return static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count());"),
@@ -582,7 +582,7 @@ MODULES: list[tuple] = [
         ("mbFromBytes", "number", [("b", "number")], "return b / (1024.0 * 1024.0);"),
     ]),
     ("cpu", "cpu", [
-        ("clampUsage", "number", [("pct", "number")], "return clamp01(pct / 100.0) * 100.0;"),
+        ("clampUsage", "number", [("pct", "number")], "return pct < 0 ? 0 : (pct > 100 ? 100 : pct);"),
         ("isHighLoad", "bool", [("pct", "number")], "return pct >= 90;"),
     ]),
     ("disk", "disk", [
@@ -595,7 +595,7 @@ MODULES: list[tuple] = [
     ]),
     ("audit", "audit", [
         ("auditLine", "text", [("action", "text"), ("user", "text")], "return user + \":\" + action;"),
-        ("timestampPrefix", "text", [("msg", "text")], "return std::to_string(static_cast<long long>(nowMs(0))) + \":\" + msg;"),
+        ("timestampPrefix", "text", [("msg", "text")], "return std::to_string(static_cast<long long>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count())) + \":\" + msg;"),
     ]),
     ("template", "template", [
         ("fill", "text", [("pattern", "text"), ("value", "text")], "{ std::string r = pattern; auto p = r.find(\"{}\"); if (p != std::string::npos) r.replace(p, 2, value); return r; }"),
