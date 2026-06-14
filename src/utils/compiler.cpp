@@ -1,10 +1,13 @@
 #include "afrilang/compiler.hpp"
 
 #include "afrilang/error.hpp"
+#include "afrilang/i18n.hpp"
 #include "afrilang/lexer.hpp"
 #include "afrilang/parser.hpp"
 #include "afrilang/pkg.hpp"
+#include "afrilang/sandbox.hpp"
 #include "afrilang/stdlib_registry.hpp"
+#include "afrilang/utf8.hpp"
 
 #include <cstdlib>
 #include <filesystem>

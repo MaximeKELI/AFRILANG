@@ -217,7 +217,6 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"associer", TokenType::Match},
     {"oui", TokenType::Yes},
     {"non", TokenType::No},
-    {"ou", TokenType::Where},
     {"aplatir", TokenType::FlatMap},
 };
 
