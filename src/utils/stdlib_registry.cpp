@@ -113,6 +113,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "ui") return "ui";
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
+    if (normalized == "sql") return "sql";
 
     if (normalized.rfind("m/", 0) == 0) {
         if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {

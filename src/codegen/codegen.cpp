@@ -2536,7 +2536,7 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
+           name == "sql" || name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
 
