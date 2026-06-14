@@ -612,6 +612,33 @@ src/utils/project.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.s
 .PHONY : src/utils/project.cpp.s
 
+src/utils/stdlib_catalog.o: src/utils/stdlib_catalog.cpp.o
+.PHONY : src/utils/stdlib_catalog.o
+
+# target to build an object file
+src/utils/stdlib_catalog.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o
+.PHONY : src/utils/stdlib_catalog.cpp.o
+
+src/utils/stdlib_catalog.i: src/utils/stdlib_catalog.cpp.i
+.PHONY : src/utils/stdlib_catalog.i
+
+# target to preprocess a source file
+src/utils/stdlib_catalog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.i
+.PHONY : src/utils/stdlib_catalog.cpp.i
+
+src/utils/stdlib_catalog.s: src/utils/stdlib_catalog.cpp.s
+.PHONY : src/utils/stdlib_catalog.s
+
+# target to generate assembly for a file
+src/utils/stdlib_catalog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.s
+.PHONY : src/utils/stdlib_catalog.cpp.s
+
 src/utils/stdlib_registry.o: src/utils/stdlib_registry.cpp.o
 .PHONY : src/utils/stdlib_registry.o
 
@@ -724,6 +751,9 @@ help:
 	@echo "... src/utils/project.o"
 	@echo "... src/utils/project.i"
 	@echo "... src/utils/project.s"
+	@echo "... src/utils/stdlib_catalog.o"
+	@echo "... src/utils/stdlib_catalog.i"
+	@echo "... src/utils/stdlib_catalog.s"
 	@echo "... src/utils/stdlib_registry.o"
 	@echo "... src/utils/stdlib_registry.i"
 	@echo "... src/utils/stdlib_registry.s"

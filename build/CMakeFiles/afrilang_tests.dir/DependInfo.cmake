@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/maxime/AFRILANG/src/utils/formatter.cpp" "CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/pkg.cpp" "CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/project.cpp" "CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o.d"
+  "/home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp" "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o.d"
   "/home/maxime/AFRILANG/src/utils/stdlib_registry.cpp" "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o.d"
   "/home/maxime/AFRILANG/tests/test_compiler.cpp" "CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o.d"
   )

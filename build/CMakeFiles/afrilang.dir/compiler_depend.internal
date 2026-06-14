@@ -170,6 +170,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/educational.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
+ /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -1359,6 +1360,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/error.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
+ /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -3574,6 +3576,7 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o
  /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp
  /home/maxime/AFRILANG/include/afrilang/ast.hpp
+ /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp
  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

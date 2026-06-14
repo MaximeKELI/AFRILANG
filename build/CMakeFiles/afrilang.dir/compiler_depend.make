@@ -168,6 +168,7 @@ CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/src/cod
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/educational.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -1352,6 +1353,7 @@ CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG/src/s
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/error.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -3558,6 +3560,7 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o: /home/maxime/AFRILANG/src/utils
 
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp \
   /home/maxime/AFRILANG/include/afrilang/ast.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -3830,6 +3833,10 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: /home/maxime/AFRILANG/s
 /home/maxime/AFRILANG/src/parser/parser.cpp:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/c++/13/bits/locale_facets_nonio.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -4235,6 +4242,8 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: /home/maxime/AFRILANG/s
 
 /home/maxime/AFRILANG/include/afrilang/semantic.hpp:
 
+/home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/13/bits/unique_ptr.h:
@@ -4392,7 +4401,3 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: /home/maxime/AFRILANG/s
 /usr/include/c++/13/bits/istream.tcc:
 
 /usr/include/c++/13/bits/locale_conv.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/c++/13/bits/locale_facets_nonio.h:

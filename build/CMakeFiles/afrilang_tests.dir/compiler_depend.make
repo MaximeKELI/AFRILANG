@@ -7,6 +7,7 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: /home/maxime/AFRILANG/s
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/educational.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -1191,6 +1192,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: /home/maxime/AFRILANG
   /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
   /home/maxime/AFRILANG/include/afrilang/error.hpp \
   /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/maxime/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -3397,6 +3399,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o: /home/maxime/AFRILANG/src
 
 CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o: /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp \
   /home/maxime/AFRILANG/include/afrilang/ast.hpp \
+  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
   /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -3899,7 +3902,9 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/quoted_string.h:
 
-/usr/include/c++/13/pstl/pstl_config.h:
+/home/maxime/AFRILANG/src/parser/parser.cpp:
+
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
@@ -4043,6 +4048,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
+/usr/include/c++/13/bits/ostream_insert.h:
+
 /usr/include/c++/13/bits/basic_string.h:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
@@ -4131,6 +4138,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
 
+/home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp:
+
 /usr/include/c++/13/bits/basic_ios.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
@@ -4199,8 +4208,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 
 /usr/include/c++/13/bits/hashtable.h:
 
-/usr/include/c++/13/bits/ostream_insert.h:
-
 /usr/include/c++/13/bits/ios_base.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
@@ -4228,6 +4235,8 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/fs_fwd.h:
 
 /usr/include/c++/13/ios:
+
+/usr/include/c++/13/pstl/pstl_config.h:
 
 /usr/include/c++/13/bits/fs_dir.h:
 
@@ -4264,10 +4273,6 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: /home/maxime/AFRILANG/t
 /usr/include/c++/13/bits/stl_heap.h:
 
 /usr/include/c++/13/utility:
-
-/home/maxime/AFRILANG/src/parser/parser.cpp:
-
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/13/vector:
 

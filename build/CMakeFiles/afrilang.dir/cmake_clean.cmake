@@ -29,6 +29,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/utils/project.cpp.o"
   "CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d"
+  "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o"
+  "CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d"
   "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o"
   "CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d"
   "afrilang"

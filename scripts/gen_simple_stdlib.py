@@ -668,8 +668,8 @@ def gen_catalog_cpp() -> str:
         poff = 0
         for fi, (fname, ret, params, _) in enumerate(funcs):
             lines.append(
-                '    {{"' + fname + '", "' + ret + '", ' + str(len(params)) +
-                f', &kParams_{mod_idx}[{poff}]' + '}},'
+                '    {"' + fname + '", "' + ret + '", ' + str(len(params)) +
+                f', &kParams_{mod_idx}[{poff}]' + '},'
             )
             poff += len(params)
         lines.append('    {nullptr, nullptr, 0, nullptr}')

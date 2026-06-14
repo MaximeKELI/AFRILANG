@@ -11,8 +11,8 @@ const StdlibParamSpec kParams_0[] = {
 };
 
 const StdlibFuncSpec kFuncs_0[] = {
-    {{"absNumber", "number", 1, &kParams_0[0]}},
-    {{"absDiff", "number", 2, &kParams_0[1]}},
+    {"absNumber", "number", 1, &kParams_0[0]},
+    {"absDiff", "number", 2, &kParams_0[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -23,8 +23,8 @@ const StdlibParamSpec kParams_1[] = {
 };
 
 const StdlibFuncSpec kFuncs_1[] = {
-    {{"sqrtNumber", "number", 1, &kParams_1[0]}},
-    {{"square", "number", 1, &kParams_1[1]}},
+    {"sqrtNumber", "number", 1, &kParams_1[0]},
+    {"square", "number", 1, &kParams_1[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -35,8 +35,8 @@ const StdlibParamSpec kParams_2[] = {
 };
 
 const StdlibFuncSpec kFuncs_2[] = {
-    {{"cbrtNumber", "number", 1, &kParams_2[0]}},
-    {{"cube", "number", 1, &kParams_2[1]}},
+    {"cbrtNumber", "number", 1, &kParams_2[0]},
+    {"cube", "number", 1, &kParams_2[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -50,8 +50,8 @@ const StdlibParamSpec kParams_3[] = {
 };
 
 const StdlibFuncSpec kFuncs_3[] = {
-    {{"min2", "number", 2, &kParams_3[0]}},
-    {{"min3", "number", 3, &kParams_3[2]}},
+    {"min2", "number", 2, &kParams_3[0]},
+    {"min3", "number", 3, &kParams_3[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -65,8 +65,8 @@ const StdlibParamSpec kParams_4[] = {
 };
 
 const StdlibFuncSpec kFuncs_4[] = {
-    {{"max2", "number", 2, &kParams_4[0]}},
-    {{"max3", "number", 3, &kParams_4[2]}},
+    {"max2", "number", 2, &kParams_4[0]},
+    {"max3", "number", 3, &kParams_4[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -79,8 +79,8 @@ const StdlibParamSpec kParams_5[] = {
 };
 
 const StdlibFuncSpec kFuncs_5[] = {
-    {{"clamp", "number", 3, &kParams_5[0]}},
-    {{"clamp01", "number", 1, &kParams_5[3]}},
+    {"clamp", "number", 3, &kParams_5[0]},
+    {"clamp01", "number", 1, &kParams_5[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -95,8 +95,8 @@ const StdlibParamSpec kParams_6[] = {
 };
 
 const StdlibFuncSpec kFuncs_6[] = {
-    {{"lerp", "number", 3, &kParams_6[0]}},
-    {{"inverseLerp", "number", 3, &kParams_6[3]}},
+    {"lerp", "number", 3, &kParams_6[0]},
+    {"inverseLerp", "number", 3, &kParams_6[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -107,8 +107,8 @@ const StdlibParamSpec kParams_7[] = {
 };
 
 const StdlibFuncSpec kFuncs_7[] = {
-    {{"sign", "number", 1, &kParams_7[0]}},
-    {{"isPositive", "bool", 1, &kParams_7[1]}},
+    {"sign", "number", 1, &kParams_7[0]},
+    {"isPositive", "bool", 1, &kParams_7[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -119,8 +119,8 @@ const StdlibParamSpec kParams_8[] = {
 };
 
 const StdlibFuncSpec kFuncs_8[] = {
-    {{"isEven", "bool", 1, &kParams_8[0]}},
-    {{"isOdd", "bool", 1, &kParams_8[1]}},
+    {"isEven", "bool", 1, &kParams_8[0]},
+    {"isOdd", "bool", 1, &kParams_8[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -131,8 +131,8 @@ const StdlibParamSpec kParams_9[] = {
 };
 
 const StdlibFuncSpec kFuncs_9[] = {
-    {{"sinDeg", "number", 1, &kParams_9[0]}},
-    {{"cosDeg", "number", 1, &kParams_9[1]}},
+    {"sinDeg", "number", 1, &kParams_9[0]},
+    {"cosDeg", "number", 1, &kParams_9[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -143,8 +143,8 @@ const StdlibParamSpec kParams_10[] = {
 };
 
 const StdlibFuncSpec kFuncs_10[] = {
-    {{"tanDeg", "number", 1, &kParams_10[0]}},
-    {{"cotDeg", "number", 1, &kParams_10[1]}},
+    {"tanDeg", "number", 1, &kParams_10[0]},
+    {"cotDeg", "number", 1, &kParams_10[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -155,8 +155,8 @@ const StdlibParamSpec kParams_11[] = {
 };
 
 const StdlibFuncSpec kFuncs_11[] = {
-    {{"asinSafe", "number", 1, &kParams_11[0]}},
-    {{"acosSafe", "number", 1, &kParams_11[1]}},
+    {"asinSafe", "number", 1, &kParams_11[0]},
+    {"acosSafe", "number", 1, &kParams_11[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -167,8 +167,8 @@ const StdlibParamSpec kParams_12[] = {
 };
 
 const StdlibFuncSpec kFuncs_12[] = {
-    {{"sinhN", "number", 1, &kParams_12[0]}},
-    {{"coshN", "number", 1, &kParams_12[1]}},
+    {"sinhN", "number", 1, &kParams_12[0]},
+    {"coshN", "number", 1, &kParams_12[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -179,8 +179,8 @@ const StdlibParamSpec kParams_13[] = {
 };
 
 const StdlibFuncSpec kFuncs_13[] = {
-    {{"degToRad", "number", 1, &kParams_13[0]}},
-    {{"radToDeg", "number", 1, &kParams_13[1]}},
+    {"degToRad", "number", 1, &kParams_13[0]},
+    {"radToDeg", "number", 1, &kParams_13[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -191,8 +191,8 @@ const StdlibParamSpec kParams_14[] = {
 };
 
 const StdlibFuncSpec kFuncs_14[] = {
-    {{"roundN", "number", 1, &kParams_14[0]}},
-    {{"truncN", "number", 1, &kParams_14[1]}},
+    {"roundN", "number", 1, &kParams_14[0]},
+    {"truncN", "number", 1, &kParams_14[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -206,8 +206,8 @@ const StdlibParamSpec kParams_15[] = {
 };
 
 const StdlibFuncSpec kFuncs_15[] = {
-    {{"mod", "number", 2, &kParams_15[0]}},
-    {{"wrap", "number", 3, &kParams_15[2]}},
+    {"mod", "number", 2, &kParams_15[0]},
+    {"wrap", "number", 3, &kParams_15[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -220,8 +220,8 @@ const StdlibParamSpec kParams_16[] = {
 };
 
 const StdlibFuncSpec kFuncs_16[] = {
-    {{"gcd", "number", 2, &kParams_16[0]}},
-    {{"lcm", "number", 2, &kParams_16[2]}},
+    {"gcd", "number", 2, &kParams_16[0]},
+    {"lcm", "number", 2, &kParams_16[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -232,8 +232,8 @@ const StdlibParamSpec kParams_17[] = {
 };
 
 const StdlibFuncSpec kFuncs_17[] = {
-    {{"factorial", "number", 1, &kParams_17[0]}},
-    {{"doubleFact", "number", 1, &kParams_17[1]}},
+    {"factorial", "number", 1, &kParams_17[0]},
+    {"doubleFact", "number", 1, &kParams_17[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -244,8 +244,8 @@ const StdlibParamSpec kParams_18[] = {
 };
 
 const StdlibFuncSpec kFuncs_18[] = {
-    {{"fib", "number", 1, &kParams_18[0]}},
-    {{"fibB", "number", 1, &kParams_18[1]}},
+    {"fib", "number", 1, &kParams_18[0]},
+    {"fibB", "number", 1, &kParams_18[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -256,8 +256,8 @@ const StdlibParamSpec kParams_19[] = {
 };
 
 const StdlibFuncSpec kFuncs_19[] = {
-    {{"isPrime", "bool", 1, &kParams_19[0]}},
-    {{"nextPrime", "number", 1, &kParams_19[1]}},
+    {"isPrime", "bool", 1, &kParams_19[0]},
+    {"nextPrime", "number", 1, &kParams_19[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -271,8 +271,8 @@ const StdlibParamSpec kParams_20[] = {
 };
 
 const StdlibFuncSpec kFuncs_20[] = {
-    {{"mean2", "number", 2, &kParams_20[0]}},
-    {{"mean3", "number", 3, &kParams_20[2]}},
+    {"mean2", "number", 2, &kParams_20[0]},
+    {"mean3", "number", 3, &kParams_20[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -285,8 +285,8 @@ const StdlibParamSpec kParams_21[] = {
 };
 
 const StdlibFuncSpec kFuncs_21[] = {
-    {{"percent", "number", 2, &kParams_21[0]}},
-    {{"percentChange", "number", 2, &kParams_21[2]}},
+    {"percent", "number", 2, &kParams_21[0]},
+    {"percentChange", "number", 2, &kParams_21[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -300,8 +300,8 @@ const StdlibParamSpec kParams_22[] = {
 };
 
 const StdlibFuncSpec kFuncs_22[] = {
-    {{"ratio", "number", 2, &kParams_22[0]}},
-    {{"proportion", "number", 3, &kParams_22[2]}},
+    {"ratio", "number", 2, &kParams_22[0]},
+    {"proportion", "number", 3, &kParams_22[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -312,8 +312,8 @@ const StdlibParamSpec kParams_23[] = {
 };
 
 const StdlibFuncSpec kFuncs_23[] = {
-    {{"roll", "number", 1, &kParams_23[0]}},
-    {{"roll2d6", "number", 1, &kParams_23[1]}},
+    {"roll", "number", 1, &kParams_23[0]},
+    {"roll2d6", "number", 1, &kParams_23[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -324,8 +324,8 @@ const StdlibParamSpec kParams_24[] = {
 };
 
 const StdlibFuncSpec kFuncs_24[] = {
-    {{"flip", "bool", 1, &kParams_24[0]}},
-    {{"flipN", "number", 1, &kParams_24[1]}},
+    {"flip", "bool", 1, &kParams_24[0]},
+    {"flipN", "number", 1, &kParams_24[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -336,8 +336,8 @@ const StdlibParamSpec kParams_25[] = {
 };
 
 const StdlibFuncSpec kFuncs_25[] = {
-    {{"toUpper", "text", 1, &kParams_25[0]}},
-    {{"toLower", "text", 1, &kParams_25[1]}},
+    {"toUpper", "text", 1, &kParams_25[0]},
+    {"toLower", "text", 1, &kParams_25[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -348,8 +348,8 @@ const StdlibParamSpec kParams_26[] = {
 };
 
 const StdlibFuncSpec kFuncs_26[] = {
-    {{"capitalize", "text", 1, &kParams_26[0]}},
-    {{"titleWord", "text", 1, &kParams_26[1]}},
+    {"capitalize", "text", 1, &kParams_26[0]},
+    {"titleWord", "text", 1, &kParams_26[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -362,8 +362,8 @@ const StdlibParamSpec kParams_27[] = {
 };
 
 const StdlibFuncSpec kFuncs_27[] = {
-    {{"startsWith", "bool", 2, &kParams_27[0]}},
-    {{"endsWith", "bool", 2, &kParams_27[2]}},
+    {"startsWith", "bool", 2, &kParams_27[0]},
+    {"endsWith", "bool", 2, &kParams_27[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -376,8 +376,8 @@ const StdlibParamSpec kParams_28[] = {
 };
 
 const StdlibFuncSpec kFuncs_28[] = {
-    {{"repeatText", "text", 2, &kParams_28[0]}},
-    {{"repeatChar", "text", 2, &kParams_28[2]}},
+    {"repeatText", "text", 2, &kParams_28[0]},
+    {"repeatChar", "text", 2, &kParams_28[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -392,8 +392,8 @@ const StdlibParamSpec kParams_29[] = {
 };
 
 const StdlibFuncSpec kFuncs_29[] = {
-    {{"padLeft", "text", 3, &kParams_29[0]}},
-    {{"padRight", "text", 3, &kParams_29[3]}},
+    {"padLeft", "text", 3, &kParams_29[0]},
+    {"padRight", "text", 3, &kParams_29[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -404,8 +404,8 @@ const StdlibParamSpec kParams_30[] = {
 };
 
 const StdlibFuncSpec kFuncs_30[] = {
-    {{"reverseText", "text", 1, &kParams_30[0]}},
-    {{"reverseWords", "text", 1, &kParams_30[1]}},
+    {"reverseText", "text", 1, &kParams_30[0]},
+    {"reverseWords", "text", 1, &kParams_30[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -416,8 +416,8 @@ const StdlibParamSpec kParams_31[] = {
 };
 
 const StdlibFuncSpec kFuncs_31[] = {
-    {{"length", "number", 1, &kParams_31[0]}},
-    {{"isEmpty", "bool", 1, &kParams_31[1]}},
+    {"length", "number", 1, &kParams_31[0]},
+    {"isEmpty", "bool", 1, &kParams_31[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -431,8 +431,8 @@ const StdlibParamSpec kParams_32[] = {
 };
 
 const StdlibFuncSpec kFuncs_32[] = {
-    {{"concat2", "text", 2, &kParams_32[0]}},
-    {{"concat3", "text", 3, &kParams_32[2]}},
+    {"concat2", "text", 2, &kParams_32[0]},
+    {"concat3", "text", 3, &kParams_32[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -445,8 +445,8 @@ const StdlibParamSpec kParams_33[] = {
 };
 
 const StdlibFuncSpec kFuncs_33[] = {
-    {{"equals", "bool", 2, &kParams_33[0]}},
-    {{"equalsIgnoreCase", "bool", 2, &kParams_33[2]}},
+    {"equals", "bool", 2, &kParams_33[0]},
+    {"equalsIgnoreCase", "bool", 2, &kParams_33[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -457,8 +457,8 @@ const StdlibParamSpec kParams_34[] = {
 };
 
 const StdlibFuncSpec kFuncs_34[] = {
-    {{"cToF", "number", 1, &kParams_34[0]}},
-    {{"fToC", "number", 1, &kParams_34[1]}},
+    {"cToF", "number", 1, &kParams_34[0]},
+    {"fToC", "number", 1, &kParams_34[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -469,8 +469,8 @@ const StdlibParamSpec kParams_35[] = {
 };
 
 const StdlibFuncSpec kFuncs_35[] = {
-    {{"cToK", "number", 1, &kParams_35[0]}},
-    {{"kToC", "number", 1, &kParams_35[1]}},
+    {"cToK", "number", 1, &kParams_35[0]},
+    {"kToC", "number", 1, &kParams_35[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -481,8 +481,8 @@ const StdlibParamSpec kParams_36[] = {
 };
 
 const StdlibFuncSpec kFuncs_36[] = {
-    {{"kmToMiles", "number", 1, &kParams_36[0]}},
-    {{"milesToKm", "number", 1, &kParams_36[1]}},
+    {"kmToMiles", "number", 1, &kParams_36[0]},
+    {"milesToKm", "number", 1, &kParams_36[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -493,8 +493,8 @@ const StdlibParamSpec kParams_37[] = {
 };
 
 const StdlibFuncSpec kFuncs_37[] = {
-    {{"kgToLb", "number", 1, &kParams_37[0]}},
-    {{"lbToKg", "number", 1, &kParams_37[1]}},
+    {"kgToLb", "number", 1, &kParams_37[0]},
+    {"lbToKg", "number", 1, &kParams_37[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -505,8 +505,8 @@ const StdlibParamSpec kParams_38[] = {
 };
 
 const StdlibFuncSpec kFuncs_38[] = {
-    {{"bytesToKb", "number", 1, &kParams_38[0]}},
-    {{"kbToMb", "number", 1, &kParams_38[1]}},
+    {"bytesToKb", "number", 1, &kParams_38[0]},
+    {"kbToMb", "number", 1, &kParams_38[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -517,8 +517,8 @@ const StdlibParamSpec kParams_39[] = {
 };
 
 const StdlibFuncSpec kFuncs_39[] = {
-    {{"secToMin", "number", 1, &kParams_39[0]}},
-    {{"minToHour", "number", 1, &kParams_39[1]}},
+    {"secToMin", "number", 1, &kParams_39[0]},
+    {"minToHour", "number", 1, &kParams_39[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -529,8 +529,8 @@ const StdlibParamSpec kParams_40[] = {
 };
 
 const StdlibFuncSpec kFuncs_40[] = {
-    {{"msToSec", "number", 1, &kParams_40[0]}},
-    {{"secToMs", "number", 1, &kParams_40[1]}},
+    {"msToSec", "number", 1, &kParams_40[0]},
+    {"secToMs", "number", 1, &kParams_40[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -542,8 +542,8 @@ const StdlibParamSpec kParams_41[] = {
 };
 
 const StdlibFuncSpec kFuncs_41[] = {
-    {{"normalizeAngle", "number", 1, &kParams_41[0]}},
-    {{"angleDiff", "number", 2, &kParams_41[1]}},
+    {"normalizeAngle", "number", 1, &kParams_41[0]},
+    {"angleDiff", "number", 2, &kParams_41[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -554,8 +554,8 @@ const StdlibParamSpec kParams_42[] = {
 };
 
 const StdlibFuncSpec kFuncs_42[] = {
-    {{"toHex", "text", 1, &kParams_42[0]}},
-    {{"fromHex", "number", 1, &kParams_42[1]}},
+    {"toHex", "text", 1, &kParams_42[0]},
+    {"fromHex", "number", 1, &kParams_42[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -566,8 +566,8 @@ const StdlibParamSpec kParams_43[] = {
 };
 
 const StdlibFuncSpec kFuncs_43[] = {
-    {{"toBinary", "text", 1, &kParams_43[0]}},
-    {{"fromBinary", "number", 1, &kParams_43[1]}},
+    {"toBinary", "text", 1, &kParams_43[0]},
+    {"fromBinary", "number", 1, &kParams_43[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -578,8 +578,8 @@ const StdlibParamSpec kParams_44[] = {
 };
 
 const StdlibFuncSpec kFuncs_44[] = {
-    {{"toOctal", "text", 1, &kParams_44[0]}},
-    {{"fromOctal", "number", 1, &kParams_44[1]}},
+    {"toOctal", "text", 1, &kParams_44[0]},
+    {"fromOctal", "number", 1, &kParams_44[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -590,8 +590,8 @@ const StdlibParamSpec kParams_45[] = {
 };
 
 const StdlibFuncSpec kFuncs_45[] = {
-    {{"rot13", "text", 1, &kParams_45[0]}},
-    {{"rot47", "text", 1, &kParams_45[1]}},
+    {"rot13", "text", 1, &kParams_45[0]},
+    {"rot47", "text", 1, &kParams_45[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -602,8 +602,8 @@ const StdlibParamSpec kParams_46[] = {
 };
 
 const StdlibFuncSpec kFuncs_46[] = {
-    {{"hashText", "number", 1, &kParams_46[0]}},
-    {{"hashNumber", "number", 1, &kParams_46[1]}},
+    {"hashText", "number", 1, &kParams_46[0]},
+    {"hashNumber", "number", 1, &kParams_46[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -614,8 +614,8 @@ const StdlibParamSpec kParams_47[] = {
 };
 
 const StdlibFuncSpec kFuncs_47[] = {
-    {{"xorChecksum", "number", 1, &kParams_47[0]}},
-    {{"sumBytes", "number", 1, &kParams_47[1]}},
+    {"xorChecksum", "number", 1, &kParams_47[0]},
+    {"sumBytes", "number", 1, &kParams_47[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -626,8 +626,8 @@ const StdlibParamSpec kParams_48[] = {
 };
 
 const StdlibFuncSpec kFuncs_48[] = {
-    {{"slugify", "text", 1, &kParams_48[0]}},
-    {{"deslugify", "text", 1, &kParams_48[1]}},
+    {"slugify", "text", 1, &kParams_48[0]},
+    {"deslugify", "text", 1, &kParams_48[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -638,8 +638,8 @@ const StdlibParamSpec kParams_49[] = {
 };
 
 const StdlibFuncSpec kFuncs_49[] = {
-    {{"isEmail", "bool", 1, &kParams_49[0]}},
-    {{"domainOf", "text", 1, &kParams_49[1]}},
+    {"isEmail", "bool", 1, &kParams_49[0]},
+    {"domainOf", "text", 1, &kParams_49[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -650,8 +650,8 @@ const StdlibParamSpec kParams_50[] = {
 };
 
 const StdlibFuncSpec kFuncs_50[] = {
-    {{"isPhone", "bool", 1, &kParams_50[0]}},
-    {{"digitsOnly", "text", 1, &kParams_50[1]}},
+    {"isPhone", "bool", 1, &kParams_50[0]},
+    {"digitsOnly", "text", 1, &kParams_50[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -662,8 +662,8 @@ const StdlibParamSpec kParams_51[] = {
 };
 
 const StdlibFuncSpec kFuncs_51[] = {
-    {{"isIpv4", "bool", 1, &kParams_51[0]}},
-    {{"countDots", "number", 1, &kParams_51[1]}},
+    {"isIpv4", "bool", 1, &kParams_51[0]},
+    {"countDots", "number", 1, &kParams_51[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -674,8 +674,8 @@ const StdlibParamSpec kParams_52[] = {
 };
 
 const StdlibFuncSpec kFuncs_52[] = {
-    {{"escapeHtml", "text", 1, &kParams_52[0]}},
-    {{"unescapeHtml", "text", 1, &kParams_52[1]}},
+    {"escapeHtml", "text", 1, &kParams_52[0]},
+    {"unescapeHtml", "text", 1, &kParams_52[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -690,8 +690,8 @@ const StdlibParamSpec kParams_53[] = {
 };
 
 const StdlibFuncSpec kFuncs_53[] = {
-    {{"distance2d", "number", 4, &kParams_53[0]}},
-    {{"midpointX", "number", 2, &kParams_53[4]}},
+    {"distance2d", "number", 4, &kParams_53[0]},
+    {"midpointX", "number", 2, &kParams_53[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -704,8 +704,8 @@ const StdlibParamSpec kParams_54[] = {
 };
 
 const StdlibFuncSpec kFuncs_54[] = {
-    {{"area", "number", 2, &kParams_54[0]}},
-    {{"perimeter", "number", 2, &kParams_54[2]}},
+    {"area", "number", 2, &kParams_54[0]},
+    {"perimeter", "number", 2, &kParams_54[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -716,8 +716,8 @@ const StdlibParamSpec kParams_55[] = {
 };
 
 const StdlibFuncSpec kFuncs_55[] = {
-    {{"area", "number", 1, &kParams_55[0]}},
-    {{"circumference", "number", 1, &kParams_55[1]}},
+    {"area", "number", 1, &kParams_55[0]},
+    {"circumference", "number", 1, &kParams_55[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -731,8 +731,8 @@ const StdlibParamSpec kParams_56[] = {
 };
 
 const StdlibFuncSpec kFuncs_56[] = {
-    {{"areaBaseHeight", "number", 2, &kParams_56[0]}},
-    {{"heron", "number", 3, &kParams_56[2]}},
+    {"areaBaseHeight", "number", 2, &kParams_56[0]},
+    {"heron", "number", 3, &kParams_56[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -747,8 +747,8 @@ const StdlibParamSpec kParams_57[] = {
 };
 
 const StdlibFuncSpec kFuncs_57[] = {
-    {{"dot2", "number", 4, &kParams_57[0]}},
-    {{"length2", "number", 2, &kParams_57[4]}},
+    {"dot2", "number", 4, &kParams_57[0]},
+    {"length2", "number", 2, &kParams_57[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -771,8 +771,8 @@ const StdlibParamSpec kParams_58[] = {
 };
 
 const StdlibFuncSpec kFuncs_58[] = {
-    {{"pointInRect", "bool", 6, &kParams_58[0]}},
-    {{"rectsOverlap", "bool", 8, &kParams_58[6]}},
+    {"pointInRect", "bool", 6, &kParams_58[0]},
+    {"rectsOverlap", "bool", 8, &kParams_58[6]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -785,8 +785,8 @@ const StdlibParamSpec kParams_59[] = {
 };
 
 const StdlibFuncSpec kFuncs_59[] = {
-    {{"rgb", "number", 3, &kParams_59[0]}},
-    {{"redOf", "number", 1, &kParams_59[3]}},
+    {"rgb", "number", 3, &kParams_59[0]},
+    {"redOf", "number", 1, &kParams_59[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -797,8 +797,8 @@ const StdlibParamSpec kParams_60[] = {
 };
 
 const StdlibFuncSpec kFuncs_60[] = {
-    {{"easeIn", "number", 1, &kParams_60[0]}},
-    {{"easeOut", "number", 1, &kParams_60[1]}},
+    {"easeIn", "number", 1, &kParams_60[0]},
+    {"easeOut", "number", 1, &kParams_60[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -810,8 +810,8 @@ const StdlibParamSpec kParams_61[] = {
 };
 
 const StdlibFuncSpec kFuncs_61[] = {
-    {{"noise1D", "number", 1, &kParams_61[0]}},
-    {{"noise2D", "number", 2, &kParams_61[1]}},
+    {"noise1D", "number", 1, &kParams_61[0]},
+    {"noise2D", "number", 2, &kParams_61[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -822,8 +822,8 @@ const StdlibParamSpec kParams_62[] = {
 };
 
 const StdlibFuncSpec kFuncs_62[] = {
-    {{"parseMajor", "number", 1, &kParams_62[0]}},
-    {{"bumpMajor", "text", 1, &kParams_62[1]}},
+    {"parseMajor", "number", 1, &kParams_62[0]},
+    {"bumpMajor", "text", 1, &kParams_62[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -834,8 +834,8 @@ const StdlibParamSpec kParams_63[] = {
 };
 
 const StdlibFuncSpec kFuncs_63[] = {
-    {{"isAlpha", "bool", 1, &kParams_63[0]}},
-    {{"isDigit", "bool", 1, &kParams_63[1]}},
+    {"isAlpha", "bool", 1, &kParams_63[0]},
+    {"isDigit", "bool", 1, &kParams_63[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -846,8 +846,8 @@ const StdlibParamSpec kParams_64[] = {
 };
 
 const StdlibFuncSpec kFuncs_64[] = {
-    {{"parseInt", "number", 1, &kParams_64[0]}},
-    {{"parseFloat", "number", 1, &kParams_64[1]}},
+    {"parseInt", "number", 1, &kParams_64[0]},
+    {"parseFloat", "number", 1, &kParams_64[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -859,8 +859,8 @@ const StdlibParamSpec kParams_65[] = {
 };
 
 const StdlibFuncSpec kFuncs_65[] = {
-    {{"formatNumber", "text", 2, &kParams_65[0]}},
-    {{"formatPercent", "text", 1, &kParams_65[2]}},
+    {"formatNumber", "text", 2, &kParams_65[0]},
+    {"formatPercent", "text", 1, &kParams_65[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -871,8 +871,8 @@ const StdlibParamSpec kParams_66[] = {
 };
 
 const StdlibFuncSpec kFuncs_66[] = {
-    {{"formatEuro", "text", 1, &kParams_66[0]}},
-    {{"formatDollar", "text", 1, &kParams_66[1]}},
+    {"formatEuro", "text", 1, &kParams_66[0]},
+    {"formatDollar", "text", 1, &kParams_66[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -883,8 +883,8 @@ const StdlibParamSpec kParams_67[] = {
 };
 
 const StdlibFuncSpec kFuncs_67[] = {
-    {{"nowMs", "number", 1, &kParams_67[0]}},
-    {{"elapsedMs", "number", 1, &kParams_67[1]}},
+    {"nowMs", "number", 1, &kParams_67[0]},
+    {"elapsedMs", "number", 1, &kParams_67[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -897,8 +897,8 @@ const StdlibParamSpec kParams_68[] = {
 };
 
 const StdlibFuncSpec kFuncs_68[] = {
-    {{"bitAnd", "number", 2, &kParams_68[0]}},
-    {{"bitOr", "number", 2, &kParams_68[2]}},
+    {"bitAnd", "number", 2, &kParams_68[0]},
+    {"bitOr", "number", 2, &kParams_68[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -911,8 +911,8 @@ const StdlibParamSpec kParams_69[] = {
 };
 
 const StdlibFuncSpec kFuncs_69[] = {
-    {{"shl", "number", 2, &kParams_69[0]}},
-    {{"shr", "number", 2, &kParams_69[2]}},
+    {"shl", "number", 2, &kParams_69[0]},
+    {"shr", "number", 2, &kParams_69[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -925,8 +925,8 @@ const StdlibParamSpec kParams_70[] = {
 };
 
 const StdlibFuncSpec kFuncs_70[] = {
-    {{"hasFlag", "bool", 2, &kParams_70[0]}},
-    {{"setFlag", "number", 2, &kParams_70[2]}},
+    {"hasFlag", "bool", 2, &kParams_70[0]},
+    {"setFlag", "number", 2, &kParams_70[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -939,8 +939,8 @@ const StdlibParamSpec kParams_71[] = {
 };
 
 const StdlibFuncSpec kFuncs_71[] = {
-    {{"cmpNumber", "number", 2, &kParams_71[0]}},
-    {{"cmpText", "number", 2, &kParams_71[2]}},
+    {"cmpNumber", "number", 2, &kParams_71[0]},
+    {"cmpText", "number", 2, &kParams_71[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -954,8 +954,8 @@ const StdlibParamSpec kParams_72[] = {
 };
 
 const StdlibFuncSpec kFuncs_72[] = {
-    {{"inRange", "bool", 3, &kParams_72[0]}},
-    {{"rangeSize", "number", 2, &kParams_72[3]}},
+    {"inRange", "bool", 3, &kParams_72[0]},
+    {"rangeSize", "number", 2, &kParams_72[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -970,8 +970,8 @@ const StdlibParamSpec kParams_73[] = {
 };
 
 const StdlibFuncSpec kFuncs_73[] = {
-    {{"arithmetic", "number", 3, &kParams_73[0]}},
-    {{"geometric", "number", 3, &kParams_73[3]}},
+    {"arithmetic", "number", 3, &kParams_73[0]},
+    {"geometric", "number", 3, &kParams_73[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -982,8 +982,8 @@ const StdlibParamSpec kParams_74[] = {
 };
 
 const StdlibFuncSpec kFuncs_74[] = {
-    {{"log10", "number", 1, &kParams_74[0]}},
-    {{"log2", "number", 1, &kParams_74[1]}},
+    {"log10", "number", 1, &kParams_74[0]},
+    {"log2", "number", 1, &kParams_74[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -994,8 +994,8 @@ const StdlibParamSpec kParams_75[] = {
 };
 
 const StdlibFuncSpec kFuncs_75[] = {
-    {{"pow2", "number", 1, &kParams_75[0]}},
-    {{"pow10", "number", 1, &kParams_75[1]}},
+    {"pow2", "number", 1, &kParams_75[0]},
+    {"pow10", "number", 1, &kParams_75[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1009,8 +1009,8 @@ const StdlibParamSpec kParams_76[] = {
 };
 
 const StdlibFuncSpec kFuncs_76[] = {
-    {{"hypot2", "number", 2, &kParams_76[0]}},
-    {{"hypot3", "number", 3, &kParams_76[2]}},
+    {"hypot2", "number", 2, &kParams_76[0]},
+    {"hypot3", "number", 3, &kParams_76[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1023,8 +1023,8 @@ const StdlibParamSpec kParams_77[] = {
 };
 
 const StdlibFuncSpec kFuncs_77[] = {
-    {{"sum2", "number", 2, &kParams_77[0]}},
-    {{"product2", "number", 2, &kParams_77[2]}},
+    {"sum2", "number", 2, &kParams_77[0]},
+    {"product2", "number", 2, &kParams_77[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1039,8 +1039,8 @@ const StdlibParamSpec kParams_78[] = {
 };
 
 const StdlibFuncSpec kFuncs_78[] = {
-    {{"sum3", "number", 3, &kParams_78[0]}},
-    {{"product3", "number", 3, &kParams_78[3]}},
+    {"sum3", "number", 3, &kParams_78[0]},
+    {"product3", "number", 3, &kParams_78[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1053,8 +1053,8 @@ const StdlibParamSpec kParams_79[] = {
 };
 
 const StdlibFuncSpec kFuncs_79[] = {
-    {{"delta", "number", 2, &kParams_79[0]}},
-    {{"absDelta", "number", 2, &kParams_79[2]}},
+    {"delta", "number", 2, &kParams_79[0]},
+    {"absDelta", "number", 2, &kParams_79[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1072,8 +1072,8 @@ const StdlibParamSpec kParams_80[] = {
 };
 
 const StdlibFuncSpec kFuncs_80[] = {
-    {{"avg4", "number", 4, &kParams_80[0]}},
-    {{"avg5", "number", 5, &kParams_80[4]}},
+    {"avg4", "number", 4, &kParams_80[0]},
+    {"avg5", "number", 5, &kParams_80[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1086,8 +1086,8 @@ const StdlibParamSpec kParams_81[] = {
 };
 
 const StdlibFuncSpec kFuncs_81[] = {
-    {{"margin", "number", 2, &kParams_81[0]}},
-    {{"markup", "number", 2, &kParams_81[2]}},
+    {"margin", "number", 2, &kParams_81[0]},
+    {"markup", "number", 2, &kParams_81[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1100,8 +1100,8 @@ const StdlibParamSpec kParams_82[] = {
 };
 
 const StdlibFuncSpec kFuncs_82[] = {
-    {{"addTax", "number", 2, &kParams_82[0]}},
-    {{"taxAmount", "number", 2, &kParams_82[2]}},
+    {"addTax", "number", 2, &kParams_82[0]},
+    {"taxAmount", "number", 2, &kParams_82[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1114,8 +1114,8 @@ const StdlibParamSpec kParams_83[] = {
 };
 
 const StdlibFuncSpec kFuncs_83[] = {
-    {{"applyDiscount", "number", 2, &kParams_83[0]}},
-    {{"discountAmount", "number", 2, &kParams_83[2]}},
+    {"applyDiscount", "number", 2, &kParams_83[0]},
+    {"discountAmount", "number", 2, &kParams_83[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1129,8 +1129,8 @@ const StdlibParamSpec kParams_84[] = {
 };
 
 const StdlibFuncSpec kFuncs_84[] = {
-    {{"simpleInterest", "number", 3, &kParams_84[0]}},
-    {{"compoundOnce", "number", 2, &kParams_84[3]}},
+    {"simpleInterest", "number", 3, &kParams_84[0]},
+    {"compoundOnce", "number", 2, &kParams_84[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1144,8 +1144,8 @@ const StdlibParamSpec kParams_85[] = {
 };
 
 const StdlibFuncSpec kFuncs_85[] = {
-    {{"monthlyPayment", "number", 3, &kParams_85[0]}},
-    {{"totalPaid", "number", 2, &kParams_85[3]}},
+    {"monthlyPayment", "number", 3, &kParams_85[0]},
+    {"totalPaid", "number", 2, &kParams_85[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1156,8 +1156,8 @@ const StdlibParamSpec kParams_86[] = {
 };
 
 const StdlibFuncSpec kFuncs_86[] = {
-    {{"kmhToMs", "number", 1, &kParams_86[0]}},
-    {{"msToKmh", "number", 1, &kParams_86[1]}},
+    {"kmhToMs", "number", 1, &kParams_86[0]},
+    {"msToKmh", "number", 1, &kParams_86[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1168,8 +1168,8 @@ const StdlibParamSpec kParams_87[] = {
 };
 
 const StdlibFuncSpec kFuncs_87[] = {
-    {{"litersToMl", "number", 1, &kParams_87[0]}},
-    {{"mlToLiters", "number", 1, &kParams_87[1]}},
+    {"litersToMl", "number", 1, &kParams_87[0]},
+    {"mlToLiters", "number", 1, &kParams_87[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1180,8 +1180,8 @@ const StdlibParamSpec kParams_88[] = {
 };
 
 const StdlibFuncSpec kFuncs_88[] = {
-    {{"m2ToCm2", "number", 1, &kParams_88[0]}},
-    {{"cm2ToM2", "number", 1, &kParams_88[1]}},
+    {"m2ToCm2", "number", 1, &kParams_88[0]},
+    {"cm2ToM2", "number", 1, &kParams_88[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1192,8 +1192,8 @@ const StdlibParamSpec kParams_89[] = {
 };
 
 const StdlibFuncSpec kFuncs_89[] = {
-    {{"barToPsi", "number", 1, &kParams_89[0]}},
-    {{"psiToBar", "number", 1, &kParams_89[1]}},
+    {"barToPsi", "number", 1, &kParams_89[0]},
+    {"psiToBar", "number", 1, &kParams_89[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1204,8 +1204,8 @@ const StdlibParamSpec kParams_90[] = {
 };
 
 const StdlibFuncSpec kFuncs_90[] = {
-    {{"joulesToCal", "number", 1, &kParams_90[0]}},
-    {{"calToJoules", "number", 1, &kParams_90[1]}},
+    {"joulesToCal", "number", 1, &kParams_90[0]},
+    {"calToJoules", "number", 1, &kParams_90[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1217,8 +1217,8 @@ const StdlibParamSpec kParams_91[] = {
 };
 
 const StdlibFuncSpec kFuncs_91[] = {
-    {{"bmi", "number", 2, &kParams_91[0]}},
-    {{"bmiCategory", "text", 1, &kParams_91[2]}},
+    {"bmi", "number", 2, &kParams_91[0]},
+    {"bmiCategory", "text", 1, &kParams_91[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1233,8 +1233,8 @@ const StdlibParamSpec kParams_92[] = {
 };
 
 const StdlibFuncSpec kFuncs_92[] = {
-    {{"haversineKm", "number", 4, &kParams_92[0]}},
-    {{"midLat", "number", 2, &kParams_92[4]}},
+    {"haversineKm", "number", 4, &kParams_92[0]},
+    {"midLat", "number", 2, &kParams_92[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1248,8 +1248,8 @@ const StdlibParamSpec kParams_93[] = {
 };
 
 const StdlibFuncSpec kFuncs_93[] = {
-    {{"bearingDeg", "number", 4, &kParams_93[0]}},
-    {{"cardinal", "text", 1, &kParams_93[4]}},
+    {"bearingDeg", "number", 4, &kParams_93[0]},
+    {"cardinal", "text", 1, &kParams_93[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1260,8 +1260,8 @@ const StdlibParamSpec kParams_94[] = {
 };
 
 const StdlibFuncSpec kFuncs_94[] = {
-    {{"randomHex", "text", 1, &kParams_94[0]}},
-    {{"simpleId", "text", 1, &kParams_94[1]}},
+    {"randomHex", "text", 1, &kParams_94[0]},
+    {"simpleId", "text", 1, &kParams_94[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1272,8 +1272,8 @@ const StdlibParamSpec kParams_95[] = {
 };
 
 const StdlibFuncSpec kFuncs_95[] = {
-    {{"nextId", "number", 1, &kParams_95[0]}},
-    {{"resetId", "number", 1, &kParams_95[1]}},
+    {"nextId", "number", 1, &kParams_95[0]},
+    {"resetId", "number", 1, &kParams_95[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1284,8 +1284,8 @@ const StdlibParamSpec kParams_96[] = {
 };
 
 const StdlibFuncSpec kFuncs_96[] = {
-    {{"getEnv", "text", 1, &kParams_96[0]}},
-    {{"hasEnv", "bool", 1, &kParams_96[1]}},
+    {"getEnv", "text", 1, &kParams_96[0]},
+    {"hasEnv", "bool", 1, &kParams_96[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1296,8 +1296,8 @@ const StdlibParamSpec kParams_97[] = {
 };
 
 const StdlibFuncSpec kFuncs_97[] = {
-    {{"osName", "text", 1, &kParams_97[0]}},
-    {{"archName", "text", 1, &kParams_97[1]}},
+    {"osName", "text", 1, &kParams_97[0]},
+    {"archName", "text", 1, &kParams_97[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1308,8 +1308,8 @@ const StdlibParamSpec kParams_98[] = {
 };
 
 const StdlibFuncSpec kFuncs_98[] = {
-    {{"normalizeSlashes", "text", 1, &kParams_98[0]}},
-    {{"hasTrailingSlash", "bool", 1, &kParams_98[1]}},
+    {"normalizeSlashes", "text", 1, &kParams_98[0]},
+    {"hasTrailingSlash", "bool", 1, &kParams_98[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1320,8 +1320,8 @@ const StdlibParamSpec kParams_99[] = {
 };
 
 const StdlibFuncSpec kFuncs_99[] = {
-    {{"urlEncodeSpace", "text", 1, &kParams_99[0]}},
-    {{"urlDecodeSpace", "text", 1, &kParams_99[1]}},
+    {"urlEncodeSpace", "text", 1, &kParams_99[0]},
+    {"urlDecodeSpace", "text", 1, &kParams_99[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1332,8 +1332,8 @@ const StdlibParamSpec kParams_100[] = {
 };
 
 const StdlibFuncSpec kFuncs_100[] = {
-    {{"splitCsv2", "text", 1, &kParams_100[0]}},
-    {{"splitCsvRest", "text", 1, &kParams_100[1]}},
+    {"splitCsv2", "text", 1, &kParams_100[0]},
+    {"splitCsvRest", "text", 1, &kParams_100[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1345,8 +1345,8 @@ const StdlibParamSpec kParams_101[] = {
 };
 
 const StdlibFuncSpec kFuncs_101[] = {
-    {{"quote", "text", 1, &kParams_101[0]}},
-    {{"pair", "text", 2, &kParams_101[1]}},
+    {"quote", "text", 1, &kParams_101[0]},
+    {"pair", "text", 2, &kParams_101[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1358,8 +1358,8 @@ const StdlibParamSpec kParams_102[] = {
 };
 
 const StdlibFuncSpec kFuncs_102[] = {
-    {{"tag", "text", 2, &kParams_102[0]}},
-    {{"escapeXml", "text", 1, &kParams_102[2]}},
+    {"tag", "text", 2, &kParams_102[0]},
+    {"escapeXml", "text", 1, &kParams_102[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1370,8 +1370,8 @@ const StdlibParamSpec kParams_103[] = {
 };
 
 const StdlibFuncSpec kFuncs_103[] = {
-    {{"bold", "text", 1, &kParams_103[0]}},
-    {{"italic", "text", 1, &kParams_103[1]}},
+    {"bold", "text", 1, &kParams_103[0]},
+    {"italic", "text", 1, &kParams_103[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1382,8 +1382,8 @@ const StdlibParamSpec kParams_104[] = {
 };
 
 const StdlibFuncSpec kFuncs_104[] = {
-    {{"strengthScore", "number", 1, &kParams_104[0]}},
-    {{"isStrong", "bool", 1, &kParams_104[1]}},
+    {"strengthScore", "number", 1, &kParams_104[0]},
+    {"isStrong", "bool", 1, &kParams_104[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1394,8 +1394,8 @@ const StdlibParamSpec kParams_105[] = {
 };
 
 const StdlibFuncSpec kFuncs_105[] = {
-    {{"encode64", "text", 1, &kParams_105[0]}},
-    {{"decode64", "text", 1, &kParams_105[1]}},
+    {"encode64", "text", 1, &kParams_105[0]},
+    {"decode64", "text", 1, &kParams_105[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1406,8 +1406,8 @@ const StdlibParamSpec kParams_106[] = {
 };
 
 const StdlibFuncSpec kFuncs_106[] = {
-    {{"isTextPlain", "bool", 1, &kParams_106[0]}},
-    {{"isJson", "bool", 1, &kParams_106[1]}},
+    {"isTextPlain", "bool", 1, &kParams_106[0]},
+    {"isJson", "bool", 1, &kParams_106[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1418,8 +1418,8 @@ const StdlibParamSpec kParams_107[] = {
 };
 
 const StdlibFuncSpec kFuncs_107[] = {
-    {{"isSuccess", "bool", 1, &kParams_107[0]}},
-    {{"isRedirect", "bool", 1, &kParams_107[1]}},
+    {"isSuccess", "bool", 1, &kParams_107[0]},
+    {"isRedirect", "bool", 1, &kParams_107[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1431,8 +1431,8 @@ const StdlibParamSpec kParams_108[] = {
 };
 
 const StdlibFuncSpec kFuncs_108[] = {
-    {{"scoreBonus", "number", 2, &kParams_108[0]}},
-    {{"levelFromXp", "number", 1, &kParams_108[2]}},
+    {"scoreBonus", "number", 2, &kParams_108[0]},
+    {"levelFromXp", "number", 1, &kParams_108[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1444,8 +1444,8 @@ const StdlibParamSpec kParams_109[] = {
 };
 
 const StdlibFuncSpec kFuncs_109[] = {
-    {{"midiNote", "number", 2, &kParams_109[0]}},
-    {{"freqA4", "number", 1, &kParams_109[2]}},
+    {"midiNote", "number", 2, &kParams_109[0]},
+    {"freqA4", "number", 1, &kParams_109[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1458,8 +1458,8 @@ const StdlibParamSpec kParams_110[] = {
 };
 
 const StdlibFuncSpec kFuncs_110[] = {
-    {{"lerpColor", "number", 3, &kParams_110[0]}},
-    {{"invertRgb", "number", 1, &kParams_110[3]}},
+    {"lerpColor", "number", 3, &kParams_110[0]},
+    {"invertRgb", "number", 1, &kParams_110[3]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1474,8 +1474,8 @@ const StdlibParamSpec kParams_111[] = {
 };
 
 const StdlibFuncSpec kFuncs_111[] = {
-    {{"det2", "number", 4, &kParams_111[0]}},
-    {{"trace2", "number", 2, &kParams_111[4]}},
+    {"det2", "number", 4, &kParams_111[0]},
+    {"trace2", "number", 2, &kParams_111[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1488,8 +1488,8 @@ const StdlibParamSpec kParams_112[] = {
 };
 
 const StdlibFuncSpec kFuncs_112[] = {
-    {{"force", "number", 2, &kParams_112[0]}},
-    {{"kineticEnergy", "number", 2, &kParams_112[2]}},
+    {"force", "number", 2, &kParams_112[0]},
+    {"kineticEnergy", "number", 2, &kParams_112[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1502,8 +1502,8 @@ const StdlibParamSpec kParams_113[] = {
 };
 
 const StdlibFuncSpec kFuncs_113[] = {
-    {{"moles", "number", 2, &kParams_113[0]}},
-    {{"mass", "number", 2, &kParams_113[2]}},
+    {"moles", "number", 2, &kParams_113[0]},
+    {"mass", "number", 2, &kParams_113[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1514,8 +1514,8 @@ const StdlibParamSpec kParams_114[] = {
 };
 
 const StdlibFuncSpec kFuncs_114[] = {
-    {{"inchToCm", "number", 1, &kParams_114[0]}},
-    {{"cmToInch", "number", 1, &kParams_114[1]}},
+    {"inchToCm", "number", 1, &kParams_114[0]},
+    {"cmToInch", "number", 1, &kParams_114[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1526,8 +1526,8 @@ const StdlibParamSpec kParams_115[] = {
 };
 
 const StdlibFuncSpec kFuncs_115[] = {
-    {{"a4WidthCm", "number", 1, &kParams_115[0]}},
-    {{"a4HeightCm", "number", 1, &kParams_115[1]}},
+    {"a4WidthCm", "number", 1, &kParams_115[0]},
+    {"a4HeightCm", "number", 1, &kParams_115[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1538,8 +1538,8 @@ const StdlibParamSpec kParams_116[] = {
 };
 
 const StdlibFuncSpec kFuncs_116[] = {
-    {{"toRoman", "text", 1, &kParams_116[0]}},
-    {{"fromRoman", "number", 1, &kParams_116[1]}},
+    {"toRoman", "text", 1, &kParams_116[0]},
+    {"fromRoman", "number", 1, &kParams_116[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1550,8 +1550,8 @@ const StdlibParamSpec kParams_117[] = {
 };
 
 const StdlibFuncSpec kFuncs_117[] = {
-    {{"spellDigit", "text", 1, &kParams_117[0]}},
-    {{"spellBool", "text", 1, &kParams_117[1]}},
+    {"spellDigit", "text", 1, &kParams_117[0]},
+    {"spellBool", "text", 1, &kParams_117[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1562,8 +1562,8 @@ const StdlibParamSpec kParams_118[] = {
 };
 
 const StdlibFuncSpec kFuncs_118[] = {
-    {{"firstIndex", "number", 1, &kParams_118[0]}},
-    {{"lastIndex", "number", 1, &kParams_118[1]}},
+    {"firstIndex", "number", 1, &kParams_118[0]},
+    {"lastIndex", "number", 1, &kParams_118[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1576,8 +1576,8 @@ const StdlibParamSpec kParams_119[] = {
 };
 
 const StdlibFuncSpec kFuncs_119[] = {
-    {{"wrapIndex", "number", 2, &kParams_119[0]}},
-    {{"nextIndex", "number", 2, &kParams_119[2]}},
+    {"wrapIndex", "number", 2, &kParams_119[0]},
+    {"nextIndex", "number", 2, &kParams_119[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1589,8 +1589,8 @@ const StdlibParamSpec kParams_120[] = {
 };
 
 const StdlibFuncSpec kFuncs_120[] = {
-    {{"peekOffset", "number", 2, &kParams_120[0]}},
-    {{"isEmptyStack", "bool", 1, &kParams_120[2]}},
+    {"peekOffset", "number", 2, &kParams_120[0]},
+    {"isEmptyStack", "bool", 1, &kParams_120[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1603,8 +1603,8 @@ const StdlibParamSpec kParams_121[] = {
 };
 
 const StdlibFuncSpec kFuncs_121[] = {
-    {{"edgeKey", "number", 2, &kParams_121[0]}},
-    {{"selfLoop", "bool", 2, &kParams_121[2]}},
+    {"edgeKey", "number", 2, &kParams_121[0]},
+    {"selfLoop", "bool", 2, &kParams_121[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1615,8 +1615,8 @@ const StdlibParamSpec kParams_122[] = {
 };
 
 const StdlibFuncSpec kFuncs_122[] = {
-    {{"binarySteps", "number", 1, &kParams_122[0]}},
-    {{"linearWorst", "number", 1, &kParams_122[1]}},
+    {"binarySteps", "number", 1, &kParams_122[0]},
+    {"linearWorst", "number", 1, &kParams_122[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1627,8 +1627,8 @@ const StdlibParamSpec kParams_123[] = {
 };
 
 const StdlibFuncSpec kFuncs_123[] = {
-    {{"ascKey", "number", 1, &kParams_123[0]}},
-    {{"descKey", "number", 1, &kParams_123[1]}},
+    {"ascKey", "number", 1, &kParams_123[0]},
+    {"descKey", "number", 1, &kParams_123[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1641,8 +1641,8 @@ const StdlibParamSpec kParams_124[] = {
 };
 
 const StdlibFuncSpec kFuncs_124[] = {
-    {{"truncate", "text", 2, &kParams_124[0]}},
-    {{"ellipsize", "text", 2, &kParams_124[2]}},
+    {"truncate", "text", 2, &kParams_124[0]},
+    {"ellipsize", "text", 2, &kParams_124[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1653,8 +1653,8 @@ const StdlibParamSpec kParams_125[] = {
 };
 
 const StdlibFuncSpec kFuncs_125[] = {
-    {{"collapseSpaces", "text", 1, &kParams_125[0]}},
-    {{"isWhitespace", "bool", 1, &kParams_125[1]}},
+    {"collapseSpaces", "text", 1, &kParams_125[0]},
+    {"isWhitespace", "bool", 1, &kParams_125[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1665,8 +1665,8 @@ const StdlibParamSpec kParams_126[] = {
 };
 
 const StdlibFuncSpec kFuncs_126[] = {
-    {{"charCode", "number", 1, &kParams_126[0]}},
-    {{"fromCharCode", "text", 1, &kParams_126[1]}},
+    {"charCode", "number", 1, &kParams_126[0]},
+    {"fromCharCode", "text", 1, &kParams_126[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1679,8 +1679,8 @@ const StdlibParamSpec kParams_127[] = {
 };
 
 const StdlibFuncSpec kFuncs_127[] = {
-    {{"compareMajor", "number", 2, &kParams_127[0]}},
-    {{"sameMajor", "bool", 2, &kParams_127[2]}},
+    {"compareMajor", "number", 2, &kParams_127[0]},
+    {"sameMajor", "bool", 2, &kParams_127[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1691,8 +1691,8 @@ const StdlibParamSpec kParams_128[] = {
 };
 
 const StdlibFuncSpec kFuncs_128[] = {
-    {{"parseBool", "bool", 1, &kParams_128[0]}},
-    {{"boolToText", "text", 1, &kParams_128[1]}},
+    {"parseBool", "bool", 1, &kParams_128[0]},
+    {"boolToText", "text", 1, &kParams_128[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1704,8 +1704,8 @@ const StdlibParamSpec kParams_129[] = {
 };
 
 const StdlibFuncSpec kFuncs_129[] = {
-    {{"backoffMs", "number", 1, &kParams_129[0]}},
-    {{"shouldRetry", "bool", 2, &kParams_129[1]}},
+    {"backoffMs", "number", 1, &kParams_129[0]},
+    {"shouldRetry", "bool", 2, &kParams_129[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1718,8 +1718,8 @@ const StdlibParamSpec kParams_130[] = {
 };
 
 const StdlibFuncSpec kFuncs_130[] = {
-    {{"allowBurst", "bool", 2, &kParams_130[0]}},
-    {{"tokensLeft", "number", 2, &kParams_130[2]}},
+    {"allowBurst", "bool", 2, &kParams_130[0]},
+    {"tokensLeft", "number", 2, &kParams_130[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1732,8 +1732,8 @@ const StdlibParamSpec kParams_131[] = {
 };
 
 const StdlibFuncSpec kFuncs_131[] = {
-    {{"ttlExpired", "bool", 2, &kParams_131[0]}},
-    {{"freshness", "number", 2, &kParams_131[2]}},
+    {"ttlExpired", "bool", 2, &kParams_131[0]},
+    {"freshness", "number", 2, &kParams_131[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1744,8 +1744,8 @@ const StdlibParamSpec kParams_132[] = {
 };
 
 const StdlibFuncSpec kFuncs_132[] = {
-    {{"hashId", "text", 1, &kParams_132[0]}},
-    {{"shortHash", "text", 1, &kParams_132[1]}},
+    {"hashId", "text", 1, &kParams_132[0]},
+    {"shortHash", "text", 1, &kParams_132[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1756,8 +1756,8 @@ const StdlibParamSpec kParams_133[] = {
 };
 
 const StdlibFuncSpec kFuncs_133[] = {
-    {{"decimalComma", "text", 1, &kParams_133[0]}},
-    {{"decimalDot", "text", 1, &kParams_133[1]}},
+    {"decimalComma", "text", 1, &kParams_133[0]},
+    {"decimalDot", "text", 1, &kParams_133[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1768,8 +1768,8 @@ const StdlibParamSpec kParams_134[] = {
 };
 
 const StdlibFuncSpec kFuncs_134[] = {
-    {{"daysInYear", "number", 1, &kParams_134[0]}},
-    {{"isLeap", "bool", 1, &kParams_134[1]}},
+    {"daysInYear", "number", 1, &kParams_134[0]},
+    {"isLeap", "bool", 1, &kParams_134[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1780,8 +1780,8 @@ const StdlibParamSpec kParams_135[] = {
 };
 
 const StdlibFuncSpec kFuncs_135[] = {
-    {{"weekIndex", "number", 1, &kParams_135[0]}},
-    {{"isWeekendIndex", "bool", 1, &kParams_135[1]}},
+    {"weekIndex", "number", 1, &kParams_135[0]},
+    {"isWeekendIndex", "bool", 1, &kParams_135[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1792,8 +1792,8 @@ const StdlibParamSpec kParams_136[] = {
 };
 
 const StdlibFuncSpec kFuncs_136[] = {
-    {{"utcOffsetHours", "number", 1, &kParams_136[0]}},
-    {{"localHour", "number", 1, &kParams_136[1]}},
+    {"utcOffsetHours", "number", 1, &kParams_136[0]},
+    {"localHour", "number", 1, &kParams_136[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1804,8 +1804,8 @@ const StdlibParamSpec kParams_137[] = {
 };
 
 const StdlibFuncSpec kFuncs_137[] = {
-    {{"isPortValid", "bool", 1, &kParams_137[0]}},
-    {{"isLocalhost", "bool", 1, &kParams_137[1]}},
+    {"isPortValid", "bool", 1, &kParams_137[0]},
+    {"isLocalhost", "bool", 1, &kParams_137[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1816,8 +1816,8 @@ const StdlibParamSpec kParams_138[] = {
 };
 
 const StdlibFuncSpec kFuncs_138[] = {
-    {{"isValidHostname", "bool", 1, &kParams_138[0]}},
-    {{"hasSubdomain", "bool", 1, &kParams_138[1]}},
+    {"isValidHostname", "bool", 1, &kParams_138[0]},
+    {"hasSubdomain", "bool", 1, &kParams_138[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1829,8 +1829,8 @@ const StdlibParamSpec kParams_139[] = {
 };
 
 const StdlibFuncSpec kFuncs_139[] = {
-    {{"portPairKey", "number", 2, &kParams_139[0]}},
-    {{"isEphemeralPort", "bool", 1, &kParams_139[2]}},
+    {"portPairKey", "number", 2, &kParams_139[0]},
+    {"isEphemeralPort", "bool", 1, &kParams_139[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1841,8 +1841,8 @@ const StdlibParamSpec kParams_140[] = {
 };
 
 const StdlibFuncSpec kFuncs_140[] = {
-    {{"exitOk", "bool", 1, &kParams_140[0]}},
-    {{"exitFailed", "bool", 1, &kParams_140[1]}},
+    {"exitOk", "bool", 1, &kParams_140[0]},
+    {"exitFailed", "bool", 1, &kParams_140[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1853,8 +1853,8 @@ const StdlibParamSpec kParams_141[] = {
 };
 
 const StdlibFuncSpec kFuncs_141[] = {
-    {{"quoteShell", "text", 1, &kParams_141[0]}},
-    {{"escapeShell", "text", 1, &kParams_141[1]}},
+    {"quoteShell", "text", 1, &kParams_141[0]},
+    {"escapeShell", "text", 1, &kParams_141[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1865,8 +1865,8 @@ const StdlibParamSpec kParams_142[] = {
 };
 
 const StdlibFuncSpec kFuncs_142[] = {
-    {{"kbFromBytes", "number", 1, &kParams_142[0]}},
-    {{"mbFromBytes", "number", 1, &kParams_142[1]}},
+    {"kbFromBytes", "number", 1, &kParams_142[0]},
+    {"mbFromBytes", "number", 1, &kParams_142[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1877,8 +1877,8 @@ const StdlibParamSpec kParams_143[] = {
 };
 
 const StdlibFuncSpec kFuncs_143[] = {
-    {{"clampUsage", "number", 1, &kParams_143[0]}},
-    {{"isHighLoad", "bool", 1, &kParams_143[1]}},
+    {"clampUsage", "number", 1, &kParams_143[0]},
+    {"isHighLoad", "bool", 1, &kParams_143[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1891,8 +1891,8 @@ const StdlibParamSpec kParams_144[] = {
 };
 
 const StdlibFuncSpec kFuncs_144[] = {
-    {{"usagePercent", "number", 2, &kParams_144[0]}},
-    {{"freeSpace", "number", 2, &kParams_144[2]}},
+    {"usagePercent", "number", 2, &kParams_144[0]},
+    {"freeSpace", "number", 2, &kParams_144[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1903,8 +1903,8 @@ const StdlibParamSpec kParams_145[] = {
 };
 
 const StdlibFuncSpec kFuncs_145[] = {
-    {{"maskSecret", "text", 1, &kParams_145[0]}},
-    {{"isMasked", "bool", 1, &kParams_145[1]}},
+    {"maskSecret", "text", 1, &kParams_145[0]},
+    {"isMasked", "bool", 1, &kParams_145[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1916,8 +1916,8 @@ const StdlibParamSpec kParams_146[] = {
 };
 
 const StdlibFuncSpec kFuncs_146[] = {
-    {{"auditLine", "text", 2, &kParams_146[0]}},
-    {{"timestampPrefix", "text", 1, &kParams_146[2]}},
+    {"auditLine", "text", 2, &kParams_146[0]},
+    {"timestampPrefix", "text", 1, &kParams_146[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1931,8 +1931,8 @@ const StdlibParamSpec kParams_147[] = {
 };
 
 const StdlibFuncSpec kFuncs_147[] = {
-    {{"fill", "text", 2, &kParams_147[0]}},
-    {{"fill2", "text", 3, &kParams_147[2]}},
+    {"fill", "text", 2, &kParams_147[0]},
+    {"fill2", "text", 3, &kParams_147[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1943,8 +1943,8 @@ const StdlibParamSpec kParams_148[] = {
 };
 
 const StdlibFuncSpec kFuncs_148[] = {
-    {{"greetFr", "text", 1, &kParams_148[0]}},
-    {{"greetEn", "text", 1, &kParams_148[1]}},
+    {"greetFr", "text", 1, &kParams_148[0]},
+    {"greetEn", "text", 1, &kParams_148[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1956,8 +1956,8 @@ const StdlibParamSpec kParams_149[] = {
 };
 
 const StdlibFuncSpec kFuncs_149[] = {
-    {{"gradeLetter", "text", 1, &kParams_149[0]}},
-    {{"passed", "bool", 2, &kParams_149[1]}},
+    {"gradeLetter", "text", 1, &kParams_149[0]},
+    {"passed", "bool", 2, &kParams_149[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -1970,8 +1970,8 @@ const StdlibParamSpec kParams_150[] = {
 };
 
 const StdlibFuncSpec kFuncs_150[] = {
-    {{"scorePercent", "number", 2, &kParams_150[0]}},
-    {{"isPerfect", "bool", 2, &kParams_150[2]}},
+    {"scorePercent", "number", 2, &kParams_150[0]},
+    {"isPerfect", "bool", 2, &kParams_150[2]},
     {nullptr, nullptr, 0, nullptr}
 };
 
