@@ -614,7 +614,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             if (!assign->typeName.empty()) {
                 AfrType declared = resolveTypeName(assign->typeName);
                 if (declared.kind == TypeKind::List) {
-                    elemType = declared.listElementType();
+                    elemType = resolveTypeName(declared.listElementTypeName);
                 }
             }
             if (elemType.kind == TypeKind::Void && !list->elements.empty()) {
