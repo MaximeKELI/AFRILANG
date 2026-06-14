@@ -12,7 +12,7 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
-    std::int64_t age = 25LL;
+    double age = 25LL;
     #line 5 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
     if ((age > 18LL)) {
         #line 4 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
@@ -24,16 +24,16 @@ int main() {
         std::cout << "Jeune adulte" << std::endl;
     }
     #line 11 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
-    std::int64_t score = 100LL;
+    double score = 100LL;
     #line 15 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
     if ((score == 100LL)) {
         #line 14 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
         std::cout << "Score parfait!" << std::endl;
     }
     #line 17 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
-    std::int64_t x = 10LL;
+    double x = 10LL;
     #line 18 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
-    std::int64_t y = 3LL;
+    double y = 3LL;
     #line 20 "/home/maxime/AFRILANG/build/../examples/conditions.afr"
     std::cout << (x + y) << std::endl;
     #line 21 "/home/maxime/AFRILANG/build/../examples/conditions.afr"

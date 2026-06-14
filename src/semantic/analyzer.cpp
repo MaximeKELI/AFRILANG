@@ -1167,7 +1167,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
     }
 
     if (const auto* num = dynamic_cast<const NumberLiteralNode*>(&expr)) {
-        return num->isInteger ? AfrType::intType() : AfrType::number();
+        (void)num;
+        return AfrType::number();
     }
 
     if (const auto* boolean = dynamic_cast<const BoolLiteralNode*>(&expr)) {

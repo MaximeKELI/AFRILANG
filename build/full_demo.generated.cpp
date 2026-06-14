@@ -50,7 +50,7 @@ int main() {
         counter = (counter + 1LL);
     }
     #line 25 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
-    std::vector<std::int64_t> items = {1LL, 2LL, 3LL};
+    std::vector<double> items = {1LL, 2LL, 3LL};
     #line 26 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
     for (auto& item : items) {
         #line 29 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"

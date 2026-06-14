@@ -12,7 +12,7 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/lists.afr"
-    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL};
+    std::vector<double> nums = {1LL, 2LL, 3LL};
     #line 2 "/home/maxime/AFRILANG/build/../examples/lists.afr"
     std::cout << nums[static_cast<size_t>(0LL)] << std::endl;
     #line 3 "/home/maxime/AFRILANG/build/../examples/lists.afr"
@@ -28,7 +28,7 @@ int main() {
     #line 10 "/home/maxime/AFRILANG/build/../examples/lists.afr"
     std::cout << nums.size() << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/lists.afr"
-    std::vector<std::int64_t> bracket = {10LL, 20LL, 30LL};
+    std::vector<double> bracket = {10LL, 20LL, 30LL};
     #line 13 "/home/maxime/AFRILANG/build/../examples/lists.afr"
     std::cout << bracket[static_cast<size_t>(0LL)] << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/lists.afr"
