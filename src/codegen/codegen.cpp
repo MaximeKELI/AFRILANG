@@ -2123,7 +2123,7 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "async";
+           name == "async" || name == "ui";
 }
 
 namespace {
@@ -2262,6 +2262,9 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (semantic_.usesAsync &&
         (crossTarget_ != "wasm32")) {
         command += " -fcoroutines -pthread";
+    }
+    if (semantic_.usesUi && crossTarget_ != "wasm32") {
+        command += " -I/usr/include/SDL2 -D_REENTRANT -lSDL2 -lSDL2_ttf";
     }
     if (debugSymbols_) {
         command += " -g";
