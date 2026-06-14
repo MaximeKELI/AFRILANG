@@ -1372,6 +1372,10 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
         return node;
     }
 
+    if (match(TokenType::Match)) {
+        return parseMatchExpression();
+    }
+
     if (match(TokenType::List)) {
         if (check(TokenType::Each)) {
             return parseMapEachExpression();
