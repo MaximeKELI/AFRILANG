@@ -144,7 +144,11 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     codegen.setCrossTarget(options.crossTarget);
 
     result.generatedCpp = baseName + ".generated.cpp";
-    result.executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
+    std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
+    if (fs::exists(executable) && fs::is_directory(executable)) {
+        executable = baseName + "_bin";
+    }
+    result.executable = executable;
 
     if (options.emitOnly) {
         std::ofstream out(result.generatedCpp);

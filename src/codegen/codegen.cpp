@@ -528,10 +528,15 @@ void CodeGenerator::collectLinkLibrary(const std::string& library,
 }
 
 std::string CodeGenerator::linkFlagForLibrary(const std::string& library) {
+    static const std::unordered_set<std::string> kAllowed = {
+        "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
+    };
+    if (!kAllowed.count(library)) return {};
     if (library == "c" || library == "libc") return {};
-    if (library == "m" || library == "libm") return "-lm";
+    if (library == "m" || library == "libm" || library == "math") return "-lm";
     if (library == "pthread") return "-lpthread";
     if (library == "dl") return "-ldl";
+    if (library == "curl") return "-lcurl";
     return "-l" + library;
 }
 

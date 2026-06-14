@@ -3,6 +3,7 @@
 #include "afrilang/cli.hpp"
 #include "afrilang/codegen.hpp"
 #include "afrilang/formatter.hpp"
+#include "afrilang/sandbox.hpp"
 #include "afrilang/semantic.hpp"
 
 #include <arpa/inet.h>
