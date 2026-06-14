@@ -654,8 +654,9 @@ std::unique_ptr<FunctionNode> Parser::parseOperatorMethod() {
     const std::string internalName = "operator" + opSymbol;
     auto node = std::make_unique<FunctionNode>(
         internalName, std::move(params), std::move(returnType),
-        returnsResult, std::move(body), {}, false, false, false, false,
-        true, opSymbol);
+        returnsResult, std::move(body));
+    node->isOperator = true;
+    node->operatorSymbol = opSymbol;
     setLoc(*node);
     return node;
 }
