@@ -1900,6 +1900,103 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         return AfrType::classType(newExpr->className);
     }
 
+    if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
+        AfrType subjectType = analyzeExpression(*matchExpr->subject, scope);
+        if (subjectType.kind != TypeKind::Enum) {
+            errorAt(*matchExpr, "'match' requiert une valeur de type enum");
+        }
+        const EnumInfo* en = findEnum(subjectType.className);
+        if (!en) errorAt(*matchExpr, "Enum '" + subjectType.className + "' introuvable");
+
+        AfrType resultType;
+        bool hasResult = false;
+        bool hasDefault = false;
+        std::unordered_set<std::string> coveredCases;
+
+        for (const auto& arm : matchExpr->arms) {
+            if (arm.isDefault) {
+                hasDefault = true;
+                if (!arm.value) {
+                    errorAt(*matchExpr, "Bras 'default' sans expression dans match expression");
+                }
+                AfrType armType = analyzeExpression(*arm.value, scope);
+                if (!hasResult) {
+                    resultType = armType;
+                    hasResult = true;
+                } else if (!isAssignable(resultType, armType)) {
+                    if (isAssignable(armType, resultType)) {
+                        resultType = armType;
+                    } else {
+                        errorAt(*matchExpr, "Types incohérents dans match expression");
+                    }
+                }
+                continue;
+            }
+
+            const auto caseIt = en->cases.find(arm.caseName);
+            if (caseIt == en->cases.end()) {
+                errorAt(*matchExpr, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
+            }
+            coveredCases.insert(arm.caseName);
+
+            if (!arm.value) {
+                errorAt(*matchExpr, "Cas '" + arm.caseName + "' sans expression dans match expression");
+            }
+
+            auto armScope = scope;
+            if (!caseIt->second.fields.empty()) {
+                if (arm.bindNames.empty()) {
+                    for (const auto& [fname, ftype] : caseIt->second.fields) {
+                        armScope[fname] = ftype;
+                    }
+                } else {
+                    if (arm.bindNames.size() != caseIt->second.fields.size()) {
+                        errorAt(*matchExpr, "Nombre de liaisons incorrect pour le cas '" +
+                              arm.caseName + "'");
+                    }
+                    for (std::size_t bi = 0; bi < arm.bindNames.size(); ++bi) {
+                        armScope[arm.bindNames[bi]] = caseIt->second.fields[bi].second;
+                    }
+                }
+            }
+
+            AfrType armType = analyzeExpression(*arm.value, armScope);
+            if (!hasResult) {
+                resultType = armType;
+                hasResult = true;
+            } else if (!isAssignable(resultType, armType)) {
+                if (isAssignable(armType, resultType)) {
+                    resultType = armType;
+                } else if (resultType.kind == TypeKind::Class && armType.kind == TypeKind::Class) {
+                    if (isSubclassOf(armType.className, resultType.className)) {
+                        // keep resultType
+                    } else if (isSubclassOf(resultType.className, armType.className)) {
+                        resultType = armType;
+                    } else {
+                        errorAt(*matchExpr, "Types incohérents dans match expression");
+                    }
+                } else {
+                    errorAt(*matchExpr, "Types incohérents dans match expression");
+                }
+            }
+        }
+
+        if (!hasResult) {
+            errorAt(*matchExpr, "Match expression sans bras");
+        }
+        if (!hasDefault) {
+            for (const auto& [caseName, _] : en->cases) {
+                if (!coveredCases.count(caseName)) {
+                    errorAt(*matchExpr, "Cas '" + caseName + "' non couvert dans match " +
+                          "(ajoutez un bras ou default)");
+                }
+            }
+        }
+
+        const_cast<MatchExpressionNode*>(matchExpr)->resultTypeName = resultType.toTypeName();
+        return resultType;
+    }
+
     return AfrType::voidType();
 }
 
