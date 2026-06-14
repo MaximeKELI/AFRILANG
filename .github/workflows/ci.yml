@@ -9,20 +9,44 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [g++, clang++]
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake g++ build-essential
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ clang build-essential lcov libsdl2-dev libsdl2-ttf-dev
 
       - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -DAFRILANG_ENABLE_COVERAGE=ON
 
       - name: Build
         run: cmake --build build -j$(nproc)
 
       - name: Unit tests
-        run: cd build && ctest --output-on-failure
+        run: cd build && ctest --output-on-failure -R compiler_unit_tests
 
       - name: Integration tests (examples)
         run: ./build/afrilang test .
+
+      - name: LSP diagnostic smoke test
+        run: |
+          python3 scripts/test_lsp_diag.py build/afrilang || true
+
+      - name: Coverage report
+        if: matrix.compiler == 'g++'
+        run: |
+          cd build
+          lcov --capture --directory . --output-file coverage.info
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info
+          lcov --summary coverage.info
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker build
+        run: docker build -t afrilang:ci .

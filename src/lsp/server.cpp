@@ -3,6 +3,7 @@
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/formatter.hpp"
+#include "afrilang/i18n.hpp"
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>

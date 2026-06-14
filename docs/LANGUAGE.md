@@ -1,4 +1,4 @@
-# AFRILANG Language Specification (draft 0.2)
+# AFRILANG Language Specification 1.0
 
 ## Types
 
