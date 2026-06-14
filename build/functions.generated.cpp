@@ -38,15 +38,15 @@ double afr_square(double n) {
 
 int main() {
     #line 19 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    auto result = afr_add(10, 32);
+    double result = afr_add(10, 32);
     #line 20 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << result << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    auto message = afr_greet(std::string("AFRILANG"));
+    std::string message = afr_greet(std::string("AFRILANG"));
     #line 23 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << message << std::endl;
     #line 25 "/home/maxime/AFRILANG/build/../examples/functions.afr"
-    auto squared = afr_square(7);
+    double squared = afr_square(7);
     #line 26 "/home/maxime/AFRILANG/build/../examples/functions.afr"
     std::cout << squared << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/functions.afr"

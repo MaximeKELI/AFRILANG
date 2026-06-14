@@ -149,12 +149,10 @@ static void testMatchExpressionParse() {
     expect(!program->statements.empty(), "match expression parses");
 }
 
-static void testLintUnusedModule() {
+static void testLintEmptyFunction() {
     const std::string src =
-        "module M\n    export function f() returns number\n        return 1\n    end\n"
-        "end\n"
-        "use M\n"
-        "say \"hi\"\n";
+        "function empty()\n"
+        "end\n";
     afrilang::Lexer lexer(src);
     afrilang::Parser parser(lexer.tokenize());
     auto program = parser.parse();
@@ -162,7 +160,7 @@ static void testLintUnusedModule() {
     sources.addFile("test.afr", src);
     afrilang::SemanticAnalyzer analyzer(*program, &sources, "test.afr");
     const auto result = analyzer.analyze();
-    expect(!result.warnings.empty(), "lint warns unused module");
+    expect(!result.warnings.empty(), "lint warns empty function");
 }
 
 static void testFfiAllowlist() {
@@ -222,7 +220,7 @@ int main() {
     testUtf8Validation();
     testI18nEnglish();
     testMatchExpressionParse();
-    testLintUnusedModule();
+    testLintEmptyFunction();
     testFfiAllowlist();
     testCompileExample();
     testCompileOperatorsDemo();
