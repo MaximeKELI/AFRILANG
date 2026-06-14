@@ -6,6 +6,7 @@
 #include "afrilang/parser.hpp"
 #include "afrilang/pkg.hpp"
 #include "afrilang/sandbox.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/stdlib_registry.hpp"
 #include "afrilang/utf8.hpp"
 
@@ -67,6 +68,12 @@ std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& sour
 }
 
 std::string Compiler::readFile(const std::string& path) {
+    std::error_code ec;
+    const auto size = fs::file_size(path, ec);
+    if (!ec) {
+        validateSourceSize(static_cast<std::size_t>(size), path);
+    }
+
     std::ifstream file(path, std::ios::binary);
     if (!file) {
         throw std::runtime_error("Impossible d'ouvrir le fichier: " + path);
@@ -74,10 +81,7 @@ std::string Compiler::readFile(const std::string& path) {
     std::ostringstream buffer;
     buffer << file.rdbuf();
     const std::string content = buffer.str();
-    if (!content.empty() && !isValidUtf8(content)) {
-        throw CompileError("Fichier source: encodage UTF-8 invalide", 1, 1, path, {},
-                           {}, ErrorCode::InvalidUtf8);
-    }
+    validateSourceContent(content, path);
     return content;
 }
 
@@ -175,7 +179,17 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     }
 }
 
-void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir) {
+void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir, int depth) {
+    const auto limits = securityLimits(SecurityContext::TrustedCompile);
+    if (depth > static_cast<int>(limits.maxImportDepth)) {
+        securityViolation("Profondeur d'import maximale dépassée (" +
+                          std::to_string(limits.maxImportDepth) + ")");
+    }
+    if (loadedFiles_.size() > limits.maxImportFiles) {
+        securityViolation("Nombre maximal de fichiers importés dépassé (" +
+                          std::to_string(limits.maxImportFiles) + ")");
+    }
+
     std::vector<std::unique_ptr<ImportNode>> pending;
     pending.swap(program.imports);
 
@@ -193,7 +207,7 @@ void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir) 
         }
         auto imported = parseFile(resolved);
         const std::string importDir = fs::path(resolved).parent_path().string();
-        resolveImports(*imported, importDir);
+        resolveImports(*imported, importDir, depth + 1);
         mergeProgram(program, *imported);
     }
 }

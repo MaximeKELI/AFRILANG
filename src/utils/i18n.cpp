@@ -44,6 +44,8 @@ std::string errorCodeString(ErrorCode code) {
         case ErrorCode::InvalidUtf8: return "E5000";
         case ErrorCode::FfiLibraryDenied: return "E6000";
         case ErrorCode::PathTraversal: return "E7000";
+        case ErrorCode::SecurityViolation: return "E8000";
+        case ErrorCode::ResourceLimit: return "E8001";
     }
     return "E0001";
 }

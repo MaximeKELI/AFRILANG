@@ -1,6 +1,8 @@
 #include "afrilang/cli.hpp"
 #include "afrilang/codegen.hpp"
 #include "afrilang/formatter.hpp"
+#include "afrilang/sandbox.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
@@ -31,31 +33,51 @@ static void printReplHelp() {
     std::cout << "\nChaque ligne valide est compilée et exécutée.\n";
 }
 
+static std::string replSessionPath() {
+    return secureTempPath("repl_session.afr");
+}
+
 bool Pipeline::evalReplSource(const std::string& source, std::string& errorOut) {
     try {
+        validateSourceContent(source, "REPL session");
+        const std::string sessionPath = replSessionPath();
         SourceManager sources;
-        sources.addFile(kReplSessionPath, source);
-        auto program = parseSourceProgram(source, kReplSessionPath, &sources);
+        sources.addFile(sessionPath, source);
+        auto program = parseSourceProgram(source, sessionPath, &sources);
 
-        SemanticAnalyzer analyzer(*program, &sources, kReplSessionPath);
+        SemanticAnalyzer analyzer(*program, &sources, sessionPath);
         const SemanticResult semantic = analyzer.analyze();
 
         CodeGenerator codegen(*program, semantic);
         codegen.setRuntimeDir((fs::path(detectAfrilangRoot()) / "runtime").string());
-        codegen.setSourceFile(kReplSessionPath);
+        codegen.setSourceFile(sessionPath);
         codegen.setDebugSymbols(true);
 
-        const std::string cppPath = "/tmp/afrilang_repl_session.generated.cpp";
-        const std::string exePath = "/tmp/afrilang_repl_session";
+        const std::string cppPath = secureTempPath("repl_session.generated.cpp");
+        const std::string exePath = secureTempPath("repl_session.bin");
 
         if (!codegen.compileToExecutable(cppPath, exePath)) {
             errorOut = "Erreur de compilation g++ (voir " + cppPath + ")\n";
             return false;
         }
 
-        const int code = std::system(exePath.c_str());
-        if (code != 0) {
-            errorOut = "Programme terminé avec le code " + std::to_string(code) + "\n";
+        ProcessConfig config;
+        config.timeoutSeconds = securityLimits(SecurityContext::UntrustedExec).execTimeoutSeconds;
+        config.maxMemoryMb = securityLimits(SecurityContext::UntrustedExec).maxMemoryMb;
+        config.maxCpuSeconds = securityLimits(SecurityContext::UntrustedExec).maxCpuSeconds;
+        config.maxOutputBytes = securityLimits(SecurityContext::UntrustedExec).maxOutputBytes;
+
+        const ExecResult exec = execSandboxed(exePath, {}, config);
+        if (!exec.output.empty()) {
+            std::cout << exec.output;
+        }
+        if (exec.timedOut) {
+            errorOut = "Exécution interrompue (timeout " +
+                       std::to_string(config.timeoutSeconds) + "s)\n";
+            return false;
+        }
+        if (exec.exitCode != 0) {
+            errorOut = "Programme terminé avec le code " + std::to_string(exec.exitCode) + "\n";
         }
         return true;
     } catch (const CompileError& e) {
@@ -76,10 +98,10 @@ bool Pipeline::inferReplExpressionType(const std::string& session,
         probe += "create const __repl_probe = " + expression + "\n";
 
         SourceManager sources;
-        sources.addFile(kReplSessionPath, probe);
-        auto program = parseSourceProgram(probe, kReplSessionPath, &sources);
+        sources.addFile(replSessionPath(), probe);
+        auto program = parseSourceProgram(probe, replSessionPath(), &sources);
 
-        SemanticAnalyzer analyzer(*program, &sources, kReplSessionPath);
+        SemanticAnalyzer analyzer(*program, &sources, replSessionPath());
         const SemanticResult semantic = analyzer.analyze();
 
         const auto it = semantic.globalVariables.find("__repl_probe");

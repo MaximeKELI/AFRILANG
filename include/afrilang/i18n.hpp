@@ -16,6 +16,8 @@ enum class ErrorCode {
     InvalidUtf8 = 5000,
     FfiLibraryDenied = 6000,
     PathTraversal = 7000,
+    SecurityViolation = 8000,
+    ResourceLimit = 8001,
 };
 
 enum class Locale {

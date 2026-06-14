@@ -19,6 +19,7 @@ set(AFRILANG_SOURCES
     src/utils/i18n.cpp
     src/utils/semver.cpp
     src/utils/sandbox.cpp
+    src/utils/security.cpp
     src/utils/project.cpp
     src/utils/stdlib_registry.cpp
     src/utils/stdlib_catalog.cpp

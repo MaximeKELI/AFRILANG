@@ -1,4 +1,5 @@
 #include "afrilang/semantic.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/stdlib_registry.hpp"
 
 #include "afrilang/error.hpp"
@@ -98,6 +99,7 @@ SemanticResult SemanticAnalyzer::analyze() {
     registerExterns();
     analyzeProgram();
     collectLintWarnings();
+    validateProgramSize(program_);
     return result_;
 }
 
@@ -402,6 +404,10 @@ void SemanticAnalyzer::registerModules() {
 }
 
 void SemanticAnalyzer::registerExterns() {
+    if (isSecureMode() && !allowFfi() && !program_.externs.empty()) {
+        securityViolation(
+            "FFI (extern) interdit en mode sécurisé — AFRILANG_ALLOW_FFI=1 requis");
+    }
     static const std::unordered_set<std::string> kAllowedLibs = {
         "m", "libm", "c", "libc", "pthread", "dl", "math", "curl"
     };

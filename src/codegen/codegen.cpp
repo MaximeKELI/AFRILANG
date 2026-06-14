@@ -1,6 +1,8 @@
 #include "afrilang/codegen.hpp"
 
 #include "afrilang/educational.hpp"
+#include "afrilang/sandbox.hpp"
+#include "afrilang/security.hpp"
 #include "afrilang/stdlib_catalog.hpp"
 #include "afrilang/medium_catalog.hpp"
 #include "afrilang/complex_catalog.hpp"
@@ -2631,41 +2633,56 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         generate(file);
     }
 
-    std::string command =
-        compilerForTarget(crossTarget_) + " -std=" +
-        (semantic_.usesAsync ? std::string("c++20") : std::string("c++17")) +
-        " -O2 -Wall -Wextra";
-    if (semantic_.usesAsync &&
-        (crossTarget_ != "wasm32")) {
-        command += " -fcoroutines -pthread";
+    std::vector<std::string> args;
+    args.push_back(compilerForTarget(crossTarget_));
+    args.push_back("-std=" + (semantic_.usesAsync ? std::string("c++20") : std::string("c++17")));
+    args.push_back("-O2");
+    args.push_back("-Wall");
+    args.push_back("-Wextra");
+    args.push_back("-fstack-protector-strong");
+    args.push_back("-D_FORTIFY_SOURCE=2");
+    args.push_back("-fPIE");
+    if (semantic_.usesAsync && crossTarget_ != "wasm32") {
+        args.push_back("-fcoroutines");
+        args.push_back("-pthread");
     }
     if (semantic_.usesUi && crossTarget_ != "wasm32") {
-        command += " -I/usr/include/SDL2 -D_REENTRANT";
+        args.push_back("-I/usr/include/SDL2");
+        args.push_back("-D_REENTRANT");
     }
     if (debugSymbols_) {
-        command += " -g";
+        args.push_back("-g");
     }
     if (crossTarget_ == "wasm32") {
-        command += " -s WASM=1";
+        args.push_back("-s");
+        args.push_back("WASM=1");
     }
-    command += " -o \"" + executablePath + "\" \"" + outputPath + "\"";
-
+    args.push_back("-o");
+    args.push_back(executablePath);
+    args.push_back(outputPath);
     if (!runtimeDir_.empty()) {
-        command += " -I\"" + runtimeDir_ + "\"";
+        args.push_back("-I" + runtimeDir_);
     }
-
     for (const auto& lib : linkLibraries_) {
-        command += " " + lib;
+        if (!lib.empty()) args.push_back(lib);
     }
-
     if (semantic_.usesUi && crossTarget_ != "wasm32") {
-        command += " -lSDL2 -lSDL2_ttf";
+        args.push_back("-lSDL2");
+        args.push_back("-lSDL2_ttf");
     }
 
-    command += " 2>&1";
+    ProcessConfig config;
+    config.timeoutSeconds = securityLimits(SecurityContext::TrustedCompile).compileTimeoutSeconds;
+    config.maxMemoryMb = securityLimits(SecurityContext::TrustedCompile).maxMemoryMb;
+    config.maxCpuSeconds = static_cast<std::size_t>(config.timeoutSeconds);
+    config.applyResourceLimits = isSecureMode();
 
-    const int result = std::system(command.c_str());
-    return result == 0;
+    std::string output;
+    const int code = runCommand(args, config, output);
+    if (code != 0 && !output.empty()) {
+        std::cerr << output;
+    }
+    return code == 0;
 }
 
 } // namespace afrilang

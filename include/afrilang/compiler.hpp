@@ -30,7 +30,7 @@ private:
 
     std::unique_ptr<ProgramNode> parseFile(const std::string& path);
     void mergeProgram(ProgramNode& target, ProgramNode& source);
-    void resolveImports(ProgramNode& program, const std::string& baseDir);
+    void resolveImports(ProgramNode& program, const std::string& baseDir, int depth = 0);
     void handleStdlibImport(ProgramNode& program, const std::string& importPath);
 };
 
