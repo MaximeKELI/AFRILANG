@@ -1,0 +1,7 @@
+module charutil
+
+function charCode(s text) returns number
+end
+
+function fromCharCode(n number) returns text
+end

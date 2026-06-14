@@ -1,0 +1,7 @@
+module audit
+
+function auditLine(action text, user text) returns text
+end
+
+function timestampPrefix(msg text) returns text
+end

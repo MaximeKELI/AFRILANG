@@ -1,0 +1,7 @@
+module config
+
+function parseBool(s text) returns bool
+end
+
+function boolToText(b bool) returns text
+end

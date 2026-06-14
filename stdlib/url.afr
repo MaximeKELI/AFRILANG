@@ -1,0 +1,7 @@
+module url
+
+function urlEncodeSpace(s text) returns text
+end
+
+function urlDecodeSpace(s text) returns text
+end

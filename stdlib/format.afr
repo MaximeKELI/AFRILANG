@@ -1,0 +1,7 @@
+module format
+
+function formatNumber(n number, decimals number) returns text
+end
+
+function formatPercent(n number) returns text
+end

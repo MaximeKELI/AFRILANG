@@ -1,0 +1,7 @@
+module binary
+
+function toBinary(n number) returns text
+end
+
+function fromBinary(s text) returns number
+end

@@ -1,0 +1,7 @@
+module timezone
+
+function utcOffsetHours(ignored number) returns number
+end
+
+function localHour(utcHour number) returns number
+end

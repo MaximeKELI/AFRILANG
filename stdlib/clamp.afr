@@ -1,0 +1,7 @@
+module clamp
+
+function clamp(n number, lo number, hi number) returns number
+end
+
+function clamp01(n number) returns number
+end

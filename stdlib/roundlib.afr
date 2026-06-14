@@ -1,0 +1,7 @@
+module roundlib
+
+function roundN(n number) returns number
+end
+
+function truncN(n number) returns number
+end

@@ -1,0 +1,7 @@
+module platform
+
+function osName(ignored number) returns text
+end
+
+function archName(ignored number) returns text
+end

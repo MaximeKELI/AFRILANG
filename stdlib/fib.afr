@@ -1,0 +1,7 @@
+module fib
+
+function fib(n number) returns number
+end
+
+function fibB(n number) returns number
+end

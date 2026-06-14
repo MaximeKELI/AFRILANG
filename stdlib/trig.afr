@@ -1,0 +1,7 @@
+module trig
+
+function sinDeg(deg number) returns number
+end
+
+function cosDeg(deg number) returns number
+end

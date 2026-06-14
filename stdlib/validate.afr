@@ -1,0 +1,7 @@
+module validate
+
+function isAlpha(s text) returns bool
+end
+
+function isDigit(s text) returns bool
+end

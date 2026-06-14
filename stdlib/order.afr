@@ -1,0 +1,7 @@
+module order
+
+function cmpNumber(a number, b number) returns number
+end
+
+function cmpText(a text, b text) returns number
+end

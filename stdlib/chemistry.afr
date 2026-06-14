@@ -1,0 +1,7 @@
+module chemistry
+
+function moles(mass number, molarMass number) returns number
+end
+
+function mass(moles number, molarMass number) returns number
+end

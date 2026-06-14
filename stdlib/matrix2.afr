@@ -1,0 +1,7 @@
+module matrix2
+
+function det2(a number, b number, c number, d number) returns number
+end
+
+function trace2(a number, d number) returns number
+end

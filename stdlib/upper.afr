@@ -1,0 +1,7 @@
+module upper
+
+function toUpper(s text) returns text
+end
+
+function toLower(s text) returns text
+end

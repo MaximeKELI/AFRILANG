@@ -1,0 +1,7 @@
+module stats3
+
+function sum3(a number, b number, c number) returns number
+end
+
+function product3(a number, b number, c number) returns number
+end

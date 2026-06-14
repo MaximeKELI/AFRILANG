@@ -1,0 +1,7 @@
+module deg
+
+function degToRad(d number) returns number
+end
+
+function radToDeg(r number) returns number
+end

@@ -1,0 +1,7 @@
+module diff
+
+function delta(a number, b number) returns number
+end
+
+function absDelta(a number, b number) returns number
+end

@@ -1,0 +1,7 @@
+module html
+
+function escapeHtml(s text) returns text
+end
+
+function unescapeHtml(s text) returns text
+end

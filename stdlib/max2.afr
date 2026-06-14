@@ -1,0 +1,7 @@
+module max2
+
+function max2(a number, b number) returns number
+end
+
+function max3(a number, b number, c number) returns number
+end

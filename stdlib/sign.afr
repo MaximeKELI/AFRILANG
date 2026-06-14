@@ -1,0 +1,7 @@
+module sign
+
+function sign(n number) returns number
+end
+
+function isPositive(n number) returns bool
+end

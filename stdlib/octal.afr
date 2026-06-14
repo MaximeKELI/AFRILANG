@@ -1,0 +1,7 @@
+module octal
+
+function toOctal(n number) returns text
+end
+
+function fromOctal(s text) returns number
+end

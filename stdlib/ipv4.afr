@@ -1,0 +1,7 @@
+module ipv4
+
+function isIpv4(s text) returns bool
+end
+
+function countDots(s text) returns number
+end

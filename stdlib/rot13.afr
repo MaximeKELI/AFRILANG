@@ -1,0 +1,7 @@
+module rot13
+
+function rot13(s text) returns text
+end
+
+function rot47(s text) returns text
+end

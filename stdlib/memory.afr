@@ -1,0 +1,7 @@
+module memory
+
+function kbFromBytes(b number) returns number
+end
+
+function mbFromBytes(b number) returns number
+end

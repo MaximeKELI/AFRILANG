@@ -1,0 +1,7 @@
+module shift
+
+function shl(n number, b number) returns number
+end
+
+function shr(n number, b number) returns number
+end

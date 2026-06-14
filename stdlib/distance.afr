@@ -1,0 +1,7 @@
+module distance
+
+function kmToMiles(km number) returns number
+end
+
+function milesToKm(mi number) returns number
+end

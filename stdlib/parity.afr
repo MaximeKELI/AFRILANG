@@ -1,0 +1,7 @@
+module parity
+
+function isEven(n number) returns bool
+end
+
+function isOdd(n number) returns bool
+end

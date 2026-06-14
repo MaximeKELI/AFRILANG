@@ -1,0 +1,7 @@
+module dice
+
+function roll(sides number) returns number
+end
+
+function roll2d6(ignored number) returns number
+end

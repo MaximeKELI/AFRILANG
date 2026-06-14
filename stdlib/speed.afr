@@ -1,0 +1,7 @@
+module speed
+
+function kmhToMs(kmh number) returns number
+end
+
+function msToKmh(ms number) returns number
+end

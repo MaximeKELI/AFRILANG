@@ -1,0 +1,7 @@
+module prefix
+
+function startsWith(s text, prefix text) returns bool
+end
+
+function endsWith(s text, suffix text) returns bool
+end

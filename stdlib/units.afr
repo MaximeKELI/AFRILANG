@@ -1,0 +1,7 @@
+module units
+
+function inchToCm(inch number) returns number
+end
+
+function cmToInch(cm number) returns number
+end

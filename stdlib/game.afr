@@ -1,0 +1,7 @@
+module game
+
+function scoreBonus(score number, level number) returns number
+end
+
+function levelFromXp(xp number) returns number
+end

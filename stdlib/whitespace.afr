@@ -1,0 +1,7 @@
+module whitespace
+
+function collapseSpaces(s text) returns text
+end
+
+function isWhitespace(s text) returns bool
+end

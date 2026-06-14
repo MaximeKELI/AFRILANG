@@ -1,0 +1,7 @@
+module pathutil
+
+function normalizeSlashes(s text) returns text
+end
+
+function hasTrailingSlash(s text) returns bool
+end

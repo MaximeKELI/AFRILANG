@@ -1,0 +1,7 @@
+module timeconv
+
+function secToMin(s number) returns number
+end
+
+function minToHour(m number) returns number
+end

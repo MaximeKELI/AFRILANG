@@ -1,0 +1,7 @@
+module roman
+
+function toRoman(n number) returns text
+end
+
+function fromRoman(s text) returns number
+end

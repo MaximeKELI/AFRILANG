@@ -1,0 +1,7 @@
+module checksum
+
+function xorChecksum(s text) returns number
+end
+
+function sumBytes(s text) returns number
+end

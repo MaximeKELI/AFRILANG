@@ -1,0 +1,7 @@
+module parse
+
+function parseInt(s text) returns number
+end
+
+function parseFloat(s text) returns number
+end

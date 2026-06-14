@@ -1,0 +1,7 @@
+module version
+
+function compareMajor(a text, b text) returns number
+end
+
+function sameMajor(a text, b text) returns bool
+end

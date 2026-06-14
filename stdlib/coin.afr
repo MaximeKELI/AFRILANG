@@ -1,0 +1,7 @@
+module coin
+
+function flip(ignored number) returns bool
+end
+
+function flipN(n number) returns number
+end

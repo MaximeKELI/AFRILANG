@@ -1,0 +1,7 @@
+module counter
+
+function nextId(ignored number) returns number
+end
+
+function resetId(ignored number) returns number
+end

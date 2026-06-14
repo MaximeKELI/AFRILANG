@@ -1,0 +1,7 @@
+module compare
+
+function equals(a text, b text) returns bool
+end
+
+function equalsIgnoreCase(a text, b text) returns bool
+end

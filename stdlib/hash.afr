@@ -1,0 +1,7 @@
+module hash
+
+function hashText(s text) returns number
+end
+
+function hashNumber(n number) returns number
+end

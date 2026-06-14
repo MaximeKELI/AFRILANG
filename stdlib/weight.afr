@@ -1,0 +1,7 @@
+module weight
+
+function kgToLb(kg number) returns number
+end
+
+function lbToKg(lb number) returns number
+end

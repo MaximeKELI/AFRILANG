@@ -1,0 +1,7 @@
+module shell
+
+function quoteShell(s text) returns text
+end
+
+function escapeShell(s text) returns text
+end

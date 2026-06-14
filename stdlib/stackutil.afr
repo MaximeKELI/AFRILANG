@@ -1,0 +1,7 @@
+module stackutil
+
+function peekOffset(size number, offset number) returns number
+end
+
+function isEmptyStack(size number) returns bool
+end

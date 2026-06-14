@@ -1,0 +1,7 @@
+module noise
+
+function noise1D(x number) returns number
+end
+
+function noise2D(x number, y number) returns number
+end

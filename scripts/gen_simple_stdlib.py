@@ -518,7 +518,7 @@ MODULES: list[tuple] = [
         ("fromCharCode", "text", [("n", "number")], "return std::string(1, static_cast<char>(static_cast<int>(n)));"),
     ]),
     ("version", "version", [
-        ("compareMajor", "number", [("a", "text"), ("b", "text")], "return cmpText(a, b);"),
+        ("compareMajor", "number", [("a", "text"), ("b", "text")], "return a < b ? -1 : (a > b ? 1 : 0);"),
         ("sameMajor", "bool", [("a", "text"), ("b", "text")], "return a == b;"),
     ]),
     ("config", "config", [
@@ -538,8 +538,8 @@ MODULES: list[tuple] = [
         ("freshness", "number", [("ageMs", "number"), ("ttlMs", "number")], "return ttlMs == 0 ? 0 : 1.0 - ageMs / ttlMs;"),
     ]),
     ("id", "id", [
-        ("hashId", "text", [("s", "text")], "return std::to_string(static_cast<long long>(hashText(s)));"),
-        ("shortHash", "text", [("s", "text")], "return std::to_string(static_cast<long long>(hashText(s) % 100000));"),
+        ("hashId", "text", [("s", "text")], "return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s)));"),
+        ("shortHash", "text", [("s", "text")], "return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s) % 100000));"),
     ]),
     ("locale", "locale", [
         ("decimalComma", "text", [("s", "text")], "{ std::string r = s; for (char& c : r) if (c == '.') c = ','; return r; }"),
@@ -668,7 +668,8 @@ def gen_catalog_cpp() -> str:
         poff = 0
         for fi, (fname, ret, params, _) in enumerate(funcs):
             lines.append(
-                f'    {{"{fname}", "{ret}", {len(params)}, &kParams_{mod_idx}[{poff}]},}'
+                '    {{"' + fname + '", "' + ret + '", ' + str(len(params)) +
+                f', &kParams_{mod_idx}[{poff}]' + '}},'
             )
             poff += len(params)
         lines.append('    {nullptr, nullptr, 0, nullptr}')

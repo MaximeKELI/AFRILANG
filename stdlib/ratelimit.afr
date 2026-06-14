@@ -1,0 +1,7 @@
+module ratelimit
+
+function allowBurst(count number, limit number) returns bool
+end
+
+function tokensLeft(count number, limit number) returns number
+end

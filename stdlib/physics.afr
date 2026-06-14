@@ -1,0 +1,7 @@
+module physics
+
+function force(m number, a number) returns number
+end
+
+function kineticEnergy(m number, v number) returns number
+end

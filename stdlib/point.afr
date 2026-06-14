@@ -1,0 +1,7 @@
+module point
+
+function distance2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function midpointX(x1 number, x2 number) returns number
+end

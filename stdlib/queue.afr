@@ -1,0 +1,7 @@
+module queue
+
+function wrapIndex(i number, size number) returns number
+end
+
+function nextIndex(i number, size number) returns number
+end

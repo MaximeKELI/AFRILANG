@@ -1,0 +1,7 @@
+module concat
+
+function concat2(a text, b text) returns text
+end
+
+function concat3(a text, b text, c text) returns text
+end

@@ -1,0 +1,7 @@
+module reverse
+
+function reverseText(s text) returns text
+end
+
+function reverseWords(s text) returns text
+end

@@ -1,0 +1,7 @@
+module circle
+
+function area(r number) returns number
+end
+
+function circumference(r number) returns number
+end

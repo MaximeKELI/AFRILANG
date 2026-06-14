@@ -1,0 +1,7 @@
+module celsius
+
+function cToF(c number) returns number
+end
+
+function fToC(f number) returns number
+end

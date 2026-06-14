@@ -1,0 +1,7 @@
+module education
+
+function gradeLetter(score number) returns text
+end
+
+function passed(score number, min number) returns bool
+end

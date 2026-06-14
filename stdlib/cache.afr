@@ -1,0 +1,7 @@
+module cache
+
+function ttlExpired(ageMs number, ttlMs number) returns bool
+end
+
+function freshness(ageMs number, ttlMs number) returns number
+end

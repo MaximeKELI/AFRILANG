@@ -1,0 +1,7 @@
+module process
+
+function exitOk(code number) returns bool
+end
+
+function exitFailed(code number) returns bool
+end

@@ -1,0 +1,7 @@
+module energy
+
+function joulesToCal(j number) returns number
+end
+
+function calToJoules(cal number) returns number
+end

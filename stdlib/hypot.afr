@@ -1,0 +1,7 @@
+module hypot
+
+function hypot2(a number, b number) returns number
+end
+
+function hypot3(a number, b number, c number) returns number
+end

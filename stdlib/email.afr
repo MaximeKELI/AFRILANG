@@ -1,0 +1,7 @@
+module email
+
+function isEmail(s text) returns bool
+end
+
+function domainOf(s text) returns text
+end

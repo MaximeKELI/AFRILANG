@@ -1,0 +1,7 @@
+module hyper
+
+function sinhN(n number) returns number
+end
+
+function coshN(n number) returns number
+end

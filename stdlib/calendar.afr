@@ -1,0 +1,7 @@
+module calendar
+
+function daysInYear(ignored number) returns number
+end
+
+function isLeap(year number) returns bool
+end

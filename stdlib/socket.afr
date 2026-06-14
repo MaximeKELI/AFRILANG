@@ -1,0 +1,7 @@
+module socket
+
+function portPairKey(a number, b number) returns number
+end
+
+function isEphemeralPort(port number) returns bool
+end

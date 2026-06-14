@@ -1,0 +1,7 @@
+module mean
+
+function mean2(a number, b number) returns number
+end
+
+function mean3(a number, b number, c number) returns number
+end
