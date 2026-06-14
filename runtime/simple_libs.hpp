@@ -671,7 +671,7 @@ inline double freshness(double ageMs, double ttlMs) { return ttlMs == 0 ? 0 : 1.
 
 namespace afrilang::runtime::id {
 inline std::string hashId(std::string s) { return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s))); }
-inline std::string shortHash(std::string s) { return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s) % 100000)); }
+inline std::string shortHash(std::string s) { return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s)) % 100000LL); }
 } // namespace
 
 namespace afrilang::runtime::locale {
