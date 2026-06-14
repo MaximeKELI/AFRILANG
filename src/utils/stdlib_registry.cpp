@@ -187,11 +187,12 @@ void StdlibRegistry::injectIoModule(ProgramNode& program) {
 
 void StdlibRegistry::injectJsonModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
-    fns.push_back(makeStubFunction("parse", {{"text", "text"}}, "text"));
-    fns.push_back(makeStubFunction("stringify", {{"value", "text"}}, "text"));
-    fns.push_back(makeStubFunction("getString", {{"text", "text"}, {"key", "text"}}, "text"));
-    fns.push_back(makeStubFunction("getNumber", {{"text", "text"}, {"key", "text"}}, "number"));
-    fns.push_back(makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "text"));
+    fns.push_back(makeStubFunction("parse", {{"text", "text"}}, "json"));
+    fns.push_back(makeStubFunction("stringify", {{"value", "json"}}, "text"));
+    fns.push_back(makeStubFunction("getString", {{"value", "json"}, {"key", "text"}}, "text"));
+    fns.push_back(makeStubFunction("getNumber", {{"value", "json"}, {"key", "text"}}, "number"));
+    fns.push_back(makeStubFunction("getInt", {{"value", "json"}, {"key", "text"}}, "int"));
+    fns.push_back(makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "json"));
     injectModule(program, "json", std::move(fns));
 }
 

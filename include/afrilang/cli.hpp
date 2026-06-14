@@ -12,6 +12,7 @@ struct CompileOptions {
     bool emitOnly = false;
     bool runAfter = false;
     bool debugSymbols = true;
+    bool useCache = true;
     std::string outputExecutable;
     std::string runtimeDir;
     std::string sourcePath;

@@ -29,6 +29,8 @@ public:
     static int cmdSearch(const std::string& afrilangRoot, const std::string& query);
     static int cmdPublish(const std::string& packageDir, const std::string& afrilangRoot);
     static int rebuildIndex(const std::string& afrilangRoot);
+    static int syncRemoteRegistry(const std::string& afrilangRoot);
+    static std::string registryUrl();
 };
 
 } // namespace afrilang

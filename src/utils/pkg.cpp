@@ -5,8 +5,11 @@
 #include "afrilang/security.hpp"
 #include "afrilang/semver.hpp"
 
+#include "../../runtime/http.hpp"
+
 #include <algorithm>
 #include <cctype>
+#include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -24,9 +27,22 @@ std::string PkgRegistry::resolvePkgImport(const std::string& importPath,
                                           const std::string& projectDir,
                                           const std::string& afrilangRoot) {
     const std::string relative = importPath.substr(4);
+
+    if (const char* envVendor = std::getenv("AFRILANG_VENDOR")) {
+        const fs::path envVendorPath = fs::path(envVendor) / relative;
+        if (fs::exists(envVendorPath)) {
+            return fs::weakly_canonical(envVendorPath).string();
+        }
+    }
+
     const fs::path vendorPath = fs::path(projectDir) / "vendor" / relative;
     if (fs::exists(vendorPath)) {
         return fs::weakly_canonical(vendorPath).string();
+    }
+
+    const fs::path envVendor = fs::path(projectDir) / ".afrilang" / "env" / "vendor" / relative;
+    if (fs::exists(envVendor)) {
+        return fs::weakly_canonical(envVendor).string();
     }
 
     const fs::path registryPath = fs::path(afrilangRoot) / "packages" / relative;
@@ -35,6 +51,30 @@ std::string PkgRegistry::resolvePkgImport(const std::string& importPath,
     }
 
     return (fs::path(projectDir) / importPath).string();
+}
+
+std::string PkgRegistry::registryUrl() {
+    if (const char* url = std::getenv("AFRILANG_REGISTRY_URL")) {
+        return url;
+    }
+    return "https://raw.githubusercontent.com/afrilang/registry/main/index.json";
+}
+
+int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
+    const std::string url = registryUrl();
+    std::cout << "Synchronisation du registre: " << url << "\n";
+    const std::string body = afrilang::runtime::http::httpGet(url);
+    if (body.empty()) {
+        std::cerr << "Erreur: impossible de télécharger l'index distant.\n";
+        std::cerr << "Définissez AFRILANG_REGISTRY_URL ou vérifiez la connexion.\n";
+        return 1;
+    }
+    const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "remote-index.json";
+    fs::create_directories(indexPath.parent_path());
+    std::ofstream out(indexPath);
+    out << body;
+    std::cout << "Index distant enregistré: " << indexPath << "\n";
+    return 0;
 }
 
 PackageInfo PkgRegistry::loadManifest(const std::string& packageDir) {
@@ -186,7 +226,18 @@ int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packag
     if (info.name.empty()) info.name = packageName;
     if (info.version.empty()) info.version = "0.1.0";
 
-    const fs::path dst = fs::path(projectDir) / "vendor" / packageName;
+    fs::path dst = fs::path(projectDir) / "vendor" / packageName;
+    std::string relPrefix = "vendor/";
+    if (const char* envVendor = std::getenv("AFRILANG_VENDOR")) {
+        dst = fs::path(envVendor) / packageName;
+        relPrefix = ".afrilang/env/vendor/";
+    } else {
+        const fs::path envDst = fs::path(projectDir) / ".afrilang" / "env" / "vendor" / packageName;
+        if (fs::exists(fs::path(projectDir) / ".afrilang" / "env")) {
+            dst = envDst;
+            relPrefix = ".afrilang/env/vendor/";
+        }
+    }
     copyDirectory(src, dst);
 
     const fs::path tomlPath = fs::path(projectDir) / "afrilang.toml";
@@ -199,10 +250,10 @@ int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packag
         std::ofstream lock(lockPath);
         lock << "# AFRILANG lockfile\n\n";
     }
-    writeLockEntry(lockPath, info.name, info.version, "vendor/" + packageName);
+    writeLockEntry(lockPath, info.name, info.version, relPrefix + packageName);
 
-    std::cout << "Paquet '" << info.name << "@" << info.version << "' installé dans vendor/"
-              << packageName << "\n";
+    std::cout << "Paquet '" << info.name << "@" << info.version << "' installé dans "
+              << dst.string() << "\n";
     return 0;
 }
 

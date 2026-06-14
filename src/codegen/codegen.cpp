@@ -89,6 +89,8 @@ bool assignValueIsNewExpression(const ExpressionNode& value) {
 
 std::string cppGenericArg(const std::string& afr) {
     if (afr == "number") return "double";
+    if (afr == "int") return "std::int64_t";
+    if (afr == "json") return "afrilang::runtime::json::Value";
     if (afr == "text") return "std::string";
     if (afr == "bool") return "bool";
     return afr;
@@ -106,6 +108,8 @@ std::string joinGenericArgs(const std::vector<std::string>& args) {
 std::string cppTypeFromAfrType(const AfrType& type) {
     switch (type.kind) {
         case TypeKind::Number: return "double";
+        case TypeKind::Int: return "std::int64_t";
+        case TypeKind::Json: return "afrilang::runtime::json::Value";
         case TypeKind::Text: return "std::string";
         case TypeKind::Bool: return "bool";
         case TypeKind::Void: return "void";
@@ -518,6 +522,8 @@ void CodeGenerator::emitExterns(std::ostream& out) const {
 
 std::string CodeGenerator::ffiTypeToCpp(const std::string& typeName) {
     if (typeName == "number") return "double";
+    if (typeName == "int") return "std::int64_t";
+    if (typeName == "json") return "const afrilang::runtime::json::Value&";
     if (typeName == "text") return "const char*";
     if (typeName == "pointer") return "void*";
     if (typeName == "bool") return "bool";
@@ -675,7 +681,7 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
         const std::string fieldCpp = cppTypeFromAfrName(field.typeName, cls.typeParams);
         if (field.isStatic) {
             out << "    inline static " << fieldCpp << " " << field.name;
-            if (field.typeName == "number") out << " = 0";
+            if (field.typeName == "number" || field.typeName == "int") out << " = 0";
             else if (field.typeName == "text") out << " = \"\"";
             else if (field.typeName == "bool") out << " = false";
             out << ";\n";
@@ -1686,7 +1692,9 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
     }
 
     if (const auto* num = dynamic_cast<const NumberLiteralNode*>(&expr)) {
-        if (num->value == static_cast<int>(num->value)) {
+        if (num->isInteger) {
+            out << static_cast<long long>(num->value) << "LL";
+        } else if (num->value == static_cast<int>(num->value)) {
             out << static_cast<int>(num->value);
         } else {
             out << num->value;
@@ -2572,8 +2580,20 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
     if (func.name == "writeFile") {
         out << rt << "(path, content);\n";
-    } else if (moduleName == "json" && func.name == "stringify") {
-        out << "return afrilang::runtime::json::normalize(value);\n";
+    } else if (moduleName == "json") {
+        if (func.name == "parse") {
+            out << "return afrilang::runtime::json::parseValue(text);\n";
+        } else if (func.name == "stringify") {
+            out << "return afrilang::runtime::json::stringifyValue(value);\n";
+        } else if (func.name == "getString") {
+            out << "return afrilang::runtime::json::getStringFrom(value, key);\n";
+        } else if (func.name == "getNumber") {
+            out << "return afrilang::runtime::json::getNumberFrom(value, key);\n";
+        } else if (func.name == "getInt") {
+            out << "return afrilang::runtime::json::getIntFrom(value, key);\n";
+        } else if (func.name == "makeObject") {
+            out << "return afrilang::runtime::json::makeObjectValue(key, value);\n";
+        }
     } else if (func.returnTypeName.empty()) {
         out << rt << "(";
         for (std::size_t i = 0; i < func.parameters.size(); ++i) {

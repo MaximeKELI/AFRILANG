@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cctype>
+#include <cstdint>
 #include <sstream>
 #include <string>
 #include <unordered_map>
@@ -213,6 +214,43 @@ inline double getNumber(const std::string& text, const std::string& key) {
 
 inline std::string makeObject(const std::string& key, const std::string& value) {
     return "{\"" + escape(key) + "\": \"" + escape(value) + "\"}";
+}
+
+inline Value parseValue(const std::string& text) {
+    Parser parser(text);
+    return parser.parse();
+}
+
+inline std::string stringifyValue(const Value& v) {
+    return stringify(v);
+}
+
+inline std::string getStringFrom(const Value& root, const std::string& key) {
+    if (root.kind != Value::Kind::Object) return "";
+    auto it = root.objectVal.find(key);
+    if (it == root.objectVal.end() || it->second.kind != Value::Kind::String) return "";
+    return it->second.stringVal;
+}
+
+inline double getNumberFrom(const Value& root, const std::string& key) {
+    if (root.kind != Value::Kind::Object) return 0;
+    auto it = root.objectVal.find(key);
+    if (it == root.objectVal.end() || it->second.kind != Value::Kind::Number) return 0;
+    return it->second.numberVal;
+}
+
+inline std::int64_t getIntFrom(const Value& root, const std::string& key) {
+    return static_cast<std::int64_t>(getNumberFrom(root, key));
+}
+
+inline Value makeObjectValue(const std::string& key, const std::string& value) {
+    Value v;
+    v.kind = Value::Kind::Object;
+    Value field;
+    field.kind = Value::Kind::String;
+    field.stringVal = value;
+    v.objectVal[key] = std::move(field);
+    return v;
 }
 
 } // namespace json

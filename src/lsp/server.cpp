@@ -134,10 +134,81 @@ static void sendNotification(const std::string& method, const std::string& param
     sendMessage(out.str());
 }
 
+struct SymbolInfo {
+    int line = 0;
+    int column = 0;
+    int endColumn = 0;
+    std::string kind;
+    std::string doc;
+};
+
+static std::vector<std::pair<std::string, SymbolInfo>> scanSymbols(const std::string& source) {
+    std::vector<std::pair<std::string, SymbolInfo>> symbols;
+    std::istringstream stream(source);
+    std::string lineText;
+    int lineNo = 0;
+    while (std::getline(stream, lineText)) {
+        auto add = [&](const std::string& keyword, const std::string& kind) {
+            const auto pos = lineText.find(keyword);
+            if (pos == std::string::npos) return;
+            const auto after = pos + keyword.size();
+            if (after >= lineText.size() || lineText[after] != ' ') return;
+            std::size_t start = after + 1;
+            while (start < lineText.size() && lineText[start] == ' ') ++start;
+            std::size_t end = start;
+            while (end < lineText.size() &&
+                   (std::isalnum(static_cast<unsigned char>(lineText[end])) ||
+                    lineText[end] == '_')) {
+                ++end;
+            }
+            if (end <= start) return;
+            const std::string name = lineText.substr(start, end - start);
+            SymbolInfo info;
+            info.line = lineNo;
+            info.column = static_cast<int>(start);
+            info.endColumn = static_cast<int>(end);
+            info.kind = kind;
+            info.doc = kind + " " + name;
+            symbols.emplace_back(name, info);
+        };
+        add("class", "class");
+        add("function", "function");
+        add("interface", "interface");
+        add("enum", "enum");
+        add("union", "union");
+        add("record", "record");
+        add("module", "module");
+        if (lineText.rfind("create ", 0) == 0 || lineText.find(" create ") != std::string::npos) {
+            const auto pos = lineText.find("create ");
+            if (pos != std::string::npos) {
+                std::size_t start = pos + 7;
+                while (start < lineText.size() && lineText[start] == ' ') ++start;
+                std::size_t end = start;
+                while (end < lineText.size() &&
+                       (std::isalnum(static_cast<unsigned char>(lineText[end])) ||
+                        lineText[end] == '_')) {
+                    ++end;
+                }
+                if (end > start) {
+                    SymbolInfo info;
+                    info.line = lineNo;
+                    info.column = static_cast<int>(start);
+                    info.endColumn = static_cast<int>(end);
+                    info.kind = "variable";
+                    info.doc = "variable " + lineText.substr(start, end - start);
+                    symbols.emplace_back(lineText.substr(start, end - start), info);
+                }
+            }
+        }
+        ++lineNo;
+    }
+    return symbols;
+}
+
 struct AnalysisResult {
     bool ok = true;
     std::vector<std::string> diagnosticJson;
-    std::unordered_map<std::string, std::pair<int, int>> symbolLocations;
+    std::unordered_map<std::string, SymbolInfo> symbolLocations;
     std::unordered_map<std::string, std::string> symbolDocs;
 };
 
@@ -152,17 +223,20 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
 
         for (const auto& [name, sig] : semantic.functions) {
             if (sig.isExtern) continue;
-            result.symbolLocations[name] = {1, 0};
             result.symbolDocs[name] = "function " + name +
-                (sig.returnType.kind != TypeKind::Void ? " → " + sig.returnType.toCpp() : "");
+                (sig.returnType.kind != TypeKind::Void ? " → " + sig.returnType.toTypeName() : "");
         }
         for (const auto& [name, cls] : semantic.classes) {
-            result.symbolLocations[name] = {1, 0};
             result.symbolDocs[name] = "class " + name;
         }
         for (const auto& [name, en] : semantic.enums) {
-            result.symbolLocations[name] = {1, 0};
             result.symbolDocs[name] = "enum " + name;
+        }
+        for (const auto& [name, info] : scanSymbols(source)) {
+            result.symbolLocations[name] = info;
+            if (result.symbolDocs.count(name) == 0) {
+                result.symbolDocs[name] = info.doc;
+            }
         }
         for (const auto& w : semantic.warnings) {
             std::ostringstream d;
@@ -293,7 +367,8 @@ int runLspServer() {
                 "\"completionProvider\":{\"triggerCharacters\":[\".\",\" \"]},"
                 "\"documentFormattingProvider\":true,"
                 "\"hoverProvider\":true,"
-                "\"definitionProvider\":true"
+                "\"definitionProvider\":true,"
+                "\"referencesProvider\":true"
                 "},"
                 "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"1.0.0\"}"
                 "}");
@@ -344,10 +419,68 @@ int runLspServer() {
             }
         } else if (body.find("\"method\":\"textDocument/definition\"") != std::string::npos) {
             const std::string uri = documentUri(body);
-            sendResponse(extractId(body),
-                "{\"uri\":\"" + jsonEscape(uri) +
-                "\",\"range\":{\"start\":{\"line\":0,\"character\":0},"
-                "\"end\":{\"line\":0,\"character\":1}}}");
+            const int line = jsonGetInt(body, "line");
+            const int character = jsonGetInt(body, "character");
+            const auto docIt = g_documents.find(uri);
+            std::string word;
+            if (docIt != g_documents.end()) {
+                word = wordAtPosition(docIt->second, line, character);
+            }
+            const auto cacheIt = analysisCache.find(uri);
+            if (!word.empty() && cacheIt != analysisCache.end()) {
+                const auto symIt = cacheIt->second.symbolLocations.find(word);
+                if (symIt != cacheIt->second.symbolLocations.end()) {
+                    const SymbolInfo& sym = symIt->second;
+                    sendResponse(extractId(body),
+                        "{\"uri\":\"" + jsonEscape(uri) +
+                        "\",\"range\":{\"start\":{\"line\":" + std::to_string(sym.line) +
+                        ",\"character\":" + std::to_string(sym.column) +
+                        "},\"end\":{\"line\":" + std::to_string(sym.line) +
+                        ",\"character\":" + std::to_string(sym.endColumn) + "}}}");
+                    continue;
+                }
+            }
+            sendResponse(extractId(body), "null");
+        } else if (body.find("\"method\":\"textDocument/references\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            const int line = jsonGetInt(body, "line");
+            const int character = jsonGetInt(body, "character");
+            const auto docIt = g_documents.find(uri);
+            std::string word;
+            if (docIt != g_documents.end()) {
+                word = wordAtPosition(docIt->second, line, character);
+            }
+            std::ostringstream refs;
+            refs << "[";
+            bool first = true;
+            if (!word.empty() && docIt != g_documents.end()) {
+                std::istringstream stream(docIt->second);
+                std::string lineText;
+                int lineNo = 0;
+                while (std::getline(stream, lineText)) {
+                    std::size_t pos = 0;
+                    while ((pos = lineText.find(word, pos)) != std::string::npos) {
+                        const bool leftOk = pos == 0 ||
+                            !std::isalnum(static_cast<unsigned char>(lineText[pos - 1]));
+                        const bool rightOk = pos + word.size() >= lineText.size() ||
+                            !std::isalnum(static_cast<unsigned char>(lineText[pos + word.size()]));
+                        if (leftOk && rightOk) {
+                            if (!first) refs << ',';
+                            first = false;
+                            refs << "{\"uri\":\"" << jsonEscape(uri)
+                                 << "\",\"range\":{\"start\":{\"line\":" << lineNo
+                                 << ",\"character\":" << static_cast<int>(pos)
+                                 << "},\"end\":{\"line\":" << lineNo
+                                 << ",\"character\":" << static_cast<int>(pos + word.size())
+                                 << "}}}";
+                        }
+                        pos += word.size();
+                    }
+                    ++lineNo;
+                }
+            }
+            refs << "]";
+            sendResponse(extractId(body), refs.str());
         } else if (body.find("\"method\":\"textDocument/formatting\"") != std::string::npos) {
             const std::string uri = documentUri(body);
             const auto it = g_documents.find(uri);

@@ -1167,8 +1167,7 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
     }
 
     if (const auto* num = dynamic_cast<const NumberLiteralNode*>(&expr)) {
-        (void)num;
-        return AfrType::number();
+        return num->isInteger ? AfrType::intType() : AfrType::number();
     }
 
     if (const auto* boolean = dynamic_cast<const BoolLiteralNode*>(&expr)) {
@@ -2069,7 +2068,7 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 }
 
 bool SemanticAnalyzer::isNumeric(const AfrType& type) const {
-    return type.kind == TypeKind::Number;
+    return type.kind == TypeKind::Number || type.kind == TypeKind::Int;
 }
 
 bool SemanticAnalyzer::isBoolean(const AfrType& type) const {
@@ -2083,6 +2082,10 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
         return target.className == value.className;
     }
     if (target.kind == TypeKind::Number && value.kind == TypeKind::Number) return true;
+    if (target.kind == TypeKind::Int && value.kind == TypeKind::Int) return true;
+    if (target.kind == TypeKind::Int && value.kind == TypeKind::Number) return true;
+    if (target.kind == TypeKind::Number && value.kind == TypeKind::Int) return true;
+    if (target.kind == TypeKind::Json && value.kind == TypeKind::Json) return true;
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
     if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
@@ -2123,7 +2126,9 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
 }
 
 bool SemanticAnalyzer::isConcreteTypeName(const std::string& name) const {
-    if (name == "number" || name == "text" || name == "bool") return true;
+    if (name == "number" || name == "int" || name == "text" || name == "bool" || name == "json") {
+        return true;
+    }
     if (result_.classes.count(name) || result_.records.count(name) ||
         result_.enums.count(name) || result_.interfaces.count(name)) {
         return true;

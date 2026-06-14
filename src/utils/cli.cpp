@@ -9,6 +9,9 @@
 #include "afrilang/lexer.hpp"
 #include "afrilang/parser.hpp"
 #include "afrilang/project.hpp"
+#include "afrilang/cache.hpp"
+#include "afrilang/debug.hpp"
+#include "afrilang/env.hpp"
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
@@ -161,6 +164,37 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
     std::cout << "Compilation de " << sourcePath << "...\n";
 
+    std::ifstream sourceIn(srcPath);
+    std::ostringstream sourceBuf;
+    sourceBuf << sourceIn.rdbuf();
+    const std::string sourceContent = sourceBuf.str();
+    const std::string projectDir = srcPath.parent_path().string();
+    const CompileCache cache(projectDir);
+    const std::string sourceHash = CompileCache::hashContent(sourceContent);
+
+    if (options.useCache) {
+        const CompileCacheEntry cached = cache.lookup(sourcePath);
+        if (cached.valid && cached.sourceHash == sourceHash &&
+            fs::exists(result.executable)) {
+            result.success = true;
+            std::cout << "Cache: exécutable à jour (" << result.executable << ")\n";
+            if (options.runAfter) {
+                std::cout << "--- Exécution ---\n";
+                const auto limits = securityLimits(SecurityContext::TrustedCompile);
+                ProcessConfig config;
+                config.timeoutSeconds = limits.execTimeoutSeconds;
+                config.maxMemoryMb = limits.maxMemoryMb;
+                config.maxCpuSeconds = limits.maxCpuSeconds;
+                config.maxOutputBytes = limits.maxOutputBytes;
+                config.limitProcessCount = true;
+                const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
+                if (!exec.output.empty()) std::cout << exec.output;
+                std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
+            }
+            return result;
+        }
+    }
+
     if (!codegen.compileToExecutable(result.generatedCpp, result.executable)) {
         std::cerr << "Erreur: la compilation g++ a échoué.\n";
         std::cerr << "Consultez " << result.generatedCpp << " pour le code généré.\n";
@@ -168,6 +202,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     }
 
     result.success = true;
+    if (options.useCache) {
+        cache.store(sourcePath, sourceHash, fs::absolute(result.executable).string());
+    }
     std::cout << "Exécutable produit: " << result.executable << "\n";
 
     if (options.runAfter) {
@@ -576,7 +613,7 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|search|add|install|publish> [args]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|sync|publish> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
@@ -595,6 +632,7 @@ int runCli(int argc, char* argv[]) {
             return PkgRegistry::cmdAdd(dir, argv[3], root);
         }
         if (sub == "install") return PkgRegistry::cmdInstall(dir, root);
+        if (sub == "sync") return PkgRegistry::syncRemoteRegistry(root);
         if (sub == "publish") {
             const std::string pkgDir = argc >= 4 ? argv[3] : dir;
             return PkgRegistry::cmdPublish(pkgDir, root);
@@ -630,6 +668,38 @@ int runCli(int argc, char* argv[]) {
     if (cmd == "doc") {
         if (argc < 3) { std::cerr << "Usage: afrilang doc <fichier.afr>\n"; return 1; }
         return cmdDoc(argv[2]);
+    }
+    if (cmd == "debug") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang debug <fichier.afr> [args...]\n";
+            return 1;
+        }
+        CompileOptions opts;
+        opts.debugSymbols = true;
+        opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
+        auto result = Pipeline::compileFile(argv[2], opts);
+        if (!result.success) return 1;
+        std::vector<std::string> progArgs;
+        for (int i = 3; i < argc; ++i) {
+            progArgs.emplace_back(argv[i]);
+        }
+        return runDebugger("./" + result.executable, progArgs);
+    }
+    if (cmd == "env") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang env <create|activate|path>\n";
+            return 1;
+        }
+        const std::string sub = argv[2];
+        const ProjectEnv env(fs::current_path().string());
+        if (sub == "create") return env.create();
+        if (sub == "activate") return env.activateShellHints();
+        if (sub == "path") {
+            std::cout << env.root() << "\n";
+            return 0;
+        }
+        std::cerr << "Sous-commande env inconnue: " << sub << "\n";
+        return 1;
     }
     if (cmd == "--help" || cmd == "-h") {
         printUsage();

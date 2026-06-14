@@ -494,6 +494,8 @@ std::vector<std::string> Parser::parseTypeParams() {
     std::vector<std::string> params;
     do {
         if (match(TokenType::TypeNumber)) params.push_back("number");
+        else if (match(TokenType::TypeInt)) params.push_back("int");
+        else if (match(TokenType::TypeJson)) params.push_back("json");
         else if (match(TokenType::TypeText)) params.push_back("text");
         else if (match(TokenType::TypeBool)) params.push_back("bool");
         else {
@@ -526,6 +528,8 @@ std::string Parser::parseTypeName() {
 
     std::string base;
     if (match(TokenType::TypeNumber)) base = "number";
+    else if (match(TokenType::TypeInt)) base = "int";
+    else if (match(TokenType::TypeJson)) base = "json";
     else if (match(TokenType::TypeText))   base = "text";
     else if (match(TokenType::TypeBool))   base = "bool";
     else if (match(TokenType::Task)) {
@@ -1391,7 +1395,9 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     }
 
     if (match(TokenType::NumberLiteral)) {
-        return std::make_unique<NumberLiteralNode>(std::stod(previous().lexeme));
+        const std::string& lex = previous().lexeme;
+        const bool isInt = lex.find('.') == std::string::npos;
+        return std::make_unique<NumberLiteralNode>(std::stod(lex), isInt);
     }
 
     if (matchOneOf(TokenType::True, TokenType::Yes)) {
