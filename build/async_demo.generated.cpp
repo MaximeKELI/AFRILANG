@@ -31,11 +31,11 @@ afrilang::runtime::async::Task<void> afr_runDemo() {
     #line 11 "/home/maxime/AFRILANG/build/../examples/async_demo.afr"
     std::cout << "starting async demo" << std::endl;
     #line 12 "/home/maxime/AFRILANG/build/../examples/async_demo.afr"
-    auto msg = co_await afr_waitAndReply(10);
+    auto msg = co_await afr_waitAndReply(10LL);
     #line 13 "/home/maxime/AFRILANG/build/../examples/async_demo.afr"
     std::cout << msg << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/async_demo.afr"
-    co_await async::sleep(5);
+    co_await async::sleep(5LL);
     #line 15 "/home/maxime/AFRILANG/build/../examples/async_demo.afr"
     std::cout << "async demo complete" << std::endl;
     co_return;

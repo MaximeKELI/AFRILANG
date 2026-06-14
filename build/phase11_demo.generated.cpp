@@ -127,20 +127,20 @@ using namespace args;
 int main(int argc, char** argv) {
     afrilang::runtime::args::init(argc, argv);
     #line 38 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::vector<double> nums = {1, 2, 3};
+    std::vector<std::int64_t> nums = {1LL, 2LL, 3LL};
     #line 40 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::vector<double> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](double n) -> std::vector<double> {
+    std::vector<std::int64_t> expanded = afrilang::runtime::collections::flatMapNumbers(nums, [&](std::int64_t n) -> std::vector<std::int64_t> {
     #line 41 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    return std::vector<double>{n, (n * 10)};
+    return std::vector<std::int64_t>{n, (n * 10LL)};
     });
     #line 44 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
     std::cout << expanded.size() << std::endl;
     #line 45 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::cout << expanded[static_cast<size_t>(0)] << std::endl;
+    std::cout << expanded[static_cast<size_t>(0LL)] << std::endl;
     #line 46 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::cout << expanded[static_cast<size_t>(1)] << std::endl;
+    std::cout << expanded[static_cast<size_t>(1LL)] << std::endl;
     #line 47 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::cout << expanded[static_cast<size_t>(2)] << std::endl;
+    std::cout << expanded[static_cast<size_t>(2LL)] << std::endl;
     #line 49 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
     std::vector<std::string> words = {"a", "bb", "ccc"};
     #line 51 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
@@ -161,7 +161,7 @@ int main(int argc, char** argv) {
         pet.speak();
     }
     #line 63 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
-    std::unique_ptr<Box<double>> box = std::make_unique<Box<double>>(99);
+    std::unique_ptr<Box<double>> box = std::make_unique<Box<double>>(99LL);
     #line 64 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"
     std::cout << box->get() << std::endl;
     #line 66 "/home/maxime/AFRILANG/build/../examples/phase11_demo.afr"

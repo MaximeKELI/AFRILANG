@@ -12,18 +12,18 @@
 
 int main() {
     #line 1 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
-    afrilang::runtime::ui::openWindow("AFRILANG GUI", 640, 480);
+    afrilang::runtime::ui::openWindow("AFRILANG GUI", 640LL, 480LL);
     #line 11 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
     while (afrilang::runtime::ui::isOpen()) {
         afrilang::runtime::ui::beginFrame();
         #line 4 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
-        afrilang::runtime::ui::clearBackground(28, 28, 36);
+        afrilang::runtime::ui::clearBackground(28LL, 28LL, 36LL);
         #line 5 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
-        afrilang::runtime::ui::drawText("Bonjour depuis AFRILANG!", 60, 80, 32);
+        afrilang::runtime::ui::drawText("Bonjour depuis AFRILANG!", 60LL, 80LL, 32LL);
         #line 6 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
-        afrilang::runtime::ui::drawText("Cliquez sur Quitter pour fermer.", 60, 130, 20);
+        afrilang::runtime::ui::drawText("Cliquez sur Quitter pour fermer.", 60LL, 130LL, 20LL);
         #line 9 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
-        if (afrilang::runtime::ui::drawButton("Quitter", 220, 350, 200, 50)) {
+        if (afrilang::runtime::ui::drawButton("Quitter", 220LL, 350LL, 200LL, 50LL)) {
             #line 8 "/home/maxime/AFRILANG/build/../examples/gui_demo.afr"
             afrilang::runtime::ui::closeWindow();
         }

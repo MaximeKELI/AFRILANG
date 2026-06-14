@@ -54,14 +54,14 @@ int main() {
     }
 })();
     #line 23 "/home/maxime/AFRILANG/build/../examples/match_expr_demo.afr"
-    double code = ([&]() -> double {
+    std::int64_t code = ([&]() -> std::int64_t {
     Status _afr_match = s;
     if (_afr_match.tag == Status::Tag::Ok) {
-        return 0;
+        return 0LL;
     }
     else if (_afr_match.tag == Status::Tag::Error) {
         std::string msg = _afr_match.message;
-        return 1;
+        return 1LL;
     }
     throw std::runtime_error("match: cas non couvert");
 })();

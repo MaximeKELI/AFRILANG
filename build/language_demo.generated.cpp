@@ -38,7 +38,7 @@ namespace Calcul {
 
     double scale(double x) {
         #line 7 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
-        return (x * 2);
+        return (x * 2LL);
     }
 
     double twice(double x) {
@@ -59,11 +59,11 @@ using namespace Calcul;
 int main() {
     #line 24 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
         #line 26 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
-    std::cout << Calcul::add(3, 4) << std::endl;
+    std::cout << Calcul::add(3LL, 4LL) << std::endl;
     #line 27 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
-    std::cout << Calcul::twice(10) << std::endl;
+    std::cout << Calcul::twice(10LL) << std::endl;
     #line 28 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
-    std::cout << afr_identity<double>(42) << std::endl;
+    std::cout << afr_identity<double>(42LL) << std::endl;
     #line 29 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"
     std::cout << afr_identity<std::string>(std::string("bonjour")) << std::endl;
     #line 31 "/home/maxime/AFRILANG/build/../examples/language_demo.afr"

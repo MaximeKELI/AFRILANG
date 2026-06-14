@@ -23,7 +23,7 @@ namespace async {
 
 afrilang::runtime::async::Task<afrilang::runtime::AfrResult_number> afr_delayedValue(double ms) {
     #line 8 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
-    if ((ms < 0)) {
+    if ((ms < 0LL)) {
         #line 7 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
         afrilang::runtime::AfrResult_number _result;
         _result.isError = true;
@@ -34,13 +34,13 @@ afrilang::runtime::async::Task<afrilang::runtime::AfrResult_number> afr_delayedV
     co_await async::sleep(ms);
     #line 10 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
     afrilang::runtime::AfrResult_number _result;
-    _result.value = (ms * 2);
+    _result.value = (ms * 2LL);
     co_return _result;
 }
 
 afrilang::runtime::async::Task<void> afr_runAll() {
     #line 14 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
-    auto r = co_await afr_delayedValue(5);
+    auto r = co_await afr_delayedValue(5LL);
     #line 19 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
     if (r.isError) {
         #line 16 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
@@ -57,9 +57,9 @@ static int afr_tests_failed = 0;
 void afr_test_async_await_in_test() {
     afrilang::runtime::async::run([]() -> afrilang::runtime::async::Task<void> {
         #line 23 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
-        auto r = co_await afr_delayedValue(1);
+        auto r = co_await afr_delayedValue(1LL);
         #line 24 "/home/maxime/AFRILANG/build/../examples/async_full.afr"
-        if (!((r.value == 2))) {
+        if (!((r.value == 2LL))) {
             std::cerr << "ASSERT FAILED" << std::endl;
             ++afr_tests_failed;
             co_return;

@@ -132,26 +132,26 @@ int main() {
         #line 11 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double dist = nlplevenshtein::distance("kitten", "sitting");
     #line 12 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::cout << format::formatNumber(dist, 0) << std::endl;
+    std::cout << format::formatNumber(dist, 0LL) << std::endl;
     #line 14 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double sim = nlplevenshtein::similarity("hello", "hallo");
     #line 15 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::cout << format::formatNumber(sim, 3) << std::endl;
+    std::cout << format::formatNumber(sim, 3LL) << std::endl;
     #line 17 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<double> numsA = {1, 2, 3, 4, 5};
+    std::vector<std::int64_t> numsA = {1LL, 2LL, 3LL, 4LL, 5LL};
     #line 18 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<double> numsB = {2, 4, 6, 8, 10};
+    std::vector<std::int64_t> numsB = {2LL, 4LL, 6LL, 8LL, 10LL};
     #line 19 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double corr = statcorrel::pearson(numsA, numsB);
     #line 20 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::cout << format::formatNumber(corr, 3) << std::endl;
+    std::cout << format::formatNumber(corr, 3LL) << std::endl;
     #line 22 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<double> vecA = {1, 0, 1};
+    std::vector<std::int64_t> vecA = {1LL, 0LL, 1LL};
     #line 23 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::vector<double> vecB = {1, 1, 0};
+    std::vector<std::int64_t> vecB = {1LL, 1LL, 0LL};
     #line 24 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
     double cos = mlcosine::cosineSim(vecA, vecB);
     #line 25 "/home/maxime/AFRILANG/build/../examples/complex_libs_demo.afr"
-    std::cout << format::formatNumber(cos, 3) << std::endl;
+    std::cout << format::formatNumber(cos, 3LL) << std::endl;
     return 0;
 }

@@ -4,13 +4,13 @@ import "std/json"
 use io
 use json
 
-create content = makeObject("lang", "AFRILANG")
-say content
+create doc json = makeObject("lang", "AFRILANG")
+say getString(doc, "lang")
 
-create parsed = parse(content)
-say getString(parsed, "lang")
+create roundtrip json = parse(stringify(doc))
+say getString(roundtrip, "lang")
 
-create numDoc = parse("{\"value\": 42}")
+create numDoc json = parse("{\"value\": 42}")
 say getNumber(numDoc, "value")
 
 create ok = fileExists("/tmp/afrilang_test.txt")
@@ -20,4 +20,3 @@ end
 
 create fileContent = readFile("/tmp/afrilang_test.txt")
 say fileContent
-
