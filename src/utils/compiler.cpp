@@ -88,20 +88,9 @@ std::string Compiler::resolvePath(const std::string& baseDir,
 
 void Compiler::handleStdlibImport(ProgramNode& program, const std::string& importPath) {
     const std::string mod = StdlibRegistry::stdlibModuleName(importPath);
-    if (mod == "io") StdlibRegistry::injectIoModule(program);
-    else if (mod == "json") StdlibRegistry::injectJsonModule(program);
-    else if (mod == "fs") StdlibRegistry::injectFsModule(program);
-    else if (mod == "http") StdlibRegistry::injectHttpModule(program);
-    else if (mod == "str") StdlibRegistry::injectStrModule(program);
-    else if (mod == "logging") StdlibRegistry::injectLogModule(program);
-    else if (mod == "math") StdlibRegistry::injectMathModule(program);
-    else if (mod == "chrono") StdlibRegistry::injectTimeModule(program);
-    else if (mod == "re") StdlibRegistry::injectReModule(program);
-    else if (mod == "collections") StdlibRegistry::injectCollectionsModule(program);
-    else if (mod == "args") StdlibRegistry::injectArgsModule(program);
-    else if (mod == "path") StdlibRegistry::injectPathModule(program);
-    else if (mod == "async") StdlibRegistry::injectAsyncModule(program);
-    else if (mod == "ui") StdlibRegistry::injectUiModule(program);
+    if (!mod.empty()) {
+        StdlibRegistry::injectModuleByName(program, mod);
+    }
 }
 
 std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {

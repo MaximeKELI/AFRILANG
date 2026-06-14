@@ -1,4 +1,5 @@
 #include "afrilang/stdlib_registry.hpp"
+#include "afrilang/stdlib_catalog.hpp"
 
 #include <vector>
 
@@ -44,63 +45,116 @@ void injectModule(ProgramNode& program, const std::string& name,
     program.modules.push_back(std::move(module));
 }
 
+std::string normalizeImportPath(const std::string& path) {
+    std::string p = path;
+    if (p.size() > 4 && p.substr(p.size() - 4) == ".afr") {
+        p = p.substr(0, p.size() - 4);
+    }
+    if (p.rfind("std/", 0) == 0) {
+        p = p.substr(4);
+    }
+    return p;
+}
+
 } // namespace
 
+bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
+    return moduleName == "io" || moduleName == "json" || moduleName == "fs" ||
+           moduleName == "http" || moduleName == "str" || moduleName == "logging" ||
+           moduleName == "math" || moduleName == "chrono" || moduleName == "re" ||
+           moduleName == "collections" || moduleName == "args" || moduleName == "path" ||
+           moduleName == "async" || moduleName == "ui";
+}
+
+bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
+    return isLegacyStdlibModule(moduleName) ||
+           stdlibCatalogIsSimpleModule(moduleName);
+}
+
 bool StdlibRegistry::isStdlibImport(const std::string& path) {
-    return path == "std/io" || path == "std/io.afr" ||
-           path == "std/json" || path == "std/json.afr" ||
-           path == "std/fs" || path == "std/fs.afr" ||
-           path == "std/http" || path == "std/http.afr" ||
-           path == "std/str" || path == "std/str.afr" ||
-           path == "std/log" || path == "std/log.afr" ||
-           path == "std/logging" || path == "std/logging.afr" ||
-           path == "std/math" || path == "std/math.afr" ||
-           path == "std/time" || path == "std/time.afr" ||
-           path == "std/chrono" || path == "std/chrono.afr" ||
-           path == "std/re" || path == "std/re.afr" ||
-           path == "std/collections" || path == "std/collections.afr" ||
-           path == "std/args" || path == "std/args.afr" ||
-           path == "std/path" || path == "std/path.afr" ||
-           path == "std/async" || path == "std/async.afr" ||
-           path == "std/ui" || path == "std/ui.afr";
+    if (path.rfind("std/", 0) != 0 && path.rfind("std\\", 0) != 0) {
+        return false;
+    }
+    const std::string normalized = normalizeImportPath(path);
+    if (isLegacyStdlibModule(normalized) ||
+        normalized == "log" || normalized == "time" || normalized == "chrono" ||
+        normalized == "logging") {
+        return true;
+    }
+    return stdlibCatalogFindModule(normalized) != nullptr;
 }
 
 std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
-    if (path.find("json") != std::string::npos) return "json";
-    if (path.find("http") != std::string::npos) return "http";
-    if (path.find("math") != std::string::npos) return "math";
-    if (path.find("logging") != std::string::npos || path.find("std/log") != std::string::npos) {
-        return "logging";
-    }
-    if (path.find("chrono") != std::string::npos || path.find("std/time") != std::string::npos) {
-        return "chrono";
-    }
-    if (path.find("std/str") != std::string::npos || path.find("str.afr") != std::string::npos) {
-        return "str";
-    }
-    if (path.find("std/re") != std::string::npos || path.find("re.afr") != std::string::npos) {
-        return "re";
-    }
-    if (path.find("collections") != std::string::npos) return "collections";
-    if (path.find("std/args") != std::string::npos || path.find("args.afr") != std::string::npos) {
-        return "args";
-    }
-    if (path.find("std/path") != std::string::npos || path.find("path.afr") != std::string::npos) {
-        return "path";
-    }
-    if (path.find("std/async") != std::string::npos || path.find("async.afr") != std::string::npos) {
-        return "async";
-    }
-    if (path.find("std/ui") != std::string::npos || path.find("ui.afr") != std::string::npos) {
-        return "ui";
-    }
-    if (path.find("std/fs") != std::string::npos || path.find("fs.afr") != std::string::npos) {
-        return "fs";
-    }
-    if (path.find("std/io") != std::string::npos || path.find("io.afr") != std::string::npos) {
-        return "io";
+    const std::string normalized = normalizeImportPath(path);
+
+    if (normalized == "json") return "json";
+    if (normalized == "http") return "http";
+    if (normalized == "math") return "math";
+    if (normalized == "log" || normalized == "logging") return "logging";
+    if (normalized == "time" || normalized == "chrono") return "chrono";
+    if (normalized == "str") return "str";
+    if (normalized == "re") return "re";
+    if (normalized == "collections") return "collections";
+    if (normalized == "args") return "args";
+    if (normalized == "path") return "path";
+    if (normalized == "async") return "async";
+    if (normalized == "ui") return "ui";
+    if (normalized == "fs") return "fs";
+    if (normalized == "io") return "io";
+
+    if (const StdlibModuleSpec* spec = stdlibCatalogFindModule(normalized)) {
+        return spec->moduleName;
     }
     return "";
+}
+
+void StdlibRegistry::injectCatalogModule(ProgramNode& program,
+                                         const std::string& moduleName) {
+    const StdlibModuleSpec* spec = stdlibCatalogFindModule(moduleName);
+    if (!spec) return;
+
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    for (std::size_t i = 0; i < spec->functionCount; ++i) {
+        const StdlibFuncSpec& fn = spec->functions[i];
+        std::vector<std::pair<std::string, std::string>> params;
+        for (std::size_t p = 0; p < fn.paramCount; ++p) {
+            params.emplace_back(fn.params[p].name, fn.params[p].typeName);
+        }
+        std::initializer_list<std::pair<std::string, std::string>> init =
+            params.empty() ? std::initializer_list<std::pair<std::string, std::string>>{}
+                           : std::initializer_list<std::pair<std::string, std::string>>(
+                                 params.begin(), params.end());
+        (void)init;
+        std::vector<ParameterNode> paramNodes;
+        for (const auto& [pname, ptype] : params) {
+            paramNodes.emplace_back(pname, ptype, nullptr);
+        }
+        fns.push_back(std::make_unique<FunctionNode>(
+            fn.name, std::move(paramNodes),
+            fn.returnType ? std::string(fn.returnType) : std::string{},
+            false, std::vector<std::unique_ptr<StatementNode>>{},
+            std::vector<std::string>{}, false, false, false, false));
+    }
+    injectModule(program, spec->moduleName, std::move(fns));
+}
+
+void StdlibRegistry::injectModuleByName(ProgramNode& program,
+                                        const std::string& moduleName) {
+    if (moduleName == "io") injectIoModule(program);
+    else if (moduleName == "json") injectJsonModule(program);
+    else if (moduleName == "fs") injectFsModule(program);
+    else if (moduleName == "http") injectHttpModule(program);
+    else if (moduleName == "str") injectStrModule(program);
+    else if (moduleName == "logging") injectLogModule(program);
+    else if (moduleName == "math") injectMathModule(program);
+    else if (moduleName == "chrono") injectTimeModule(program);
+    else if (moduleName == "re") injectReModule(program);
+    else if (moduleName == "collections") injectCollectionsModule(program);
+    else if (moduleName == "args") injectArgsModule(program);
+    else if (moduleName == "path") injectPathModule(program);
+    else if (moduleName == "async") injectAsyncModule(program);
+    else if (moduleName == "ui") injectUiModule(program);
+    else injectCatalogModule(program, moduleName);
 }
 
 void StdlibRegistry::injectIoModule(ProgramNode& program) {
