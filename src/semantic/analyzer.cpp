@@ -1123,6 +1123,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 }
                 continue;
             }
+            if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
+                errorAt(*matchStmt, "Cas littéral incompatible avec match enum");
+            }
             coveredCases.insert(arm.caseName);
             const auto caseIt = en->cases.find(arm.caseName);
             if (caseIt == en->cases.end()) {
