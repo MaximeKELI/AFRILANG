@@ -1,6 +1,7 @@
 #include "afrilang/lexer.hpp"
 
 #include "afrilang/error.hpp"
+#include "afrilang/utf8.hpp"
 
 #include <cctype>
 
@@ -376,9 +377,14 @@ Token Lexer::identifierOrKeyword() {
 
     std::string text;
     while (!isAtEnd()) {
-        char c = peek();
-        if (std::isalnum(static_cast<unsigned char>(c)) || c == '_') {
+        const unsigned char c = static_cast<unsigned char>(peek());
+        if (std::isalnum(c) || c == '_') {
             text += advance();
+        } else if (c >= 0x80) {
+            const std::size_t len = utf8CharLength(c);
+            for (std::size_t i = 0; i < len && !isAtEnd(); ++i) {
+                text += advance();
+            }
         } else {
             break;
         }
