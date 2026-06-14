@@ -1,13 +1,8 @@
 #pragma once
 
+#include "afrilang/i18n.hpp"
+
 #include <stdexcept>
-#include <string>
-#include <unordered_map>
-#include <vector>
-
-namespace afrilang {
-
-enum class ErrorCode;
 
 class CompileError : public std::runtime_error {
 public:

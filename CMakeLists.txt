@@ -15,6 +15,10 @@ set(AFRILANG_SOURCES
     src/utils/compiler.cpp
     src/utils/cli.cpp
     src/utils/diagnostics.cpp
+    src/utils/utf8.cpp
+    src/utils/i18n.cpp
+    src/utils/semver.cpp
+    src/utils/sandbox.cpp
     src/utils/project.cpp
     src/utils/stdlib_registry.cpp
     src/utils/stdlib_catalog.cpp
@@ -33,6 +37,14 @@ target_include_directories(afrilang PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(afrilang PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(afrilang_tests PRIVATE -Wall -Wextra -Wpedantic --coverage)
+    target_link_options(afrilang_tests PRIVATE --coverage)
+endif()
+
+option(AFRILANG_ENABLE_COVERAGE "Enable coverage reporting" OFF)
+if(AFRILANG_ENABLE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(afrilang PRIVATE --coverage)
+    target_link_options(afrilang PRIVATE --coverage)
 endif()
 
 install(TARGETS afrilang DESTINATION bin)

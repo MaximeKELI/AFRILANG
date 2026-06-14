@@ -209,6 +209,15 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"etape",     TokenType::Step},
     {"union",     TokenType::Union},
     {"operateur", TokenType::Operator},
+    {"enumeration", TokenType::Enum},
+    {"asynchrone", TokenType::Async},
+    {"attendre", TokenType::Await},
+    {"tache", TokenType::Task},
+    {"associer", TokenType::Match},
+    {"oui", TokenType::Yes},
+    {"non", TokenType::No},
+    {"ou", TokenType::Where},
+    {"aplatir", TokenType::FlatMap},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}
