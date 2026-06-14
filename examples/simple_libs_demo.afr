@@ -1,0 +1,31 @@
+import "std/celsius"
+import "std/upper"
+import "std/trig"
+import "std/hex"
+import "std/i18n"
+import "std/quiz"
+
+use celsius
+use upper
+use trig
+use hex
+use i18n
+use quiz
+
+create tempF = cToF(20)
+say "20°C = " + tempF + "°F"
+
+create greeting = greetFr("AFRILANG")
+say greeting
+
+create label = toUpper("bonjour")
+say label
+
+create angle = sinDeg(90)
+say "sin(90°) = " + angle
+
+create code = toHex(255)
+say "255 en hex = " + code
+
+create score = scorePercent(8, 10)
+say "Score quiz: " + score + "%"
