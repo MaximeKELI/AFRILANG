@@ -1,7 +1,6 @@
 CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o: \
  /home/maxime/AFRILANG/src/utils/medium_catalog.cpp \
  /usr/include/stdc-predef.h \
- /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
  /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \

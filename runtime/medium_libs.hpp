@@ -47,7 +47,7 @@ namespace afrilang::runtime::med::ngrams {
 inline std::vector<std::string> bigrams(std::string s) { { std::vector<std::string> t; std::string w; for (unsigned char c : s) { if (std::isspace(c)) { if (!w.empty()) { t.push_back(w); w.clear(); } } else w += static_cast<char>(c); } if (!w.empty()) t.push_back(w); std::vector<std::string> out; for (std::size_t i = 1; i < t.size(); ++i) out.push_back(t[i-1] + " " + t[i]); return out; } }
 inline std::vector<std::string> trigrams(std::string s) { { std::vector<std::string> t; std::string w; for (unsigned char c : s) { if (std::isspace(c)) { if (!w.empty()) { t.push_back(w); w.clear(); } } else w += static_cast<char>(c); } if (!w.empty()) t.push_back(w); std::vector<std::string> out; for (std::size_t i = 2; i < t.size(); ++i) out.push_back(t[i-2] + " " + t[i-1] + " " + t[i]); return out; } }
 inline std::vector<std::string> charBigrams(std::string s) { { std::vector<std::string> r; for (std::size_t i = 1; i < s.size(); ++i) r.push_back(s.substr(i-1, 2)); return r; } }
-inline double ngramCount(std::string s, double n) { { int nn = static_cast<int>(n); if (nn <= 0) return 0; auto t = tokenize(s); return t.size() >= static_cast<std::size_t>(nn) ? static_cast<double>(t.size() - nn + 1) : 0; } }
+inline double ngramCount(std::string s, double n) { { int nn = static_cast<int>(n); if (nn <= 0) return 0; std::vector<std::string> t; std::string w; for (unsigned char c : s) { if (std::isspace(c)) { if (!w.empty()) { t.push_back(w); w.clear(); } } else w += static_cast<char>(c); } if (!w.empty()) t.push_back(w); return t.size() >= static_cast<std::size_t>(nn) ? static_cast<double>(t.size() - nn + 1) : 0; } }
 } // namespace
 
 namespace afrilang::runtime::med::palindrom2 {
@@ -255,7 +255,7 @@ namespace afrilang::runtime::med::listrotate2 {
 inline std::vector<double> rotateLeft(std::vector<double> v, double n) { { if (v.empty()) return v; auto r = v; int k = static_cast<int>(n) % static_cast<int>(v.size()); if (k < 0) k += static_cast<int>(v.size()); std::rotate(r.begin(), r.begin()+k, r.end()); return r; } }
 inline std::vector<double> rotateRight(std::vector<double> v, double n) { { if (v.empty()) return v; int k = static_cast<int>(v.size()) - static_cast<int>(n) % static_cast<int>(v.size()); return rotateLeft(v, k); } }
 inline std::vector<double> reverseList(std::vector<double> v) { { auto r = v; std::reverse(r.begin(), r.end()); return r; } }
-inline std::vector<double> shuffleSeed(std::vector<double> v, double seed) { { auto r = v; std::srand(static_cast<unsigned>(seed)); std::shuffle(r.begin(), r.end(), [](int n){ return std::rand() % (n+1); }); return r; } }
+inline std::vector<double> shuffleSeed(std::vector<double> v, double seed) { { auto r = v; std::srand(static_cast<unsigned>(seed)); for (std::size_t i = r.size(); i > 1; --i) { std::size_t j = static_cast<std::size_t>(std::rand()) % i; std::swap(r[i-1], r[j]); } return r; } }
 } // namespace
 
 namespace afrilang::runtime::med::listchunk {
@@ -467,7 +467,7 @@ inline std::string normalizeEmail(std::string email) { { std::string r = email; 
 
 namespace afrilang::runtime::med::base64med {
 inline std::string encodeBasic(std::string s) { { static const char* b = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"; std::string r; for (std::size_t i = 0; i < s.size(); i += 3) { unsigned val = static_cast<unsigned char>(s[i]) << 16; if (i+1 < s.size()) val |= static_cast<unsigned char>(s[i+1]) << 8; if (i+2 < s.size()) val |= static_cast<unsigned char>(s[i+2]); r += b[(val>>18)&63]; r += b[(val>>12)&63]; r += (i+1<s.size()) ? b[(val>>6)&63] : '='; r += (i+2<s.size()) ? b[val&63] : '='; } return r; } }
-inline std::string decodeBasic(std::string s) { { static const int d[256]={-1}; static bool init=false; if(!init){ for(int i=0;i<64;++i) d["ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[i]]=i; init=true;} std::string r; for (std::size_t i = 0; i < s.size(); i += 4) { int v = (d[static_cast<unsigned char>(s[i])]<<18)|(d[static_cast<unsigned char>(s[i+1])]<<12); r += static_cast<char>((v>>16)&255); if(s[i+2]!='=') { v|=(d[static_cast<unsigned char>(s[i+2])]<<6); r += static_cast<char>((v>>8)&255); } if(s[i+3]!='=') { v|=d[static_cast<unsigned char>(s[i+3])]; r += static_cast<char>(v&255); } } return r; } }
+inline std::string decodeBasic(std::string s) { { static int d[256]; static bool init=false; if(!init){ for(int i=0;i<256;++i) d[i]=-1; for(int i=0;i<64;++i) d[static_cast<unsigned char>("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[i])]=i; init=true;} std::string r; for (std::size_t i = 0; i + 3 < s.size(); i += 4) { int v = (d[static_cast<unsigned char>(s[i])]<<18)|(d[static_cast<unsigned char>(s[i+1])]<<12); r += static_cast<char>((v>>16)&255); if(s[i+2]!='=') { v|=(d[static_cast<unsigned char>(s[i+2])]<<6); r += static_cast<char>((v>>8)&255); } if(s[i+3]!='=') { v|=d[static_cast<unsigned char>(s[i+3])]; r += static_cast<char>(v&255); } } return r; } }
 inline bool isBase64(std::string s) { { if (s.empty()) return false; for (char c : s) if (!std::isalnum(static_cast<unsigned char>(c)) && c!='+' && c!='/' && c!='=') return false; return true; } }
 inline double paddedLength(std::string s) { return static_cast<double>((s.size() + 2) / 3 * 4); }
 } // namespace
@@ -501,16 +501,16 @@ inline std::vector<double> identity2(double ignored) { (void)ignored; return {1,
 } // namespace
 
 namespace afrilang::runtime::med::matdet2 {
-inline std::vector<double> det3x3(std::vector<double> m) { { if (m.size() < 9) return 0; return m[0]*(m[4]*m[8]-m[5]*m[7]) - m[1]*(m[3]*m[8]-m[5]*m[6]) + m[2]*(m[3]*m[7]-m[4]*m[6]); } }
+inline double det3x3(std::vector<double> m) { { if (m.size() < 9) return 0; return m[0]*(m[4]*m[8]-m[5]*m[7]) - m[1]*(m[3]*m[8]-m[5]*m[6]) + m[2]*(m[3]*m[7]-m[4]*m[6]); } }
 inline double det2x2(std::vector<double> m) { return m.size() >= 4 ? m[0]*m[3] - m[1]*m[2] : 0; }
 inline bool isSingular(std::vector<double> m) { return std::fabs(det2x2(m)) < 1e-10; }
 inline std::vector<double> cofactor2(std::vector<double> m) { return m.size() >= 4 ? std::vector<double>{m[3], -m[1], -m[2], m[0]} : m; }
 } // namespace
 
 namespace afrilang::runtime::med::matinv2 {
-inline std::vector<double> inv2x2(std::vector<double> m) { { double d = det2x2(m); if (std::fabs(d) < 1e-10) return m; return {m[3]/d, -m[1]/d, -m[2]/d, m[0]/d}; } }
+inline std::vector<double> inv2x2(std::vector<double> m) { { if (m.size() < 4) return m; double d = m[0]*m[3] - m[1]*m[2]; if (std::fabs(d) < 1e-10) return m; return std::vector<double>{m[3]/d, -m[1]/d, -m[2]/d, m[0]/d}; } }
 inline std::vector<double> adj2x2(std::vector<double> m) { return m.size() >= 4 ? std::vector<double>{m[3], -m[1], -m[2], m[0]} : m; }
-inline std::vector<double> solve2x2(std::vector<double> a, std::vector<double> b) { { auto inv = inv2x2(a); if (inv.size() < 4 || b.size() < 2) return b; return {inv[0]*b[0]+inv[1]*b[1], inv[2]*b[0]+inv[3]*b[1]}; } }
+inline std::vector<double> solve2x2(std::vector<double> a, std::vector<double> b) { { if (a.size() < 4 || b.size() < 2) return b; double d = a[0]*a[3]-a[1]*a[2]; if (std::fabs(d) < 1e-10) return b; double i0=a[3]/d, i1=-a[1]/d, i2=-a[2]/d, i3=a[0]/d; return std::vector<double>{i0*b[0]+i1*b[1], i2*b[0]+i3*b[1]}; } }
 inline double condition2x2(std::vector<double> m) { { double d = m.size() >= 4 ? std::fabs(m[0]*m[3] - m[1]*m[2]) : 0; double tr = m.size() >= 4 ? m[0]+m[3] : 0; return d < 1e-10 ? 1e10 : std::fabs(tr) / d; } }
 } // namespace
 
@@ -537,7 +537,7 @@ inline double maxAbs(std::vector<double> m) { { if (m.empty()) return 0; double 
 
 namespace afrilang::runtime::med::linsolve2 {
 inline std::vector<double> solveLinear2(double a1, double b1, double c1, double a2, double b2, double c2) { { double d = a1*b2 - a2*b1; if (std::fabs(d) < 1e-10) return {0, 0}; return {(c1*b2 - c2*b1)/d, (a1*c2 - a2*c1)/d}; } }
-inline std::vector<double> solve3eq(std::vector<double> m, std::vector<double> b) { { auto inv = inv2x2(m); if (inv.size() < 4 || b.size() < 2) return b; return {inv[0]*b[0]+inv[1]*b[1], inv[2]*b[0]+inv[3]*b[1]}; } }
+inline std::vector<double> solve3eq(std::vector<double> m, std::vector<double> b) { { if (m.size() < 4 || b.size() < 2) return b; double d = m[0]*m[3]-m[1]*m[2]; if (std::fabs(d) < 1e-10) return b; double i0=m[3]/d, i1=-m[1]/d, i2=-m[2]/d, i3=m[0]/d; return std::vector<double>{i0*b[0]+i1*b[1], i2*b[0]+i3*b[1]}; } }
 inline double residual(std::vector<double> a, std::vector<double> x, std::vector<double> b) { { if (a.size() < 4 || x.size() < 2 || b.size() < 2) return 0; double ax0 = a[0]*x[0]+a[1]*x[1], ax1 = a[2]*x[0]+a[3]*x[1]; return std::hypot(ax0-b[0], ax1-b[1]); } }
 inline bool isConsistent(std::vector<double> m) { { double d = m.size() >= 4 ? m[0]*m[3] - m[1]*m[2] : 0; return std::fabs(d) >= 1e-10; } }
 } // namespace
@@ -601,7 +601,7 @@ inline double midRate(double bid, double ask) { return (bid + ask) / 2.0; }
 namespace afrilang::runtime::med::portfolio2 {
 inline double weightedReturn(std::vector<double> returns, std::vector<double> weights) { { if (returns.size() != weights.size()) return 0; double s = 0, w = 0; for (std::size_t i = 0; i < returns.size(); ++i) { s += returns[i]*weights[i]; w += weights[i]; } return w == 0 ? 0 : s / w; } }
 inline double portfolioValue(std::vector<double> shares, std::vector<double> prices) { { if (shares.size() != prices.size()) return 0; double s = 0; for (std::size_t i = 0; i < shares.size(); ++i) s += shares[i]*prices[i]; return s; } }
-inline std::vector<double> rebalance(std::vector<double> values, std::vector<double> target) { { double total = 0; for (double v : values) total += v; if (total == 0) return values; std::vector<double> r; for (double v : values) r.push_back(total * target / 100.0 / values.size()); return r; } }
+inline std::vector<double> rebalance(std::vector<double> values, std::vector<double> target) { { double total = 0; for (double v : values) total += v; if (total == 0 || values.size() != target.size()) return values; std::vector<double> r; for (std::size_t i = 0; i < values.size(); ++i) r.push_back(total * target[i] / 100.0); return r; } }
 inline double diversification(std::vector<double> weights) { { double h = 0; for (double w : weights) h += w * w; return (1 - h) * 100.0; } }
 } // namespace
 
@@ -707,7 +707,7 @@ namespace afrilang::runtime::med::random2 {
 inline double seedRandom(double seed) { (void)seed; std::srand(static_cast<unsigned>(seed)); return static_cast<double>(std::rand()); }
 inline double randomRange(double lo, double hi) { return lo + std::rand() / (RAND_MAX / (hi - lo + 1)); }
 inline std::vector<double> randomList(double count, double lo, double hi) { { std::vector<double> r; int n = static_cast<int>(count); for (int i = 0; i < n; ++i) r.push_back(randomRange(lo, hi)); return r; } }
-inline std::vector<double> shuffleList(std::vector<double> v, double seed) { { auto r = v; std::srand(static_cast<unsigned>(seed)); std::shuffle(r.begin(), r.end(), [](int n){ return std::rand() % (n+1); }); return r; } }
+inline std::vector<double> shuffleList(std::vector<double> v, double seed) { { auto r = v; std::srand(static_cast<unsigned>(seed)); for (std::size_t i = r.size(); i > 1; --i) { std::size_t j = static_cast<std::size_t>(std::rand()) % i; std::swap(r[i-1], r[j]); } return r; } }
 } // namespace
 
 namespace afrilang::runtime::med::entropy2 {

@@ -630,7 +630,7 @@
 
 `import "std/m/matdet2"` · `use matdet2`
 
-- `det3x3(m list number) → list number`
+- `det3x3(m list number) → number`
 - `det2x2(m list number) → number`
 - `isSingular(m list number) → bool`
 - `cofactor2(m list number) → list number`

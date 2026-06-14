@@ -1,4 +1,4 @@
-#include "afrilang/medium_catalog.hpp"
+#include "afrilang/stdlib_catalog.hpp"
 
 namespace afrilang {
 namespace {
@@ -1245,7 +1245,7 @@ const StdlibParamSpec kMParams_68[] = {
 };
 
 const StdlibFuncSpec kMFuncs_68[] = {
-    {"det3x3", "list number", 1, &kMParams_68[0]},
+    {"det3x3", "number", 1, &kMParams_68[0]},
     {"det2x2", "number", 1, &kMParams_68[1]},
     {"isSingular", "bool", 1, &kMParams_68[2]},
     {"cofactor2", "list number", 1, &kMParams_68[3]},
