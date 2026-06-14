@@ -974,7 +974,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
     if (const auto* repeat = dynamic_cast<const RepeatStatementNode*>(&stmt)) {
         AfrType countType = analyzeExpression(*repeat->count, scope);
-        if (countType.kind != TypeKind::Number) {
+        if (!isNumeric(countType)) {
             errorAt(*repeat, "Le compteur de 'repeat' doit être un nombre");
         }
         ++loopDepth_;
@@ -1077,7 +1077,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
     if (const auto* assertStmt = dynamic_cast<const AssertStatementNode*>(&stmt)) {
         AfrType condType = analyzeExpression(*assertStmt->condition, scope);
-        if (condType.kind != TypeKind::Bool && condType.kind != TypeKind::Number) {
+        if (condType.kind != TypeKind::Bool && !isNumeric(condType)) {
             errorAt(*assertStmt, "La condition de 'assert' doit être booléenne ou numérique");
         }
         return;
@@ -1378,7 +1378,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'map each' requiert une liste");
         }
         AfrType elemType = listType.listElementType();
-        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Int &&
+            elemType.kind != TypeKind::Text) {
             errorAt(expr, "'map each' supporte listes de number ou text");
         }
 
@@ -1401,7 +1402,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'flatMap each' requiert une liste");
         }
         AfrType elemType = listType.listElementType();
-        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Int &&
+            elemType.kind != TypeKind::Text) {
             errorAt(expr, "'flatMap each' supporte listes de number ou text");
         }
 
@@ -1428,7 +1430,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'filter each' requiert une liste");
         }
         AfrType elemType = listType.listElementType();
-        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Int &&
+            elemType.kind != TypeKind::Text) {
             errorAt(expr, "'filter each' supporte listes de number ou text");
         }
 
@@ -1450,12 +1453,13 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "'reduce' requiert une liste");
         }
         AfrType elemType = listType.listElementType();
-        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Text) {
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Int &&
+            elemType.kind != TypeKind::Text) {
             errorAt(expr, "'reduce' supporte listes de number ou text");
         }
 
         AfrType initialType = analyzeExpression(*reduce->initial, scope);
-        if (elemType.kind == TypeKind::Number && initialType.kind != TypeKind::Number) {
+        if (isNumeric(elemType) && !isNumeric(initialType)) {
             errorAt(expr, "La valeur initiale de 'reduce' sur number doit être un number");
         }
         if (elemType.kind == TypeKind::Text && initialType.kind != TypeKind::Text) {

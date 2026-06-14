@@ -423,6 +423,33 @@ src/serve/server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.s
 .PHONY : src/serve/server.cpp.s
 
+src/utils/cache.o: src/utils/cache.cpp.o
+.PHONY : src/utils/cache.o
+
+# target to build an object file
+src/utils/cache.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cache.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.o
+.PHONY : src/utils/cache.cpp.o
+
+src/utils/cache.i: src/utils/cache.cpp.i
+.PHONY : src/utils/cache.i
+
+# target to preprocess a source file
+src/utils/cache.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cache.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.i
+.PHONY : src/utils/cache.cpp.i
+
+src/utils/cache.s: src/utils/cache.cpp.s
+.PHONY : src/utils/cache.s
+
+# target to generate assembly for a file
+src/utils/cache.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/cache.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.s
+.PHONY : src/utils/cache.cpp.s
+
 src/utils/cli.o: src/utils/cli.cpp.o
 .PHONY : src/utils/cli.o
 
@@ -504,6 +531,33 @@ src/utils/complex_catalog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.s
 .PHONY : src/utils/complex_catalog.cpp.s
 
+src/utils/debug.o: src/utils/debug.cpp.o
+.PHONY : src/utils/debug.o
+
+# target to build an object file
+src/utils/debug.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.o
+.PHONY : src/utils/debug.cpp.o
+
+src/utils/debug.i: src/utils/debug.cpp.i
+.PHONY : src/utils/debug.i
+
+# target to preprocess a source file
+src/utils/debug.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.i
+.PHONY : src/utils/debug.cpp.i
+
+src/utils/debug.s: src/utils/debug.cpp.s
+.PHONY : src/utils/debug.s
+
+# target to generate assembly for a file
+src/utils/debug.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.s
+.PHONY : src/utils/debug.cpp.s
+
 src/utils/diagnostics.o: src/utils/diagnostics.cpp.o
 .PHONY : src/utils/diagnostics.o
 
@@ -557,6 +611,33 @@ src/utils/educational.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/educational.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.s
 .PHONY : src/utils/educational.cpp.s
+
+src/utils/env.o: src/utils/env.cpp.o
+.PHONY : src/utils/env.o
+
+# target to build an object file
+src/utils/env.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/env.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.o
+.PHONY : src/utils/env.cpp.o
+
+src/utils/env.i: src/utils/env.cpp.i
+.PHONY : src/utils/env.i
+
+# target to preprocess a source file
+src/utils/env.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/env.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.i
+.PHONY : src/utils/env.cpp.i
+
+src/utils/env.s: src/utils/env.cpp.s
+.PHONY : src/utils/env.s
+
+# target to generate assembly for a file
+src/utils/env.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/env.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.s
+.PHONY : src/utils/env.cpp.s
 
 src/utils/formatter.o: src/utils/formatter.cpp.o
 .PHONY : src/utils/formatter.o
@@ -919,6 +1000,9 @@ help:
 	@echo "... src/serve/server.o"
 	@echo "... src/serve/server.i"
 	@echo "... src/serve/server.s"
+	@echo "... src/utils/cache.o"
+	@echo "... src/utils/cache.i"
+	@echo "... src/utils/cache.s"
 	@echo "... src/utils/cli.o"
 	@echo "... src/utils/cli.i"
 	@echo "... src/utils/cli.s"
@@ -928,12 +1012,18 @@ help:
 	@echo "... src/utils/complex_catalog.o"
 	@echo "... src/utils/complex_catalog.i"
 	@echo "... src/utils/complex_catalog.s"
+	@echo "... src/utils/debug.o"
+	@echo "... src/utils/debug.i"
+	@echo "... src/utils/debug.s"
 	@echo "... src/utils/diagnostics.o"
 	@echo "... src/utils/diagnostics.i"
 	@echo "... src/utils/diagnostics.s"
 	@echo "... src/utils/educational.o"
 	@echo "... src/utils/educational.i"
 	@echo "... src/utils/educational.s"
+	@echo "... src/utils/env.o"
+	@echo "... src/utils/env.i"
+	@echo "... src/utils/env.s"
 	@echo "... src/utils/formatter.o"
 	@echo "... src/utils/formatter.i"
 	@echo "... src/utils/formatter.s"

@@ -349,10 +349,52 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/pkg.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maxime/AFRILANG/src/utils/pkg.cpp -o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.s
 
+CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CMakeFiles/afrilang.dir/flags.make
+CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: /home/maxime/AFRILANG/src/utils/cache.cpp
+CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/afrilang.dir/src/utils/cache.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/cache.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/cache.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/cache.cpp.o -c /home/maxime/AFRILANG/src/utils/cache.cpp
+
+CMakeFiles/afrilang.dir/src/utils/cache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/utils/cache.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maxime/AFRILANG/src/utils/cache.cpp > CMakeFiles/afrilang.dir/src/utils/cache.cpp.i
+
+CMakeFiles/afrilang.dir/src/utils/cache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/cache.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maxime/AFRILANG/src/utils/cache.cpp -o CMakeFiles/afrilang.dir/src/utils/cache.cpp.s
+
+CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CMakeFiles/afrilang.dir/flags.make
+CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: /home/maxime/AFRILANG/src/utils/debug.cpp
+CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/afrilang.dir/src/utils/debug.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/debug.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/debug.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/debug.cpp.o -c /home/maxime/AFRILANG/src/utils/debug.cpp
+
+CMakeFiles/afrilang.dir/src/utils/debug.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/utils/debug.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maxime/AFRILANG/src/utils/debug.cpp > CMakeFiles/afrilang.dir/src/utils/debug.cpp.i
+
+CMakeFiles/afrilang.dir/src/utils/debug.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/debug.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maxime/AFRILANG/src/utils/debug.cpp -o CMakeFiles/afrilang.dir/src/utils/debug.cpp.s
+
+CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CMakeFiles/afrilang.dir/flags.make
+CMakeFiles/afrilang.dir/src/utils/env.cpp.o: /home/maxime/AFRILANG/src/utils/env.cpp
+CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/afrilang.dir/src/utils/env.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/env.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/env.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/env.cpp.o -c /home/maxime/AFRILANG/src/utils/env.cpp
+
+CMakeFiles/afrilang.dir/src/utils/env.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/utils/env.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/maxime/AFRILANG/src/utils/env.cpp > CMakeFiles/afrilang.dir/src/utils/env.cpp.i
+
+CMakeFiles/afrilang.dir/src/utils/env.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/utils/env.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/maxime/AFRILANG/src/utils/env.cpp -o CMakeFiles/afrilang.dir/src/utils/env.cpp.s
+
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: /home/maxime/AFRILANG/src/utils/educational.cpp
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/afrilang.dir/src/utils/educational.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/afrilang.dir/src/utils/educational.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/educational.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o -c /home/maxime/AFRILANG/src/utils/educational.cpp
 
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.i: cmake_force
@@ -366,7 +408,7 @@ CMakeFiles/afrilang.dir/src/utils/educational.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: /home/maxime/AFRILANG/src/repl/repl.cpp
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/afrilang.dir/src/repl/repl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/afrilang.dir/src/repl/repl.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/repl/repl.cpp.o -MF CMakeFiles/afrilang.dir/src/repl/repl.cpp.o.d -o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o -c /home/maxime/AFRILANG/src/repl/repl.cpp
 
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.i: cmake_force
@@ -380,7 +422,7 @@ CMakeFiles/afrilang.dir/src/repl/repl.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: /home/maxime/AFRILANG/src/serve/server.cpp
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/afrilang.dir/src/serve/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/afrilang.dir/src/serve/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/serve/server.cpp.o -MF CMakeFiles/afrilang.dir/src/serve/server.cpp.o.d -o CMakeFiles/afrilang.dir/src/serve/server.cpp.o -c /home/maxime/AFRILANG/src/serve/server.cpp
 
 CMakeFiles/afrilang.dir/src/serve/server.cpp.i: cmake_force
@@ -394,7 +436,7 @@ CMakeFiles/afrilang.dir/src/serve/server.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: /home/maxime/AFRILANG/src/lsp/server.cpp
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/afrilang.dir/src/lsp/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/afrilang.dir/src/lsp/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/lsp/server.cpp.o -MF CMakeFiles/afrilang.dir/src/lsp/server.cpp.o.d -o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o -c /home/maxime/AFRILANG/src/lsp/server.cpp
 
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.i: cmake_force
@@ -427,6 +469,9 @@ afrilang_OBJECTS = \
 "CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o" \
+"CMakeFiles/afrilang.dir/src/utils/cache.cpp.o" \
+"CMakeFiles/afrilang.dir/src/utils/debug.cpp.o" \
+"CMakeFiles/afrilang.dir/src/utils/env.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/educational.cpp.o" \
 "CMakeFiles/afrilang.dir/src/repl/repl.cpp.o" \
 "CMakeFiles/afrilang.dir/src/serve/server.cpp.o" \
@@ -455,13 +500,16 @@ afrilang: CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o
+afrilang: CMakeFiles/afrilang.dir/src/utils/cache.cpp.o
+afrilang: CMakeFiles/afrilang.dir/src/utils/debug.cpp.o
+afrilang: CMakeFiles/afrilang.dir/src/utils/env.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/educational.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/repl/repl.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/serve/server.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/lsp/server.cpp.o
 afrilang: CMakeFiles/afrilang.dir/build.make
 afrilang: CMakeFiles/afrilang.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable afrilang"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/maxime/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable afrilang"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/afrilang.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

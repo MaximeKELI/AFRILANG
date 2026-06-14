@@ -1,10 +1,12 @@
 #include "afrilang/lexer.hpp"
+#include "afrilang/types.hpp"
 #include "afrilang/parser.hpp"
 #include "afrilang/semantic.hpp"
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/i18n.hpp"
 #include "afrilang/security.hpp"
+#include "afrilang/cache.hpp"
 #include "afrilang/semver.hpp"
 #include "afrilang/utf8.hpp"
 
@@ -248,6 +250,27 @@ static void testNetworkServeGate() {
     unsetenv("AFRILANG_ALLOW_SERVE");
 }
 
+static void testIntAndJsonTypes() {
+    expect(afrilang::typeFromName("int").kind == afrilang::TypeKind::Int, "int type name");
+    expect(afrilang::typeFromName("json").kind == afrilang::TypeKind::Json, "json type name");
+
+    const std::string src = "create x int = 10\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "test.afr");
+    const auto result = analyzer.analyze();
+    expect(result.globalVariables.at("x").kind == afrilang::TypeKind::Int, "int variable type");
+}
+
+static void testCompileCacheHash() {
+    const std::string h1 = afrilang::CompileCache::hashContent("hello");
+    const std::string h2 = afrilang::CompileCache::hashContent("hello");
+    const std::string h3 = afrilang::CompileCache::hashContent("world");
+    expect(h1 == h2, "cache hash stable");
+    expect(h1 != h3, "cache hash differs");
+}
+
 static void testSecureTempPath() {
     const std::string path = afrilang::secureTempPath("unit_test.tmp");
     expect(!path.empty(), "secure temp path generated");
@@ -282,6 +305,8 @@ int main() {
     testSourceSizeLimit();
     testPathComponentValidation();
     testNetworkServeGate();
+    testIntAndJsonTypes();
+    testCompileCacheHash();
     testSecureTempPath();
 
     std::cout << "\n";

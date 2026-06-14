@@ -196,6 +196,9 @@ CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/token.hpp \
  /home/maxime/AFRILANG/include/afrilang/parser.hpp \
  /home/maxime/AFRILANG/include/afrilang/project.hpp \
+ /home/maxime/AFRILANG/include/afrilang/cache.hpp \
+ /home/maxime/AFRILANG/include/afrilang/debug.hpp \
+ /home/maxime/AFRILANG/include/afrilang/env.hpp \
  /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
  /home/maxime/AFRILANG/include/afrilang/security.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \

@@ -12,6 +12,8 @@ say getString(parsed, "lang")
 
 create numDoc = parse("{\"value\": 42}")
 say getNumber(numDoc, "value")
+
+create ok = fileExists("/tmp/afrilang_test.txt")
 if ok is equal to false then
     writeFile("/tmp/afrilang_test.txt", "Hello from stdlib io")
 end
@@ -19,4 +21,3 @@ end
 create fileContent = readFile("/tmp/afrilang_test.txt")
 say fileContent
 
-say getNumber("{\"value\": 42}", "value")

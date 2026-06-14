@@ -162,6 +162,7 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
+ /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /home/maxime/AFRILANG/include/afrilang/parser.hpp \
  /home/maxime/AFRILANG/include/afrilang/ast.hpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
@@ -186,9 +187,9 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: \
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
  /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
- /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
  /home/maxime/AFRILANG/include/afrilang/security.hpp \
+ /home/maxime/AFRILANG/include/afrilang/cache.hpp \
  /home/maxime/AFRILANG/include/afrilang/semver.hpp \
  /home/maxime/AFRILANG/include/afrilang/utf8.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/istream \
