@@ -185,6 +185,8 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc \
  /home/maxime/AFRILANG/include/afrilang/educational.hpp \
+ /home/maxime/AFRILANG/include/afrilang/sandbox.hpp \
+ /home/maxime/AFRILANG/include/afrilang/security.hpp \
  /home/maxime/AFRILANG/include/afrilang/stdlib_catalog.hpp \
  /home/maxime/AFRILANG/include/afrilang/medium_catalog.hpp \
  /home/maxime/AFRILANG/include/afrilang/complex_catalog.hpp \
@@ -192,9 +194,9 @@ CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/iostream \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
