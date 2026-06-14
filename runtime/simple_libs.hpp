@@ -744,7 +744,7 @@ inline std::string auditLine(std::string action, std::string user) { return user
 inline std::string timestampPrefix(std::string msg) { return std::to_string(static_cast<long long>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count())) + ":" + msg; }
 } // namespace
 
-namespace afrilang::runtime::template {
+namespace afrilang::runtime::tmpl {
 inline std::string fill(std::string pattern, std::string value) { { std::string r = pattern; auto p = r.find("{}"); if (p != std::string::npos) r.replace(p, 2, value); return r; } }
 inline std::string fill2(std::string pattern, std::string a, std::string b) { return fill(fill(pattern, a), b); }
 } // namespace

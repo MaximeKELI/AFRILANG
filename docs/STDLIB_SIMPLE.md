@@ -1031,9 +1031,9 @@
 - `auditLine(action text, user text) → text`
 - `timestampPrefix(msg text) → text`
 
-## std/template
+## std/tmpl
 
-`import "std/template"` · `use template`
+`import "std/tmpl"` · `use tmpl`
 
 - `fill(pattern text, value text) → text`
 - `fill2(pattern text, a text, b text) → text`

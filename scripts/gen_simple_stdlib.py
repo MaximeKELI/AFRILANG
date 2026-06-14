@@ -539,7 +539,7 @@ MODULES: list[tuple] = [
     ]),
     ("id", "id", [
         ("hashId", "text", [("s", "text")], "return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s)));"),
-        ("shortHash", "text", [("s", "text")], "return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s) % 100000));"),
+        ("shortHash", "text", [("s", "text")], "return std::to_string(static_cast<long long>(afrilang::runtime::hash::hashText(s)) % 100000LL);"),
     ]),
     ("locale", "locale", [
         ("decimalComma", "text", [("s", "text")], "{ std::string r = s; for (char& c : r) if (c == '.') c = ','; return r; }"),
@@ -597,7 +597,7 @@ MODULES: list[tuple] = [
         ("auditLine", "text", [("action", "text"), ("user", "text")], "return user + \":\" + action;"),
         ("timestampPrefix", "text", [("msg", "text")], "return std::to_string(static_cast<long long>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count())) + \":\" + msg;"),
     ]),
-    ("template", "template", [
+    ("tmpl", "tmpl", [
         ("fill", "text", [("pattern", "text"), ("value", "text")], "{ std::string r = pattern; auto p = r.find(\"{}\"); if (p != std::string::npos) r.replace(p, 2, value); return r; }"),
         ("fill2", "text", [("pattern", "text"), ("a", "text"), ("b", "text")], "return fill(fill(pattern, a), b);"),
     ]),

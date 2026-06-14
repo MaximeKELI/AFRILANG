@@ -2123,7 +2123,7 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"disk", "disk", kFuncs_144, 2, "simple/disk.hpp", false},
     {"security", "security", kFuncs_145, 2, "simple/security.hpp", false},
     {"audit", "audit", kFuncs_146, 2, "simple/audit.hpp", false},
-    {"template", "template", kFuncs_147, 2, "simple/template.hpp", false},
+    {"tmpl", "tmpl", kFuncs_147, 2, "simple/tmpl.hpp", false},
     {"i18n", "i18n", kFuncs_148, 2, "simple/i18n.hpp", false},
     {"education", "education", kFuncs_149, 2, "simple/education.hpp", false},
     {"quiz", "quiz", kFuncs_150, 2, "simple/quiz.hpp", false},
