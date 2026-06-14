@@ -92,7 +92,7 @@ say "Hello {name}!"
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui.
 
 ## Generics
 
@@ -238,11 +238,42 @@ await main()
 | `std/io` | `readFileAsync` — lecture fichier non bloquante |
 | Compilation | C++20 coroutines (`-std=c++20 -fcoroutines -pthread`) |
 
+## Interfaces graphiques
+
+Syntaxe naturelle pour créer des fenêtres SDL2 (backend `runtime/ui.hpp`).
+
+```afr
+open window titled "Demo" with width 640, height 480
+
+while window is open do
+    clear background color 28, 28, 36
+    draw text "Bonjour!" at 80, 80 size 32
+    if button "Quitter" at 220, 350 width 200 height 50 is clicked then
+        close window
+    end
+    show frame
+end
+```
+
+| Instruction / expression | Description |
+|--------------------------|-------------|
+| `open window titled ... with width ..., height ...` | Ouvre une fenêtre |
+| `while window is open do` | Boucle principale (appelle `beginFrame` automatiquement) |
+| `clear background color r, g, b` | Efface l'écran (RGB 0–255) |
+| `draw text "..." at x, y size n` | Affiche du texte |
+| `button "..." at x, y width w height h is clicked` | Bouton cliquable (booléen) |
+| `show frame` | Présente l'image à l'écran |
+| `close window` | Ferme la fenêtre |
+
+Module stdlib équivalent : `import "std/ui"` puis `use ui` (`openWindow`, `drawButton`, etc.).
+
+Compilation : `-lSDL2 -lSDL2_ttf` (SDL2 + SDL2_ttf requis).
+
 ## Modules
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui.
 
 ### std/args
 

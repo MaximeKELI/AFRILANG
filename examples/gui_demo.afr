@@ -1,0 +1,11 @@
+open window titled "AFRILANG GUI" with width 640, height 480
+
+while window is open do
+    clear background color 28, 28, 36
+    draw text "Bonjour depuis AFRILANG!" at 60, 80 size 32
+    draw text "Cliquez sur Quitter pour fermer." at 60, 130 size 20
+    if button "Quitter" at 220, 350 width 200 height 50 is clicked then
+        close window
+    end
+    show frame
+end

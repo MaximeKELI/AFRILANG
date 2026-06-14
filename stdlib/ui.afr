@@ -1,0 +1,25 @@
+module ui
+
+function openWindow(title text, width number, height number)
+end
+
+function closeWindow()
+end
+
+function isOpen() returns bool
+end
+
+function beginFrame()
+end
+
+function clearBackground(r number, g number, b number)
+end
+
+function drawText(text text, x number, y number, size number)
+end
+
+function drawButton(label text, x number, y number, width number, height number) returns bool
+end
+
+function showFrame()
+end
