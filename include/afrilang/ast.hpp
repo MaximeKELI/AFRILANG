@@ -33,7 +33,9 @@ struct StringLiteralNode : ExpressionNode {
 
 struct NumberLiteralNode : ExpressionNode {
     double value;
-    explicit NumberLiteralNode(double value) : value(value) {}
+    bool isInteger = false;
+    explicit NumberLiteralNode(double value, bool isInteger = false)
+        : value(value), isInteger(isInteger) {}
 };
 
 struct BoolLiteralNode : ExpressionNode {

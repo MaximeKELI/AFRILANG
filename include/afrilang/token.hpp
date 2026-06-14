@@ -10,7 +10,7 @@ enum class TokenType {
     Class, Function, End, Create, New, If, Then, Else,
     Repeat, Times, Say, Is, Greater, Than, Less, Equal, To,
     And, Or, Not, Extends, Returns, Return,
-    TypeNumber, TypeText, TypeBool,
+    TypeNumber, TypeInt, TypeText, TypeBool, TypeJson,
     While, Do, For, Each, In, Stop, Skip,
     Module, Use, Import, Export, Record, Field, Public, Private,
     Set, This, Ask, Into, At, Add, Length, Of, Empty, List,
@@ -87,8 +87,10 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Returns:        return "returns";
         case TokenType::Return:         return "return";
         case TokenType::TypeNumber:     return "number";
+        case TokenType::TypeInt:        return "int";
         case TokenType::TypeText:       return "text";
         case TokenType::TypeBool:       return "bool";
+        case TokenType::TypeJson:       return "json";
         case TokenType::While:          return "while";
         case TokenType::Do:             return "do";
         case TokenType::For:            return "for";

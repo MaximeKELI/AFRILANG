@@ -8,8 +8,10 @@ namespace afrilang {
 enum class TypeKind {
     Void,
     Number,
+    Int,
     Text,
     Bool,
+    Json,
     List,
     Map,
     Class,
@@ -32,7 +34,9 @@ struct AfrType {
 
     static AfrType voidType() { return {TypeKind::Void, {}, {}, {}}; }
     static AfrType number() { return {TypeKind::Number, {}, {}, {}}; }
+    static AfrType intType() { return {TypeKind::Int, {}, {}, {}}; }
     static AfrType text() { return {TypeKind::Text, {}, {}, {}}; }
+    static AfrType jsonType() { return {TypeKind::Json, {}, {}, {}}; }
     static AfrType boolType() { return {TypeKind::Bool, {}, {}, {}}; }
     static AfrType pointer() { return {TypeKind::Pointer, {}, {}, {}}; }
     static AfrType classType(std::string name) {
@@ -110,7 +114,9 @@ struct AfrType {
         switch (kind) {
             case TypeKind::Void:   return "void";
             case TypeKind::Number: return "number";
+            case TypeKind::Int:    return "int";
             case TypeKind::Text:   return "text";
+            case TypeKind::Json:   return "json";
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "pointer";
             case TypeKind::List:   return "list " + listElementTypeName;
@@ -140,7 +146,9 @@ struct AfrType {
         switch (kind) {
             case TypeKind::Void:   return "void";
             case TypeKind::Number: return "double";
+            case TypeKind::Int:    return "std::int64_t";
             case TypeKind::Text:   return "std::string";
+            case TypeKind::Json:   return "afrilang::runtime::json::Value";
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "void*";
             case TypeKind::List:   return "std::vector<" + listElementCpp() + ">";
@@ -202,7 +210,9 @@ inline AfrType typeFromName(const std::string& name) {
         return AfrType::resultType(typeFromName(name.substr(0, orErrorPos)));
     }
     if (name == "number") return AfrType::number();
+    if (name == "int") return AfrType::intType();
     if (name == "text")   return AfrType::text();
+    if (name == "json") return AfrType::jsonType();
     if (name == "bool")   return AfrType::boolType();
     if (name == "pointer") return AfrType::pointer();
     if (name.size() > 5 && name.substr(0, 5) == "list ") {
