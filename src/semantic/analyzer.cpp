@@ -199,6 +199,28 @@ void SemanticAnalyzer::registerEnums() {
         }
         result_.enums[en->name] = std::move(info);
     }
+
+    for (const auto& module : program_.modules) {
+        for (const auto& en : module->enums) {
+            if (result_.enums.count(en->name)) {
+                errorAt(*en, "Enum '" + en->name + "' déjà définie");
+            }
+            EnumInfo info;
+            info.name = en->name;
+            for (const auto& c : en->cases) {
+                if (info.cases.count(c.name)) {
+                    errorAt(*en, "Cas '" + c.name + "' dupliqué dans enum '" + en->name + "'");
+                }
+                EnumCaseInfo ci;
+                ci.name = c.name;
+                for (const auto& field : c.fields) {
+                    ci.fields.emplace_back(field.name, typeFromName(field.typeName));
+                }
+                info.cases[c.name] = std::move(ci);
+            }
+            result_.enums[en->name] = std::move(info);
+        }
+    }
 }
 
 void SemanticAnalyzer::registerClasses() {
@@ -292,6 +314,7 @@ void SemanticAnalyzer::registerClasses() {
             info.name = cls->name;
             info.baseClass = cls->baseClassName;
             info.isAbstract = cls->isAbstract;
+            info.interfaceNames = cls->interfaceNames;
             for (const auto& field : cls->fields) {
                 FieldInfo fi;
                 fi.name = field.name;
@@ -466,11 +489,16 @@ void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
             errorAt(cls, "Interface '" + ifaceName + "' introuvable");
         }
         const InterfaceInfo& iface = result_.interfaces.at(ifaceName);
-        for (const auto& [methodName, sig] : iface.methods) {
+        for (const auto& [methodName, reqSig] : iface.methods) {
             const MethodSignature* impl = findMethod(cls.name, methodName);
             if (!impl) {
                 errorAt(cls, "Classe '" + cls.name + "' n'implémente pas '" +
                           methodName + "' de l'interface '" + ifaceName + "'");
+                continue;
+            }
+            if (!signaturesCompatible(reqSig, *impl)) {
+                errorAt(cls, "Signature incompatible pour '" + methodName +
+                          "' (interface '" + ifaceName + "')");
             }
         }
     }
@@ -1008,6 +1036,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         if (!en) errorAt(*matchStmt, "Enum '" + subjectType.className + "' introuvable");
 
         bool hasDefault = false;
+        std::unordered_set<std::string> coveredCases;
         for (const auto& arm : matchStmt->arms) {
             if (arm.isDefault) {
                 hasDefault = true;
@@ -1016,6 +1045,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 }
                 continue;
             }
+            coveredCases.insert(arm.caseName);
             const auto caseIt = en->cases.find(arm.caseName);
             if (caseIt == en->cases.end()) {
                 errorAt(*matchStmt, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
@@ -1042,7 +1072,14 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 analyzeStatement(*bodyStmt, armScope, isGlobalScope);
             }
         }
-        (void)hasDefault;
+        if (!hasDefault) {
+            for (const auto& [caseName, _] : en->cases) {
+                if (!coveredCases.count(caseName)) {
+                    errorAt(*matchStmt, "Cas '" + caseName + "' non couvert dans match " +
+                          "(ajoutez un bras ou default)");
+                }
+            }
+        }
         return;
     }
 }
@@ -1865,6 +1902,9 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
         return target.className == value.className ||
                isSubclassOf(value.className, target.className);
     }
+    if (target.kind == TypeKind::Interface && value.kind == TypeKind::Class) {
+        return implementsInterface(value.className, target.className);
+    }
     if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
         return target.recordName == value.recordName;
     }
@@ -1897,7 +1937,8 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
 
 bool SemanticAnalyzer::isConcreteTypeName(const std::string& name) const {
     if (name == "number" || name == "text" || name == "bool") return true;
-    if (result_.classes.count(name) || result_.records.count(name) || result_.enums.count(name)) {
+    if (result_.classes.count(name) || result_.records.count(name) ||
+        result_.enums.count(name) || result_.interfaces.count(name)) {
         return true;
     }
     return false;
@@ -1984,6 +2025,7 @@ const EnumInfo* SemanticAnalyzer::findEnum(const std::string& name) const {
 AfrType SemanticAnalyzer::resolveTypeName(const std::string& name) const {
     if (result_.enums.count(name)) return AfrType::enumType(name);
     if (result_.records.count(name)) return AfrType::recordType(name);
+    if (result_.interfaces.count(name)) return AfrType::interfaceType(name);
     return typeFromName(name);
 }
 
