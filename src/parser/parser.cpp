@@ -1077,6 +1077,17 @@ std::unique_ptr<ExpressionNode> Parser::parseExpression() {
 }
 
 std::unique_ptr<ExpressionNode> Parser::parseComparison() {
+    if (check(TokenType::Window)) {
+        const std::size_t saved = current_;
+        advance();
+        if (match(TokenType::Is) && match(TokenType::Open)) {
+            auto node = std::make_unique<WindowIsOpenExpressionNode>();
+            setLoc(*node);
+            return node;
+        }
+        current_ = saved;
+    }
+
     auto left = parseTerm();
 
     if (const auto* id = dynamic_cast<const IdentifierNode*>(left.get())) {
@@ -1277,13 +1288,13 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     if (match(TokenType::Button)) {
         auto label = parseExpression();
         consume(TokenType::At, "'at' attendu après le libellé du bouton");
-        auto x = parseExpression();
+        auto x = parseTerm();
         consume(TokenType::Comma, "',' attendu");
-        auto y = parseExpression();
+        auto y = parseTerm();
         consume(TokenType::Width, "'width' attendu");
-        auto width = parseExpression();
+        auto width = parseTerm();
         consume(TokenType::Height, "'height' attendu");
-        auto height = parseExpression();
+        auto height = parseTerm();
         consume(TokenType::Is, "'is' attendu");
         consume(TokenType::Clicked, "'clicked' attendu");
         auto node = std::make_unique<ButtonClickedExpressionNode>(

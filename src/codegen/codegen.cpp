@@ -2286,7 +2286,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         command += " -fcoroutines -pthread";
     }
     if (semantic_.usesUi && crossTarget_ != "wasm32") {
-        command += " -I/usr/include/SDL2 -D_REENTRANT -lSDL2 -lSDL2_ttf";
+        command += " -I/usr/include/SDL2 -D_REENTRANT";
     }
     if (debugSymbols_) {
         command += " -g";
@@ -2302,6 +2302,10 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
 
     for (const auto& lib : linkLibraries_) {
         command += " " + lib;
+    }
+
+    if (semantic_.usesUi && crossTarget_ != "wasm32") {
+        command += " -lSDL2 -lSDL2_ttf";
     }
 
     command += " 2>&1";
