@@ -3,6 +3,11 @@
 #include "afrilang/i18n.hpp"
 
 #include <stdexcept>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
+namespace afrilang {
 
 class CompileError : public std::runtime_error {
 public:
@@ -10,7 +15,7 @@ public:
                  std::string file = "",
                  std::string sourceLine = "",
                  std::vector<std::string> suggestions = {},
-                 ErrorCode code = static_cast<ErrorCode>(0));
+                 ErrorCode code = ErrorCode::Generic);
 
     int line() const { return line_; }
     int column() const { return column_; }

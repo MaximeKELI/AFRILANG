@@ -250,8 +250,10 @@ CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o
  /home/maxime/AFRILANG/src/lexer/lexer.cpp
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/error.hpp
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /home/maxime/AFRILANG/include/afrilang/lexer.hpp
  /home/maxime/AFRILANG/include/afrilang/token.hpp
+ /home/maxime/AFRILANG/include/afrilang/utf8.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -709,6 +711,7 @@ CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o
  /home/maxime/AFRILANG/include/afrilang/ast.hpp
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/error.hpp
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /home/maxime/AFRILANG/include/afrilang/lexer.hpp
  /home/maxime/AFRILANG/include/afrilang/parser.hpp
  /home/maxime/AFRILANG/include/afrilang/token.hpp
@@ -1199,6 +1202,7 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o
  /home/maxime/AFRILANG/include/afrilang/ast.hpp
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
  /home/maxime/AFRILANG/include/afrilang/error.hpp
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
  /home/maxime/AFRILANG/include/afrilang/stdlib_registry.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp
@@ -4040,11 +4044,14 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o
  /home/maxime/AFRILANG/include/afrilang/ast.hpp
  /home/maxime/AFRILANG/include/afrilang/compiler.hpp
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /home/maxime/AFRILANG/include/afrilang/lexer.hpp
  /home/maxime/AFRILANG/include/afrilang/parser.hpp
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp
+ /home/maxime/AFRILANG/include/afrilang/semver.hpp
  /home/maxime/AFRILANG/include/afrilang/token.hpp
  /home/maxime/AFRILANG/include/afrilang/types.hpp
+ /home/maxime/AFRILANG/include/afrilang/utf8.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h

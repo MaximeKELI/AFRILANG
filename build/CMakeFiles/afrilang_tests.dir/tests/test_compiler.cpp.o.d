@@ -185,7 +185,10 @@ CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: \
  /usr/include/c++/13/bits/unordered_set.h \
  /home/maxime/AFRILANG/include/afrilang/semantic.hpp \
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
  /home/maxime/AFRILANG/include/afrilang/types.hpp \
  /home/maxime/AFRILANG/include/afrilang/compiler.hpp \
+ /home/maxime/AFRILANG/include/afrilang/semver.hpp \
+ /home/maxime/AFRILANG/include/afrilang/utf8.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc

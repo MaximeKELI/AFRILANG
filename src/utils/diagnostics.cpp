@@ -20,7 +20,7 @@ CompileError::CompileError(std::string message, int line, int column,
     , file_(std::move(file))
     , sourceLine_(std::move(sourceLine))
     , suggestions_(std::move(suggestions))
-    , code_(code == static_cast<ErrorCode>(0) ? ErrorCode::Generic : code)
+    , code_(code)
 {
     static_cast<std::runtime_error&>(*this) = std::runtime_error(format());
 }

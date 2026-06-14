@@ -163,4 +163,6 @@ CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/maxime/AFRILANG/include/afrilang/error.hpp \
- /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
+ /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp \
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp \
+ /home/maxime/AFRILANG/include/afrilang/utf8.hpp

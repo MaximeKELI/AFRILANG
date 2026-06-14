@@ -5,6 +5,7 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /home/maxime/AFRILANG/main.cpp
  /home/maxime/AFRILANG/include/afrilang/cli.hpp
  /home/maxime/AFRILANG/include/afrilang/diagnostics.hpp
+ /home/maxime/AFRILANG/include/afrilang/i18n.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -20,16 +21,12 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
- /usr/include/c++/13/bits/enable_special_members.h
- /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
  /usr/include/c++/13/bits/exception_ptr.h
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
- /usr/include/c++/13/bits/hashtable.h
- /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/localefwd.h
  /usr/include/c++/13/bits/memory_resource.h
@@ -37,7 +34,6 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /usr/include/c++/13/bits/move.h
  /usr/include/c++/13/bits/nested_exception.h
  /usr/include/c++/13/bits/new_allocator.h
- /usr/include/c++/13/bits/node_handle.h
  /usr/include/c++/13/bits/ostream_insert.h
  /usr/include/c++/13/bits/postypes.h
  /usr/include/c++/13/bits/predefined_ops.h
@@ -58,7 +54,6 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
- /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -73,7 +68,6 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /usr/include/c++/13/debug/assertions.h
  /usr/include/c++/13/debug/debug.h
  /usr/include/c++/13/exception
- /usr/include/c++/13/ext/aligned_buffer.h
  /usr/include/c++/13/ext/alloc_traits.h
  /usr/include/c++/13/ext/numeric_traits.h
  /usr/include/c++/13/ext/string_conversions.h
@@ -88,7 +82,6 @@ CMakeFiles/afrilang.dir/main.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
- /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
