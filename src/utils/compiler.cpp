@@ -67,13 +67,18 @@ std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& sour
 }
 
 std::string Compiler::readFile(const std::string& path) {
-    std::ifstream file(path);
+    std::ifstream file(path, std::ios::binary);
     if (!file) {
         throw std::runtime_error("Impossible d'ouvrir le fichier: " + path);
     }
     std::ostringstream buffer;
     buffer << file.rdbuf();
-    return buffer.str();
+    const std::string content = buffer.str();
+    if (!content.empty() && !isValidUtf8(content)) {
+        throw CompileError("Fichier source: encodage UTF-8 invalide", 1, 1, path, {},
+                           {}, ErrorCode::InvalidUtf8);
+    }
+    return content;
 }
 
 std::string Compiler::normalizePath(const std::string& path) {
@@ -85,8 +90,20 @@ std::string Compiler::resolvePath(const std::string& baseDir,
     if (StdlibRegistry::isStdlibImport(importPath)) {
         return importPath;
     }
+    if (PkgRegistry::isPkgImport(importPath)) {
+        return PkgRegistry::resolvePkgImport(importPath, projectDir_, afrilangRoot_);
+    }
     fs::path resolved = fs::path(baseDir) / importPath;
-    return normalizePath(resolved.string());
+    const std::string canonical = normalizePath(resolved.string());
+    if (!afrilangRoot_.empty()) {
+        const fs::path root = fs::weakly_canonical(fs::path(afrilangRoot_));
+        if (!isPathInsideRoot(root.string(), canonical) &&
+            !isPathInsideRoot(fs::weakly_canonical(fs::path(projectDir_)).string(), canonical)) {
+            throw CompileError("Import hors du projet: " + importPath, 0, 0, entryPath_, {},
+                               {}, ErrorCode::ImportNotFound);
+        }
+    }
+    return canonical;
 }
 
 void Compiler::handleStdlibImport(ProgramNode& program, const std::string& importPath) {
