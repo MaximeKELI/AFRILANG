@@ -814,7 +814,8 @@ bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&object)) {
         const AfrType containerType = inferExpressionAfrType(*index->object);
         if (containerType.kind == TypeKind::List &&
-            containerType.listElementType().kind == TypeKind::Class) {
+            (containerType.listElementType().kind == TypeKind::Class ||
+             containerType.listElementType().kind == TypeKind::Interface)) {
             return true;
         }
         return usesPointerAccess(*index->object);
