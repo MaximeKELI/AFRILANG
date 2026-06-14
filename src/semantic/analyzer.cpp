@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <functional>
 #include <sstream>
+#include <unordered_set>
 
 namespace afrilang {
 
