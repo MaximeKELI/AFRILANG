@@ -96,6 +96,21 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"async",     TokenType::Async},
     {"await",     TokenType::Await},
     {"task",      TokenType::Task},
+    {"open",      TokenType::Open},
+    {"window",    TokenType::Window},
+    {"titled",    TokenType::Titled},
+    {"draw",      TokenType::Draw},
+    {"button",    TokenType::Button},
+    {"clicked",   TokenType::Clicked},
+    {"background", TokenType::Background},
+    {"frame",     TokenType::Frame},
+    {"color",     TokenType::Color},
+    {"width",     TokenType::Width},
+    {"height",    TokenType::Height},
+    {"size",      TokenType::Size},
+    {"close",     TokenType::Close},
+    {"show",      TokenType::Show},
+    {"clear",     TokenType::Clear},
 };
 
 Lexer::Lexer(std::string source) : source_(std::move(source)) {}

@@ -392,6 +392,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
+    if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
@@ -1354,6 +1355,10 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         out << "while (";
         emitExpression(out, *whileStmt->condition, ownerClass);
         out << ") {\n";
+        if (dynamic_cast<const WindowIsOpenExpressionNode*>(whileStmt->condition.get())) {
+            indent(out, indentLevel + 1);
+            out << "afrilang::runtime::ui::beginFrame();\n";
+        }
         for (const auto& bodyStmt : whileStmt->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
         }

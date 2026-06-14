@@ -420,7 +420,7 @@ void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
                            module.name == "str" || module.name == "logging" ||
                            module.name == "math" || module.name == "chrono" ||
                            module.name == "re" || module.name == "collections" ||
-                           module.name == "async");
+                           module.name == "async" || module.name == "ui");
 
     for (const auto& cls : module.classes) {
         analyzeClass(*cls);
@@ -814,6 +814,42 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             errorAt(*use, "Module '" + use->moduleName + "' introuvable");
         }
         result_.usedModules.insert(use->moduleName);
+        if (use->moduleName == "ui") result_.usesUi = true;
+        return;
+    }
+
+    if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(&stmt)) {
+        result_.usesUi = true;
+        analyzeExpression(*openWin->title, scope);
+        analyzeExpression(*openWin->width, scope);
+        analyzeExpression(*openWin->height, scope);
+        return;
+    }
+
+    if (dynamic_cast<const CloseWindowStatementNode*>(&stmt)) {
+        result_.usesUi = true;
+        return;
+    }
+
+    if (dynamic_cast<const ShowFrameStatementNode*>(&stmt)) {
+        result_.usesUi = true;
+        return;
+    }
+
+    if (const auto* clearBg = dynamic_cast<const ClearBackgroundStatementNode*>(&stmt)) {
+        result_.usesUi = true;
+        analyzeExpression(*clearBg->red, scope);
+        analyzeExpression(*clearBg->green, scope);
+        analyzeExpression(*clearBg->blue, scope);
+        return;
+    }
+
+    if (const auto* drawText = dynamic_cast<const DrawTextStatementNode*>(&stmt)) {
+        result_.usesUi = true;
+        analyzeExpression(*drawText->text, scope);
+        analyzeExpression(*drawText->x, scope);
+        analyzeExpression(*drawText->y, scope);
+        analyzeExpression(*drawText->fontSize, scope);
         return;
     }
 
@@ -1316,6 +1352,21 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "Le type de retour de 'reduce' doit correspondre à la valeur initiale");
         }
         return initialType;
+    }
+
+    if (dynamic_cast<const WindowIsOpenExpressionNode*>(&expr)) {
+        result_.usesUi = true;
+        return AfrType::boolType();
+    }
+
+    if (const auto* button = dynamic_cast<const ButtonClickedExpressionNode*>(&expr)) {
+        result_.usesUi = true;
+        analyzeExpression(*button->label, scope);
+        analyzeExpression(*button->x, scope);
+        analyzeExpression(*button->y, scope);
+        analyzeExpression(*button->width, scope);
+        analyzeExpression(*button->height, scope);
+        return AfrType::boolType();
     }
 
     if (const auto* awaitExpr = dynamic_cast<const AwaitExpressionNode*>(&expr)) {

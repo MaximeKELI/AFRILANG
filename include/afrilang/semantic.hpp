@@ -89,6 +89,7 @@ struct SemanticResult {
     std::unordered_map<std::string, ModuleInfo> modules;
     std::unordered_set<std::string> usedModules;
     bool usesAsync = false;
+    bool usesUi = false;
 };
 
 class SemanticAnalyzer {

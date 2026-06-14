@@ -375,6 +375,71 @@ struct RaiseStatementNode : StatementNode {
         : message(std::move(message)) {}
 };
 
+struct OpenWindowStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> title;
+    std::unique_ptr<ExpressionNode> width;
+    std::unique_ptr<ExpressionNode> height;
+
+    OpenWindowStatementNode(std::unique_ptr<ExpressionNode> title,
+                            std::unique_ptr<ExpressionNode> width,
+                            std::unique_ptr<ExpressionNode> height)
+        : title(std::move(title))
+        , width(std::move(width))
+        , height(std::move(height)) {}
+};
+
+struct CloseWindowStatementNode : StatementNode {};
+
+struct ShowFrameStatementNode : StatementNode {};
+
+struct ClearBackgroundStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> red;
+    std::unique_ptr<ExpressionNode> green;
+    std::unique_ptr<ExpressionNode> blue;
+
+    ClearBackgroundStatementNode(std::unique_ptr<ExpressionNode> red,
+                                 std::unique_ptr<ExpressionNode> green,
+                                 std::unique_ptr<ExpressionNode> blue)
+        : red(std::move(red)), green(std::move(green)), blue(std::move(blue)) {}
+};
+
+struct DrawTextStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> text;
+    std::unique_ptr<ExpressionNode> x;
+    std::unique_ptr<ExpressionNode> y;
+    std::unique_ptr<ExpressionNode> fontSize;
+
+    DrawTextStatementNode(std::unique_ptr<ExpressionNode> text,
+                          std::unique_ptr<ExpressionNode> x,
+                          std::unique_ptr<ExpressionNode> y,
+                          std::unique_ptr<ExpressionNode> fontSize)
+        : text(std::move(text))
+        , x(std::move(x))
+        , y(std::move(y))
+        , fontSize(std::move(fontSize)) {}
+};
+
+struct WindowIsOpenExpressionNode : ExpressionNode {};
+
+struct ButtonClickedExpressionNode : ExpressionNode {
+    std::unique_ptr<ExpressionNode> label;
+    std::unique_ptr<ExpressionNode> x;
+    std::unique_ptr<ExpressionNode> y;
+    std::unique_ptr<ExpressionNode> width;
+    std::unique_ptr<ExpressionNode> height;
+
+    ButtonClickedExpressionNode(std::unique_ptr<ExpressionNode> label,
+                                std::unique_ptr<ExpressionNode> x,
+                                std::unique_ptr<ExpressionNode> y,
+                                std::unique_ptr<ExpressionNode> width,
+                                std::unique_ptr<ExpressionNode> height)
+        : label(std::move(label))
+        , x(std::move(x))
+        , y(std::move(y))
+        , width(std::move(width))
+        , height(std::move(height)) {}
+};
+
 // ── Déclarations ─────────────────────────────────────────────────────────────
 
 struct ParameterNode {

@@ -702,6 +702,11 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::Try))       return parseTryStatement();
     if (match(TokenType::Raise))     return parseRaiseStatement();
     if (match(TokenType::Add))       return parseAddToListStatement();
+    if (match(TokenType::Open))      return parseOpenWindowStatement();
+    if (match(TokenType::Close))     return parseCloseWindowStatement();
+    if (match(TokenType::Show))      return parseShowFrameStatement();
+    if (match(TokenType::Clear))     return parseClearBackgroundStatement();
+    if (match(TokenType::Draw))      return parseDrawTextStatement();
     if (match(TokenType::Stop)) {
         auto node = std::make_unique<BreakStatementNode>();
         setLoc(*node);
@@ -999,6 +1004,65 @@ std::unique_ptr<StatementNode> Parser::parseAddToListStatement() {
     return node;
 }
 
+std::unique_ptr<StatementNode> Parser::parseOpenWindowStatement() {
+    consume(TokenType::Window, "'window' attendu après 'open'");
+    consume(TokenType::Titled, "'titled' attendu");
+    auto title = parseExpression();
+    consume(TokenType::With, "'with' attendu");
+    consume(TokenType::Width, "'width' attendu");
+    auto width = parseExpression();
+    consume(TokenType::Comma, "',' attendu");
+    consume(TokenType::Height, "'height' attendu");
+    auto height = parseExpression();
+    auto node = std::make_unique<OpenWindowStatementNode>(
+        std::move(title), std::move(width), std::move(height));
+    setLoc(*node);
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseCloseWindowStatement() {
+    consume(TokenType::Window, "'window' attendu après 'close'");
+    auto node = std::make_unique<CloseWindowStatementNode>();
+    setLoc(*node);
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseShowFrameStatement() {
+    consume(TokenType::Frame, "'frame' attendu après 'show'");
+    auto node = std::make_unique<ShowFrameStatementNode>();
+    setLoc(*node);
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseClearBackgroundStatement() {
+    consume(TokenType::Background, "'background' attendu après 'clear'");
+    consume(TokenType::Color, "'color' attendu");
+    auto red = parseExpression();
+    consume(TokenType::Comma, "',' attendu");
+    auto green = parseExpression();
+    consume(TokenType::Comma, "',' attendu");
+    auto blue = parseExpression();
+    auto node = std::make_unique<ClearBackgroundStatementNode>(
+        std::move(red), std::move(green), std::move(blue));
+    setLoc(*node);
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseDrawTextStatement() {
+    consume(TokenType::TypeText, "'text' attendu après 'draw'");
+    auto text = parseExpression();
+    consume(TokenType::At, "'at' attendu");
+    auto x = parseExpression();
+    consume(TokenType::Comma, "',' attendu");
+    auto y = parseExpression();
+    consume(TokenType::Size, "'size' attendu");
+    auto fontSize = parseExpression();
+    auto node = std::make_unique<DrawTextStatementNode>(
+        std::move(text), std::move(x), std::move(y), std::move(fontSize));
+    setLoc(*node);
+    return node;
+}
+
 std::unique_ptr<StatementNode> Parser::parseExpressionStatement() {
     auto expr = parseExpression();
     auto node = std::make_unique<ExpressionStatementNode>(std::move(expr));
@@ -1014,6 +1078,19 @@ std::unique_ptr<ExpressionNode> Parser::parseExpression() {
 
 std::unique_ptr<ExpressionNode> Parser::parseComparison() {
     auto left = parseTerm();
+
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(left.get())) {
+        if (id->name == "window" && check(TokenType::Is)) {
+            const std::size_t saved = current_;
+            advance();
+            if (match(TokenType::Open)) {
+                auto node = std::make_unique<WindowIsOpenExpressionNode>();
+                setLoc(*node);
+                return node;
+            }
+            current_ = saved;
+        }
+    }
 
     if (match(TokenType::Is)) {
         if (match(TokenType::ErrorKw)) {
@@ -1195,6 +1272,24 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     if (match(TokenType::Super)) {
         auto expr = std::make_unique<SuperExpressionNode>();
         return finishCall(std::move(expr));
+    }
+
+    if (match(TokenType::Button)) {
+        auto label = parseExpression();
+        consume(TokenType::At, "'at' attendu après le libellé du bouton");
+        auto x = parseExpression();
+        consume(TokenType::Comma, "',' attendu");
+        auto y = parseExpression();
+        consume(TokenType::Width, "'width' attendu");
+        auto width = parseExpression();
+        consume(TokenType::Height, "'height' attendu");
+        auto height = parseExpression();
+        consume(TokenType::Is, "'is' attendu");
+        consume(TokenType::Clicked, "'clicked' attendu");
+        auto node = std::make_unique<ButtonClickedExpressionNode>(
+            std::move(label), std::move(x), std::move(y), std::move(width), std::move(height));
+        setLoc(*node);
+        return node;
     }
 
     if (match(TokenType::List)) {

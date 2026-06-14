@@ -24,8 +24,8 @@ enum class TokenType {
     Filter, Reduce, Where, FlatMap,
     Super, Static, Abstract, Protected, Final, Property, Destroy,
     Async, Await, Task,
-
-    // Littéraux et identifiants
+    Open, Window, Titled, Draw, Button, Clicked, Background, Frame, Color,
+    Width, Height, Size, Close, Show, Clear,
     Identifier,
     StringLiteral,
     NumberLiteral,
@@ -151,6 +151,21 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Async:          return "async";
         case TokenType::Await:          return "await";
         case TokenType::Task:           return "task";
+        case TokenType::Open:           return "open";
+        case TokenType::Window:         return "window";
+        case TokenType::Titled:         return "titled";
+        case TokenType::Draw:           return "draw";
+        case TokenType::Button:         return "button";
+        case TokenType::Clicked:        return "clicked";
+        case TokenType::Background:     return "background";
+        case TokenType::Frame:          return "frame";
+        case TokenType::Color:          return "color";
+        case TokenType::Width:          return "width";
+        case TokenType::Height:         return "height";
+        case TokenType::Size:           return "size";
+        case TokenType::Close:          return "close";
+        case TokenType::Show:           return "show";
+        case TokenType::Clear:          return "clear";
         case TokenType::Question:       return "?";
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";

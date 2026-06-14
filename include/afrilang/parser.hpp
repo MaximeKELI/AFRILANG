@@ -75,6 +75,11 @@ private:
     std::unique_ptr<StatementNode> parseTryStatement();
     std::unique_ptr<StatementNode> parseRaiseStatement();
     std::unique_ptr<StatementNode> parseExplainStatement();
+    std::unique_ptr<StatementNode> parseOpenWindowStatement();
+    std::unique_ptr<StatementNode> parseCloseWindowStatement();
+    std::unique_ptr<StatementNode> parseShowFrameStatement();
+    std::unique_ptr<StatementNode> parseClearBackgroundStatement();
+    std::unique_ptr<StatementNode> parseDrawTextStatement();
     std::unique_ptr<StatementNode> parseExpressionStatement();
 
     bool matchToOrThan();
