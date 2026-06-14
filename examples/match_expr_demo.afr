@@ -23,7 +23,7 @@ end
 create code = match s
     case Ok then 0
     end
-    case Error with msg then length of list of msg
+    case Error with msg then 1
     end
 end
 
