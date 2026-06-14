@@ -213,6 +213,7 @@ void SemanticAnalyzer::registerClasses() {
         info.isAbstract = cls->isAbstract;
         info.isFinal = cls->isFinal;
         info.typeParams = cls->typeParams;
+        info.interfaceNames = cls->interfaceNames;
 
         for (const auto& field : cls->fields) {
             FieldInfo fi;
