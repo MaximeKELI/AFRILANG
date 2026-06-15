@@ -1,0 +1,4 @@
+name = "datetime"
+version = "0.1.0"
+description = "Date/time helpers"
+main = "datetime.afr"

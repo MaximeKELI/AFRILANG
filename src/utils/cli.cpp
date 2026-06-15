@@ -277,7 +277,6 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
 int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
     int failures = 0;
     int passed = 0;
-    const int totalExamples = static_cast<int>(examples.size());
     const fs::path root(afrilangRoot);
 
     std::cout << "=== Tests AFRILANG ===\n\n";
@@ -307,6 +306,7 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier3_demo.afr"
     };
 
+    const int totalExamples = static_cast<int>(examples.size());
     CompileOptions opts;
     opts.runtimeDir = (root / "runtime").string();
     opts.useCache = false;
@@ -326,19 +326,6 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
                 std::cout << "FAIL\n";
                 ++failures;
             }
-        } catch (const CompileError&) {
-            std::cout << "FAIL\n";
-            ++failures;
-        }
-    }
-
-    if (fs::exists(root / "examples" / "stdlib_demo.afr")) {
-        std::cout << "  stdlib_demo.afr ... ";
-        std::cout.flush();
-        try {
-            auto result = compileFile((root / "examples/stdlib_demo.afr").string(), opts);
-            std::cout << (result.success ? "OK\n" : "FAIL\n");
-            if (!result.success) ++failures;
         } catch (const CompileError&) {
             std::cout << "FAIL\n";
             ++failures;

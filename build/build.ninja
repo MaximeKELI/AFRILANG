@@ -55,8 +55,6 @@ build CMakeFiles/afrilang.dir/main.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/lexer/lexer.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o.d
@@ -64,8 +62,6 @@ build CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o: CXX_COMPILER__afrilang_unsc
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/lexer
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/parser/parser.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/parser/parser.cpp.o.d
@@ -73,8 +69,6 @@ build CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: CXX_COMPILER__afrilang_un
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/parser
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/semantic/analyzer.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o.d
@@ -82,8 +76,6 @@ build CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/semantic
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/codegen/codegen.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o.d
@@ -91,8 +83,6 @@ build CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/codegen
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/compiler.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d
@@ -100,8 +90,6 @@ build CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: CXX_COMPILER__afrilang_u
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/cli.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/cli.cpp.o.d
@@ -109,8 +97,6 @@ build CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: CXX_COMPILER__afrilang_unscan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/diagnostics.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o.d
@@ -118,8 +104,6 @@ build CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/utf8.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o.d
@@ -127,8 +111,6 @@ build CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: CXX_COMPILER__afrilang_unsca
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/i18n.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o.d
@@ -136,8 +118,6 @@ build CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o: CXX_COMPILER__afrilang_unsca
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/semver.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/semver.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/semver.cpp.o.d
@@ -145,8 +125,6 @@ build CMakeFiles/afrilang.dir/src/utils/semver.cpp.o: CXX_COMPILER__afrilang_uns
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/sandbox.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o.d
@@ -154,8 +132,6 @@ build CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: CXX_COMPILER__afrilang_un
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/security.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/security.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/security.cpp.o.d
@@ -163,8 +139,6 @@ build CMakeFiles/afrilang.dir/src/utils/security.cpp.o: CXX_COMPILER__afrilang_u
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/project.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/project.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d
@@ -172,8 +146,6 @@ build CMakeFiles/afrilang.dir/src/utils/project.cpp.o: CXX_COMPILER__afrilang_un
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d
@@ -181,8 +153,6 @@ build CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILER__afr
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d
@@ -190,8 +160,6 @@ build CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER__afri
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/medium_catalog.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o.d
@@ -199,8 +167,6 @@ build CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: CXX_COMPILER__afri
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/complex_catalog.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o.d
@@ -208,8 +174,6 @@ build CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o: CXX_COMPILER__afr
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/formatter.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d
@@ -217,8 +181,6 @@ build CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/pkg.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d
@@ -226,8 +188,13 @@ build CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: CXX_COMPILER__afrilang_unscan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
+
+build CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/hash.cpp || cmake_object_order_depends_target_afrilang
+  DEP_FILE = CMakeFiles/afrilang.dir/src/utils/hash.cpp.o.d
+  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/home/maxime/AFRILANG/include
+  OBJECT_DIR = CMakeFiles/afrilang.dir
+  OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
 
 build CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/cache.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/cache.cpp.o.d
@@ -235,8 +202,6 @@ build CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CXX_COMPILER__afrilang_unsc
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/debug.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/debug.cpp.o.d
@@ -244,8 +209,6 @@ build CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CXX_COMPILER__afrilang_unsc
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/env.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/env.cpp.o.d
@@ -253,8 +216,6 @@ build CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CXX_COMPILER__afrilang_unscan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/utils/educational.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d
@@ -262,8 +223,6 @@ build CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/repl/repl.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/repl/repl.cpp.o.d
@@ -271,8 +230,6 @@ build CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CXX_COMPILER__afrilang_unscan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/repl
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/serve/server.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/serve/server.cpp.o.d
@@ -280,8 +237,6 @@ build CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CXX_COMPILER__afrilang_uns
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/serve
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 build CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang_unscanned_Debug /home/maxime/AFRILANG/src/lsp/server.cpp || cmake_object_order_depends_target_afrilang
   DEP_FILE = CMakeFiles/afrilang.dir/src/lsp/server.cpp.o.d
@@ -289,8 +244,6 @@ build CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang_unsca
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang.dir/src/lsp
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
-  TARGET_PDB = afrilang.pdb
 
 
 # =============================================================================
@@ -300,15 +253,14 @@ build CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang_unsca
 #############################################
 # Link the executable afrilang
 
-build afrilang: CXX_EXECUTABLE_LINKER__afrilang_Debug CMakeFiles/afrilang.dir/main.cpp.o CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang.dir/src/parser/parser.cpp.o CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o CMakeFiles/afrilang.dir/src/utils/semver.cpp.o CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o CMakeFiles/afrilang.dir/src/utils/security.cpp.o CMakeFiles/afrilang.dir/src/utils/project.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang.dir/src/utils/cache.cpp.o CMakeFiles/afrilang.dir/src/utils/debug.cpp.o CMakeFiles/afrilang.dir/src/utils/env.cpp.o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o CMakeFiles/afrilang.dir/src/serve/server.cpp.o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
+build afrilang: CXX_EXECUTABLE_LINKER__afrilang_Debug CMakeFiles/afrilang.dir/main.cpp.o CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang.dir/src/parser/parser.cpp.o CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o CMakeFiles/afrilang.dir/src/utils/semver.cpp.o CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o CMakeFiles/afrilang.dir/src/utils/security.cpp.o CMakeFiles/afrilang.dir/src/utils/project.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/complex_catalog.cpp.o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang.dir/src/utils/hash.cpp.o CMakeFiles/afrilang.dir/src/utils/cache.cpp.o CMakeFiles/afrilang.dir/src/utils/debug.cpp.o CMakeFiles/afrilang.dir/src/utils/env.cpp.o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o CMakeFiles/afrilang.dir/src/serve/server.cpp.o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libssl.so  /usr/lib/x86_64-linux-gnu/libcrypto.so
   OBJECT_DIR = CMakeFiles/afrilang.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang.dir/
   TARGET_FILE = afrilang
-  TARGET_PDB = afrilang.pdb
+  TARGET_PDB = afrilang.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target afrilang_tests
@@ -326,8 +278,6 @@ build CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o: CXX_COMPILER__afr
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/tests
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/lexer/lexer.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -336,8 +286,6 @@ build CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/lexer
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/parser/parser.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -346,8 +294,6 @@ build CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o: CXX_COMPILER__afril
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/parser
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/semantic/analyzer.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -356,8 +302,6 @@ build CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o: CXX_COMPILER__a
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/semantic
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/codegen/codegen.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -366,8 +310,6 @@ build CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o: CXX_COMPILER__afr
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/codegen
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/compiler.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -376,8 +318,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o: CXX_COMPILER__afri
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/cli.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -386,8 +326,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/diagnostics.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -396,8 +334,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o: CXX_COMPILER__a
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/utf8.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -406,8 +342,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.o: CXX_COMPILER__afrilang
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/i18n.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -416,8 +350,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o: CXX_COMPILER__afrilang
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/semver.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -426,8 +358,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o: CXX_COMPILER__afrila
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/sandbox.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -436,8 +366,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o: CXX_COMPILER__afril
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/security.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -446,8 +374,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o: CXX_COMPILER__afri
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/project.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -456,8 +382,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o: CXX_COMPILER__afril
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_registry.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -466,8 +390,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o: CXX_COMPILE
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/stdlib_catalog.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -476,8 +398,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o: CXX_COMPILER
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/medium_catalog.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -486,8 +406,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o: CXX_COMPILER
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/complex_catalog.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -496,8 +414,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o: CXX_COMPILE
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/formatter.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -506,8 +422,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o: CXX_COMPILER__afr
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/pkg.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -516,8 +430,14 @@ build CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
+
+build CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/hash.cpp || cmake_object_order_depends_target_afrilang_tests
+  DEFINES = -DAFRILANG_TESTING=1
+  DEP_FILE = CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o.d
+  FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
+  INCLUDES = -I/home/maxime/AFRILANG/include
+  OBJECT_DIR = CMakeFiles/afrilang_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
 
 build CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/cache.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -526,8 +446,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/debug.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -536,8 +454,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.o: CXX_COMPILER__afrilan
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/env.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -546,8 +462,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/utils/educational.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -556,8 +470,6 @@ build CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o: CXX_COMPILER__a
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/utils
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/repl/repl.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -566,8 +478,6 @@ build CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o: CXX_COMPILER__afrilang_
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/repl
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/serve/server.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -576,8 +486,6 @@ build CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o: CXX_COMPILER__afrila
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/serve
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 build CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang_tests_unscanned_Debug /home/maxime/AFRILANG/src/lsp/server.cpp || cmake_object_order_depends_target_afrilang_tests
   DEFINES = -DAFRILANG_TESTING=1
@@ -586,8 +494,6 @@ build CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang
   INCLUDES = -I/home/maxime/AFRILANG/include
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/afrilang_tests.dir/src/lsp
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
-  TARGET_PDB = afrilang_tests.pdb
 
 
 # =============================================================================
@@ -597,15 +503,14 @@ build CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o: CXX_COMPILER__afrilang
 #############################################
 # Link the executable afrilang_tests
 
-build afrilang_tests: CXX_EXECUTABLE_LINKER__afrilang_tests_Debug CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
+build afrilang_tests: CXX_EXECUTABLE_LINKER__afrilang_tests_Debug CMakeFiles/afrilang_tests.dir/tests/test_compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/compiler.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cli.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/diagnostics.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/utf8.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/security.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/project.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_registry.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/stdlib_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/medium_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/complex_catalog.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/cache.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/env.cpp.o CMakeFiles/afrilang_tests.dir/src/utils/educational.cpp.o CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libssl.so  /usr/lib/x86_64-linux-gnu/libcrypto.so
   OBJECT_DIR = CMakeFiles/afrilang_tests.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/afrilang_tests.dir/
   TARGET_FILE = afrilang_tests
-  TARGET_PDB = afrilang_tests.pdb
+  TARGET_PDB = afrilang_tests.dbg
 
 
 #############################################
@@ -718,14 +623,14 @@ build all: phony afrilang afrilang_tests
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/maxime/AFRILANG/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/FindOpenSSL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/maxime/AFRILANG/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindOpenSSL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/maxime/AFRILANG/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeNinjaFindMake.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.28/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /usr/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /usr/share/cmake-3.28/Modules/FindOpenSSL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
+build /home/maxime/AFRILANG/CMakeLists.txt /usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Compiler/GNU.cmake /usr/share/cmake-3.28/Modules/FindOpenSSL.cmake /usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.28/Modules/FindPackageMessage.cmake /usr/share/cmake-3.28/Modules/FindPkgConfig.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake-3.28/Modules/Platform/Linux.cmake /usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.3/CMakeCXXCompiler.cmake CMakeFiles/3.28.3/CMakeSystem.cmake: phony
 
 
 #############################################

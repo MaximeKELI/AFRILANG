@@ -121,6 +121,12 @@
 },
 {
   "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/hash.cpp.o -c /home/maxime/AFRILANG/src/utils/hash.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/hash.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/hash.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
   "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/cache.cpp.o -c /home/maxime/AFRILANG/src/utils/cache.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/cache.cpp",
   "output": "CMakeFiles/afrilang.dir/src/utils/cache.cpp.o"
@@ -280,6 +286,12 @@
   "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o -c /home/maxime/AFRILANG/src/utils/pkg.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/pkg.cpp",
   "output": "CMakeFiles/afrilang_tests.dir/src/utils/pkg.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o -c /home/maxime/AFRILANG/src/utils/hash.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/hash.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o"
 },
 {
   "directory": "/home/maxime/AFRILANG/build",
