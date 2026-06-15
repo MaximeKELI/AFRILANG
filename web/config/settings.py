@@ -55,7 +55,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASE_URL = os.environ.get(
     'DATABASE_URL',
-    'postgres://afrilang:afrilang@127.0.0.1:5433/afrilang',
+    'postgres://afrilang:afrilang@127.0.0.1:5434/afrilang',
 )
 
 if DATABASE_URL.startswith('postgres://'):
