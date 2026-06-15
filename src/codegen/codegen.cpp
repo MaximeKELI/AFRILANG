@@ -3109,10 +3109,12 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (!runtimeDir_.empty()) {
         args.push_back("-I" + runtimeDir_);
     }
-    for (const auto& lib : linkLibraries_) {
-        if (!lib.empty()) args.push_back(lib);
+    if (!wasmBuild) {
+        for (const auto& lib : linkLibraries_) {
+            if (!lib.empty()) args.push_back(lib);
+        }
     }
-    if (semantic_.usesUi && crossTarget_ != "wasm32") {
+    if (semantic_.usesUi && !wasmBuild) {
         args.push_back("-lSDL2");
         args.push_back("-lSDL2_ttf");
     }
