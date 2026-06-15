@@ -537,9 +537,12 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsSql) out << "#include \"sql.hpp\"\n";
     if (needsWeb) out << "#include \"web.hpp\"\n";
     if (needsOrm) out << "#include \"orm.hpp\"\n";
-    if (needsThread) {
+    if (needsThread && !wasmBuild) {
         out << "#include \"thread.hpp\"\n";
         linkLibraries_.insert("-pthread");
+    }
+    if (needsThread && wasmBuild) {
+        out << "#include \"thread.hpp\"\n";
     }
     if (needsBigint) out << "#include \"bigint.hpp\"\n";
     if (needsCrypto) out << "#include \"crypto.hpp\"\n";
@@ -564,6 +567,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
+    if (wasmBuild) out << "#include \"wasm/io.hpp\"\n";
 
     bool needsResult = false;
     for (const auto& func : program_.functions) {
@@ -579,15 +583,17 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         out << "#include <cmath>\n";
         out << "#include <cstring>\n";
     }
-    if (needsHttp) {
-        linkLibraries_.insert("-lssl");
-        linkLibraries_.insert("-lcrypto");
-    }
-    if (needsCrypto) {
-        linkLibraries_.insert("-lcrypto");
-    }
-    if (needsOrm || needsSql) {
-        linkLibraries_.insert("-lsqlite3");
+    if (!wasmBuild) {
+        if (needsHttp) {
+            linkLibraries_.insert("-lssl");
+            linkLibraries_.insert("-lcrypto");
+        }
+        if (needsCrypto) {
+            linkLibraries_.insert("-lcrypto");
+        }
+        if (needsOrm || needsSql) {
+            linkLibraries_.insert("-lsqlite3");
+        }
     }
     out << "\n";
 }
@@ -1251,9 +1257,15 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
-        out << "std::cout << ";
-        emitExpression(out, *say->value, ownerClass);
-        out << " << std::endl;\n";
+        if (isWasmTarget(crossTarget_)) {
+            out << "afrilang::runtime::wasm::printLine(afrilang::runtime::str::toString(";
+            emitExpression(out, *say->value, ownerClass);
+            out << "));\n";
+        } else {
+            out << "std::cout << ";
+            emitExpression(out, *say->value, ownerClass);
+            out << " << std::endl;\n";
+        }
         return;
     }
 
@@ -3053,21 +3065,24 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
 
     std::vector<std::string> args;
     args.push_back(compilerForTarget(crossTarget_));
+    const bool wasmBuild = isWasmTarget(crossTarget_);
     const bool usesCoroutines = semantic_.usesAsync || semantic_.usesGenerators;
-    args.push_back("-std=" + (usesCoroutines ? std::string("c++20") : std::string("c++17")));
+    args.push_back("-std=" + (usesCoroutines && !wasmBuild ? std::string("c++20") : std::string("c++17")));
     args.push_back("-O2");
     args.push_back("-Wall");
     args.push_back("-Wextra");
-    args.push_back("-fstack-protector-strong");
-    args.push_back("-D_FORTIFY_SOURCE=2");
-    args.push_back("-fPIE");
-    if (usesCoroutines && crossTarget_ != "wasm32") {
+    if (!wasmBuild) {
+        args.push_back("-fstack-protector-strong");
+        args.push_back("-D_FORTIFY_SOURCE=2");
+        args.push_back("-fPIE");
+    }
+    if (usesCoroutines && !wasmBuild) {
         args.push_back("-fcoroutines");
         if (semantic_.usesAsync) {
             args.push_back("-pthread");
         }
     }
-    if (semantic_.usesUi && crossTarget_ != "wasm32") {
+    if (semantic_.usesUi && !wasmBuild) {
         args.push_back("-I/usr/include/SDL2");
         args.push_back("-D_REENTRANT");
     }
@@ -3079,9 +3094,14 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         args.push_back("-fprofile-arcs");
         args.push_back("-ftest-coverage");
     }
-    if (crossTarget_ == "wasm32") {
+    if (wasmBuild) {
+        args.push_back("-DAFRILANG_WASM=1");
         args.push_back("-s");
         args.push_back("WASM=1");
+        args.push_back("-s");
+        args.push_back("ENVIRONMENT=node");
+        args.push_back("-s");
+        args.push_back("EXIT_RUNTIME=1");
     }
     args.push_back("-o");
     args.push_back(executablePath);
