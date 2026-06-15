@@ -116,26 +116,6 @@ async function runCode(endpoint, busyLabel) {
   }
 }
 
-document.getElementById('run').addEventListener('click', async () => {
-  status.textContent = 'Compiling...';
-  output.textContent = '';
-  try {
-    const res = await fetch('/api/run', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ source: editor.value })
-    });
-    const data = await res.json();
-    output.textContent = data.output || '(no output)';
-    status.textContent = data.ok ? 'OK' : 'Error (code ' + data.exitCode + ')';
-    output.classList.toggle('error', !data.ok);
-  } catch (e) {
-    status.textContent = 'Network error';
-    output.textContent = String(e);
-    output.classList.add('error');
-  }
-});
-
 document.getElementById('fmt').addEventListener('click', async () => {
   status.textContent = 'Formatting...';
   try {
