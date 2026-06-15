@@ -38,6 +38,7 @@ private:
     void setLoc(ASTNode& node) const;
     bool matchName(std::string& out);
     const Token& consumeName(const std::string& message);
+    std::vector<std::string> parseDecorators();
 
     std::unique_ptr<ProgramNode> parseProgram();
     std::unique_ptr<ImportNode> parseImport();

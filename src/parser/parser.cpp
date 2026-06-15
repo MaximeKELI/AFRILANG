@@ -138,6 +138,14 @@ const Token& Parser::consumeName(const std::string& message) {
     return previous();
 }
 
+std::vector<std::string> Parser::parseDecorators() {
+    std::vector<std::string> decorators;
+    while (match(TokenType::AtSign)) {
+        decorators.push_back(consumeName("Nom de décorateur attendu après '@'").lexeme);
+    }
+    return decorators;
+}
+
 // ── Programme ─────────────────────────────────────────────────────────────────
 
 std::unique_ptr<ProgramNode> Parser::parseProgram() {
@@ -168,26 +176,48 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 enums.push_back(parseEnum());
             } else if (match(TokenType::Union)) {
                 enums.push_back(parseEnum());
-            } else if (match(TokenType::Abstract)) {
-                consume(TokenType::Class, "'class' attendu après 'abstract'");
-                classes.push_back(parseClass(true, false));
-            } else if (match(TokenType::Final)) {
-                consume(TokenType::Class, "'class' attendu après 'final'");
-                classes.push_back(parseClass(false, true));
-            } else if (match(TokenType::Class)) {
-                classes.push_back(parseClass(false, false));
-            } else if (match(TokenType::Generator)) {
-                consume(TokenType::Function, "'function' attendu après 'generator'");
-                auto func = parseFunction();
-                func->isGenerator = true;
-                functions.push_back(std::move(func));
-            } else if (match(TokenType::Async)) {
-                consume(TokenType::Function, "'function' attendu après 'async'");
-                auto func = parseFunction();
-                func->isAsync = true;
-                functions.push_back(std::move(func));
-            } else if (match(TokenType::Function)) {
-                functions.push_back(parseFunction());
+            } else if (check(TokenType::AtSign) || check(TokenType::Abstract) ||
+                       check(TokenType::Final) || check(TokenType::Class)) {
+                const auto decorators = parseDecorators();
+                if (match(TokenType::Abstract)) {
+                    consume(TokenType::Class, "'class' attendu après 'abstract'");
+                    auto cls = parseClass(true, false);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
+                } else if (match(TokenType::Final)) {
+                    consume(TokenType::Class, "'class' attendu après 'final'");
+                    auto cls = parseClass(false, true);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
+                } else if (match(TokenType::Class)) {
+                    auto cls = parseClass(false, false);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
+                } else {
+                    error("Déclaration attendue après décorateur");
+                }
+            } else if (check(TokenType::AtSign) || check(TokenType::Generator) ||
+                       check(TokenType::Async) || check(TokenType::Function)) {
+                const auto decorators = parseDecorators();
+                if (match(TokenType::Generator)) {
+                    consume(TokenType::Function, "'function' attendu après 'generator'");
+                    auto func = parseFunction();
+                    func->isGenerator = true;
+                    func->decorators = decorators;
+                    functions.push_back(std::move(func));
+                } else if (match(TokenType::Async)) {
+                    consume(TokenType::Function, "'function' attendu après 'async'");
+                    auto func = parseFunction();
+                    func->isAsync = true;
+                    func->decorators = decorators;
+                    functions.push_back(std::move(func));
+                } else if (match(TokenType::Function)) {
+                    auto func = parseFunction();
+                    func->decorators = decorators;
+                    functions.push_back(std::move(func));
+                } else {
+                    error("Déclaration attendue après décorateur");
+                }
             } else if (match(TokenType::Test)) {
                 tests.push_back(parseTest());
             } else {
@@ -312,6 +342,12 @@ std::unique_ptr<ModuleNode> Parser::parseModule() {
 
 std::unique_ptr<InterfaceNode> Parser::parseInterface() {
     const Token& nameToken = consumeName("Nom d'interface attendu après 'interface'");
+    std::vector<std::string> baseInterfaces;
+    if (match(TokenType::Extends)) {
+        do {
+            baseInterfaces.push_back(consumeName("Nom d'interface de base attendu").lexeme);
+        } while (match(TokenType::Comma));
+    }
     std::vector<std::unique_ptr<FunctionNode>> methods;
 
     while (!check(TokenType::End) && !isAtEnd()) {
@@ -321,6 +357,7 @@ std::unique_ptr<InterfaceNode> Parser::parseInterface() {
 
     consume(TokenType::End, "'end' attendu pour fermer l'interface");
     auto node = std::make_unique<InterfaceNode>(nameToken.lexeme, std::move(methods));
+    node->baseInterfaceNames = std::move(baseInterfaces);
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -1106,6 +1143,9 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
                     } while (match(TokenType::Comma));
                 }
             }
+            if (match(TokenType::If)) {
+                arm.guard = parseExpression();
+            }
             consume(TokenType::Then, "'then' attendu après le cas");
             arm.body = parseBlock();
             consume(TokenType::End, "'end' attendu pour fermer le case");
@@ -1164,6 +1204,9 @@ std::unique_ptr<ExpressionNode> Parser::parseMatchExpression() {
                         arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
                     } while (match(TokenType::Comma));
                 }
+            }
+            if (match(TokenType::If)) {
+                arm.guard = parseExpression();
             }
             consume(TokenType::Then, "'then' attendu après le cas");
             if (startsMatchArmStatement()) {

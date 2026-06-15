@@ -71,6 +71,7 @@ struct ModuleInfo {
 
 struct InterfaceInfo {
     std::string name;
+    std::vector<std::string> baseInterfaces;
     std::unordered_map<std::string, MethodSignature> methods;
 };
 
@@ -95,6 +96,7 @@ struct SemanticResult {
     std::unordered_map<std::string, ModuleInfo> modules;
     std::unordered_set<std::string> usedModules;
     bool usesAsync = false;
+    bool usesGenerators = false;
     bool usesUi = false;
     std::vector<LintWarning> warnings;
 };
@@ -181,9 +183,14 @@ private:
         const std::vector<AfrType>& argTypes,
         const ASTNode& at) const;
 
-    std::vector<std::string> activeTypeParams_;
+    bool recordsStructurallyCompatible(const RecordInfo& target,
+                                       const RecordInfo& value) const;
+    void validateDecorators(const std::vector<std::string>& decorators,
+                            const ASTNode& at);
+    void mergeInterfaceBases(InterfaceInfo& info) const;
 
-    [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
+    std::vector<std::string> activeTypeParams_;
+    AfrType currentGeneratorElementType_ = AfrType::voidType();
     [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,
                               const std::vector<std::string>& nameHints = {},
                               ErrorCode code = ErrorCode::Semantic) const;

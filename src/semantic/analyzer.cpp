@@ -113,6 +113,12 @@ AfrType SemanticAnalyzer::resolveFunctionReturnTypeWithParams(
     }
     if (func.returnsResult) inner = AfrType::resultType(inner);
     if (func.isAsync) return AfrType::taskType(inner);
+    if (func.isGenerator) {
+        if (inner.kind != TypeKind::List) {
+            return AfrType::generatorType(AfrType::number());
+        }
+        return AfrType::generatorType(inner.listElementType());
+    }
     return inner;
 }
 
@@ -128,6 +134,7 @@ void SemanticAnalyzer::registerInterfaces() {
 
         InterfaceInfo info;
         info.name = iface->name;
+        info.baseInterfaces = iface->baseInterfaceNames;
 
         for (const auto& method : iface->methods) {
             MethodSignature sig;
@@ -141,6 +148,32 @@ void SemanticAnalyzer::registerInterfaces() {
         }
 
         result_.interfaces[iface->name] = std::move(info);
+    }
+
+    for (auto& [name, info] : result_.interfaces) {
+        for (const auto& baseName : info.baseInterfaces) {
+            if (!result_.interfaces.count(baseName)) {
+                error("Interface de base '" + baseName + "' introuvable pour '" + name + "'");
+            }
+        }
+        mergeInterfaceBases(info);
+    }
+}
+
+void SemanticAnalyzer::mergeInterfaceBases(InterfaceInfo& info) const {
+    for (const auto& baseName : info.baseInterfaces) {
+        InterfaceInfo base = result_.interfaces.at(baseName);
+        mergeInterfaceBases(base);
+        for (const auto& [methodName, sig] : base.methods) {
+            if (info.methods.count(methodName)) {
+                if (!signaturesCompatible(sig, info.methods.at(methodName))) {
+                    error("Méthode '" + methodName + "' incompatible entre '" + info.name +
+                          "' et '" + baseName + "'");
+                }
+                continue;
+            }
+            info.methods[methodName] = sig;
+        }
     }
 }
 
@@ -494,7 +527,35 @@ void SemanticAnalyzer::analyzeProgram() {
 }
 
 void SemanticAnalyzer::analyzeRecord(const RecordNode& record) {
-    (void)record;
+    std::unordered_set<std::string> seen;
+    for (const auto& field : record.fields) {
+        if (seen.count(field.name)) {
+            errorAt(record, "Champ '" + field.name + "' dupliqué dans record '" + record.name + "'");
+        }
+        seen.insert(field.name);
+        resolveTypeName(field.typeName);
+    }
+}
+
+void SemanticAnalyzer::validateDecorators(const std::vector<std::string>& decorators,
+                                            const ASTNode& at) {
+    for (const auto& decorator : decorators) {
+        if (decorator != "deprecated" && decorator != "inline") {
+            errorAt(at, "Décorateur inconnu: @" + decorator);
+        }
+    }
+}
+
+bool SemanticAnalyzer::recordsStructurallyCompatible(const RecordInfo& target,
+                                                     const RecordInfo& value) const {
+    if (target.fields.size() != value.fields.size()) return false;
+    for (const auto& [name, targetField] : target.fields) {
+        const auto it = value.fields.find(name);
+        if (it == value.fields.end()) return false;
+        if (!isAssignable(targetField.type, it->second.type)) return false;
+        if (!isAssignable(it->second.type, targetField.type)) return false;
+    }
+    return true;
 }
 
 void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
@@ -516,6 +577,7 @@ void SemanticAnalyzer::analyzeModule(const ModuleNode& module) {
 }
 
 void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
+    validateDecorators(func.decorators, func);
     if (result_.functions.count(func.name)) {
         errorAt(func, "Fonction '" + func.name + "' déjà définie");
     }
@@ -527,6 +589,7 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
     sig.returnsResult = func.returnsResult;
     sig.isAsync = func.isAsync;
     if (func.isAsync) result_.usesAsync = true;
+    if (func.isGenerator) result_.usesGenerators = true;
     for (const auto& param : func.parameters) {
         sig.paramTypes.push_back(resolveTypeForGeneric(param.typeName, func.typeParams));
     }
@@ -540,6 +603,7 @@ void SemanticAnalyzer::analyzeGlobalFunction(const FunctionNode& func) {
 }
 
 void SemanticAnalyzer::analyzeClass(const ClassNode& cls) {
+    validateDecorators(cls.decorators, cls);
     for (const auto& ifaceName : cls.interfaceNames) {
         if (!result_.interfaces.count(ifaceName)) {
             errorAt(cls, "Interface '" + ifaceName + "' introuvable");
@@ -603,6 +667,11 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     }
     if (func.isGenerator) {
         inGeneratorFunction_ = true;
+        result_.usesGenerators = true;
+        AfrType declared = resolveFunctionReturnType(func);
+        if (declared.kind == TypeKind::Generator) {
+            currentGeneratorElementType_ = declared.listElementType();
+        }
     }
     constVariables_.clear();
 
