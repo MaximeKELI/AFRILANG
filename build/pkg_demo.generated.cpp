@@ -11,9 +11,6 @@
 #include "str.hpp"
 
 namespace Math {
-} // namespace Math
-
-namespace Math {
     double square(double x) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/pkg_demo.afr"
         return (x * x);
