@@ -1,19 +1,19 @@
 module Strings
-    function replicate(text text, times int) returns text
+    function replicate(text value, times int) returns text
         create out text = ""
         create i int = 0
         while i is less than times do
-            set out = out + text
+            set out = out + value
             set i = i + 1
         end
         return out
     end
 
-    function upper(text text) returns text
-        return text
+    function upper(text value) returns text
+        return value
     end
 
-    function lower(text text) returns text
-        return text
+    function lower(text value) returns text
+        return value
     end
 end
