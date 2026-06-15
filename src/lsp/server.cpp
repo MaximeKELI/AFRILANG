@@ -8,6 +8,7 @@
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
+#include <cstdio>
 #include <fstream>
 #include <filesystem>
 #include <iostream>
@@ -261,22 +262,14 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
     try {
         const std::string filePath = path.empty() ? "<buffer>" : path;
         const std::string root = detectAfrilangRoot();
+        auto compiler = std::make_unique<Compiler>(filePath, root);
         std::unique_ptr<ProgramNode> program;
-        SourceManager* sources = nullptr;
-        std::unique_ptr<Compiler> diskCompiler;
-
         if (preferDisk && filePath != "<buffer>" && fs::is_regular_file(filePath)) {
-            diskCompiler = std::make_unique<Compiler>(filePath, root);
-            program = diskCompiler->compile();
-            sources = &diskCompiler->sources();
+            program = compiler->compile();
         } else {
-            Compiler compiler(filePath, root);
-            program = compiler.compileFromSource(source);
-            sources = &compiler.sources();
-            diskCompiler = std::make_unique<Compiler>(std::move(compiler));
+            program = compiler->compileFromSource(source);
         }
-
-        SemanticAnalyzer analyzer(*program, sources, filePath);
+        SemanticAnalyzer analyzer(*program, &compiler->sources(), filePath);
         const SemanticResult semantic = analyzer.analyze();
 
         for (const auto& [name, sig] : semantic.functions) {
@@ -533,13 +526,13 @@ int runLspServer() {
             const std::string uri = documentUri(body);
             const std::string text = extractDocumentText(body);
             updateDocument(uri, text);
-            analysisCache[uri] = analyzeDocument(uriToPath(uri), text);
+            analysisCache[uri] = analyzeDocument(uriToPath(uri), text, true);
             publishDiagnostics(uri, analysisCache[uri]);
         } else if (body.find("\"method\":\"textDocument/didChange\"") != std::string::npos) {
             const std::string uri = documentUri(body);
             const std::string text = extractDocumentText(body);
             updateDocument(uri, text);
-            analysisCache[uri] = analyzeDocument(uriToPath(uri), text);
+            analysisCache[uri] = analyzeDocument(uriToPath(uri), text, false);
             publishDiagnostics(uri, analysisCache[uri]);
         } else if (body.find("\"method\":\"textDocument/didClose\"") != std::string::npos) {
             const std::string uri = documentUri(body);
