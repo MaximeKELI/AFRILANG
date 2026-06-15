@@ -594,9 +594,13 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     }
 
     const int savedAsync = asyncContextDepth_;
+    const bool savedGenerator = inGeneratorFunction_;
     if (func.isAsync) {
         ++asyncContextDepth_;
         result_.usesAsync = true;
+    }
+    if (func.isGenerator) {
+        inGeneratorFunction_ = true;
     }
     constVariables_.clear();
 
@@ -620,12 +624,16 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     AfrType declaredReturn = resolveFunctionReturnType(func);
 
     bool hasReturn = func.name == "init";
+    bool hasYield = false;
     const ClassInfo* savedClass = currentClass_;
     if (ownerClass) currentClass_ = ownerClass;
 
     for (const auto& stmt : func.body) {
         if (dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
             hasReturn = true;
+        }
+        if (dynamic_cast<const YieldStatementNode*>(stmt.get())) {
+            hasYield = true;
         }
         analyzeStatement(*stmt, scope, false);
     }
@@ -634,10 +642,14 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
 
     activeTypeParams_.clear();
     asyncContextDepth_ = savedAsync;
+    inGeneratorFunction_ = savedGenerator;
 
     const bool implicitAsyncVoid = func.isAsync && func.returnTypeName.empty();
+    if (func.isGenerator && !hasYield) {
+        errorAt(func, "Generator function '" + func.name + "' doit contenir au moins un 'yield'");
+    }
     if (!implicitAsyncVoid && declaredReturn.kind != TypeKind::Void && !hasReturn &&
-        func.name != "init" && !func.body.empty()) {
+        !func.isGenerator && func.name != "init" && !func.body.empty()) {
         errorAt(func, "Fonction '" + func.name + "' déclare un retour '" +
               func.returnTypeName + "' mais ne contient pas de 'return'");
     }
@@ -1078,6 +1090,14 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
 
     if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(&stmt)) {
         analyzeExpression(*exprStmt->expression, scope);
+        return;
+    }
+
+    if (const auto* yieldStmt = dynamic_cast<const YieldStatementNode*>(&stmt)) {
+        if (!inGeneratorFunction_) {
+            errorAt(*yieldStmt, "'yield' autorisé uniquement dans une generator function");
+        }
+        analyzeExpression(*yieldStmt->value, scope);
         return;
     }
 
@@ -2201,7 +2221,8 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
 }
 
 bool SemanticAnalyzer::isNumeric(const AfrType& type) const {
-    return type.kind == TypeKind::Number || type.kind == TypeKind::Int;
+    return type.kind == TypeKind::Number || type.kind == TypeKind::Int ||
+           type.kind == TypeKind::BigInt;
 }
 
 bool SemanticAnalyzer::isBoolean(const AfrType& type) const {
@@ -2218,6 +2239,9 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::Int && value.kind == TypeKind::Int) return true;
     if (target.kind == TypeKind::Int && value.kind == TypeKind::Number) return true;
     if (target.kind == TypeKind::Number && value.kind == TypeKind::Int) return true;
+    if (target.kind == TypeKind::BigInt && value.kind == TypeKind::BigInt) return true;
+    if (target.kind == TypeKind::BigInt &&
+        (value.kind == TypeKind::Int || value.kind == TypeKind::Number)) return true;
     if (target.kind == TypeKind::Json && value.kind == TypeKind::Json) return true;
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;

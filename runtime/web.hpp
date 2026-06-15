@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cctype>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -37,6 +38,34 @@ inline std::string dispatch(const Router& router, const std::string& method,
         if (route.method == m && route.path == path) return route.body;
     }
     return {};
+}
+
+inline std::map<int, Router>& routerRegistry() {
+    static std::map<int, Router> routers;
+    return routers;
+}
+
+inline int& nextRouterId() {
+    static int id = 1;
+    return id;
+}
+
+inline int createRouter() {
+    const int id = nextRouterId()++;
+    routerRegistry()[id] = newRouter();
+    return id;
+}
+
+inline void addRouteId(int routerId, const std::string& method, const std::string& path,
+                       const std::string& body) {
+    addRoute(routerRegistry()[routerId], method, path, body);
+}
+
+inline std::string dispatchId(int routerId, const std::string& method,
+                              const std::string& path) {
+    const auto it = routerRegistry().find(routerId);
+    if (it == routerRegistry().end()) return {};
+    return dispatch(it->second, method, path);
 }
 
 } // namespace afrilang::runtime::web
