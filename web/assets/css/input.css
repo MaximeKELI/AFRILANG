@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .tw-glass {
+    @apply tw-bg-afr-surface/80 tw-backdrop-blur-xl tw-border tw-border-white/10 tw-rounded-2xl;
+  }
+  .tw-gradient-text {
+    @apply tw-bg-gradient-to-r tw-from-white tw-via-afr-accent tw-to-afr-gold tw-bg-clip-text tw-text-transparent;
+  }
+}
