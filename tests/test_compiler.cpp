@@ -11,6 +11,7 @@
 #include "afrilang/utf8.hpp"
 
 #include <iostream>
+#include <fstream>
 #include <stdexcept>
 #include <string>
 #include <cstdlib>
@@ -208,6 +209,20 @@ static void testCompileUnionsDemo() {
     analyzer.analyze();
 }
 
+static void testCompileFromSourceImports() {
+    std::ifstream file("../examples/full_demo.afr");
+    std::string src((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    afrilang::Compiler compiler("../examples/full_demo.afr", "..");
+    auto program = compiler.compileFromSource(src);
+    bool hasSum2 = false;
+    for (const auto& fn : program->functions) {
+        if (fn->name == "sum2") hasSum2 = true;
+    }
+    expect(hasSum2, "compileFromSource merges imported sum2");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/full_demo.afr");
+    analyzer.analyze();
+}
+
 static void testSecureModeDefault() {
     unsetenv("AFRILANG_INSECURE");
     expect(afrilang::isSecureMode(), "secure mode enabled by default");
@@ -300,6 +315,7 @@ int main() {
     testCompileExample();
     testCompileOperatorsDemo();
     testCompileUnionsDemo();
+    testCompileFromSourceImports();
     testSecureModeDefault();
     testSecureModeInsecure();
     testSourceSizeLimit();
