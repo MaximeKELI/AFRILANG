@@ -1,0 +1,54 @@
+{% extends 'docs/base_docs.html' %}
+{% load i18n %}
+{% block title %}{{ page.title }} — AFRILANG{% endblock %}
+{% block meta %}{{ page.lead }}{% endblock %}
+
+{% block doc_content %}
+<h1>{{ page.title }}</h1>
+<p class="docs-lead">{{ page.lead }}</p>
+
+{% for block in page.blocks %}
+  {% if block.type == 'h2' %}
+    <h2>{{ block.text }}</h2>
+  {% elif block.type == 'h3' %}
+    <h3>{{ block.text }}</h3>
+  {% elif block.type == 'p' %}
+    <p>{{ block.html }}</p>
+  {% elif block.type == 'ul' %}
+    <ul>
+      {% for item in block.items %}
+      <li>{{ item|safe }}</li>
+      {% endfor %}
+    </ul>
+  {% elif block.type == 'code' %}
+    <div class="code-panel{% if not block.header %} mt-2{% endif %}">
+      {% if block.header %}
+      <div class="code-panel-header"><span>{{ block.header }}</span></div>
+      {% endif %}
+      <pre>{{ block.text }}</pre>
+    </div>
+  {% elif block.type == 'callout' %}
+    <div class="docs-callout{% if block.variant == 'warning' %} docs-callout-warning{% endif %}">
+      {{ block.html }}
+    </div>
+  {% elif block.type == 'table' %}
+    <table class="docs-table">
+      <thead><tr>{% for h in block.headers %}<th>{{ h|safe }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in block.rows %}
+        <tr>{% for cell in row %}<td>{{ cell|safe }}</td>{% endfor %}</tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endfor %}
+
+<div class="docs-nav-footer">
+  {% if page.prev %}
+  <a href="{% url page.prev.url_name %}">← {{ page.prev.label }}</a>
+  {% else %}<span></span>{% endif %}
+  {% if page.next %}
+  <a href="{% url page.next.url_name %}">{{ page.next.label }} →</a>
+  {% else %}<span></span>{% endif %}
+</div>
+{% endblock %}
