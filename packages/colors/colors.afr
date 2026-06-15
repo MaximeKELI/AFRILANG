@@ -3,14 +3,14 @@ use cli
 
 module Colors
     function success(msg text) returns text
-        return cli.green(msg)
+        return green(msg)
     end
 
     function failure(msg text) returns text
-        return cli.red(msg)
+        return red(msg)
     end
 
     function warning(msg text) returns text
-        return cli.yellow(msg)
+        return yellow(msg)
     end
 end

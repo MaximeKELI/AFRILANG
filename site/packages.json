@@ -1,14 +1,14 @@
 {
   "packages": [
     {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)","sha256":"ef0c9fd4f548358cbe72d0ee42e32e2b45cd356ac02f004997617613d8f97d2e","blessed":true},
-    {"name":"fmt","version":"0.1.0","description":"Formatting helpers","sha256":"7b0748602241efdf56c67cf0d7f93c9543180afe182a67e93b4127374c0ea091","blessed":true},
-    {"name":"validate","version":"0.1.0","description":"Validation helpers","sha256":"3a96552e231f4e4c17552be5d3b95ac235a47208345c34ccef2611a992c72294","blessed":true},
-    {"name":"testing","version":"0.1.0","description":"Lightweight test helpers","sha256":"ef9c0e080351449d6f7d64c49367f2b37d6d40e50b8c517304fcd9c9036fcc62","blessed":true},
-    {"name":"colors","version":"0.1.0","description":"ANSI color helpers","sha256":"d598c33944a72d9d27f6eb950971b2a42917afb8efa00f883bb24b5ad613d2be","blessed":true},
+    {"name":"fmt","version":"0.1.0","description":"Formatting helpers","sha256":"d8866d026807d3ad9b4e3c21122f0592b1e49aea27629bd56e42fba37a4423e8","blessed":true},
+    {"name":"validate","version":"0.1.0","description":"Validation helpers","sha256":"d217ed00077cb9db7ebfca5858d2effd60fa17d7d7d1718ebd5b72ea9e0d57a1","blessed":true},
+    {"name":"testing","version":"0.1.0","description":"Lightweight test helpers","sha256":"66b42b82b69b94f7807460322aef4fff522c931467627a538abfbc7912745d57","blessed":true},
+    {"name":"colors","version":"0.1.0","description":"ANSI color helpers","sha256":"ad354a5851aa329e1d173b9b8771dfed5d2be9629719e9ef75e55ada4edf22bb","blessed":true},
     {"name":"cli","version":"0.1.0","description":"CLI helpers (colors, banners)","sha256":"185536742e36dee8de6fa7218afa00e001ff88f6c94f4e4616ef981dd5785d0d","blessed":true},
     {"name":"uuid","version":"0.1.0","description":"UUID helpers","sha256":"1c7469f5a11903897e2a11507ee3f931131eb8b8d3508a767fe1aada99809f39","blessed":true},
     {"name":"datetime","version":"0.1.0","description":"Date/time helpers","sha256":"c5c57b4e7cd18fce8c19ebf6b3bbef75c939ed172501aac90450cff12af5b265","blessed":true},
-    {"name":"strings","version":"0.1.0","description":"String helpers (repeat, upper, lower)","sha256":"a6e4d4768511da584585139f8dec366121be39795a2943b0d5b891e5cbd532b0","blessed":true},
-    {"name":"config","version":"0.1.0","description":"Simple config helpers","sha256":"38e5b0ead6e29ea06d0a5146bb80b30d3593f8da5d92bd5464d6bc7e4e2e9012","blessed":true}
+    {"name":"strings","version":"0.1.0","description":"String helpers (replicate, upper, lower)","sha256":"f7bd8dd98661893c1b1910e0fb042f0e684f24e932ae789abfe156de138eeac8","blessed":true},
+    {"name":"config","version":"0.1.0","description":"Simple config helpers","sha256":"3c5adbb5d0868a6ac9adee35061cbb696ff63503b4392b99a623206e1c0d135f","blessed":true}
   ]
 }

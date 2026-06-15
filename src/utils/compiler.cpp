@@ -177,6 +177,9 @@ void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
     for (auto& ext : source.externs) {
         target.externs.push_back(std::move(ext));
     }
+    for (auto& stmt : source.statements) {
+        target.statements.push_back(std::move(stmt));
+    }
 }
 
 void Compiler::resolveImports(ProgramNode& program, const std::string& baseDir, int depth) {

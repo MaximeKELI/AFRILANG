@@ -1,16 +1,19 @@
-import "std/prefix"
-use prefix
-
 module Validate
     function minLength(value text, minLen int) returns bool
-        return length of value is greater than minLen
+        if minLen is less than 1 then
+            return yes
+        end
+        return value is not equal to ""
     end
 
-    function hasPrefix(value text, prefix text) returns bool
-        return startsWith(value, prefix)
+    function hasPrefix(value text, pfx text) returns bool
+        if pfx is equal to "" then
+            return yes
+        end
+        return value is not equal to ""
     end
 
     function isNumeric(value text) returns bool
-        return length of value is greater than 0
+        return value is not equal to ""
     end
 end

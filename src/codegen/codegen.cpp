@@ -885,13 +885,13 @@ void CodeGenerator::emitClasses(std::ostream& out) const {
 }
 
 void CodeGenerator::emitModules(std::ostream& out) const {
-    for (const auto& module : program_.modules) {
-        const std::string ns = usesStdlibModule(module->name)
-            ? stdlibWrapperNamespace(module->name)
-            : module->name;
+    auto emitOne = [&](const ModuleNode& module) {
+        const std::string ns = usesStdlibModule(module.name)
+            ? stdlibWrapperNamespace(module.name)
+            : module.name;
         out << "namespace " << ns << " {\n";
 
-        for (const auto& cls : module->classes) {
+        for (const auto& cls : module.classes) {
             const ClassInfo* classInfo = nullptr;
             auto it = semantic_.classes.find(cls->name);
             if (it != semantic_.classes.end()) classInfo = &it->second;
@@ -928,9 +928,9 @@ void CodeGenerator::emitModules(std::ostream& out) const {
             out << "};\n\n";
         }
 
-        for (const auto& func : module->functions) {
-            if (usesStdlibModule(module->name)) {
-                emitStdlibFunction(out, module->name, *func, 1);
+        for (const auto& func : module.functions) {
+            if (usesStdlibModule(module.name)) {
+                emitStdlibFunction(out, module.name, *func, 1);
             } else {
                 emitFunction(out, *func, nullptr, 1);
             }
@@ -938,6 +938,13 @@ void CodeGenerator::emitModules(std::ostream& out) const {
         }
 
         out << "} // namespace " << ns << "\n\n";
+    };
+
+    for (const auto& module : program_.modules) {
+        if (usesStdlibModule(module->name)) emitOne(*module);
+    }
+    for (const auto& module : program_.modules) {
+        if (!usesStdlibModule(module->name)) emitOne(*module);
     }
 }
 

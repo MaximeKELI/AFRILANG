@@ -3,6 +3,6 @@ use uuid
 
 module Uuid
     function newId() returns text
-        return uuid.v4()
+        return v4()
     end
 end
