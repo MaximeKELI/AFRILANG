@@ -98,6 +98,7 @@ static void printUsage() {
     std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
     std::cerr << "  afrilang pkg publish <dir>   Publier dans le registre local\n";
+    std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
     std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
@@ -116,9 +117,29 @@ static void printTokens(const std::vector<Token>& tokens) {
     std::cout << "==============\n";
 }
 
+static bool validateCrossTarget(const std::string& target) {
+    if (isKnownCrossTarget(target)) return true;
+    std::cerr << "Erreur: cible inconnue '" << target << "'.\n";
+    std::cerr << "Cibles valides: native, linux-x64, linux-arm64, wasm32\n";
+    return false;
+}
+
+static ExecResult runCompiledProgram(const std::string& crossTarget,
+                                     const std::string& executable,
+                                     const ProcessConfig& config) {
+    if (isWasmTarget(crossTarget)) {
+        return execSandboxed("node", {executable}, config);
+    }
+    return execSandboxed("./" + executable, {}, config);
+}
+
 CompileResult Pipeline::compileFile(const std::string& sourcePath,
                                     const CompileOptions& options) {
     CompileResult result;
+    const std::string crossTarget = normalizeCrossTarget(options.crossTarget);
+    if (!validateCrossTarget(options.crossTarget)) {
+        return result;
+    }
     const fs::path srcPath = fs::absolute(sourcePath);
     const std::string baseName = srcPath.stem().string();
 
