@@ -3,56 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AFRILANG</title>
+  <meta name="description" content="AFRILANG — langage à syntaxe naturelle, compilateur C++17, WASM, LSP et écosystème de paquets.">
+  <title>AFRILANG — Langage naturel, performance native</title>
   <link rel="icon" href="/icon.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  <header class="brand">
-    <img src="/icon.png" alt="" class="logo" width="56" height="56">
-    <div>
-      <h1>AFRILANG</h1>
-      <p>Langage orienté objet à syntaxe naturelle</p>
-    </div>
-  </header>
-  <nav class="site-nav">
-    <a href="/" class="active">Accueil</a>
-    <a href="/docs.html">Documentation</a>
-    <a href="/packages.html">Paquets</a>
-    <a href="/playground.html">Playground</a>
-  </nav>
-  <main>
+<body data-page="home">
+  <div data-afr-shell></div>
+
+  <main class="page">
     <section class="hero">
-      <h2>Programmez en langage naturel</h2>
-      <p>AFRILANG transpile vers C++17 pour des performances natives.</p>
-      <a class="btn" href="/playground.html">Ouvrir le playground</a>
-      <a class="btn secondary" href="/docs.html">Documentation</a>
-      <a class="btn secondary" href="/packages.html">Paquets blessed</a>
+      <div class="hero-copy">
+        <div class="hero-badges">
+          <span class="tag">Open source</span>
+          <span class="tag tag-gold">FR / EN</span>
+          <span class="tag">C++17 natif</span>
+          <span class="tag">WASM</span>
+        </div>
+        <h1>Codez en <span>langage naturel</span></h1>
+        <p class="hero-lead">
+          AFRILANG transpile vers C++17 pour des performances natives.
+          POO, génériques, async, paquets blessed, playground en ligne et extension VS Code.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="/playground.html">Lancer le playground</a>
+          <a class="btn btn-secondary btn-lg" href="/explore.html">Tout explorer</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="code-window-bar">
+            <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+            <span class="code-window-title">hello.afr</span>
+          </div>
+          <pre><span class="code-kw">say</span> <span class="code-str">"Bonjour depuis AFRILANG!"</span>
+
+<span class="code-kw">repeat</span> <span class="code-num">3</span> <span class="code-kw">times</span>
+    <span class="code-kw">say</span> <span class="code-str">"Hello"</span>
+<span class="code-kw">end</span></pre>
+        </div>
+      </div>
     </section>
-    <section class="features">
-      <div class="card">
-        <h3>Syntaxe naturelle</h3>
-        <pre>if age is greater than 18 then
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" data-count="60" data-suffix="+">0</span>
+        <span class="stat-label">Exemples testés</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-count="10">0</span>
+        <span class="stat-label">Paquets blessed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-count="14" data-suffix="+">0</span>
+        <span class="stat-label">Modules stdlib</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">WASM</span>
+        <span class="stat-label">Navigateur + Node</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Tout-en-un pour développer</h2>
+        <p>Du premier <code>say</code> au déploiement WASM — un seul outil, une syntaxe lisible.</p>
+      </div>
+      <div class="bento">
+        <article class="bento-card wide">
+          <div class="bento-icon">💬</div>
+          <h3>Syntaxe naturelle</h3>
+          <p>Conditions, boucles et comparaisons en anglais ou français.</p>
+          <pre>if age is greater than 18 then
     say "Adult"
+else
+    say "Minor"
 end</pre>
+        </article>
+        <article class="bento-card">
+          <div class="bento-icon">🏗️</div>
+          <h3>POO avancée</h3>
+          <p>Classes, interfaces, génériques, enums, match, traits.</p>
+        </article>
+        <article class="bento-card">
+          <div class="bento-icon">📦</div>
+          <h3>Paquets & stdlib</h3>
+          <p>math, strings, crypto, json, http… vérifiés SHA256.</p>
+        </article>
+        <article class="bento-card">
+          <div class="bento-icon">⚡</div>
+          <h3>Async / await</h3>
+          <p>Scheduler intégré, thread pool, <code>returns T or error</code>.</p>
+        </article>
+        <article class="bento-card">
+          <div class="bento-icon">🌐</div>
+          <h3>WASM multi-cible</h3>
+          <p><code>--target wasm32</code> · serveur Node · Run in browser.</p>
+        </article>
+        <article class="bento-card wide">
+          <div class="bento-icon">🔧</div>
+          <h3>Toolchain complète</h3>
+          <p>LSP, formatage, debug GDB, REPL, playground, benchmark.</p>
+          <pre>afrilang run app.afr
+afrilang lsp
+afrilang debug app.afr
+afrilang benchmark</pre>
+        </article>
       </div>
-      <div class="card">
-        <h3>OOP & modules</h3>
-        <pre>class Dog extends Animal
-    function speak()
-        say "Woof!"
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Exemples interactifs</h2>
+        <p>Cliquez pour voir différents styles de code AFRILANG.</p>
+      </div>
+      <div class="code-tabs" data-code-tabs>
+        <div class="code-tab-list">
+          <button type="button" class="code-tab active" data-tab="hello">Hello</button>
+          <button type="button" class="code-tab" data-tab="oop">Classes</button>
+          <button type="button" class="code-tab" data-tab="generics">Génériques</button>
+          <button type="button" class="code-tab" data-tab="wasm">WASM</button>
+          <button type="button" class="code-tab" data-tab="pkg">Paquets</button>
+        </div>
+        <div class="code-pane active" data-pane="hello"><pre>say "Hello from AFRILANG!"
+
+repeat 3 times
+    say "Hello"
+end</pre></div>
+        <div class="code-pane" data-pane="oop"><pre>class Greeter
+    function hello()
+        say "Hello from a class!"
     end
-end</pre>
+end
+
+create g = new Greeter
+g.hello()</pre></div>
+        <div class="code-pane" data-pane="generics"><pre>function identity&lt;T&gt;(x T) returns T
+    return x
+end
+
+say identity(42)
+say identity("hello")</pre></div>
+        <div class="code-pane" data-pane="wasm"><pre>say "Phase E WASM OK"
+
+create i int = 0
+while i is less than 3 do
+    say "hello wasm"
+    set i = i + 1
+end</pre></div>
+        <div class="code-pane" data-pane="pkg"><pre>import "pkg/math/math.afr"
+use Math
+
+say square(7)
+say twice(21)</pre></div>
       </div>
-      <div class="card">
-        <h3>Écosystème</h3>
-        <pre>afrilang pkg add math
-afrilang build --target linux-arm64</pre>
+      <p style="text-align:center;margin-top:1.5rem">
+        <a class="btn btn-primary" href="/playground.html">Exécuter dans le playground →</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Pipeline de compilation</h2>
+        <p>De la source .afr à l'exécutable natif ou WASM.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipeline-step"><strong>.afr</strong><span>Source</span></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step"><strong>Lexer</strong><span>Tokens FR/EN</span></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step"><strong>Parser</strong><span>AST</span></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step"><strong>Semantic</strong><span>Types</span></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step"><strong>Codegen</strong><span>C++17</span></div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step"><strong>g++ / em++</strong><span>Natif / WASM</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Paquets blessed ★</h2>
+        <p>10 paquets officiels, indexés et vérifiés par SHA256.</p>
+      </div>
+      <div class="pkg-grid" id="pkg-preview">
+        <p class="muted">Chargement…</p>
+      </div>
+      <p style="text-align:center;margin-top:2rem">
+        <a class="btn btn-secondary" href="/packages.html">Registre complet →</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Démarrer en 30 secondes</h2>
+      </div>
+      <div class="bento">
+        <article class="bento-card full">
+          <pre>git clone https://github.com/MaximeKELI/AFRILANG.git
+cd AFRILANG && mkdir build && cd build
+cmake .. && cmake --build .
+./afrilang run ../examples/hello.afr
+AFRILANG_ALLOW_SERVE=1 ../afrilang serve 8080   # playground local</pre>
+        </article>
       </div>
     </section>
   </main>
-  <footer>
-    <p>AFRILANG — compilateur open source</p>
-  </footer>
+
+  <footer data-afr-footer></footer>
+  <script src="/site.js"></script>
 </body>
 </html>

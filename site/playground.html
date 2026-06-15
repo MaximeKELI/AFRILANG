@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AFRILANG Playground</title>
+  <meta name="description" content="Playground AFRILANG — exécutez du code en ligne (natif, WASM, JS instant).">
+  <title>Playground — AFRILANG</title>
   <link rel="icon" href="/icon.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  <header class="brand">
-    <img src="/icon.png" alt="" class="logo" width="48" height="48">
-    <div>
-      <h1><a href="/">AFRILANG</a> Playground</h1>
-      <p>Write AFRILANG code and run it live</p>
-    </div>
-  </header>
-  <main class="playground">
+<body data-page="playground" class="playground-page">
+  <div data-afr-shell></div>
+
+  <main class="page">
+    <header class="playground-header">
+      <h1>Playground</h1>
+      <p class="muted">Écrivez du code AFRILANG et exécutez-le en direct — natif, WASM ou JS instantané.</p>
+    </header>
+
     <div class="playground-grid">
       <section class="panel">
         <div class="panel-header">
-          <label for="examples">Example</label>
+          <label for="examples">Exemple</label>
           <select id="examples">
             <option value="hello">Hello World</option>
             <option value="natural">Natural syntax</option>
@@ -33,8 +34,8 @@
         <div class="toolbar">
           <button id="run" type="button">Run</button>
           <button id="runInstant" type="button" class="secondary">Run (instant)</button>
-          <button id="runWasm" type="button" class="secondary">Run WASM (server)</button>
-          <button id="runWasmBrowser" type="button" class="secondary">Run in browser</button>
+          <button id="runWasm" type="button" class="secondary">Run WASM</button>
+          <button id="runWasmBrowser" type="button" class="secondary">Browser</button>
           <button id="fmt" type="button" class="secondary">Format</button>
           <span id="status"></span>
         </div>
@@ -45,8 +46,11 @@
       </section>
     </div>
   </main>
+
+  <footer data-afr-footer></footer>
   <script src="/wasm-runner.js"></script>
   <script src="/compiler-client.js"></script>
+  <script src="/site.js"></script>
   <script src="/playground.js"></script>
 </body>
 </html>

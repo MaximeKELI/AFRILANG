@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explorez toutes les capacités d'AFRILANG : langage, toolchain, WASM, LSP, paquets, debug.">
+  <title>Explorer — AFRILANG</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="explore">
+  <div data-afr-shell></div>
+
+  <main class="page">
+    <section class="section" style="padding-top:2rem">
+      <div class="section-head">
+        <h2>Tout ce qu'AFRILANG sait faire</h2>
+        <p>Vue d'ensemble complète pour utilisateurs, contributeurs et curieux.</p>
+      </div>
+
+      <div class="cap-grid">
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Langage</h3>
+          <ul>
+            <li>Syntaxe naturelle FR / EN (<code>dire</code>, <code>si</code>, <code>fin</code>…)</li>
+            <li>Types : number, text, bool, list, map, option, result</li>
+            <li>POO : classes, héritage, interfaces, records, enums, unions</li>
+            <li>Génériques, lambdas, opérateurs surchargés</li>
+            <li>Match avec guards, générateurs lazy, décorateurs</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Compilateur</h3>
+          <ul>
+            <li>Transpilation C++17 + g++ / clang++</li>
+            <li>Cross-compile : native, linux-x64, linux-arm64, wasm32</li>
+            <li>Cache de compilation, symboles debug</li>
+            <li>Mode sécurisé sandbox, limites réseau</li>
+            <li>60+ exemples dans la suite de tests</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> CLI</h3>
+          <ul>
+            <li><code>run</code>, <code>build</code>, <code>check</code>, <code>test</code></li>
+            <li><code>fmt</code>, <code>lint</code>, <code>repl</code>, <code>doc</code></li>
+            <li><code>pkg add|install|sync|reindex|list --blessed</code></li>
+            <li><code>debug</code> (GDB + .afr.debug.json)</li>
+            <li><code>benchmark</code>, <code>serve</code> (playground)</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Stdlib (14+ modules)</h3>
+          <ul>
+            <li>io, json, fs, http, crypto, yaml, csv, html</li>
+            <li>math, datetime, collections, args, path, thread</li>
+            <li>sql, orm, web, bigint, random, hex, url…</li>
+            <li>Import : <code>import "std/json"</code> + <code>use json</code></li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Paquets blessed ★</h3>
+          <ul>
+            <li>math, strings, fmt, validate, config</li>
+            <li>testing, colors, cli, uuid, datetime</li>
+            <li>Vérification SHA256 locale + remote-index</li>
+            <li><a href="/packages.html">Registre interactif →</a></li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> WASM & Web</h3>
+          <ul>
+            <li>Compilation emscripten (tier8 demo)</li>
+            <li>Playground : Run WASM (serveur), Run in browser</li>
+            <li>Run (instant) : transpile JS client/serveur</li>
+            <li>API : <code>/api/run</code>, <code>/api/build/wasm</code>, <code>/api/compile/js</code></li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> LSP & IDE</h3>
+          <ul>
+            <li>Diagnostics, complétion FR/EN, hover, format</li>
+            <li>Symboles document / workspace, code actions</li>
+            <li>Go to definition, références, rename</li>
+            <li>Extension VS Code / Cursor / Open VSX v1.4</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Debug</h3>
+          <ul>
+            <li>Adaptateur DAP (GDB/MI)</li>
+            <li>Métadonnées types Afrilang (globals + locals)</li>
+            <li>Pretty-print text / int / bool dans VS Code</li>
+            <li>Templates launch.json + tasks.json</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Async & UI</h3>
+          <ul>
+            <li>async / await, task, thread pool</li>
+            <li>returns T or error, await dans tests</li>
+            <li>UI SDL2 : fenêtres, texte, boutons</li>
+            <li>FFI extern C/C++</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Qualité & CI</h3>
+          <ul>
+            <li>Tests unitaires + intégration (g++/clang++)</li>
+            <li>Job wasm-build (Emscripten 3.1.57)</li>
+            <li>Smoke test LSP, benchmark informatif</li>
+            <li>Docker, couverture lcov</li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Playground</h3>
+          <ul>
+            <li>Éditeur live + exemples intégrés</li>
+            <li>Run natif, WASM serveur, WASM navigateur</li>
+            <li>Compilation JS instantanée</li>
+            <li><a href="/playground.html">Ouvrir maintenant →</a></li>
+          </ul>
+        </article>
+
+        <article class="cap-card">
+          <h3><span class="cap-status"></span> Gouvernance</h3>
+          <ul>
+            <li>Licence MIT, SECURITY.md, CONTRIBUTING</li>
+            <li>Spec 1.0, error codes, semver pkg</li>
+            <li>Syntaxe bilingue documentée</li>
+            <li><a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub →</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer data-afr-footer></footer>
+  <script src="/site.js"></script>
+</body>
+</html>
