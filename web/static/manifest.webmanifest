@@ -1,0 +1,18 @@
+{
+  "name": "AFRILANG",
+  "short_name": "AFRILANG",
+  "description": "Natural-syntax programming language — transpiles to C++17",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d4ed8",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/static/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -513,3 +513,82 @@ main.afr-main-full {
   --bs-primary: #1d4ed8;
   --bs-border-color: #e2e8f0;
 }
+
+/* ── Accessibility (WCAG) ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.65rem 1rem;
+  background: var(--afr-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--afr-accent);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--afr-primary);
+  outline-offset: 2px;
+}
+
+/* ── Language switcher ── */
+.lang-switcher {
+  display: flex;
+  border: 1px solid var(--afr-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.lang-btn {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--afr-text-secondary);
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background: var(--afr-bg-muted);
+  color: var(--afr-primary);
+}
+
+.lang-btn.active {
+  background: var(--afr-primary);
+  color: #fff;
+}
+
+/* ── Cookie banner (GDPR-style) ── */
+.cookie-banner {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  max-width: 420px;
+  margin: 0 auto;
+  z-index: 1050;
+  background: #fff;
+  border: 1px solid var(--afr-border);
+  border-radius: var(--afr-radius);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.15);
+}
+
+@media (min-width: 768px) {
+  .cookie-banner {
+    left: auto;
+    right: 1.5rem;
+    margin: 0;
+  }
+}
+
