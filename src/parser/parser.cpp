@@ -335,7 +335,9 @@ std::unique_ptr<TestNode> Parser::parseTest() {
         setupBody = parseBlock();
         consume(TokenType::End, "'end' attendu pour fermer setup");
     }
-    body = parseBlock();
+    while (!check(TokenType::End) && !check(TokenType::Teardown) && !isAtEnd()) {
+        body.push_back(parseStatement());
+    }
     if (match(TokenType::Teardown)) {
         teardownBody = parseBlock();
         consume(TokenType::End, "'end' attendu pour fermer teardown");

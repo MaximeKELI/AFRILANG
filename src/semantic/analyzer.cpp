@@ -586,6 +586,30 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
     asyncContextDepth_ = savedAsync;
 }
 
+namespace {
+
+bool blockContainsYield(const std::vector<std::unique_ptr<StatementNode>>& body) {
+    for (const auto& stmt : body) {
+        if (dynamic_cast<const YieldStatementNode*>(stmt.get())) return true;
+        if (const auto* wh = dynamic_cast<const WhileStatementNode*>(stmt.get())) {
+            if (blockContainsYield(wh->body)) return true;
+        }
+        if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(stmt.get())) {
+            if (blockContainsYield(ifStmt->thenBody)) return true;
+            if (blockContainsYield(ifStmt->elseBody)) return true;
+        }
+        if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(stmt.get())) {
+            if (blockContainsYield(forEach->body)) return true;
+        }
+        if (const auto* repeat = dynamic_cast<const RepeatStatementNode*>(stmt.get())) {
+            if (blockContainsYield(repeat->body)) return true;
+        }
+    }
+    return false;
+}
+
+} // namespace
+
 void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const ClassInfo* ownerClass) {
     std::unordered_map<std::string, AfrType> scope;
     activeTypeParams_ = func.typeParams;
@@ -624,16 +648,13 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     AfrType declaredReturn = resolveFunctionReturnType(func);
 
     bool hasReturn = func.name == "init";
-    bool hasYield = false;
+    bool hasYield = blockContainsYield(func.body);
     const ClassInfo* savedClass = currentClass_;
     if (ownerClass) currentClass_ = ownerClass;
 
     for (const auto& stmt : func.body) {
         if (dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
             hasReturn = true;
-        }
-        if (dynamic_cast<const YieldStatementNode*>(stmt.get())) {
-            hasYield = true;
         }
         analyzeStatement(*stmt, scope, false);
     }
