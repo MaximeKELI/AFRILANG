@@ -654,7 +654,11 @@ void CodeGenerator::emitRecords(std::ostream& out) const {
     }
 
     for (const auto& module : program_.modules) {
-        out << "namespace " << module->name << " {\n";
+        if (module->records.empty()) continue;
+        const std::string ns = usesStdlibModule(module->name)
+            ? stdlibWrapperNamespace(module->name)
+            : module->name;
+        out << "namespace " << ns << " {\n";
         for (const auto& record : module->records) {
             out << "struct " << record->name << " {\n";
             for (const auto& field : record->fields) {
@@ -663,7 +667,7 @@ void CodeGenerator::emitRecords(std::ostream& out) const {
             }
             out << "};\n\n";
         }
-        out << "} // namespace " << module->name << "\n\n";
+        out << "} // namespace " << ns << "\n\n";
     }
 }
 
@@ -933,7 +937,7 @@ void CodeGenerator::emitModules(std::ostream& out) const {
             out << "\n";
         }
 
-        out << "} // namespace " << module->name << "\n\n";
+        out << "} // namespace " << ns << "\n\n";
     }
 }
 
@@ -1950,7 +1954,10 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         for (const auto& modName : semantic_.usedModules) {
             auto modIt = semantic_.modules.find(modName);
             if (modIt != semantic_.modules.end() && modIt->second.functions.count(id->name)) {
-                out << modName << "::" << id->name;
+                const std::string ns = usesStdlibModule(modName)
+                    ? stdlibWrapperNamespace(modName)
+                    : modName;
+                out << ns << "::" << id->name;
                 return;
             }
         }
@@ -2460,7 +2467,10 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 if (modIt != semantic_.modules.end() &&
                     modIt->second.functions.count(member->member)) {
                     const MethodSignature& modSig = modIt->second.functions.at(member->member);
-                    out << classId->name << "::" << member->member;
+                    const std::string ns = usesStdlibModule(classId->name)
+                        ? stdlibWrapperNamespace(classId->name)
+                        : classId->name;
+                    out << ns << "::" << member->member;
                     if (!modSig.typeParams.empty() && !call->typeArgs.empty()) {
                         out << "<" << joinGenericArgs(call->typeArgs) << ">";
                     }
