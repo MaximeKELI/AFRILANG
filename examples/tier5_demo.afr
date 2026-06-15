@@ -1,0 +1,63 @@
+record Point
+    field x number
+    field y number
+end
+
+record Vec2
+    field x number
+    field y number
+end
+
+interface Named
+    function label() returns text
+end
+
+interface Greetable extends Named
+    function greet() returns text
+end
+
+class Greeter implements Greetable
+    public field title text
+    function label() returns text
+        return title
+    end
+    function greet() returns text
+        return "hello " + title
+    end
+end
+
+generator function range(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+create seq = range(5)
+say seq at 0
+say seq at 4
+
+create score number = 85
+match score
+    case 100 if score is equal to 100 then
+        say "perfect"
+    end
+    case 85 if score is greater than 80 then
+        say "great"
+    end
+    default
+        say "ok"
+    end
+end
+
+create g = new Greeter()
+set g.title = "Tier5"
+say g.greet()
+
+@deprecated
+function legacyPing() returns text
+    return "pong"
+end
+
+say legacyPing()

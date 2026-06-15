@@ -1033,17 +1033,13 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     out << " {\n";
     const FunctionNode* saved = currentFunction_;
     currentFunction_ = &func;
-    if (func.isGenerator) {
-        indent(out, indentLevel + 1);
-        out << functionReturnCpp(func, ownerClass) << " _afr_yields;\n";
-    }
     for (const auto& stmt : func.body) {
         emitStatement(out, *stmt, indentLevel + 1, ownerClass);
     }
     currentFunction_ = saved;
     if (func.isGenerator) {
         indent(out, indentLevel + 1);
-        out << "return _afr_yields;\n";
+        out << "co_return;\n";
     } else if (func.isAsync && func.returnTypeName.empty()) {
         indent(out, indentLevel + 1);
         out << "co_return;\n";
@@ -1464,17 +1460,15 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* yieldStmt = dynamic_cast<const YieldStatementNode*>(&stmt)) {
-        out << "_afr_yields.push_back(";
+        out << "co_yield ";
         emitExpression(out, *yieldStmt->value, ownerClass);
-        out << ");\n";
+        out << ";\n";
         return;
     }
 
     if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
         if (currentFunction_ && currentFunction_->isGenerator) {
-            out << "_afr_yields.push_back(";
-            emitExpression(out, *ret->value, ownerClass);
-            out << ");\n";
+            out << "co_return;\n";
             return;
         }
         const bool useCoReturn =
@@ -1567,6 +1561,11 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                     } else {
                         out << arm.caseName;
                     }
+                    if (arm.guard) {
+                        out << " && (";
+                        emitExpression(out, *arm.guard, ownerClass);
+                        out << ")";
+                    }
                     out << ") {\n";
                 }
                 for (const auto& bodyStmt : arm.body) {
@@ -1640,11 +1639,17 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             if (arm.isDefault) {
                 out << "else {\n";
             } else if (i == 0) {
-                out << "if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
-                    << ") {\n";
+                out << "if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
             } else {
-                out << "else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
-                    << ") {\n";
+                out << "else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
+            }
+            if (!arm.isDefault && arm.guard && arm.bindNames.empty()) {
+                out << " && (";
+                emitExpression(out, *arm.guard, ownerClass);
+                out << ")";
+            }
+            if (!arm.isDefault) {
+                out << ") {\n";
             }
             if (!arm.isDefault && !arm.bindNames.empty()) {
                 const auto enumIt = semantic_.enums.find(enumName);
@@ -1662,8 +1667,20 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                     }
                 }
             }
-            for (const auto& bodyStmt : arm.body) {
-                emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+            if (!arm.isDefault && arm.guard && !arm.bindNames.empty()) {
+                indent(out, indentLevel + 2);
+                out << "if (";
+                emitExpression(out, *arm.guard, ownerClass);
+                out << ") {\n";
+                for (const auto& bodyStmt : arm.body) {
+                    emitStatement(out, *bodyStmt, indentLevel + 3, ownerClass);
+                }
+                indent(out, indentLevel + 2);
+                out << "}\n";
+            } else {
+                for (const auto& bodyStmt : arm.body) {
+                    emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+                }
             }
             indent(out, indentLevel + 1);
             out << "}";
@@ -2027,6 +2044,13 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
         const AfrType containerType = inferExpressionAfrType(*index->object);
+        if (containerType.kind == TypeKind::Generator) {
+            emitExpression(out, *index->object, ownerClass);
+            out << ".at(static_cast<std::size_t>(";
+            emitExpression(out, *index->index, ownerClass);
+            out << "))";
+            return;
+        }
         emitExpression(out, *index->object, ownerClass);
         out << "[";
         if (containerType.kind == TypeKind::List) {
@@ -2182,6 +2206,11 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 } else {
                     out << arm.caseName;
                 }
+                if (arm.guard) {
+                    out << " && (";
+                    emitExpression(out, *arm.guard, ownerClass);
+                    out << ")";
+                }
                 out << ") {\n        return ";
                 emitExpression(out, *arm.value, ownerClass);
                 out << ";\n    }\n";
@@ -2225,12 +2254,16 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             if (arm.isDefault) continue;
 
             if (nonDefaultIdx == 0) {
-                out << "    if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
-                    << ") {\n";
+                out << "    if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
             } else {
-                out << "    else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName
-                    << ") {\n";
+                out << "    else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
             }
+            if (arm.guard && arm.bindNames.empty()) {
+                out << " && (";
+                emitExpression(out, *arm.guard, ownerClass);
+                out << ")";
+            }
+            out << ") {\n";
 
             if (!arm.bindNames.empty()) {
                 const auto enumIt = semantic_.enums.find(enumName);
@@ -2249,9 +2282,17 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 }
             }
 
-            out << "        return ";
-            emitExpression(out, *arm.value, ownerClass);
-            out << ";\n    }\n";
+            if (arm.guard && !arm.bindNames.empty()) {
+                out << "        if (";
+                emitExpression(out, *arm.guard, ownerClass);
+                out << ") {\n            return ";
+                emitExpression(out, *arm.value, ownerClass);
+                out << ";\n        }\n    }\n";
+            } else {
+                out << "        return ";
+                emitExpression(out, *arm.value, ownerClass);
+                out << ";\n    }\n";
+            }
             ++nonDefaultIdx;
         }
 
@@ -2868,8 +2909,14 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 std::string CodeGenerator::functionReturnCpp(const FunctionNode& func,
                                              const ClassInfo* ownerClass) {
     if (func.isGenerator) {
-        if (func.returnTypeName.empty()) return "std::vector<double>";
-        return typeFromName(func.returnTypeName).toCpp();
+        AfrType elem = AfrType::number();
+        if (!func.returnTypeName.empty()) {
+            const AfrType declared = typeFromName(func.returnTypeName);
+            if (declared.kind == TypeKind::List) {
+                elem = declared.listElementType();
+            }
+        }
+        return AfrType::generatorType(elem).toCpp();
     }
     if (func.returnTypeName.empty() && !func.isAsync) return "void";
     if (func.isAsync) {
@@ -2911,16 +2958,19 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
 
     std::vector<std::string> args;
     args.push_back(compilerForTarget(crossTarget_));
-    args.push_back("-std=" + (semantic_.usesAsync ? std::string("c++20") : std::string("c++17")));
+    const bool usesCoroutines = semantic_.usesAsync || semantic_.usesGenerators;
+    args.push_back("-std=" + (usesCoroutines ? std::string("c++20") : std::string("c++17")));
     args.push_back("-O2");
     args.push_back("-Wall");
     args.push_back("-Wextra");
     args.push_back("-fstack-protector-strong");
     args.push_back("-D_FORTIFY_SOURCE=2");
     args.push_back("-fPIE");
-    if (semantic_.usesAsync && crossTarget_ != "wasm32") {
+    if (usesCoroutines && crossTarget_ != "wasm32") {
         args.push_back("-fcoroutines");
-        args.push_back("-pthread");
+        if (semantic_.usesAsync) {
+            args.push_back("-pthread");
+        }
     }
     if (semantic_.usesUi && crossTarget_ != "wasm32") {
         args.push_back("-I/usr/include/SDL2");

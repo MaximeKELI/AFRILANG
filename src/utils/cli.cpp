@@ -304,7 +304,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier1_demo.afr",
         "tier2_demo.afr",
         "tier3_demo.afr",
-        "tier4_demo.afr"
+        "tier4_demo.afr",
+        "tier5_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());
