@@ -90,6 +90,7 @@ bool assignValueIsNewExpression(const ExpressionNode& value) {
 std::string cppGenericArg(const std::string& afr) {
     if (afr == "number") return "double";
     if (afr == "int") return "std::int64_t";
+    if (afr == "bigint") return "afrilang::runtime::bigint::BigInt";
     if (afr == "json") return "afrilang::runtime::json::Value";
     if (afr == "text") return "std::string";
     if (afr == "bool") return "bool";
@@ -109,6 +110,7 @@ std::string cppTypeFromAfrType(const AfrType& type) {
     switch (type.kind) {
         case TypeKind::Number: return "double";
         case TypeKind::Int: return "std::int64_t";
+        case TypeKind::BigInt: return "afrilang::runtime::bigint::BigInt";
         case TypeKind::Json: return "afrilang::runtime::json::Value";
         case TypeKind::Text: return "std::string";
         case TypeKind::Bool: return "bool";
@@ -171,6 +173,7 @@ bool expressionUsesNaturalListOps(const ExpressionNode& expr) {
     if (dynamic_cast<const MapEachExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const FlatMapEachExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const FilterEachExpressionNode*>(&expr)) return true;
+    if (dynamic_cast<const ComprehensionExpressionNode*>(&expr)) return true;
     if (dynamic_cast<const ReduceExpressionNode*>(&expr)) return true;
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
@@ -438,6 +441,10 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsArgs = false;
     bool needsPath = false;
     bool needsSql = false;
+    bool needsWeb = false;
+    bool needsOrm = false;
+    bool needsThread = false;
+    bool needsBigint = false;
     bool needsSimpleLibs = false;
     bool needsMediumLibs = false;
     bool needsComplexLibs = false;
@@ -455,6 +462,10 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "args") needsArgs = true;
         if (module->name == "path") needsPath = true;
         if (module->name == "sql") needsSql = true;
+        if (module->name == "web") needsWeb = true;
+        if (module->name == "orm") needsOrm = true;
+        if (module->name == "thread") needsThread = true;
+        if (module->name == "bigint") needsBigint = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
@@ -478,6 +489,13 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
     if (needsSql) out << "#include \"sql.hpp\"\n";
+    if (needsWeb) out << "#include \"web.hpp\"\n";
+    if (needsOrm) out << "#include \"orm.hpp\"\n";
+    if (needsThread) {
+        out << "#include \"thread.hpp\"\n";
+        linkLibraries_.insert("-pthread");
+    }
+    if (needsBigint) out << "#include \"bigint.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
@@ -504,7 +522,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         linkLibraries_.insert("-lssl");
         linkLibraries_.insert("-lcrypto");
     }
-    if (needsSql) {
+    if (needsOrm || needsSql) {
         linkLibraries_.insert("-lsqlite3");
     }
     out << "\n";
@@ -2536,7 +2554,8 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
-           name == "sql" || name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
+           name == "sql" || name == "web" || name == "orm" || name == "thread" ||
+           name == "bigint" || name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
 
