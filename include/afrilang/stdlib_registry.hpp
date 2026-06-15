@@ -23,6 +23,10 @@ public:
     static void injectPathModule(ProgramNode& program);
     static void injectAsyncModule(ProgramNode& program);
     static void injectSqlModule(ProgramNode& program);
+    static void injectWebModule(ProgramNode& program);
+    static void injectOrmModule(ProgramNode& program);
+    static void injectThreadModule(ProgramNode& program);
+    static void injectBigintModule(ProgramNode& program);
     static void injectUiModule(ProgramNode& program);
 
     static void injectModuleByName(ProgramNode& program, const std::string& moduleName);

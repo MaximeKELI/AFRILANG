@@ -67,6 +67,8 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "math" || moduleName == "chrono" || moduleName == "re" ||
            moduleName == "collections" || moduleName == "args" || moduleName == "path" ||
            moduleName == "sql" ||
+           moduleName == "web" || moduleName == "orm" || moduleName == "thread" ||
+           moduleName == "bigint" ||
            moduleName == "async" || moduleName == "ui";
 }
 
@@ -114,6 +116,10 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
     if (normalized == "sql") return "sql";
+    if (normalized == "web") return "web";
+    if (normalized == "orm") return "orm";
+    if (normalized == "thread") return "thread";
+    if (normalized == "bigint") return "bigint";
 
     if (normalized.rfind("m/", 0) == 0) {
         if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {
@@ -173,6 +179,10 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "args") injectArgsModule(program);
     else if (moduleName == "path") injectPathModule(program);
     else if (moduleName == "sql") injectSqlModule(program);
+    else if (moduleName == "web") injectWebModule(program);
+    else if (moduleName == "orm") injectOrmModule(program);
+    else if (moduleName == "thread") injectThreadModule(program);
+    else if (moduleName == "bigint") injectBigintModule(program);
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
     else injectCatalogModule(program, moduleName);
@@ -310,6 +320,44 @@ void StdlibRegistry::injectSqlModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("query", {{"path", "text"}, {"sql", "text"}}, "text"));
     fns.push_back(makeStubFunction("exec", {{"path", "text"}, {"sql", "text"}}, "bool"));
     injectModule(program, "sql", std::move(fns));
+}
+
+void StdlibRegistry::injectWebModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("createRouter", {}, "int"));
+    fns.push_back(makeStubFunction("addRoute", {{"router", "int"}, {"method", "text"},
+                                                {"path", "text"}, {"body", "text"}}, ""));
+    fns.push_back(makeStubFunction("dispatch", {{"router", "int"}, {"method", "text"},
+                                                {"path", "text"}}, "text"));
+    injectModule(program, "web", std::move(fns));
+}
+
+void StdlibRegistry::injectOrmModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("findAll", {{"path", "text"}, {"table", "text"}}, "text"));
+    fns.push_back(makeStubFunction("insert", {{"path", "text"}, {"table", "text"},
+                                              {"columns", "text"}, {"values", "text"}}, "int"));
+    fns.push_back(makeStubFunction("deleteRows", {{"path", "text"}, {"table", "text"},
+                                                  {"where", "text"}}, "bool"));
+    injectModule(program, "orm", std::move(fns));
+}
+
+void StdlibRegistry::injectThreadModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("spawnSleep", {{"ms", "int"}}, "int"));
+    fns.push_back(makeStubFunction("join", {{"id", "int"}}, ""));
+    fns.push_back(makeStubFunction("sleepMs", {{"ms", "int"}}, ""));
+    fns.push_back(makeStubFunction("hardwareConcurrency", {}, "int"));
+    injectModule(program, "thread", std::move(fns));
+}
+
+void StdlibRegistry::injectBigintModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("fromInt", {{"value", "int"}}, "bigint"));
+    fns.push_back(makeStubFunction("toText", {{"value", "bigint"}}, "text"));
+    fns.push_back(makeStubFunction("add", {{"a", "bigint"}, {"b", "bigint"}}, "bigint"));
+    fns.push_back(makeStubFunction("mul", {{"a", "bigint"}, {"b", "bigint"}}, "bigint"));
+    injectModule(program, "bigint", std::move(fns));
 }
 
 void StdlibRegistry::injectUiModule(ProgramNode& program) {
