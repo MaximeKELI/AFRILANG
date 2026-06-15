@@ -6,6 +6,7 @@
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
+#include "afrilang/target.hpp"
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -147,12 +148,15 @@ static std::string readRequestBody(int client, const std::string& headers,
     return body;
 }
 
-static std::string runSource(const std::string& source) {
+static std::string runSource(const std::string& source, const std::string& crossTarget) {
     validateSourceContent(source, "playground", SecurityContext::NetworkServe);
 
     const std::string sessionPath = secureTempPath("playground.afr");
     const std::string cppPath = secureTempPath("playground.generated.cpp");
-    const std::string exePath = secureTempPath("playground.bin");
+    const bool wasmBuild = isWasmTarget(crossTarget);
+    const std::string exePath = wasmBuild
+        ? secureTempPath("playground.js")
+        : secureTempPath("playground.bin");
 
     try {
         SourceManager sources;
@@ -164,9 +168,14 @@ static std::string runSource(const std::string& source) {
         CodeGenerator codegen(*program, semantic);
         codegen.setRuntimeDir((fs::path(detectAfrilangRoot()) / "runtime").string());
         codegen.setSourceFile(sessionPath);
+        codegen.setCrossTarget(normalizeCrossTarget(crossTarget));
 
         if (!codegen.compileToExecutable(cppPath, exePath)) {
-            return "{\"ok\":false,\"output\":\"Erreur de compilation g++\",\"exitCode\":1}";
+            const char* compiler = wasmBuild ? "em++" : "g++";
+            return "{\"ok\":false,\"output\":\"Erreur de compilation " +
+                   std::string(compiler) +
+                   (wasmBuild ? " (installez Emscripten)" : "") +
+                   "\",\"exitCode\":1}";
         }
 
         const auto limits = securityLimits(SecurityContext::NetworkServe);
@@ -177,7 +186,9 @@ static std::string runSource(const std::string& source) {
         config.maxOutputBytes = limits.maxOutputBytes;
         config.limitProcessCount = true;
 
-        const ExecResult exec = execSandboxed(exePath, {}, config);
+        const ExecResult exec = wasmBuild
+            ? execSandboxed("node", {exePath}, config)
+            : execSandboxed(exePath, {}, config);
 
         std::ostringstream json;
         json << "{\"ok\":" << (exec.exitCode == 0 && !exec.timedOut ? "true" : "false")
@@ -281,7 +292,20 @@ static void handleClient(int client, const fs::path& siteRoot, const std::string
     if (method == "POST" && path == "/api/run") {
         try {
             const std::string body = readRequestBody(client, headers, initialBody);
-            const std::string result = runSource(jsonGetSource(body));
+            const std::string result = runSource(jsonGetSource(body), "native");
+            sendResponse(client, 200, "application/json", result);
+        } catch (const CompileError& e) {
+            sendResponse(client, 413, "application/json",
+                         "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) +
+                             "\",\"exitCode\":1}");
+        }
+        return;
+    }
+
+    if (method == "POST" && path == "/api/run/wasm") {
+        try {
+            const std::string body = readRequestBody(client, headers, initialBody);
+            const std::string result = runSource(jsonGetSource(body), "wasm32");
             sendResponse(client, 200, "application/json", result);
         } catch (const CompileError& e) {
             sendResponse(client, 413, "application/json",

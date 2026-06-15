@@ -68,6 +68,14 @@ say first(nums)
 
 create words = list of "a", "b", "c"
 say first(words)
+`,
+  wasm: `say "Phase E WASM OK"
+
+create i int = 0
+while i is less than 3 do
+    say "hello wasm"
+    set i = i + 1
+end
 `
 };
 
@@ -84,6 +92,29 @@ function loadExample(name) {
 
 examples.addEventListener('change', () => loadExample(examples.value));
 loadExample('hello');
+
+document.getElementById('run').addEventListener('click', () => runCode('/api/run', 'Compiling...'));
+document.getElementById('runWasm').addEventListener('click', () => runCode('/api/run/wasm', 'Compiling WASM...'));
+
+async function runCode(endpoint, busyLabel) {
+  status.textContent = busyLabel;
+  output.textContent = '';
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ source: editor.value })
+    });
+    const data = await res.json();
+    output.textContent = data.output || '(no output)';
+    status.textContent = data.ok ? 'OK' : 'Error (code ' + data.exitCode + ')';
+    output.classList.toggle('error', !data.ok);
+  } catch (e) {
+    status.textContent = 'Network error';
+    output.textContent = String(e);
+    output.classList.add('error');
+  }
+}
 
 document.getElementById('run').addEventListener('click', async () => {
   status.textContent = 'Compiling...';
