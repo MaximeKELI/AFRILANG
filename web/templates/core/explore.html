@@ -1,33 +1,65 @@
 {% extends 'base.html' %}
-{% block title %}Explorer — AFRILANG{% endblock %}
+{% block title %}Écosystème — AFRILANG{% endblock %}
 
 {% block content %}
-<div class="text-center mb-5">
-  <h1 class="display-5 fw-bold">Tout AFRILANG</h1>
-  <p class="text-secondary lead">Capacités stockées en PostgreSQL · éditables via l'admin Django</p>
+<div class="mb-5">
+  <div class="section-label">Écosystème complet</div>
+  <h1 class="display-6 fw-bold">Tout ce qui compose AFRILANG</h1>
+  <p class="lead text-secondary-custom" style="max-width:40rem">
+    Langage, compilateur, bibliothèque standard, paquets, WASM, LSP, debug et CI —
+    une stack de développement complète, open source.
+  </p>
 </div>
 
 <div class="row g-4">
   {% for category, caps in by_category.items %}
   <div class="col-md-6 col-lg-4">
-    <div class="card afr-card h-100">
-      <div class="card-header fw-bold">{{ category }}</div>
-      <ul class="list-group list-group-flush">
-        {% for cap in caps %}
-        <li class="list-group-item afr-list-item">
-          <strong class="d-block mb-1">{{ cap.title }}</strong>
-          <ul class="small text-secondary mb-0 ps-3">
-            {% for item in cap.items %}
-            <li>{{ item }}</li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% endfor %}
-      </ul>
+    <div class="afr-feature-card">
+      <h2 class="h6 fw-bold text-uppercase text-secondary-custom mb-3" style="font-size:0.75rem;letter-spacing:0.06em">{{ category }}</h2>
+      {% for cap in caps %}
+      <div class="{% if not forloop.last %}mb-3 pb-3 border-bottom{% endif %}">
+        <h3 class="h6 fw-bold mb-2">{{ cap.title }}</h3>
+        <ul class="small text-secondary-custom mb-0 ps-3">
+          {% for item in cap.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
     </div>
   </div>
   {% empty %}
-  <p class="text-center text-secondary">Lancez <code>python manage.py seed_data</code></p>
+  <div class="col-12">
+    <div class="docs-callout docs-callout-warning">
+      Données non chargées — exécutez <code>python manage.py seed_data</code>
+    </div>
+  </div>
   {% endfor %}
+</div>
+
+<div class="row g-4 mt-4">
+  <div class="col-md-4">
+    <div class="afr-stat-card">
+      <div class="stat-value">{{ SITE_STATS.examples }}+</div>
+      <div class="stat-label">Exemples testés CI</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="afr-stat-card">
+      <div class="stat-value">{{ SITE_STATS.stdlib_modules }}</div>
+      <div class="stat-label">Modules stdlib</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="afr-stat-card">
+      <div class="stat-value">{{ SITE_STATS.cli_commands }}+</div>
+      <div class="stat-label">Commandes CLI</div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-5">
+  <a href="{% url 'docs_tooling' %}" class="btn btn-afr-primary me-2">Documentation outils</a>
+  <a href="{% url 'packages' %}" class="btn btn-afr-outline">Registre de paquets</a>
 </div>
 {% endblock %}

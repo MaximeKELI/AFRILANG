@@ -1,67 +1,114 @@
 {% load static django_bootstrap5 %}
 <!DOCTYPE html>
-<html lang="fr" data-bs-theme="dark">
+<html lang="fr" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}AFRILANG{% endblock %}</title>
-  <meta name="description" content="{% block meta %}AFRILANG — langage naturel, Django, PostgreSQL{% endblock %}">
+  <title>{% block title %}AFRILANG — Langage de programmation{% endblock %}</title>
+  <meta name="description" content="{% block meta %}AFRILANG — langage orienté objet à syntaxe naturelle, transpile vers C++17, bibliothèque standard riche, outils LSP et playground.{% endblock %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
   {% bootstrap_javascript %}
 </head>
 <body class="afr-body">
-  <div class="tw-fixed tw-inset-0 tw--z-10 mesh-bg" aria-hidden="true"></div>
 
-  <nav class="navbar navbar-expand-lg navbar-dark afr-navbar sticky-top">
+  <nav class="navbar navbar-expand-lg afr-navbar sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
-        <img src="{% static 'img/icon.png' %}" alt="" width="36" height="36" class="rounded-3">
-        <span><strong>AFRILANG</strong><small class="d-block text-secondary" style="font-size:0.65rem">Django · PostgreSQL</small></span>
+        <img src="{% static 'img/icon.png' %}" alt="AFRILANG" width="34" height="34" class="rounded-2">
+        <span>
+          <strong>AFRILANG</strong>
+          <small class="d-block" style="font-size:0.68rem">Langage · v{{ SITE_STATS.version }}</small>
+        </span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Menu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">Explorer</a></li>
-          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'docs' %}active{% endif %}" href="{% url 'docs' %}">Docs</a></li>
-          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">Paquets</a></li>
-          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">Playground</a></li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'language' %}active{% endif %}" href="{% url 'language' %}">Le langage</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if 'docs' in request.resolver_match.url_name %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Documentation
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'docs_overview' %}">Vue d'ensemble</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_getting_started' %}">Premiers pas</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_syntax' %}">Syntaxe de base</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_types' %}">Types</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_oop' %}">POO</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_advanced' %}">Fonctionnalités avancées</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_stdlib' %}">Bibliothèque standard</a></li>
+              <li><a class="dropdown-item" href="{% url 'docs_tooling' %}">Outils</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">Écosystème</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">Paquets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">Playground</a>
+          </li>
         </ul>
         <div class="d-flex gap-2">
-          <a class="btn btn-outline-light btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-primary btn-sm" href="{% url 'playground' %}">Essayer</a>
+          <a class="btn btn-afr-outline btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-afr-primary btn-sm" href="{% url 'docs_getting_started' %}">Commencer</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="container py-4 py-lg-5">
+  <main class="{% block main_class %}container py-4 py-lg-5{% endblock %}">
     {% bootstrap_messages %}
     {% block content %}{% endblock %}
   </main>
 
-  <footer class="afr-footer container py-5 mt-4">
-    <div class="row g-4">
-      <div class="col-md-6">
-        <strong>AFRILANG Web</strong>
-        <p class="text-secondary small mb-0">Django · Bootstrap 5 · Tailwind · PostgreSQL</p>
+  <footer class="afr-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="afr-footer-brand mb-2">AFRILANG</div>
+          <p class="text-secondary-custom small mb-0">
+            Langage orienté objet à syntaxe naturelle. Transpile vers C++17 et compile en binaire natif.
+            Open source, licence MIT.
+          </p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Apprendre</h6>
+          <a href="{% url 'docs_getting_started' %}">Premiers pas</a>
+          <a href="{% url 'docs_syntax' %}">Syntaxe</a>
+          <a href="{% url 'docs_stdlib' %}">Stdlib</a>
+          <a href="{% url 'playground' %}">Playground</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Référence</h6>
+          <a href="{% url 'docs_types' %}">Types</a>
+          <a href="{% url 'docs_oop' %}">POO</a>
+          <a href="{% url 'docs_advanced' %}">Avancé</a>
+          <a href="{% url 'docs_tooling' %}">Outils</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Communauté</h6>
+          <a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
+          <a href="{% url 'packages' %}">Paquets</a>
+          <a href="{% url 'explore' %}">Écosystème</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Versions</h6>
+          <span class="small text-secondary-custom d-block">Langage {{ SITE_STATS.version }}</span>
+          <span class="small text-secondary-custom d-block">Compilateur {{ SITE_STATS.compiler_version }}</span>
+        </div>
       </div>
-      <div class="col-md-3">
-        <strong class="small d-block mb-2">Stack</strong>
-        <span class="badge text-bg-secondary me-1">Django 5</span>
-        <span class="badge text-bg-secondary me-1">PostgreSQL</span>
-        <span class="badge text-bg-secondary me-1">Bootstrap</span>
-        <span class="badge text-bg-secondary">Tailwind</span>
-      </div>
-      <div class="col-md-3 text-md-end">
-        <a href="/admin/" class="small text-secondary">Admin</a>
+      <div class="text-center mt-4 pt-3 border-top small text-secondary-custom">
+        © AFRILANG — Codez en phrases, déployez en natif.
       </div>
     </div>
   </footer>

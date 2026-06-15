@@ -1,0 +1,138 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}Fonctionnalités avancées — AFRILANG{% endblock %}
+
+{% block doc_content %}
+<h1>Fonctionnalités avancées</h1>
+<p class="docs-lead">
+  Génériques, pattern matching, async/await, exceptions, FFI, tests intégrés
+  et interface graphique SDL2.
+</p>
+
+<h2>Génériques</h2>
+<div class="code-panel">
+  <pre>function swap<T>(a T, b T) returns list of T
+    return list of b, a
+end
+
+function max<T>(a T, b T) returns T
+    if a is greater than b then
+        return a
+    end
+    return b
+end
+
+say max(3, 7)
+say max("a", "z")</pre>
+</div>
+
+<h2>Pattern matching</h2>
+<div class="code-panel">
+  <pre>enum Status
+    case Ok
+    case Error with message text
+end
+
+create e = Status.Error with "timeout"
+
+match e
+    case Ok then
+        say "success"
+    end
+    case Error with msg then
+        say "Error: " + msg
+    end
+end</pre>
+</div>
+<p>
+  Tous les cas doivent être couverts ou un <code>default</code> doit être présent.
+  Liaison de payload : <code>case Error with msg then</code>.
+</p>
+
+<h3>Match en expression</h3>
+<div class="code-panel">
+  <pre>create label = match e
+    case Ok then "success"
+    end
+    case Error with msg then msg
+    end
+    default "unknown"
+end</pre>
+</div>
+
+<h2>Async / await</h2>
+<p>Nécessite C++20 et les coroutines (<code>-std=c++20 -fcoroutines</code>).</p>
+<div class="code-panel">
+  <pre>import "std/async"
+
+async function fetchData() returns task text
+    await sleep(100)
+    return "data loaded"
+end
+
+async function main() returns task
+    create result = await fetchData()
+    say result
+end</pre>
+</div>
+<p>Modules associés : <code>std/async</code>, <code>std/http</code> pour <code>httpGetAsync</code>.</p>
+
+<h2>Exceptions</h2>
+<div class="code-panel">
+  <pre>try
+    if balance is less than amount then
+        raise "insufficient funds"
+    end
+    set balance = balance - amount
+catch error e
+    say "Caught: " + e
+end</pre>
+</div>
+
+<h2>FFI (Foreign Function Interface)</h2>
+<div class="code-panel">
+  <pre>extern from "m" function sin(x number) returns number
+extern from "m" function cos(x number) returns number
+
+say sin(3.14159 / 2)</pre>
+</div>
+<p>Le compilateur lie les bibliothèques système (<code>libm</code>, <code>pthread</code>, <code>curl</code>, etc.).</p>
+
+<h2>Tests intégrés</h2>
+<div class="code-panel">
+  <pre>function add(a number, b number) returns number
+    return a + b
+end
+
+test "addition works"
+    assert add(2, 3) is equal to 5
+    assert add(-1, 1) is equal to 0
+end</pre>
+</div>
+<p>Les blocs <code>test</code> s'exécutent au lancement du programme ou via <code>afrilang test</code>.</p>
+
+<h2>Mode explain (pédagogique)</h2>
+<div class="code-panel">
+  <pre>explain say "Hello"
+explain create x = 42</pre>
+</div>
+<p>Ou en CLI : <code>afrilang explain fichier.afr</code> — décrit chaque ligne en langage naturel.</p>
+
+<h2>Interface graphique (SDL2)</h2>
+<div class="code-panel">
+  <pre>open window titled "Demo" with width 640 height 480
+
+draw text "Hello AFRILANG" at 50, 50
+button "Click me" at 200, 200 is clicked
+    say "Button clicked!"
+end
+
+while window is open do
+    show frame
+end</pre>
+</div>
+
+<div class="docs-nav-footer">
+  <a href="{% url 'docs_oop' %}">← POO</a>
+  <a href="{% url 'docs_stdlib' %}">Bibliothèque standard →</a>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block main_class %}container docs-layout{% endblock %}
+
+{% block content %}
+<div class="row g-4 g-lg-5">
+  <aside class="col-lg-3 d-none d-lg-block">
+    {% include 'includes/docs_sidebar.html' %}
+  </aside>
+  <article class="col-lg-9 docs-content">
+    <nav class="d-lg-none mb-3">
+      <select class="form-select" onchange="if(this.value) location.href=this.value">
+        {% for item in docs_nav %}
+        <option value="{% url item.url_name %}" {% if docs_active == item.url_name %}selected{% endif %}>
+          {{ item.title }}
+        </option>
+        {% endfor %}
+      </select>
+    </nav>
+    {% block doc_content %}{% endblock %}
+  </article>
+</div>
+{% endblock %}

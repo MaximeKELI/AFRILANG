@@ -1,0 +1,166 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}Syntaxe de base — AFRILANG{% endblock %}
+
+{% block doc_content %}
+<h1>Syntaxe de base</h1>
+<p class="docs-lead">
+  Variables, entrées/sorties, conditions, boucles, listes, maps et fonctions —
+  les fondations du langage AFRILANG en syntaxe naturelle.
+</p>
+
+<h2>Affichage et entrée</h2>
+<div class="code-panel">
+  <pre>say "Hello, world!"          # alias FR : dire
+ask "Votre nom ?" into name
+say "Bonjour, {name}!"       # interpolation de chaîne</pre>
+</div>
+
+<h2>Variables et constantes</h2>
+<div class="code-panel">
+  <pre>create x = 42                    # inférence
+create name text = "AFRILANG"    # type explicite
+create const MAX = 100           # constante
+set x = x + 1                    # réassignation</pre>
+</div>
+
+<h2>Conditions</h2>
+<p>Les comparaisons utilisent des mots-clés au lieu de symboles :</p>
+<div class="code-panel">
+  <pre>create age number = 21
+
+if age is greater than 18 then
+    say "Majeur"
+else if age is equal to 18 then
+    say "Juste majeur"
+else
+    say "Mineur"
+end</pre>
+</div>
+<p>Opérateurs disponibles : <code>is equal to</code>, <code>is not equal to</code>,
+<code>is greater than</code>, <code>is less than</code>, <code>is greater than or equal to</code>,
+<code>is less than or equal to</code>.</p>
+
+<h2>Boucles</h2>
+<div class="code-panel">
+  <pre># Répéter N fois
+repeat 5 times
+    say "tick"
+end
+
+# Tant que
+create count number = 0
+while count is less than 10 do
+    say count
+    set count = count + 1
+end
+
+# For each (listes et maps)
+create nums = list of 10, 20, 30
+for each n in nums do
+    say n
+end
+
+# For numérique
+for i from 1 to 10 step 2 do
+    say i
+end
+
+# Contrôle de boucle
+stop    # break
+skip    # continue</pre>
+</div>
+
+<h2>Listes</h2>
+<div class="code-panel">
+  <pre>create nums = list of 1, 2, 3
+create empty = empty list number
+create bracket = [10, 20, 30]
+
+say nums at 0              # indexation
+set nums at 1 = 99
+say length of nums
+add 4 to nums
+
+# Opérations fonctionnelles (sans import)
+create doubled = map each n in nums with n * 2
+create evens = filter each n in nums where n is greater than 2
+create total = reduce nums from 0 with a, b => a + b</pre>
+</div>
+
+<h2>Maps</h2>
+<div class="code-panel">
+  <pre>create m = map of "a" to 1, "b" to 2
+create scores map text to number = empty map text to number
+
+set scores at "alice" = 95
+say scores at "alice"
+
+for each key, value in scores do
+    say key + ": " + value
+end</pre>
+</div>
+
+<h2>Fonctions</h2>
+<div class="code-panel">
+  <pre>function add(a number, b number) returns number
+    return a + b
+end
+
+function greet(name text, prefix text = "Hello") returns text
+    return prefix + ", " + name
+end
+
+say add(3, 4)
+say greet("World")
+
+# Lambda
+create double = function(x number) returns number
+    return x * 2
+end</pre>
+</div>
+
+<h2>Modules</h2>
+<div class="code-panel">
+  <pre>module Math
+    export function square(x number) returns number
+        return x * x
+    end
+
+    private function helper() returns number
+        return 1
+    end
+end
+
+use Math
+say Math.square(5)</pre>
+</div>
+
+<h2>Imports</h2>
+<div class="code-panel">
+  <pre>import "helpers.afr"       # fichier local
+import "std/io"              # module standard
+import "pkg/math/math.afr"   # paquet externe</pre>
+</div>
+
+<h2>Alias français</h2>
+<p>Les mots-clés anglais acceptent des équivalents français :</p>
+<table class="docs-table">
+  <thead><tr><th>Anglais</th><th>Français</th></tr></thead>
+  <tbody>
+    <tr><td><code>say</code></td><td><code>dire</code></td></tr>
+    <tr><td><code>create</code></td><td><code>creer</code></td></tr>
+    <tr><td><code>if … then</code></td><td><code>si … alors</code></td></tr>
+    <tr><td><code>else</code></td><td><code>sinon</code></td></tr>
+    <tr><td><code>end</code></td><td><code>fin</code></td></tr>
+    <tr><td><code>function</code></td><td><code>fonction</code></td></tr>
+    <tr><td><code>class</code></td><td><code>classe</code></td></tr>
+    <tr><td><code>number</code></td><td><code>nombre</code></td></tr>
+    <tr><td><code>text</code></td><td><code>texte</code></td></tr>
+  </tbody>
+</table>
+
+<div class="docs-nav-footer">
+  <a href="{% url 'docs_getting_started' %}">← Premiers pas</a>
+  <a href="{% url 'docs_types' %}">Types →</a>
+</div>
+{% endblock %}

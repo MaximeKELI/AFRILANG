@@ -4,36 +4,58 @@
 {% block content %}
 <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
   <div>
-    <h1 class="h2 fw-bold mb-1">Registre PostgreSQL</h1>
-    <p class="text-secondary mb-0">Paquets ★ blessed synchronisés depuis <code>packages/index.json</code></p>
+    <div class="section-label">Gestionnaire de paquets</div>
+    <h1 class="h2 fw-bold mb-1">Registre officiel</h1>
+    <p class="text-secondary-custom mb-0">
+      Paquets certifiés (★) avec vérification SHA256 · installables via
+      <code>afrilang pkg add &lt;nom&gt;</code>
+    </p>
   </div>
   <form method="get" class="d-flex gap-2" style="min-width:280px">
-    <input type="search" name="q" value="{{ query }}" class="form-control" placeholder="Rechercher…">
-    <button type="submit" class="btn btn-primary">Filtrer</button>
+    <input type="search" name="q" value="{{ query }}" class="form-control" placeholder="Rechercher un paquet…">
+    <button type="submit" class="btn btn-afr-primary">Filtrer</button>
   </form>
 </div>
 
 <div class="row g-3">
   {% for pkg in packages %}
   <div class="col-md-6 col-lg-4">
-    <div class="card afr-card h-100 {% if pkg.blessed %}border-warning border-opacity-25{% endif %}">
-      <div class="card-body">
-        <div class="d-flex align-items-center gap-2 mb-2">
-          {% if pkg.blessed %}<span class="text-warning">★</span>{% endif %}
-          <h2 class="h5 mb-0">{{ pkg.name }}</h2>
-          <span class="badge text-bg-secondary ms-auto">v{{ pkg.version }}</span>
-        </div>
-        <p class="small text-secondary">{{ pkg.description }}</p>
-        {% if pkg.sha256 %}
-        <p class="small font-monospace text-secondary mb-0" title="{{ pkg.sha256 }}">sha256: {{ pkg.sha256|slice:":20" }}…</p>
-        {% endif %}
+    <div class="afr-feature-card h-100 {% if pkg.blessed %}border-warning border-opacity-50{% endif %}">
+      <div class="d-flex align-items-center gap-2 mb-2">
+        {% if pkg.blessed %}<span class="text-warning" title="Certifié">★</span>{% endif %}
+        <h2 class="h5 fw-bold mb-0">{{ pkg.name }}</h2>
+        <span class="badge text-bg-light border ms-auto">v{{ pkg.version }}</span>
       </div>
+      <p class="small text-secondary-custom">{{ pkg.description }}</p>
+      <code class="small d-block mb-2">afrilang pkg add {{ pkg.name }}</code>
+      {% if pkg.sha256 %}
+      <p class="small font-monospace text-secondary-custom mb-0" title="{{ pkg.sha256 }}">
+        sha256: {{ pkg.sha256|slice:":24" }}…
+      </p>
+      {% endif %}
     </div>
   </div>
   {% empty %}
   <div class="col-12">
-    <div class="alert alert-secondary">Aucun paquet — exécutez <code>python manage.py sync_packages</code></div>
+    <div class="docs-callout">
+      Aucun paquet trouvé. Synchronisez le registre :
+      <code>python manage.py sync_packages</code>
+    </div>
   </div>
   {% endfor %}
+</div>
+
+<div class="mt-5">
+  <h2 class="h5 fw-bold mb-3">Utiliser un paquet</h2>
+  <div class="code-panel">
+    <pre># Ajouter au projet
+afrilang pkg add math
+afrilang pkg install
+
+# Dans votre code
+import "pkg/math/math.afr"
+use Math
+say Math.sqrt(16)</pre>
+  </div>
 </div>
 {% endblock %}

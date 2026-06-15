@@ -1,111 +1,250 @@
 {% extends 'base.html' %}
-{% block title %}AFRILANG — Langage naturel{% endblock %}
+{% block title %}AFRILANG — Codez en phrases, déployez en natif{% endblock %}
+{% block main_class %}afr-main-full{% endblock %}
 
 {% block content %}
-<section class="row align-items-center g-5 py-lg-4">
-  <div class="col-lg-6">
-    <div class="d-flex flex-wrap gap-2 mb-3">
-      <span class="badge rounded-pill text-bg-primary">Django</span>
-      <span class="badge rounded-pill text-bg-warning text-dark">PostgreSQL</span>
-      <span class="badge rounded-pill text-bg-success">Bootstrap + Tailwind</span>
-    </div>
-    <h1 class="display-4 fw-bold tw-gradient-text">Codez en langage naturel</h1>
-    <p class="lead text-secondary">
-      Compilateur AFRILANG · site web Django avec registre de paquets en base,
-      playground API et vue complète de l'écosystème.
-    </p>
-    <div class="d-flex flex-wrap gap-2">
-      <a href="{% url 'playground' %}" class="btn btn-primary btn-lg">Playground</a>
-      <a href="{% url 'explore' %}" class="btn btn-outline-light btn-lg">Tout explorer</a>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="tw-glass p-0 overflow-hidden">
-      <div class="px-3 py-2 border-bottom border-secondary small text-secondary font-monospace">hello.afr</div>
-      <pre class="p-3 mb-0 font-monospace small code-block">say "Bonjour depuis AFRILANG!"
+<section class="afr-hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="afr-hero-badge mb-3">
+          <span>Langage {{ SITE_STATS.version }}</span>
+          <span>·</span>
+          <span>Open source · MIT</span>
+        </div>
+        <h1>
+          Codez en <span class="afr-hero-accent">langage naturel</span>,<br>
+          compilez en natif.
+        </h1>
+        <p class="lead mt-3">
+          AFRILANG est un langage orienté objet à syntaxe lisible qui transpile vers C++17.
+          Classes, génériques, pattern matching, async/await — avec une bibliothèque standard
+          de plus de {{ SITE_STATS.stdlib_modules }} modules et une toolchain complète.
+        </p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">Commencer</a>
+          <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">Essayer en ligne</a>
+        </div>
+        <p class="small text-secondary-custom mt-3 mb-0">
+          Compatible français et anglais · LSP · REPL · WASM · cross-compilation
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="code-panel">
+          <div class="code-panel-header">
+            <div class="code-panel-dots"><span></span><span></span><span></span></div>
+            <span>main.afr</span>
+          </div>
+          <pre>create name text = "AFRILANG"
+say "Bonjour, {name}!"
 
-repeat 3 times
-    say "Hello"
+function greet(who text) returns text
+    return "Hello, " + who
+end
+
+create score number = 95
+if score is greater than or equal to 90 then
+    say greet(name) + " — Excellent!"
+else
+    say "Keep learning"
 end</pre>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="row g-3 mb-5">
-  <div class="col-6 col-md-3">
-    <div class="card afr-stat h-100 text-center">
-      <div class="card-body">
-        <div class="display-6 fw-bold">{{ SITE_STATS.examples }}+</div>
-        <div class="small text-secondary">Exemples</div>
+<section class="afr-section">
+  <div class="container">
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-md-3">
+        <div class="afr-stat-card">
+          <div class="stat-value">{{ SITE_STATS.examples }}+</div>
+          <div class="stat-label">Exemples officiels</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="afr-stat-card">
+          <div class="stat-value">{{ SITE_STATS.stdlib_modules }}</div>
+          <div class="stat-label">Modules stdlib</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="afr-stat-card">
+          <div class="stat-value">{{ SITE_STATS.blessed_packages }}</div>
+          <div class="stat-label">Paquets certifiés</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="afr-stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Cibles (x64, ARM, WASM)</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-6 col-md-3">
-    <div class="card afr-stat h-100 text-center">
-      <div class="card-body">
-        <div class="display-6 fw-bold">{{ SITE_STATS.blessed_packages }}</div>
-        <div class="small text-secondary">Paquets ★</div>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 col-md-3">
-    <div class="card afr-stat h-100 text-center">
-      <div class="card-body">
-        <div class="display-6 fw-bold">{{ SITE_STATS.stdlib_modules }}+</div>
-        <div class="small text-secondary">Stdlib</div>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 col-md-3">
-    <div class="card afr-stat h-100 text-center">
-      <div class="card-body">
-        <div class="display-6 fw-bold">WASM</div>
-        <div class="small text-secondary">Multi-cible</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section class="mb-5">
-  <h2 class="h3 fw-bold mb-4">Paquets blessed (PostgreSQL)</h2>
-  <div class="row g-3">
-    {% for pkg in packages %}
-    <div class="col-md-6 col-lg-4">
-      <div class="card afr-card h-100">
-        <div class="card-body">
+    <div class="text-center mb-5">
+      <div class="section-label">Pourquoi AFRILANG</div>
+      <h2 class="fw-bold">Lisible comme une phrase, performant comme du C++</h2>
+      <p class="text-secondary-custom mx-auto" style="max-width:42rem">
+        Conçu pour l'apprentissage et la production : syntaxe naturelle, erreurs explicites,
+        outils modernes et écosystème open source africain.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">💬</div>
+          <h3 class="h5 fw-bold">Syntaxe naturelle</h3>
+          <p class="mb-0 small text-secondary-custom">
+            <code>if age is greater than 18 then</code> au lieu de symboles cryptiques.
+            Mots-clés en français (<code>dire</code>, <code>si</code>, <code>fin</code>) ou en anglais.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">⚡</div>
+          <h3 class="h5 fw-bold">Performance native</h3>
+          <p class="mb-0 small text-secondary-custom">
+            Transpilation vers C++17 puis compilation <code>g++</code>. Pas d'interpréteur :
+            binaires natifs, cross-compilation linux-x64, linux-arm64 et wasm32.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">🧩</div>
+          <h3 class="h5 fw-bold">Moderne et complet</h3>
+          <p class="mb-0 small text-secondary-custom">
+            POO, génériques, enums, match, traits, async/await, Result, null-safety,
+            surcharge d'opérateurs et FFI — le tout en syntaxe lisible.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">📚</div>
+          <h3 class="h5 fw-bold">Stdlib massive</h3>
+          <p class="mb-0 small text-secondary-custom">
+            I/O, JSON, HTTP, collections, graphes, stats, crypto, finance, NLP…
+            Plus de 460 modules prêts à l'emploi via <code>import "std/…"</code>.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">🛠</div>
+          <h3 class="h5 fw-bold">Toolchain intégrée</h3>
+          <p class="mb-0 small text-secondary-custom">
+            CLI (<code>build</code>, <code>test</code>, <code>fmt</code>, <code>lint</code>),
+            LSP 1.1, REPL, debug adapter, extension VS Code/Cursor, playground web.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
+          <div class="afr-feature-icon">🌍</div>
+          <h3 class="h5 fw-bold">Open source africain</h3>
+          <p class="mb-0 small text-secondary-custom">
+            Projet communautaire sous licence MIT. Gestionnaire de paquets, registre officiel
+            et documentation complète pour contribuer et publier.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="afr-section afr-section-alt">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="section-label">Exemple rapide</div>
+        <h2 class="fw-bold mb-3">De la phrase au binaire en une commande</h2>
+        <p class="text-secondary-custom">
+          Installez le compilateur, écrivez un fichier <code>.afr</code>, exécutez-le.
+          Le pipeline transpile vers C++ puis invoque <code>g++</code> automatiquement.
+        </p>
+        <div class="code-panel mt-3">
+          <div class="code-panel-header"><span>Terminal</span></div>
+          <pre>git clone https://github.com/MaximeKELI/AFRILANG
+cd AFRILANG/build && cmake .. && cmake --build .
+./afrilang run examples/hello.afr
+./afrilang init mon_app && cd mon_app
+afrilang build && afrilang run src/main.afr</pre>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="code-panel">
+          <div class="code-panel-header"><span>examples/oop.afr</span></div>
+          <pre>class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    public field name text
+
+    function init(aName text)
+        set this.name = aName
+    end
+
+    function speak()
+        say name + " says Woof!"
+    end
+end
+
+create rex = new Dog("Rex")
+rex.speak()</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="afr-section">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+      <div>
+        <div class="section-label">Écosystème</div>
+        <h2 class="fw-bold mb-0">Paquets certifiés</h2>
+      </div>
+      <a href="{% url 'packages' %}" class="btn btn-afr-outline btn-sm">Voir tout →</a>
+    </div>
+    <div class="row g-3">
+      {% for pkg in packages %}
+      <div class="col-md-6 col-lg-4">
+        <div class="afr-feature-card">
           <div class="d-flex align-items-center gap-2 mb-2">
             <span class="text-warning">★</span>
-            <h3 class="h6 mb-0">{{ pkg.name }}</h3>
-            <span class="badge text-bg-secondary ms-auto">v{{ pkg.version }}</span>
+            <h3 class="h6 fw-bold mb-0">{{ pkg.name }}</h3>
+            <span class="badge text-bg-light border ms-auto">v{{ pkg.version }}</span>
           </div>
-          <p class="small text-secondary mb-2">{{ pkg.description }}</p>
+          <p class="small text-secondary-custom mb-2">{{ pkg.description }}</p>
           <code class="small">afrilang pkg add {{ pkg.name }}</code>
         </div>
       </div>
+      {% empty %}
+      <p class="text-secondary-custom">Registre vide — lancez <code>python manage.py sync_packages</code></p>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p class="text-secondary">Lancez <code>python manage.py sync_packages</code></p>
-    {% endfor %}
-  </div>
-  <div class="text-center mt-4">
-    <a href="{% url 'packages' %}" class="btn btn-outline-primary">Registre complet →</a>
   </div>
 </section>
 
-<section>
-  <h2 class="h3 fw-bold mb-4">Exemples en base</h2>
-  <div class="row g-3">
-    {% for ex in examples %}
-    <div class="col-md-6">
-      <div class="card afr-card">
-        <div class="card-header d-flex justify-content-between">
-          <strong>{{ ex.title }}</strong>
-          <span class="badge text-bg-dark">{{ ex.slug }}</span>
-        </div>
-        <pre class="card-body small code-block mb-0">{{ ex.source|truncatechars:280 }}</pre>
-      </div>
+<section class="afr-section afr-section-alt">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">Prêt à écrire votre premier programme ?</h2>
+    <p class="text-secondary-custom mb-4">
+      Documentation détaillée, playground interactif et extension IDE — tout est là.
+    </p>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">Guide de démarrage</a>
+      <a href="{% url 'language' %}" class="btn btn-afr-outline btn-lg">Découvrir le langage</a>
+      <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">Playground</a>
     </div>
-    {% endfor %}
   </div>
 </section>
 {% endblock %}

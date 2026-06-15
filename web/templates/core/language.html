@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block title %}Le langage AFRILANG{% endblock %}
+{% block meta %}Présentation d'AFRILANG : syntaxe naturelle bilingue, transpilation C++, POO, génériques, async et bibliothèque standard.{% endblock %}
+
+{% block content %}
+<div class="mb-5">
+  <div class="section-label">AFRILANG {{ SITE_STATS.version }}</div>
+  <h1 class="display-5 fw-bold">Un langage qui se lit, un compilateur qui livre</h1>
+  <p class="lead text-secondary-custom" style="max-width:44rem">
+    AFRILANG combine la lisibilité du langage naturel avec la rigueur d'un compilateur moderne.
+    Vous écrivez des programmes qui ressemblent à des phrases ; le compilateur les transforme
+    en C++17 optimisé, puis en exécutables natifs.
+  </p>
+</div>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">Philosophie</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="afr-feature-card">
+        <h3 class="h6 fw-bold">Lisibilité d'abord</h3>
+        <p class="small text-secondary-custom mb-0">
+          Les conditions et boucles utilisent des mots : <em>is greater than</em>, <em>repeat N times</em>,
+          <em>for each item in list do</em>. Le code se lit à voix haute.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="afr-feature-card">
+        <h3 class="h6 fw-bold">Bilingue FR / EN</h3>
+        <p class="small text-secondary-custom mb-0">
+          Même programme en <code>dire</code> ou <code>say</code>, <code>si</code> ou <code>if</code>,
+          <code>nombre</code> ou <code>number</code>. Messages d'erreur localisables via
+          <code>AFRILANG_LOCALE=fr|en</code>.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="afr-feature-card">
+        <h3 class="h6 fw-bold">Performance réelle</h3>
+        <p class="small text-secondary-custom mb-0">
+          Pas de VM ni d'interpréteur : transpilation + <code>g++</code>. Coroutines C++20 pour
+          <code>async/await</code>. Debug avec mapping <code>#line</code> vers les sources <code>.afr</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-3">Comparaison syntaxique</h2>
+  <p class="text-secondary-custom mb-4">Même logique — syntaxe AFRILANG vs style C traditionnel.</p>
+  <div class="compare-grid">
+    <div class="compare-card other">
+      <div class="compare-card-header">Style traditionnel</div>
+      <pre class="code-block mb-0" style="background:var(--afr-bg-muted);color:var(--afr-text);border-radius:0">if (score >= 90) {
+    printf("Excellent\n");
+} else if (score >= 50) {
+    printf("Pass\n");
+} else {
+    printf("Retry\n");
+}</pre>
+    </div>
+    <div class="compare-card afr">
+      <div class="compare-card-header">AFRILANG</div>
+      <pre class="code-block mb-0" style="background:var(--afr-code-bg);border-radius:0">if score is greater than or equal to 90 then
+    say "Excellent"
+else if score is greater than or equal to 50 then
+    say "Pass"
+else
+    say "Retry"
+end</pre>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">Pipeline de compilation</h2>
+  <div class="code-panel">
+    <pre>fichier.afr  →  Lexer  →  Parser  →  AST  →  Analyse sémantique  →  CodeGen C++  →  g++  →  exécutable</pre>
+  </div>
+  <ul class="mt-3 text-secondary-custom">
+    <li>Imports multi-fichiers : <code>import "helpers.afr"</code>, <code>import "std/io"</code></li>
+    <li>Projets avec manifeste <code>afrilang.toml</code> et résolution semver des dépendances</li>
+    <li>Cibles : <code>native</code>, <code>linux-x64</code>, <code>linux-arm64</code>, <code>wasm32</code></li>
+  </ul>
+</section>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">Fonctionnalités du langage</h2>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <ul class="text-secondary-custom">
+        <li>Variables, constantes, types annotés ou inférés</li>
+        <li>Listes naturelles : <code>list of 1, 2, 3</code>, <code>map each</code>, <code>filter each</code></li>
+        <li>Fonctions, lambdas, modules avec <code>export</code> / <code>private</code></li>
+        <li>Classes, héritage, <code>abstract</code>, <code>final</code>, <code>static</code>, properties</li>
+        <li>Interfaces (traits) et polymorphisme</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul class="text-secondary-custom">
+        <li>Génériques sur fonctions et classes</li>
+        <li>Enums, unions taguées, <code>match</code> exhaustif (statement et expression)</li>
+        <li>Optionnels <code>T?</code>, type <code>Result</code>, exceptions <code>try/catch/raise</code></li>
+        <li><code>async function</code> / <code>await</code> (C++20 coroutines)</li>
+        <li>FFI : <code>extern from "lib" function …</code></li>
+        <li>Tests intégrés : blocs <code>test "name"</code> avec <code>assert</code></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">Exemple complet : match + Result</h2>
+  <div class="code-panel">
+    <div class="code-panel-header"><span>status.afr</span></div>
+    <pre>enum Status
+    case Ok
+    case Error with message text
+end
+
+function divide(a number, b number) returns number or error
+    if b is equal to 0 then
+        return error "division by zero"
+    end
+    return a / b
+end
+
+create r = divide(10, 2)
+match r
+    case error with msg then
+        say "Failed: " + msg
+    end
+    default
+        say "Result: " + r.value
+    end
+end</pre>
+  </div>
+</section>
+
+<div class="text-center py-4">
+  <a href="{% url 'docs_overview' %}" class="btn btn-afr-primary me-2">Lire la documentation</a>
+  <a href="{% url 'playground' %}" class="btn btn-afr-outline">Essayer maintenant</a>
+</div>
+{% endblock %}

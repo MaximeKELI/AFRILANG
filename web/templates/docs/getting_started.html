@@ -1,0 +1,117 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}Premiers pas — AFRILANG{% endblock %}
+
+{% block doc_content %}
+<h1>Premiers pas</h1>
+<p class="docs-lead">
+  Installez le compilateur AFRILANG, exécutez votre premier programme, créez un projet
+  et découvrez les commandes essentielles de la CLI.
+</p>
+
+<h2>Prérequis</h2>
+<ul>
+  <li>Linux (testé sur Ubuntu/Debian) — macOS/Windows via toolchain compatible</li>
+  <li><strong>CMake</strong> ≥ 3.16, <strong>g++</strong> avec support C++17 (C++20 pour async)</li>
+  <li>Git pour cloner le dépôt</li>
+</ul>
+
+<h2>Installation du compilateur</h2>
+<div class="code-panel">
+  <div class="code-panel-header"><span>Terminal</span></div>
+  <pre>git clone https://github.com/MaximeKELI/AFRILANG.git
+cd AFRILANG
+mkdir build && cd build
+cmake ..
+cmake --build . -j$(nproc)
+
+# Vérifier
+./afrilang --version
+./afrilang run ../examples/hello.afr</pre>
+</div>
+<p>
+  Le binaire <code>afrilang</code> se trouve dans <code>build/</code>. Ajoutez-le à votre
+  <code>PATH</code> ou créez un lien symbolique dans <code>/usr/local/bin</code>.
+</p>
+
+<h2>Premier programme</h2>
+<p>Créez <code>hello.afr</code> :</p>
+<div class="code-panel">
+  <pre>say "Bonjour, AFRILANG!"
+
+repeat 3 times
+    say "Hello"
+end</pre>
+</div>
+<div class="code-panel mt-2">
+  <div class="code-panel-header"><span>Exécution</span></div>
+  <pre>afrilang run hello.afr</pre>
+</div>
+<p>
+  La commande <code>run</code> transpile, compile avec <code>g++</code> et exécute le binaire
+  en une seule étape.
+</p>
+
+<h2>Créer un projet</h2>
+<div class="code-panel">
+  <pre>afrilang init mon_app
+cd mon_app
+afrilang build
+afrilang run src/main.afr</pre>
+</div>
+<p>
+  <code>init</code> génère <code>afrilang.toml</code> (manifeste) et <code>src/main.afr</code>.
+  <code>build</code> compile le projet ; <code>test</code> lance les blocs <code>test</code> intégrés.
+</p>
+
+<h3>Manifeste afrilang.toml</h3>
+<div class="code-panel">
+  <pre>[project]
+name = "mon_app"
+version = "0.1.0"
+
+[dependencies]
+math = "0.1.0"</pre>
+</div>
+<p>
+  Installez les dépendances avec <code>afrilang pkg install</code>. Les paquets certifiés
+  sont listés sur la page <a href="{% url 'packages' %}">Paquets</a>.
+</p>
+
+<h2>Commandes CLI essentielles</h2>
+<table class="docs-table">
+  <thead>
+    <tr><th>Commande</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>afrilang run fichier.afr</code></td><td>Compiler et exécuter</td></tr>
+    <tr><td><code>afrilang build</code></td><td>Compiler le projet (afrilang.toml)</td></tr>
+    <tr><td><code>afrilang check fichier.afr</code></td><td>Vérifier sans générer de binaire</td></tr>
+    <tr><td><code>afrilang test</code></td><td>Exécuter la suite de tests du projet</td></tr>
+    <tr><td><code>afrilang fmt -w fichier.afr</code></td><td>Formater le source</td></tr>
+    <tr><td><code>afrilang lint fichier.afr</code></td><td>Analyse statique</td></tr>
+    <tr><td><code>afrilang repl</code></td><td>REPL interactif</td></tr>
+    <tr><td><code>afrilang lsp</code></td><td>Serveur Language Server (stdio)</td></tr>
+    <tr><td><code>afrilang pkg add math</code></td><td>Ajouter un paquet certifié</td></tr>
+    <tr><td><code>afrilang build --target wasm32</code></td><td>Cross-compilation WebAssembly</td></tr>
+    <tr><td><code>afrilang explain fichier.afr</code></td><td>Mode pédagogique ligne par ligne</td></tr>
+  </tbody>
+</table>
+
+<h2>Extension IDE</h2>
+<p>
+  Installez l'extension <strong>AFRILANG</strong> (v1.4+) depuis VS Code, Cursor ou Open VSX.
+  Elle fournit coloration, diagnostics LSP, complétion FR/EN, symboles, code actions et formatage.
+  Configurez le chemin du compilateur si nécessaire : <code>afrilang.compilerPath</code>.
+</p>
+
+<h2>Essayer sans installation</h2>
+<p>
+  Utilisez le <a href="{% url 'playground' %}">playground web</a> pour exécuter du code AFRILANG
+  directement dans le navigateur (compilation côté serveur).
+</p>
+
+<div class="docs-nav-footer">
+  <a href="{% url 'docs_overview' %}">← Vue d'ensemble</a>
+  <a href="{% url 'docs_syntax' %}">Syntaxe de base →</a>
+</div>
+{% endblock %}

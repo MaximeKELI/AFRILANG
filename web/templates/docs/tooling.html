@@ -1,0 +1,113 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}Outils — AFRILANG{% endblock %}
+
+{% block doc_content %}
+<h1>Outils et écosystème</h1>
+<p class="docs-lead">
+  CLI, LSP, REPL, formatter, linter, gestionnaire de paquets, debug adapter,
+  extension IDE, playground web et CI — la toolchain complète d'AFRILANG.
+</p>
+
+<h2>CLI — référence rapide</h2>
+<table class="docs-table">
+  <thead><tr><th>Commande</th><th>Rôle</th></tr></thead>
+  <tbody>
+    <tr><td><code>afrilang build [--target …]</code></td><td>Compile le projet</td></tr>
+    <tr><td><code>afrilang run fichier.afr</code></td><td>Compile + exécute</td></tr>
+    <tr><td><code>afrilang check</code></td><td>Analyse sans codegen</td></tr>
+    <tr><td><code>afrilang test</code></td><td>Suite de tests</td></tr>
+    <tr><td><code>afrilang fmt [-w]</code></td><td>Formateur de code</td></tr>
+    <tr><td><code>afrilang lint</code></td><td>Linter statique</td></tr>
+    <tr><td><code>afrilang repl</code></td><td>REPL v2 (<code>:load</code>, <code>:type</code>, <code>:history</code>)</td></tr>
+    <tr><td><code>afrilang lsp</code></td><td>Language Server (stdio JSON-RPC)</td></tr>
+    <tr><td><code>afrilang doc</code></td><td>Génération de documentation</td></tr>
+    <tr><td><code>afrilang explain</code></td><td>Mode pédagogique</td></tr>
+    <tr><td><code>afrilang benchmark</code></td><td>Benchmarks de compilation</td></tr>
+    <tr><td><code>afrilang serve</code></td><td>Playground statique (port 8080)</td></tr>
+    <tr><td><code>afrilang debug</code></td><td>Debug adapter (DAP)</td></tr>
+  </tbody>
+</table>
+
+<h2>Language Server (LSP 1.1)</h2>
+<p>Le serveur LSP fournit :</p>
+<ul>
+  <li>Diagnostics en temps réel avec codes d'erreur stables (<code>E3002</code>, …)</li>
+  <li>Hover enrichi (types, documentation)</li>
+  <li>Go to definition, find references</li>
+  <li>Complétion bilingue FR/EN</li>
+  <li>Symboles document et workspace</li>
+  <li>Code actions (quick fixes)</li>
+  <li>Formatage via <code>textDocument/formatting</code></li>
+</ul>
+<div class="code-panel">
+  <pre># Lancer le LSP (utilisé par l'extension IDE)
+afrilang lsp</pre>
+</div>
+
+<h2>Extension VS Code / Cursor</h2>
+<p>Version <strong>1.4.0</strong> — disponible sur Open VSX et en installation locale depuis <code>vscode-afrilang/</code>.</p>
+<ul>
+  <li>Coloration syntaxique AFRILANG</li>
+  <li>Intégration LSP complète</li>
+  <li>Icônes et thème de fichiers <code>.afr</code></li>
+  <li>Snippets et commandes (<code>Run</code>, <code>Format</code>)</li>
+</ul>
+
+<h2>Gestionnaire de paquets</h2>
+<div class="code-panel">
+  <pre>afrilang pkg list --blessed     # paquets certifiés
+afrilang pkg search math
+afrilang pkg add math
+afrilang pkg install            # depuis afrilang.toml
+afrilang pkg publish            # publier localement</pre>
+</div>
+<p>
+  Résolution semver 2.0, lockfile <code>afrilang.lock</code>, vérification SHA256 pour les paquets certifiés.
+  Registre officiel : page <a href="{% url 'packages' %}">Paquets</a>.
+</p>
+
+<h2>Debug</h2>
+<p>
+  Le codegen insère des directives <code>#line</code> pour mapper le C++ généré vers les sources
+  <code>.afr</code>. Le debug adapter (DAP) communique avec GDB/MI et affiche les variables
+  typées avec métadonnées Afrilang.
+</p>
+
+<h2>Cross-compilation</h2>
+<div class="code-panel">
+  <pre>afrilang build --target native        # défaut
+afrilang build --target linux-x64
+afrilang build --target linux-arm64
+afrilang build --target wasm32        # Emscripten</pre>
+</div>
+
+<h2>Playground web</h2>
+<p>
+  Deux options : le serveur statique C++ (<code>afrilang serve</code>) ou ce site Django avec
+  le <a href="{% url 'playground' %}">playground interactif</a> (API REST :
+  <code>POST /api/run/</code>, <code>POST /api/fmt/</code>).
+</p>
+
+<h2>CI et qualité</h2>
+<ul>
+  <li>{{ SITE_STATS.examples }}+ exemples compilés en CI</li>
+  <li>Tests unitaires C++ (<code>ctest</code>)</li>
+  <li>Build WASM en pipeline GitHub Actions</li>
+  <li>Script benchmark : <code>scripts/benchmark.sh</code></li>
+</ul>
+
+<h2>Variables d'environnement</h2>
+<table class="docs-table">
+  <thead><tr><th>Variable</th><th>Effet</th></tr></thead>
+  <tbody>
+    <tr><td><code>AFRILANG_LOCALE=fr|en</code></td><td>Langue des messages d'erreur</td></tr>
+    <tr><td><code>AFRILANG_ALLOW_SERVE=1</code></td><td>Autorise <code>afrilang serve</code></td></tr>
+    <tr><td><code>AFRILANG_ROOT</code></td><td>Racine du projet (stdlib, paquets)</td></tr>
+  </tbody>
+</table>
+
+<div class="docs-nav-footer">
+  <a href="{% url 'docs_stdlib' %}">← Bibliothèque standard</a>
+  <a href="{% url 'playground' %}">Playground →</a>
+</div>
+{% endblock %}

@@ -2,19 +2,22 @@
 {% block title %}Playground — AFRILANG{% endblock %}
 
 {% block content %}
-<div class="text-center mb-4">
-  <h1 class="h2 fw-bold">Playground</h1>
-  <p class="text-secondary">Exécution via API Django → compilateur <code>{{ AFRILANG_BIN }}</code></p>
+<div class="mb-4">
+  <div class="section-label">Essayer en ligne</div>
+  <h1 class="h2 fw-bold mb-1">Playground AFRILANG</h1>
+  <p class="text-secondary-custom mb-0">
+    Écrivez du code, exécutez-le ou formatez-le — compilation native via le compilateur officiel.
+  </p>
 </div>
 
 {{ examples_map|json_script:"examples-data" }}
 
-<div class="row g-3 playground-grid">
+<div class="row g-4 playground-grid">
   <div class="col-lg-6">
-    <div class="card afr-card h-100">
+    <div class="afr-card h-100">
       <div class="card-header d-flex align-items-center gap-2">
-        <label for="examples" class="mb-0 small text-secondary">Exemple</label>
-        <select id="examples" class="form-select form-select-sm" style="max-width:200px">
+        <label for="examples" class="mb-0 small text-secondary-custom">Exemple</label>
+        <select id="examples" class="form-select form-select-sm" style="max-width:220px">
           {% for ex in examples %}
           <option value="{{ ex.slug }}">{{ ex.title }}</option>
           {% empty %}
@@ -22,24 +25,29 @@
           {% endfor %}
         </select>
       </div>
-      <div class="card-body d-flex flex-column">
-        <textarea id="editor" class="form-control font-monospace flex-grow-1 playground-editor" spellcheck="false">say "Hello from Django playground!"</textarea>
-        <div class="d-flex flex-wrap gap-2 mt-3 align-items-center">
-          <button type="button" class="btn btn-primary" id="run">Run</button>
-          <button type="button" class="btn btn-outline-secondary" id="runWasm">Run WASM</button>
-          <button type="button" class="btn btn-outline-secondary" id="fmt">Format</button>
-          <span id="status" class="small text-secondary ms-auto"></span>
+      <div class="card-body d-flex flex-column p-0">
+        <textarea id="editor" class="form-control font-monospace flex-grow-1 playground-editor border-0" spellcheck="false">say "Hello from AFRILANG!"</textarea>
+        <div class="d-flex flex-wrap gap-2 p-3 border-top">
+          <button type="button" class="btn btn-afr-primary" id="run">▶ Run</button>
+          <button type="button" class="btn btn-afr-outline btn-sm" id="runWasm">Run WASM</button>
+          <button type="button" class="btn btn-afr-outline btn-sm" id="fmt">Format</button>
+          <span id="status" class="small text-secondary-custom ms-auto align-self-center"></span>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-6">
-    <div class="card afr-card h-100">
-      <div class="card-header small text-secondary">Output</div>
-      <pre id="output" class="card-body code-block mb-0 overflow-auto">(click Run)</pre>
+    <div class="afr-card h-100">
+      <div class="card-header small text-secondary-custom">Sortie</div>
+      <pre id="output" class="card-body code-block mb-0 overflow-auto flex-grow-1" style="min-height:300px;background:var(--afr-code-bg);color:var(--afr-code-text);border-radius:0 0 var(--afr-radius) var(--afr-radius)">Cliquez sur Run pour exécuter votre code.</pre>
     </div>
   </div>
 </div>
+
+<p class="small text-secondary-custom mt-3">
+  Besoin d'aide ? Consultez la <a href="{% url 'docs_syntax' %}">syntaxe de base</a> ou les
+  <a href="{% url 'docs_getting_started' %}">premiers pas</a>.
+</p>
 {% endblock %}
 
 {% block extra_js %}
@@ -63,7 +71,7 @@ async function runCode(url, label) {
   const output = document.getElementById('output');
   const status = document.getElementById('status');
   status.textContent = label;
-  output.classList.remove('text-danger');
+  output.style.color = '';
   try {
     const res = await fetch(url, {
       method: 'POST',
@@ -75,16 +83,16 @@ async function runCode(url, label) {
     });
     const data = await res.json();
     output.textContent = data.output || '(no output)';
-    status.textContent = data.ok ? 'OK' : 'Error ' + data.exitCode;
-    if (!data.ok) output.classList.add('text-danger');
+    status.textContent = data.ok ? '✓ OK' : '✗ Erreur ' + data.exitCode;
+    if (!data.ok) output.style.color = '#f87171';
   } catch (e) {
     output.textContent = String(e);
-    status.textContent = 'Network error';
-    output.classList.add('text-danger');
+    status.textContent = 'Erreur réseau';
+    output.style.color = '#f87171';
   }
 }
 
-document.getElementById('run')?.addEventListener('click', () => runCode('{% url "api_run" %}', 'Compiling…'));
+document.getElementById('run')?.addEventListener('click', () => runCode('{% url "api_run" %}', 'Compilation…'));
 document.getElementById('runWasm')?.addEventListener('click', () => runCode('{% url "api_run_wasm" %}', 'WASM…'));
 document.getElementById('fmt')?.addEventListener('click', async () => {
   const res = await fetch('{% url "api_fmt" %}', {

@@ -1,0 +1,125 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}Types — AFRILANG{% endblock %}
+
+{% block doc_content %}
+<h1>Système de types</h1>
+<p class="docs-lead">
+  AFRILANG est typé statiquement : chaque expression a un type vérifié à la compilation.
+  Les types transpilent vers des équivalents C++17 standard.
+</p>
+
+<h2>Types primitifs</h2>
+<table class="docs-table">
+  <thead>
+    <tr><th>Type AFRILANG</th><th>Description</th><th>C++ généré</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>number</code></td><td>Nombre décimal</td><td><code>double</code></td></tr>
+    <tr><td><code>text</code></td><td>Chaîne UTF-8</td><td><code>std::string</code></td></tr>
+    <tr><td><code>bool</code></td><td>Vrai/faux (<code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>)</td><td><code>bool</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Collections</h2>
+<table class="docs-table">
+  <thead>
+    <tr><th>Type</th><th>Syntaxe</th><th>C++</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Liste</td><td><code>list of T</code> ou <code>list T</code></td><td><code>std::vector&lt;T&gt;</code></td></tr>
+    <tr><td>Map</td><td><code>map K to V</code></td><td><code>std::unordered_map&lt;K,V&gt;</code></td></tr>
+  </tbody>
+</table>
+<p>
+  Pour les listes polymorphiques de classes, le compilateur utilise
+  <code>std::vector&lt;std::unique_ptr&lt;T&gt;&gt;</code>.
+</p>
+
+<h2>Types composés</h2>
+<table class="docs-table">
+  <thead>
+    <tr><th>Type</th><th>Syntaxe</th><th>Usage</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Optionnel</td><td><code>T?</code></td><td>Valeur absente = <code>nothing</code></td></tr>
+    <tr><td>Result</td><td><code>T or error</code></td><td>Succès ou erreur typée</td></tr>
+    <tr><td>Fonction</td><td><code>function A, B to C</code></td><td>Type de fonction / lambda</td></tr>
+    <tr><td>Record</td><td><code>record Point … end</code></td><td>Struct léger</td></tr>
+    <tr><td>Enum</td><td><code>enum Status … end</code></td><td>Types somme avec payload</td></tr>
+    <tr><td>Union</td><td><code>union Shape … end</code></td><td>Alias de enum tagué</td></tr>
+    <tr><td>Task</td><td>(retour async)</td><td>Coroutines C++20</td></tr>
+    <tr><td>Pointer</td><td><code>pointer</code></td><td>FFI (<code>void*</code>)</td></tr>
+  </tbody>
+</table>
+
+<h2>Optionnels et null-safety</h2>
+<div class="code-panel">
+  <pre>create name text? = nothing
+
+if name is defined then
+    say name
+else
+    say "No name"
+end
+
+function findUser(id number) returns text?
+    if id is less than 0 then
+        return nothing
+    end
+    return "User" + id
+end</pre>
+</div>
+
+<h2>Type Result</h2>
+<div class="code-panel">
+  <pre>function parseAge(s text) returns number or error
+    create n = toNumber(s)
+    if n is less than 0 then
+        return error "invalid age"
+    end
+    return n
+end
+
+create r = parseAge("25")
+if r is error then
+    say r.message
+else
+    say r.value
+end</pre>
+</div>
+
+<h2>Inférence et annotations</h2>
+<p>
+  L'inférence fonctionne sur les littéraux, les listes et les appels génériques.
+  Les paramètres de fonction et les champs de classe doivent être typés explicitement
+  (sauf avec génériques).
+</p>
+<div class="code-panel">
+  <pre>create nums = list of 1, 2, 3        # list of number
+create m = map of "x" to 1             # map text to number
+
+function identity<T>(x T) returns T
+    return x
+end
+
+say identity(42)        # inféré number
+say identity<number>(42) # explicite</pre>
+</div>
+
+<h2>Enums avec payload</h2>
+<div class="code-panel">
+  <pre>enum HttpResult
+    case Ok with body text
+    case NotFound
+    case Error with code number, message text
+end
+
+create r = HttpResult.Error with 500, "Server error"</pre>
+</div>
+<p>Voir la section <a href="{% url 'docs_advanced' %}">Fonctionnalités avancées</a> pour le pattern matching.</p>
+
+<div class="docs-nav-footer">
+  <a href="{% url 'docs_syntax' %}">← Syntaxe de base</a>
+  <a href="{% url 'docs_oop' %}">POO →</a>
+</div>
+{% endblock %}
