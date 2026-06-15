@@ -2,15 +2,15 @@ import "std/cli"
 use cli
 
 module Colors
-    function ok(text msg) returns text
-        return green(msg)
+    function success(msg text) returns text
+        return cli.green(msg)
     end
 
-    function err(text msg) returns text
-        return red(msg)
+    function failure(msg text) returns text
+        return cli.red(msg)
     end
 
-    function warn(text msg) returns text
-        return yellow(msg)
+    function warning(msg text) returns text
+        return cli.yellow(msg)
     end
 end

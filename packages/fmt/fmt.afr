@@ -1,13 +1,13 @@
 module Fmt
-    function join(text left, text right, text sep) returns text
+    function join(left text, right text, sep text) returns text
         return left + sep + right
     end
 
-    function bracket(text msg) returns text
+    function bracket(msg text) returns text
         return "[" + msg + "]"
     end
 
-    function label(text name, text value) returns text
+    function label(name text, value text) returns text
         return name + "=" + value
     end
 end

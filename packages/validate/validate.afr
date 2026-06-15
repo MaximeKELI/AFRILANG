@@ -2,15 +2,15 @@ import "std/prefix"
 use prefix
 
 module Validate
-    function minLength(text value, int minLen) returns bool
+    function minLength(value text, minLen int) returns bool
         return length of value is greater than minLen
     end
 
-    function hasPrefix(text value, text prefix) returns bool
+    function hasPrefix(value text, prefix text) returns bool
         return startsWith(value, prefix)
     end
 
-    function isNumeric(text value) returns bool
+    function isNumeric(value text) returns bool
         return length of value is greater than 0
     end
 end
