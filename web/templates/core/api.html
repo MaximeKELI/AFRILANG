@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.api_page.title }}{% endblock %}
+
+{% block content %}
+<div class="mb-5">
+  <div class="section-label">REST API</div>
+  <h1 class="display-6 fw-bold">{{ ui.api_page.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.api_page.lead }}</p>
+</div>
+
+<div class="docs-content">
+  <h2 class="h4 fw-bold">POST /api/run/</h2>
+  <p class="text-secondary-custom">{{ ui.api_page.run_desc }}</p>
+  <div class="code-panel mb-4">
+    <pre>curl -X POST {{ request.scheme }}://{{ request.get_host }}/api/run/ \\
+  -H "Content-Type: application/json" \\
+  -d '{"source": "say \"Hello\""}'</pre>
+  </div>
+  <p class="text-secondary-custom small">Response: <code>{"ok": true, "output": "...", "exitCode": 0}</code></p>
+
+  <h2 class="h4 fw-bold mt-5">POST /api/run/wasm/</h2>
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}WASM32 target compilation.{% else %}Compilation cible WASM32.{% endif %}</p>
+
+  <h2 class="h4 fw-bold mt-5">POST /api/fmt/</h2>
+  <p class="text-secondary-custom">{{ ui.api_page.fmt_desc }}</p>
+  <div class="code-panel mb-4">
+    <pre>curl -X POST {{ request.scheme }}://{{ request.get_host }}/api/fmt/ \\
+  -H "Content-Type: application/json" \\
+  -d '{"source": "say \"Hello\""}'</pre>
+  </div>
+
+  <h2 class="h4 fw-bold mt-5">GET /api/packages/</h2>
+  <p class="text-secondary-custom">{{ ui.api_page.pkg_desc }}</p>
+  <div class="code-panel mb-4">
+    <pre>curl {{ request.scheme }}://{{ request.get_host }}/api/packages/</pre>
+  </div>
+
+  <h2 class="h4 fw-bold mt-5">GET /api/examples/&lt;slug&gt;/</h2>
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}Fetch a code example by slug.{% else %}Récupère un exemple de code par slug.{% endif %}</p>
+
+  <div class="docs-callout mt-4">
+    <strong>CSRF</strong> — {% if current_lang == 'en' %}Browser requests require CSRF token. Use curl with session cookie for testing.{% else %}Les requêtes navigateur nécessitent un token CSRF. Utilisez curl avec cookie de session pour les tests.{% endif %}
+  </div>
+</div>
+{% endblock %}

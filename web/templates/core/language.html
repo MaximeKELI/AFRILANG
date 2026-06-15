@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Le langage AFRILANG{% endblock %}
-{% block meta %}Présentation d'AFRILANG : syntaxe naturelle bilingue, transpilation C++, POO, génériques, async et bibliothèque standard.{% endblock %}
+{% block title %}{{ ui.language_page.title }}{% endblock %}
+{% block meta %}{{ ui.language_page.meta }}{% endblock %}
 
 {% block content %}
 <div class="mb-5">
-  <div class="section-label">AFRILANG {{ SITE_STATS.version }}</div>
-  <h1 class="display-5 fw-bold">Un langage qui se lit, un compilateur qui livre</h1>
-  <p class="lead text-secondary-custom" style="max-width:44rem">
-    AFRILANG combine la lisibilité du langage naturel avec la rigueur d'un compilateur moderne.
-    Vous écrivez des programmes qui ressemblent à des phrases ; le compilateur les transforme
-    en C++17 optimisé, puis en exécutables natifs.
-  </p>
+  <div class="section-label">{{ ui.language_page.label|format:version=SITE_STATS.version }}</div>
+  <h1 class="display-5 fw-bold">{{ ui.language_page.h1 }}</h1>
+  <p class="lead text-secondary-custom" style="max-width:44rem">{{ ui.language_page.lead }}</p>
 </div>
 
 <section class="mb-5">

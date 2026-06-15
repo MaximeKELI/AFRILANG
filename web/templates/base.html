@@ -16,14 +16,14 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AFRILANG">
-  <meta property="og:title" content="{% block og_title %}{% block title %}AFRILANG{% endblock %}{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}AFRILANG{% endblock %}">
   <meta property="og:description" content="{% block og_desc %}{{ ui.meta_default }}{% endblock %}">
   <meta property="og:url" content="{{ request.build_absolute_uri }}">
   <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}fr_FR{% endif %}">
   <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/icon.png' %}">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% block twitter_title %}{% block title %}AFRILANG{% endblock %}{% endblock %}">
+  <meta name="twitter:title" content="{% block twitter_title %}AFRILANG{% endblock %}">
   <meta name="twitter:description" content="{% block twitter_desc %}{{ ui.meta_default }}{% endblock %}">
 
   <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">

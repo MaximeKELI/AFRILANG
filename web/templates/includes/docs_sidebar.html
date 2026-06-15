@@ -1,5 +1,5 @@
 <nav class="docs-sidebar" aria-label="Documentation">
-  <div class="docs-sidebar-title">Documentation</div>
+  <div class="docs-sidebar-title">{% if current_lang == 'en' %}Documentation{% else %}Documentation{% endif %}</div>
   {% for item in docs_nav %}
   <a class="docs-nav-link {% if docs_active == item.url_name %}active{% endif %}"
      href="{% url item.url_name %}">
@@ -7,6 +7,6 @@
   </a>
   {% endfor %}
   <hr class="my-3">
-  <a class="docs-nav-link" href="{% url 'playground' %}">→ Playground interactif</a>
-  <a class="docs-nav-link" href="{% url 'language' %}">→ Présentation du langage</a>
+  <a class="docs-nav-link" href="{% url 'playground' %}">→ Playground</a>
+  <a class="docs-nav-link" href="{% url 'language' %}">→ {{ ui.nav_language }}</a>
 </nav>

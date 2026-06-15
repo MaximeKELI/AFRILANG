@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.community.title }}{% endblock %}
+
+{% block content %}
+<div class="mb-5">
+  <div class="section-label">{{ ui.nav_community }}</div>
+  <h1 class="display-6 fw-bold">{{ ui.community.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.community.lead }}</p>
+</div>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="afr-feature-card h-100">
+      <h2 class="h5 fw-bold">GitHub</h2>
+      <p class="small text-secondary-custom">
+        {% if current_lang == 'en' %}
+        Source code, issues, pull requests and CI. MIT license.
+        {% else %}
+        Code source, issues, pull requests et CI. Licence MIT.
+        {% endif %}
+      </p>
+      <a href="https://github.com/MaximeKELI/AFRILANG" class="btn btn-afr-outline btn-sm" target="_blank" rel="noopener noreferrer">github.com/MaximeKELI/AFRILANG</a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="afr-feature-card h-100">
+      <h2 class="h5 fw-bold">{% if current_lang == 'en' %}Contribute{% else %}Contribuer{% endif %}</h2>
+      <ul class="small text-secondary-custom mb-3">
+        <li>{% if current_lang == 'en' %}Fix bugs, add examples, improve docs{% else %}Corriger des bugs, ajouter des exemples, améliorer la doc{% endif %}</li>
+        <li>{% if current_lang == 'en' %}Publish packages via <code>afrilang pkg publish</code>{% else %}Publier des paquets via <code>afrilang pkg publish</code>{% endif %}</li>
+        <li>SECURITY.md, CODE_OF_CONDUCT.md</li>
+      </ul>
+      <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-sm">{{ ui.nav_start }}</a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="afr-feature-card h-100">
+      <h2 class="h5 fw-bold">{% if current_lang == 'en' %}Package registry{% else %}Registre de paquets{% endif %}</h2>
+      <p class="small text-secondary-custom mb-3">
+        {% if current_lang == 'en' %}
+        10 certified packages with SHA256 verification.
+        {% else %}
+        10 paquets certifiés avec vérification SHA256.
+        {% endif %}
+      </p>
+      <a href="{% url 'packages' %}" class="btn btn-afr-outline btn-sm">{{ ui.nav_packages }}</a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="afr-feature-card h-100">
+      <h2 class="h5 fw-bold">Playground</h2>
+      <p class="small text-secondary-custom mb-3">
+        {% if current_lang == 'en' %}
+        Try AFRILANG in the browser without installing.
+        {% else %}
+        Essayez AFRILANG dans le navigateur sans installation.
+        {% endif %}
+      </p>
+      <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-sm">Playground</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

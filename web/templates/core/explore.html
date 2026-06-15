@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Écosystème — AFRILANG{% endblock %}
+{% block title %}{{ ui.explore.title }}{% endblock %}
 
 {% block content %}
 <div class="mb-5">
-  <div class="section-label">Écosystème complet</div>
-  <h1 class="display-6 fw-bold">Tout ce qui compose AFRILANG</h1>
-  <p class="lead text-secondary-custom" style="max-width:40rem">
-    Langage, compilateur, bibliothèque standard, paquets, WASM, LSP, debug et CI —
-    une stack de développement complète, open source.
-  </p>
+  <div class="section-label">{{ ui.explore.label }}</div>
+  <h1 class="display-6 fw-bold">{{ ui.explore.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.explore.lead }}</p>
 </div>
 
 <div class="row g-4">
@@ -30,9 +27,7 @@
   </div>
   {% empty %}
   <div class="col-12">
-    <div class="docs-callout docs-callout-warning">
-      Données non chargées — exécutez <code>python manage.py seed_data</code>
-    </div>
+    <div class="docs-callout docs-callout-warning">{{ ui.explore.empty }}</div>
   </div>
   {% endfor %}
 </div>
@@ -41,25 +36,25 @@
   <div class="col-md-4">
     <div class="afr-stat-card">
       <div class="stat-value">{{ SITE_STATS.examples }}+</div>
-      <div class="stat-label">Exemples testés CI</div>
+      <div class="stat-label">{% if current_lang == 'en' %}CI-tested examples{% else %}Exemples testés CI{% endif %}</div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="afr-stat-card">
       <div class="stat-value">{{ SITE_STATS.stdlib_modules }}</div>
-      <div class="stat-label">Modules stdlib</div>
+      <div class="stat-label">{% if current_lang == 'en' %}Stdlib modules{% else %}Modules stdlib{% endif %}</div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="afr-stat-card">
       <div class="stat-value">{{ SITE_STATS.cli_commands }}+</div>
-      <div class="stat-label">Commandes CLI</div>
+      <div class="stat-label">CLI</div>
     </div>
   </div>
 </div>
 
 <div class="text-center mt-5">
-  <a href="{% url 'docs_tooling' %}" class="btn btn-afr-primary me-2">Documentation outils</a>
-  <a href="{% url 'packages' %}" class="btn btn-afr-outline">Registre de paquets</a>
+  <a href="{% url 'docs_tooling' %}" class="btn btn-afr-primary me-2">{{ ui.explore.btn_tools }}</a>
+  <a href="{% url 'packages' %}" class="btn btn-afr-outline">{{ ui.explore.btn_packages }}</a>
 </div>
 {% endblock %}

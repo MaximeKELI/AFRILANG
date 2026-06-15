@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.download.title }}{% endblock %}
+
+{% block content %}
+<div class="mb-5">
+  <div class="section-label">{% if current_lang == 'en' %}Download{% else %}Téléchargement{% endif %}</div>
+  <h1 class="display-6 fw-bold">{{ ui.download.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.download.lead }}</p>
+</div>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.requirements }}</h2>
+  <ul class="text-secondary-custom">
+    <li>Linux (Ubuntu/Debian) — macOS/Windows with compatible toolchain</li>
+    <li>CMake ≥ 3.16, g++ C++17 ({% if current_lang == 'en' %}C++20 for async{% else %}C++20 pour async{% endif %})</li>
+    <li>Git, curl (optional, for HTTP stdlib)</li>
+  </ul>
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.build }}</h2>
+  <div class="code-panel">
+    <pre>git clone https://github.com/MaximeKELI/AFRILANG.git
+cd AFRILANG
+mkdir build && cd build
+cmake ..
+cmake --build . -j$(nproc)</pre>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.verify }}</h2>
+  <div class="code-panel">
+    <pre>./afrilang --version
+./afrilang run ../examples/hello.afr
+./afrilang test ..</pre>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.ide }}</h2>
+  <p class="text-secondary-custom">
+    {% if current_lang == 'en' %}
+    Install the AFRILANG extension (v1.4+) from VS Code, Cursor or Open VSX.
+    Configure <code>afrilang.compilerPath</code> if needed.
+    {% else %}
+    Installez l'extension AFRILANG (v1.4+) depuis VS Code, Cursor ou Open VSX.
+    Configurez <code>afrilang.compilerPath</code> si nécessaire.
+    {% endif %}
+  </p>
+  <a href="{% url 'docs_tooling' %}" class="btn btn-afr-primary">{{ ui.nav_docs }}</a>
+</section>
+{% endblock %}
