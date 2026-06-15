@@ -73,10 +73,7 @@ def lsp_exchange(path: Path, extra_request=None, wait_for=b"publishDiagnostics")
 
     if proc.poll() is None:
         proc.kill()
-        try:
-            out += proc.communicate(timeout=1)[0]
-        except subprocess.TimeoutExpired:
-            proc.kill()
+        out += proc.stdout.read() or b""
 
     return out.decode(errors="replace")
 
