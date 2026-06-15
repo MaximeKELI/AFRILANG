@@ -472,6 +472,8 @@ void StdlibRegistry::injectHexModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("encode", {{"data", "text"}}, "text"));
     fns.push_back(makeStubFunction("decode", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("toHex", {{"n", "number"}}, "text"));
+    fns.push_back(makeStubFunction("fromHex", {{"s", "text"}}, "number"));
     injectModule(program, "hex", std::move(fns));
 }
 

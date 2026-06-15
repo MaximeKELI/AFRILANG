@@ -34,4 +34,14 @@ inline std::string decode(const std::string& data) {
     return out;
 }
 
+inline std::string toHex(double n) {
+    std::ostringstream os;
+    os << std::hex << static_cast<long long>(n);
+    return os.str();
+}
+
+inline double fromHex(const std::string& s) {
+    return static_cast<double>(std::stoll(s, nullptr, 16));
+}
+
 } // namespace afrilang::runtime::hex

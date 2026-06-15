@@ -219,11 +219,6 @@ inline double normalizeAngle(double d) { { double r = std::fmod(d, 360.0); retur
 inline double angleDiff(double a, double b) { { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; } }
 } // namespace
 
-namespace afrilang::runtime::hex {
-inline std::string toHex(double n) { { std::ostringstream os; os << std::hex << static_cast<long long>(n); return os.str(); } }
-inline double fromHex(std::string s) { { return static_cast<double>(std::stoll(s, nullptr, 16)); } }
-} // namespace
-
 namespace afrilang::runtime::binary {
 inline std::string toBinary(double n) { { std::string r; long long v = static_cast<long long>(n); if (v == 0) return "0"; while (v) { r = char('0' + v % 2) + r; v /= 2; } return r; } }
 inline double fromBinary(std::string s) { return static_cast<double>(std::stoll(s, nullptr, 2)); }

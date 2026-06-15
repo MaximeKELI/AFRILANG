@@ -8,29 +8,9 @@
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
+#include "hex.hpp"
 #include "simple_libs.hpp"
 #include "str.hpp"
-
-namespace celsius {
-} // namespace celsius
-
-namespace upper {
-} // namespace upper
-
-namespace trig {
-} // namespace trig
-
-namespace hex {
-} // namespace hex
-
-namespace i18n {
-} // namespace i18n
-
-namespace quiz {
-} // namespace quiz
-
-namespace format {
-} // namespace format
 
 namespace celsius {
     double cToF(double c) {
@@ -66,6 +46,14 @@ namespace trig {
 } // namespace trig
 
 namespace hex {
+    std::string encode(std::string data) {
+        return afrilang::runtime::hex::encode(data);
+    }
+
+    std::string decode(std::string data) {
+        return afrilang::runtime::hex::decode(data);
+    }
+
     std::string toHex(double n) {
         return afrilang::runtime::hex::toHex(n);
     }
