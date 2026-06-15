@@ -8,7 +8,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 AFRILANG = ROOT / "build" / "afrilang"
-EXAMPLES = ROOT / "examples"
 
 
 def lsp_diag_for(path: Path) -> list[str]:

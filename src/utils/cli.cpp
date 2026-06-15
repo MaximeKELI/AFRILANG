@@ -100,6 +100,7 @@ static void printUsage() {
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
     std::cerr << "  afrilang pkg publish <dir>   Publier dans le registre local\n";
     std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
+    std::cerr << "  afrilang benchmark           Mesurer compile + exec (exemples)\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
     std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
@@ -349,7 +350,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier6_demo.afr",
         "tier7_demo.afr",
         "tier8_demo.afr",
-        "tier9_demo.afr"
+        "tier9_demo.afr",
+        "tier10_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());
@@ -749,6 +751,16 @@ int runCli(int argc, char* argv[]) {
         }
         std::cerr << "Sous-commande pkg inconnue: " << sub << "\n";
         return 1;
+    }
+    if (cmd == "benchmark") {
+        const fs::path script = fs::path(detectAfrilangRoot()) / "scripts" / "benchmark.sh";
+        if (!fs::exists(script)) {
+            std::cerr << "Script introuvable: " << script << "\n";
+            return 1;
+        }
+        const std::string cmdline = "bash \"" + script.string() + "\"";
+        const int code = std::system(cmdline.c_str());
+        return code != 0 ? (code > 0 ? code : 1) : 0;
     }
     if (cmd == "serve") {
         int port = 8080;
