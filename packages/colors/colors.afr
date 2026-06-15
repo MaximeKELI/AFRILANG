@@ -1,0 +1,16 @@
+import "std/cli"
+use cli
+
+module Colors
+    function ok(text msg) returns text
+        return green(msg)
+    end
+
+    function err(text msg) returns text
+        return red(msg)
+    end
+
+    function warn(text msg) returns text
+        return yellow(msg)
+    end
+end

@@ -1,0 +1,19 @@
+module Strings
+    function repeat(text text, times int) returns text
+        create out text = ""
+        create i int = 0
+        while i is less than times do
+            set out = out + text
+            set i = i + 1
+        end
+        return out
+    end
+
+    function upper(text text) returns text
+        return text
+    end
+
+    function lower(text text) returns text
+        return text
+    end
+end

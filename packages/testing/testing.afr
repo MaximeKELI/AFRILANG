@@ -1,0 +1,16 @@
+module Testing
+    function pass(text name) returns text
+        return "[PASS] " + name
+    end
+
+    function fail(text name) returns text
+        return "[FAIL] " + name
+    end
+
+    function check(text name, bool ok) returns text
+        if ok then
+            return pass(name)
+        end
+        return fail(name)
+    end
+end

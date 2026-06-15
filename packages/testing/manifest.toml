@@ -1,0 +1,4 @@
+name = "testing"
+version = "0.1.0"
+description = "Lightweight test helpers"
+main = "testing.afr"

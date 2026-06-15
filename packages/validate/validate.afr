@@ -1,0 +1,13 @@
+module Validate
+    function minLength(text value, int minLen) returns bool
+        return length of value is greater than minLen
+    end
+
+    function hasPrefix(text value, text prefix) returns bool
+        return value is equal to prefix
+    end
+
+    function isNumeric(text value) returns bool
+        return length of value is greater than 0
+    end
+end

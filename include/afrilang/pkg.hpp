@@ -12,6 +12,7 @@ struct PackageInfo {
     std::string description;
     std::string mainFile = "math.afr";
     std::string sha256;
+    bool blessed = false;
 };
 
 class PkgRegistry {

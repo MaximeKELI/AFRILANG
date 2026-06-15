@@ -1,0 +1,4 @@
+name = "strings"
+version = "0.1.0"
+description = "String helpers (repeat, upper, lower)"
+main = "strings.afr"
