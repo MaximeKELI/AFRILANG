@@ -21,6 +21,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <thread>
 #include <sstream>
 
 namespace fs = std::filesystem;
@@ -276,7 +277,7 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
 int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
     int failures = 0;
     int passed = 0;
-    const int totalExamples = 53;
+    const int totalExamples = static_cast<int>(examples.size());
     const fs::path root(afrilangRoot);
 
     std::cout << "=== Tests AFRILANG ===\n\n";
@@ -320,6 +321,7 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
             auto result = compileFile(path, opts);
             if (result.success) {
                 std::cout << "OK\n";
+                ++passed;
             } else {
                 std::cout << "FAIL\n";
                 ++failures;
@@ -344,6 +346,14 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
     }
 
     std::cout << "\n";
+    if (coverage) {
+        const int pct = totalExamples > 0 ? (passed * 100) / totalExamples : 0;
+        std::cout << "Couverture exemples: " << passed << "/" << totalExamples
+                  << " (" << pct << "%)\n";
+        if (coverage && passed == totalExamples) {
+            std::cout << "Artefacts gcov dans le répertoire courant (si g++ --coverage actif).\n";
+        }
+    }
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";
     } else {
@@ -410,7 +420,7 @@ static int cmdBuild(int argc, char* argv[]) {
 
 static int cmdRun(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cerr << "Usage: afrilang run <fichier.afr> [--target <cible>]\n";
+        std::cerr << "Usage: afrilang run <fichier.afr> [--target <cible>] [--watch] [--profile]\n";
         return 1;
     }
 
@@ -419,8 +429,13 @@ static int cmdRun(int argc, char* argv[]) {
     opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
     std::string file = argv[2];
     for (int i = 3; i < argc; ++i) {
-        if (std::string(argv[i]) == "--target" && i + 1 < argc) {
+        const std::string arg = argv[i];
+        if (arg == "--target" && i + 1 < argc) {
             opts.crossTarget = argv[++i];
+        } else if (arg == "--watch") {
+            opts.watchMode = true;
+        } else if (arg == "--profile") {
+            opts.profileMode = true;
         }
     }
 
@@ -431,8 +446,24 @@ static int cmdRun(int argc, char* argv[]) {
     }
 
     try {
-        auto result = Pipeline::compileFile(file, opts);
-        return result.success ? 0 : 1;
+        if (!opts.watchMode) {
+            auto result = Pipeline::compileFile(file, opts);
+            return result.success ? 0 : 1;
+        }
+
+        std::cout << "Mode watch: Ctrl+C pour quitter.\n";
+        auto lastWrite = fs::file_time_type::min();
+        while (true) {
+            const auto mtime = fs::last_write_time(absPath);
+            if (mtime != lastWrite) {
+                lastWrite = mtime;
+                std::cout << "\n--- Recompilation ---\n";
+                opts.useCache = false;
+                auto result = Pipeline::compileFile(file, opts);
+                if (!result.success) return 1;
+            }
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        }
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
@@ -619,7 +650,13 @@ int runCli(int argc, char* argv[]) {
         return Pipeline::checkFile(argv[2]) ? 0 : 1;
     }
     if (cmd == "test") {
-        return Pipeline::runTests(argc > 2 ? argv[2] : detectAfrilangRoot());
+        bool coverage = false;
+        for (int i = 2; i < argc; ++i) {
+            if (std::string(argv[i]) == "--coverage") coverage = true;
+        }
+        return Pipeline::runTests(argc > 2 && argv[2][0] != '-'
+                                      ? argv[2] : detectAfrilangRoot(),
+                                  coverage);
     }
     if (cmd == "lsp") {
         return afrilang::runLspServer();

@@ -2922,6 +2922,11 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (debugSymbols_) {
         args.push_back("-g");
     }
+    if (coverageMode_) {
+        args.push_back("--coverage");
+        args.push_back("-fprofile-arcs");
+        args.push_back("-ftest-coverage");
+    }
     if (crossTarget_ == "wasm32") {
         args.push_back("-s");
         args.push_back("WASM=1");
