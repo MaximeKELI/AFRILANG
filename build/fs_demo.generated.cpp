@@ -14,12 +14,6 @@
 #include "str.hpp"
 
 namespace fs {
-} // namespace fs
-
-namespace io {
-} // namespace io
-
-namespace fs {
     std::vector<std::string> listDir(std::string path) {
         return afrilang::runtime::fs::listDir(path);
     }

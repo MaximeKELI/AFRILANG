@@ -15,18 +15,6 @@
 #include "str.hpp"
 
 namespace str {
-} // namespace str
-
-namespace logging {
-} // namespace logging
-
-namespace math {
-} // namespace math
-
-namespace chrono {
-} // namespace chrono
-
-namespace str {
     std::string trim(std::string text) {
         return afrilang::runtime::str::trim(text);
     }
@@ -90,6 +78,10 @@ namespace math {
 namespace chrono {
     double now() {
         return afrilang::runtime::time::now();
+    }
+
+    std::int64_t nowMs() {
+        return afrilang::runtime::time::nowMs();
     }
 
     std::string formatTimestamp(double seconds) {

@@ -13,12 +13,6 @@
 #include "str.hpp"
 
 namespace math {
-} // namespace math
-
-namespace str {
-} // namespace str
-
-namespace math {
     double abs(double value) {
         return afrilang::runtime::math::abs(value);
     }
