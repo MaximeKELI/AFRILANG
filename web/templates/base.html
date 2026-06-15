@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static django_bootstrap5 i18n afr_tags %}
 <!DOCTYPE html>
 <html lang="{{ current_lang }}" dir="ltr" data-bs-theme="light">
 <head>
@@ -9,25 +9,21 @@
   <meta name="author" content="AFRILANG">
   <meta name="theme-color" content="#1d4ed8">
   <link rel="canonical" href="{{ request.build_absolute_uri }}">
-  {% get_current_language as LANG %}
-  {% get_available_languages as AVAILABLE_LANGUAGES %}
-  {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
-  {% language lang_code %}
-  <link rel="alternate" hreflang="{{ lang_code }}" href="{% url request.resolver_match.view_name|default:'home' %}">
-  {% endlanguage %}
+  {% for lang_code, lang_name in languages %}
+  <link rel="alternate" hreflang="{{ lang_code }}" href="{% hreflang_url lang_code %}">
   {% endfor %}
-  <link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+  <link rel="alternate" hreflang="x-default" href="{% hreflang_url 'fr' %}">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AFRILANG">
-  <meta property="og:title" content="{% block og_title %}AFRILANG{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}{% block title %}AFRILANG{% endblock %}{% endblock %}">
   <meta property="og:description" content="{% block og_desc %}{{ ui.meta_default }}{% endblock %}">
   <meta property="og:url" content="{{ request.build_absolute_uri }}">
   <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}fr_FR{% endif %}">
   <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/icon.png' %}">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% block twitter_title %}AFRILANG{% endblock %}">
+  <meta name="twitter:title" content="{% block twitter_title %}{% block title %}AFRILANG{% endblock %}{% endblock %}">
   <meta name="twitter:description" content="{% block twitter_desc %}{{ ui.meta_default }}{% endblock %}">
 
   <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">
@@ -48,7 +44,8 @@
     "programmingLanguage": "AFRILANG",
     "license": "https://opensource.org/licenses/MIT",
     "codeRepository": "https://github.com/MaximeKELI/AFRILANG",
-    "softwareVersion": "{{ SITE_STATS.compiler_version }}"
+    "softwareVersion": "{{ SITE_STATS.compiler_version }}",
+    "inLanguage": ["fr", "en"]
   }
   </script>
   {% bootstrap_javascript %}
@@ -80,17 +77,9 @@
               {{ ui.nav_docs }}
             </a>
             <ul class="dropdown-menu" role="menu">
-              {% for item in docs_nav|default_if_none:'' %}
-              {% empty %}
+              {% for item in docs_nav %}
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url item.url_name %}">{{ item.title }}</a></li>
               {% endfor %}
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_overview' %}">{% if current_lang == 'en' %}Overview{% else %}Vue d'ensemble{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Basic syntax{% else %}Syntaxe de base{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_types' %}">Types</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_oop' %}">{% if current_lang == 'en' %}OOP{% else %}POO{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_advanced' %}">{% if current_lang == 'en' %}Advanced{% else %}Avancé{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_stdlib' %}">{% if current_lang == 'en' %}Standard library{% else %}Bibliothèque standard{% endif %}</a></li>
-              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_tooling' %}">{% if current_lang == 'en' %}Tooling{% else %}Outils{% endif %}</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -106,17 +95,19 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'download' %}">{{ ui.nav_download }}</a>
           </li>
         </ul>
-        <div class="d-flex gap-2 align-items-center">
+        <div class="d-flex gap-2 align-items-center flex-wrap">
           <div class="lang-switcher" role="group" aria-label="{% trans 'Language' %}">
-            {% get_current_language as CURRENT_LANG %}
             {% for lang_code, lang_name in languages %}
-            {% language lang_code %}
-            <a href="{% url request.resolver_match.view_name|default:'home' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}"
-               class="lang-btn {% if lang_code == current_lang %}active{% endif %}"
-               hreflang="{{ lang_code }}"
-               lang="{{ lang_code }}"
-               {% if lang_code == current_lang %}aria-current="true"{% endif %}>{{ lang_code|upper }}</a>
-            {% endlanguage %}
+            <form id="lang-form-{{ lang_code }}" action="{% url 'set_language' %}" method="post" class="d-none">
+              {% csrf_token %}
+              <input type="hidden" name="language" value="{{ lang_code }}">
+              <input type="hidden" name="next" value="{% switch_lang_url lang_code %}">
+            </form>
+            <a href="#" class="lang-btn {% if lang_code == current_lang %}active{% endif %}"
+               data-lang-switch="{{ lang_code }}"
+               hreflang="{{ lang_code }}" lang="{{ lang_code }}"
+               {% if lang_code == current_lang %}aria-current="true"{% endif %}
+               title="{{ lang_name }}">{{ lang_code|upper }}</a>
             {% endfor %}
           </div>
           <a class="btn btn-afr-outline btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener noreferrer">{{ ui.nav_github }}</a>
@@ -140,22 +131,22 @@
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_learn }}</h6>
-          <a href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a>
-          <a href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Syntax{% else %}Syntaxe{% endif %}</a>
-          <a href="{% url 'docs_stdlib' %}">Stdlib</a>
+          <a href="{% url 'docs_getting_started' %}">{{ docs_nav.1.title }}</a>
+          <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
+          <a href="{% url 'docs_stdlib' %}">{{ docs_nav.6.title }}</a>
           <a href="{% url 'playground' %}">Playground</a>
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_reference }}</h6>
-          <a href="{% url 'docs_types' %}">Types</a>
-          <a href="{% url 'docs_oop' %}">{% if current_lang == 'en' %}OOP{% else %}POO{% endif %}</a>
-          <a href="{% url 'docs_advanced' %}">{% if current_lang == 'en' %}Advanced{% else %}Avancé{% endif %}</a>
-          <a href="{% url 'api_reference' %}">API</a>
+          <a href="{% url 'docs_types' %}">{{ docs_nav.3.title }}</a>
+          <a href="{% url 'docs_oop' %}">{{ docs_nav.4.title }}</a>
+          <a href="{% url 'docs_advanced' %}">{{ docs_nav.5.title }}</a>
+          <a href="{% url 'api_reference' %}">{{ ui.nav_api }}</a>
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_community }}</h6>
           <a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="{% url 'community' %}">{% if current_lang == 'en' %}Community{% else %}Communauté{% endif %}</a>
+          <a href="{% url 'community' %}">{{ ui.nav_community }}</a>
           <a href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
         </div>
         <div class="col-6 col-lg-2">
