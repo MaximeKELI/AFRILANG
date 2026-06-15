@@ -445,6 +445,20 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsOrm = false;
     bool needsThread = false;
     bool needsBigint = false;
+    bool needsCrypto = false;
+    bool needsYaml = false;
+    bool needsDatetime = false;
+    bool needsEnv = false;
+    bool needsTempfile = false;
+    bool needsBase64 = false;
+    bool needsUrl = false;
+    bool needsRandom = false;
+    bool needsHex = false;
+    bool needsCsv = false;
+    bool needsHtml = false;
+    bool needsCli = false;
+    bool needsEmail = false;
+    bool needsUuid = false;
     bool needsSimpleLibs = false;
     bool needsMediumLibs = false;
     bool needsComplexLibs = false;
@@ -466,6 +480,20 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "orm") needsOrm = true;
         if (module->name == "thread") needsThread = true;
         if (module->name == "bigint") needsBigint = true;
+        if (module->name == "crypto") needsCrypto = true;
+        if (module->name == "yaml") needsYaml = true;
+        if (module->name == "datetime") needsDatetime = true;
+        if (module->name == "env") needsEnv = true;
+        if (module->name == "tempfile") needsTempfile = true;
+        if (module->name == "base64") needsBase64 = true;
+        if (module->name == "url") needsUrl = true;
+        if (module->name == "random") needsRandom = true;
+        if (module->name == "hex") needsHex = true;
+        if (module->name == "csv") needsCsv = true;
+        if (module->name == "html") needsHtml = true;
+        if (module->name == "cli") needsCli = true;
+        if (module->name == "email") needsEmail = true;
+        if (module->name == "uuid") needsUuid = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
@@ -496,6 +524,20 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         linkLibraries_.insert("-pthread");
     }
     if (needsBigint) out << "#include \"bigint.hpp\"\n";
+    if (needsCrypto) out << "#include \"crypto.hpp\"\n";
+    if (needsYaml) out << "#include \"yaml.hpp\"\n";
+    if (needsDatetime) out << "#include \"datetime.hpp\"\n";
+    if (needsEnv) out << "#include \"env.hpp\"\n";
+    if (needsTempfile) out << "#include \"tempfile.hpp\"\n";
+    if (needsBase64) out << "#include \"base64.hpp\"\n";
+    if (needsUrl) out << "#include \"url.hpp\"\n";
+    if (needsRandom) out << "#include \"random.hpp\"\n";
+    if (needsHex) out << "#include \"hex.hpp\"\n";
+    if (needsCsv) out << "#include \"csv.hpp\"\n";
+    if (needsHtml) out << "#include \"html.hpp\"\n";
+    if (needsCli) out << "#include \"cli.hpp\"\n";
+    if (needsEmail) out << "#include \"email.hpp\"\n";
+    if (needsUuid) out << "#include \"uuid.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
@@ -521,6 +563,9 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     }
     if (needsHttp) {
         linkLibraries_.insert("-lssl");
+        linkLibraries_.insert("-lcrypto");
+    }
+    if (needsCrypto) {
         linkLibraries_.insert("-lcrypto");
     }
     if (needsOrm || needsSql) {
@@ -2704,7 +2749,11 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "str" || name == "logging" || name == "math" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
            name == "sql" || name == "web" || name == "orm" || name == "thread" ||
-           name == "bigint" || name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
+           name == "bigint" || name == "crypto" || name == "yaml" || name == "datetime" ||
+           name == "env" || name == "tempfile" || name == "base64" || name == "url" ||
+           name == "random" || name == "hex" || name == "csv" || name == "html" ||
+           name == "cli" || name == "email" || name == "uuid" ||
+           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
 
@@ -2877,6 +2926,12 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
             out << "return afrilang::runtime::json::getIntFrom(value, key);\n";
         } else if (func.name == "makeObject") {
             out << "return afrilang::runtime::json::makeObjectValue(key, value);\n";
+        }
+    } else if (moduleName == "yaml") {
+        if (func.name == "parse") {
+            out << "return afrilang::runtime::yaml::parseSimple(text);\n";
+        } else if (func.name == "stringify") {
+            out << "return afrilang::runtime::yaml::stringifySimple(value);\n";
         }
     } else if (moduleName == "web") {
         if (func.name == "createRouter") {

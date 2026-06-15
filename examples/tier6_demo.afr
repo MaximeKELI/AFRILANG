@@ -1,0 +1,74 @@
+import "std/crypto"
+use crypto
+
+import "std/yaml"
+use yaml
+
+import "std/datetime"
+use datetime
+
+import "std/env"
+use env
+
+import "std/base64"
+use base64
+
+import "std/url"
+use url
+
+import "std/random"
+use random
+
+import "std/hex"
+use hex
+
+import "std/csv"
+use csv
+
+import "std/html"
+use html
+
+import "std/cli"
+use cli
+
+import "std/email"
+use email
+
+import "std/uuid"
+use uuid
+
+import "std/tempfile"
+use tempfile
+
+import "std/json"
+use json
+
+say sha256("tier6")
+say encode("hello")
+say decode("aGVsbG8=")
+say encode("hello world")
+say decode(encode("a+b"))
+seed(42)
+say randomInt(1, 10)
+say encode("AB")
+say escape("<tag>")
+
+create yamlText text = "name: AFRILANG\nversion: 0.6\nactive: true\n"
+create doc = parse(yamlText)
+say getString(doc, "name")
+say getNumber(doc, "version")
+
+say formatIso(nowSeconds())
+say isValid("dev@afrilang.org")
+say domain("dev@afrilang.org")
+say v4()
+
+create fields = splitLine("a,b,c")
+say fields at 0
+say fields at 2
+
+create tmp = createPath("afr")
+say write(tmp, "phase-c")
+say remove(tmp)
+
+say green("Phase C OK")

@@ -28,6 +28,20 @@ public:
     static void injectThreadModule(ProgramNode& program);
     static void injectBigintModule(ProgramNode& program);
     static void injectUiModule(ProgramNode& program);
+    static void injectCryptoModule(ProgramNode& program);
+    static void injectYamlModule(ProgramNode& program);
+    static void injectDatetimeModule(ProgramNode& program);
+    static void injectEnvModule(ProgramNode& program);
+    static void injectTempfileModule(ProgramNode& program);
+    static void injectBase64Module(ProgramNode& program);
+    static void injectUrlModule(ProgramNode& program);
+    static void injectRandomModule(ProgramNode& program);
+    static void injectHexModule(ProgramNode& program);
+    static void injectCsvModule(ProgramNode& program);
+    static void injectHtmlModule(ProgramNode& program);
+    static void injectCliModule(ProgramNode& program);
+    static void injectEmailModule(ProgramNode& program);
+    static void injectUuidModule(ProgramNode& program);
 
     static void injectModuleByName(ProgramNode& program, const std::string& moduleName);
     static void injectCatalogModule(ProgramNode& program, const std::string& moduleName);

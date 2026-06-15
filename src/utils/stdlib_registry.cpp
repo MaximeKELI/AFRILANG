@@ -69,6 +69,11 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "sql" ||
            moduleName == "web" || moduleName == "orm" || moduleName == "thread" ||
            moduleName == "bigint" ||
+           moduleName == "crypto" || moduleName == "yaml" || moduleName == "datetime" ||
+           moduleName == "env" || moduleName == "tempfile" || moduleName == "base64" ||
+           moduleName == "url" || moduleName == "random" || moduleName == "hex" ||
+           moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
+           moduleName == "email" || moduleName == "uuid" ||
            moduleName == "async" || moduleName == "ui";
 }
 
@@ -120,6 +125,20 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "orm") return "orm";
     if (normalized == "thread") return "thread";
     if (normalized == "bigint") return "bigint";
+    if (normalized == "crypto") return "crypto";
+    if (normalized == "yaml") return "yaml";
+    if (normalized == "datetime") return "datetime";
+    if (normalized == "env") return "env";
+    if (normalized == "tempfile") return "tempfile";
+    if (normalized == "base64") return "base64";
+    if (normalized == "url") return "url";
+    if (normalized == "random") return "random";
+    if (normalized == "hex") return "hex";
+    if (normalized == "csv") return "csv";
+    if (normalized == "html") return "html";
+    if (normalized == "cli") return "cli";
+    if (normalized == "email") return "email";
+    if (normalized == "uuid") return "uuid";
 
     if (normalized.rfind("m/", 0) == 0) {
         if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {
@@ -183,6 +202,20 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "orm") injectOrmModule(program);
     else if (moduleName == "thread") injectThreadModule(program);
     else if (moduleName == "bigint") injectBigintModule(program);
+    else if (moduleName == "crypto") injectCryptoModule(program);
+    else if (moduleName == "yaml") injectYamlModule(program);
+    else if (moduleName == "datetime") injectDatetimeModule(program);
+    else if (moduleName == "env") injectEnvModule(program);
+    else if (moduleName == "tempfile") injectTempfileModule(program);
+    else if (moduleName == "base64") injectBase64Module(program);
+    else if (moduleName == "url") injectUrlModule(program);
+    else if (moduleName == "random") injectRandomModule(program);
+    else if (moduleName == "hex") injectHexModule(program);
+    else if (moduleName == "csv") injectCsvModule(program);
+    else if (moduleName == "html") injectHtmlModule(program);
+    else if (moduleName == "cli") injectCliModule(program);
+    else if (moduleName == "email") injectEmailModule(program);
+    else if (moduleName == "uuid") injectUuidModule(program);
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
     else injectCatalogModule(program, moduleName);
@@ -258,6 +291,7 @@ void StdlibRegistry::injectMathModule(ProgramNode& program) {
 void StdlibRegistry::injectTimeModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("now", {}, "number"));
+    fns.push_back(makeStubFunction("nowMs", {}, "int"));
     fns.push_back(makeStubFunction("formatTimestamp", {{"seconds", "number"}}, "text"));
     injectModule(program, "chrono", std::move(fns));
 }
@@ -371,6 +405,108 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("drawButton", {{"label", "text"}, {"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}}, "bool"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
+}
+
+void StdlibRegistry::injectCryptoModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("sha256", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("sha256File", {{"path", "text"}}, "text"));
+    injectModule(program, "crypto", std::move(fns));
+}
+
+void StdlibRegistry::injectYamlModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("parse", {{"text", "text"}}, "json"));
+    fns.push_back(makeStubFunction("stringify", {{"value", "json"}}, "text"));
+    injectModule(program, "yaml", std::move(fns));
+}
+
+void StdlibRegistry::injectDatetimeModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("nowSeconds", {}, "number"));
+    fns.push_back(makeStubFunction("nowMs", {}, "int"));
+    fns.push_back(makeStubFunction("formatIso", {{"seconds", "number"}}, "text"));
+    fns.push_back(makeStubFunction("diffSeconds", {{"a", "number"}, {"b", "number"}}, "number"));
+    injectModule(program, "datetime", std::move(fns));
+}
+
+void StdlibRegistry::injectEnvModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("get", {{"name", "text"}}, "text"));
+    fns.push_back(makeStubFunction("has", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("set", {{"name", "text"}, {"value", "text"}}, "bool"));
+    injectModule(program, "env", std::move(fns));
+}
+
+void StdlibRegistry::injectTempfileModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("createPath", {{"prefix", "text"}}, "text"));
+    fns.push_back(makeStubFunction("write", {{"path", "text"}, {"content", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("remove", {{"path", "text"}}, "bool"));
+    injectModule(program, "tempfile", std::move(fns));
+}
+
+void StdlibRegistry::injectBase64Module(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("encode", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("decode", {{"data", "text"}}, "text"));
+    injectModule(program, "base64", std::move(fns));
+}
+
+void StdlibRegistry::injectUrlModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("encode", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("decode", {{"text", "text"}}, "text"));
+    injectModule(program, "url", std::move(fns));
+}
+
+void StdlibRegistry::injectRandomModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("seed", {{"value", "int"}}, ""));
+    fns.push_back(makeStubFunction("randomInt", {{"minValue", "int"}, {"maxValue", "int"}}, "int"));
+    fns.push_back(makeStubFunction("randomFloat", {}, "number"));
+    injectModule(program, "random", std::move(fns));
+}
+
+void StdlibRegistry::injectHexModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("encode", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("decode", {{"data", "text"}}, "text"));
+    injectModule(program, "hex", std::move(fns));
+}
+
+void StdlibRegistry::injectCsvModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("splitLine", {{"line", "text"}}, "list text"));
+    injectModule(program, "csv", std::move(fns));
+}
+
+void StdlibRegistry::injectHtmlModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("escape", {{"text", "text"}}, "text"));
+    injectModule(program, "html", std::move(fns));
+}
+
+void StdlibRegistry::injectCliModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("green", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("red", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("yellow", {{"text", "text"}}, "text"));
+    fns.push_back(makeStubFunction("bold", {{"text", "text"}}, "text"));
+    injectModule(program, "cli", std::move(fns));
+}
+
+void StdlibRegistry::injectEmailModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("isValid", {{"address", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("domain", {{"address", "text"}}, "text"));
+    injectModule(program, "email", std::move(fns));
+}
+
+void StdlibRegistry::injectUuidModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("v4", {}, "text"));
+    injectModule(program, "uuid", std::move(fns));
 }
 
 } // namespace afrilang
