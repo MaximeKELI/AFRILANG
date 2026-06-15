@@ -501,6 +501,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
     if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
+    if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
     out << "#include \"str.hpp\"\n";
 
@@ -988,6 +989,12 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     }
 
     indent(out, indentLevel);
+    for (const auto& decorator : func.decorators) {
+        if (decorator == "deprecated") {
+            indent(out, indentLevel);
+            out << "[[deprecated]]\n";
+        }
+    }
     if (func.isStatic) {
         out << "static ";
     } else if (ownerClass) {

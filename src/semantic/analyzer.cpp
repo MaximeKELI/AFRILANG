@@ -668,9 +668,13 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     if (func.isGenerator) {
         inGeneratorFunction_ = true;
         result_.usesGenerators = true;
-        AfrType declared = resolveFunctionReturnType(func);
-        if (declared.kind == TypeKind::Generator) {
-            currentGeneratorElementType_ = declared.listElementType();
+        if (!func.returnTypeName.empty()) {
+            const AfrType inner = resolveTypeForGeneric(func.returnTypeName, func.typeParams);
+            if (inner.kind != TypeKind::List) {
+                errorAt(func, "Generator function doit déclarer 'returns list <type>'");
+            } else {
+                currentGeneratorElementType_ = inner.listElementType();
+            }
         }
     }
     constVariables_.clear();
@@ -711,6 +715,7 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     asyncContextDepth_ = savedAsync;
     const bool hadYield = functionHasYield_;
     inGeneratorFunction_ = savedGenerator;
+    currentGeneratorElementType_ = AfrType::voidType();
     functionHasYield_ = savedFunctionHasYield;
 
     const bool implicitAsyncVoid = func.isAsync && func.returnTypeName.empty();
@@ -1167,7 +1172,11 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             errorAt(*yieldStmt, "'yield' autorisé uniquement dans une generator function");
         }
         functionHasYield_ = true;
-        analyzeExpression(*yieldStmt->value, scope);
+        AfrType yielded = analyzeExpression(*yieldStmt->value, scope);
+        if (currentGeneratorElementType_.kind != TypeKind::Void &&
+            !isAssignable(currentGeneratorElementType_, yielded)) {
+            errorAt(*yieldStmt, "Type du 'yield' incompatible avec l'élément du generator");
+        }
         return;
     }
 
@@ -1196,6 +1205,12 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 if (subjectType.kind == TypeKind::Number &&
                     arm.caseKind != MatchArmNode::CaseKind::Number) {
                     errorAt(*matchStmt, "Cas numérique attendu dans match sur number");
+                }
+                if (arm.guard) {
+                    AfrType guardType = analyzeExpression(*arm.guard, scope);
+                    if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                        errorAt(*matchStmt, "Guard match doit être booléen");
+                    }
                 }
                 for (const auto& bodyStmt : arm.body) {
                     analyzeStatement(*bodyStmt, scope, isGlobalScope);
@@ -1239,6 +1254,12 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                         }
                     }
                 }
+                if (arm.guard) {
+                    AfrType guardType = analyzeExpression(*arm.guard, armScope);
+                    if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                        errorAt(*matchStmt, "Guard match doit être booléen");
+                    }
+                }
                 for (const auto& bodyStmt : arm.body) {
                     analyzeStatement(*bodyStmt, armScope, isGlobalScope);
                 }
@@ -1264,7 +1285,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
                 errorAt(*matchStmt, "Cas littéral incompatible avec match enum");
             }
-            coveredCases.insert(arm.caseName);
+            if (!arm.guard) {
+                coveredCases.insert(arm.caseName);
+            }
             const auto caseIt = en->cases.find(arm.caseName);
             if (caseIt == en->cases.end()) {
                 errorAt(*matchStmt, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
@@ -1285,6 +1308,12 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                     for (std::size_t bi = 0; bi < arm.bindNames.size(); ++bi) {
                         armScope[arm.bindNames[bi]] = caseIt->second.fields[bi].second;
                     }
+                }
+            }
+            if (arm.guard) {
+                AfrType guardType = analyzeExpression(*arm.guard, armScope);
+                if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                    errorAt(*matchStmt, "Guard match doit être booléen");
                 }
             }
             for (const auto& bodyStmt : arm.body) {
@@ -1514,6 +1543,12 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
         AfrType objectType = analyzeExpression(*index->object, scope);
         AfrType indexType = analyzeExpression(*index->index, scope);
         if (objectType.kind == TypeKind::List) {
+            if (!isNumeric(indexType)) {
+                errorAt(expr, "L'index doit être un nombre");
+            }
+            return objectType.listElementType();
+        }
+        if (objectType.kind == TypeKind::Generator) {
             if (!isNumeric(indexType)) {
                 errorAt(expr, "L'index doit être un nombre");
             }
@@ -2179,6 +2214,12 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                 if (!arm.value) {
                     errorAt(*matchExpr, "Bras match sans expression");
                 }
+                if (arm.guard) {
+                    AfrType guardType = analyzeExpression(*arm.guard, scope);
+                    if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                        errorAt(*matchExpr, "Guard match doit être booléen");
+                    }
+                }
                 AfrType armType = analyzeExpression(*arm.value, scope);
                 if (!hasResult) {
                     resultType = armType;
@@ -2227,7 +2268,9 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
                 errorAt(*matchExpr, "Cas littéral incompatible avec match enum");
             }
-            coveredCases.insert(arm.caseName);
+            if (!arm.guard) {
+                coveredCases.insert(arm.caseName);
+            }
 
             if (!arm.value) {
                 errorAt(*matchExpr, "Cas '" + arm.caseName + "' sans expression dans match expression");
@@ -2247,6 +2290,13 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                     for (std::size_t bi = 0; bi < arm.bindNames.size(); ++bi) {
                         armScope[arm.bindNames[bi]] = caseIt->second.fields[bi].second;
                     }
+                }
+            }
+
+            if (arm.guard) {
+                AfrType guardType = analyzeExpression(*arm.guard, armScope);
+                if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
+                    errorAt(*matchExpr, "Guard match doit être booléen");
                 }
             }
 
@@ -2323,7 +2373,16 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
         return implementsInterface(value.className, target.className);
     }
     if (target.kind == TypeKind::Record && value.kind == TypeKind::Record) {
-        return target.recordName == value.recordName;
+        if (target.recordName == value.recordName) return true;
+        const RecordInfo* targetRec = findRecord(target.recordName);
+        const RecordInfo* valueRec = findRecord(value.recordName);
+        if (targetRec && valueRec) {
+            return recordsStructurallyCompatible(*targetRec, *valueRec);
+        }
+        return false;
+    }
+    if (target.kind == TypeKind::Generator && value.kind == TypeKind::Generator) {
+        return isAssignable(target.listElementType(), value.listElementType());
     }
     if (target.kind == TypeKind::List && value.kind == TypeKind::List) {
         if (!isConcreteTypeName(target.listElementTypeName)) return true;
