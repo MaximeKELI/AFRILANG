@@ -41,7 +41,7 @@ UI = {
             'hero_lead': (
                 'AFRILANG est un langage orienté objet à syntaxe lisible qui transpile vers C++17. '
                 'Classes, génériques, pattern matching, async/await — avec une bibliothèque standard '
-                'de plus de {stdlib} modules et une toolchain complète.'
+                'et une toolchain complète.'
             ),
             'hero_compat': 'Compatible français et anglais · LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Commencer',
@@ -131,6 +131,41 @@ UI = {
             'title': 'API REST — Playground',
             'h1': 'API HTTP du playground',
             'lead': 'Endpoints JSON pour exécuter, formater et lister les paquets AFRILANG.',
+            'run_desc': 'Exécute du source AFRILANG (compilation native).',
+            'fmt_desc': 'Formate le source et renvoie le code formaté.',
+            'pkg_desc': 'Liste tous les paquets du registre.',
+        },
+        'explore': {
+            'title': 'Écosystème AFRILANG',
+            'label': 'Écosystème complet',
+            'h1': 'Tout ce qui compose AFRILANG',
+            'lead': 'Langage, compilateur, stdlib, paquets, WASM, LSP, debug et CI.',
+            'empty': 'Données non chargées — exécutez python manage.py seed_data',
+            'btn_tools': 'Documentation outils',
+            'btn_packages': 'Registre de paquets',
+        },
+        'packages_page': {
+            'title': 'Paquets AFRILANG',
+            'label': 'Gestionnaire de paquets',
+            'h1': 'Registre officiel',
+            'lead': 'Paquets certifiés (★) avec vérification SHA256.',
+            'search': 'Rechercher un paquet…',
+            'filter': 'Filtrer',
+            'empty': 'Aucun paquet trouvé.',
+            'usage_title': 'Utiliser un paquet',
+        },
+        'playground_page': {
+            'title': 'Playground AFRILANG',
+            'label': 'Essayer en ligne',
+            'h1': 'Playground AFRILANG',
+            'lead': 'Écrivez du code, exécutez-le ou formatez-le en direct.',
+            'example': 'Exemple',
+            'run': 'Run',
+            'wasm': 'Run WASM',
+            'format': 'Format',
+            'output': 'Sortie',
+            'output_hint': 'Cliquez sur Run pour exécuter votre code.',
+            'help': 'Consultez la syntaxe de base ou les premiers pas.',
         },
     },
     'en': {
@@ -173,7 +208,7 @@ UI = {
             'hero_lead': (
                 'AFRILANG is a readable object-oriented language that transpiles to C++17. '
                 'Classes, generics, pattern matching, async/await — with a standard library '
-                'of {stdlib}+ modules and a full developer toolchain.'
+                'and a full developer toolchain.'
             ),
             'hero_compat': 'French & English syntax · LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Get started',
@@ -263,6 +298,41 @@ UI = {
             'title': 'REST API — Playground',
             'h1': 'Playground HTTP API',
             'lead': 'JSON endpoints to run, format and list AFRILANG packages.',
+            'run_desc': 'Run AFRILANG source (native compilation).',
+            'fmt_desc': 'Format source and return formatted code.',
+            'pkg_desc': 'List all registry packages.',
+        },
+        'explore': {
+            'title': 'AFRILANG Ecosystem',
+            'label': 'Full ecosystem',
+            'h1': 'Everything that makes AFRILANG',
+            'lead': 'Language, compiler, stdlib, packages, WASM, LSP, debug and CI.',
+            'empty': 'No data — run python manage.py seed_data',
+            'btn_tools': 'Tooling docs',
+            'btn_packages': 'Package registry',
+        },
+        'packages_page': {
+            'title': 'AFRILANG Packages',
+            'label': 'Package manager',
+            'h1': 'Official registry',
+            'lead': 'Certified packages (★) with SHA256 verification.',
+            'search': 'Search packages…',
+            'filter': 'Filter',
+            'empty': 'No packages found.',
+            'usage_title': 'Use a package',
+        },
+        'playground_page': {
+            'title': 'AFRILANG Playground',
+            'label': 'Try online',
+            'h1': 'AFRILANG Playground',
+            'lead': 'Write code, run or format it live.',
+            'example': 'Example',
+            'run': 'Run',
+            'wasm': 'Run WASM',
+            'format': 'Format',
+            'output': 'Output',
+            'output_hint': 'Click Run to execute your code.',
+            'help': 'See basic syntax or getting started.',
         },
     },
 }
