@@ -1,118 +1,184 @@
-{% load static django_bootstrap5 %}
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="fr" data-bs-theme="light">
+<html lang="{{ current_lang }}" dir="ltr" data-bs-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}AFRILANG — Langage de programmation{% endblock %}</title>
-  <meta name="description" content="{% block meta %}AFRILANG — langage orienté objet à syntaxe naturelle, transpile vers C++17, bibliothèque standard riche, outils LSP et playground.{% endblock %}">
+  <title>{% block title %}AFRILANG{% endblock %}</title>
+  <meta name="description" content="{% block meta %}{{ ui.meta_default }}{% endblock %}">
+  <meta name="author" content="AFRILANG">
+  <meta name="theme-color" content="#1d4ed8">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+  {% get_current_language as LANG %}
+  {% get_available_languages as AVAILABLE_LANGUAGES %}
+  {% for lang_code, lang_name in AVAILABLE_LANGUAGES %}
+  {% language lang_code %}
+  <link rel="alternate" hreflang="{{ lang_code }}" href="{% url request.resolver_match.view_name|default:'home' %}">
+  {% endlanguage %}
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AFRILANG">
+  <meta property="og:title" content="{% block og_title %}AFRILANG{% endblock %}">
+  <meta property="og:description" content="{% block og_desc %}{{ ui.meta_default }}{% endblock %}">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}fr_FR{% endif %}">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/icon.png' %}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% block twitter_title %}AFRILANG{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_desc %}{{ ui.meta_default }}{% endblock %}">
+
+  <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">
+  <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "AFRILANG",
+    "description": "Natural-syntax object-oriented programming language transpiling to C++17",
+    "programmingLanguage": "AFRILANG",
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/MaximeKELI/AFRILANG",
+    "softwareVersion": "{{ SITE_STATS.compiler_version }}"
+  }
+  </script>
   {% bootstrap_javascript %}
 </head>
 <body class="afr-body">
+  <a class="skip-link" href="#main-content">{{ ui.skip_link }}</a>
 
-  <nav class="navbar navbar-expand-lg afr-navbar sticky-top">
+  <nav class="navbar navbar-expand-lg afr-navbar sticky-top" role="navigation" aria-label="{% trans 'Main navigation' %}">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
-        <img src="{% static 'img/icon.png' %}" alt="AFRILANG" width="34" height="34" class="rounded-2">
+        <img src="{% static 'img/icon.png' %}" alt="AFRILANG logo" width="34" height="34" class="rounded-2">
         <span>
           <strong>AFRILANG</strong>
-          <small class="d-block" style="font-size:0.68rem">Langage · v{{ SITE_STATS.version }}</small>
+          <small class="d-block" style="font-size:0.68rem">{{ ui.nav_version_label }}{{ SITE_STATS.version }}</small>
         </span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Menu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+              aria-controls="navMain" aria-expanded="false" aria-label="{% trans 'Toggle menu' %}">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'language' %}active{% endif %}" href="{% url 'language' %}">Le langage</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'language' %}active{% endif %}" href="{% url 'language' %}">{{ ui.nav_language }}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {% if 'docs' in request.resolver_match.url_name %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Documentation
+            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name and 'docs' in request.resolver_match.url_name %}active{% endif %}"
+               href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ ui.nav_docs }}
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'docs_overview' %}">Vue d'ensemble</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_getting_started' %}">Premiers pas</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_syntax' %}">Syntaxe de base</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_types' %}">Types</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_oop' %}">POO</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_advanced' %}">Fonctionnalités avancées</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_stdlib' %}">Bibliothèque standard</a></li>
-              <li><a class="dropdown-item" href="{% url 'docs_tooling' %}">Outils</a></li>
+            <ul class="dropdown-menu" role="menu">
+              {% for item in docs_nav|default_if_none:'' %}
+              {% empty %}
+              {% endfor %}
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_overview' %}">{% if current_lang == 'en' %}Overview{% else %}Vue d'ensemble{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Basic syntax{% else %}Syntaxe de base{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_types' %}">Types</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_oop' %}">{% if current_lang == 'en' %}OOP{% else %}POO{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_advanced' %}">{% if current_lang == 'en' %}Advanced{% else %}Avancé{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_stdlib' %}">{% if current_lang == 'en' %}Standard library{% else %}Bibliothèque standard{% endif %}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'docs_tooling' %}">{% if current_lang == 'en' %}Tooling{% else %}Outils{% endif %}</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">Écosystème</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">{{ ui.nav_ecosystem }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">Paquets</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">Playground</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">{{ ui.nav_playground }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'download' %}">{{ ui.nav_download }}</a>
           </li>
         </ul>
-        <div class="d-flex gap-2">
-          <a class="btn btn-afr-outline btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-afr-primary btn-sm" href="{% url 'docs_getting_started' %}">Commencer</a>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="lang-switcher" role="group" aria-label="{% trans 'Language' %}">
+            {% get_current_language as CURRENT_LANG %}
+            {% for lang_code, lang_name in languages %}
+            {% language lang_code %}
+            <a href="{% url request.resolver_match.view_name|default:'home' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}"
+               class="lang-btn {% if lang_code == current_lang %}active{% endif %}"
+               hreflang="{{ lang_code }}"
+               lang="{{ lang_code }}"
+               {% if lang_code == current_lang %}aria-current="true"{% endif %}>{{ lang_code|upper }}</a>
+            {% endlanguage %}
+            {% endfor %}
+          </div>
+          <a class="btn btn-afr-outline btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener noreferrer">{{ ui.nav_github }}</a>
+          <a class="btn btn-afr-primary btn-sm" href="{% url 'docs_getting_started' %}">{{ ui.nav_start }}</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="{% block main_class %}container py-4 py-lg-5{% endblock %}">
+  <main class="{% block main_class %}container py-4 py-lg-5{% endblock %}" id="main-content" role="main">
     {% bootstrap_messages %}
     {% block content %}{% endblock %}
   </main>
 
-  <footer class="afr-footer">
+  <footer class="afr-footer" role="contentinfo">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
           <div class="afr-footer-brand mb-2">AFRILANG</div>
-          <p class="text-secondary-custom small mb-0">
-            Langage orienté objet à syntaxe naturelle. Transpile vers C++17 et compile en binaire natif.
-            Open source, licence MIT.
-          </p>
+          <p class="text-secondary-custom small mb-0">{{ ui.footer_desc }}</p>
         </div>
         <div class="col-6 col-lg-2">
-          <h6>Apprendre</h6>
-          <a href="{% url 'docs_getting_started' %}">Premiers pas</a>
-          <a href="{% url 'docs_syntax' %}">Syntaxe</a>
+          <h6>{{ ui.footer_learn }}</h6>
+          <a href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a>
+          <a href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Syntax{% else %}Syntaxe{% endif %}</a>
           <a href="{% url 'docs_stdlib' %}">Stdlib</a>
           <a href="{% url 'playground' %}">Playground</a>
         </div>
         <div class="col-6 col-lg-2">
-          <h6>Référence</h6>
+          <h6>{{ ui.footer_reference }}</h6>
           <a href="{% url 'docs_types' %}">Types</a>
-          <a href="{% url 'docs_oop' %}">POO</a>
-          <a href="{% url 'docs_advanced' %}">Avancé</a>
-          <a href="{% url 'docs_tooling' %}">Outils</a>
+          <a href="{% url 'docs_oop' %}">{% if current_lang == 'en' %}OOP{% else %}POO{% endif %}</a>
+          <a href="{% url 'docs_advanced' %}">{% if current_lang == 'en' %}Advanced{% else %}Avancé{% endif %}</a>
+          <a href="{% url 'api_reference' %}">API</a>
         </div>
         <div class="col-6 col-lg-2">
-          <h6>Communauté</h6>
-          <a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
-          <a href="{% url 'packages' %}">Paquets</a>
-          <a href="{% url 'explore' %}">Écosystème</a>
+          <h6>{{ ui.footer_community }}</h6>
+          <a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="{% url 'community' %}">{% if current_lang == 'en' %}Community{% else %}Communauté{% endif %}</a>
+          <a href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
         </div>
         <div class="col-6 col-lg-2">
-          <h6>Versions</h6>
-          <span class="small text-secondary-custom d-block">Langage {{ SITE_STATS.version }}</span>
-          <span class="small text-secondary-custom d-block">Compilateur {{ SITE_STATS.compiler_version }}</span>
+          <h6>{{ ui.footer_versions }}</h6>
+          <span class="small text-secondary-custom d-block">{{ ui.footer_lang }} {{ SITE_STATS.version }}</span>
+          <span class="small text-secondary-custom d-block">{{ ui.footer_compiler }} {{ SITE_STATS.compiler_version }}</span>
         </div>
       </div>
       <div class="text-center mt-4 pt-3 border-top small text-secondary-custom">
-        © AFRILANG — Codez en phrases, déployez en natif.
+        © AFRILANG — {{ ui.footer_tagline }}
       </div>
     </div>
   </footer>
 
+  <div id="cookie-banner" class="cookie-banner d-none" role="dialog" aria-label="{% trans 'Cookie consent' %}">
+    <p class="mb-2 small">{{ ui.cookie_text }}</p>
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-afr-primary btn-sm" id="cookie-accept">{{ ui.cookie_accept }}</button>
+      <button type="button" class="btn btn-afr-outline btn-sm" id="cookie-decline">{{ ui.cookie_decline }}</button>
+    </div>
+  </div>
+
+  <script src="{% static 'js/site.js' %}"></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>
