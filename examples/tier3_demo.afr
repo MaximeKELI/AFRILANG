@@ -1,0 +1,64 @@
+create nums = list of 1, 2, 3, 4, 5
+create bigNums = list each x in nums where x is greater than 2 return x
+say length of bigNums
+say bigNums at 0
+say bigNums at 1
+
+generator function range(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+create seq = range(4)
+say seq at 0
+say seq at 3
+
+import "std/bigint"
+use bigint
+
+create huge = fromInt(1000000000000)
+say toText(mul(huge, fromInt(2)))
+
+import "std/web"
+use web
+
+create router = createRouter()
+addRoute(router, "GET", "/hello", "Hello Tier3")
+say dispatch(router, "GET", "/hello")
+
+import "std/thread"
+use thread
+
+create tid = spawnSleep(5)
+join(tid)
+say hardwareConcurrency()
+
+import "std/sql"
+use sql
+import "std/orm"
+use orm
+
+create dbPath text = "/tmp/afrilang_tier3.db"
+create tableOk = exec(dbPath, "create table if not exists users (id integer primary key, name text)")
+say tableOk
+
+create rowId = insert(dbPath, "users", "name", "Alice")
+say rowId
+
+create rows = findAll(dbPath, "users")
+say rows
+
+test "tier3 fixtures"
+    setup
+        create ready = true
+    end
+    assert ready
+    teardown
+        say "teardown ok"
+    end
+end
+
+say "tier3 complete"

@@ -11,6 +11,8 @@ struct CompileOptions {
     bool showAST = false;
     bool emitOnly = false;
     bool runAfter = false;
+    bool watchMode = false;
+    bool profileMode = false;
     bool debugSymbols = true;
     bool useCache = true;
     std::string outputExecutable;

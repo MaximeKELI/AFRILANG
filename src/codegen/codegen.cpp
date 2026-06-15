@@ -9,7 +9,7 @@
 
 #include <cstdlib>
 #include <cctype>
-#include <cstdlib>
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -1026,11 +1026,18 @@ void CodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func,
     out << " {\n";
     const FunctionNode* saved = currentFunction_;
     currentFunction_ = &func;
+    if (func.isGenerator) {
+        indent(out, indentLevel + 1);
+        out << functionReturnCpp(func, ownerClass) << " _afr_yields;\n";
+    }
     for (const auto& stmt : func.body) {
         emitStatement(out, *stmt, indentLevel + 1, ownerClass);
     }
     currentFunction_ = saved;
-    if (func.isAsync && func.returnTypeName.empty()) {
+    if (func.isGenerator) {
+        indent(out, indentLevel + 1);
+        out << "return _afr_yields;\n";
+    } else if (func.isAsync && func.returnTypeName.empty()) {
         indent(out, indentLevel + 1);
         out << "co_return;\n";
     }
@@ -1066,7 +1073,13 @@ void CodeGenerator::emitTests(std::ostream& out) const {
         if (wrapAsync) inAsyncCoroutine_ = true;
 
         const int indentLevel = wrapAsync ? 2 : 1;
+        for (const auto& stmt : test->setupBody) {
+            emitStatement(out, *stmt, indentLevel, nullptr);
+        }
         for (const auto& stmt : test->body) {
+            emitStatement(out, *stmt, indentLevel, nullptr);
+        }
+        for (const auto& stmt : test->teardownBody) {
             emitStatement(out, *stmt, indentLevel, nullptr);
         }
 
@@ -1296,6 +1309,17 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             (resolvedType.kind == TypeKind::Class ||
              resolvedType.kind == TypeKind::Interface);
         out << constPrefix << typeCpp << " " << assign->name << " = ";
+        if (resolvedType.kind == TypeKind::BigInt) {
+            if (const auto* num = dynamic_cast<const NumberLiteralNode*>(assign->value.get())) {
+                out << "afrilang::runtime::bigint::BigInt::fromInt("
+                    << static_cast<std::int64_t>(num->value) << ");\n";
+                return;
+            }
+            out << "afrilang::runtime::bigint::BigInt::fromInt(static_cast<std::int64_t>(";
+            emitExpression(out, *assign->value, ownerClass);
+            out << "));\n";
+            return;
+        }
         if (wrapUnique) {
             out << "std::make_unique<" << resolvedType.className << ">(";
         }
@@ -1433,7 +1457,20 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         return;
     }
 
+    if (const auto* yieldStmt = dynamic_cast<const YieldStatementNode*>(&stmt)) {
+        out << "_afr_yields.push_back(";
+        emitExpression(out, *yieldStmt->value, ownerClass);
+        out << ");\n";
+        return;
+    }
+
     if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        if (currentFunction_ && currentFunction_->isGenerator) {
+            out << "_afr_yields.push_back(";
+            emitExpression(out, *ret->value, ownerClass);
+            out << ");\n";
+            return;
+        }
         const bool useCoReturn =
             inAsyncCoroutine_ || (currentFunction_ && currentFunction_->isAsync);
         if (ret->isError && currentFunction_ && currentFunction_->returnsResult) {
@@ -1525,6 +1562,39 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                         out << arm.caseName;
                     }
                     out << ") {\n";
+                }
+                for (const auto& bodyStmt : arm.body) {
+                    emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+                }
+                indent(out, indentLevel + 1);
+                out << "}";
+                if (i + 1 == matchStmt->arms.size()) out << "\n";
+            }
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+
+        if (subjectType.kind == TypeKind::Record) {
+            indent(out, indentLevel);
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto _afr_rec = ";
+            emitExpression(out, *matchStmt->subject, ownerClass);
+            out << ";\n";
+            for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
+                const auto& arm = matchStmt->arms[i];
+                indent(out, indentLevel + 1);
+                if (arm.isDefault) {
+                    out << "else {\n";
+                } else if (i == 0) {
+                    out << "if (true) {\n";
+                } else {
+                    out << "else if (true) {\n";
+                }
+                for (const auto& bindName : arm.bindNames) {
+                    indent(out, indentLevel + 2);
+                    out << "auto " << bindName << " = _afr_rec." << bindName << ";\n";
                 }
                 for (const auto& bodyStmt : arm.body) {
                     emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
@@ -2047,6 +2117,28 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         return;
     }
 
+    if (const auto* comprehension = dynamic_cast<const ComprehensionExpressionNode*>(&expr)) {
+        const AfrType elemType = typeFromName(comprehension->elementTypeName);
+        const AfrType resultType = typeFromName(comprehension->resultTypeName);
+        out << "([&]() {\n";
+        out << "    std::vector<" << resultType.toCpp() << "> _out;\n";
+        out << "    const auto& _src = ";
+        emitExpression(out, *comprehension->list, ownerClass);
+        out << ";\n";
+        out << "    for (const auto& " << comprehension->itemName << " : _src) {\n";
+        out << "        if (!(";
+        emitExpression(out, *comprehension->condition, ownerClass);
+        out << ")) continue;\n";
+        out << "        _out.push_back(";
+        emitExpression(out, *comprehension->result, ownerClass);
+        out << ");\n";
+        out << "    }\n";
+        out << "    return _out;\n";
+        out << "})()";
+        (void)elemType;
+        return;
+    }
+
     if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {
         const AfrType elemType = typeFromName(reduce->elementTypeName);
         const AfrType resultType = typeFromName(reduce->resultTypeName);
@@ -2564,6 +2656,7 @@ namespace {
 std::string runtimeModuleName(const std::string& moduleName) {
     if (moduleName == "logging") return "log";
     if (moduleName == "chrono") return "time";
+    if (moduleName == "thread") return "thread_";
     return moduleName;
 }
 
@@ -2728,6 +2821,24 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         } else if (func.name == "makeObject") {
             out << "return afrilang::runtime::json::makeObjectValue(key, value);\n";
         }
+    } else if (moduleName == "web") {
+        if (func.name == "createRouter") {
+            out << "return afrilang::runtime::web::createRouter();\n";
+        } else if (func.name == "addRoute") {
+            out << "afrilang::runtime::web::addRouteId(router, method, path, body);\n";
+        } else if (func.name == "dispatch") {
+            out << "return afrilang::runtime::web::dispatchId(router, method, path);\n";
+        }
+    } else if (moduleName == "bigint") {
+        if (func.name == "fromInt") {
+            out << "return afrilang::runtime::bigint::BigInt::fromInt(value);\n";
+        } else if (func.name == "toText") {
+            out << "return afrilang::runtime::bigint::toText(value);\n";
+        } else if (func.name == "add") {
+            out << "return afrilang::runtime::bigint::add(a, b);\n";
+        } else if (func.name == "mul") {
+            out << "return afrilang::runtime::bigint::mul(a, b);\n";
+        }
     } else if (func.returnTypeName.empty()) {
         out << rt << "(";
         for (std::size_t i = 0; i < func.parameters.size(); ++i) {
@@ -2750,6 +2861,10 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
 
 std::string CodeGenerator::functionReturnCpp(const FunctionNode& func,
                                              const ClassInfo* ownerClass) {
+    if (func.isGenerator) {
+        if (func.returnTypeName.empty()) return "std::vector<double>";
+        return typeFromName(func.returnTypeName).toCpp();
+    }
     if (func.returnTypeName.empty() && !func.isAsync) return "void";
     if (func.isAsync) {
         if (func.returnTypeName.empty()) {

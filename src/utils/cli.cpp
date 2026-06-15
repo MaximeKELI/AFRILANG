@@ -278,7 +278,8 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
         "unions_demo.afr",
         "operators_demo.afr",
         "tier1_demo.afr",
-        "tier2_demo.afr"
+        "tier2_demo.afr",
+        "tier3_demo.afr"
     };
 
     CompileOptions opts;
