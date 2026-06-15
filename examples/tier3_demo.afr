@@ -32,8 +32,7 @@ say dispatch(router, "GET", "/hello")
 import "std/thread"
 use thread
 
-create tid = spawnSleep(5)
-join(tid)
+sleepMs(5)
 say hardwareConcurrency()
 
 import "std/sql"
