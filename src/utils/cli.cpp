@@ -11,6 +11,7 @@
 #include "afrilang/project.hpp"
 #include "afrilang/cache.hpp"
 #include "afrilang/debug.hpp"
+#include "afrilang/debug_meta.hpp"
 #include "afrilang/env.hpp"
 #include "afrilang/target.hpp"
 #include "afrilang/sandbox.hpp"
@@ -242,6 +243,10 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     }
 
     result.success = true;
+    if (options.debugSymbols) {
+        writeDebugMetadata(result.executable + ".afr.debug.json", semantic,
+                           srcPath.string());
+    }
     if (options.useCache) {
         cache.store(sourcePath, sourceHash, fs::absolute(result.executable).string());
     }

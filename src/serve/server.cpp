@@ -16,6 +16,7 @@
 #include <cctype>
 #include <ctime>
 #include <cstring>
+#include <random>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -52,6 +53,44 @@ std::string clientIpString(const sockaddr_in& addr) {
     char buf[INET_ADDRSTRLEN] = {};
     inet_ntop(AF_INET, &addr.sin_addr, buf, sizeof(buf));
     return buf;
+}
+
+struct WasmSession {
+    fs::path jsPath;
+    fs::path wasmPath;
+    std::time_t created = 0;
+};
+
+std::unordered_map<std::string, WasmSession> g_wasmSessions;
+
+std::string newWasmSessionId() {
+    static std::mt19937 rng(static_cast<unsigned>(std::time(nullptr)));
+    std::uniform_int_distribution<int> dist(0, 15);
+    std::string id;
+    id.reserve(16);
+    for (int i = 0; i < 16; ++i) {
+        id += "0123456789abcdef"[dist(rng)];
+    }
+    return id;
+}
+
+void cleanupWasmSessions() {
+    const std::time_t now = std::time(nullptr);
+    for (auto it = g_wasmSessions.begin(); it != g_wasmSessions.end();) {
+        if (now - it->second.created > 600) {
+            fs::remove(it->second.jsPath);
+            fs::remove(it->second.wasmPath);
+            it = g_wasmSessions.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    while (g_wasmSessions.size() > 16) {
+        auto it = g_wasmSessions.begin();
+        fs::remove(it->second.jsPath);
+        fs::remove(it->second.wasmPath);
+        g_wasmSessions.erase(it);
+    }
 }
 
 } // namespace
@@ -206,6 +245,46 @@ static std::string runSource(const std::string& source, const std::string& cross
     }
 }
 
+static std::string buildWasmForBrowser(const std::string& source) {
+    validateSourceContent(source, "playground wasm", SecurityContext::NetworkServe);
+    cleanupWasmSessions();
+
+    const std::string id = newWasmSessionId();
+    const std::string sessionPath = secureTempPath("wasm_" + id + ".afr");
+    const std::string cppPath = secureTempPath("wasm_" + id + ".cpp");
+    const std::string jsPath = secureTempPath("wasm_" + id + ".js");
+
+    try {
+        SourceManager sources;
+        sources.addFile(sessionPath, source);
+        auto program = parseSourceProgram(source, sessionPath, &sources);
+        SemanticAnalyzer analyzer(*program, &sources, sessionPath);
+        const SemanticResult semantic = analyzer.analyze();
+
+        CodeGenerator codegen(*program, semantic);
+        codegen.setRuntimeDir((fs::path(detectAfrilangRoot()) / "runtime").string());
+        codegen.setSourceFile(sessionPath);
+        codegen.setCrossTarget("wasm32");
+        codegen.setWasmEnvironment("web");
+
+        if (!codegen.compileToExecutable(cppPath, jsPath)) {
+            return "{\"ok\":false,\"output\":\"Erreur de compilation em++ "
+                   "(installez Emscripten)\",\"exitCode\":1}";
+        }
+
+        const fs::path wasmPath = fs::path(jsPath).replace_extension(".wasm");
+        if (!fs::exists(wasmPath)) {
+            return "{\"ok\":false,\"output\":\"Fichier .wasm introuvable après compilation\","
+                   "\"exitCode\":1}";
+        }
+
+        g_wasmSessions[id] = WasmSession{jsPath, wasmPath, std::time(nullptr)};
+        return "{\"ok\":true,\"id\":\"" + id + "\"}";
+    } catch (const CompileError& e) {
+        return "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\",\"exitCode\":1}";
+    }
+}
+
 static std::string formatSource(const std::string& source) {
     validateSourceContent(source, "playground fmt", SecurityContext::NetworkServe);
     const std::string sessionPath = secureTempPath("playground_fmt.afr");
@@ -228,6 +307,7 @@ static std::string contentTypeFor(const fs::path& path) {
     if (ext == ".js") return "application/javascript; charset=utf-8";
     if (ext == ".json") return "application/json; charset=utf-8";
     if (ext == ".svg") return "image/svg+xml";
+    if (ext == ".wasm") return "application/wasm";
     if (ext == ".png") return "image/png";
     return "text/plain; charset=utf-8";
 }
@@ -324,6 +404,40 @@ static void handleClient(int client, const fs::path& siteRoot, const std::string
             sendResponse(client, 413, "application/json",
                          "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\"}");
         }
+        return;
+    }
+
+    if (method == "POST" && path == "/api/build/wasm") {
+        try {
+            const std::string body = readRequestBody(client, headers, initialBody);
+            const std::string result = buildWasmForBrowser(jsonGetSource(body));
+            sendResponse(client, 200, "application/json", result);
+        } catch (const CompileError& e) {
+            sendResponse(client, 413, "application/json",
+                         "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) +
+                             "\",\"exitCode\":1}");
+        }
+        return;
+    }
+
+    if (method == "GET" && path.rfind("/api/wasm/", 0) == 0) {
+        const std::string rest = path.substr(10);
+        const auto slash = rest.find('/');
+        if (slash != std::string::npos) {
+            const std::string id = rest.substr(0, slash);
+            const std::string file = rest.substr(slash + 1);
+            const auto it = g_wasmSessions.find(id);
+            if (it != g_wasmSessions.end()) {
+                fs::path filePath;
+                if (file == "module.js") filePath = it->second.jsPath;
+                else if (file == "module.wasm") filePath = it->second.wasmPath;
+                if (!filePath.empty() && fs::exists(filePath)) {
+                    sendResponse(client, 200, contentTypeFor(filePath), readFile(filePath));
+                    return;
+                }
+            }
+        }
+        sendResponse(client, 404, "text/plain", "404 Not Found");
         return;
     }
 

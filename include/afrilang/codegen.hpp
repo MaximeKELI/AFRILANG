@@ -24,6 +24,7 @@ public:
     void setSourceFile(std::string path) { sourceFilePath_ = std::move(path); }
     void setDebugSymbols(bool enabled) { debugSymbols_ = enabled; }
     void setCrossTarget(std::string target) { crossTarget_ = std::move(target); }
+    void setWasmEnvironment(std::string env) { wasmEnvironment_ = std::move(env); }
     void setCoverageMode(bool enabled) { coverageMode_ = enabled; }
 
 private:
@@ -33,6 +34,7 @@ private:
     std::string sourceFilePath_;
     bool debugSymbols_ = true;
     std::string crossTarget_ = "native";
+    std::string wasmEnvironment_ = "node";
     bool coverageMode_ = false;
     mutable std::unordered_set<std::string> linkLibraries_;
 

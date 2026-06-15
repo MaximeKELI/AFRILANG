@@ -3098,10 +3098,21 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         args.push_back("-DAFRILANG_WASM=1");
         args.push_back("-s");
         args.push_back("WASM=1");
-        args.push_back("-s");
-        args.push_back("ENVIRONMENT=node");
-        args.push_back("-s");
-        args.push_back("EXIT_RUNTIME=1");
+        if (wasmEnvironment_ == "web") {
+            args.push_back("-s");
+            args.push_back("ENVIRONMENT=web");
+            args.push_back("-s");
+            args.push_back("MODULARIZE=1");
+            args.push_back("-s");
+            args.push_back("EXPORT_NAME=createAfrilangModule");
+            args.push_back("-s");
+            args.push_back("INVOKE_RUN=0");
+        } else {
+            args.push_back("-s");
+            args.push_back("ENVIRONMENT=node");
+            args.push_back("-s");
+            args.push_back("EXIT_RUNTIME=1");
+        }
     }
     args.push_back("-o");
     args.push_back(executablePath);

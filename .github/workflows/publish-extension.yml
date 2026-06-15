@@ -20,26 +20,30 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Read version
+        id: ver
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
       - name: Install dependencies
         run: npm install
 
       - name: Package VSIX
-        run: npx @vscode/vsce package
+        run: npx @vscode/vsce package --out "afrilang-${{ steps.ver.outputs.version }}.vsix"
 
       - name: Publish to VS Code Marketplace
         if: env.VSCE_PAT != ''
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npx @vscode/vsce publish
+        run: npx @vscode/vsce publish -i "afrilang-${{ steps.ver.outputs.version }}.vsix"
 
       - name: Publish to Open VSX
         if: env.OVSX_PAT != ''
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        run: npx ovsx publish *.vsix -p "$OVSX_PAT"
+        run: npx ovsx publish "afrilang-${{ steps.ver.outputs.version }}.vsix" -p "$OVSX_PAT"
 
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:
           name: afrilang-vscode-extension
-          path: vscode-afrilang/*.vsix
+          path: vscode-afrilang/afrilang-*.vsix

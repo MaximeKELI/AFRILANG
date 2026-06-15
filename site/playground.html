@@ -32,7 +32,8 @@
         <textarea id="editor" spellcheck="false"></textarea>
         <div class="toolbar">
           <button id="run" type="button">Run</button>
-          <button id="runWasm" type="button" class="secondary">Run WASM</button>
+          <button id="runWasm" type="button" class="secondary">Run WASM (server)</button>
+          <button id="runWasmBrowser" type="button" class="secondary">Run in browser</button>
           <button id="fmt" type="button" class="secondary">Format</button>
           <span id="status"></span>
         </div>
@@ -43,6 +44,7 @@
       </section>
     </div>
   </main>
+  <script src="/wasm-runner.js"></script>
   <script src="/playground.js"></script>
 </body>
 </html>

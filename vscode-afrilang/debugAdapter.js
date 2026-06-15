@@ -2,7 +2,7 @@
 'use strict';
 
 const { DebugSession, InitializedEvent, TerminatedEvent, StoppedEvent,
-  OutputEvent, Thread, StackFrame, Scope, Source } = require('@vscode/debugadapter');
+  OutputEvent, Thread, StackFrame, Scope, Source, Variable } = require('@vscode/debugadapter');
 const { spawn, execFile } = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -21,6 +21,12 @@ class AfrilangDebugSession extends DebugSession {
     this._stopped = false;
     this._executable = '';
     this._sourceFile = '';
+    this._debugMeta = null;
+  }
+
+  _findMeta(name) {
+    if (!this._debugMeta?.variables) return null;
+    return this._debugMeta.variables.find((v) => v.name === name) || null;
   }
 
   initializeRequest(response) {
@@ -67,6 +73,15 @@ class AfrilangDebugSession extends DebugSession {
 
     if (!fs.existsSync(this._executable)) {
       throw new Error('Exécutable introuvable: ' + this._executable);
+    }
+
+    const metaPath = this._executable + '.afr.debug.json';
+    if (fs.existsSync(metaPath)) {
+      try {
+        this._debugMeta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+      } catch {
+        this._debugMeta = null;
+      }
     }
 
     response.success = true;
@@ -160,14 +175,51 @@ class AfrilangDebugSession extends DebugSession {
   }
 
   scopesRequest(response, args) {
-    response.body = {
-      scopes: [new Scope('Locals', args.frameId, false)]
-    };
+    const scopes = [new Scope('Locals', args.frameId * 1000, false)];
+    if (this._debugMeta?.variables?.length) {
+      scopes.push(new Scope('Globals (AFRILANG)', args.frameId * 1000 + 1, false));
+    }
+    response.body = { scopes };
     this.sendResponse(response);
   }
 
-  variablesRequest(response) {
-    response.body = { variables: [] };
+  async variablesRequest(response, args) {
+    const variables = [];
+    const ref = args.variablesReference;
+    const frameId = Math.floor(ref / 1000);
+    const kind = ref % 1000;
+
+    if (kind === 1 && this._debugMeta?.variables) {
+      for (const entry of this._debugMeta.variables) {
+        try {
+          const result = await this._gdbCommand(`-data-evaluate-expression ${entry.name}`);
+          const value = result?.value || '?';
+          variables.push(new Variable(`${entry.name} : ${entry.type}`, value));
+        } catch {
+          variables.push(new Variable(`${entry.name} : ${entry.type}`, '?'));
+        }
+      }
+      response.body = { variables };
+      this.sendResponse(response);
+      return;
+    }
+
+    try {
+      const result = await this._gdbCommand(
+        `-stack-list-variables ${frameId} --simple-values`
+      );
+      const list = result?.variables || [];
+      const items = Array.isArray(list) ? list : [list];
+      for (const v of items) {
+        if (!v || !v.name) continue;
+        const meta = this._findMeta(v.name);
+        const label = meta ? `${v.name} : ${meta.type}` : v.name;
+        variables.push(new Variable(label, v.value ?? '?'));
+      }
+    } catch {
+      /* ignore */
+    }
+    response.body = { variables };
     this.sendResponse(response);
   }
 

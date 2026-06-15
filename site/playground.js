@@ -94,7 +94,34 @@ examples.addEventListener('change', () => loadExample(examples.value));
 loadExample('hello');
 
 document.getElementById('run').addEventListener('click', () => runCode('/api/run', 'Compiling...'));
-document.getElementById('runWasm').addEventListener('click', () => runCode('/api/run/wasm', 'Compiling WASM...'));
+document.getElementById('runWasm').addEventListener('click', () => runCode('/api/run/wasm', 'Compiling WASM (server)...'));
+
+document.getElementById('runWasmBrowser').addEventListener('click', async () => {
+  status.textContent = 'Building WASM for browser...';
+  output.textContent = '';
+  output.classList.remove('error');
+  try {
+    const res = await fetch('/api/build/wasm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ source: editor.value })
+    });
+    const data = await res.json();
+    if (!data.ok || !data.id) {
+      output.textContent = data.output || 'Build failed';
+      status.textContent = 'Error';
+      output.classList.add('error');
+      return;
+    }
+    status.textContent = 'Running in browser...';
+    await window.runWasmInBrowser(data.id, output, status);
+    status.textContent = 'OK (browser WASM)';
+  } catch (e) {
+    status.textContent = 'Error';
+    output.textContent = String(e);
+    output.classList.add('error');
+  }
+});
 
 async function runCode(endpoint, busyLabel) {
   status.textContent = busyLabel;

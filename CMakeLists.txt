@@ -30,6 +30,7 @@ set(AFRILANG_SOURCES
     src/utils/hash.cpp
     src/utils/cache.cpp
     src/utils/debug.cpp
+    src/utils/debug_meta.cpp
     src/utils/env.cpp
     src/utils/educational.cpp
     src/repl/repl.cpp

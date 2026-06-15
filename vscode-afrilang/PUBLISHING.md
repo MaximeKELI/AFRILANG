@@ -31,10 +31,14 @@
 ```bash
 cd vscode-afrilang
 chmod +x publish.sh
+npm install
 ./publish.sh
 ```
 
-Sans tokens, le script crée seulement le fichier `.vsix`.
+Le script produit `afrilang-<version>.vsix` (ex. `afrilang-1.2.0.vsix`) avec :
+- serveur LSP intégré via `afrilang.serverPath`
+- adaptateur DAP (`debugAdapter.js`) + breakpoints `.afr`
+- templates `launch.json` / `tasks.json`
 
 ## CI GitHub (optionnel)
 

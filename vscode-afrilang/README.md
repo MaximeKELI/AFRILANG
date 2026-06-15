@@ -35,6 +35,14 @@ Puis **Developer: Reload Window**.
 
 Voir [PUBLISHING.md](./PUBLISHING.md).
 
+```bash
+cd vscode-afrilang
+npm install
+./publish.sh          # crée afrilang-1.2.0.vsix (+ publish si VSCE_PAT/OVSX_PAT)
+```
+
+Tag Git optionnel : `git tag vscode-v1.2.0 && git push origin vscode-v1.2.0` déclenche le workflow CI.
+
 ## Configuration
 
 | Paramètre | Défaut | Description |
@@ -59,6 +67,8 @@ Exemple `settings.json` :
 - **Formatage** — `Shift+Alt+F` ou format on save via LSP
 - **Exécuter** — bouton ▶ dans l'éditeur ou commande *AFRILANG: Exécuter le fichier*
 - **Vérifier** — *AFRILANG: Vérifier le fichier* (`afrilang check`)
+- **Débugger** — *AFRILANG: Débugger le fichier* (adaptateur DAP + GDB, types Afrilang dans Variables)
+- **Config debug** — *AFRILANG: Initialiser la config debug* → `launch.json` pour F5
 - **Icône** — carte d'Afrique pour les fichiers `.afr`
 
 ### Icône des fichiers `.afr`
