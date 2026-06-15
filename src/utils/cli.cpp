@@ -12,6 +12,7 @@
 #include "afrilang/cache.hpp"
 #include "afrilang/debug.hpp"
 #include "afrilang/env.hpp"
+#include "afrilang/target.hpp"
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
