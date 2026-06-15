@@ -3,6 +3,7 @@
 #include "afrilang/parser.hpp"
 #include "afrilang/semantic.hpp"
 #include "afrilang/compiler.hpp"
+#include "afrilang/cli.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/i18n.hpp"
 #include "afrilang/security.hpp"
@@ -12,6 +13,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include <stdexcept>
 #include <string>
 #include <cstdlib>
@@ -221,6 +223,24 @@ static void testCompileFromSourceImports() {
     expect(hasSum2, "compileFromSource merges imported sum2");
     afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/full_demo.afr");
     analyzer.analyze();
+
+    const std::string absPath = std::filesystem::absolute("../examples/full_demo.afr").string();
+    afrilang::Compiler absCompiler(absPath, "..");
+    auto absProgram = absCompiler.compileFromSource(src);
+    hasSum2 = false;
+    for (const auto& fn : absProgram->functions) {
+        if (fn->name == "sum2") hasSum2 = true;
+    }
+    expect(hasSum2, "absolute path compileFromSource merges sum2");
+    afrilang::Compiler rootCompiler(absPath, afrilang::detectAfrilangRoot());
+    auto rootProgram = rootCompiler.compileFromSource(src);
+    hasSum2 = false;
+    for (const auto& fn : rootProgram->functions) {
+        if (fn->name == "sum2") hasSum2 = true;
+    }
+    expect(hasSum2, "detectAfrilangRoot compileFromSource merges sum2");
+    afrilang::SemanticAnalyzer rootAnalyzer(*rootProgram, &rootCompiler.sources(), absPath);
+    rootAnalyzer.analyze();
 }
 
 static void testSecureModeDefault() {
