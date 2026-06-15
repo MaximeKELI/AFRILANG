@@ -379,6 +379,29 @@ static std::string lineTextAt(const std::string& source, int line) {
     return current;
 }
 
+static std::string formatDocument(const std::string& uri, const std::string& source) {
+    const std::string path = uriToPath(uri);
+    try {
+        SourceManager sources;
+        sources.addFile(path.empty() ? "<buffer>" : path, source);
+        auto program = parseSourceProgram(source, path.empty() ? "<buffer>" : path, &sources);
+        Formatter formatter(*program);
+        const std::string formatted = formatter.format();
+        if (formatted == source) return "[]";
+        int endLine = 0, endChar = 0;
+        for (char c : source) {
+            if (c == '\n') { ++endLine; endChar = 0; } else { ++endChar; }
+        }
+        std::ostringstream out;
+        out << "[{\"range\":{\"start\":{\"line\":0,\"character\":0},"
+            << "\"end\":{\"line\":" << endLine << ",\"character\":" << endChar << "}},"
+            << "\"newText\":\"" << jsonEscape(formatted) << "\"}]";
+        return out.str();
+    } catch (const CompileError&) {
+        return "[]";
+    }
+}
+
 static std::string codeActionsJson(const std::string& uri, const std::string& source,
                                    const AnalysisResult& analysis) {
     std::ostringstream out;
@@ -415,29 +438,6 @@ static std::string codeActionsJson(const std::string& uri, const std::string& so
 
     out << "]";
     return out.str();
-}
-
-static std::string formatDocument(const std::string& uri, const std::string& source) {
-    const std::string path = uriToPath(uri);
-    try {
-        SourceManager sources;
-        sources.addFile(path.empty() ? "<buffer>" : path, source);
-        auto program = parseSourceProgram(source, path.empty() ? "<buffer>" : path, &sources);
-        Formatter formatter(*program);
-        const std::string formatted = formatter.format();
-        if (formatted == source) return "[]";
-        int endLine = 0, endChar = 0;
-        for (char c : source) {
-            if (c == '\n') { ++endLine; endChar = 0; } else { ++endChar; }
-        }
-        std::ostringstream out;
-        out << "[{\"range\":{\"start\":{\"line\":0,\"character\":0},"
-            << "\"end\":{\"line\":" << endLine << ",\"character\":" << endChar << "}},"
-            << "\"newText\":\"" << jsonEscape(formatted) << "\"}]";
-        return out.str();
-    } catch (const CompileError&) {
-        return "[]";
-    }
 }
 
 static int extractId(const std::string& body) {
