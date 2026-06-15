@@ -170,13 +170,16 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                                                      : options.runtimeDir);
     codegen.setSourceFile(srcPath.string());
     codegen.setDebugSymbols(options.debugSymbols);
-    codegen.setCrossTarget(options.crossTarget);
+    codegen.setCrossTarget(crossTarget);
     codegen.setCoverageMode(options.coverageMode);
 
     result.generatedCpp = baseName + ".generated.cpp";
     std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
     if (fs::exists(executable) && fs::is_directory(executable)) {
         executable = baseName + "_bin";
+    }
+    if (isWasmTarget(crossTarget)) {
+        executable = baseName + ".js";
     }
     result.executable = executable;
 
@@ -215,7 +218,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 config.maxCpuSeconds = limits.maxCpuSeconds;
                 config.maxOutputBytes = limits.maxOutputBytes;
                 config.limitProcessCount = true;
-                const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
+                const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
                 if (!exec.output.empty()) std::cout << exec.output;
                 const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
                     std::chrono::steady_clock::now() - execStart).count();
@@ -229,7 +232,11 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     }
 
     if (!codegen.compileToExecutable(result.generatedCpp, result.executable)) {
-        std::cerr << "Erreur: la compilation g++ a échoué.\n";
+        const char* compiler = isWasmTarget(crossTarget) ? "em++" : "g++";
+        std::cerr << "Erreur: la compilation " << compiler << " a échoué.\n";
+        if (isWasmTarget(crossTarget)) {
+            std::cerr << "Installez Emscripten (emsdk) et assurez-vous que em++ est dans le PATH.\n";
+        }
         std::cerr << "Consultez " << result.generatedCpp << " pour le code généré.\n";
         return result;
     }
@@ -240,7 +247,13 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     }
     const auto compileMs = std::chrono::duration_cast<std::chrono::milliseconds>(
         std::chrono::steady_clock::now() - compileStart).count();
-    std::cout << "Exécutable produit: " << result.executable << "\n";
+    if (isWasmTarget(crossTarget)) {
+        const fs::path wasmPath = fs::path(result.executable).replace_extension(".wasm");
+        std::cout << "Module WASM produit: " << wasmPath.filename().string()
+                  << " (+ " << result.executable << ")\n";
+    } else {
+        std::cout << "Exécutable produit: " << result.executable << "\n";
+    }
     if (options.profileMode) {
         std::cout << "[profile] compile: " << compileMs << " ms\n";
     }
@@ -255,7 +268,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         config.maxCpuSeconds = limits.maxCpuSeconds;
         config.maxOutputBytes = limits.maxOutputBytes;
         config.limitProcessCount = true;
-        const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
+        const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
         if (!exec.output.empty()) {
             std::cout << exec.output;
         }
@@ -329,7 +342,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier4_demo.afr",
         "tier5_demo.afr",
         "tier6_demo.afr",
-        "tier7_demo.afr"
+        "tier7_demo.afr",
+        "tier8_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());
@@ -386,6 +400,8 @@ static int cmdBuild(int argc, char* argv[]) {
             projectDir = arg;
         }
     }
+    target = normalizeCrossTarget(target);
+    if (!validateCrossTarget(target)) return 1;
 
     const fs::path dir = projectDir.empty() ? fs::current_path() : fs::path(projectDir);
     const fs::path configPath = dir / "afrilang.toml";
@@ -408,7 +424,7 @@ static int cmdBuild(int argc, char* argv[]) {
     CompileOptions opts;
     opts.outputExecutable = (dir / config.output).string();
     opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
-    opts.crossTarget = target;
+    opts.crossTarget = normalizeCrossTarget(target);
 
     if (target != "native") {
         std::cout << "Cible de compilation: " << target << "\n";
@@ -451,6 +467,8 @@ static int cmdRun(int argc, char* argv[]) {
             opts.profileMode = true;
         }
     }
+    opts.crossTarget = normalizeCrossTarget(opts.crossTarget);
+    if (!validateCrossTarget(opts.crossTarget)) return 1;
 
     const fs::path absPath = fs::absolute(file);
     if (!fs::exists(absPath)) {

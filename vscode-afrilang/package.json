@@ -75,6 +75,16 @@
         "command": "afrilang.restartServer",
         "title": "AFRILANG: Redémarrer le serveur LSP",
         "icon": "$(refresh)"
+      },
+      {
+        "command": "afrilang.debugFile",
+        "title": "AFRILANG: Débugger le fichier",
+        "icon": "$(debug-alt)"
+      },
+      {
+        "command": "afrilang.initDebugConfig",
+        "title": "AFRILANG: Initialiser la config debug (launch.json)",
+        "icon": "$(debug-console)"
       }
     ],
     "menus": {
@@ -95,6 +105,11 @@
           "when": "resourceLangId == afrilang",
           "command": "afrilang.checkFile",
           "group": "navigation@2"
+        },
+        {
+          "when": "resourceLangId == afrilang",
+          "command": "afrilang.debugFile",
+          "group": "navigation@3"
         }
       ],
       "commandPalette": [
@@ -108,6 +123,14 @@
         },
         {
           "command": "afrilang.restartServer",
+          "when": "resourceLangId == afrilang"
+        },
+        {
+          "command": "afrilang.debugFile",
+          "when": "resourceLangId == afrilang"
+        },
+        {
+          "command": "afrilang.initDebugConfig",
           "when": "resourceLangId == afrilang"
         }
       ]

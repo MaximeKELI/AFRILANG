@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "afrilang: compiler (debug)",
+      "type": "shell",
+      "command": "${config:afrilang.serverPath}",
+      "args": ["run", "${file}", "--emit"],
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "afrilang: compiler while.afr (debug)",
+      "type": "shell",
+      "command": "${config:afrilang.serverPath}",
+      "args": ["run", "${workspaceFolder}/examples/while.afr", "--emit"],
+      "options": { "cwd": "${workspaceFolder}/examples" },
+      "problemMatcher": []
+    }
+  ]
+}

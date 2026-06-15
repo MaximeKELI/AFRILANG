@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "AFRILANG: Débugger le fichier courant",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "afrilang: compiler (debug)",
+      "setupCommands": [
+        {
+          "description": "Activer l'impression jolie",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "AFRILANG: Débugger examples/while.afr",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/examples/while",
+      "cwd": "${workspaceFolder}/examples",
+      "MIMode": "gdb",
+      "preLaunchTask": "afrilang: compiler while.afr (debug)"
+    }
+  ]
+}

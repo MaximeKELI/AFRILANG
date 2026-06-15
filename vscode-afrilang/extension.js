@@ -272,11 +272,81 @@ function registerRestartCommand(context) {
   context.subscriptions.push(disposable);
 }
 
+function registerDebugCommand(context) {
+  const disposable = vscode.commands.registerCommand('afrilang.debugFile', async () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor || !isAfrilangDocument(editor.document)) {
+      vscode.window.showWarningMessage('Ouvrez un fichier .afr pour le débugger.');
+      return;
+    }
+
+    await editor.document.save();
+    const filePath = editor.document.uri.fsPath;
+    const serverPath = resolveServerPath(context);
+    if (!verifyServerPath(serverPath)) {
+      vscode.window.showErrorMessage(`Exécutable introuvable : ${serverPath}`);
+      return;
+    }
+
+    const terminal = vscode.window.createTerminal({
+      name: 'AFRILANG Debug',
+      cwd: path.dirname(filePath)
+    });
+    terminal.show();
+    terminal.sendText(`"${serverPath}" debug "${filePath}"`);
+  });
+  context.subscriptions.push(disposable);
+}
+
+async function copyTemplateIfMissing(context, name) {
+  const folders = vscode.workspace.workspaceFolders;
+  if (!folders?.length) {
+    vscode.window.showWarningMessage('Ouvrez un dossier workspace pour initialiser la config debug.');
+    return;
+  }
+  const vscodeDir = path.join(folders[0].uri.fsPath, '.vscode');
+  const dest = path.join(vscodeDir, name);
+  if (fs.existsSync(dest)) {
+    const open = 'Ouvrir';
+    const choice = await vscode.window.showInformationMessage(
+      `${name} existe déjà.`,
+      open
+    );
+    if (choice === open) {
+      const doc = await vscode.workspace.openTextDocument(dest);
+      await vscode.window.showTextDocument(doc);
+    }
+    return;
+  }
+  const src = path.join(context.extensionPath, 'templates', name);
+  if (!fs.existsSync(src)) {
+    vscode.window.showErrorMessage(`Modèle introuvable : ${name}`);
+    return;
+  }
+  fs.mkdirSync(vscodeDir, { recursive: true });
+  fs.copyFileSync(src, dest);
+  const doc = await vscode.workspace.openTextDocument(dest);
+  await vscode.window.showTextDocument(doc);
+  vscode.window.showInformationMessage(
+    `${name} créé. Installez l'extension C/C++ (cppdbg) puis F5 pour débugger.`
+  );
+}
+
+function registerInitDebugConfigCommand(context) {
+  const disposable = vscode.commands.registerCommand('afrilang.initDebugConfig', async () => {
+    await copyTemplateIfMissing(context, 'tasks.json');
+    await copyTemplateIfMissing(context, 'launch.json');
+  });
+  context.subscriptions.push(disposable);
+}
+
 /** @param {vscode.ExtensionContext} context */
 function activate(context) {
   registerRunCommand(context);
   registerCheckCommand(context);
   registerRestartCommand(context);
+  registerDebugCommand(context);
+  registerInitDebugConfigCommand(context);
   registerWorkspaceDiagnostics(context);
   startLanguageClient(context).catch((err) => {
     vscode.window.showErrorMessage(`AFRILANG LSP: ${err.message}`);
