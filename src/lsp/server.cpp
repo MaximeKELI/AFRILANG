@@ -8,7 +8,7 @@
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
-#include <cstdio>
+#include <fstream>
 #include <filesystem>
 #include <iostream>
 #include <sstream>
@@ -255,13 +255,28 @@ static void addOutlineSymbol(AnalysisResult& result, const std::string& name,
     result.outline.push_back(std::move(sym));
 }
 
-static AnalysisResult analyzeDocument(const std::string& path, const std::string& source) {
+static AnalysisResult analyzeDocument(const std::string& path, const std::string& source,
+                                      bool preferDisk) {
     AnalysisResult result;
     try {
         const std::string filePath = path.empty() ? "<buffer>" : path;
-        Compiler compiler(filePath, detectAfrilangRoot());
-        std::unique_ptr<ProgramNode> program = compiler.compileFromSource(source);
-        SemanticAnalyzer analyzer(*program, &compiler.sources(), filePath);
+        const std::string root = detectAfrilangRoot();
+        std::unique_ptr<ProgramNode> program;
+        SourceManager* sources = nullptr;
+        std::unique_ptr<Compiler> diskCompiler;
+
+        if (preferDisk && filePath != "<buffer>" && fs::is_regular_file(filePath)) {
+            diskCompiler = std::make_unique<Compiler>(filePath, root);
+            program = diskCompiler->compile();
+            sources = &diskCompiler->sources();
+        } else {
+            Compiler compiler(filePath, root);
+            program = compiler.compileFromSource(source);
+            sources = &compiler.sources();
+            diskCompiler = std::make_unique<Compiler>(std::move(compiler));
+        }
+
+        SemanticAnalyzer analyzer(*program, sources, filePath);
         const SemanticResult semantic = analyzer.analyze();
 
         for (const auto& [name, sig] : semantic.functions) {
