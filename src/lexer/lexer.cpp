@@ -253,6 +253,7 @@ std::vector<Token> Lexer::tokenize() {
         } else {
             advance();
             switch (c) {
+                case '@': tokens.push_back(makeToken(TokenType::AtSign, "@")); break;
                 case '+': tokens.push_back(makeToken(TokenType::Plus, "+")); break;
                 case '-': tokens.push_back(makeToken(TokenType::Minus, "-")); break;
                 case '*': tokens.push_back(makeToken(TokenType::Star, "*")); break;

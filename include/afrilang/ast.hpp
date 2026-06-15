@@ -361,6 +361,7 @@ struct MatchArmNode {
     std::string caseName;
     CaseKind caseKind = CaseKind::Enum;
     std::vector<std::string> bindNames;
+    std::unique_ptr<ExpressionNode> guard;
     bool isDefault = false;
     std::vector<std::unique_ptr<StatementNode>> body;
 };
@@ -378,6 +379,7 @@ struct MatchExprArmNode {
     std::string caseName;
     MatchArmNode::CaseKind caseKind = MatchArmNode::CaseKind::Enum;
     std::vector<std::string> bindNames;
+    std::unique_ptr<ExpressionNode> guard;
     bool isDefault = false;
     std::unique_ptr<ExpressionNode> value;
 };
@@ -635,6 +637,7 @@ struct FunctionNode : ASTNode {
     bool isOperator = false;
     std::string operatorSymbol;
     bool modulePrivate = false;
+    std::vector<std::string> decorators;
     std::vector<std::unique_ptr<StatementNode>> body;
 
     FunctionNode(std::string name,
@@ -677,6 +680,7 @@ struct PropertyNode {
 
 struct InterfaceNode : ASTNode {
     std::string name;
+    std::vector<std::string> baseInterfaceNames;
     std::vector<std::unique_ptr<FunctionNode>> methods;
 
     InterfaceNode(std::string name, std::vector<std::unique_ptr<FunctionNode>> methods)
@@ -711,6 +715,7 @@ struct ClassNode : ASTNode {
     bool isAbstract = false;
     bool isFinal = false;
     bool modulePrivate = false;
+    std::vector<std::string> decorators;
 
     ClassNode(std::string name,
               std::string baseClassName,

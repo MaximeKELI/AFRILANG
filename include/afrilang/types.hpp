@@ -24,7 +24,8 @@ enum class TypeKind {
     Enum,
     TypeVar,
     Function,
-    Task
+    Task,
+    Generator
 };
 
 struct AfrType {
@@ -104,6 +105,12 @@ struct AfrType {
         t.listElementTypeName = inner.toTypeName();
         return t;
     }
+    static AfrType generatorType(AfrType element) {
+        AfrType t;
+        t.kind = TypeKind::Generator;
+        t.listElementTypeName = element.toTypeName();
+        return t;
+    }
 
     std::vector<std::string> functionParamTypeNames() const;
     AfrType taskInnerType() const;
@@ -135,6 +142,8 @@ struct AfrType {
                 return "function " + className + " to " + listElementTypeName;
             case TypeKind::Task:
                 return "task " + taskInnerType().toTypeName();
+            case TypeKind::Generator:
+                return "generator " + listElementTypeName;
         }
         return "void";
     }
@@ -170,6 +179,8 @@ struct AfrType {
             case TypeKind::Function: return toCppFunctionType();
             case TypeKind::Task:
                 return "afrilang::runtime::async::Task<" + taskInnerType().toCpp() + ">";
+            case TypeKind::Generator:
+                return "afrilang::runtime::generator::Generator<" + listElementCpp() + ">";
         }
         return "void";
     }
@@ -199,6 +210,9 @@ struct AfrType {
         if (kind == TypeKind::Task) {
             return listElementTypeName == other.listElementTypeName;
         }
+        if (kind == TypeKind::Generator) {
+            return listElementTypeName == other.listElementTypeName;
+        }
         return true;
     }
 
@@ -225,6 +239,9 @@ inline AfrType typeFromName(const std::string& name) {
     }
     if (name.size() > 5 && name.substr(0, 5) == "task ") {
         return AfrType::taskType(typeFromName(name.substr(5)));
+    }
+    if (name.size() > 10 && name.substr(0, 10) == "generator ") {
+        return AfrType::generatorType(typeFromName(name.substr(10)));
     }
     if (name.size() > 4 && name.substr(0, 4) == "map ") {
         const std::size_t toPos = name.find(" to ");

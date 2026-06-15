@@ -33,6 +33,7 @@ enum class TokenType {
     NumberLiteral,
 
     // Symboles
+    AtSign,
     Plus, Minus, Star, Slash,
     Dot, Equals, Comma, LeftParen, RightParen,
     LeftBracket, RightBracket,
@@ -183,6 +184,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Identifier:     return "identifiant";
         case TokenType::StringLiteral:  return "chaîne";
         case TokenType::NumberLiteral:  return "nombre";
+        case TokenType::AtSign:         return "@";
         case TokenType::Plus:           return "+";
         case TokenType::Minus:          return "-";
         case TokenType::Star:           return "*";
