@@ -7,6 +7,7 @@
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
+#include <cstdio>
 #include <filesystem>
 #include <iostream>
 #include <sstream>
@@ -480,6 +481,7 @@ static std::string wordAtPosition(const std::string& source, int line, int chara
 }
 
 int runLspServer() {
+    std::setvbuf(stdout, nullptr, _IONBF, 0);
     std::unordered_map<std::string, AnalysisResult> analysisCache;
 
     while (true) {
