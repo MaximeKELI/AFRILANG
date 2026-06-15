@@ -38,10 +38,10 @@ Voir [PUBLISHING.md](./PUBLISHING.md).
 ```bash
 cd vscode-afrilang
 npm install
-./publish.sh          # crée afrilang-1.2.0.vsix (+ publish si VSCE_PAT/OVSX_PAT)
+./publish.sh          # crée afrilang-1.3.0.vsix (+ publish si VSCE_PAT/OVSX_PAT)
 ```
 
-Tag Git optionnel : `git tag vscode-v1.2.0 && git push origin vscode-v1.2.0` déclenche le workflow CI.
+Tag Git optionnel : `git tag vscode-v1.3.0 && git push origin vscode-v1.3.0` déclenche le workflow CI.
 
 ## Configuration
 
