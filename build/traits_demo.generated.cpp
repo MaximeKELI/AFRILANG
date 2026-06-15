@@ -11,9 +11,6 @@
 #include <memory>
 #include "str.hpp"
 
-namespace Shapes {
-} // namespace Shapes
-
 struct Kind {
     enum class Tag { Circle, Square };
     Tag tag;

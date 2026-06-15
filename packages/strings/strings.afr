@@ -1,5 +1,5 @@
 module Strings
-    function repeat(text text, times int) returns text
+    function replicate(text text, times int) returns text
         create out text = ""
         create i int = 0
         while i is less than times do

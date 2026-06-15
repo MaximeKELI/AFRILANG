@@ -17,7 +17,7 @@ use Colors
 use Uuid
 
 say square(7)
-say repeat("ab", 3)
+say replicate("ab", 3)
 say label("phase", "D")
 say check("prefix", hasPrefix("hello", "hel"))
 say getOr("", "default")

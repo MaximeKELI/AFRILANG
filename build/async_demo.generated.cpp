@@ -12,9 +12,6 @@
 #include "str.hpp"
 
 namespace async {
-} // namespace async
-
-namespace async {
     afrilang::runtime::async::Task<void> sleep(double ms) {
         return afrilang::runtime::async::sleep(ms);
     }

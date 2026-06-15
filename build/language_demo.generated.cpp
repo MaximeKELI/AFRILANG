@@ -11,9 +11,6 @@
 #include <optional>
 #include "str.hpp"
 
-namespace Calcul {
-} // namespace Calcul
-
 struct Status {
     enum class Tag { Ok, Error };
     Tag tag;

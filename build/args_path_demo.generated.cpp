@@ -13,12 +13,6 @@
 #include "str.hpp"
 
 namespace args {
-} // namespace args
-
-namespace path {
-} // namespace path
-
-namespace args {
     double count() {
         return afrilang::runtime::args::count();
     }

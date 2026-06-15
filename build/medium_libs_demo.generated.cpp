@@ -13,21 +13,6 @@
 #include "str.hpp"
 
 namespace textstats {
-} // namespace textstats
-
-namespace numstats {
-} // namespace numstats
-
-namespace uriparse {
-} // namespace uriparse
-
-namespace datecalc {
-} // namespace datecalc
-
-namespace format {
-} // namespace format
-
-namespace textstats {
     double wordCount(std::string s) {
         return afrilang::runtime::med::textstats::wordCount(s);
     }

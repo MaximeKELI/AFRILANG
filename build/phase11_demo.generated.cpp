@@ -14,12 +14,6 @@
 #include <memory>
 #include "str.hpp"
 
-namespace args {
-} // namespace args
-
-namespace path {
-} // namespace path
-
 class Animal {
 public:
     virtual ~Animal() = default;

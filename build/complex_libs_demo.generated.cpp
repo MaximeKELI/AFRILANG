@@ -13,18 +13,6 @@
 #include "str.hpp"
 
 namespace nlplevenshtein {
-} // namespace nlplevenshtein
-
-namespace statcorrel {
-} // namespace statcorrel
-
-namespace mlcosine {
-} // namespace mlcosine
-
-namespace format {
-} // namespace format
-
-namespace nlplevenshtein {
     double distance(std::string a, std::string b) {
         return afrilang::runtime::cx::nlplevenshtein::distance(a, b);
     }
