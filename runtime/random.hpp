@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <random>
 
-namespace afrilang::runtime::random {
+namespace afrilang::runtime::random_ {
 
 inline std::mt19937& engine() {
     static std::mt19937 gen{std::random_device{}()};
@@ -25,4 +25,4 @@ inline double randomFloat() {
     return dist(engine());
 }
 
-} // namespace afrilang::runtime::random
+} // namespace afrilang::runtime::random_

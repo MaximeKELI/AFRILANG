@@ -384,6 +384,19 @@ bool statementUsesAwaitInBlock(
     return false;
 }
 
+std::string runtimeModuleName(const std::string& moduleName) {
+    if (moduleName == "logging") return "log";
+    if (moduleName == "chrono") return "time";
+    if (moduleName == "thread") return "thread_";
+    if (moduleName == "random") return "random_";
+    return moduleName;
+}
+
+std::string stdlibWrapperNamespace(const std::string& moduleName) {
+    if (moduleName == "random") return "random_";
+    return moduleName;
+}
+
 } // namespace
 
 CodeGenerator::CodeGenerator(const ProgramNode& program, const SemanticResult& semantic)
@@ -869,7 +882,10 @@ void CodeGenerator::emitClasses(std::ostream& out) const {
 
 void CodeGenerator::emitModules(std::ostream& out) const {
     for (const auto& module : program_.modules) {
-        out << "namespace " << module->name << " {\n";
+        const std::string ns = usesStdlibModule(module->name)
+            ? stdlibWrapperNamespace(module->name)
+            : module->name;
+        out << "namespace " << ns << " {\n";
 
         for (const auto& cls : module->classes) {
             const ClassInfo* classInfo = nullptr;
@@ -1156,7 +1172,10 @@ void CodeGenerator::emitTests(std::ostream& out) const {
 
 void CodeGenerator::emitMain(std::ostream& out) const {
     for (const auto& modName : semantic_.usedModules) {
-        out << "using namespace " << modName << ";\n";
+        const std::string ns = usesStdlibModule(modName)
+            ? stdlibWrapperNamespace(modName)
+            : modName;
+        out << "using namespace " << ns << ";\n";
     }
     if (!semantic_.usedModules.empty()) out << "\n";
 
@@ -2756,17 +2775,6 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
-
-namespace {
-
-std::string runtimeModuleName(const std::string& moduleName) {
-    if (moduleName == "logging") return "log";
-    if (moduleName == "chrono") return "time";
-    if (moduleName == "thread") return "thread_";
-    return moduleName;
-}
-
-} // namespace
 
 void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& moduleName,
                                        const FunctionNode& func, int indentLevel) const {
