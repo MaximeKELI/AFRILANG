@@ -24,9 +24,39 @@ class AfrilangDebugSession extends DebugSession {
     this._debugMeta = null;
   }
 
-  _findMeta(name) {
+  _findMeta(name, scopeHint) {
     if (!this._debugMeta?.variables) return null;
-    return this._debugMeta.variables.find((v) => v.name === name) || null;
+    const matches = this._debugMeta.variables.filter((v) => v.name === name);
+    if (!matches.length) return null;
+    if (scopeHint) {
+      const scoped = matches.find((v) => v.scope === scopeHint);
+      if (scoped) return scoped;
+    }
+    const local = matches.find((v) => v.scope && v.scope !== 'global');
+    return local || matches[0];
+  }
+
+  _formatValue(raw, type) {
+    if (raw == null || raw === '?') return '?';
+    const text = String(raw);
+    const t = (type || '').toLowerCase();
+    if (t === 'text' || t === 'string') {
+      if (text.startsWith('"') && text.endsWith('"')) {
+        return text.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, '\n');
+      }
+      const m = text.match(/^0x[0-9a-f]+ "(.*)"$/i);
+      if (m) return m[1];
+      return text;
+    }
+    if (t === 'bool' || t === 'boolean') {
+      if (text === '1' || text === 'true') return 'true';
+      if (text === '0' || text === 'false') return 'false';
+    }
+    if (t === 'int' || t === 'float' || t === 'number') {
+      const n = Number(text);
+      if (!Number.isNaN(n)) return String(n);
+    }
+    return text;
   }
 
   initializeRequest(response) {
@@ -193,7 +223,7 @@ class AfrilangDebugSession extends DebugSession {
       for (const entry of this._debugMeta.variables) {
         try {
           const result = await this._gdbCommand(`-data-evaluate-expression ${entry.name}`);
-          const value = result?.value || '?';
+          const value = this._formatValue(result?.value, entry.type);
           variables.push(new Variable(`${entry.name} : ${entry.type}`, value));
         } catch {
           variables.push(new Variable(`${entry.name} : ${entry.type}`, '?'));
@@ -214,7 +244,8 @@ class AfrilangDebugSession extends DebugSession {
         if (!v || !v.name) continue;
         const meta = this._findMeta(v.name);
         const label = meta ? `${v.name} : ${meta.type}` : v.name;
-        variables.push(new Variable(label, v.value ?? '?'));
+        const value = this._formatValue(v.value, meta?.type);
+        variables.push(new Variable(label, value ?? '?'));
       }
     } catch {
       /* ignore */

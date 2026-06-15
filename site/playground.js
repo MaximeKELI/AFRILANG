@@ -94,6 +94,20 @@ examples.addEventListener('change', () => loadExample(examples.value));
 loadExample('hello');
 
 document.getElementById('run').addEventListener('click', () => runCode('/api/run', 'Compiling...'));
+document.getElementById('runInstant').addEventListener('click', async () => {
+  status.textContent = 'Compiling (client)...';
+  output.textContent = '';
+  output.classList.remove('error');
+  try {
+    const result = await window.AfrilangCompilerClient.runInstant(editor.value);
+    output.textContent = result.output || '(no output)';
+    status.textContent = result.clientSide ? 'OK (WASM client)' : 'OK (server JS)';
+  } catch (e) {
+    status.textContent = 'Error';
+    output.textContent = String(e.message || e);
+    output.classList.add('error');
+  }
+});
 document.getElementById('runWasm').addEventListener('click', () => runCode('/api/run/wasm', 'Compiling WASM (server)...'));
 
 document.getElementById('runWasmBrowser').addEventListener('click', async () => {

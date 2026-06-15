@@ -244,7 +244,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
     result.success = true;
     if (options.debugSymbols) {
-        writeDebugMetadata(result.executable + ".afr.debug.json", semantic,
+        writeDebugMetadata(result.executable + ".afr.debug.json", *program, semantic,
                            srcPath.string());
     }
     if (options.useCache) {
@@ -348,7 +348,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier5_demo.afr",
         "tier6_demo.afr",
         "tier7_demo.afr",
-        "tier8_demo.afr"
+        "tier8_demo.afr",
+        "tier9_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());

@@ -1,3 +1,4 @@
+#include "afrilang/js_codegen.hpp"
 #include "afrilang/serve.hpp"
 
 #include "afrilang/cli.hpp"
@@ -285,6 +286,16 @@ static std::string buildWasmForBrowser(const std::string& source) {
     }
 }
 
+static std::string compileToJavaScript(const std::string& source) {
+    validateSourceContent(source, "playground js", SecurityContext::NetworkServe);
+    try {
+        const std::string js = compileSourceToJavaScript(source, "playground.afr");
+        return "{\"ok\":true,\"js\":\"" + jsonEscape(js) + "\"}";
+    } catch (const CompileError& e) {
+        return "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\"}";
+    }
+}
+
 static std::string formatSource(const std::string& source) {
     validateSourceContent(source, "playground fmt", SecurityContext::NetworkServe);
     const std::string sessionPath = secureTempPath("playground_fmt.afr");
@@ -391,6 +402,18 @@ static void handleClient(int client, const fs::path& siteRoot, const std::string
             sendResponse(client, 413, "application/json",
                          "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) +
                              "\",\"exitCode\":1}");
+        }
+        return;
+    }
+
+    if (method == "POST" && path == "/api/compile/js") {
+        try {
+            const std::string body = readRequestBody(client, headers, initialBody);
+            const std::string result = compileToJavaScript(jsonGetSource(body));
+            sendResponse(client, 200, "application/json", result);
+        } catch (const CompileError& e) {
+            sendResponse(client, 413, "application/json",
+                         "{\"ok\":false,\"output\":\"" + jsonEscape(e.format()) + "\"}");
         }
         return;
     }

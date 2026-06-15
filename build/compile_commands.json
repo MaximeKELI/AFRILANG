@@ -145,6 +145,12 @@
 },
 {
   "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o -c /home/maxime/AFRILANG/src/utils/js_codegen.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/js_codegen.cpp",
+  "output": "CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
   "command": "/usr/bin/g++ -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang.dir/src/utils/env.cpp.o -c /home/maxime/AFRILANG/src/utils/env.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/env.cpp",
   "output": "CMakeFiles/afrilang.dir/src/utils/env.cpp.o"
@@ -316,6 +322,12 @@
   "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang_tests.dir/src/utils/debug_meta.cpp.o -c /home/maxime/AFRILANG/src/utils/debug_meta.cpp",
   "file": "/home/maxime/AFRILANG/src/utils/debug_meta.cpp",
   "output": "CMakeFiles/afrilang_tests.dir/src/utils/debug_meta.cpp.o"
+},
+{
+  "directory": "/home/maxime/AFRILANG/build",
+  "command": "/usr/bin/g++ -DAFRILANG_TESTING=1 -I/home/maxime/AFRILANG/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/afrilang_tests.dir/src/utils/js_codegen.cpp.o -c /home/maxime/AFRILANG/src/utils/js_codegen.cpp",
+  "file": "/home/maxime/AFRILANG/src/utils/js_codegen.cpp",
+  "output": "CMakeFiles/afrilang_tests.dir/src/utils/js_codegen.cpp.o"
 },
 {
   "directory": "/home/maxime/AFRILANG/build",

@@ -31,6 +31,7 @@ set(AFRILANG_SOURCES
     src/utils/cache.cpp
     src/utils/debug.cpp
     src/utils/debug_meta.cpp
+    src/utils/js_codegen.cpp
     src/utils/env.cpp
     src/utils/educational.cpp
     src/repl/repl.cpp
