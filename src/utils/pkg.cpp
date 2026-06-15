@@ -15,6 +15,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <unordered_set>
 
 namespace fs = std::filesystem;
 
@@ -74,7 +75,15 @@ int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
     fs::create_directories(indexPath.parent_path());
     std::ofstream out(indexPath);
     out << body;
-    std::cout << "Index distant enregistré: " << indexPath << "\n";
+    int blessedCount = 0;
+    for (std::size_t i = 0; i < body.size(); ++i) {
+        if (body.compare(i, 13, "\"blessed\":true") == 0) ++blessedCount;
+    }
+    std::cout << "Index distant enregistré: " << indexPath;
+    if (blessedCount > 0) {
+        std::cout << " (" << blessedCount << " paquets blessed)";
+    }
+    std::cout << "\n";
     return 0;
 }
 
@@ -103,6 +112,7 @@ std::vector<PackageInfo> PkgRegistry::listAvailable(const std::string& afrilangR
             packages.push_back(std::move(info));
         }
     }
+    enrichPackagesFromIndex(afrilangRoot, packages);
     return packages;
 }
 
@@ -196,15 +206,100 @@ static bool containsIgnoreCase(const std::string& haystack, const std::string& n
     return h.find(n) != std::string::npos;
 }
 
+static std::unordered_set<std::string> loadBlessedNames(const std::string& afrilangRoot) {
+    std::unordered_set<std::string> names;
+    const fs::path path = fs::path(afrilangRoot) / "packages" / "blessed.json";
+    if (!fs::exists(path)) return names;
+    std::ifstream in(path);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string body = buf.str();
+    for (std::size_t i = 0; i < body.size(); ++i) {
+        if (body[i] != '"') continue;
+        const std::size_t end = body.find('"', i + 1);
+        if (end == std::string::npos) break;
+        const std::string name = body.substr(i + 1, end - i - 1);
+        if (!name.empty() && name != "packages") {
+            names.insert(name);
+        }
+        i = end;
+    }
+    return names;
+}
+
+static std::string readIndexField(const std::string& body, const std::string& packageName,
+                                  const std::string& field) {
+    const std::string needle = "\"name\":\"" + packageName + "\"";
+    const std::size_t pos = body.find(needle);
+    if (pos == std::string::npos) return {};
+    const std::string key = "\"" + field + "\":\"";
+    const std::size_t shaPos = body.find(key, pos);
+    if (shaPos == std::string::npos) {
+        if (field == "blessed") {
+            const std::size_t boolPos = body.find("\"blessed\":true", pos);
+            if (boolPos != std::string::npos && boolPos < body.find('}', pos)) {
+                return "true";
+            }
+        }
+        return {};
+    }
+    const std::size_t start = shaPos + key.size();
+    const std::size_t end = body.find('"', start);
+    if (end == std::string::npos || end <= start) return {};
+    return body.substr(start, end - start);
+}
+
+static std::string readIndexSha256(const fs::path& indexPath, const std::string& packageName) {
+    if (!fs::exists(indexPath)) return {};
+    std::ifstream in(indexPath);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    return readIndexField(buf.str(), packageName, "sha256");
+}
+
+static bool readIndexBlessed(const fs::path& indexPath, const std::string& packageName) {
+    if (!fs::exists(indexPath)) return false;
+    std::ifstream in(indexPath);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    return readIndexField(buf.str(), packageName, "blessed") == "true" ||
+           buf.str().find("\"name\":\"" + packageName + "\"") != std::string::npos &&
+               buf.str().find("\"blessed\":true",
+                              buf.str().find("\"name\":\"" + packageName + "\"")) <
+                   buf.str().find('}', buf.str().find("\"name\":\"" + packageName + "\""));
+}
+
+static void enrichPackagesFromIndex(const std::string& afrilangRoot,
+                                    std::vector<PackageInfo>& packages) {
+    const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "index.json";
+    if (!fs::exists(indexPath)) return;
+    std::ifstream in(indexPath);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string body = buf.str();
+    for (auto& pkg : packages) {
+        const std::string hash = readIndexField(body, pkg.name, "sha256");
+        if (!hash.empty()) pkg.sha256 = hash;
+        const std::size_t pos = body.find("\"name\":\"" + pkg.name + "\"");
+        if (pos != std::string::npos) {
+            const std::size_t end = body.find('}', pos);
+            const std::string slice = body.substr(pos, end - pos);
+            pkg.blessed = slice.find("\"blessed\":true") != std::string::npos;
+        }
+    }
+}
+
 int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
     const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
     const fs::path indexPath = packagesDir / "index.json";
     const auto packages = listAvailable(afrilangRoot);
+    const auto blessed = loadBlessedNames(afrilangRoot);
 
     std::ostringstream json;
     json << "{\n  \"packages\": [\n";
     for (std::size_t i = 0; i < packages.size(); ++i) {
         const auto& pkg = packages[i];
+        const bool isBlessed = blessed.count(pkg.name) > 0;
         json << "    {\"name\":\"" << jsonEscape(pkg.name) << "\","
              << "\"version\":\"" << jsonEscape(pkg.version) << "\","
              << "\"description\":\"" << jsonEscape(pkg.description) << "\"";
@@ -213,39 +308,35 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         if (!hash.empty()) {
             json << ",\"sha256\":\"" << jsonEscape(hash) << "\"";
         }
+        if (isBlessed) {
+            json << ",\"blessed\":true";
+        }
         json << "}";
         if (i + 1 < packages.size()) json << ',';
         json << '\n';
     }
     json << "  ]\n}\n";
 
+    const std::string payload = json.str();
     std::ofstream out(indexPath);
     if (!out) return 1;
-    out << json.str();
+    out << payload;
+
+    const fs::path siteIndex = fs::path(afrilangRoot) / "site" / "packages.json";
+    std::ofstream siteOut(siteIndex);
+    if (siteOut) siteOut << payload;
+
+    std::cout << "Index régénéré: " << indexPath << " (" << packages.size()
+              << " paquets, " << blessed.size() << " blessed)\n";
     return 0;
 }
 
 static std::string expectedIndexSha256(const std::string& afrilangRoot,
                                         const std::string& packageName) {
-    const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "index.json";
-    if (!fs::exists(indexPath)) return {};
-
-    std::ifstream in(indexPath);
-    std::ostringstream buf;
-    buf << in.rdbuf();
-    const std::string body = buf.str();
-
-    const std::string needle = "\"name\":\"" + packageName + "\"";
-    const std::size_t pos = body.find(needle);
-    if (pos == std::string::npos) return {};
-
-    const std::size_t shaPos = body.find("\"sha256\":\"", pos);
-    if (shaPos == std::string::npos) return {};
-
-    const std::size_t start = shaPos + 10;
-    const std::size_t end = body.find('"', start);
-    if (end == std::string::npos || end <= start) return {};
-    return body.substr(start, end - start);
+    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
+    std::string hash = readIndexSha256(packagesDir / "index.json", packageName);
+    if (!hash.empty()) return hash;
+    return readIndexSha256(packagesDir / "remote-index.json", packageName);
 }
 
 int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packageName,
@@ -354,10 +445,13 @@ int PkgRegistry::cmdList(const std::string& afrilangRoot) {
 
     std::cout << "Paquets disponibles:\n\n";
     for (const auto& pkg : packages) {
-        std::cout << "  " << pkg.name << "@" << pkg.version;
+        if (pkg.blessed) std::cout << "  ★ ";
+        else std::cout << "    ";
+        std::cout << pkg.name << "@" << pkg.version;
         if (!pkg.description.empty()) {
             std::cout << " — " << pkg.description;
         }
+        if (pkg.blessed) std::cout << " [blessed]";
         std::cout << "\n";
     }
     return 0;
