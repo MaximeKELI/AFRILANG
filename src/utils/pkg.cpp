@@ -257,34 +257,29 @@ static std::string readIndexSha256(const fs::path& indexPath, const std::string&
     return readIndexField(buf.str(), packageName, "sha256");
 }
 
-static bool readIndexBlessed(const fs::path& indexPath, const std::string& packageName) {
-    if (!fs::exists(indexPath)) return false;
-    std::ifstream in(indexPath);
-    std::ostringstream buf;
-    buf << in.rdbuf();
-    return readIndexField(buf.str(), packageName, "blessed") == "true" ||
-           buf.str().find("\"name\":\"" + packageName + "\"") != std::string::npos &&
-               buf.str().find("\"blessed\":true",
-                              buf.str().find("\"name\":\"" + packageName + "\"")) <
-                   buf.str().find('}', buf.str().find("\"name\":\"" + packageName + "\""));
-}
-
 static void enrichPackagesFromIndex(const std::string& afrilangRoot,
                                     std::vector<PackageInfo>& packages) {
+    const auto blessed = loadBlessedNames(afrilangRoot);
     const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "index.json";
-    if (!fs::exists(indexPath)) return;
-    std::ifstream in(indexPath);
-    std::ostringstream buf;
-    buf << in.rdbuf();
-    const std::string body = buf.str();
+    std::string body;
+    if (fs::exists(indexPath)) {
+        std::ifstream in(indexPath);
+        std::ostringstream buf;
+        buf << in.rdbuf();
+        body = buf.str();
+    }
     for (auto& pkg : packages) {
+        if (blessed.count(pkg.name)) pkg.blessed = true;
+        if (body.empty()) continue;
         const std::string hash = readIndexField(body, pkg.name, "sha256");
         if (!hash.empty()) pkg.sha256 = hash;
         const std::size_t pos = body.find("\"name\":\"" + pkg.name + "\"");
         if (pos != std::string::npos) {
             const std::size_t end = body.find('}', pos);
             const std::string slice = body.substr(pos, end - pos);
-            pkg.blessed = slice.find("\"blessed\":true") != std::string::npos;
+            if (slice.find("\"blessed\":true") != std::string::npos) {
+                pkg.blessed = true;
+            }
         }
     }
 }
@@ -436,14 +431,24 @@ int PkgRegistry::cmdInstall(const std::string& projectDir, const std::string& af
     return failures == 0 ? 0 : 1;
 }
 
-int PkgRegistry::cmdList(const std::string& afrilangRoot) {
-    const auto packages = listAvailable(afrilangRoot);
+int PkgRegistry::cmdList(const std::string& afrilangRoot, bool blessedOnly) {
+    auto packages = listAvailable(afrilangRoot);
+    if (blessedOnly) {
+        packages.erase(
+            std::remove_if(packages.begin(), packages.end(),
+                           [](const PackageInfo& p) { return !p.blessed; }),
+            packages.end());
+    }
     if (packages.empty()) {
-        std::cout << "Aucun paquet dans le registre (" << afrilangRoot << "/packages).\n";
+        if (blessedOnly) {
+            std::cout << "Aucun paquet blessed dans le registre.\n";
+        } else {
+            std::cout << "Aucun paquet dans le registre (" << afrilangRoot << "/packages).\n";
+        }
         return 0;
     }
 
-    std::cout << "Paquets disponibles:\n\n";
+    std::cout << (blessedOnly ? "Paquets blessed:\n\n" : "Paquets disponibles:\n\n");
     for (const auto& pkg : packages) {
         if (pkg.blessed) std::cout << "  ★ ";
         else std::cout << "    ";

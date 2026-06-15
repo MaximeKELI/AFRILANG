@@ -27,7 +27,7 @@ public:
     static int cmdAdd(const std::string& projectDir, const std::string& packageName,
                       const std::string& afrilangRoot);
     static int cmdInstall(const std::string& projectDir, const std::string& afrilangRoot);
-    static int cmdList(const std::string& afrilangRoot);
+    static int cmdList(const std::string& afrilangRoot, bool blessedOnly = false);
     static int cmdSearch(const std::string& afrilangRoot, const std::string& query);
     static int cmdPublish(const std::string& packageDir, const std::string& afrilangRoot);
     static int rebuildIndex(const std::string& afrilangRoot);
