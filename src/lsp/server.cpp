@@ -266,21 +266,15 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
             result.symbolDocs[name] = "enum " + name;
         }
         for (const auto& [name, type] : semantic.globalVariables) {
-            const std::string doc = type.toTypeName() + " " + name;
-            result.symbolDocs[name] = doc;
-            const auto locIt = result.symbolLocations.find(name);
-            if (locIt != result.symbolLocations.end()) {
-                addOutlineSymbol(result, name, "variable", locIt->second.line,
-                                 locIt->second.column, locIt->second.endColumn, doc);
-            }
+            result.symbolDocs[name] = type.toTypeName() + " " + name;
         }
         for (const auto& [name, info] : scanSymbols(source)) {
             result.symbolLocations[name] = info;
-            if (result.symbolDocs.count(name) == 0) {
-                result.symbolDocs[name] = info.doc;
-            }
+            const std::string doc = result.symbolDocs.count(name)
+                ? result.symbolDocs[name] : info.doc;
+            result.symbolDocs[name] = doc;
             addOutlineSymbol(result, name, info.kind, info.line, info.column,
-                             info.endColumn, result.symbolDocs[name]);
+                             info.endColumn, doc);
         }
         for (const auto& w : semantic.warnings) {
             std::ostringstream d;
@@ -386,49 +380,39 @@ static std::string lineTextAt(const std::string& source, int line) {
 }
 
 static std::string codeActionsJson(const std::string& uri, const std::string& source,
-                                   const AnalysisResult& analysis, const std::string& body) {
+                                   const AnalysisResult& analysis) {
     std::ostringstream out;
     out << "[";
     bool first = false;
 
-    auto appendEdit = [&](const std::string& title, int line, int colStart, int colEnd,
-                          const std::string& newText) {
+    auto appendLineDelete = [&](const std::string& title, int line) {
+        const std::string lineText = lineTextAt(source, line);
         if (first) out << ',';
         first = true;
         out << "{\"title\":\"" << jsonEscape(title) << "\",\"kind\":\"quickfix\","
             << "\"edit\":{\"changes\":{\"" << jsonEscape(uri) << "\":["
-            << "{\"range\":{\"start\":{\"line\":" << line << ",\"character\":" << colStart
-            << "},\"end\":{\"line\":" << line << ",\"character\":" << colEnd << "}},"
-            << "\"newText\":\"" << jsonEscape(newText) << "\"}]}}";
+            << "{\"range\":{\"start\":{\"line\":" << line << ",\"character\":0},"
+            << "\"end\":{\"line\":" << line << ",\"character\":"
+            << static_cast<int>(lineText.size()) << "}},"
+            << "\"newText\":\"\"}]}}";
     };
 
-    const std::string diagNeedle = "\"diagnostics\":[";
-    const auto diagPos = body.find(diagNeedle);
-    if (diagPos != std::string::npos) {
-        const std::string diagSection = body.substr(diagPos);
-        for (const auto& diagJson : analysis.diagnosticJson) {
-            if (diagSection.find(diagJson) == std::string::npos) continue;
-            const auto msgPos = diagJson.find("\"message\":\"");
-            if (msgPos == std::string::npos) continue;
-            const auto msgStart = msgPos + 11;
-            const auto msgEnd = diagJson.find('"', msgStart);
-            const std::string message = diagJson.substr(msgStart, msgEnd - msgStart);
-            if (message.find("importé via 'use' mais jamais utilisé") != std::string::npos) {
-                const int line = jsonGetInt(diagJson, "line");
-                const std::string lineText = lineTextAt(source, line);
-                appendEdit("Supprimer l'import inutilisé", line, 0,
-                           static_cast<int>(lineText.size()), "");
-            }
+    for (const auto& diagJson : analysis.diagnosticJson) {
+        if (diagJson.find("importé via 'use' mais jamais utilisé") == std::string::npos) {
+            continue;
         }
+        const int line = jsonGetInt(diagJson, "line");
+        appendLineDelete("Supprimer l'import inutilisé", line);
     }
 
-    int endLine = 0, endChar = 0;
-    for (char c : source) {
-        if (c == '\n') { ++endLine; endChar = 0; } else { ++endChar; }
+    const std::string formatEdits = formatDocument(uri, source);
+    if (formatEdits != "[]") {
+        if (first) out << ',';
+        first = true;
+        out << "{\"title\":\"Formater le document\",\"kind\":\"source\","
+            << "\"edit\":{\"changes\":{\"" << jsonEscape(uri) << "\":" << formatEdits << "}}}";
     }
-    if (first) out << ',';
-    out << "{\"title\":\"Formater le document\",\"kind\":\"source\","
-        << "\"command\":\"afrilang.formatDocument\",\"arguments\":[\"" << jsonEscape(uri) << "\"]}";
+
     out << "]";
     return out.str();
 }
@@ -510,7 +494,6 @@ int runLspServer() {
                 "\"documentSymbolProvider\":true,"
                 "\"workspaceSymbolProvider\":true,"
                 "\"codeActionProvider\":true,"
-                "\"executeCommandProvider\":{\"commands\":[\"afrilang.formatDocument\"]},"
                 "\"documentFormattingProvider\":true,"
                 "\"hoverProvider\":true,"
                 "\"definitionProvider\":true,"
@@ -558,23 +541,9 @@ int runLspServer() {
             const auto cacheIt = analysisCache.find(uri);
             const std::string actions =
                 docIt != g_documents.end() && cacheIt != analysisCache.end()
-                    ? codeActionsJson(uri, docIt->second, cacheIt->second, body)
+                    ? codeActionsJson(uri, docIt->second, cacheIt->second)
                     : "[]";
             sendResponse(extractId(body), actions);
-        } else if (body.find("\"method\":\"workspace/executeCommand\"") != std::string::npos) {
-            const std::string command = jsonGetString(body, "command");
-            if (command == "afrilang.formatDocument") {
-                const std::string uri = jsonGetString(body, "arguments");
-                const auto it = g_documents.find(uri);
-                if (it != g_documents.end()) {
-                    const std::string edits = formatDocument(uri, it->second);
-                    sendResponse(extractId(body), edits.empty() || edits == "[]" ? "null" : edits);
-                } else {
-                    sendResponse(extractId(body), "null");
-                }
-            } else {
-                sendResponse(extractId(body), "null");
-            }
         } else if (body.find("\"method\":\"textDocument/hover\"") != std::string::npos) {
             const std::string uri = documentUri(body);
             const auto docIt = g_documents.find(uri);
