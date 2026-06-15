@@ -619,6 +619,8 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
 
     const int savedAsync = asyncContextDepth_;
     const bool savedGenerator = inGeneratorFunction_;
+    const bool savedFunctionHasYield = functionHasYield_;
+    functionHasYield_ = false;
     if (func.isAsync) {
         ++asyncContextDepth_;
         result_.usesAsync = true;
@@ -648,7 +650,6 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     AfrType declaredReturn = resolveFunctionReturnType(func);
 
     bool hasReturn = func.name == "init";
-    bool hasYield = blockContainsYield(func.body);
     const ClassInfo* savedClass = currentClass_;
     if (ownerClass) currentClass_ = ownerClass;
 
@@ -663,10 +664,12 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
 
     activeTypeParams_.clear();
     asyncContextDepth_ = savedAsync;
+    const bool hadYield = functionHasYield_;
     inGeneratorFunction_ = savedGenerator;
+    functionHasYield_ = savedFunctionHasYield;
 
     const bool implicitAsyncVoid = func.isAsync && func.returnTypeName.empty();
-    if (func.isGenerator && !hasYield) {
+    if (func.isGenerator && !hadYield) {
         errorAt(func, "Generator function '" + func.name + "' doit contenir au moins un 'yield'");
     }
     if (!implicitAsyncVoid && declaredReturn.kind != TypeKind::Void && !hasReturn &&
@@ -1118,6 +1121,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         if (!inGeneratorFunction_) {
             errorAt(*yieldStmt, "'yield' autorisé uniquement dans une generator function");
         }
+        functionHasYield_ = true;
         analyzeExpression(*yieldStmt->value, scope);
         return;
     }
