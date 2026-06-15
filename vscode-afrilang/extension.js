@@ -288,12 +288,22 @@ function registerDebugCommand(context) {
       return;
     }
 
-    const terminal = vscode.window.createTerminal({
+    const started = await vscode.debug.startDebugging(undefined, {
+      type: 'afrilang',
       name: 'AFRILANG Debug',
+      request: 'launch',
+      program: filePath,
+      afrilangPath: serverPath,
       cwd: path.dirname(filePath)
     });
-    terminal.show();
-    terminal.sendText(`"${serverPath}" debug "${filePath}"`);
+    if (!started) {
+      const terminal = vscode.window.createTerminal({
+        name: 'AFRILANG Debug',
+        cwd: path.dirname(filePath)
+      });
+      terminal.show();
+      terminal.sendText(`"${serverPath}" debug "${filePath}"`);
+    }
   });
   context.subscriptions.push(disposable);
 }
@@ -328,7 +338,7 @@ async function copyTemplateIfMissing(context, name) {
   const doc = await vscode.workspace.openTextDocument(dest);
   await vscode.window.showTextDocument(doc);
   vscode.window.showInformationMessage(
-    `${name} créé. Installez l'extension C/C++ (cppdbg) puis F5 pour débugger.`
+    `${name} créé. Utilisez F5 avec le débogueur « AFRILANG » (GDB requis).`
   );
 }
 

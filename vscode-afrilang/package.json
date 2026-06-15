@@ -19,8 +19,9 @@
   "categories": ["Programming Languages"],
   "keywords": ["afrilang", "africa", "natural language", "afr", "compiler", "lsp"],
   "main": "./extension.js",
-  "activationEvents": ["onLanguage:afrilang", "onStartupFinished"],
+  "activationEvents": ["onLanguage:afrilang", "onStartupFinished", "onDebug"],
   "dependencies": {
+    "@vscode/debugadapter": "^1.68.0",
     "vscode-languageclient": "^9.0.1"
   },
   "contributes": {
@@ -60,6 +61,55 @@
         }
       }
     },
+    "breakpoints": [
+      { "language": "afrilang" }
+    ],
+    "debuggers": [
+      {
+        "type": "afrilang",
+        "label": "AFRILANG",
+        "languages": ["afrilang"],
+        "program": "./debugAdapter.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "required": ["program"],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Fichier .afr à débugger",
+                "default": "${file}"
+              },
+              "afrilangPath": {
+                "type": "string",
+                "description": "Chemin vers l'exécutable afrilang",
+                "default": "${config:afrilang.serverPath}"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Répertoire de travail",
+                "default": "${fileDirname}"
+              },
+              "args": {
+                "type": "array",
+                "items": { "type": "string" },
+                "default": []
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "name": "AFRILANG: Fichier courant",
+            "type": "afrilang",
+            "request": "launch",
+            "program": "${file}",
+            "afrilangPath": "${config:afrilang.serverPath}",
+            "cwd": "${fileDirname}"
+          }
+        ]
+      }
+    ],
     "commands": [
       {
         "command": "afrilang.runFile",

@@ -3,32 +3,19 @@
   "configurations": [
     {
       "name": "AFRILANG: Débugger le fichier courant",
-      "type": "cppdbg",
+      "type": "afrilang",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "preLaunchTask": "afrilang: compiler (debug)",
-      "setupCommands": [
-        {
-          "description": "Activer l'impression jolie",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "program": "${file}",
+      "afrilangPath": "${config:afrilang.serverPath}",
+      "cwd": "${fileDirname}"
     },
     {
       "name": "AFRILANG: Débugger examples/while.afr",
-      "type": "cppdbg",
+      "type": "afrilang",
       "request": "launch",
-      "program": "${workspaceFolder}/examples/while",
-      "cwd": "${workspaceFolder}/examples",
-      "MIMode": "gdb",
-      "preLaunchTask": "afrilang: compiler while.afr (debug)"
+      "program": "${workspaceFolder}/examples/while.afr",
+      "afrilangPath": "${config:afrilang.serverPath}",
+      "cwd": "${workspaceFolder}/examples"
     }
   ]
 }

@@ -42,7 +42,16 @@ class AfrilangDebugSession extends DebugSession {
     }
   }
 
-  async launchRequest(response, args) {
+  launchRequest(response, args) {
+    this._doLaunch(response, args).catch((err) => {
+      this.sendEvent(new OutputEvent(String(err.message || err) + '\n', 'stderr'));
+      response.success = false;
+      this.sendResponse(response);
+      this.sendEvent(new TerminatedEvent());
+    });
+  }
+
+  async _doLaunch(response, args) {
     this._sourceFile = path.resolve(args.program);
     const afrilangPath = args.afrilangPath || 'afrilang';
     const cwd = args.cwd || path.dirname(this._sourceFile);
