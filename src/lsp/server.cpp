@@ -1,5 +1,6 @@
 #include "afrilang/lsp.hpp"
 
+#include "afrilang/cli.hpp"
 #include "afrilang/compiler.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/formatter.hpp"
@@ -70,7 +71,15 @@ static std::string jsonGetString(const std::string& json, const std::string& key
     std::string value;
     while (i < json.size()) {
         if (json[i] == '\\' && i + 1 < json.size()) {
-            value += json[i + 1];
+            const char c = json[i + 1];
+            switch (c) {
+                case 'n': value += '\n'; break;
+                case 't': value += '\t'; break;
+                case 'r': value += '\r'; break;
+                case '"': value += '"'; break;
+                case '\\': value += '\\'; break;
+                default: value += c; break;
+            }
             i += 2;
             continue;
         }
@@ -249,10 +258,10 @@ static void addOutlineSymbol(AnalysisResult& result, const std::string& name,
 static AnalysisResult analyzeDocument(const std::string& path, const std::string& source) {
     AnalysisResult result;
     try {
-        SourceManager sources;
-        sources.addFile(path.empty() ? "<buffer>" : path, source);
-        auto program = parseSourceProgram(source, path.empty() ? "<buffer>" : path, &sources);
-        SemanticAnalyzer analyzer(*program, &sources, path);
+        const std::string filePath = path.empty() ? "<buffer>" : path;
+        Compiler compiler(filePath, detectAfrilangRoot());
+        std::unique_ptr<ProgramNode> program = compiler.compileFromSource(source);
+        SemanticAnalyzer analyzer(*program, &compiler.sources(), filePath);
         const SemanticResult semantic = analyzer.analyze();
 
         for (const auto& [name, sig] : semantic.functions) {
