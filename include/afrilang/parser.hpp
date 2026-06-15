@@ -19,6 +19,7 @@ private:
     std::vector<Token> tokens_;
     std::size_t current_ = 0;
     std::unordered_set<std::string> enumNames_;
+    std::unordered_set<std::string> recordNames_;
 
     bool isAtEnd() const;
     const Token& peek() const;
@@ -67,6 +68,7 @@ private:
     std::unique_ptr<ExpressionNode> parseMapEachExpression();
     std::unique_ptr<ExpressionNode> parseFlatMapEachExpression();
     std::unique_ptr<ExpressionNode> parseFilterEachExpression();
+    std::unique_ptr<ExpressionNode> parseListEachExpression();
     std::unique_ptr<ExpressionNode> parseReduceExpression();
     std::unique_ptr<StatementNode> parseMatchStatement();
     std::unique_ptr<ExpressionNode> parseMatchExpression();

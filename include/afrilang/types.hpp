@@ -9,6 +9,7 @@ enum class TypeKind {
     Void,
     Number,
     Int,
+    BigInt,
     Text,
     Bool,
     Json,
@@ -35,6 +36,7 @@ struct AfrType {
     static AfrType voidType() { return {TypeKind::Void, {}, {}, {}}; }
     static AfrType number() { return {TypeKind::Number, {}, {}, {}}; }
     static AfrType intType() { return {TypeKind::Int, {}, {}, {}}; }
+    static AfrType bigIntType() { return {TypeKind::BigInt, {}, {}, {}}; }
     static AfrType text() { return {TypeKind::Text, {}, {}, {}}; }
     static AfrType jsonType() { return {TypeKind::Json, {}, {}, {}}; }
     static AfrType boolType() { return {TypeKind::Bool, {}, {}, {}}; }
@@ -115,6 +117,7 @@ struct AfrType {
             case TypeKind::Void:   return "void";
             case TypeKind::Number: return "number";
             case TypeKind::Int:    return "int";
+            case TypeKind::BigInt: return "bigint";
             case TypeKind::Text:   return "text";
             case TypeKind::Json:   return "json";
             case TypeKind::Bool:   return "bool";
@@ -147,6 +150,7 @@ struct AfrType {
             case TypeKind::Void:   return "void";
             case TypeKind::Number: return "double";
             case TypeKind::Int:    return "std::int64_t";
+            case TypeKind::BigInt: return "afrilang::runtime::bigint::BigInt";
             case TypeKind::Text:   return "std::string";
             case TypeKind::Json:   return "afrilang::runtime::json::Value";
             case TypeKind::Bool:   return "bool";
@@ -211,6 +215,7 @@ inline AfrType typeFromName(const std::string& name) {
     }
     if (name == "number") return AfrType::number();
     if (name == "int") return AfrType::intType();
+    if (name == "bigint") return AfrType::bigIntType();
     if (name == "text")   return AfrType::text();
     if (name == "json") return AfrType::jsonType();
     if (name == "bool")   return AfrType::boolType();

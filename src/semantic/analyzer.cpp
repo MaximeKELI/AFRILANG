@@ -574,7 +574,13 @@ void SemanticAnalyzer::analyzeTest(const TestNode& test) {
     const int savedAsync = asyncContextDepth_;
     asyncContextDepth_ = 1;
     std::unordered_map<std::string, AfrType> scope;
+    for (const auto& stmt : test.setupBody) {
+        analyzeStatement(*stmt, scope, false);
+    }
     for (const auto& stmt : test.body) {
+        analyzeStatement(*stmt, scope, false);
+    }
+    for (const auto& stmt : test.teardownBody) {
         analyzeStatement(*stmt, scope, false);
     }
     asyncContextDepth_ = savedAsync;
@@ -1107,8 +1113,50 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             }
             return;
         }
+        if (subjectType.kind == TypeKind::Record) {
+            const RecordInfo* rec = findRecord(subjectType.recordName);
+            if (!rec) {
+                errorAt(*matchStmt, "Record '" + subjectType.recordName + "' introuvable");
+            }
+            for (const auto& arm : matchStmt->arms) {
+                if (arm.isDefault) {
+                    for (const auto& bodyStmt : arm.body) {
+                        analyzeStatement(*bodyStmt, scope, isGlobalScope);
+                    }
+                    continue;
+                }
+                if (arm.caseKind != MatchArmNode::CaseKind::Record) {
+                    errorAt(*matchStmt, "Cas record attendu dans match sur record");
+                }
+                if (arm.caseName != subjectType.recordName) {
+                    errorAt(*matchStmt, "Cas '" + arm.caseName + "' incompatible avec record '" +
+                          subjectType.recordName + "'");
+                }
+                auto armScope = scope;
+                if (rec) {
+                    for (const auto& bindName : arm.bindNames) {
+                        bool found = false;
+                        for (const auto& [fname, field] : rec->fields) {
+                            if (fname == bindName) {
+                                armScope[bindName] = field.type;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            errorAt(*matchStmt, "Champ '" + bindName + "' introuvable dans record '" +
+                                  rec->name + "'");
+                        }
+                    }
+                }
+                for (const auto& bodyStmt : arm.body) {
+                    analyzeStatement(*bodyStmt, armScope, isGlobalScope);
+                }
+            }
+            return;
+        }
         if (subjectType.kind != TypeKind::Enum) {
-            errorAt(*matchStmt, "'match' requiert une valeur de type enum, text ou number");
+            errorAt(*matchStmt, "'match' requiert une valeur de type enum, text, number ou record");
         }
         const EnumInfo* en = findEnum(subjectType.className);
         if (!en) errorAt(*matchStmt, "Enum '" + subjectType.className + "' introuvable");
@@ -1483,6 +1531,29 @@ AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
             errorAt(expr, "La condition de 'filter each' doit être un booléen");
         }
         return listType;
+    }
+
+    if (const auto* comprehension = dynamic_cast<const ComprehensionExpressionNode*>(&expr)) {
+        AfrType listType = analyzeExpression(*comprehension->list, scope);
+        if (listType.kind != TypeKind::List) {
+            errorAt(expr, "'list each' requiert une liste");
+        }
+        AfrType elemType = listType.listElementType();
+        if (elemType.kind != TypeKind::Number && elemType.kind != TypeKind::Int &&
+            elemType.kind != TypeKind::Text) {
+            errorAt(expr, "Compréhension supportée pour listes de number ou text");
+        }
+        auto* mutableNode = const_cast<ComprehensionExpressionNode*>(comprehension);
+        mutableNode->elementTypeName = elemType.toTypeName();
+        std::unordered_map<std::string, AfrType> bodyScope = scope;
+        bodyScope[comprehension->itemName] = elemType;
+        AfrType condType = analyzeExpression(*comprehension->condition, bodyScope);
+        if (condType.kind != TypeKind::Bool) {
+            errorAt(expr, "La condition de la compréhension doit être un booléen");
+        }
+        AfrType resultType = analyzeExpression(*comprehension->result, bodyScope);
+        mutableNode->resultTypeName = resultType.toTypeName();
+        return AfrType::listType(resultType);
     }
 
     if (const auto* reduce = dynamic_cast<const ReduceExpressionNode*>(&expr)) {

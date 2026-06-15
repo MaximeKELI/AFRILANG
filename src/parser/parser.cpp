@@ -176,6 +176,11 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 classes.push_back(parseClass(false, true));
             } else if (match(TokenType::Class)) {
                 classes.push_back(parseClass(false, false));
+            } else if (match(TokenType::Generator)) {
+                consume(TokenType::Function, "'function' attendu après 'generator'");
+                auto func = parseFunction();
+                func->isGenerator = true;
+                functions.push_back(std::move(func));
             } else if (match(TokenType::Async)) {
                 consume(TokenType::Function, "'function' attendu après 'async'");
                 auto func = parseFunction();
@@ -322,9 +327,22 @@ std::unique_ptr<InterfaceNode> Parser::parseInterface() {
 
 std::unique_ptr<TestNode> Parser::parseTest() {
     const Token& nameToken = consume(TokenType::StringLiteral, "Nom de test attendu (chaîne)");
-    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    std::vector<std::unique_ptr<StatementNode>> setupBody;
+    std::vector<std::unique_ptr<StatementNode>> body;
+    std::vector<std::unique_ptr<StatementNode>> teardownBody;
+
+    if (match(TokenType::Setup)) {
+        setupBody = parseBlock();
+        consume(TokenType::End, "'end' attendu pour fermer setup");
+    }
+    body = parseBlock();
+    if (match(TokenType::Teardown)) {
+        teardownBody = parseBlock();
+        consume(TokenType::End, "'end' attendu pour fermer teardown");
+    }
     consume(TokenType::End, "'end' attendu pour fermer le test");
-    auto node = std::make_unique<TestNode>(nameToken.lexeme, std::move(body));
+    auto node = std::make_unique<TestNode>(
+        nameToken.lexeme, std::move(setupBody), std::move(body), std::move(teardownBody));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -338,6 +356,7 @@ std::unique_ptr<RecordNode> Parser::parseRecord() {
     }
 
     consume(TokenType::End, "'end' attendu pour fermer le record");
+    recordNames_.insert(nameToken.lexeme);
     auto node = std::make_unique<RecordNode>(nameToken.lexeme, std::move(fields));
     node->loc = {nameToken.line, nameToken.column};
     return node;
@@ -496,6 +515,7 @@ std::vector<std::string> Parser::parseTypeParams() {
     do {
         if (match(TokenType::TypeNumber)) params.push_back("number");
         else if (match(TokenType::TypeInt)) params.push_back("int");
+        else if (match(TokenType::TypeBigInt)) params.push_back("bigint");
         else if (match(TokenType::TypeJson)) params.push_back("json");
         else if (match(TokenType::TypeText)) params.push_back("text");
         else if (match(TokenType::TypeBool)) params.push_back("bool");
@@ -530,6 +550,7 @@ std::string Parser::parseTypeName() {
     std::string base;
     if (match(TokenType::TypeNumber)) base = "number";
     else if (match(TokenType::TypeInt)) base = "int";
+    else if (match(TokenType::TypeBigInt)) base = "bigint";
     else if (match(TokenType::TypeJson)) base = "json";
     else if (match(TokenType::TypeText))   base = "text";
     else if (match(TokenType::TypeBool))   base = "bool";
@@ -734,6 +755,30 @@ std::unique_ptr<ExpressionNode> Parser::parseFilterEachExpression() {
     return node;
 }
 
+std::unique_ptr<ExpressionNode> Parser::parseListEachExpression() {
+    consume(TokenType::Each, "'each' attendu");
+    const Token& itemToken = consumeName("Nom de variable attendu après 'each'");
+    consume(TokenType::In, "'in' attendu");
+    auto list = parseExpression();
+    if (match(TokenType::Where)) {
+        auto condition = parseExpression();
+        consume(TokenType::Return, "'return' attendu dans la compréhension");
+        auto result = parseExpression();
+        auto node = std::make_unique<ComprehensionExpressionNode>(
+            itemToken.lexeme, std::move(list), std::move(condition), std::move(result));
+        setLoc(*node);
+        return node;
+    }
+    consume(TokenType::Do, "'do' attendu");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer 'list each'");
+
+    auto node = std::make_unique<MapEachExpressionNode>(
+        itemToken.lexeme, std::move(list), std::move(body));
+    setLoc(*node);
+    return node;
+}
+
 std::unique_ptr<ExpressionNode> Parser::parseReduceExpression() {
     auto list = parseExpression();
     consume(TokenType::From, "'from' attendu après la liste dans 'reduce'");
@@ -777,6 +822,12 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
     if (match(TokenType::For)) {
         if (check(TokenType::Each)) return parseForEachStatement();
         return parseForRangeStatement();
+    }
+    if (match(TokenType::Yield)) {
+        auto value = parseExpression();
+        auto node = std::make_unique<YieldStatementNode>(std::move(value));
+        setLoc(*node);
+        return node;
     }
     if (match(TokenType::Return))    return parseReturnStatement();
     if (match(TokenType::Assert))    return parseAssertStatement();
@@ -1036,11 +1087,17 @@ std::unique_ptr<StatementNode> Parser::parseMatchStatement() {
             } else {
                 const Token& caseToken = consumeName("Nom de cas attendu");
                 arm.caseName = caseToken.lexeme;
-            }
-            if (arm.caseKind == MatchArmNode::CaseKind::Enum && match(TokenType::With)) {
-                do {
-                    arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
-                } while (match(TokenType::Comma));
+                if (recordNames_.count(arm.caseName) && check(TokenType::With)) {
+                    arm.caseKind = MatchArmNode::CaseKind::Record;
+                    consume(TokenType::With, "'with' attendu");
+                    do {
+                        arm.bindNames.push_back(consumeName("Nom de champ attendu").lexeme);
+                    } while (match(TokenType::Comma));
+                } else if (match(TokenType::With)) {
+                    do {
+                        arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
+                    } while (match(TokenType::Comma));
+                }
             }
             consume(TokenType::Then, "'then' attendu après le cas");
             arm.body = parseBlock();
@@ -1089,11 +1146,17 @@ std::unique_ptr<ExpressionNode> Parser::parseMatchExpression() {
             } else {
                 const Token& caseToken = consumeName("Nom de cas attendu");
                 arm.caseName = caseToken.lexeme;
-            }
-            if (arm.caseKind == MatchArmNode::CaseKind::Enum && match(TokenType::With)) {
-                do {
-                    arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
-                } while (match(TokenType::Comma));
+                if (recordNames_.count(arm.caseName) && check(TokenType::With)) {
+                    arm.caseKind = MatchArmNode::CaseKind::Record;
+                    consume(TokenType::With, "'with' attendu");
+                    do {
+                        arm.bindNames.push_back(consumeName("Nom de champ attendu").lexeme);
+                    } while (match(TokenType::Comma));
+                } else if (match(TokenType::With)) {
+                    do {
+                        arm.bindNames.push_back(consumeName("Nom de liaison attendu après 'with'").lexeme);
+                    } while (match(TokenType::Comma));
+                }
             }
             consume(TokenType::Then, "'then' attendu après le cas");
             if (startsMatchArmStatement()) {
@@ -1463,7 +1526,7 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::List)) {
         if (check(TokenType::Each)) {
-            return parseMapEachExpression();
+            return parseListEachExpression();
         }
         if (match(TokenType::Of)) {
             std::vector<std::unique_ptr<ExpressionNode>> elements;

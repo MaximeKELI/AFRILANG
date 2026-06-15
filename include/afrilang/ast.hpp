@@ -256,6 +256,12 @@ struct ReturnStatementNode : StatementNode {
         : isError(isError), value(std::move(value)) {}
 };
 
+struct YieldStatementNode : StatementNode {
+    std::unique_ptr<ExpressionNode> value;
+    explicit YieldStatementNode(std::unique_ptr<ExpressionNode> value)
+        : value(std::move(value)) {}
+};
+
 struct IfStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> condition;
     std::vector<std::unique_ptr<StatementNode>> thenBody;
@@ -351,7 +357,7 @@ struct ExplainStatementNode : StatementNode {
 };
 
 struct MatchArmNode {
-    enum class CaseKind { Enum, Text, Number };
+    enum class CaseKind { Enum, Text, Number, Record };
     std::string caseName;
     CaseKind caseKind = CaseKind::Enum;
     std::vector<std::string> bindNames;
@@ -552,6 +558,24 @@ struct FilterEachExpressionNode : ExpressionNode {
         , condition(std::move(condition)) {}
 };
 
+struct ComprehensionExpressionNode : ExpressionNode {
+    std::string itemName;
+    std::unique_ptr<ExpressionNode> list;
+    std::unique_ptr<ExpressionNode> condition;
+    std::unique_ptr<ExpressionNode> result;
+    std::string elementTypeName;
+    std::string resultTypeName;
+
+    ComprehensionExpressionNode(std::string itemName,
+                                std::unique_ptr<ExpressionNode> list,
+                                std::unique_ptr<ExpressionNode> condition,
+                                std::unique_ptr<ExpressionNode> result)
+        : itemName(std::move(itemName))
+        , list(std::move(list))
+        , condition(std::move(condition))
+        , result(std::move(result)) {}
+};
+
 struct AwaitExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> value;
 
@@ -607,6 +631,7 @@ struct FunctionNode : ASTNode {
     bool isAbstract = false;
     bool isFinal = false;
     bool isAsync = false;
+    bool isGenerator = false;
     bool isOperator = false;
     std::string operatorSymbol;
     bool modulePrivate = false;
@@ -660,10 +685,18 @@ struct InterfaceNode : ASTNode {
 
 struct TestNode : ASTNode {
     std::string name;
+    std::vector<std::unique_ptr<StatementNode>> setupBody;
     std::vector<std::unique_ptr<StatementNode>> body;
+    std::vector<std::unique_ptr<StatementNode>> teardownBody;
 
-    TestNode(std::string name, std::vector<std::unique_ptr<StatementNode>> body)
-        : name(std::move(name)), body(std::move(body)) {}
+    TestNode(std::string name,
+             std::vector<std::unique_ptr<StatementNode>> setupBody,
+             std::vector<std::unique_ptr<StatementNode>> body,
+             std::vector<std::unique_ptr<StatementNode>> teardownBody)
+        : name(std::move(name))
+        , setupBody(std::move(setupBody))
+        , body(std::move(body))
+        , teardownBody(std::move(teardownBody)) {}
 };
 
 struct ClassNode : ASTNode {
