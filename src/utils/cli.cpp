@@ -17,6 +17,7 @@
 #include "afrilang/semantic.hpp"
 
 #include <cstdlib>
+#include <chrono>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -147,6 +148,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     codegen.setSourceFile(srcPath.string());
     codegen.setDebugSymbols(options.debugSymbols);
     codegen.setCrossTarget(options.crossTarget);
+    codegen.setCoverageMode(options.coverageMode);
 
     result.generatedCpp = baseName + ".generated.cpp";
     std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
@@ -164,6 +166,8 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
     std::cout << "Compilation de " << sourcePath << "...\n";
 
+    const auto compileStart = std::chrono::steady_clock::now();
+
     std::ifstream sourceIn(srcPath);
     std::ostringstream sourceBuf;
     sourceBuf << sourceIn.rdbuf();
@@ -180,6 +184,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             std::cout << "Cache: exécutable à jour (" << result.executable << ")\n";
             if (options.runAfter) {
                 std::cout << "--- Exécution ---\n";
+                const auto execStart = std::chrono::steady_clock::now();
                 const auto limits = securityLimits(SecurityContext::TrustedCompile);
                 ProcessConfig config;
                 config.timeoutSeconds = limits.execTimeoutSeconds;
@@ -189,7 +194,12 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 config.limitProcessCount = true;
                 const ExecResult exec = execSandboxed("./" + result.executable, {}, config);
                 if (!exec.output.empty()) std::cout << exec.output;
+                const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    std::chrono::steady_clock::now() - execStart).count();
                 std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
+                if (options.profileMode) {
+                    std::cout << "[profile] exec: " << execMs << " ms (cache hit)\n";
+                }
             }
             return result;
         }
@@ -205,10 +215,16 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     if (options.useCache) {
         cache.store(sourcePath, sourceHash, fs::absolute(result.executable).string());
     }
+    const auto compileMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - compileStart).count();
     std::cout << "Exécutable produit: " << result.executable << "\n";
+    if (options.profileMode) {
+        std::cout << "[profile] compile: " << compileMs << " ms\n";
+    }
 
     if (options.runAfter) {
         std::cout << "--- Exécution ---\n";
+        const auto execStart = std::chrono::steady_clock::now();
         const auto limits = securityLimits(SecurityContext::TrustedCompile);
         ProcessConfig config;
         config.timeoutSeconds = limits.execTimeoutSeconds;
@@ -223,7 +239,13 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         if (exec.timedOut) {
             std::cerr << "Exécution interrompue (timeout " << config.timeoutSeconds << "s)\n";
         }
+        const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - execStart).count();
         std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
+        if (options.profileMode) {
+            std::cout << "[profile] exec: " << execMs << " ms\n";
+            std::cout << "[profile] total: " << (compileMs + execMs) << " ms\n";
+        }
     }
 
     return result;
@@ -251,8 +273,10 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
     }
 }
 
-int Pipeline::runTests(const std::string& afrilangRoot) {
+int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
     int failures = 0;
+    int passed = 0;
+    const int totalExamples = 53;
     const fs::path root(afrilangRoot);
 
     std::cout << "=== Tests AFRILANG ===\n\n";
@@ -285,6 +309,7 @@ int Pipeline::runTests(const std::string& afrilangRoot) {
     CompileOptions opts;
     opts.runtimeDir = (root / "runtime").string();
     opts.useCache = false;
+    opts.coverageMode = coverage;
 
     std::cout << "[examples]\n";
     for (const auto& ex : examples) {

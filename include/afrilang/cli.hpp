@@ -34,7 +34,7 @@ public:
                                      const CompileOptions& options = {});
 
     static bool checkFile(const std::string& sourcePath);
-    static int runTests(const std::string& afrilangRoot);
+    static int runTests(const std::string& afrilangRoot, bool coverage = false);
 
     static bool formatFile(const std::string& sourcePath, bool writeBack);
     static bool evalReplSource(const std::string& source, std::string& errorOut);

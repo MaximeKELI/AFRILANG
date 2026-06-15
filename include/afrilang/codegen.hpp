@@ -33,6 +33,7 @@ private:
     std::string sourceFilePath_;
     bool debugSymbols_ = true;
     std::string crossTarget_ = "native";
+    bool coverageMode_ = false;
     mutable std::unordered_set<std::string> linkLibraries_;
 
     mutable const FunctionNode* currentFunction_ = nullptr;
