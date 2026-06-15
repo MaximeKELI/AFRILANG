@@ -4,19 +4,24 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
 
+from .content.docs_nav import docs_context
 from .models import Capability, CodeExample, Package, PlaygroundRun
 from .services.afrilang import AfrilangError, format_source, run_source, source_hash
 
 
 def home(request):
-    packages = Package.objects.filter(blessed=True)[:10]
-    examples = CodeExample.objects.filter(featured=True)[:5]
+    packages = Package.objects.filter(blessed=True)[:6]
+    examples = CodeExample.objects.filter(featured=True)[:4]
     if not examples.exists():
-        examples = CodeExample.objects.all()[:5]
+        examples = CodeExample.objects.all()[:4]
     return render(request, 'core/home.html', {
         'packages': packages,
         'examples': examples,
     })
+
+
+def language(request):
+    return render(request, 'core/language.html')
 
 
 def explore(request):
@@ -27,8 +32,44 @@ def explore(request):
     return render(request, 'core/explore.html', {'by_category': by_category})
 
 
-def docs(request):
-    return render(request, 'core/docs.html')
+def docs_overview(request):
+    ctx = docs_context('docs_overview')
+    return render(request, 'docs/overview.html', ctx)
+
+
+def docs_getting_started(request):
+    ctx = docs_context('docs_getting_started')
+    return render(request, 'docs/getting_started.html', ctx)
+
+
+def docs_syntax(request):
+    ctx = docs_context('docs_syntax')
+    return render(request, 'docs/syntax.html', ctx)
+
+
+def docs_types(request):
+    ctx = docs_context('docs_types')
+    return render(request, 'docs/types.html', ctx)
+
+
+def docs_oop(request):
+    ctx = docs_context('docs_oop')
+    return render(request, 'docs/oop.html', ctx)
+
+
+def docs_advanced(request):
+    ctx = docs_context('docs_advanced')
+    return render(request, 'docs/advanced.html', ctx)
+
+
+def docs_stdlib(request):
+    ctx = docs_context('docs_stdlib')
+    return render(request, 'docs/stdlib.html', ctx)
+
+
+def docs_tooling(request):
+    ctx = docs_context('docs_tooling')
+    return render(request, 'docs/tooling.html', ctx)
 
 
 def packages_list(request):

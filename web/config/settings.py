@@ -53,12 +53,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASE_URL = os.environ.get(
-    'DATABASE_URL',
-    'postgres://afrilang:afrilang@127.0.0.1:5434/afrilang',
-)
+DATABASE_URL = os.environ.get('DATABASE_URL', '')
+USE_SQLITE = os.environ.get('USE_SQLITE', '0') == '1' or not DATABASE_URL
 
-if DATABASE_URL.startswith('postgres://'):
+if USE_SQLITE:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+elif DATABASE_URL.startswith('postgres://'):
     import urllib.parse
     url = urllib.parse.urlparse(DATABASE_URL)
     DATABASES = {
