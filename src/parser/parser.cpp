@@ -119,7 +119,7 @@ bool Parser::matchName(std::string& out) {
         TokenType::Each, TokenType::In, TokenType::Stop, TokenType::Skip,
         TokenType::Else, TokenType::Empty, TokenType::Length, TokenType::Of,
         TokenType::Public, TokenType::Private, TokenType::New, TokenType::Async,
-        TokenType::TypeJson
+        TokenType::TypeJson, TokenType::TypeBigInt
     };
 
     if (!isAtEnd() && usableAsName.count(peek().type)) {
@@ -874,14 +874,19 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
 
     std::unique_ptr<ExpressionNode> value;
     if (match(TokenType::List)) {
-        consume(TokenType::Of, "'of' attendu après 'list'");
-        std::vector<std::unique_ptr<ExpressionNode>> elements;
-        if (!check(TokenType::End) && !isAtEnd()) {
-            do {
-                elements.push_back(parseExpression());
-            } while (match(TokenType::Comma));
+        if (check(TokenType::Each)) {
+            --current_;
+            value = parseExpression();
+        } else {
+            consume(TokenType::Of, "'of' attendu après 'list'");
+            std::vector<std::unique_ptr<ExpressionNode>> elements;
+            if (!check(TokenType::End) && !isAtEnd()) {
+                do {
+                    elements.push_back(parseExpression());
+                } while (match(TokenType::Comma));
+            }
+            value = std::make_unique<ListLiteralNode>(std::move(elements));
         }
-        value = std::make_unique<ListLiteralNode>(std::move(elements));
     } else if (match(TokenType::Map)) {
         if (check(TokenType::Each)) {
             --current_;
