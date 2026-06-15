@@ -526,7 +526,7 @@ int runLspServer() {
             const std::string uri = documentUri(body);
             const std::string text = extractDocumentText(body);
             updateDocument(uri, text);
-            analysisCache[uri] = analyzeDocument(uriToPath(uri), text, true);
+            analysisCache[uri] = analyzeDocument(uriToPath(uri), text, false);
             publishDiagnostics(uri, analysisCache[uri]);
         } else if (body.find("\"method\":\"textDocument/didChange\"") != std::string::npos) {
             const std::string uri = documentUri(body);
