@@ -1,5 +1,5 @@
 module DateTime
     function formatDuration(seconds number) returns text
-        return "duration:" + seconds
+        return "duration"
     end
 end
