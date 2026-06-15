@@ -1,12 +1,21 @@
 import json
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
 
 from .content.docs_nav import docs_context
+from .content.docs_pages import get_doc_page_by_url_name
+from .content.ecosystem_i18n import translate_ecosystem
 from .models import Capability, CodeExample, Package, PlaygroundRun
 from .services.afrilang import AfrilangError, format_source, run_source, source_hash
+
+
+def _doc_view(request, url_name):
+    lang = request.LANGUAGE_CODE
+    ctx = docs_context(url_name, lang)
+    ctx['page'] = get_doc_page_by_url_name(url_name, lang)
+    return render(request, 'docs/page.html', ctx)
 
 
 def home(request):
@@ -29,47 +38,52 @@ def explore(request):
     by_category = {}
     for cap in caps:
         by_category.setdefault(cap.get_category_display(), []).append(cap)
+    by_category = translate_ecosystem(by_category, request.LANGUAGE_CODE)
     return render(request, 'core/explore.html', {'by_category': by_category})
 
 
 def docs_overview(request):
-    ctx = docs_context('docs_overview')
-    return render(request, 'docs/overview.html', ctx)
+    return _doc_view(request, 'docs_overview')
 
 
 def docs_getting_started(request):
-    ctx = docs_context('docs_getting_started')
-    return render(request, 'docs/getting_started.html', ctx)
+    return _doc_view(request, 'docs_getting_started')
 
 
 def docs_syntax(request):
-    ctx = docs_context('docs_syntax')
-    return render(request, 'docs/syntax.html', ctx)
+    return _doc_view(request, 'docs_syntax')
 
 
 def docs_types(request):
-    ctx = docs_context('docs_types')
-    return render(request, 'docs/types.html', ctx)
+    return _doc_view(request, 'docs_types')
 
 
 def docs_oop(request):
-    ctx = docs_context('docs_oop')
-    return render(request, 'docs/oop.html', ctx)
+    return _doc_view(request, 'docs_oop')
 
 
 def docs_advanced(request):
-    ctx = docs_context('docs_advanced')
-    return render(request, 'docs/advanced.html', ctx)
+    return _doc_view(request, 'docs_advanced')
 
 
 def docs_stdlib(request):
-    ctx = docs_context('docs_stdlib')
-    return render(request, 'docs/stdlib.html', ctx)
+    return _doc_view(request, 'docs_stdlib')
 
 
 def docs_tooling(request):
-    ctx = docs_context('docs_tooling')
-    return render(request, 'docs/tooling.html', ctx)
+    return _doc_view(request, 'docs_tooling')
+
+
+def download(request):
+    return render(request, 'core/download.html')
+
+
+def community(request):
+    return render(request, 'core/community.html')
+
+
+def api_reference(request):
+    return render(request, 'core/api.html')
 
 
 def packages_list(request):
@@ -87,6 +101,17 @@ def playground(request):
         'examples': examples,
         'examples_map': examples_map,
     })
+
+
+def robots_txt(request):
+    lines = [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin/',
+        'Disallow: /api/',
+        f'Sitemap: {request.build_absolute_uri("/sitemap.xml")}',
+    ]
+    return HttpResponse('\n'.join(lines), content_type='text/plain')
 
 
 @require_GET
@@ -109,12 +134,12 @@ def api_run(request, target_override=None):
     try:
         body = json.loads(request.body.decode('utf-8'))
     except json.JSONDecodeError:
-        return JsonResponse({'ok': False, 'output': 'JSON invalide', 'exitCode': 1}, status=400)
+        return JsonResponse({'ok': False, 'output': 'Invalid JSON', 'exitCode': 1}, status=400)
 
     source = body.get('source', '')
     target = target_override or body.get('target', 'native')
     if not source.strip():
-        return JsonResponse({'ok': False, 'output': 'Source vide', 'exitCode': 1}, status=400)
+        return JsonResponse({'ok': False, 'output': 'Empty source', 'exitCode': 1}, status=400)
 
     try:
         result = run_source(source, target=target)
@@ -141,7 +166,7 @@ def api_fmt(request):
     try:
         body = json.loads(request.body.decode('utf-8'))
     except json.JSONDecodeError:
-        return JsonResponse({'ok': False, 'output': 'JSON invalide'}, status=400)
+        return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
 
     source = body.get('source', '')
     try:

@@ -12,4 +12,20 @@ def site_settings(request):
             'stdlib_modules': 463,
             'cli_commands': 15,
         },
+        'SITE_URL': getattr(settings, 'SITE_URL', 'http://127.0.0.1:8000'),
+    }
+
+
+def i18n_ui(request):
+    from django.utils import translation
+
+    from .content.site_ui import get_ui
+    from .i18n_helpers import current_lang
+
+    lang = current_lang()
+    return {
+        'ui': get_ui(lang),
+        'current_lang': lang,
+        'languages': settings.LANGUAGES,
+        'LANGUAGE_CODE': translation.get_language(),
     }
