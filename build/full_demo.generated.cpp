@@ -11,9 +11,6 @@
 #include "str.hpp"
 
 namespace Utils {
-} // namespace Utils
-
-namespace Utils {
     double twice(double x) {
         #line 5 "/home/maxime/AFRILANG/build/../examples/full_demo.afr"
         return (x * 2LL);

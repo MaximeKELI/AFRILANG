@@ -92,7 +92,7 @@ static void printUsage() {
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
-    std::cerr << "  afrilang pkg list            Lister les paquets\n";
+    std::cerr << "  afrilang pkg list [--blessed] Lister les paquets\n";
     std::cerr << "  afrilang pkg search [query]  Rechercher un paquet\n";
     std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
@@ -306,7 +306,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier3_demo.afr",
         "tier4_demo.afr",
         "tier5_demo.afr",
-        "tier6_demo.afr"
+        "tier6_demo.afr",
+        "tier7_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());
@@ -675,7 +676,13 @@ int runCli(int argc, char* argv[]) {
         const std::string sub = argv[2];
         const std::string root = detectAfrilangRoot();
         const std::string dir = fs::current_path().string();
-        if (sub == "list") return PkgRegistry::cmdList(root);
+        if (sub == "list") {
+            bool blessedOnly = false;
+            for (int i = 3; i < argc; ++i) {
+                if (std::string(argv[i]) == "--blessed") blessedOnly = true;
+            }
+            return PkgRegistry::cmdList(root, blessedOnly);
+        }
         if (sub == "search") {
             const std::string query = argc >= 4 ? argv[3] : "";
             return PkgRegistry::cmdSearch(root, query);

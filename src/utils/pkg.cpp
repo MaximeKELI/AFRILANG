@@ -100,6 +100,9 @@ PackageInfo PkgRegistry::loadManifest(const std::string& packageDir) {
     return info;
 }
 
+static void enrichPackagesFromIndex(const std::string& afrilangRoot,
+                                    std::vector<PackageInfo>& packages);
+
 std::vector<PackageInfo> PkgRegistry::listAvailable(const std::string& afrilangRoot) {
     std::vector<PackageInfo> packages;
     const fs::path packagesDir = fs::path(afrilangRoot) / "packages";

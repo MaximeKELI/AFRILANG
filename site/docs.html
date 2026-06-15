@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — AFRILANG</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="brand">
+    <img src="/icon.png" alt="" class="logo" width="56" height="56">
+    <div>
+      <h1><a href="/">AFRILANG</a> — Documentation</h1>
+      <p>Guide rapide du langage et de l'écosystème</p>
+    </div>
+  </header>
+  <nav class="site-nav">
+    <a href="/">Accueil</a>
+    <a href="/docs.html" class="active">Documentation</a>
+    <a href="/packages.html">Paquets</a>
+    <a href="/playground.html">Playground</a>
+  </nav>
+  <main>
+    <section class="features">
+      <div class="card">
+        <h3>Démarrage</h3>
+        <pre>afrilang run examples/hello.afr
+afrilang build mon_projet.afr
+afrilang test ..</pre>
+      </div>
+      <div class="card">
+        <h3>Syntaxe naturelle</h3>
+        <pre>create age int = 21
+if age is greater than 18 then
+    say "Adult"
+end</pre>
+      </div>
+      <div class="card">
+        <h3>Modules &amp; stdlib</h3>
+        <pre>import "std/json"
+use json
+
+import "pkg/math/math.afr"
+use Math</pre>
+      </div>
+      <div class="card">
+        <h3>Gestionnaire de paquets</h3>
+        <pre>afrilang pkg list
+afrilang pkg list --blessed
+afrilang pkg add strings
+afrilang pkg sync
+afrilang pkg reindex</pre>
+      </div>
+      <div class="card">
+        <h3>Paquets blessed</h3>
+        <p>10 paquets officiels vérifiés par SHA256 :</p>
+        <p class="mono">math, cli, datetime, strings, fmt, validate, config, testing, colors, uuid</p>
+        <p><a href="/packages.html">Voir le registre complet →</a></p>
+      </div>
+      <div class="card">
+        <h3>Fonctionnalités avancées</h3>
+        <ul class="doc-list">
+          <li>Générateurs lazy (<code>generator T</code>)</li>
+          <li>Match avec guards (<code>case X if cond</code>)</li>
+          <li>Décorateurs (<code>@deprecated</code>, <code>@inline</code>)</li>
+          <li>Traits &amp; interfaces étendues</li>
+          <li>Records structurels</li>
+          <li>14+ modules stdlib (crypto, yaml, csv, …)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>AFRILANG — compilateur open source</p>
+  </footer>
+</body>
+</html>

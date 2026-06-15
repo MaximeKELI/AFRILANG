@@ -1,0 +1,25 @@
+import "pkg/math/math.afr"
+import "pkg/strings/strings.afr"
+import "pkg/fmt/fmt.afr"
+import "pkg/validate/validate.afr"
+import "pkg/config/config.afr"
+import "pkg/testing/testing.afr"
+import "pkg/colors/colors.afr"
+import "pkg/uuid/uuid.afr"
+
+use Math
+use Strings
+use Fmt
+use Validate
+use Config
+use Testing
+use Colors
+use Uuid
+
+say square(7)
+say repeat("ab", 3)
+say label("phase", "D")
+say check("prefix", hasPrefix("hello", "hel"))
+say getOr("", "default")
+say ok("Phase D OK")
+say newId()

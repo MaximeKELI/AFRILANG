@@ -43,6 +43,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 .btn {
   display: inline-block;
   margin-top: 1rem;
+  margin-right: 0.5rem;
   padding: 0.75rem 1.5rem;
   background: #3d7eff;
   color: white;
@@ -50,6 +51,79 @@ main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
   border-radius: 8px;
   font-weight: 600;
 }
+
+.btn.secondary {
+  background: #243044;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.75rem 2rem;
+  background: #151c27;
+  border-bottom: 1px solid #243044;
+}
+
+.site-nav a {
+  color: #8b98a8;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #7eb6ff;
+}
+
+.hint {
+  color: #8b98a8;
+  font-size: 0.95rem;
+}
+
+.mono {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9rem;
+}
+
+.badge.blessed {
+  color: #ffd666;
+  font-weight: 600;
+}
+
+.pkg-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.pkg-table th,
+.pkg-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #243044;
+}
+
+.pkg-table th {
+  color: #8b98a8;
+  font-weight: 600;
+}
+
+.blessed-name {
+  color: #ffd666;
+  font-weight: 600;
+}
+
+.doc-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #c5cdd8;
+}
+
+.doc-list li { margin-bottom: 0.35rem; }
+
+.error { color: #ff8a8a; }
 
 .features {
   display: grid;

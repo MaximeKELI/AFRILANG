@@ -14,12 +14,6 @@
 #include "str.hpp"
 
 namespace io {
-} // namespace io
-
-namespace json {
-} // namespace json
-
-namespace io {
     std::string readFile(std::string path) {
         return afrilang::runtime::io::readFile(path);
     }

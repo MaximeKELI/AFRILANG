@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paquets — AFRILANG</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="brand">
+    <img src="/icon.png" alt="" class="logo" width="56" height="56">
+    <div>
+      <h1><a href="/">AFRILANG</a> — Registre</h1>
+      <p>Paquets officiels et blessed du registre local</p>
+    </div>
+  </header>
+  <nav class="site-nav">
+    <a href="/">Accueil</a>
+    <a href="/docs.html">Documentation</a>
+    <a href="/packages.html" class="active">Paquets</a>
+    <a href="/playground.html">Playground</a>
+  </nav>
+  <main>
+    <section class="hero">
+      <h2>Écosystème de paquets</h2>
+      <p>Les paquets <span class="badge blessed">★ blessed</span> sont vérifiés et recommandés.</p>
+      <p class="hint">CLI : <code>afrilang pkg list --blessed</code> · <code>afrilang pkg add math</code></p>
+    </section>
+    <section class="card">
+      <div id="status" class="hint">Chargement du registre…</div>
+      <table class="pkg-table" id="pkg-table" hidden>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Version</th>
+            <th>Description</th>
+            <th>SHA256</th>
+          </tr>
+        </thead>
+        <tbody id="pkg-body"></tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>AFRILANG — registre local synchronisable via <code>afrilang pkg sync</code></p>
+  </footer>
+  <script>
+    async function loadPackages() {
+      const status = document.getElementById('status');
+      const table = document.getElementById('pkg-table');
+      const body = document.getElementById('pkg-body');
+      try {
+        const res = await fetch('/packages.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const pkgs = data.packages || [];
+        pkgs.sort((a, b) => (b.blessed ? 1 : 0) - (a.blessed ? 1 : 0) || a.name.localeCompare(b.name));
+        body.innerHTML = '';
+        for (const pkg of pkgs) {
+          const tr = document.createElement('tr');
+          const name = document.createElement('td');
+          name.textContent = (pkg.blessed ? '★ ' : '') + pkg.name;
+          if (pkg.blessed) name.classList.add('blessed-name');
+          const ver = document.createElement('td');
+          ver.textContent = pkg.version || '';
+          const desc = document.createElement('td');
+          desc.textContent = pkg.description || '';
+          const sha = document.createElement('td');
+          sha.className = 'mono';
+          sha.textContent = pkg.sha256 ? pkg.sha256.slice(0, 12) + '…' : '—';
+          sha.title = pkg.sha256 || '';
+          tr.append(name, ver, desc, sha);
+          body.appendChild(tr);
+        }
+        status.textContent = pkgs.length + ' paquet(s), ' +
+          pkgs.filter(p => p.blessed).length + ' blessed';
+        table.hidden = false;
+      } catch (e) {
+        status.textContent = 'Impossible de charger packages.json — lancez afrilang pkg reindex';
+        status.classList.add('error');
+      }
+    }
+    loadPackages();
+  </script>
+</body>
+</html>

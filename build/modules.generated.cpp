@@ -11,9 +11,6 @@
 #include "str.hpp"
 
 namespace Math {
-} // namespace Math
-
-namespace Math {
     double add(double a, double b) {
         #line 3 "/home/maxime/AFRILANG/build/../examples/modules.afr"
         return (a + b);
