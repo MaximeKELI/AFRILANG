@@ -1,5 +1,6 @@
 #include "afrilang/hash.hpp"
 
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
 #include <iomanip>

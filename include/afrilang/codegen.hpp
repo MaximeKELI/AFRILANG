@@ -24,6 +24,7 @@ public:
     void setSourceFile(std::string path) { sourceFilePath_ = std::move(path); }
     void setDebugSymbols(bool enabled) { debugSymbols_ = enabled; }
     void setCrossTarget(std::string target) { crossTarget_ = std::move(target); }
+    void setCoverageMode(bool enabled) { coverageMode_ = enabled; }
 
 private:
     const ProgramNode& program_;

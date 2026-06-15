@@ -13,6 +13,7 @@ struct CompileOptions {
     bool runAfter = false;
     bool watchMode = false;
     bool profileMode = false;
+    bool coverageMode = false;
     bool debugSymbols = true;
     bool useCache = true;
     std::string outputExecutable;

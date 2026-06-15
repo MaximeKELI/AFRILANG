@@ -139,12 +139,17 @@ static void copyDirectory(const fs::path& src, const fs::path& dst) {
 }
 
 static void writeLockEntry(const fs::path& lockPath, const std::string& name,
-                           const std::string& version, const std::string& relPath) {
+                           const std::string& version, const std::string& relPath,
+                           const std::string& sha256 = {}) {
     std::ofstream lock(lockPath, std::ios::app);
     lock << "[[package]]\n";
     lock << "name = \"" << name << "\"\n";
     lock << "version = \"" << version << "\"\n";
-    lock << "path = \"" << relPath << "\"\n\n";
+    lock << "path = \"" << relPath << "\"\n";
+    if (!sha256.empty()) {
+        lock << "sha256 = \"" << sha256 << "\"\n";
+    }
+    lock << "\n";
 }
 
 static void ensureDependencyInToml(const fs::path& tomlPath, const std::string& name,
@@ -202,7 +207,13 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         const auto& pkg = packages[i];
         json << "    {\"name\":\"" << jsonEscape(pkg.name) << "\","
              << "\"version\":\"" << jsonEscape(pkg.version) << "\","
-             << "\"description\":\"" << jsonEscape(pkg.description) << "\"}";
+             << "\"description\":\"" << jsonEscape(pkg.description) << "\"";
+        const std::string hash = sha256Directory(
+            (packagesDir / pkg.name).string());
+        if (!hash.empty()) {
+            json << ",\"sha256\":\"" << jsonEscape(hash) << "\"";
+        }
+        json << "}";
         if (i + 1 < packages.size()) json << ',';
         json << '\n';
     }
@@ -241,6 +252,12 @@ int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packag
     }
     copyDirectory(src, dst);
 
+    const std::string pkgHash = sha256Directory(dst.string());
+    if (pkgHash.empty()) {
+        std::cerr << "Erreur: impossible de calculer le checksum du paquet.\n";
+        return 1;
+    }
+
     const fs::path tomlPath = fs::path(projectDir) / "afrilang.toml";
     if (fs::exists(tomlPath)) {
         ensureDependencyInToml(tomlPath, info.name, info.version);
@@ -251,10 +268,11 @@ int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packag
         std::ofstream lock(lockPath);
         lock << "# AFRILANG lockfile\n\n";
     }
-    writeLockEntry(lockPath, info.name, info.version, relPrefix + packageName);
+    writeLockEntry(lockPath, info.name, info.version, relPrefix + packageName, pkgHash);
 
     std::cout << "Paquet '" << info.name << "@" << info.version << "' installé dans "
               << dst.string() << "\n";
+    std::cout << "sha256: " << pkgHash << "\n";
     return 0;
 }
 
