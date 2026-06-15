@@ -5,3 +5,4 @@ end
 
 function acosSafe(n number) returns number
 end
+end

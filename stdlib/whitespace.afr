@@ -5,3 +5,4 @@ end
 
 function isWhitespace(s text) returns bool
 end
+end

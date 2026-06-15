@@ -20,3 +20,4 @@ end
 
 function isValid(uri text) returns bool
 end
+end

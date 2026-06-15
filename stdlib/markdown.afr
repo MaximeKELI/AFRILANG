@@ -5,3 +5,4 @@ end
 
 function italic(s text) returns text
 end
+end

@@ -5,3 +5,4 @@ end
 
 function freshness(ageMs number, ttlMs number) returns number
 end
+end

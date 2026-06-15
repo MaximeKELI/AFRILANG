@@ -17,3 +17,4 @@ end
 
 function isConnectedForMst(adj list number, n number) returns bool
 end
+end

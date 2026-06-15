@@ -5,3 +5,4 @@ end
 
 function endsWith(s text, suffix text) returns bool
 end
+end

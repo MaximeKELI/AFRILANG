@@ -11,3 +11,4 @@ end
 
 function secondsToHours(s number) returns number
 end
+end

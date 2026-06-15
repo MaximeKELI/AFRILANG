@@ -11,3 +11,4 @@ end
 
 function lastIndexOf(v list number, target number) returns number
 end
+end

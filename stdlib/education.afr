@@ -5,3 +5,4 @@ end
 
 function passed(score number, min number) returns bool
 end
+end

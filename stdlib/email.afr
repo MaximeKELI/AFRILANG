@@ -5,3 +5,4 @@ end
 
 function domainOf(s text) returns text
 end
+end

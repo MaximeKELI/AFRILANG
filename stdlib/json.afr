@@ -1,11 +1,20 @@
-# Module std/json — bibliothèque standard AFRILANG
-#
-# import "std/json"
-# use json
-#
-# Fonctions:
-#   parse(text text) returns text
-#   stringify(value text) returns text
-#   getString(text text, key text) returns text
-#   getNumber(text text, key text) returns number
-#   makeObject(key text, value text) returns text
+module json
+
+function parse(text text) returns json
+end
+
+function stringify(value json) returns text
+end
+
+function getString(value json, key text) returns text
+end
+
+function getNumber(value json, key text) returns number
+end
+
+function getInt(value json, key text) returns int
+end
+
+function makeObject(key text, value text) returns json
+end
+end

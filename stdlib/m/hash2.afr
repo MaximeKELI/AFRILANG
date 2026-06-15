@@ -11,3 +11,4 @@ end
 
 function hashCombine(a number, b number) returns number
 end
+end

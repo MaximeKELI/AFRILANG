@@ -5,3 +5,4 @@ end
 
 function elapsedMs(start number) returns number
 end
+end

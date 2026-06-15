@@ -11,3 +11,4 @@ end
 
 function shortestString(v list text) returns text
 end
+end

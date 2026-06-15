@@ -11,3 +11,4 @@ end
 
 function diagonal(w number, h number) returns number
 end
+end

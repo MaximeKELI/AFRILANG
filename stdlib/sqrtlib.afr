@@ -5,3 +5,4 @@ end
 
 function square(n number) returns number
 end
+end

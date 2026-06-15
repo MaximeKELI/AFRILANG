@@ -5,3 +5,4 @@ end
 
 function hasSubdomain(s text) returns bool
 end
+end

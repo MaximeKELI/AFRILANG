@@ -5,3 +5,4 @@ end
 
 function exitFailed(code number) returns bool
 end
+end

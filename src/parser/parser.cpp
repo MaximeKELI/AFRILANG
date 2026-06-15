@@ -106,23 +106,44 @@ void Parser::setLoc(ASTNode& node) const {
     node.loc.column = previous().column;
 }
 
+namespace {
+
+bool isKeywordUsableAsName(TokenType type) {
+    switch (type) {
+    case TokenType::Identifier:
+    case TokenType::StringLiteral:
+    case TokenType::NumberLiteral:
+    case TokenType::Eof:
+    case TokenType::AtSign:
+    case TokenType::Plus:
+    case TokenType::Minus:
+    case TokenType::Star:
+    case TokenType::Slash:
+    case TokenType::Dot:
+    case TokenType::Equals:
+    case TokenType::Comma:
+    case TokenType::LeftParen:
+    case TokenType::RightParen:
+    case TokenType::LeftBracket:
+    case TokenType::RightBracket:
+    case TokenType::Question:
+    case TokenType::AngleOpen:
+    case TokenType::AngleClose:
+        return false;
+    default:
+        return true;
+    }
+}
+
+} // namespace
+
 bool Parser::matchName(std::string& out) {
     if (match(TokenType::Identifier)) {
         out = previous().lexeme;
         return true;
     }
 
-    static const std::unordered_set<TokenType> usableAsName = {
-        TokenType::Add, TokenType::List, TokenType::Set, TokenType::Ask,
-        TokenType::Use, TokenType::Module, TokenType::Record, TokenType::Field,
-        TokenType::Import, TokenType::While, TokenType::Do, TokenType::For,
-        TokenType::Each, TokenType::In, TokenType::Stop, TokenType::Skip,
-        TokenType::Else, TokenType::Empty, TokenType::Length, TokenType::Of,
-        TokenType::Public, TokenType::Private, TokenType::New, TokenType::Async,
-        TokenType::TypeJson, TokenType::TypeBigInt
-    };
-
-    if (!isAtEnd() && usableAsName.count(peek().type)) {
+    if (!isAtEnd() && isKeywordUsableAsName(peek().type)) {
         out = peek().lexeme;
         advance();
         return true;

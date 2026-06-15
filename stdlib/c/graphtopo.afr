@@ -20,3 +20,4 @@ end
 
 function isDag(adj list number, n number) returns bool
 end
+end

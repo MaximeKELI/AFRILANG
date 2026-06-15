@@ -5,3 +5,4 @@ end
 
 function spellBool(b bool) returns text
 end
+end

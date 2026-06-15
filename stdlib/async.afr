@@ -2,3 +2,4 @@ module async
 
 function sleep(ms number)
 end
+end

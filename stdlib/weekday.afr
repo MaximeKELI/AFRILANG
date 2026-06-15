@@ -5,3 +5,4 @@ end
 
 function isWeekendIndex(day number) returns bool
 end
+end

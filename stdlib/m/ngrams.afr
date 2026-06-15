@@ -11,3 +11,4 @@ end
 
 function ngramCount(s text, n number) returns number
 end
+end

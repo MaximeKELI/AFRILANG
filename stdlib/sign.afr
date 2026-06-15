@@ -5,3 +5,4 @@ end
 
 function isPositive(n number) returns bool
 end
+end

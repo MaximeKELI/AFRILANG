@@ -5,3 +5,4 @@ end
 
 function concat3(a text, b text, c text) returns text
 end
+end

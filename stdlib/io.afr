@@ -1,10 +1,17 @@
-# Module std/io — bibliothèque standard AFRILANG
-#
-# import "std/io"
-# use io
-#
-# Fonctions:
-#   readFile(path text) returns text
-#   writeFile(path text, content text)
-#   fileExists(path text) returns bool
-#   readLine() returns text
+module io
+
+function readFile(path text) returns text
+end
+
+function writeFile(path text, content text)
+end
+
+function fileExists(path text) returns bool
+end
+
+function readLine() returns text
+end
+
+function readFileAsync(path text) returns text
+end
+end

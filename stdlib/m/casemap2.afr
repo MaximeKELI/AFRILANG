@@ -11,3 +11,4 @@ end
 
 function snakeToCamel(s text) returns text
 end
+end

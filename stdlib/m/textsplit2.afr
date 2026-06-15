@@ -11,3 +11,4 @@ end
 
 function splitChars(s text) returns list text
 end
+end

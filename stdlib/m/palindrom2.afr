@@ -11,3 +11,4 @@ end
 
 function isPalindromeWord(w text) returns bool
 end
+end

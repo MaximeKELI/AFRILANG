@@ -5,3 +5,4 @@ end
 
 function escapeXml(s text) returns text
 end
+end

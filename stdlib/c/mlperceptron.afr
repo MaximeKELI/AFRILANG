@@ -17,3 +17,4 @@ end
 
 function trainEpoch(weights list number, bias number, X list number, y list number, lr number, dims number) returns list number
 end
+end

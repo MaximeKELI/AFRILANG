@@ -5,3 +5,4 @@ end
 
 function trace2(a number, d number) returns number
 end
+end

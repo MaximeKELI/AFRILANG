@@ -14,3 +14,4 @@ end
 
 function avgTokenLen(s text) returns number
 end
+end

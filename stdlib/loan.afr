@@ -5,3 +5,4 @@ end
 
 function totalPaid(payment number, months number) returns number
 end
+end

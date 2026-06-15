@@ -5,3 +5,4 @@ end
 
 function redOf(packed number) returns number
 end
+end

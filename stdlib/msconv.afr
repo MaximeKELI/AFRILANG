@@ -5,3 +5,4 @@ end
 
 function secToMs(s number) returns number
 end
+end

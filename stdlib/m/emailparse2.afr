@@ -11,3 +11,4 @@ end
 
 function normalizeEmail(email text) returns text
 end
+end

@@ -11,3 +11,4 @@ end
 
 function priceWithVat(price number, rate number) returns number
 end
+end

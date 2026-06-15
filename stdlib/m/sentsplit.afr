@@ -11,3 +11,4 @@ end
 
 function lastSentence(s text) returns text
 end
+end

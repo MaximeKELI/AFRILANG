@@ -17,3 +17,4 @@ end
 
 function snr(signal list number, noise list number) returns number
 end
+end

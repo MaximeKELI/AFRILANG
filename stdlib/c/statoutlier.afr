@@ -17,3 +17,4 @@ end
 
 function isOutlier(v list number, val number) returns bool
 end
+end

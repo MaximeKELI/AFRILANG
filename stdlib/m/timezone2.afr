@@ -11,3 +11,4 @@ end
 
 function formatTime(hours number, minutes number) returns text
 end
+end

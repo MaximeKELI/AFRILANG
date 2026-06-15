@@ -17,3 +17,4 @@ end
 
 function mostSimilar(query list number, matrix list number, dims number) returns number
 end
+end

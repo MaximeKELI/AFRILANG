@@ -20,3 +20,4 @@ end
 
 function expectedLoss(losses list number, probs list number) returns number
 end
+end

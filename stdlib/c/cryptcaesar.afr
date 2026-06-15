@@ -17,3 +17,4 @@ end
 
 function isCaesar(plain text, cipher text) returns bool
 end
+end

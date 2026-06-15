@@ -17,3 +17,4 @@ end
 
 function lastEma(v list number, alpha number) returns number
 end
+end

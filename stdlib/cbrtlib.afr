@@ -5,3 +5,4 @@ end
 
 function cube(n number) returns number
 end
+end

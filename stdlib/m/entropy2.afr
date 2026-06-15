@@ -11,3 +11,4 @@ end
 
 function bitEntropy(s text) returns number
 end
+end

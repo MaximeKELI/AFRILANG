@@ -5,3 +5,4 @@ end
 
 function isJson(mime text) returns bool
 end
+end

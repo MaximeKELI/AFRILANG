@@ -5,3 +5,4 @@ end
 
 function taxAmount(amount number, rate number) returns number
 end
+end

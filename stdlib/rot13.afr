@@ -5,3 +5,4 @@ end
 
 function rot47(s text) returns text
 end
+end

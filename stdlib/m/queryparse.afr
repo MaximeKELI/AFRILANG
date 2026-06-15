@@ -11,3 +11,4 @@ end
 
 function hasParam(query text, key text) returns bool
 end
+end

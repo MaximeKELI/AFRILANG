@@ -5,3 +5,4 @@ end
 
 function product2(a number, b number) returns number
 end
+end

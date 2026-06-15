@@ -11,3 +11,4 @@ end
 
 function pickRandom(v list text, seed number) returns text
 end
+end

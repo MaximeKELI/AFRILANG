@@ -11,3 +11,4 @@ end
 
 function isUuidFormat(s text) returns bool
 end
+end

@@ -14,3 +14,4 @@ end
 
 function hasQuery(url text) returns bool
 end
+end

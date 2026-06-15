@@ -142,6 +142,8 @@ def gen_afr_stubs(modules: list[tuple], subdir: str) -> None:
                 lines.append(f"function {fname}({ps})")
             lines.append("end")
             lines.append("")
+        lines.append("end")
+        lines.append("")
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines).rstrip() + "\n")
 

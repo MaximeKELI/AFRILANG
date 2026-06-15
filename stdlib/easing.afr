@@ -5,3 +5,4 @@ end
 
 function easeOut(t number) returns number
 end
+end

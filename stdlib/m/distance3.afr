@@ -11,3 +11,4 @@ end
 
 function hammingDist(a text, b text) returns number
 end
+end

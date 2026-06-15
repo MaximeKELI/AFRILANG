@@ -17,3 +17,4 @@ end
 
 function chunkCrc(s text, chunkSize number) returns list number
 end
+end

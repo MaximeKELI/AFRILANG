@@ -17,3 +17,4 @@ end
 
 function navCost(grid list number, width number, start number, goal number) returns number
 end
+end

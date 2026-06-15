@@ -17,3 +17,4 @@ end
 
 function mixingTime(trans list number, states number) returns number
 end
+end

@@ -5,3 +5,4 @@ end
 
 function msToKmh(ms number) returns number
 end
+end

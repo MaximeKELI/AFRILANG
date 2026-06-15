@@ -5,3 +5,4 @@ end
 
 function formatDollar(n number) returns text
 end
+end

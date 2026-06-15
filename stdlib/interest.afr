@@ -5,3 +5,4 @@ end
 
 function compoundOnce(principal number, rate number) returns number
 end
+end

@@ -5,3 +5,4 @@ end
 
 function fromBinary(s text) returns number
 end
+end

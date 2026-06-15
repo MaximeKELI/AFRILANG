@@ -11,3 +11,4 @@ end
 
 function marginOfSafety(currentSales number, breakEven number) returns number
 end
+end

@@ -11,3 +11,4 @@ end
 
 function doublingTime(rate number) returns number
 end
+end

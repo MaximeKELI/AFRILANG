@@ -5,3 +5,4 @@ end
 
 function lastIndex(count number) returns number
 end
+end

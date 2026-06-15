@@ -11,3 +11,4 @@ end
 
 function dayName(date text) returns text
 end
+end

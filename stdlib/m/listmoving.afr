@@ -11,3 +11,4 @@ end
 
 function movingSum(v list number, window number) returns list number
 end
+end

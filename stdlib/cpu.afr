@@ -5,3 +5,4 @@ end
 
 function isHighLoad(pct number) returns bool
 end
+end

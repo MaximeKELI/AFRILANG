@@ -5,3 +5,4 @@ end
 
 function log2(n number) returns number
 end
+end

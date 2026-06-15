@@ -11,3 +11,4 @@ end
 
 function identity2(ignored number) returns list number
 end
+end

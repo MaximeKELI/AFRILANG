@@ -5,3 +5,4 @@ end
 
 function hasTrailingSlash(s text) returns bool
 end
+end

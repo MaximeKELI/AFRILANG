@@ -5,3 +5,4 @@ end
 
 function isMasked(s text) returns bool
 end
+end

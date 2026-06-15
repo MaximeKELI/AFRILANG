@@ -14,3 +14,4 @@ end
 
 function weekday(date text) returns number
 end
+end

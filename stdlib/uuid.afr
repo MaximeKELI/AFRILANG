@@ -5,3 +5,4 @@ end
 
 function simpleId(ignored number) returns text
 end
+end

@@ -5,3 +5,4 @@ end
 
 function fromHex(s text) returns number
 end
+end

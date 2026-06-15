@@ -11,3 +11,4 @@ end
 
 function lexicalDensity(s text) returns number
 end
+end

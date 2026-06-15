@@ -20,3 +20,4 @@ end
 
 function binaReplace(s text, from text, to text) returns text
 end
+end

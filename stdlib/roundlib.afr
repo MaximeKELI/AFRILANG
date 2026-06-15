@@ -5,3 +5,4 @@ end
 
 function truncN(n number) returns number
 end
+end

@@ -11,3 +11,4 @@ end
 
 function midRate(bid number, ask number) returns number
 end
+end

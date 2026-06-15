@@ -11,3 +11,4 @@ end
 
 function xorCipher(s text, key text) returns text
 end
+end

@@ -14,3 +14,4 @@ end
 
 function indexOf(s text, sub text) returns number
 end
+end

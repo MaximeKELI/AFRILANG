@@ -5,3 +5,4 @@ end
 
 function length2(x number, y number) returns number
 end
+end

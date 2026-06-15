@@ -17,3 +17,4 @@ end
 
 function annualizedReturn(returns list number, periods number) returns number
 end
+end

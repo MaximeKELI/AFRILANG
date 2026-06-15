@@ -11,3 +11,4 @@ end
 
 function daylightHours(month number, lat number) returns number
 end
+end

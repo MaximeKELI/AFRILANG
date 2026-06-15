@@ -11,3 +11,4 @@ end
 
 function purchasingPower(amount number, inflation number, years number) returns number
 end
+end

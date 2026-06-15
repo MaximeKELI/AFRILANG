@@ -11,3 +11,4 @@ end
 
 function endOfMonth(date text) returns text
 end
+end

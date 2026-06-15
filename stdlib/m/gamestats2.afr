@@ -11,3 +11,4 @@ end
 
 function damageCalc(attack number, defense number) returns number
 end
+end
