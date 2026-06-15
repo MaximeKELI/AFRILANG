@@ -517,7 +517,7 @@ int runLspServer() {
                 "\"referencesProvider\":true,"
                 "\"renameProvider\":true"
                 "},"
-                "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"1.0.0\"}"
+                "\"serverInfo\":{\"name\":\"afrilang-lsp\",\"version\":\"1.1.0\"}"
                 "}");
         } else if (body.find("\"method\":\"initialized\"") != std::string::npos) {
         } else if (body.find("\"method\":\"textDocument/didOpen\"") != std::string::npos) {
@@ -543,6 +543,38 @@ int runLspServer() {
                 ? it->second : AnalysisResult{};
             sendResponse(extractId(body),
                 "{\"isIncomplete\":false,\"items\":" + completionItems(analysis) + "}");
+        } else if (body.find("\"method\":\"textDocument/documentSymbol\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            const auto it = analysisCache.find(uri);
+            const std::string symbols = it != analysisCache.end()
+                ? documentSymbolsJson(it->second) : "[]";
+            sendResponse(extractId(body), symbols);
+        } else if (body.find("\"method\":\"workspace/symbol\"") != std::string::npos) {
+            const std::string query = jsonGetString(body, "query");
+            sendResponse(extractId(body), workspaceSymbolsJson(query, analysisCache));
+        } else if (body.find("\"method\":\"textDocument/codeAction\"") != std::string::npos) {
+            const std::string uri = documentUri(body);
+            const auto docIt = g_documents.find(uri);
+            const auto cacheIt = analysisCache.find(uri);
+            const std::string actions =
+                docIt != g_documents.end() && cacheIt != analysisCache.end()
+                    ? codeActionsJson(uri, docIt->second, cacheIt->second, body)
+                    : "[]";
+            sendResponse(extractId(body), actions);
+        } else if (body.find("\"method\":\"workspace/executeCommand\"") != std::string::npos) {
+            const std::string command = jsonGetString(body, "command");
+            if (command == "afrilang.formatDocument") {
+                const std::string uri = jsonGetString(body, "arguments");
+                const auto it = g_documents.find(uri);
+                if (it != g_documents.end()) {
+                    const std::string edits = formatDocument(uri, it->second);
+                    sendResponse(extractId(body), edits.empty() || edits == "[]" ? "null" : edits);
+                } else {
+                    sendResponse(extractId(body), "null");
+                }
+            } else {
+                sendResponse(extractId(body), "null");
+            }
         } else if (body.find("\"method\":\"textDocument/hover\"") != std::string::npos) {
             const std::string uri = documentUri(body);
             const auto docIt = g_documents.find(uri);
