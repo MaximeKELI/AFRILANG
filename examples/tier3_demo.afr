@@ -19,7 +19,7 @@ say seq at 3
 import "std/bigint"
 use bigint
 
-create huge = fromInt(1000000000000)
+create huge bigint = fromInt(1000000000000)
 say toText(mul(huge, fromInt(2)))
 
 import "std/web"

@@ -1315,9 +1315,8 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                     << static_cast<std::int64_t>(num->value) << ");\n";
                 return;
             }
-            out << "afrilang::runtime::bigint::BigInt::fromInt(static_cast<std::int64_t>(";
             emitExpression(out, *assign->value, ownerClass);
-            out << "));\n";
+            out << ";\n";
             return;
         }
         if (wrapUnique) {
@@ -2833,7 +2832,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         if (func.name == "fromInt") {
             out << "return afrilang::runtime::bigint::BigInt::fromInt(value);\n";
         } else if (func.name == "toText") {
-            out << "return afrilang::runtime::bigint::toText(value);\n";
+            out << "return value.toText();\n";
         } else if (func.name == "add") {
             out << "return afrilang::runtime::bigint::add(a, b);\n";
         } else if (func.name == "mul") {
