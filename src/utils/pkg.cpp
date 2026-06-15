@@ -401,6 +401,11 @@ int PkgRegistry::cmdPublish(const std::string& packageDir, const std::string& af
     if (info.version.empty()) info.version = "0.1.0";
 
     const fs::path dst = fs::path(afrilangRoot) / "packages" / info.name;
+    if (fs::equivalent(src, dst)) {
+        rebuildIndex(afrilangRoot);
+        std::cout << "Index régénéré pour " << info.name << "@" << info.version << "\n";
+        return 0;
+    }
     copyDirectory(src, dst);
     rebuildIndex(afrilangRoot);
 

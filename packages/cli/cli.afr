@@ -1,13 +1,13 @@
 module Cli
-    function banner(text text) returns text
-        return "=== " + text + " ==="
+    function banner(msg text) returns text
+        return "=== " + msg + " ==="
     end
 
-    function ok(text text) returns text
-        return "[OK] " + text
+    function ok(msg text) returns text
+        return "[OK] " + msg
     end
 
-    function err(text text) returns text
-        return "[ERR] " + text
+    function err(msg text) returns text
+        return "[ERR] " + msg
     end
 end

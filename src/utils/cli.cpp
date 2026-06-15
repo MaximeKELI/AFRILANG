@@ -667,7 +667,7 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|search|add|install|sync|publish> [args]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|sync|reindex|publish> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
@@ -687,6 +687,7 @@ int runCli(int argc, char* argv[]) {
         }
         if (sub == "install") return PkgRegistry::cmdInstall(dir, root);
         if (sub == "sync") return PkgRegistry::syncRemoteRegistry(root);
+        if (sub == "reindex") return PkgRegistry::rebuildIndex(root);
         if (sub == "publish") {
             const std::string pkgDir = argc >= 4 ? argv[3] : dir;
             return PkgRegistry::cmdPublish(pkgDir, root);

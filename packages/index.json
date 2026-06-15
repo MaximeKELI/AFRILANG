@@ -1,7 +1,7 @@
 {
   "packages": [
-    {"name": "math", "version": "0.1.0", "description": "Basic math utilities (square, pi, twice)"},
-    {"name": "cli", "version": "0.1.0", "description": "CLI helpers (colors, banners)"},
-    {"name": "datetime", "version": "0.1.0", "description": "Date/time helpers"}
+    {"name":"math","version":"0.1.0","description":"Basic math utilities (square, pi, twice)","sha256":"ef0c9fd4f548358cbe72d0ee42e32e2b45cd356ac02f004997617613d8f97d2e"},
+    {"name":"cli","version":"0.1.0","description":"CLI helpers (colors, banners)","sha256":"185536742e36dee8de6fa7218afa00e001ff88f6c94f4e4616ef981dd5785d0d"},
+    {"name":"datetime","version":"0.1.0","description":"Date/time helpers","sha256":"b5fd3264ff7a5c1414cfd6112719ad603d0722edd25d65d9e90c2c8c6f7d529e"}
   ]
 }
