@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}AFRILANG — Langage naturel{% endblock %}
+
+{% block content %}
+<section class="row align-items-center g-5 py-lg-4">
+  <div class="col-lg-6">
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <span class="badge rounded-pill text-bg-primary">Django</span>
+      <span class="badge rounded-pill text-bg-warning text-dark">PostgreSQL</span>
+      <span class="badge rounded-pill text-bg-success">Bootstrap + Tailwind</span>
+    </div>
+    <h1 class="display-4 fw-bold tw-gradient-text">Codez en langage naturel</h1>
+    <p class="lead text-secondary">
+      Compilateur AFRILANG · site web Django avec registre de paquets en base,
+      playground API et vue complète de l'écosystème.
+    </p>
+    <div class="d-flex flex-wrap gap-2">
+      <a href="{% url 'playground' %}" class="btn btn-primary btn-lg">Playground</a>
+      <a href="{% url 'explore' %}" class="btn btn-outline-light btn-lg">Tout explorer</a>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="tw-glass p-0 overflow-hidden">
+      <div class="px-3 py-2 border-bottom border-secondary small text-secondary font-monospace">hello.afr</div>
+      <pre class="p-3 mb-0 font-monospace small code-block">say "Bonjour depuis AFRILANG!"
+
+repeat 3 times
+    say "Hello"
+end</pre>
+    </div>
+  </div>
+</section>
+
+<div class="row g-3 mb-5">
+  <div class="col-6 col-md-3">
+    <div class="card afr-stat h-100 text-center">
+      <div class="card-body">
+        <div class="display-6 fw-bold">{{ SITE_STATS.examples }}+</div>
+        <div class="small text-secondary">Exemples</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card afr-stat h-100 text-center">
+      <div class="card-body">
+        <div class="display-6 fw-bold">{{ SITE_STATS.blessed_packages }}</div>
+        <div class="small text-secondary">Paquets ★</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card afr-stat h-100 text-center">
+      <div class="card-body">
+        <div class="display-6 fw-bold">{{ SITE_STATS.stdlib_modules }}+</div>
+        <div class="small text-secondary">Stdlib</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card afr-stat h-100 text-center">
+      <div class="card-body">
+        <div class="display-6 fw-bold">WASM</div>
+        <div class="small text-secondary">Multi-cible</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">Paquets blessed (PostgreSQL)</h2>
+  <div class="row g-3">
+    {% for pkg in packages %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card afr-card h-100">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="text-warning">★</span>
+            <h3 class="h6 mb-0">{{ pkg.name }}</h3>
+            <span class="badge text-bg-secondary ms-auto">v{{ pkg.version }}</span>
+          </div>
+          <p class="small text-secondary mb-2">{{ pkg.description }}</p>
+          <code class="small">afrilang pkg add {{ pkg.name }}</code>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-secondary">Lancez <code>python manage.py sync_packages</code></p>
+    {% endfor %}
+  </div>
+  <div class="text-center mt-4">
+    <a href="{% url 'packages' %}" class="btn btn-outline-primary">Registre complet →</a>
+  </div>
+</section>
+
+<section>
+  <h2 class="h3 fw-bold mb-4">Exemples en base</h2>
+  <div class="row g-3">
+    {% for ex in examples %}
+    <div class="col-md-6">
+      <div class="card afr-card">
+        <div class="card-header d-flex justify-content-between">
+          <strong>{{ ex.title }}</strong>
+          <span class="badge text-bg-dark">{{ ex.slug }}</span>
+        </div>
+        <pre class="card-body small code-block mb-0">{{ ex.source|truncatechars:280 }}</pre>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

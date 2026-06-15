@@ -1,0 +1,4 @@
+/* Build with: npm install && npm run build:css */
+.tw-gradient-text{background:linear-gradient(135deg,#fff 30%,#5b8cff 70%,#ffc857);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tw-glass{background:rgba(18,24,36,.8);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1);border-radius:1rem}
+.tw-fixed{position:fixed}.tw-inset-0{inset:0}.tw--z-10{z-index:-10}

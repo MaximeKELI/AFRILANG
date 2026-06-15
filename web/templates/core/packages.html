@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Paquets — AFRILANG{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+  <div>
+    <h1 class="h2 fw-bold mb-1">Registre PostgreSQL</h1>
+    <p class="text-secondary mb-0">Paquets ★ blessed synchronisés depuis <code>packages/index.json</code></p>
+  </div>
+  <form method="get" class="d-flex gap-2" style="min-width:280px">
+    <input type="search" name="q" value="{{ query }}" class="form-control" placeholder="Rechercher…">
+    <button type="submit" class="btn btn-primary">Filtrer</button>
+  </form>
+</div>
+
+<div class="row g-3">
+  {% for pkg in packages %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card afr-card h-100 {% if pkg.blessed %}border-warning border-opacity-25{% endif %}">
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          {% if pkg.blessed %}<span class="text-warning">★</span>{% endif %}
+          <h2 class="h5 mb-0">{{ pkg.name }}</h2>
+          <span class="badge text-bg-secondary ms-auto">v{{ pkg.version }}</span>
+        </div>
+        <p class="small text-secondary">{{ pkg.description }}</p>
+        {% if pkg.sha256 %}
+        <p class="small font-monospace text-secondary mb-0" title="{{ pkg.sha256 }}">sha256: {{ pkg.sha256|slice:":20" }}…</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12">
+    <div class="alert alert-secondary">Aucun paquet — exécutez <code>python manage.py sync_packages</code></div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

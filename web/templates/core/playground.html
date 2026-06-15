@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}Playground — AFRILANG{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4">
+  <h1 class="h2 fw-bold">Playground</h1>
+  <p class="text-secondary">Exécution via API Django → compilateur <code>{{ AFRILANG_BIN }}</code></p>
+</div>
+
+{{ examples_map|json_script:"examples-data" }}
+
+<div class="row g-3 playground-grid">
+  <div class="col-lg-6">
+    <div class="card afr-card h-100">
+      <div class="card-header d-flex align-items-center gap-2">
+        <label for="examples" class="mb-0 small text-secondary">Exemple</label>
+        <select id="examples" class="form-select form-select-sm" style="max-width:200px">
+          {% for ex in examples %}
+          <option value="{{ ex.slug }}">{{ ex.title }}</option>
+          {% empty %}
+          <option value="hello">Hello</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="card-body d-flex flex-column">
+        <textarea id="editor" class="form-control font-monospace flex-grow-1 playground-editor" spellcheck="false">say "Hello from Django playground!"</textarea>
+        <div class="d-flex flex-wrap gap-2 mt-3 align-items-center">
+          <button type="button" class="btn btn-primary" id="run">Run</button>
+          <button type="button" class="btn btn-outline-secondary" id="runWasm">Run WASM</button>
+          <button type="button" class="btn btn-outline-secondary" id="fmt">Format</button>
+          <span id="status" class="small text-secondary ms-auto"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card afr-card h-100">
+      <div class="card-header small text-secondary">Output</div>
+      <pre id="output" class="card-body code-block mb-0 overflow-auto">(click Run)</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const EXAMPLES = JSON.parse(document.getElementById('examples-data')?.textContent || '{}');
+
+function loadExample(slug) {
+  const editor = document.getElementById('editor');
+  const keys = Object.keys(EXAMPLES);
+  editor.value = EXAMPLES[slug] || EXAMPLES[keys[0]] || 'say "Hello"';
+}
+
+document.getElementById('examples')?.addEventListener('change', (e) => loadExample(e.target.value));
+if (document.getElementById('examples')?.value) loadExample(document.getElementById('examples').value);
+
+function csrfToken() {
+  return document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
+}
+
+async function runCode(url, label) {
+  const output = document.getElementById('output');
+  const status = document.getElementById('status');
+  status.textContent = label;
+  output.classList.remove('text-danger');
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken(),
+      },
+      body: JSON.stringify({ source: document.getElementById('editor').value }),
+    });
+    const data = await res.json();
+    output.textContent = data.output || '(no output)';
+    status.textContent = data.ok ? 'OK' : 'Error ' + data.exitCode;
+    if (!data.ok) output.classList.add('text-danger');
+  } catch (e) {
+    output.textContent = String(e);
+    status.textContent = 'Network error';
+    output.classList.add('text-danger');
+  }
+}
+
+document.getElementById('run')?.addEventListener('click', () => runCode('{% url "api_run" %}', 'Compiling…'));
+document.getElementById('runWasm')?.addEventListener('click', () => runCode('{% url "api_run_wasm" %}', 'WASM…'));
+document.getElementById('fmt')?.addEventListener('click', async () => {
+  const res = await fetch('{% url "api_fmt" %}', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken() },
+    body: JSON.stringify({ source: document.getElementById('editor').value }),
+  });
+  const data = await res.json();
+  if (data.ok && data.source) document.getElementById('editor').value = data.source;
+});
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Explorer — AFRILANG{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+  <h1 class="display-5 fw-bold">Tout AFRILANG</h1>
+  <p class="text-secondary lead">Capacités stockées en PostgreSQL · éditables via l'admin Django</p>
+</div>
+
+<div class="row g-4">
+  {% for category, caps in by_category.items %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card afr-card h-100">
+      <div class="card-header fw-bold">{{ category }}</div>
+      <ul class="list-group list-group-flush">
+        {% for cap in caps %}
+        <li class="list-group-item afr-list-item">
+          <strong class="d-block mb-1">{{ cap.title }}</strong>
+          <ul class="small text-secondary mb-0 ps-3">
+            {% for item in cap.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% empty %}
+  <p class="text-center text-secondary">Lancez <code>python manage.py seed_data</code></p>
+  {% endfor %}
+</div>
+{% endblock %}

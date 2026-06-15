@@ -1,0 +1,71 @@
+{% load static django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AFRILANG{% endblock %}</title>
+  <meta name="description" content="{% block meta %}AFRILANG — langage naturel, Django, PostgreSQL{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  {% bootstrap_javascript %}
+</head>
+<body class="afr-body">
+  <div class="tw-fixed tw-inset-0 tw--z-10 mesh-bg" aria-hidden="true"></div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark afr-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
+        <img src="{% static 'img/icon.png' %}" alt="" width="36" height="36" class="rounded-3">
+        <span><strong>AFRILANG</strong><small class="d-block text-secondary" style="font-size:0.65rem">Django · PostgreSQL</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">Explorer</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'docs' %}active{% endif %}" href="{% url 'docs' %}">Docs</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">Paquets</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">Playground</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-light btn-sm" href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary btn-sm" href="{% url 'playground' %}">Essayer</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-lg-5">
+    {% bootstrap_messages %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="afr-footer container py-5 mt-4">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <strong>AFRILANG Web</strong>
+        <p class="text-secondary small mb-0">Django · Bootstrap 5 · Tailwind · PostgreSQL</p>
+      </div>
+      <div class="col-md-3">
+        <strong class="small d-block mb-2">Stack</strong>
+        <span class="badge text-bg-secondary me-1">Django 5</span>
+        <span class="badge text-bg-secondary me-1">PostgreSQL</span>
+        <span class="badge text-bg-secondary me-1">Bootstrap</span>
+        <span class="badge text-bg-secondary">Tailwind</span>
+      </div>
+      <div class="col-md-3 text-md-end">
+        <a href="/admin/" class="small text-secondary">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
