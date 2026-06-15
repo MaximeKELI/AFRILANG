@@ -1,4 +1,5 @@
 #include "afrilang/codegen.hpp"
+#include "afrilang/target.hpp"
 
 #include "afrilang/educational.hpp"
 #include "afrilang/sandbox.hpp"
@@ -425,6 +426,10 @@ void CodeGenerator::generate(std::ostream& out) const {
 void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "// Code généré par le compilateur AFRILANG\n";
     out << "// Ne pas modifier manuellement\n\n";
+    const bool wasmBuild = isWasmTarget(crossTarget_);
+    if (wasmBuild) {
+        out << "#define AFRILANG_WASM 1\n";
+    }
     out << "#include <iostream>\n";
     out << "#include <string>\n";
     out << "#include <vector>\n";
