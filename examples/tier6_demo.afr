@@ -53,10 +53,10 @@ say randomInt(1, 10)
 say hex.encode("AB")
 say escape("<tag>")
 
-create yamlText text = "name: AFRILANG\nversion: 0.6\nactive: true\n"
+create yamlText text = "name: AFRILANG\nversion: 1\nactive: true\n"
 create doc = parse(yamlText)
 say getString(doc, "name")
-say getNumber(doc, "version")
+say getInt(doc, "version")
 
 say formatIso(nowSeconds())
 say isValid("dev@afrilang.org")
