@@ -27,6 +27,7 @@ set(AFRILANG_SOURCES
     src/utils/complex_catalog.cpp
     src/utils/formatter.cpp
     src/utils/pkg.cpp
+    src/utils/hash.cpp
     src/utils/cache.cpp
     src/utils/debug.cpp
     src/utils/env.cpp

@@ -11,6 +11,7 @@ struct PackageInfo {
     std::string version;
     std::string description;
     std::string mainFile = "math.afr";
+    std::string sha256;
 };
 
 class PkgRegistry {

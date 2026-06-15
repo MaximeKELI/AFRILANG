@@ -1,5 +1,6 @@
 #include "afrilang/pkg.hpp"
 
+#include "afrilang/hash.hpp"
 #include "afrilang/project.hpp"
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
