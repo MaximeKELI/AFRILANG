@@ -35,7 +35,7 @@ npm install
 ./publish.sh
 ```
 
-Le script produit `afrilang-<version>.vsix` (ex. `afrilang-1.2.0.vsix`) avec :
+Le script produit `afrilang-<version>.vsix` (ex. `afrilang-1.4.0.vsix`) avec :
 - serveur LSP intégré via `afrilang.serverPath`
 - adaptateur DAP (`debugAdapter.js`) + breakpoints `.afr`
 - templates `launch.json` / `tasks.json`
@@ -49,7 +49,7 @@ Ajoutez ces secrets au dépôt GitHub (`Settings → Secrets`) :
 | `VSCE_PAT` | Token Azure DevOps (Marketplace) |
 | `OVSX_PAT` | Token Open VSX |
 
-Puis créez une release ou lancez le workflow **Publish Extension** manuellement.
+Puis créez un tag `vscode-v1.4.0` ou lancez le workflow **Publish Extension** manuellement.
 
 ## Après publication
 

@@ -2,7 +2,7 @@
   "name": "afrilang",
   "displayName": "AFRILANG",
   "description": "Langage AFRILANG — coloration, diagnostics, LSP, formatage et exécution (.afr)",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "publisher": "afrilang",
   "license": "MIT",
   "icon": "icons/icon.png",

@@ -1,5 +1,11 @@
 # Changelog — Extension AFRILANG
 
+## 1.4.0
+
+- LSP 1.1 : symboles document/workspace, code actions (supprimer import inutilisé, formater)
+- Complétion enrichie avec types Afrilang
+- Benchmark `afrilang benchmark` + CI
+
 ## 1.3.0
 
 - Métadonnées de debug enrichies : variables locales et globales avec scope Afrilang

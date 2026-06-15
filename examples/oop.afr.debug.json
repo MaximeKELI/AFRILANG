@@ -1,0 +1,7 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/oop.afr",
+  "variables": [
+    {"name":"dog","type":"Dog","scope":"global"},
+    {"name":"person","type":"Person","scope":"global"}
+  ]
+}
