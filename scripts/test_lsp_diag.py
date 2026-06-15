@@ -35,7 +35,7 @@ def lsp_exchange(path: Path, extra_request=None, wait_for=b"publishDiagnostics")
     )
 
     def send(obj):
-        data = json.dumps(obj)
+        data = json.dumps(obj, separators=(",", ":"))
         msg = f"Content-Length: {len(data)}\r\n\r\n{data}"
         proc.stdin.write(msg.encode())
         proc.stdin.flush()
