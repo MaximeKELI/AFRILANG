@@ -225,6 +225,29 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
     return 0;
 }
 
+static std::string expectedIndexSha256(const std::string& afrilangRoot,
+                                        const std::string& packageName) {
+    const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "index.json";
+    if (!fs::exists(indexPath)) return {};
+
+    std::ifstream in(indexPath);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string body = buf.str();
+
+    const std::string needle = "\"name\":\"" + packageName + "\"";
+    const std::size_t pos = body.find(needle);
+    if (pos == std::string::npos) return {};
+
+    const std::size_t shaPos = body.find("\"sha256\":\"", pos);
+    if (shaPos == std::string::npos) return {};
+
+    const std::size_t start = shaPos + 10;
+    const std::size_t end = body.find('"', start);
+    if (end == std::string::npos || end <= start) return {};
+    return body.substr(start, end - start);
+}
+
 int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packageName,
                         const std::string& afrilangRoot) {
     const fs::path src = fs::path(afrilangRoot) / "packages" / packageName;
@@ -255,6 +278,15 @@ int PkgRegistry::cmdAdd(const std::string& projectDir, const std::string& packag
     const std::string pkgHash = sha256Directory(dst.string());
     if (pkgHash.empty()) {
         std::cerr << "Erreur: impossible de calculer le checksum du paquet.\n";
+        return 1;
+    }
+
+    const std::string expected = expectedIndexSha256(afrilangRoot, packageName);
+    if (!expected.empty() && expected != pkgHash) {
+        std::cerr << "Erreur: checksum SHA256 invalide pour '" << packageName << "'.\n";
+        std::cerr << "  attendu:  " << expected << "\n";
+        std::cerr << "  obtenu:   " << pkgHash << "\n";
+        fs::remove_all(dst);
         return 1;
     }
 

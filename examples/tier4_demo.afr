@@ -1,0 +1,12 @@
+import "pkg/cli/cli.afr"
+use Cli
+
+say banner("Tier 4 — supply chain & tooling")
+say ok("SHA256 lockfile")
+say ok("test --coverage")
+say ok("run --profile / --watch")
+
+import "pkg/datetime/datetime.afr"
+use DateTime
+
+say formatDuration(42)

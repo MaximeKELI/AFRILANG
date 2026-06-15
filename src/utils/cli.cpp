@@ -86,9 +86,9 @@ static void printUsage() {
     std::cerr << "AFRILANG — compilateur v1.0\n\n";
     std::cerr << "Usage:\n";
     std::cerr << "  afrilang build [projet/]     Compiler un projet (afrilang.toml)\n";
-    std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter\n";
+    std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter [--watch] [--profile]\n";
     std::cerr << "  afrilang check <fichier.afr> Vérifier sans compiler\n";
-    std::cerr << "  afrilang test                Lancer la suite de tests\n";
+    std::cerr << "  afrilang test [--coverage]   Lancer la suite de tests\n";
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
@@ -303,7 +303,8 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "operators_demo.afr",
         "tier1_demo.afr",
         "tier2_demo.afr",
-        "tier3_demo.afr"
+        "tier3_demo.afr",
+        "tier4_demo.afr"
     };
 
     const int totalExamples = static_cast<int>(examples.size());

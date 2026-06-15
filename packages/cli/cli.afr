@@ -1,11 +1,13 @@
-function banner(text text) returns text
-    return "=== " + text + " ==="
-end
+module Cli
+    function banner(text text) returns text
+        return "=== " + text + " ==="
+    end
 
-function ok(text text) returns text
-    return "[OK] " + text
-end
+    function ok(text text) returns text
+        return "[OK] " + text
+    end
 
-function err(text text) returns text
-    return "[ERR] " + text
+    function err(text text) returns text
+        return "[ERR] " + text
+    end
 end

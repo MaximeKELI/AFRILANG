@@ -1,7 +1,5 @@
-function nowSeconds() returns number
-    return 0
-end
-
-function formatDuration(seconds number) returns text
-    return "duration:" + seconds
+module DateTime
+    function formatDuration(seconds number) returns text
+        return "duration:" + seconds
+    end
 end
