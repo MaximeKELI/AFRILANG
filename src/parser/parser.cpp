@@ -177,27 +177,9 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
             } else if (match(TokenType::Union)) {
                 enums.push_back(parseEnum());
             } else if (check(TokenType::AtSign) || check(TokenType::Abstract) ||
-                       check(TokenType::Final) || check(TokenType::Class)) {
-                const auto decorators = parseDecorators();
-                if (match(TokenType::Abstract)) {
-                    consume(TokenType::Class, "'class' attendu après 'abstract'");
-                    auto cls = parseClass(true, false);
-                    cls->decorators = decorators;
-                    classes.push_back(std::move(cls));
-                } else if (match(TokenType::Final)) {
-                    consume(TokenType::Class, "'class' attendu après 'final'");
-                    auto cls = parseClass(false, true);
-                    cls->decorators = decorators;
-                    classes.push_back(std::move(cls));
-                } else if (match(TokenType::Class)) {
-                    auto cls = parseClass(false, false);
-                    cls->decorators = decorators;
-                    classes.push_back(std::move(cls));
-                } else {
-                    error("Déclaration attendue après décorateur");
-                }
-            } else if (check(TokenType::AtSign) || check(TokenType::Generator) ||
-                       check(TokenType::Async) || check(TokenType::Function)) {
+                       check(TokenType::Final) || check(TokenType::Class) ||
+                       check(TokenType::Generator) || check(TokenType::Async) ||
+                       check(TokenType::Function)) {
                 const auto decorators = parseDecorators();
                 if (match(TokenType::Generator)) {
                     consume(TokenType::Function, "'function' attendu après 'generator'");
@@ -215,6 +197,20 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                     auto func = parseFunction();
                     func->decorators = decorators;
                     functions.push_back(std::move(func));
+                } else if (match(TokenType::Abstract)) {
+                    consume(TokenType::Class, "'class' attendu après 'abstract'");
+                    auto cls = parseClass(true, false);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
+                } else if (match(TokenType::Final)) {
+                    consume(TokenType::Class, "'class' attendu après 'final'");
+                    auto cls = parseClass(false, true);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
+                } else if (match(TokenType::Class)) {
+                    auto cls = parseClass(false, false);
+                    cls->decorators = decorators;
+                    classes.push_back(std::move(cls));
                 } else {
                     error("Déclaration attendue après décorateur");
                 }

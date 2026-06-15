@@ -1,6 +1,0 @@
-@deprecated
-function legacyPing() returns text
-    return "pong"
-end
-
-say legacyPing()

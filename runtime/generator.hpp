@@ -3,7 +3,6 @@
 #include <coroutine>
 #include <cstddef>
 #include <exception>
-#include <optional>
 #include <stdexcept>
 #include <utility>
 #include <vector>
@@ -14,7 +13,8 @@ template<typename T>
 class Generator {
 public:
     struct promise_type {
-        std::optional<T> current;
+        T current{};
+        bool hasValue = false;
         std::exception_ptr exception;
 
         Generator get_return_object() {
@@ -28,6 +28,7 @@ public:
 
         std::suspend_always yield_value(T value) {
             current = std::move(value);
+            hasValue = true;
             return {};
         }
     };
@@ -53,20 +54,20 @@ public:
     Generator(const Generator&) = delete;
     Generator& operator=(const Generator&) = delete;
 
-    bool advance() {
+    bool pullNext() {
         if (!handle_ || handle_.done()) return false;
-        handle_.promise().current.reset();
+        handle_.promise().hasValue = false;
         handle_.resume();
         if (handle_.promise().exception) {
             std::rethrow_exception(handle_.promise().exception);
         }
-        return handle_.promise().current.has_value() || !handle_.done();
+        return handle_.promise().hasValue;
     }
 
     bool hasNext() {
         if (!handle_ || handle_.done()) return false;
-        if (!handle_.promise().current.has_value()) {
-            return advance();
+        if (!handle_.promise().hasValue) {
+            return pullNext();
         }
         return true;
     }
@@ -75,17 +76,24 @@ public:
         if (!hasNext()) {
             throw std::runtime_error("generator: fin de séquence");
         }
-        T value = std::move(*handle_.promise().current);
-        handle_.promise().current.reset();
+        T value = std::move(handle_.promise().current);
+        handle_.promise().hasValue = false;
         return value;
     }
 
     T at(std::size_t index) {
+        if (index < cache_.size()) {
+            return cache_[index];
+        }
+        if (!handle_ && cache_.empty()) {
+            throw std::runtime_error("generator: index hors limites");
+        }
         while (cache_.size() <= index) {
-            if (!hasNext()) {
+            if (!pullNext()) {
                 throw std::runtime_error("generator: index hors limites");
             }
-            cache_.push_back(next());
+            cache_.push_back(handle_.promise().current);
+            handle_.promise().hasValue = false;
         }
         return cache_[index];
     }

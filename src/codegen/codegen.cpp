@@ -795,7 +795,17 @@ void CodeGenerator::emitClass(std::ostream& out, const ClassNode& cls) const {
 
 void CodeGenerator::emitInterfaces(std::ostream& out) const {
     for (const auto& iface : program_.interfaces) {
-        out << "class " << iface->name << " {\npublic:\n";
+        const auto infoIt = semantic_.interfaces.find(iface->name);
+        const InterfaceInfo* info = infoIt != semantic_.interfaces.end() ? &infoIt->second : nullptr;
+
+        out << "class " << iface->name;
+        if (info && !info->baseInterfaces.empty()) {
+            out << " : public " << info->baseInterfaces[0];
+            for (std::size_t i = 1; i < info->baseInterfaces.size(); ++i) {
+                out << ", public " << info->baseInterfaces[i];
+            }
+        }
+        out << " {\npublic:\n";
         out << "    virtual ~" << iface->name << "() = default;\n";
         for (const auto& method : iface->methods) {
             const std::string ret = functionReturnCpp(*method);
