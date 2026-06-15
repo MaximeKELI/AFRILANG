@@ -210,7 +210,40 @@ struct AnalysisResult {
     std::vector<std::string> diagnosticJson;
     std::unordered_map<std::string, SymbolInfo> symbolLocations;
     std::unordered_map<std::string, std::string> symbolDocs;
+    struct OutlineSymbol {
+        std::string name;
+        int kind = 13;
+        int line = 0;
+        int column = 0;
+        int endColumn = 0;
+        std::string detail;
+    };
+    std::vector<OutlineSymbol> outline;
 };
+
+static int lspSymbolKind(const std::string& kind) {
+    if (kind == "class") return 5;
+    if (kind == "function") return 12;
+    if (kind == "interface") return 11;
+    if (kind == "enum" || kind == "union") return 10;
+    if (kind == "record") return 22;
+    if (kind == "module") return 2;
+    if (kind == "variable") return 13;
+    return 13;
+}
+
+static void addOutlineSymbol(AnalysisResult& result, const std::string& name,
+                             const std::string& kind, int line, int column, int endColumn,
+                             const std::string& detail) {
+    AnalysisResult::OutlineSymbol sym;
+    sym.name = name;
+    sym.kind = lspSymbolKind(kind);
+    sym.line = line;
+    sym.column = column;
+    sym.endColumn = endColumn;
+    sym.detail = detail;
+    result.outline.push_back(std::move(sym));
+}
 
 static AnalysisResult analyzeDocument(const std::string& path, const std::string& source) {
     AnalysisResult result;
@@ -232,11 +265,22 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
         for (const auto& [name, en] : semantic.enums) {
             result.symbolDocs[name] = "enum " + name;
         }
+        for (const auto& [name, type] : semantic.globalVariables) {
+            const std::string doc = type.toTypeName() + " " + name;
+            result.symbolDocs[name] = doc;
+            const auto locIt = result.symbolLocations.find(name);
+            if (locIt != result.symbolLocations.end()) {
+                addOutlineSymbol(result, name, "variable", locIt->second.line,
+                                 locIt->second.column, locIt->second.endColumn, doc);
+            }
+        }
         for (const auto& [name, info] : scanSymbols(source)) {
             result.symbolLocations[name] = info;
             if (result.symbolDocs.count(name) == 0) {
                 result.symbolDocs[name] = info.doc;
             }
+            addOutlineSymbol(result, name, info.kind, info.line, info.column,
+                             info.endColumn, result.symbolDocs[name]);
         }
         for (const auto& w : semantic.warnings) {
             std::ostringstream d;
@@ -283,10 +327,108 @@ static std::string completionItems(const AnalysisResult& analysis) {
         first = false;
         out << "{\"label\":\"" << kw << "\",\"kind\":14,\"detail\":\"keyword\"}";
     }
-    for (const auto& [name, doc] : analysis.symbolDocs) {
-        out << ",{\"label\":\"" << name << "\",\"kind\":3,\"detail\":\""
-            << jsonEscape(doc) << "\"}";
+    for (const auto& sym : analysis.outline) {
+        out << ",{\"label\":\"" << jsonEscape(sym.name) << "\",\"kind\":" << sym.kind
+            << ",\"detail\":\"" << jsonEscape(sym.detail) << "\"}";
     }
+    out << "]";
+    return out.str();
+}
+
+static std::string documentSymbolsJson(const AnalysisResult& analysis) {
+    std::ostringstream out;
+    out << "[";
+    for (std::size_t i = 0; i < analysis.outline.size(); ++i) {
+        if (i > 0) out << ',';
+        const auto& sym = analysis.outline[i];
+        out << "{\"name\":\"" << jsonEscape(sym.name) << "\",\"kind\":" << sym.kind
+            << ",\"detail\":\"" << jsonEscape(sym.detail) << "\","
+            << "\"range\":{\"start\":{\"line\":" << sym.line
+            << ",\"character\":" << sym.column << "},"
+            << "\"end\":{\"line\":" << sym.line
+            << ",\"character\":" << sym.endColumn << "}},"
+            << "\"selectionRange\":{\"start\":{\"line\":" << sym.line
+            << ",\"character\":" << sym.column << "},"
+            << "\"end\":{\"line\":" << sym.line
+            << ",\"character\":" << sym.endColumn << "}}}";
+    }
+    out << "]";
+    return out.str();
+}
+
+static std::string workspaceSymbolsJson(const std::string& query,
+                                          const std::unordered_map<std::string, AnalysisResult>& cache) {
+    std::ostringstream out;
+    out << "[";
+    bool first = true;
+    for (const auto& [uri, analysis] : cache) {
+        for (const auto& sym : analysis.outline) {
+            if (!query.empty() && sym.name.find(query) == std::string::npos) continue;
+            if (!first) out << ',';
+            first = false;
+            out << "{\"name\":\"" << jsonEscape(sym.name) << "\",\"kind\":" << sym.kind
+                << ",\"location\":{\"uri\":\"" << jsonEscape(uri) << "\","
+                << "\"range\":{\"start\":{\"line\":" << sym.line
+                << ",\"character\":" << sym.column << "},"
+                << "\"end\":{\"line\":" << sym.line
+                << ",\"character\":" << sym.endColumn << "}}}}";
+        }
+    }
+    out << "]";
+    return out.str();
+}
+
+static std::string lineTextAt(const std::string& source, int line) {
+    std::istringstream stream(source);
+    std::string current;
+    for (int i = 0; i <= line && std::getline(stream, current); ++i) {}
+    return current;
+}
+
+static std::string codeActionsJson(const std::string& uri, const std::string& source,
+                                   const AnalysisResult& analysis, const std::string& body) {
+    std::ostringstream out;
+    out << "[";
+    bool first = false;
+
+    auto appendEdit = [&](const std::string& title, int line, int colStart, int colEnd,
+                          const std::string& newText) {
+        if (first) out << ',';
+        first = true;
+        out << "{\"title\":\"" << jsonEscape(title) << "\",\"kind\":\"quickfix\","
+            << "\"edit\":{\"changes\":{\"" << jsonEscape(uri) << "\":["
+            << "{\"range\":{\"start\":{\"line\":" << line << ",\"character\":" << colStart
+            << "},\"end\":{\"line\":" << line << ",\"character\":" << colEnd << "}},"
+            << "\"newText\":\"" << jsonEscape(newText) << "\"}]}}";
+    };
+
+    const std::string diagNeedle = "\"diagnostics\":[";
+    const auto diagPos = body.find(diagNeedle);
+    if (diagPos != std::string::npos) {
+        const std::string diagSection = body.substr(diagPos);
+        for (const auto& diagJson : analysis.diagnosticJson) {
+            if (diagSection.find(diagJson) == std::string::npos) continue;
+            const auto msgPos = diagJson.find("\"message\":\"");
+            if (msgPos == std::string::npos) continue;
+            const auto msgStart = msgPos + 11;
+            const auto msgEnd = diagJson.find('"', msgStart);
+            const std::string message = diagJson.substr(msgStart, msgEnd - msgStart);
+            if (message.find("importé via 'use' mais jamais utilisé") != std::string::npos) {
+                const int line = jsonGetInt(diagJson, "line");
+                const std::string lineText = lineTextAt(source, line);
+                appendEdit("Supprimer l'import inutilisé", line, 0,
+                           static_cast<int>(lineText.size()), "");
+            }
+        }
+    }
+
+    int endLine = 0, endChar = 0;
+    for (char c : source) {
+        if (c == '\n') { ++endLine; endChar = 0; } else { ++endChar; }
+    }
+    if (first) out << ',';
+    out << "{\"title\":\"Formater le document\",\"kind\":\"source\","
+        << "\"command\":\"afrilang.formatDocument\",\"arguments\":[\"" << jsonEscape(uri) << "\"]}";
     out << "]";
     return out.str();
 }
@@ -365,6 +507,10 @@ int runLspServer() {
                 "{\"capabilities\":{"
                 "\"textDocumentSync\":1,"
                 "\"completionProvider\":{\"triggerCharacters\":[\".\",\" \"]},"
+                "\"documentSymbolProvider\":true,"
+                "\"workspaceSymbolProvider\":true,"
+                "\"codeActionProvider\":true,"
+                "\"executeCommandProvider\":{\"commands\":[\"afrilang.formatDocument\"]},"
                 "\"documentFormattingProvider\":true,"
                 "\"hoverProvider\":true,"
                 "\"definitionProvider\":true,"

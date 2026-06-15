@@ -475,6 +475,15 @@ void SemanticAnalyzer::collectLintWarnings() {
             LintWarning w;
             w.message = "Module '" + mod + "' importé via 'use' mais jamais utilisé";
             w.file = currentFile_;
+            for (const auto& stmt : program_.statements) {
+                if (const auto* use = dynamic_cast<const UseStatementNode*>(stmt.get())) {
+                    if (use->moduleName == mod) {
+                        w.line = use->loc.line;
+                        w.column = use->loc.column;
+                        break;
+                    }
+                }
+            }
             result_.warnings.push_back(std::move(w));
         }
     }
