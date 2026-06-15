@@ -13,12 +13,6 @@
 #include "str.hpp"
 
 namespace collections {
-} // namespace collections
-
-namespace str {
-} // namespace str
-
-namespace collections {
     std::vector<double> sortNumbers(std::vector<double> items) {
         return afrilang::runtime::collections::sortNumbers(items);
     }
