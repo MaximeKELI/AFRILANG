@@ -1037,3 +1037,29 @@ body.afr-body.afr-loaded main {
   font-weight: 600;
 }
 
+/* ── Error pages ── */
+.afr-error-page {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.afr-error-code {
+  font-size: clamp(5rem, 18vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--afr-primary), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.9;
+}
+
+.afr-error-code-500 {
+  background: linear-gradient(135deg, #dc2626, #f97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
