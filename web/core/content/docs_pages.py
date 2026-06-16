@@ -333,8 +333,8 @@ end'''),
 
 PAGES['stdlib'] = _page(
     'stdlib', 'Bibliothèque standard', 'Standard library',
-    '463+ modules : I/O, JSON, HTTP, collections, graphes, ML, finance, crypto.',
-    '463+ modules: I/O, JSON, HTTP, collections, graphs, ML, finance, crypto.',
+    '7900+ modules : I/O, JSON, HTTP, SIG, data science, IA, SQLite, jeux, graphes, ML.',
+    '7900+ modules: I/O, JSON, HTTP, GIS, data science, AI, SQLite, games, graphs, ML.',
     [
         h2('Modules essentiels'),
         table(['Module', 'Import'], [

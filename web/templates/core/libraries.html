@@ -62,6 +62,12 @@
     </div>
     {% endfor %}
   </div>
+  {% if group.has_more %}
+  <p class="small text-secondary-custom mt-2 mb-0">
+    + {{ group.count|add:"-12" }} autres modules —
+    <a href="{% url 'stdlib' %}?category={{ group.id }}">{{ ui.libraries_page.view_all }}</a>
+  </p>
+  {% endif %}
 </section>
 {% endfor %}
 
