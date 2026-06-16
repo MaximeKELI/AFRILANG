@@ -146,7 +146,14 @@
   document.getElementById('share')?.addEventListener('click', shareLink);
   document.getElementById('copyOutput')?.addEventListener('click', copyOutput);
 
-  const initial = cfg.initialSlug || new URLSearchParams(window.location.search).get('example');
-  if (initial && EXAMPLES[initial]) loadExample(initial);
-  else if (select?.value) loadExample(select.value);
+  const tutorialCode = sessionStorage.getItem('afr_tutorial_code');
+  if (tutorialCode) {
+    sessionStorage.removeItem('afr_tutorial_code');
+    setSource(tutorialCode);
+    cm?.focus();
+  } else {
+    const initial = cfg.initialSlug || new URLSearchParams(window.location.search).get('example');
+    if (initial && EXAMPLES[initial]) loadExample(initial);
+    else if (select?.value) loadExample(select.value);
+  }
 })();
