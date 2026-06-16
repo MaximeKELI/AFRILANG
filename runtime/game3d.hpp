@@ -1236,6 +1236,7 @@ inline void resolveBoxGround(RigidBody& body, double groundY) {
 }
 
 #include "game3d_advanced.inl.hpp"
+#include "game3d_editor.inl.hpp"
 
 inline void stepPhysicsEx(double deltaMs, double gravity) {
     const double dt = deltaMs / 1000.0;
