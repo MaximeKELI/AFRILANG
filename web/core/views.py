@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 from django.conf import settings
-from django.core.paginator import Paginator
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
@@ -205,7 +204,6 @@ def stdlib_browse(request):
     q = request.GET.get('q', '').strip()
     cat = request.GET.get('category', '').strip()
     overview = request.GET.get('overview', '').strip() in ('1', 'true', 'yes')
-    page_num = request.GET.get('page', '1')
 
     qs = StdlibModule.objects.all().order_by('name')
     if cat:
@@ -215,7 +213,8 @@ def stdlib_browse(request):
             description_fr__icontains=q,
         ) | qs.filter(import_path__icontains=q)
 
-    total_count = qs.count()
+    modules = list(qs)
+    total_count = len(modules)
     lang = request.LANGUAGE_CODE
     categories = get_categories(lang)
 
@@ -224,15 +223,12 @@ def stdlib_browse(request):
     if use_grouped:
         for c in categories:
             mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
-            if mods.exists():
-                grouped.append({**c, 'count': mods.count(), 'modules': mods[:6]})
-
-    paginator = Paginator(qs, 60)
-    page_obj = paginator.get_page(page_num)
+            n = mods.count()
+            if n:
+                grouped.append({**c, 'count': n, 'modules': list(mods)})
 
     return render(request, 'core/stdlib.html', {
-        'modules': page_obj.object_list,
-        'page_obj': page_obj,
+        'modules': modules,
         'total_count': total_count,
         'query': q,
         'category': cat,
@@ -250,7 +246,7 @@ def libraries(request):
     groups = []
     total = 0
     pdf_count = 0
-    preview_limit = 12
+    preview_limit = 0
     for c in categories:
         mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
         n = mods.count()
@@ -258,12 +254,13 @@ def libraries(request):
             continue
         total += n
         pdf_count += mods.filter(has_pdf=True).count()
+        mod_list = list(mods) if preview_limit <= 0 else list(mods[:preview_limit])
         groups.append({
             **c,
             'count': n,
             'pdf_count': mods.filter(has_pdf=True).count(),
-            'modules': mods[:preview_limit],
-            'has_more': n > preview_limit,
+            'modules': mod_list,
+            'has_more': preview_limit > 0 and n > preview_limit,
         })
     return render(request, 'core/libraries.html', {
         'groups': groups,

@@ -19,7 +19,7 @@
   <p class="small text-secondary-custom mb-3">{{ ui.libraries_page.ultra_lead }}</p>
   <div class="row g-2">
     {% for pack in ultra_packs %}
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="afr-feature-card h-100 py-3 px-3">
         <div class="fw-bold text-primary mb-1">{{ pack.label }}</div>
         <p class="small text-secondary-custom mb-2">{{ pack.count }} modules · {{ pack.tier }}</p>
@@ -44,7 +44,7 @@
   <p class="small text-secondary-custom">{{ group.description }}</p>
   <div class="row g-2">
     {% for mod in group.modules %}
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 col-xl-3">
       <article class="afr-feature-card h-100 py-3 px-3">
         <a href="{% url 'stdlib_detail' mod.name %}" class="text-decoration-none">
           <code class="fw-bold text-primary">import "{{ mod.import_path }}"</code>
