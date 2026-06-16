@@ -1,0 +1,23 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/dataultra_demo.afr",
+  "variables": [
+    {"name":"dif","type":"list number","scope":"global"},
+    {"name":"norm","type":"list number","scope":"global"},
+    {"name":"xs","type":"list number","scope":"global"},
+    {"name":"values","type":"list number","scope":"global"},
+    {"name":"v","type":"list number","scope":"mean"},
+    {"name":"v","type":"list number","scope":"stddev"},
+    {"name":"v","type":"list number","scope":"minVal"},
+    {"name":"v","type":"list number","scope":"maxVal"},
+    {"name":"v","type":"list number","scope":"normalize"},
+    {"name":"v","type":"list number","scope":"diff1"},
+    {"name":"v","type":"list number","scope":"rollingMean"},
+    {"name":"window","type":"number","scope":"rollingMean"},
+    {"name":"v","type":"list number","scope":"percentile"},
+    {"name":"p","type":"number","scope":"percentile"},
+    {"name":"a","type":"list number","scope":"correlation"},
+    {"name":"b","type":"list number","scope":"correlation"},
+    {"name":"xs","type":"list number","scope":"linearSlope"},
+    {"name":"ys","type":"list number","scope":"linearSlope"}
+  ]
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320">
+<rect x="0" y="0" width="80" height="80" fill="rgb(30,40,80)"/>
+<rect x="80" y="0" width="80" height="80" fill="rgb(38,47,85)"/>
+<rect x="160" y="0" width="80" height="80" fill="rgb(47,55,90)"/>
+<rect x="240" y="0" width="80" height="80" fill="rgb(56,63,95)"/>
+<rect x="320" y="0" width="80" height="80" fill="rgb(64,71,100)"/>
+<rect x="400" y="0" width="80" height="80" fill="rgb(73,79,106)"/>
+<rect x="0" y="80" width="80" height="80" fill="rgb(82,86,111)"/>
+<rect x="80" y="80" width="80" height="80" fill="rgb(90,94,116)"/>
+<rect x="160" y="80" width="80" height="80" fill="rgb(99,102,121)"/>
+<rect x="240" y="80" width="80" height="80" fill="rgb(108,110,126)"/>
+<rect x="320" y="80" width="80" height="80" fill="rgb(116,118,132)"/>
+<rect x="400" y="80" width="80" height="80" fill="rgb(125,126,137)"/>
+<rect x="0" y="160" width="80" height="80" fill="rgb(134,133,142)"/>
+<rect x="80" y="160" width="80" height="80" fill="rgb(143,141,147)"/>
+<rect x="160" y="160" width="80" height="80" fill="rgb(151,149,153)"/>
+<rect x="240" y="160" width="80" height="80" fill="rgb(160,157,158)"/>
+<rect x="320" y="160" width="80" height="80" fill="rgb(169,165,163)"/>
+<rect x="400" y="160" width="80" height="80" fill="rgb(177,173,168)"/>
+<rect x="0" y="240" width="80" height="80" fill="rgb(186,180,173)"/>
+<rect x="80" y="240" width="80" height="80" fill="rgb(195,188,179)"/>
+<rect x="160" y="240" width="80" height="80" fill="rgb(203,196,184)"/>
+<rect x="240" y="240" width="80" height="80" fill="rgb(212,204,189)"/>
+<rect x="320" y="240" width="80" height="80" fill="rgb(221,212,194)"/>
+<rect x="400" y="240" width="80" height="80" fill="rgb(230,220,200)"/>
+</svg>
