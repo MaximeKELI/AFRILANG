@@ -89,3 +89,4 @@
   if (cfg.currentStep) markStep(cfg.currentStep);
 
   updateUI();
+})();
