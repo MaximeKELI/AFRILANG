@@ -344,6 +344,87 @@ def add_ultra_viz_modules(count: int) -> None:
              'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}'),
         ])
 
+def add_ultra_datasci_modules(count: int) -> None:
+    """Add 500 data-science complex modules in std/c/ (stats, ML prep, metrics)."""
+    for i in range(1, count + 1):
+        name = f"datasci{i:03d}"
+        win = 3 + (i % 13)
+        nbins = 5 + (i % 20)
+        ema_a = 0.08 + (i % 17) * 0.04
+        zthr = 2.0 + (i % 12) * 0.25
+
+        cx(name, [
+            ('median', 'number', [('v', 'list number')],
+             '{if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());'
+             'std::size_t m=t.size()/2;return t.size()%2==1?t[m]:(t[m-1]+t[m])/2.0;}'),
+            ('variance', 'number', [('v', 'list number')],
+             '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;'
+             'for(double x:v){double d=x-m;s+=d*d;}return s/(v.size()-1);}'),
+            ('iqr', 'number', [('v', 'list number')],
+             '{if(v.size()<4)return 0;auto t=v;std::sort(t.begin(),t.end());std::size_t n=t.size();'
+             'return t[3*n/4]-t[n/4];}'),
+            ('zscores', 'list number', [('v', 'list number')],
+             '{if(v.empty())return v;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;'
+             'for(double x:v){double d=x-m;s+=d*d;}double sd=v.size()<2?1:std::sqrt(s/(v.size()-1));'
+             'if(sd<1e-12)sd=1;std::vector<double> out;for(double x:v)out.push_back((x-m)/sd);return out;}'),
+            ('minMaxScale', 'list number', [('v', 'list number')],
+             '{if(v.empty())return v;double mn=*std::min_element(v.begin(),v.end());'
+             'double mx=*std::max_element(v.begin(),v.end());double r=mx-mn;if(r<1e-12)r=1;'
+             'std::vector<double> out;for(double x:v)out.push_back((x-mn)/r);return out;}'),
+            ('covariance', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());if(n<2)return 0;double ma=0,mb=0;'
+             'for(std::size_t k=0;k<n;++k){ma+=a[k];mb+=b[k];}ma/=n;mb/=n;double c=0;'
+             'for(std::size_t k=0;k<n;++k)c+=(a[k]-ma)*(b[k]-mb);return c/(n-1);}'),
+            ('rSquared', 'number', [('xs', 'list number'), ('ys', 'list number')],
+             '{std::size_t n=std::min(xs.size(),ys.size());if(n<2)return 0;double my=0;'
+             'for(std::size_t k=0;k<n;++k)my+=ys[k];my/=n;double ssTot=0,mx=0;'
+             'for(std::size_t k=0;k<n;++k){mx+=xs[k];ssTot+=(ys[k]-my)*(ys[k]-my);}mx/=n;'
+             'double num=0,den=0;for(std::size_t k=0;k<n;++k){double dx=xs[k]-mx;'
+             'num+=dx*(ys[k]-my);den+=dx*dx;}double slope=den<1e-12?0:num/den,intercept=my-slope*mx,ssRes=0;'
+             'for(std::size_t k=0;k<n;++k){double p=slope*xs[k]+intercept;ssRes+=(ys[k]-p)*(ys[k]-p);}'
+             'return ssTot<1e-12?0:1.0-ssRes/ssTot;}'),
+            ('rollingStd', 'list number', [('v', 'list number'), ('window', 'number')],
+             '{std::vector<double> out;int W=(int)window;if(W<2)W=' + str(win) + ';if(v.size()<2)return out;'
+             'for(std::size_t i=0;i<v.size();++i){int a=(int)i-W+1;if(a<0)a=0;double m=0;int c=0;'
+             'for(int j=a;j<=(int)i;++j){m+=v[(std::size_t)j];++c;}m/=c;double s=0;'
+             'for(int j=a;j<=(int)i;++j){double d=v[(std::size_t)j]-m;s+=d*d;}'
+             'out.push_back(c<2?0:std::sqrt(s/(c-1)));}return out;}'),
+            ('ema', 'list number', [('v', 'list number'), ('alpha', 'number')],
+             '{std::vector<double> out;if(v.empty())return out;double a=alpha;'
+             'if(a<=0)a=' + f'{ema_a:.6f}' + ';if(a<0)a=0;if(a>1)a=1;'
+             'double e=v[0];out.push_back(e);for(std::size_t k=1;k<v.size();++k){'
+             'e=a*v[k]+(1.0-a)*e;out.push_back(e);}return out;}'),
+            ('histogram', 'list number', [('v', 'list number'), ('bins', 'number')],
+             '{if(v.empty())return std::vector<double>{};int B=(int)bins;if(B<2)B=' + str(nbins) + ';'
+             'double mn=*std::min_element(v.begin(),v.end()),mx=*std::max_element(v.begin(),v.end());'
+             'double r=mx-mn;if(r<1e-12)r=1;std::vector<double> counts((std::size_t)B,0);'
+             'for(double x:v){int b=(int)((x-mn)/r*B);if(b>=B)b=B-1;if(b<0)b=0;counts[(std::size_t)b]+=1.0;}'
+             'return counts;}'),
+            ('gini', 'number', [('v', 'list number')],
+             '{if(v.empty())return 0;auto t=v;std::sort(t.begin(),t.end());double sum=0;'
+             'for(double x:t)sum+=x;if(std::fabs(sum)<1e-12)return 0;double cum=0,g=0;'
+             'for(double x:t){cum+=x;g+=cum;}return 1.0-2.0*g/(t.size()*sum);}'),
+            ('euclidean', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());double s=0;'
+             'for(std::size_t k=0;k<n;++k){double d=a[k]-b[k];s+=d*d;}return std::sqrt(s);}'),
+            ('rmse', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());if(n==0)return 0;double s=0;'
+             'for(std::size_t k=0;k<n;++k){double d=a[k]-b[k];s+=d*d;}return std::sqrt(s/n);}'),
+            ('mae', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());if(n==0)return 0;double s=0;'
+             'for(std::size_t k=0;k<n;++k)s+=std::fabs(a[k]-b[k]);return s/n;}'),
+            ('outlierCount', 'number', [('v', 'list number'), ('threshold', 'number')],
+             '{if(v.size()<2)return 0;double m=0;for(double x:v)m+=x;m/=v.size();double s=0;'
+             'for(double x:v){double d=x-m;s+=d*d;}s=v.size()>1?std::sqrt(s/(v.size()-1)):0;'
+             'double t=threshold;if(t<=0)t=' + f'{zthr:.6f}' + ';if(s<1e-12)return 0;int c=0;'
+             'for(double x:v)if(std::fabs((x-m)/s)>t)++c;return static_cast<double>(c);}'),
+            ('log1p', 'list number', [('v', 'list number')],
+             '{std::vector<double> out;for(double x:v)out.push_back(std::log1p(x));return out;}'),
+            ('trainSplitAt', 'number', [('n', 'number'), ('ratio', 'number')],
+             '{double r=ratio;if(r<0)r=0;if(r>1)r=1;int N=(int)n;if(N<=0)return 0;'
+             'return static_cast<double>((int)(N*r));}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -4157,6 +4238,9 @@ add_ultra_data_modules(500)
 
 # Add 500 ultra complex file-based visualization modules in std/c/
 add_ultra_viz_modules(500)
+
+# Add 500 ultra complex data-science modules in std/c/
+add_ultra_datasci_modules(500)
 
 
 def main() -> None:
