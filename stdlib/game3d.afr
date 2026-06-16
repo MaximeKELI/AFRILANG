@@ -27,7 +27,7 @@ end
 function windowHeight() returns number
 end
 
-function clear(r number, g number, b number)
+function clearScreen(r number, g number, b number)
 end
 
 function isKeyDown(key text) returns bool

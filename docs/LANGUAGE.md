@@ -449,7 +449,7 @@ Jeux 3D avec OpenGL (SDL2 + GL) :
 | Fonction | Description |
 |----------|-------------|
 | `openWindow` / `isOpen` / `beginFrame` / `showFrame` | Boucle 3D |
-| `clear(r, g, b)` | Efface l’écran et le tampon de profondeur |
+| `clearScreen(r, g, b)` | Efface l’écran et le tampon de profondeur |
 | `setCamera(x, y, z, yaw, pitch)` + `applyCamera()` | Caméra perspective |
 | `updateFlyCamera(moveSpeed, turnSpeed)` | Vol libre WASD + QE + flèches |
 | `drawCube`, `drawSphere`, `drawPlane`, `drawGrid`, `drawAxis` | Primitives 3D |

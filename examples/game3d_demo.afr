@@ -21,7 +21,7 @@ while isOpen() do
     set rot = rot + dt * 0.05
     setSceneRotation(rot)
 
-    clear(14, 16, 24)
+    clearScreen(14, 16, 24)
     applyCamera()
     applySceneRotation()
 

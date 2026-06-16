@@ -505,7 +505,7 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("deltaMs", {}, "number"));
     fns.push_back(makeStubFunction("windowWidth", {}, "number"));
     fns.push_back(makeStubFunction("windowHeight", {}, "number"));
-    fns.push_back(makeStubFunction("clear", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("clearScreen", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
     fns.push_back(makeStubFunction("isKeyDown", {{"key", "text"}}, "bool"));
     fns.push_back(makeStubFunction("wasKeyPressed", {{"key", "text"}}, "bool"));
     fns.push_back(makeStubFunction("setCamera",

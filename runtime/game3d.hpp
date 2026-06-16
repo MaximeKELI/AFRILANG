@@ -183,7 +183,7 @@ inline bool wasKeyPressed(const std::string& key) {
     return ctx.pressed[sc];
 }
 
-inline void clear(double r, double g, double b) {
+inline void clearScreen(double r, double g, double b) {
     glClearColor(static_cast<GLfloat>(r / 255.0),
                  static_cast<GLfloat>(g / 255.0),
                  static_cast<GLfloat>(b / 255.0),
