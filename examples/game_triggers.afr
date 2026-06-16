@@ -1,0 +1,105 @@
+import "std/game2d"
+use game2d
+
+import "std/ui"
+use ui
+
+import "std/gamestate"
+use gamestate
+
+create W = 18
+create H = 14
+create CELL = 32
+
+configureGrid(W, H, CELL, 24, 72)
+configureViewport(W, H)
+
+create px number = 2
+create py number = 2
+create goalX number = W - 3
+create goalY number = H - 3
+
+create gx number = cellWorldX(goalX)
+create gy number = cellWorldY(goalY)
+defineTrigger("goal", gx, gy, CELL, CELL)
+
+setState("play")
+
+openWindow("AFRILANG Triggers", gridWindowWidth(), gridWindowHeight())
+
+while isOpen() do
+    beginFrame()
+    tickState(deltaMs())
+
+    if wasKeyPressed("Escape") then
+        shutdown()
+        closeWindow()
+    end
+
+    if isState("play") then
+        create spd number = 140
+        create step number = spd * deltaMs() / 1000
+        if isKeyDown("Left") then
+            set px = px - step
+        end
+        if isKeyDown("Right") then
+            set px = px + step
+        end
+        if isKeyDown("Up") then
+            set py = py - step
+        end
+        if isKeyDown("Down") then
+            set py = py + step
+        end
+
+        if px is less than 1 then
+            set px = 1
+        end
+        if py is less than 1 then
+            set py = 1
+        end
+        if px is greater than W - 2 then
+            set px = W - 2
+        end
+        if py is greater than H - 2 then
+            set py = H - 2
+        end
+
+        create pwx number = cellWorldX(px) + CELL / 2
+        create pwy number = cellWorldY(py) + CELL / 2
+        if pointInTrigger("goal", pwx, pwy) then
+            setState("win")
+        end
+    end
+
+    if isState("win") then
+        if wasKeyPressed("R") then
+            set px = 2
+            set py = 2
+            setState("play")
+        end
+    end
+
+    clearBackground(18, 22, 32)
+    drawHud("Triggers demo", 24, 20, 26, 240, 240, 250)
+    drawHud("Fleches : joueur bleu  ·  Zone verte : sortie", 24, 52, 16, 150, 170, 200)
+
+    fillBoard(30, 34, 48)
+    drawWalls(70, 75, 95)
+
+    create gx2 number = cellWorldX(goalX)
+    create gy2 number = cellWorldY(goalY)
+    ui.fillRect(gx2, gy2, CELL, CELL, 60, 200, 120)
+
+    create cx number = cellWorldX(px) + 6
+    create cy number = cellWorldY(py) + 6
+    fillCircleSolid(cx, cy, 10, 80, 160, 255)
+
+    if isState("win") then
+        drawCenteredText("VICTOIRE !", gridWindowHeight() / 2 - 20, 38, 100, 255, 160)
+        drawCenteredText("R pour rejouer", gridWindowHeight() / 2 + 24, 22, 210, 210, 230)
+    end
+
+    drawFps(gridWindowWidth() - 72, gridWindowHeight() - 28)
+    showFrame()
+end
