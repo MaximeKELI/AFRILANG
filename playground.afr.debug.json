@@ -1,8 +1,7 @@
 {
-  "source": "/tmp/afrilang_web_dulxxg5y/playground.afr",
+  "source": "/tmp/afrilang_web_mev6cos5/playground.afr",
   "variables": [
-    {"name":"nickname","type":"text?","scope":"global"},
-    {"name":"e","type":"Status","scope":"global"},
-    {"name":"s","type":"Status","scope":"global"}
+    {"name":"score","type":"number","scope":"global"},
+    {"name":"age","type":"number","scope":"global"}
   ]
 }

@@ -1,0 +1,226 @@
+# Snake (ASCII) — jouable dans le Playground (sans saisie interactive).
+# Modifiez la variable `moves` pour contrôler le serpent :
+# - W = haut, A = gauche, S = bas, D = droite
+# - Q = quitter
+#
+# Astuce : mettez une longue chaîne (ex: "DDDDSSSSAAAAWWWW") puis relancez.
+
+import "std/io"
+use io
+
+import "std/m/random2"
+use random2
+
+import "std/stopwatch"
+use stopwatch
+
+create const W = 20
+create const H = 14
+create const MAX_STEPS = 250
+
+function clampDirX(dx number) returns number
+    if dx is greater than 1 then return 1 end
+    if dx is less than -1 then return -1 end
+    return dx
+end
+
+function clampDirY(dy number) returns number
+    if dy is greater than 1 then return 1 end
+    if dy is less than -1 then return -1 end
+    return dy
+end
+
+function contains(xs list number, ys list number, x number, y number) returns bool
+    create i number = 0
+    while i is less than length of xs do
+        if (xs at i) is equal to x and (ys at i) is equal to y then
+            return yes
+        end
+        set i = i + 1
+    end
+    return no
+end
+
+generator function takeN(v list number, n number) returns list number
+    create i number = 0
+    while i is less than n do
+        yield v at i
+        set i = i + 1
+    end
+end
+
+generator function prepend(v list number, head number) returns list number
+    yield head
+    create i number = 0
+    while i is less than length of v do
+        yield v at i
+        set i = i + 1
+    end
+end
+
+function foodX(seed number) returns number
+    return randomRange(1, W - 2)  # évite les murs
+end
+
+function foodY(seed number) returns number
+    return randomRange(1, H - 2)
+end
+
+function placeFood(xs list number, ys list number, seed number) returns list number
+    # Retourne list of fx, fy, seed2
+    create s number = seed
+    create fx number = 1
+    create fy number = 1
+    repeat 200 times
+        set s = seedRandom(s)
+        set fx = randomRange(1, W - 2)
+        set s = seedRandom(s)
+        set fy = randomRange(1, H - 2)
+        if contains(xs, ys, fx, fy) is equal to false then
+            return list of fx, fy, s
+        end
+    end
+    return list of fx, fy, s
+end
+
+function render(xs list number, ys list number, fx number, fy number, score number, step number) returns text
+    create out text = ""
+    set out = out + "AFRILANG Snake  |  score={score}  step={step}/{MAX_STEPS}\n"
+    set out = out + "Moves: W/A/S/D (editez la variable moves)  |  Q quit\n\n"
+
+    create y number = 0
+    while y is less than H do
+        create row text = ""
+        create x number = 0
+        while x is less than W do
+            if y is equal to 0 or y is equal to (H - 1) or x is equal to 0 or x is equal to (W - 1) then
+                set row = row + "#"
+            else
+                if x is equal to fx and y is equal to fy then
+                    set row = row + "*"
+                else
+                    # tête
+                    if x is equal to (xs at 0) and y is equal to (ys at 0) then
+                        set row = row + "@"
+                    else
+                        if contains(xs, ys, x, y) then
+                            set row = row + "o"
+                        else
+                            set row = row + " "
+                        end
+                    end
+                end
+            end
+            set x = x + 1
+        end
+        set out = out + row + "\n"
+        set y = y + 1
+    end
+    return out
+end
+
+function dirFromChar(c text, dx number, dy number) returns list number
+    # Retourne list of dx, dy
+    if c is equal to "W" or c is equal to "w" then
+        if dy is equal to 1 then return list of dx, dy end
+        return list of 0, -1
+    end
+    if c is equal to "S" or c is equal to "s" then
+        if dy is equal to -1 then return list of dx, dy end
+        return list of 0, 1
+    end
+    if c is equal to "A" or c is equal to "a" then
+        if dx is equal to 1 then return list of dx, dy end
+        return list of -1, 0
+    end
+    if c is equal to "D" or c is equal to "d" then
+        if dx is equal to -1 then return list of dx, dy end
+        return list of 1, 0
+    end
+    return list of dx, dy
+end
+
+# --- Game setup ---
+create seed number = nowMs(0)
+set seed = seedRandom(seed)
+
+create startX number = W / 2
+create startY number = H / 2
+
+create xs = list of startX, startX - 1, startX - 2
+create ys = list of startY, startY, startY
+
+create dirX number = 1
+create dirY number = 0
+
+create score number = 0
+
+create food = placeFood(xs, ys, seed)
+create fx number = food at 0
+create fy number = food at 1
+set seed = food at 2
+
+# Éditez cette chaîne pour jouer dans le Playground.
+create moves text = "DDDDDDSSSSSSAAAAAAWWWWWWDDDDSSAAWWDDSSAAWWDDDDSSSSAAAWW"
+
+create step number = 0
+while step is less than MAX_STEPS do
+    # “Clear screen” simple (portable)
+    repeat 30 times
+        say ""
+    end
+
+    say render(xs, ys, fx, fy, score, step)
+
+    # Lire la direction depuis moves
+    if step is less than length of moves then
+        create c = moves at step
+        if c is equal to "Q" or c is equal to "q" then
+            say "Quit."
+            break
+        end
+        create d = dirFromChar(c, dirX, dirY)
+        set dirX = clampDirX(d at 0)
+        set dirY = clampDirY(d at 1)
+    end
+
+    create newX number = (xs at 0) + dirX
+    create newY number = (ys at 0) + dirY
+
+    # collisions murs
+    if newX is less than 1 or newX is greater than (W - 2) or newY is less than 1 or newY is greater than (H - 2) then
+        say "Game over: wall collision."
+        break
+    end
+
+    # collision avec soi-même (sauf la queue si elle bouge)
+    if contains(xs, ys, newX, newY) then
+        say "Game over: self collision."
+        break
+    end
+
+    create grow bool = no
+    if newX is equal to fx and newY is equal to fy then
+        set grow = yes
+        set score = score + 1
+    end
+
+    # update snake lists (immutable rebuild)
+    if grow then
+        set xs = prepend(xs, newX)
+        set ys = prepend(ys, newY)
+        create food2 = placeFood(xs, ys, seed)
+        set fx = food2 at 0
+        set fy = food2 at 1
+        set seed = food2 at 2
+    else
+        # new = [newHead] + take(old, len-1)
+        set xs = prepend(takeN(xs, (length of xs) - 1), newX)
+        set ys = prepend(takeN(ys, (length of ys) - 1), newY)
+    end
+
+    set step = step + 1
+end
+
+say "Final score: {score}"
+

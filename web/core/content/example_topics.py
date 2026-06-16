@@ -2,6 +2,12 @@
 
 EXAMPLE_TOPICS = [
     {
+        'id': 'games',
+        'label_fr': 'Jeux',
+        'label_en': 'Games',
+        'slugs': ['snake'],
+    },
+    {
         'id': 'basics',
         'label_fr': 'Bases',
         'label_en': 'Basics',
