@@ -2810,7 +2810,8 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "env" || name == "tempfile" || name == "base64" || name == "url" ||
            name == "random" || name == "hex" || name == "csv" || name == "html" ||
            name == "cli" || name == "email" || name == "uuid" ||
-           name == "async" || name == "ui" || stdlibCatalogIsSimpleModule(name) ||
+           name == "async" || name == "ui" || name == "game2d" || name == "game3d" ||
+           name == "gamestate" || name == "gamenet" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
 
