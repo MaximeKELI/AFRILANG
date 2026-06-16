@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**1210 modules** — `std/c/{nom}`
+**1710 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -11000,3 +11000,4503 @@
 - `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
 - `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
 - `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3dpro001
+
+`import "std/c/gameultra3dpro001"` · `use gameultra3dpro001`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro002
+
+`import "std/c/gameultra3dpro002"` · `use gameultra3dpro002`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro003
+
+`import "std/c/gameultra3dpro003"` · `use gameultra3dpro003`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro004
+
+`import "std/c/gameultra3dpro004"` · `use gameultra3dpro004`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro005
+
+`import "std/c/gameultra3dpro005"` · `use gameultra3dpro005`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro006
+
+`import "std/c/gameultra3dpro006"` · `use gameultra3dpro006`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro007
+
+`import "std/c/gameultra3dpro007"` · `use gameultra3dpro007`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro008
+
+`import "std/c/gameultra3dpro008"` · `use gameultra3dpro008`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro009
+
+`import "std/c/gameultra3dpro009"` · `use gameultra3dpro009`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro010
+
+`import "std/c/gameultra3dpro010"` · `use gameultra3dpro010`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro011
+
+`import "std/c/gameultra3dpro011"` · `use gameultra3dpro011`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro012
+
+`import "std/c/gameultra3dpro012"` · `use gameultra3dpro012`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro013
+
+`import "std/c/gameultra3dpro013"` · `use gameultra3dpro013`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro014
+
+`import "std/c/gameultra3dpro014"` · `use gameultra3dpro014`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro015
+
+`import "std/c/gameultra3dpro015"` · `use gameultra3dpro015`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro016
+
+`import "std/c/gameultra3dpro016"` · `use gameultra3dpro016`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro017
+
+`import "std/c/gameultra3dpro017"` · `use gameultra3dpro017`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro018
+
+`import "std/c/gameultra3dpro018"` · `use gameultra3dpro018`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro019
+
+`import "std/c/gameultra3dpro019"` · `use gameultra3dpro019`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro020
+
+`import "std/c/gameultra3dpro020"` · `use gameultra3dpro020`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro021
+
+`import "std/c/gameultra3dpro021"` · `use gameultra3dpro021`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro022
+
+`import "std/c/gameultra3dpro022"` · `use gameultra3dpro022`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro023
+
+`import "std/c/gameultra3dpro023"` · `use gameultra3dpro023`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro024
+
+`import "std/c/gameultra3dpro024"` · `use gameultra3dpro024`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro025
+
+`import "std/c/gameultra3dpro025"` · `use gameultra3dpro025`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro026
+
+`import "std/c/gameultra3dpro026"` · `use gameultra3dpro026`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro027
+
+`import "std/c/gameultra3dpro027"` · `use gameultra3dpro027`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro028
+
+`import "std/c/gameultra3dpro028"` · `use gameultra3dpro028`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro029
+
+`import "std/c/gameultra3dpro029"` · `use gameultra3dpro029`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro030
+
+`import "std/c/gameultra3dpro030"` · `use gameultra3dpro030`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro031
+
+`import "std/c/gameultra3dpro031"` · `use gameultra3dpro031`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro032
+
+`import "std/c/gameultra3dpro032"` · `use gameultra3dpro032`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro033
+
+`import "std/c/gameultra3dpro033"` · `use gameultra3dpro033`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro034
+
+`import "std/c/gameultra3dpro034"` · `use gameultra3dpro034`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro035
+
+`import "std/c/gameultra3dpro035"` · `use gameultra3dpro035`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro036
+
+`import "std/c/gameultra3dpro036"` · `use gameultra3dpro036`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro037
+
+`import "std/c/gameultra3dpro037"` · `use gameultra3dpro037`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro038
+
+`import "std/c/gameultra3dpro038"` · `use gameultra3dpro038`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro039
+
+`import "std/c/gameultra3dpro039"` · `use gameultra3dpro039`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro040
+
+`import "std/c/gameultra3dpro040"` · `use gameultra3dpro040`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro041
+
+`import "std/c/gameultra3dpro041"` · `use gameultra3dpro041`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro042
+
+`import "std/c/gameultra3dpro042"` · `use gameultra3dpro042`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro043
+
+`import "std/c/gameultra3dpro043"` · `use gameultra3dpro043`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro044
+
+`import "std/c/gameultra3dpro044"` · `use gameultra3dpro044`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro045
+
+`import "std/c/gameultra3dpro045"` · `use gameultra3dpro045`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro046
+
+`import "std/c/gameultra3dpro046"` · `use gameultra3dpro046`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro047
+
+`import "std/c/gameultra3dpro047"` · `use gameultra3dpro047`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro048
+
+`import "std/c/gameultra3dpro048"` · `use gameultra3dpro048`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro049
+
+`import "std/c/gameultra3dpro049"` · `use gameultra3dpro049`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro050
+
+`import "std/c/gameultra3dpro050"` · `use gameultra3dpro050`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro051
+
+`import "std/c/gameultra3dpro051"` · `use gameultra3dpro051`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro052
+
+`import "std/c/gameultra3dpro052"` · `use gameultra3dpro052`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro053
+
+`import "std/c/gameultra3dpro053"` · `use gameultra3dpro053`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro054
+
+`import "std/c/gameultra3dpro054"` · `use gameultra3dpro054`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro055
+
+`import "std/c/gameultra3dpro055"` · `use gameultra3dpro055`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro056
+
+`import "std/c/gameultra3dpro056"` · `use gameultra3dpro056`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro057
+
+`import "std/c/gameultra3dpro057"` · `use gameultra3dpro057`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro058
+
+`import "std/c/gameultra3dpro058"` · `use gameultra3dpro058`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro059
+
+`import "std/c/gameultra3dpro059"` · `use gameultra3dpro059`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro060
+
+`import "std/c/gameultra3dpro060"` · `use gameultra3dpro060`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro061
+
+`import "std/c/gameultra3dpro061"` · `use gameultra3dpro061`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro062
+
+`import "std/c/gameultra3dpro062"` · `use gameultra3dpro062`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro063
+
+`import "std/c/gameultra3dpro063"` · `use gameultra3dpro063`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro064
+
+`import "std/c/gameultra3dpro064"` · `use gameultra3dpro064`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro065
+
+`import "std/c/gameultra3dpro065"` · `use gameultra3dpro065`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro066
+
+`import "std/c/gameultra3dpro066"` · `use gameultra3dpro066`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro067
+
+`import "std/c/gameultra3dpro067"` · `use gameultra3dpro067`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro068
+
+`import "std/c/gameultra3dpro068"` · `use gameultra3dpro068`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro069
+
+`import "std/c/gameultra3dpro069"` · `use gameultra3dpro069`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro070
+
+`import "std/c/gameultra3dpro070"` · `use gameultra3dpro070`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro071
+
+`import "std/c/gameultra3dpro071"` · `use gameultra3dpro071`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro072
+
+`import "std/c/gameultra3dpro072"` · `use gameultra3dpro072`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro073
+
+`import "std/c/gameultra3dpro073"` · `use gameultra3dpro073`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro074
+
+`import "std/c/gameultra3dpro074"` · `use gameultra3dpro074`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro075
+
+`import "std/c/gameultra3dpro075"` · `use gameultra3dpro075`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro076
+
+`import "std/c/gameultra3dpro076"` · `use gameultra3dpro076`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro077
+
+`import "std/c/gameultra3dpro077"` · `use gameultra3dpro077`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro078
+
+`import "std/c/gameultra3dpro078"` · `use gameultra3dpro078`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro079
+
+`import "std/c/gameultra3dpro079"` · `use gameultra3dpro079`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro080
+
+`import "std/c/gameultra3dpro080"` · `use gameultra3dpro080`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro081
+
+`import "std/c/gameultra3dpro081"` · `use gameultra3dpro081`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro082
+
+`import "std/c/gameultra3dpro082"` · `use gameultra3dpro082`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro083
+
+`import "std/c/gameultra3dpro083"` · `use gameultra3dpro083`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro084
+
+`import "std/c/gameultra3dpro084"` · `use gameultra3dpro084`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro085
+
+`import "std/c/gameultra3dpro085"` · `use gameultra3dpro085`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro086
+
+`import "std/c/gameultra3dpro086"` · `use gameultra3dpro086`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro087
+
+`import "std/c/gameultra3dpro087"` · `use gameultra3dpro087`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro088
+
+`import "std/c/gameultra3dpro088"` · `use gameultra3dpro088`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro089
+
+`import "std/c/gameultra3dpro089"` · `use gameultra3dpro089`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro090
+
+`import "std/c/gameultra3dpro090"` · `use gameultra3dpro090`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro091
+
+`import "std/c/gameultra3dpro091"` · `use gameultra3dpro091`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro092
+
+`import "std/c/gameultra3dpro092"` · `use gameultra3dpro092`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro093
+
+`import "std/c/gameultra3dpro093"` · `use gameultra3dpro093`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro094
+
+`import "std/c/gameultra3dpro094"` · `use gameultra3dpro094`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro095
+
+`import "std/c/gameultra3dpro095"` · `use gameultra3dpro095`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro096
+
+`import "std/c/gameultra3dpro096"` · `use gameultra3dpro096`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro097
+
+`import "std/c/gameultra3dpro097"` · `use gameultra3dpro097`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro098
+
+`import "std/c/gameultra3dpro098"` · `use gameultra3dpro098`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro099
+
+`import "std/c/gameultra3dpro099"` · `use gameultra3dpro099`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro100
+
+`import "std/c/gameultra3dpro100"` · `use gameultra3dpro100`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro101
+
+`import "std/c/gameultra3dpro101"` · `use gameultra3dpro101`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro102
+
+`import "std/c/gameultra3dpro102"` · `use gameultra3dpro102`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro103
+
+`import "std/c/gameultra3dpro103"` · `use gameultra3dpro103`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro104
+
+`import "std/c/gameultra3dpro104"` · `use gameultra3dpro104`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro105
+
+`import "std/c/gameultra3dpro105"` · `use gameultra3dpro105`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro106
+
+`import "std/c/gameultra3dpro106"` · `use gameultra3dpro106`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro107
+
+`import "std/c/gameultra3dpro107"` · `use gameultra3dpro107`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro108
+
+`import "std/c/gameultra3dpro108"` · `use gameultra3dpro108`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro109
+
+`import "std/c/gameultra3dpro109"` · `use gameultra3dpro109`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro110
+
+`import "std/c/gameultra3dpro110"` · `use gameultra3dpro110`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro111
+
+`import "std/c/gameultra3dpro111"` · `use gameultra3dpro111`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro112
+
+`import "std/c/gameultra3dpro112"` · `use gameultra3dpro112`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro113
+
+`import "std/c/gameultra3dpro113"` · `use gameultra3dpro113`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro114
+
+`import "std/c/gameultra3dpro114"` · `use gameultra3dpro114`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro115
+
+`import "std/c/gameultra3dpro115"` · `use gameultra3dpro115`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro116
+
+`import "std/c/gameultra3dpro116"` · `use gameultra3dpro116`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro117
+
+`import "std/c/gameultra3dpro117"` · `use gameultra3dpro117`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro118
+
+`import "std/c/gameultra3dpro118"` · `use gameultra3dpro118`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro119
+
+`import "std/c/gameultra3dpro119"` · `use gameultra3dpro119`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro120
+
+`import "std/c/gameultra3dpro120"` · `use gameultra3dpro120`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro121
+
+`import "std/c/gameultra3dpro121"` · `use gameultra3dpro121`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro122
+
+`import "std/c/gameultra3dpro122"` · `use gameultra3dpro122`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro123
+
+`import "std/c/gameultra3dpro123"` · `use gameultra3dpro123`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro124
+
+`import "std/c/gameultra3dpro124"` · `use gameultra3dpro124`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro125
+
+`import "std/c/gameultra3dpro125"` · `use gameultra3dpro125`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro126
+
+`import "std/c/gameultra3dpro126"` · `use gameultra3dpro126`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro127
+
+`import "std/c/gameultra3dpro127"` · `use gameultra3dpro127`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro128
+
+`import "std/c/gameultra3dpro128"` · `use gameultra3dpro128`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro129
+
+`import "std/c/gameultra3dpro129"` · `use gameultra3dpro129`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro130
+
+`import "std/c/gameultra3dpro130"` · `use gameultra3dpro130`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro131
+
+`import "std/c/gameultra3dpro131"` · `use gameultra3dpro131`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro132
+
+`import "std/c/gameultra3dpro132"` · `use gameultra3dpro132`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro133
+
+`import "std/c/gameultra3dpro133"` · `use gameultra3dpro133`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro134
+
+`import "std/c/gameultra3dpro134"` · `use gameultra3dpro134`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro135
+
+`import "std/c/gameultra3dpro135"` · `use gameultra3dpro135`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro136
+
+`import "std/c/gameultra3dpro136"` · `use gameultra3dpro136`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro137
+
+`import "std/c/gameultra3dpro137"` · `use gameultra3dpro137`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro138
+
+`import "std/c/gameultra3dpro138"` · `use gameultra3dpro138`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro139
+
+`import "std/c/gameultra3dpro139"` · `use gameultra3dpro139`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro140
+
+`import "std/c/gameultra3dpro140"` · `use gameultra3dpro140`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro141
+
+`import "std/c/gameultra3dpro141"` · `use gameultra3dpro141`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro142
+
+`import "std/c/gameultra3dpro142"` · `use gameultra3dpro142`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro143
+
+`import "std/c/gameultra3dpro143"` · `use gameultra3dpro143`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro144
+
+`import "std/c/gameultra3dpro144"` · `use gameultra3dpro144`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro145
+
+`import "std/c/gameultra3dpro145"` · `use gameultra3dpro145`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro146
+
+`import "std/c/gameultra3dpro146"` · `use gameultra3dpro146`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro147
+
+`import "std/c/gameultra3dpro147"` · `use gameultra3dpro147`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro148
+
+`import "std/c/gameultra3dpro148"` · `use gameultra3dpro148`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro149
+
+`import "std/c/gameultra3dpro149"` · `use gameultra3dpro149`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro150
+
+`import "std/c/gameultra3dpro150"` · `use gameultra3dpro150`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro151
+
+`import "std/c/gameultra3dpro151"` · `use gameultra3dpro151`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro152
+
+`import "std/c/gameultra3dpro152"` · `use gameultra3dpro152`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro153
+
+`import "std/c/gameultra3dpro153"` · `use gameultra3dpro153`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro154
+
+`import "std/c/gameultra3dpro154"` · `use gameultra3dpro154`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro155
+
+`import "std/c/gameultra3dpro155"` · `use gameultra3dpro155`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro156
+
+`import "std/c/gameultra3dpro156"` · `use gameultra3dpro156`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro157
+
+`import "std/c/gameultra3dpro157"` · `use gameultra3dpro157`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro158
+
+`import "std/c/gameultra3dpro158"` · `use gameultra3dpro158`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro159
+
+`import "std/c/gameultra3dpro159"` · `use gameultra3dpro159`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro160
+
+`import "std/c/gameultra3dpro160"` · `use gameultra3dpro160`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro161
+
+`import "std/c/gameultra3dpro161"` · `use gameultra3dpro161`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro162
+
+`import "std/c/gameultra3dpro162"` · `use gameultra3dpro162`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro163
+
+`import "std/c/gameultra3dpro163"` · `use gameultra3dpro163`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro164
+
+`import "std/c/gameultra3dpro164"` · `use gameultra3dpro164`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro165
+
+`import "std/c/gameultra3dpro165"` · `use gameultra3dpro165`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro166
+
+`import "std/c/gameultra3dpro166"` · `use gameultra3dpro166`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro167
+
+`import "std/c/gameultra3dpro167"` · `use gameultra3dpro167`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro168
+
+`import "std/c/gameultra3dpro168"` · `use gameultra3dpro168`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro169
+
+`import "std/c/gameultra3dpro169"` · `use gameultra3dpro169`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro170
+
+`import "std/c/gameultra3dpro170"` · `use gameultra3dpro170`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro171
+
+`import "std/c/gameultra3dpro171"` · `use gameultra3dpro171`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro172
+
+`import "std/c/gameultra3dpro172"` · `use gameultra3dpro172`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro173
+
+`import "std/c/gameultra3dpro173"` · `use gameultra3dpro173`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro174
+
+`import "std/c/gameultra3dpro174"` · `use gameultra3dpro174`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro175
+
+`import "std/c/gameultra3dpro175"` · `use gameultra3dpro175`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro176
+
+`import "std/c/gameultra3dpro176"` · `use gameultra3dpro176`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro177
+
+`import "std/c/gameultra3dpro177"` · `use gameultra3dpro177`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro178
+
+`import "std/c/gameultra3dpro178"` · `use gameultra3dpro178`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro179
+
+`import "std/c/gameultra3dpro179"` · `use gameultra3dpro179`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro180
+
+`import "std/c/gameultra3dpro180"` · `use gameultra3dpro180`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro181
+
+`import "std/c/gameultra3dpro181"` · `use gameultra3dpro181`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro182
+
+`import "std/c/gameultra3dpro182"` · `use gameultra3dpro182`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro183
+
+`import "std/c/gameultra3dpro183"` · `use gameultra3dpro183`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro184
+
+`import "std/c/gameultra3dpro184"` · `use gameultra3dpro184`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro185
+
+`import "std/c/gameultra3dpro185"` · `use gameultra3dpro185`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro186
+
+`import "std/c/gameultra3dpro186"` · `use gameultra3dpro186`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro187
+
+`import "std/c/gameultra3dpro187"` · `use gameultra3dpro187`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro188
+
+`import "std/c/gameultra3dpro188"` · `use gameultra3dpro188`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro189
+
+`import "std/c/gameultra3dpro189"` · `use gameultra3dpro189`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro190
+
+`import "std/c/gameultra3dpro190"` · `use gameultra3dpro190`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro191
+
+`import "std/c/gameultra3dpro191"` · `use gameultra3dpro191`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro192
+
+`import "std/c/gameultra3dpro192"` · `use gameultra3dpro192`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro193
+
+`import "std/c/gameultra3dpro193"` · `use gameultra3dpro193`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro194
+
+`import "std/c/gameultra3dpro194"` · `use gameultra3dpro194`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro195
+
+`import "std/c/gameultra3dpro195"` · `use gameultra3dpro195`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro196
+
+`import "std/c/gameultra3dpro196"` · `use gameultra3dpro196`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro197
+
+`import "std/c/gameultra3dpro197"` · `use gameultra3dpro197`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro198
+
+`import "std/c/gameultra3dpro198"` · `use gameultra3dpro198`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro199
+
+`import "std/c/gameultra3dpro199"` · `use gameultra3dpro199`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro200
+
+`import "std/c/gameultra3dpro200"` · `use gameultra3dpro200`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro201
+
+`import "std/c/gameultra3dpro201"` · `use gameultra3dpro201`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro202
+
+`import "std/c/gameultra3dpro202"` · `use gameultra3dpro202`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro203
+
+`import "std/c/gameultra3dpro203"` · `use gameultra3dpro203`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro204
+
+`import "std/c/gameultra3dpro204"` · `use gameultra3dpro204`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro205
+
+`import "std/c/gameultra3dpro205"` · `use gameultra3dpro205`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro206
+
+`import "std/c/gameultra3dpro206"` · `use gameultra3dpro206`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro207
+
+`import "std/c/gameultra3dpro207"` · `use gameultra3dpro207`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro208
+
+`import "std/c/gameultra3dpro208"` · `use gameultra3dpro208`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro209
+
+`import "std/c/gameultra3dpro209"` · `use gameultra3dpro209`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro210
+
+`import "std/c/gameultra3dpro210"` · `use gameultra3dpro210`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro211
+
+`import "std/c/gameultra3dpro211"` · `use gameultra3dpro211`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro212
+
+`import "std/c/gameultra3dpro212"` · `use gameultra3dpro212`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro213
+
+`import "std/c/gameultra3dpro213"` · `use gameultra3dpro213`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro214
+
+`import "std/c/gameultra3dpro214"` · `use gameultra3dpro214`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro215
+
+`import "std/c/gameultra3dpro215"` · `use gameultra3dpro215`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro216
+
+`import "std/c/gameultra3dpro216"` · `use gameultra3dpro216`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro217
+
+`import "std/c/gameultra3dpro217"` · `use gameultra3dpro217`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro218
+
+`import "std/c/gameultra3dpro218"` · `use gameultra3dpro218`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro219
+
+`import "std/c/gameultra3dpro219"` · `use gameultra3dpro219`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro220
+
+`import "std/c/gameultra3dpro220"` · `use gameultra3dpro220`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro221
+
+`import "std/c/gameultra3dpro221"` · `use gameultra3dpro221`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro222
+
+`import "std/c/gameultra3dpro222"` · `use gameultra3dpro222`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro223
+
+`import "std/c/gameultra3dpro223"` · `use gameultra3dpro223`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro224
+
+`import "std/c/gameultra3dpro224"` · `use gameultra3dpro224`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro225
+
+`import "std/c/gameultra3dpro225"` · `use gameultra3dpro225`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro226
+
+`import "std/c/gameultra3dpro226"` · `use gameultra3dpro226`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro227
+
+`import "std/c/gameultra3dpro227"` · `use gameultra3dpro227`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro228
+
+`import "std/c/gameultra3dpro228"` · `use gameultra3dpro228`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro229
+
+`import "std/c/gameultra3dpro229"` · `use gameultra3dpro229`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro230
+
+`import "std/c/gameultra3dpro230"` · `use gameultra3dpro230`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro231
+
+`import "std/c/gameultra3dpro231"` · `use gameultra3dpro231`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro232
+
+`import "std/c/gameultra3dpro232"` · `use gameultra3dpro232`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro233
+
+`import "std/c/gameultra3dpro233"` · `use gameultra3dpro233`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro234
+
+`import "std/c/gameultra3dpro234"` · `use gameultra3dpro234`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro235
+
+`import "std/c/gameultra3dpro235"` · `use gameultra3dpro235`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro236
+
+`import "std/c/gameultra3dpro236"` · `use gameultra3dpro236`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro237
+
+`import "std/c/gameultra3dpro237"` · `use gameultra3dpro237`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro238
+
+`import "std/c/gameultra3dpro238"` · `use gameultra3dpro238`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro239
+
+`import "std/c/gameultra3dpro239"` · `use gameultra3dpro239`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro240
+
+`import "std/c/gameultra3dpro240"` · `use gameultra3dpro240`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro241
+
+`import "std/c/gameultra3dpro241"` · `use gameultra3dpro241`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro242
+
+`import "std/c/gameultra3dpro242"` · `use gameultra3dpro242`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro243
+
+`import "std/c/gameultra3dpro243"` · `use gameultra3dpro243`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro244
+
+`import "std/c/gameultra3dpro244"` · `use gameultra3dpro244`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro245
+
+`import "std/c/gameultra3dpro245"` · `use gameultra3dpro245`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro246
+
+`import "std/c/gameultra3dpro246"` · `use gameultra3dpro246`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro247
+
+`import "std/c/gameultra3dpro247"` · `use gameultra3dpro247`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro248
+
+`import "std/c/gameultra3dpro248"` · `use gameultra3dpro248`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro249
+
+`import "std/c/gameultra3dpro249"` · `use gameultra3dpro249`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro250
+
+`import "std/c/gameultra3dpro250"` · `use gameultra3dpro250`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro251
+
+`import "std/c/gameultra3dpro251"` · `use gameultra3dpro251`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro252
+
+`import "std/c/gameultra3dpro252"` · `use gameultra3dpro252`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro253
+
+`import "std/c/gameultra3dpro253"` · `use gameultra3dpro253`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro254
+
+`import "std/c/gameultra3dpro254"` · `use gameultra3dpro254`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro255
+
+`import "std/c/gameultra3dpro255"` · `use gameultra3dpro255`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro256
+
+`import "std/c/gameultra3dpro256"` · `use gameultra3dpro256`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro257
+
+`import "std/c/gameultra3dpro257"` · `use gameultra3dpro257`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro258
+
+`import "std/c/gameultra3dpro258"` · `use gameultra3dpro258`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro259
+
+`import "std/c/gameultra3dpro259"` · `use gameultra3dpro259`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro260
+
+`import "std/c/gameultra3dpro260"` · `use gameultra3dpro260`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro261
+
+`import "std/c/gameultra3dpro261"` · `use gameultra3dpro261`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro262
+
+`import "std/c/gameultra3dpro262"` · `use gameultra3dpro262`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro263
+
+`import "std/c/gameultra3dpro263"` · `use gameultra3dpro263`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro264
+
+`import "std/c/gameultra3dpro264"` · `use gameultra3dpro264`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro265
+
+`import "std/c/gameultra3dpro265"` · `use gameultra3dpro265`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro266
+
+`import "std/c/gameultra3dpro266"` · `use gameultra3dpro266`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro267
+
+`import "std/c/gameultra3dpro267"` · `use gameultra3dpro267`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro268
+
+`import "std/c/gameultra3dpro268"` · `use gameultra3dpro268`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro269
+
+`import "std/c/gameultra3dpro269"` · `use gameultra3dpro269`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro270
+
+`import "std/c/gameultra3dpro270"` · `use gameultra3dpro270`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro271
+
+`import "std/c/gameultra3dpro271"` · `use gameultra3dpro271`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro272
+
+`import "std/c/gameultra3dpro272"` · `use gameultra3dpro272`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro273
+
+`import "std/c/gameultra3dpro273"` · `use gameultra3dpro273`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro274
+
+`import "std/c/gameultra3dpro274"` · `use gameultra3dpro274`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro275
+
+`import "std/c/gameultra3dpro275"` · `use gameultra3dpro275`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro276
+
+`import "std/c/gameultra3dpro276"` · `use gameultra3dpro276`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro277
+
+`import "std/c/gameultra3dpro277"` · `use gameultra3dpro277`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro278
+
+`import "std/c/gameultra3dpro278"` · `use gameultra3dpro278`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro279
+
+`import "std/c/gameultra3dpro279"` · `use gameultra3dpro279`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro280
+
+`import "std/c/gameultra3dpro280"` · `use gameultra3dpro280`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro281
+
+`import "std/c/gameultra3dpro281"` · `use gameultra3dpro281`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro282
+
+`import "std/c/gameultra3dpro282"` · `use gameultra3dpro282`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro283
+
+`import "std/c/gameultra3dpro283"` · `use gameultra3dpro283`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro284
+
+`import "std/c/gameultra3dpro284"` · `use gameultra3dpro284`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro285
+
+`import "std/c/gameultra3dpro285"` · `use gameultra3dpro285`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro286
+
+`import "std/c/gameultra3dpro286"` · `use gameultra3dpro286`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro287
+
+`import "std/c/gameultra3dpro287"` · `use gameultra3dpro287`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro288
+
+`import "std/c/gameultra3dpro288"` · `use gameultra3dpro288`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro289
+
+`import "std/c/gameultra3dpro289"` · `use gameultra3dpro289`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro290
+
+`import "std/c/gameultra3dpro290"` · `use gameultra3dpro290`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro291
+
+`import "std/c/gameultra3dpro291"` · `use gameultra3dpro291`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro292
+
+`import "std/c/gameultra3dpro292"` · `use gameultra3dpro292`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro293
+
+`import "std/c/gameultra3dpro293"` · `use gameultra3dpro293`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro294
+
+`import "std/c/gameultra3dpro294"` · `use gameultra3dpro294`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro295
+
+`import "std/c/gameultra3dpro295"` · `use gameultra3dpro295`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro296
+
+`import "std/c/gameultra3dpro296"` · `use gameultra3dpro296`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro297
+
+`import "std/c/gameultra3dpro297"` · `use gameultra3dpro297`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro298
+
+`import "std/c/gameultra3dpro298"` · `use gameultra3dpro298`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro299
+
+`import "std/c/gameultra3dpro299"` · `use gameultra3dpro299`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro300
+
+`import "std/c/gameultra3dpro300"` · `use gameultra3dpro300`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro301
+
+`import "std/c/gameultra3dpro301"` · `use gameultra3dpro301`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro302
+
+`import "std/c/gameultra3dpro302"` · `use gameultra3dpro302`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro303
+
+`import "std/c/gameultra3dpro303"` · `use gameultra3dpro303`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro304
+
+`import "std/c/gameultra3dpro304"` · `use gameultra3dpro304`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro305
+
+`import "std/c/gameultra3dpro305"` · `use gameultra3dpro305`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro306
+
+`import "std/c/gameultra3dpro306"` · `use gameultra3dpro306`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro307
+
+`import "std/c/gameultra3dpro307"` · `use gameultra3dpro307`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro308
+
+`import "std/c/gameultra3dpro308"` · `use gameultra3dpro308`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro309
+
+`import "std/c/gameultra3dpro309"` · `use gameultra3dpro309`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro310
+
+`import "std/c/gameultra3dpro310"` · `use gameultra3dpro310`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro311
+
+`import "std/c/gameultra3dpro311"` · `use gameultra3dpro311`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro312
+
+`import "std/c/gameultra3dpro312"` · `use gameultra3dpro312`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro313
+
+`import "std/c/gameultra3dpro313"` · `use gameultra3dpro313`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro314
+
+`import "std/c/gameultra3dpro314"` · `use gameultra3dpro314`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro315
+
+`import "std/c/gameultra3dpro315"` · `use gameultra3dpro315`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro316
+
+`import "std/c/gameultra3dpro316"` · `use gameultra3dpro316`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro317
+
+`import "std/c/gameultra3dpro317"` · `use gameultra3dpro317`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro318
+
+`import "std/c/gameultra3dpro318"` · `use gameultra3dpro318`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro319
+
+`import "std/c/gameultra3dpro319"` · `use gameultra3dpro319`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro320
+
+`import "std/c/gameultra3dpro320"` · `use gameultra3dpro320`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro321
+
+`import "std/c/gameultra3dpro321"` · `use gameultra3dpro321`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro322
+
+`import "std/c/gameultra3dpro322"` · `use gameultra3dpro322`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro323
+
+`import "std/c/gameultra3dpro323"` · `use gameultra3dpro323`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro324
+
+`import "std/c/gameultra3dpro324"` · `use gameultra3dpro324`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro325
+
+`import "std/c/gameultra3dpro325"` · `use gameultra3dpro325`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro326
+
+`import "std/c/gameultra3dpro326"` · `use gameultra3dpro326`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro327
+
+`import "std/c/gameultra3dpro327"` · `use gameultra3dpro327`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro328
+
+`import "std/c/gameultra3dpro328"` · `use gameultra3dpro328`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro329
+
+`import "std/c/gameultra3dpro329"` · `use gameultra3dpro329`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro330
+
+`import "std/c/gameultra3dpro330"` · `use gameultra3dpro330`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro331
+
+`import "std/c/gameultra3dpro331"` · `use gameultra3dpro331`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro332
+
+`import "std/c/gameultra3dpro332"` · `use gameultra3dpro332`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro333
+
+`import "std/c/gameultra3dpro333"` · `use gameultra3dpro333`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro334
+
+`import "std/c/gameultra3dpro334"` · `use gameultra3dpro334`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro335
+
+`import "std/c/gameultra3dpro335"` · `use gameultra3dpro335`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro336
+
+`import "std/c/gameultra3dpro336"` · `use gameultra3dpro336`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro337
+
+`import "std/c/gameultra3dpro337"` · `use gameultra3dpro337`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro338
+
+`import "std/c/gameultra3dpro338"` · `use gameultra3dpro338`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro339
+
+`import "std/c/gameultra3dpro339"` · `use gameultra3dpro339`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro340
+
+`import "std/c/gameultra3dpro340"` · `use gameultra3dpro340`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro341
+
+`import "std/c/gameultra3dpro341"` · `use gameultra3dpro341`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro342
+
+`import "std/c/gameultra3dpro342"` · `use gameultra3dpro342`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro343
+
+`import "std/c/gameultra3dpro343"` · `use gameultra3dpro343`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro344
+
+`import "std/c/gameultra3dpro344"` · `use gameultra3dpro344`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro345
+
+`import "std/c/gameultra3dpro345"` · `use gameultra3dpro345`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro346
+
+`import "std/c/gameultra3dpro346"` · `use gameultra3dpro346`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro347
+
+`import "std/c/gameultra3dpro347"` · `use gameultra3dpro347`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro348
+
+`import "std/c/gameultra3dpro348"` · `use gameultra3dpro348`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro349
+
+`import "std/c/gameultra3dpro349"` · `use gameultra3dpro349`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro350
+
+`import "std/c/gameultra3dpro350"` · `use gameultra3dpro350`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro351
+
+`import "std/c/gameultra3dpro351"` · `use gameultra3dpro351`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro352
+
+`import "std/c/gameultra3dpro352"` · `use gameultra3dpro352`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro353
+
+`import "std/c/gameultra3dpro353"` · `use gameultra3dpro353`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro354
+
+`import "std/c/gameultra3dpro354"` · `use gameultra3dpro354`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro355
+
+`import "std/c/gameultra3dpro355"` · `use gameultra3dpro355`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro356
+
+`import "std/c/gameultra3dpro356"` · `use gameultra3dpro356`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro357
+
+`import "std/c/gameultra3dpro357"` · `use gameultra3dpro357`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro358
+
+`import "std/c/gameultra3dpro358"` · `use gameultra3dpro358`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro359
+
+`import "std/c/gameultra3dpro359"` · `use gameultra3dpro359`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro360
+
+`import "std/c/gameultra3dpro360"` · `use gameultra3dpro360`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro361
+
+`import "std/c/gameultra3dpro361"` · `use gameultra3dpro361`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro362
+
+`import "std/c/gameultra3dpro362"` · `use gameultra3dpro362`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro363
+
+`import "std/c/gameultra3dpro363"` · `use gameultra3dpro363`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro364
+
+`import "std/c/gameultra3dpro364"` · `use gameultra3dpro364`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro365
+
+`import "std/c/gameultra3dpro365"` · `use gameultra3dpro365`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro366
+
+`import "std/c/gameultra3dpro366"` · `use gameultra3dpro366`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro367
+
+`import "std/c/gameultra3dpro367"` · `use gameultra3dpro367`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro368
+
+`import "std/c/gameultra3dpro368"` · `use gameultra3dpro368`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro369
+
+`import "std/c/gameultra3dpro369"` · `use gameultra3dpro369`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro370
+
+`import "std/c/gameultra3dpro370"` · `use gameultra3dpro370`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro371
+
+`import "std/c/gameultra3dpro371"` · `use gameultra3dpro371`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro372
+
+`import "std/c/gameultra3dpro372"` · `use gameultra3dpro372`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro373
+
+`import "std/c/gameultra3dpro373"` · `use gameultra3dpro373`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro374
+
+`import "std/c/gameultra3dpro374"` · `use gameultra3dpro374`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro375
+
+`import "std/c/gameultra3dpro375"` · `use gameultra3dpro375`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro376
+
+`import "std/c/gameultra3dpro376"` · `use gameultra3dpro376`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro377
+
+`import "std/c/gameultra3dpro377"` · `use gameultra3dpro377`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro378
+
+`import "std/c/gameultra3dpro378"` · `use gameultra3dpro378`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro379
+
+`import "std/c/gameultra3dpro379"` · `use gameultra3dpro379`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro380
+
+`import "std/c/gameultra3dpro380"` · `use gameultra3dpro380`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro381
+
+`import "std/c/gameultra3dpro381"` · `use gameultra3dpro381`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro382
+
+`import "std/c/gameultra3dpro382"` · `use gameultra3dpro382`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro383
+
+`import "std/c/gameultra3dpro383"` · `use gameultra3dpro383`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro384
+
+`import "std/c/gameultra3dpro384"` · `use gameultra3dpro384`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro385
+
+`import "std/c/gameultra3dpro385"` · `use gameultra3dpro385`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro386
+
+`import "std/c/gameultra3dpro386"` · `use gameultra3dpro386`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro387
+
+`import "std/c/gameultra3dpro387"` · `use gameultra3dpro387`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro388
+
+`import "std/c/gameultra3dpro388"` · `use gameultra3dpro388`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro389
+
+`import "std/c/gameultra3dpro389"` · `use gameultra3dpro389`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro390
+
+`import "std/c/gameultra3dpro390"` · `use gameultra3dpro390`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro391
+
+`import "std/c/gameultra3dpro391"` · `use gameultra3dpro391`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro392
+
+`import "std/c/gameultra3dpro392"` · `use gameultra3dpro392`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro393
+
+`import "std/c/gameultra3dpro393"` · `use gameultra3dpro393`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro394
+
+`import "std/c/gameultra3dpro394"` · `use gameultra3dpro394`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro395
+
+`import "std/c/gameultra3dpro395"` · `use gameultra3dpro395`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro396
+
+`import "std/c/gameultra3dpro396"` · `use gameultra3dpro396`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro397
+
+`import "std/c/gameultra3dpro397"` · `use gameultra3dpro397`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro398
+
+`import "std/c/gameultra3dpro398"` · `use gameultra3dpro398`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro399
+
+`import "std/c/gameultra3dpro399"` · `use gameultra3dpro399`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro400
+
+`import "std/c/gameultra3dpro400"` · `use gameultra3dpro400`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro401
+
+`import "std/c/gameultra3dpro401"` · `use gameultra3dpro401`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro402
+
+`import "std/c/gameultra3dpro402"` · `use gameultra3dpro402`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro403
+
+`import "std/c/gameultra3dpro403"` · `use gameultra3dpro403`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro404
+
+`import "std/c/gameultra3dpro404"` · `use gameultra3dpro404`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro405
+
+`import "std/c/gameultra3dpro405"` · `use gameultra3dpro405`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro406
+
+`import "std/c/gameultra3dpro406"` · `use gameultra3dpro406`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro407
+
+`import "std/c/gameultra3dpro407"` · `use gameultra3dpro407`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro408
+
+`import "std/c/gameultra3dpro408"` · `use gameultra3dpro408`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro409
+
+`import "std/c/gameultra3dpro409"` · `use gameultra3dpro409`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro410
+
+`import "std/c/gameultra3dpro410"` · `use gameultra3dpro410`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro411
+
+`import "std/c/gameultra3dpro411"` · `use gameultra3dpro411`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro412
+
+`import "std/c/gameultra3dpro412"` · `use gameultra3dpro412`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro413
+
+`import "std/c/gameultra3dpro413"` · `use gameultra3dpro413`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro414
+
+`import "std/c/gameultra3dpro414"` · `use gameultra3dpro414`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro415
+
+`import "std/c/gameultra3dpro415"` · `use gameultra3dpro415`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro416
+
+`import "std/c/gameultra3dpro416"` · `use gameultra3dpro416`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro417
+
+`import "std/c/gameultra3dpro417"` · `use gameultra3dpro417`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro418
+
+`import "std/c/gameultra3dpro418"` · `use gameultra3dpro418`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro419
+
+`import "std/c/gameultra3dpro419"` · `use gameultra3dpro419`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro420
+
+`import "std/c/gameultra3dpro420"` · `use gameultra3dpro420`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro421
+
+`import "std/c/gameultra3dpro421"` · `use gameultra3dpro421`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro422
+
+`import "std/c/gameultra3dpro422"` · `use gameultra3dpro422`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro423
+
+`import "std/c/gameultra3dpro423"` · `use gameultra3dpro423`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro424
+
+`import "std/c/gameultra3dpro424"` · `use gameultra3dpro424`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro425
+
+`import "std/c/gameultra3dpro425"` · `use gameultra3dpro425`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro426
+
+`import "std/c/gameultra3dpro426"` · `use gameultra3dpro426`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro427
+
+`import "std/c/gameultra3dpro427"` · `use gameultra3dpro427`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro428
+
+`import "std/c/gameultra3dpro428"` · `use gameultra3dpro428`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro429
+
+`import "std/c/gameultra3dpro429"` · `use gameultra3dpro429`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro430
+
+`import "std/c/gameultra3dpro430"` · `use gameultra3dpro430`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro431
+
+`import "std/c/gameultra3dpro431"` · `use gameultra3dpro431`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro432
+
+`import "std/c/gameultra3dpro432"` · `use gameultra3dpro432`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro433
+
+`import "std/c/gameultra3dpro433"` · `use gameultra3dpro433`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro434
+
+`import "std/c/gameultra3dpro434"` · `use gameultra3dpro434`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro435
+
+`import "std/c/gameultra3dpro435"` · `use gameultra3dpro435`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro436
+
+`import "std/c/gameultra3dpro436"` · `use gameultra3dpro436`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro437
+
+`import "std/c/gameultra3dpro437"` · `use gameultra3dpro437`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro438
+
+`import "std/c/gameultra3dpro438"` · `use gameultra3dpro438`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro439
+
+`import "std/c/gameultra3dpro439"` · `use gameultra3dpro439`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro440
+
+`import "std/c/gameultra3dpro440"` · `use gameultra3dpro440`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro441
+
+`import "std/c/gameultra3dpro441"` · `use gameultra3dpro441`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro442
+
+`import "std/c/gameultra3dpro442"` · `use gameultra3dpro442`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro443
+
+`import "std/c/gameultra3dpro443"` · `use gameultra3dpro443`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro444
+
+`import "std/c/gameultra3dpro444"` · `use gameultra3dpro444`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro445
+
+`import "std/c/gameultra3dpro445"` · `use gameultra3dpro445`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro446
+
+`import "std/c/gameultra3dpro446"` · `use gameultra3dpro446`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro447
+
+`import "std/c/gameultra3dpro447"` · `use gameultra3dpro447`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro448
+
+`import "std/c/gameultra3dpro448"` · `use gameultra3dpro448`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro449
+
+`import "std/c/gameultra3dpro449"` · `use gameultra3dpro449`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro450
+
+`import "std/c/gameultra3dpro450"` · `use gameultra3dpro450`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro451
+
+`import "std/c/gameultra3dpro451"` · `use gameultra3dpro451`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro452
+
+`import "std/c/gameultra3dpro452"` · `use gameultra3dpro452`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro453
+
+`import "std/c/gameultra3dpro453"` · `use gameultra3dpro453`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro454
+
+`import "std/c/gameultra3dpro454"` · `use gameultra3dpro454`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro455
+
+`import "std/c/gameultra3dpro455"` · `use gameultra3dpro455`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro456
+
+`import "std/c/gameultra3dpro456"` · `use gameultra3dpro456`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro457
+
+`import "std/c/gameultra3dpro457"` · `use gameultra3dpro457`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro458
+
+`import "std/c/gameultra3dpro458"` · `use gameultra3dpro458`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro459
+
+`import "std/c/gameultra3dpro459"` · `use gameultra3dpro459`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro460
+
+`import "std/c/gameultra3dpro460"` · `use gameultra3dpro460`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro461
+
+`import "std/c/gameultra3dpro461"` · `use gameultra3dpro461`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro462
+
+`import "std/c/gameultra3dpro462"` · `use gameultra3dpro462`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro463
+
+`import "std/c/gameultra3dpro463"` · `use gameultra3dpro463`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro464
+
+`import "std/c/gameultra3dpro464"` · `use gameultra3dpro464`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro465
+
+`import "std/c/gameultra3dpro465"` · `use gameultra3dpro465`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro466
+
+`import "std/c/gameultra3dpro466"` · `use gameultra3dpro466`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro467
+
+`import "std/c/gameultra3dpro467"` · `use gameultra3dpro467`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro468
+
+`import "std/c/gameultra3dpro468"` · `use gameultra3dpro468`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro469
+
+`import "std/c/gameultra3dpro469"` · `use gameultra3dpro469`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro470
+
+`import "std/c/gameultra3dpro470"` · `use gameultra3dpro470`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro471
+
+`import "std/c/gameultra3dpro471"` · `use gameultra3dpro471`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro472
+
+`import "std/c/gameultra3dpro472"` · `use gameultra3dpro472`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro473
+
+`import "std/c/gameultra3dpro473"` · `use gameultra3dpro473`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro474
+
+`import "std/c/gameultra3dpro474"` · `use gameultra3dpro474`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro475
+
+`import "std/c/gameultra3dpro475"` · `use gameultra3dpro475`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro476
+
+`import "std/c/gameultra3dpro476"` · `use gameultra3dpro476`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro477
+
+`import "std/c/gameultra3dpro477"` · `use gameultra3dpro477`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro478
+
+`import "std/c/gameultra3dpro478"` · `use gameultra3dpro478`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro479
+
+`import "std/c/gameultra3dpro479"` · `use gameultra3dpro479`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro480
+
+`import "std/c/gameultra3dpro480"` · `use gameultra3dpro480`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro481
+
+`import "std/c/gameultra3dpro481"` · `use gameultra3dpro481`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro482
+
+`import "std/c/gameultra3dpro482"` · `use gameultra3dpro482`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro483
+
+`import "std/c/gameultra3dpro483"` · `use gameultra3dpro483`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro484
+
+`import "std/c/gameultra3dpro484"` · `use gameultra3dpro484`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro485
+
+`import "std/c/gameultra3dpro485"` · `use gameultra3dpro485`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro486
+
+`import "std/c/gameultra3dpro486"` · `use gameultra3dpro486`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro487
+
+`import "std/c/gameultra3dpro487"` · `use gameultra3dpro487`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro488
+
+`import "std/c/gameultra3dpro488"` · `use gameultra3dpro488`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro489
+
+`import "std/c/gameultra3dpro489"` · `use gameultra3dpro489`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro490
+
+`import "std/c/gameultra3dpro490"` · `use gameultra3dpro490`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro491
+
+`import "std/c/gameultra3dpro491"` · `use gameultra3dpro491`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro492
+
+`import "std/c/gameultra3dpro492"` · `use gameultra3dpro492`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro493
+
+`import "std/c/gameultra3dpro493"` · `use gameultra3dpro493`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro494
+
+`import "std/c/gameultra3dpro494"` · `use gameultra3dpro494`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro495
+
+`import "std/c/gameultra3dpro495"` · `use gameultra3dpro495`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro496
+
+`import "std/c/gameultra3dpro496"` · `use gameultra3dpro496`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro497
+
+`import "std/c/gameultra3dpro497"` · `use gameultra3dpro497`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro498
+
+`import "std/c/gameultra3dpro498"` · `use gameultra3dpro498`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro499
+
+`import "std/c/gameultra3dpro499"` · `use gameultra3dpro499`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gameultra3dpro500
+
+`import "std/c/gameultra3dpro500"` · `use gameultra3dpro500`
+
+- `astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) → list number`
+- `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
+- `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`

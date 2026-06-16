@@ -190,6 +190,95 @@ def add_ultra_game3d_modules(count: int) -> None:
              'if(t<=0){out[1]=-1;return out;}out[0]=1;out[1]=t;return out;}'),
         ])
 
+def add_ultra_game3dpro_modules(count: int) -> None:
+    """Add even more advanced 3D game modules (voxel pathfinding, avoidance, ray AABB)."""
+    for i in range(1, count + 1):
+        name = f"gameultra3dpro{i:03d}"
+        w_heur = 1.0 + (i % 23) * 0.02
+        avoidW = 0.8 + (i % 19) * 0.03
+        slowR = 2.5 + (i % 17) * 0.15
+        cx(name, [
+            # 3D voxel A* path (6-neighborhood).
+            # grid size w*h*d, blocked if grid[idx] > blockedAbove.
+            # returns packed indices (x + y*w + z*w*h) from start to goal.
+            ('astarVoxelPath', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'), ('d', 'number'),
+              ('sx', 'number'), ('sy', 'number'), ('sz', 'number'),
+              ('gx', 'number'), ('gy', 'number'), ('gz', 'number'),
+              ('blockedAbove', 'number')],
+             '{int W=static_cast<int>(w),H=static_cast<int>(h),D=static_cast<int>(d);'
+             'int Sx=static_cast<int>(sx),Sy=static_cast<int>(sy),Sz=static_cast<int>(sz);'
+             'int Gx=static_cast<int>(gx),Gy=static_cast<int>(gy),Gz=static_cast<int>(gz);'
+             'if(W<=0||H<=0||D<=0)return std::vector<double>{};'
+             'auto in=[&](int x,int y,int z){return x>=0&&y>=0&&z>=0&&x<W&&y<H&&z<D;};'
+             'if(!in(Sx,Sy,Sz)||!in(Gx,Gy,Gz))return std::vector<double>{};'
+             'auto idx=[&](int x,int y,int z){return z*W*H+y*W+x;};'
+             'int N=W*H*D;'
+             'auto blocked=[&](int x,int y,int z){std::size_t k=(std::size_t)idx(x,y,z);'
+             'return k>=grid.size()?true:(grid[k]>blockedAbove);};'
+             'if(blocked(Sx,Sy,Sz)||blocked(Gx,Gy,Gz))return std::vector<double>{};'
+             'std::vector<double> gScore((std::size_t)N,1e18);'
+             'std::vector<int> came((std::size_t)N,-1);'
+             'std::vector<char> closed((std::size_t)N,0);'
+             'std::vector<int> open;open.reserve(512);'
+             f'auto hfun=[&](int x,int y,int z){{return (std::fabs(x-Gx)+std::fabs(y-Gy)+std::fabs(z-Gz))*{w_heur:.6f};}};'
+             'int s=idx(Sx,Sy,Sz),g=idx(Gx,Gy,Gz);gScore[(std::size_t)s]=0;open.push_back(s);'
+             'const int dx[6]={1,-1,0,0,0,0};const int dy[6]={0,0,1,-1,0,0};const int dz[6]={0,0,0,0,1,-1};'
+             'while(!open.empty()){int besti=0;double bestf=1e18;'
+             'for(int oi=0;oi<(int)open.size();++oi){int n=open[(std::size_t)oi];'
+             'int z=n/(W*H);int rem=n-z*(W*H);int y=rem/W;int x=rem-y*W;'
+             'double f=gScore[(std::size_t)n]+hfun(x,y,z);if(f<bestf){bestf=f;besti=oi;}}'
+             'int cur=open[(std::size_t)besti];open.erase(open.begin()+besti);'
+             'if(cur==g)break; if(closed[(std::size_t)cur])continue; closed[(std::size_t)cur]=1;'
+             'int cz=cur/(W*H);int rem=cur-cz*(W*H);int cy=rem/W;int cx=rem-cy*W;'
+             'for(int k=0;k<6;++k){int nx=cx+dx[k],ny=cy+dy[k],nz=cz+dz[k];'
+             'if(!in(nx,ny,nz)||blocked(nx,ny,nz))continue;int ni=idx(nx,ny,nz);'
+             'if(closed[(std::size_t)ni])continue;double tg=gScore[(std::size_t)cur]+1.0;'
+             'if(tg<gScore[(std::size_t)ni]){gScore[(std::size_t)ni]=tg;came[(std::size_t)ni]=cur;open.push_back(ni);} }'
+             '}'
+             'if(came[(std::size_t)g]<0 && g!=s)return std::vector<double>{};'
+             'std::vector<double> path;for(int v=g;v>=0;v=came[(std::size_t)v]){path.push_back((double)v);if(v==s)break;}'
+             'std::reverse(path.begin(),path.end());return path;}'),
+
+            # Ray vs AABB (axis-aligned box) ; returns [hit(0/1), tNear]
+            ('rayAabbHit', 'list number',
+             [('ox', 'number'), ('oy', 'number'), ('oz', 'number'),
+              ('dx', 'number'), ('dy', 'number'), ('dz', 'number'),
+              ('cx', 'number'), ('cy', 'number'), ('cz', 'number'),
+              ('hx', 'number'), ('hy', 'number'), ('hz', 'number')],
+             '{std::vector<double> out(2,0);'
+             'double invX=std::fabs(dx)<1e-9?1e18:1.0/dx;'
+             'double invY=std::fabs(dy)<1e-9?1e18:1.0/dy;'
+             'double invZ=std::fabs(dz)<1e-9?1e18:1.0/dz;'
+             'double t0=(cx-hx-ox)*invX,t1=(cx+hx-ox)*invX;if(t0>t1)std::swap(t0,t1);'
+             'double ty0=(cy-hy-oy)*invY,ty1=(cy+hy-oy)*invY;if(ty0>ty1)std::swap(ty0,ty1);'
+             'if(t0>ty1||ty0>t1){out[1]=-1;return out;} if(ty0>t0)t0=ty0; if(ty1<t1)t1=ty1;'
+             'double tz0=(cz-hz-oz)*invZ,tz1=(cz+hz-oz)*invZ;if(tz0>tz1)std::swap(tz0,tz1);'
+             'if(t0>tz1||tz0>t1){out[1]=-1;return out;} if(tz0>t0)t0=tz0; if(tz1<t1)t1=tz1;'
+             'double t=t0>0?t0:t1; if(t<=0){out[1]=-1;return out;} out[0]=1; out[1]=t; return out;}'),
+
+            # "Arrive" steering: seek with slowdown radius (returns [vx,vy,vz])
+            ('steerArrive', 'list number',
+             [('px', 'number'), ('py', 'number'), ('pz', 'number'),
+              ('tx', 'number'), ('ty', 'number'), ('tz', 'number'),
+              ('maxSpeed', 'number')],
+             f'{{double dx=tx-px,dy=ty-py,dz=tz-pz;double dist=std::sqrt(dx*dx+dy*dy+dz*dz);'
+             f'std::vector<double> v(3,0);if(dist<1e-9)return v;'
+             f'double ms=maxSpeed; if(ms<0)ms=0; double sp = ms;'
+             f'double sr={slowR:.6f}; if(sr>1e-9 && dist<sr) sp = ms * (dist/sr);'
+             f'double s=(dist<1e-9)?0:(sp/dist); v[0]=dx*s;v[1]=dy*s;v[2]=dz*s; return v;}}'),
+
+            # Simple avoidance force away from a sphere obstacle (returns [fx,fy,fz])
+            ('avoidSphereForce', 'list number',
+             [('px', 'number'), ('py', 'number'), ('pz', 'number'),
+              ('cx', 'number'), ('cy', 'number'), ('cz', 'number'),
+              ('radius', 'number')],
+             f'{{double dx=px-cx,dy=py-cy,dz=pz-cz;double d2=dx*dx+dy*dy+dz*dz;'
+             f'std::vector<double> f(3,0);double r=radius; if(r<=0) return f;'
+             f'double rr=r*r; if(d2>=rr||d2<1e-12) return f; double d=std::sqrt(d2);'
+             f'double t=(r-d)/r; double s=t*{avoidW:.6f}; f[0]=dx/d*s; f[1]=dy/d*s; f[2]=dz/d*s; return f;}}'),
+        ])
+
 
 cx('graphbfs', [
     ('bfsDistances', 'list number', [('adj', 'list number'), ('n', 'number'), ('start', 'number')],
@@ -3727,6 +3816,9 @@ add_ultra_game_modules(500)
 
 # Add 500 ultra complex 3D game modules in std/c/
 add_ultra_game3d_modules(500)
+
+# Add 500 ultra complex 3D PRO game modules in std/c/
+add_ultra_game3dpro_modules(500)
 
 
 def main() -> None:

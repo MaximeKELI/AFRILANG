@@ -1,0 +1,15 @@
+module gameultra3dpro071
+
+function astarVoxelPath(grid list number, w number, h number, d number, sx number, sy number, sz number, gx number, gy number, gz number, blockedAbove number) returns list number
+end
+
+function rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) returns list number
+end
+
+function steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) returns list number
+end
+
+function avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) returns list number
+end
+
+end
