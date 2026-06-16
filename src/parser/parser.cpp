@@ -1505,17 +1505,13 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
                 error("Accolade '}' manquante dans la chaîne interpolée");
             }
             const std::string exprSource = raw.substr(i + 1, close - i - 1);
-            if (isIdent(exprSource)) {
+            if (!exprSource.empty()) {
                 Lexer subLexer(exprSource);
                 Parser subParser(subLexer.tokenize());
                 parts.push_back(subParser.parseExpression());
                 i = close + 1;
                 continue;
             }
-            parts.push_back(std::make_unique<StringLiteralNode>(
-                raw.substr(i, close - i + 1)));
-            i = close + 1;
-            continue;
         }
 
         const std::size_t next = raw.find('{', i);

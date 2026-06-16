@@ -186,22 +186,14 @@ while isOpen() do
     if isState("menu") then
         if wasKeyPressed("Space") then setState("play") end
         if wasKeyPressed("Enter") then setState("play") end
-
-        if drawButton("Jouer", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 - 40, 240, 54) then
-            setState("play")
-        end
-        if drawButton("Difficulte: {difficulty}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 26, 240, 44) then
-            set difficulty = difficulty + 1
-            if difficulty is greater than 3 then set difficulty = 1 end
-        end
-        if drawButton("Volume: {volume}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 78, 240, 44) then
-            set volume = volume + 20
-            if volume is greater than 128 then set volume = 40 end
-        end
     end
 
     if isState("play") then
-        if wasKeyPressed("Space") then setState("pause") end
+        if wasKeyPressed("Space") then
+            if wasStateChanged() is equal to false then
+                setState("pause")
+            end
+        end
     end
 
     if isState("pause") then
@@ -218,19 +210,6 @@ while isOpen() do
             set fx = pack2 at 4
             set fy = pack2 at 5
             setState("play")
-        end
-        if drawButton("Rejouer (R)", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 36, 240, 52) then
-            create pack3 = resetGame(xs, ys, W, H)
-            set snakeLen = pack3 at 0
-            set dirX = pack3 at 1
-            set dirY = pack3 at 2
-            set score = pack3 at 3
-            set fx = pack3 at 4
-            set fy = pack3 at 5
-            setState("play")
-        end
-        if drawButton("Menu", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 94, 240, 44) then
-            setState("menu")
         end
     end
 
@@ -312,6 +291,17 @@ while isOpen() do
         drawCenteredText("AFRILANG SNAKE", gridWindowHeight() / 2 - 140, 46, 245, 245, 250)
         drawCenteredText("Espace / Entrer pour jouer", gridWindowHeight() / 2 - 86, 22, 150, 175, 210)
         drawCenteredText("F1 debug  ·  P pause", gridWindowHeight() / 2 - 56, 18, 120, 130, 155)
+        if drawButton("Jouer", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 - 40, 240, 54) then
+            setState("play")
+        end
+        if drawButton("Difficulte: {difficulty}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 26, 240, 44) then
+            set difficulty = difficulty + 1
+            if difficulty is greater than 3 then set difficulty = 1 end
+        end
+        if drawButton("Volume: {volume}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 78, 240, 44) then
+            set volume = volume + 20
+            if volume is greater than 128 then set volume = 40 end
+        end
     end
     if isState("pause") then
         drawCenteredText("PAUSE", gridWindowHeight() / 2 - 24, 40, 255, 220, 90)
@@ -319,6 +309,19 @@ while isOpen() do
     if isState("gameover") then
         drawCenteredText("GAME OVER", gridWindowHeight() / 2 - 40, 42, 255, 95, 95)
         drawCenteredText("R pour rejouer", gridWindowHeight() / 2 + 8, 24, 220, 220, 235)
+        if drawButton("Rejouer (R)", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 36, 240, 52) then
+            create pack3 = resetGame(xs, ys, W, H)
+            set snakeLen = pack3 at 0
+            set dirX = pack3 at 1
+            set dirY = pack3 at 2
+            set score = pack3 at 3
+            set fx = pack3 at 4
+            set fy = pack3 at 5
+            setState("play")
+        end
+        if drawButton("Menu", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 94, 240, 44) then
+            setState("menu")
+        end
     end
 
     if showDebug then

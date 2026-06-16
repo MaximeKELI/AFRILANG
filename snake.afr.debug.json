@@ -4,7 +4,6 @@
     {"name":"food2","type":"list number","scope":"global"},
     {"name":"grow","type":"bool","scope":"global"},
     {"name":"moveMs","type":"number","scope":"global"},
-    {"name":"pack3","type":"list number","scope":"global"},
     {"name":"level","type":"number","scope":"global"},
     {"name":"initPack","type":"list number","scope":"global"},
     {"name":"fx","type":"number","scope":"global"},
