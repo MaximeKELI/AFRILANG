@@ -60,6 +60,7 @@ function resetGame(xs list number, ys list number, w number, h number) returns l
     set ys at 1 = startY
     set ys at 2 = startY
 
+    resetTimer("move")
     create food0 = placeFood(xs, ys, snakeLen, w, h)
     create fx number = food0 at 0
     create fy number = food0 at 1
@@ -82,23 +83,23 @@ function shouldPauseOnSpace(stateChanged bool) returns bool
 end
 
 function canMoveAfterCountdown(stateMs number) returns bool
-    if stateMs is less than 1200 then
+    if stateMs is less than 2500 then
         return no
     end
     return yes
 end
 
 function countdownLabel(stateMs number) returns text
-    if stateMs is less than 300 then
+    if stateMs is less than 500 then
         return "3"
     end
-    if stateMs is less than 600 then
+    if stateMs is less than 1000 then
         return "2"
     end
-    if stateMs is less than 900 then
+    if stateMs is less than 1500 then
         return "1"
     end
-    if stateMs is less than 1200 then
+    if stateMs is less than 2500 then
         return "GO!"
     end
     return ""

@@ -30,6 +30,23 @@ create volume number = 110
 create showDebug bool = no
 create streak number = 0
 create flashRecord number = 0
+create justStartedPlay bool = no
+
+function applyPlayPack(pack list number)
+    set snakeLen = pack at 0
+    set dirX = pack at 1
+    set dirY = pack at 2
+    set score = pack at 3
+    set fx = pack at 4
+    set fy = pack at 5
+end
+
+function startNewPlay()
+    create pack = resetGame(xs, ys, W, H)
+    applyPlayPack(pack)
+    set justStartedPlay = yes
+    setState("play")
+end
 
 function drawWallsLayer(w number, h number)
     create y number = 0
