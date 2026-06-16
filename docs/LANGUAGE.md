@@ -415,6 +415,8 @@ Primitives pour créer de vrais jeux (rectangles colorés, timing, clavier) :
 | `deltaMs()` | Millisecondes depuis la dernière frame |
 | `windowWidth()` / `windowHeight()` | Taille de la fenêtre |
 | `isKeyDown(key)` / `wasKeyPressed(key)` | Clavier (WASD, flèches, Space, Escape) |
+| `mouseX()` / `mouseY()` | Souris (position) |
+| `isMouseDown()` / `wasMousePressed()` / `wasMouseClicked()` | Souris (bouton gauche) |
 
 ### Moteur 2D (`std/game2d`)
 
@@ -436,7 +438,11 @@ Bibliothèque de jeu haut niveau (grille, timers, entrées, collisions) — bât
 
 **Sprites PNG** : `loadSprite(name, path)`, `drawSprite`, `drawSpriteScaled`, `drawSpriteCell`, `hasSprite`
 
+**Spritesheet** : `loadSpriteSheet(name, path, frameW, frameH)`, `drawSpriteFrame`, `drawSpriteFrameCell`, `sheetCols`, `sheetRows`
+
 **Sons** : `loadSound(name, path)`, `playSound`, `playSoundVolume(name, 0-128)`
+
+**Musique** : `loadMusic(name, path)`, `playMusic(name, loops)`, `stopMusic()`, `setMusicVolume(0-128)`
 
 **Caméra** : `setCamera`, `followCamera(x, y, smooth)`, `configureViewport(cols, rows)` pour cartes plus grandes que l’écran
 
@@ -454,6 +460,7 @@ Jeux 3D avec OpenGL (SDL2 + GL) :
 | `updateFlyCamera(moveSpeed, turnSpeed)` | Vol libre WASD + QE + flèches |
 | `drawCube`, `drawSphere`, `drawPlane`, `drawGrid`, `drawAxis` | Primitives 3D |
 | `setSceneRotation` / `applySceneRotation` | Rotation du monde |
+| `pickBody(screenX, screenY)` | Picking simple (raycast) → index du corps touché, ou -1 |
 
 ```bash
 ./build/afrilang examples/game3d_demo.afr -o game3d_demo --run
