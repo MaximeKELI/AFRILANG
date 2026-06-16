@@ -12,6 +12,7 @@ from .content.docs_search import search_docs
 from .content.ecosystem_i18n import translate_ecosystem
 from .content.example_topics import grouped_examples
 from .content.showcase import get_projects, grouped_projects
+from .content.stdlib_catalog import category_by_id, get_categories
 from .content.tutorial import get_lesson, get_lessons, total_steps
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import (
@@ -27,6 +28,9 @@ from .services.afrilang import (
 from .services.benchmarks import benchmark_summary, load_benchmarks
 from .services.downloads import get_download_context, resolve_binary
 from .services.stdlib_docs import get_module_doc
+from .services.stdlib_guide import build_guide_sections
+from .services.stdlib_meta import module_source_path, parse_module_source
+from .services.stdlib_pdf import resolve_pdf_path
 
 
 def _doc_view(request, url_name):
@@ -198,22 +202,113 @@ def examples_gallery(request):
 
 def stdlib_browse(request):
     q = request.GET.get('q', '').strip()
+    cat = request.GET.get('category', '').strip()
     qs = StdlibModule.objects.all()
+    if cat:
+        qs = qs.filter(category=cat)
     if q:
-        qs = qs.filter(name__icontains=q) | qs.filter(summary__icontains=q) | qs.filter(import_path__icontains=q)
-    return render(request, 'core/stdlib.html', {'modules': qs, 'query': q})
+        qs = qs.filter(name__icontains=q) | qs.filter(summary__icontains=q) | qs.filter(
+            description_fr__icontains=q,
+        ) | qs.filter(import_path__icontains=q)
+    lang = request.LANGUAGE_CODE
+    categories = get_categories(lang)
+    grouped = []
+    for c in categories:
+        mods = StdlibModule.objects.filter(category=c['id'])
+        if cat and c['id'] != cat:
+            continue
+        if mods.exists():
+            grouped.append({**c, 'count': mods.count(), 'modules': mods[:6] if not q else []})
+    return render(request, 'core/stdlib.html', {
+        'modules': qs,
+        'query': q,
+        'category': cat,
+        'categories': categories,
+        'grouped': grouped if not q else None,
+    })
+
+
+def libraries(request):
+    lang = request.LANGUAGE_CODE
+    categories = get_categories(lang)
+    groups = []
+    total = 0
+    pdf_count = 0
+    for c in categories:
+        mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
+        n = mods.count()
+        if n == 0:
+            continue
+        total += n
+        pdf_count += mods.filter(has_pdf=True).count()
+        groups.append({
+            **c,
+            'count': n,
+            'pdf_count': mods.filter(has_pdf=True).count(),
+            'modules': mods,
+        })
+    return render(request, 'core/libraries.html', {
+        'groups': groups,
+        'total': total,
+        'pdf_count': pdf_count,
+    })
 
 
 def stdlib_detail(request, name):
     mod = get_object_or_404(StdlibModule, name=name)
-    path = Path(settings.AFRILANG_ROOT) / 'stdlib' / f'{name}.afr'
+    path = module_source_path(name)
     if not path.is_file():
         raise Http404('Module source not found')
     source = path.read_text(encoding='utf-8', errors='replace')
     doc = get_module_doc(name)
+    parsed = parse_module_source(source)
+    cat = category_by_id(mod.category, request.LANGUAGE_CODE)
+    pdf_path = resolve_pdf_path(name)
     return render(request, 'core/stdlib_detail.html', {
-        'mod': mod, 'source': source, 'doc': doc,
+        'mod': mod,
+        'source': source,
+        'doc': doc,
+        'functions': parsed['functions'],
+        'category': cat,
+        'has_pdf': pdf_path is not None or mod.has_pdf,
     })
+
+
+def stdlib_guide(request, name):
+    mod = get_object_or_404(StdlibModule, name=name)
+    path = module_source_path(name)
+    if not path.is_file():
+        raise Http404
+    source = path.read_text(encoding='utf-8', errors='replace')
+    parsed = parse_module_source(source)
+    lang = request.LANGUAGE_CODE
+    sections = build_guide_sections(mod, source, parsed['functions'], lang)
+    return render(request, 'core/stdlib_guide.html', {
+        'mod': mod,
+        'sections': sections,
+        'functions': parsed['functions'],
+    })
+
+
+@require_GET
+def stdlib_pdf(request, name):
+    mod = get_object_or_404(StdlibModule, name=name)
+    pdf_path = resolve_pdf_path(name)
+    if not pdf_path:
+        from .services.stdlib_pdf import generate_pdf
+        try:
+            pdf_path = generate_pdf(mod)
+            mod.has_pdf = True
+            mod.save(update_fields=['has_pdf'])
+        except Exception as e:
+            return HttpResponse(f'PDF unavailable: {e}', status=503)
+    safe = name.replace('/', '__')
+    return FileResponse(
+        pdf_path.open('rb'),
+        content_type='application/pdf',
+        as_attachment=True,
+        filename=f'afrilang-{safe}.pdf',
+    )
 
 
 def _parse_release_body(body: str) -> list[dict]:

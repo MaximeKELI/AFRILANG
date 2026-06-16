@@ -142,6 +142,10 @@ PLAYGROUND_WASM_DIR = os.environ.get(
     'PLAYGROUND_WASM_DIR',
     str(BASE_DIR / 'tmp' / 'wasm_sessions'),
 )
+STDLIB_PDF_DIR = os.environ.get(
+    'STDLIB_PDF_DIR',
+    str(BASE_DIR / 'static' / 'stdlib_pdfs'),
+)
 
 CACHES = {
     'default': {

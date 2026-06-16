@@ -60,18 +60,34 @@ class CodeExample(models.Model):
 
 
 class StdlibModule(models.Model):
+    TIER_CHOICES = [
+        ('simple', 'Simple'),
+        ('medium', 'Medium'),
+        ('complex', 'Complex'),
+    ]
+
     name = models.CharField(max_length=256, unique=True)
     import_path = models.CharField(max_length=256)
     summary = models.CharField(max_length=512, blank=True)
+    description_fr = models.TextField(blank=True)
+    description_en = models.TextField(blank=True)
+    category = models.CharField(max_length=32, default='utilities', db_index=True)
+    tier = models.CharField(max_length=16, choices=TIER_CHOICES, default='simple', db_index=True)
     function_count = models.PositiveSmallIntegerField(default=0)
+    has_pdf = models.BooleanField(default=False)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['name']
+        ordering = ['category', 'name']
         verbose_name = 'Stdlib module'
 
     def __str__(self):
         return self.import_path
+
+    def description(self, lang: str = 'fr') -> str:
+        if (lang or 'fr')[:2] == 'en' and self.description_en:
+            return self.description_en
+        return self.description_fr or self.description_en or self.summary
 
 
 class Release(models.Model):
