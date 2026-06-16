@@ -1016,3 +1016,24 @@ body.afr-body.afr-loaded main {
   text-align: right;
 }
 
+/* ── Showcase ── */
+.showcase-card-featured {
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+.showcase-github-icon {
+  color: var(--afr-text-secondary);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.showcase-card:hover .showcase-github-icon {
+  color: var(--afr-text);
+  opacity: 1;
+}
+
+.showcase-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+

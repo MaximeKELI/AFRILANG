@@ -45,6 +45,7 @@ Ouvrir **http://127.0.0.1:8000**
 - `/packages/` — Registre PostgreSQL + recherche
 - `/playground/` — Éditeur + API run/fmt
 - `/benchmarks/` — Graphiques compile/exec (Chart.js)
+- `/showcase/` — Galerie projets GitHub
 - `/admin/` — Administration Django
 
 ## API REST

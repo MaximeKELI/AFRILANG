@@ -11,7 +11,7 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         views = [
-            'home', 'language', 'explore', 'packages', 'playground', 'tutorial', 'benchmarks',
+            'home', 'language', 'explore', 'packages', 'playground', 'tutorial', 'benchmarks', 'showcase',
             'download', 'community', 'api_reference', 'examples',
             'stdlib', 'releases', 'docs_search',
         ]

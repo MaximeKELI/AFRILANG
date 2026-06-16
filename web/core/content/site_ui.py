@@ -565,6 +565,17 @@ UI = {
                 'Times vary by CPU, cache and system load.'
             ),
         },
+        'showcase_page': {
+            'title': 'AFRILANG Showcase',
+            'label': 'Projects',
+            'h1': 'Projects & repositories',
+            'lead': 'Compiler, tools, website, packages and demos — the AFRILANG ecosystem on GitHub.',
+            'featured': 'Featured projects',
+            'try_btn': 'Playground',
+            'submit_title': 'Built something with AFRILANG?',
+            'submit_lead': 'Publish on GitHub and open an issue to be listed in this gallery.',
+            'submit_btn': 'Submit a project',
+        },
         'docs_search_page': {
             'title': 'Documentation search',
             'h1': 'Search documentation',
