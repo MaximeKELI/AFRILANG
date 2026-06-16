@@ -1,0 +1,5 @@
+import "std/game"
+use game
+
+create lvl number = levelFromXp(1000)
+
