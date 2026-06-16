@@ -155,19 +155,35 @@ function render(xs list number, ys list number, fx number, fy number, score numb
 end
 
 function dirFromChar(c text, dx number, dy number) returns list number
-    if c is equal to "W" or c is equal to "w" then
+    if c is equal to "W" then
         if dy is equal to 1 then return list of dx, dy end
         return list of 0, -1
     end
-    if c is equal to "S" or c is equal to "s" then
+    if c is equal to "w" then
+        if dy is equal to 1 then return list of dx, dy end
+        return list of 0, -1
+    end
+    if c is equal to "S" then
         if dy is equal to -1 then return list of dx, dy end
         return list of 0, 1
     end
-    if c is equal to "A" or c is equal to "a" then
+    if c is equal to "s" then
+        if dy is equal to -1 then return list of dx, dy end
+        return list of 0, 1
+    end
+    if c is equal to "A" then
         if dx is equal to 1 then return list of dx, dy end
         return list of -1, 0
     end
-    if c is equal to "D" or c is equal to "d" then
+    if c is equal to "a" then
+        if dx is equal to 1 then return list of dx, dy end
+        return list of -1, 0
+    end
+    if c is equal to "D" then
+        if dx is equal to -1 then return list of dx, dy end
+        return list of 1, 0
+    end
+    if c is equal to "d" then
         if dx is equal to -1 then return list of dx, dy end
         return list of 1, 0
     end
@@ -205,7 +221,11 @@ while step is less than MAX_STEPS do
 
     if step is less than length of moves then
         create c = moves at step
-        if c is equal to "Q" or c is equal to "q" then
+        if c is equal to "Q" then
+            say "Quit."
+            break
+        end
+        if c is equal to "q" then
             say "Quit."
             break
         end
