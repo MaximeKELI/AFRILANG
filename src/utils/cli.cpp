@@ -17,6 +17,8 @@
 #include "afrilang/sandbox.hpp"
 #include "afrilang/security.hpp"
 #include "afrilang/semantic.hpp"
+#include "afrilang/js_codegen.hpp"
+#include "afrilang/formatter.hpp"
 
 #include <cstdlib>
 #include <chrono>
@@ -102,6 +104,8 @@ static void printUsage() {
     std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
     std::cerr << "  afrilang benchmark           Mesurer compile + exec (exemples)\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
+    std::cerr << "  afrilang compile-js <fichier> Transpiler vers JavaScript (stdout)\n";
+    std::cerr << "  afrilang build-wasm-web <fichier> -o <dir>  Module WASM navigateur\n";
     std::cerr << "  afrilang explain <fichier>   Mode éducatif (explications)\n";
     std::cerr << "  afrilang init [nom]          Créer un nouveau projet\n";
     std::cerr << "  afrilang lint <fichier.afr>  Analyse statique (warnings)\n";
@@ -626,6 +630,83 @@ static int cmdLint(const std::string& sourcePath) {
     }
 }
 
+static int cmdCompileJs(const std::string& sourcePath) {
+    try {
+        std::string source;
+        if (sourcePath == "-") {
+            std::ostringstream buf;
+            buf << std::cin.rdbuf();
+            source = buf.str();
+        } else {
+            std::ifstream in(sourcePath);
+            if (!in) {
+                std::cerr << "Impossible d'ouvrir " << sourcePath << "\n";
+                return 1;
+            }
+            std::ostringstream buf;
+            buf << in.rdbuf();
+            source = buf.str();
+        }
+        validateSourceContent(source, sourcePath == "-" ? "stdin" : sourcePath);
+        const std::string virtualPath = sourcePath == "-" ? "stdin.afr" : sourcePath;
+        const std::string js = compileSourceToJavaScript(source, virtualPath);
+        std::cout << js;
+        return 0;
+    } catch (const CompileError& e) {
+        std::cerr << e.format();
+        return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, sourcePath);
+    }
+}
+
+static int cmdBuildWasmWeb(const std::string& sourcePath, const std::string& outDir) {
+    try {
+        std::ifstream in(sourcePath);
+        if (!in) {
+            std::cerr << "Impossible d'ouvrir " << sourcePath << "\n";
+            return 1;
+        }
+        std::ostringstream buf;
+        buf << in.rdbuf();
+        const std::string source = buf.str();
+        validateSourceContent(source, sourcePath);
+
+        fs::create_directories(outDir);
+        const fs::path cppPath = fs::path(outDir) / "module.cpp";
+        const fs::path jsPath = fs::path(outDir) / "module.js";
+
+        SourceManager sources;
+        sources.addFile(sourcePath, source);
+        auto program = parseSourceProgram(source, sourcePath, &sources);
+        SemanticAnalyzer analyzer(*program, &sources, sourcePath);
+        const SemanticResult semantic = analyzer.analyze();
+
+        CodeGenerator codegen(*program, semantic);
+        codegen.setRuntimeDir((fs::path(detectAfrilangRoot()) / "runtime").string());
+        codegen.setSourceFile(sourcePath);
+        codegen.setCrossTarget("wasm32");
+        codegen.setWasmEnvironment("web");
+
+        if (!codegen.compileToExecutable(cppPath.string(), jsPath.string())) {
+            std::cerr << "Erreur compilation WASM (installez Emscripten: em++)\n";
+            return 1;
+        }
+
+        const fs::path wasmPath = jsPath.replace_extension(".wasm");
+        if (!fs::exists(wasmPath)) {
+            std::cerr << "Fichier .wasm introuvable après compilation\n";
+            return 1;
+        }
+        return 0;
+    } catch (const CompileError& e) {
+        std::cerr << e.format();
+        return 1;
+    } catch (const std::exception& e) {
+        return reportCliException(e, sourcePath);
+    }
+}
+
 static int cmdDoc(const std::string& sourcePath) {
     try {
         const fs::path srcPath = fs::absolute(sourcePath);
@@ -699,6 +780,30 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "lsp") {
         return afrilang::runLspServer();
+    }
+    if (cmd == "compile-js") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang compile-js <fichier.afr|- >\n";
+            return 1;
+        }
+        return cmdCompileJs(argv[2]);
+    }
+    if (cmd == "build-wasm-web") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang build-wasm-web <fichier.afr> -o <dir>\n";
+            return 1;
+        }
+        std::string outDir;
+        for (int i = 3; i < argc; ++i) {
+            if (std::string(argv[i]) == "-o" && i + 1 < argc) {
+                outDir = argv[++i];
+            }
+        }
+        if (outDir.empty()) {
+            std::cerr << "Usage: afrilang build-wasm-web <fichier.afr> -o <dir>\n";
+            return 1;
+        }
+        return cmdBuildWasmWeb(argv[2], outDir);
     }
     if (cmd == "fmt") {
         if (argc < 3) {

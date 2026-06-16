@@ -13,7 +13,16 @@ from .content.ecosystem_i18n import translate_ecosystem
 from .content.example_topics import grouped_examples
 from .content.tutorial import get_lesson, get_lessons, total_steps
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
-from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
+from .services.afrilang import (
+    AfrilangError,
+    build_wasm_web,
+    check_source,
+    compile_to_js,
+    format_source,
+    run_source,
+    source_hash,
+    wasm_session_path,
+)
 from .services.downloads import get_download_context, resolve_binary
 from .services.stdlib_docs import get_module_doc
 

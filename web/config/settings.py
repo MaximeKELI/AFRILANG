@@ -139,6 +139,10 @@ BOOTSTRAP5 = {
 PLAYGROUND_TIMEOUT = int(os.environ.get('PLAYGROUND_TIMEOUT', '30'))
 PLAYGROUND_RATE_LIMIT = int(os.environ.get('PLAYGROUND_RATE_LIMIT', '30'))
 PLAYGROUND_RATE_WINDOW = int(os.environ.get('PLAYGROUND_RATE_WINDOW', '3600'))
+PLAYGROUND_WASM_DIR = os.environ.get(
+    'PLAYGROUND_WASM_DIR',
+    str(BASE_DIR / 'tmp' / 'wasm_sessions'),
+)
 
 CACHES = {
     'default': {
