@@ -906,7 +906,7 @@ def gen_giskit_modules(count: int) -> list[tuple]:
             ("gsdFromAltitude", "number", [("altM", "number"), ("focalMm", "number"), ("pixelUm", "number")],
              "return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0);"),
             ("groundWidth", "number", [("pixels", "number"), ("gsd", "number")],
-             f"return pixels * gsd * {gsd:.6f};"),
+             "return pixels * gsd;"),
             ("scaleDenominator", "number", [("gsdM", "number")],
              "return gsdM <= 0 ? 0 : 0.0254 / gsdM;"),
             # 7 tiling / pyramids
@@ -924,7 +924,7 @@ def gen_giskit_modules(count: int) -> list[tuple]:
              "return std::floor((lon + 180.0) / 6.0) + 1.0;"),
             ("isNorthernHemisphere", "bool", [("lat", "number")], "return lat >= 0.0;"),
             ("eastingOffset", "number", [("zone", "number")],
-             f"return 500000.0 + (zone - {zone}) * 0.0;"),
+             "return 500000.0;"),
             # 9 distances plan / SIG
             ("planarDist", "number",
              [("x1", "number"), ("y1", "number"), ("x2", "number"), ("y2", "number")],
@@ -943,8 +943,6 @@ def gen_giskit_modules(count: int) -> list[tuple]:
              f"{{ double s=slopeDeg*{pi}/180.0, a=aspectDeg*{pi}/180.0, z=azSun*{pi}/180.0; "
              "return std::cos(s)*std::cos(z) + std::sin(s)*std::sin(z)*std::cos(a-z); }}"),
             # 11 buffer / topology lite
-            ("bufferExpand", "number", [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number"), ("d", "number")],
-             "(void)minY;(void)maxY;(void)d; return minX;"),  # placeholder - fix
             ("expandBboxMinX", "number", [("minX", "number"), ("d", "number")], "return minX - d;"),
             ("expandBboxMaxX", "number", [("maxX", "number"), ("d", "number")], "return maxX + d;"),
             ("expandBboxMinY", "number", [("minY", "number"), ("d", "number")], "return minY - d;"),
