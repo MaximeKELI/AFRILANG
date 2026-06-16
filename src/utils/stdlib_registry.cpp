@@ -219,6 +219,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "uuid") injectUuidModule(program);
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
+    else if (moduleName == "game2d") injectGame2dModule(program);
     else injectCatalogModule(program, moduleName);
 }
 
@@ -414,6 +415,55 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("windowHeight", {}, "number"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
+}
+
+void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("configureGrid",
+        {{"cols", "number"}, {"rows", "number"}, {"cellSize", "number"},
+         {"padX", "number"}, {"padY", "number"}}, ""));
+    fns.push_back(makeStubFunction("gridWindowWidth", {}, "number"));
+    fns.push_back(makeStubFunction("gridWindowHeight", {}, "number"));
+    fns.push_back(makeStubFunction("cellPx", {{"col", "number"}}, "number"));
+    fns.push_back(makeStubFunction("cellPy", {{"row", "number"}}, "number"));
+    fns.push_back(makeStubFunction("isBorderCell", {{"col", "number"}, {"row", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("fillCell",
+        {{"col", "number"}, {"row", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawCell",
+        {{"col", "number"}, {"row", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("fillBoard", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawWalls", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawGridLines", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("fillCircleSolid",
+        {{"x", "number"}, {"y", "number"}, {"radius", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("everyMs",
+        {{"name", "text"}, {"delta", "number"}, {"interval", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("resetTimer", {{"name", "text"}}, ""));
+    fns.push_back(makeStubFunction("animTimeMs", {}, "number"));
+    fns.push_back(makeStubFunction("pulse01", {{"period", "number"}}, "number"));
+    fns.push_back(makeStubFunction("updateDirection", {{"curDx", "number"}, {"curDy", "number"}}, ""));
+    fns.push_back(makeStubFunction("inputDirX", {}, "number"));
+    fns.push_back(makeStubFunction("inputDirY", {}, "number"));
+    fns.push_back(makeStubFunction("gridHas",
+        {{"xs", "list number"}, {"ys", "list number"}, {"count", "number"},
+         {"gx", "number"}, {"gy", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("rgb", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("redOf", {{"packed", "number"}}, "number"));
+    fns.push_back(makeStubFunction("greenOf", {{"packed", "number"}}, "number"));
+    fns.push_back(makeStubFunction("blueOf", {{"packed", "number"}}, "number"));
+    fns.push_back(makeStubFunction("fillCellRgb", {{"col", "number"}, {"row", "number"}, {"packed", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawCenteredText",
+        {{"text", "text"}, {"y", "number"}, {"size", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawHud",
+        {{"text", "text"}, {"x", "number"}, {"y", "number"}, {"size", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("highScore", {}, "number"));
+    fns.push_back(makeStubFunction("updateHighScore", {{"score", "number"}}, ""));
+    fns.push_back(makeStubFunction("moveIntervalForScore",
+        {{"score", "number"}, {"baseMs", "number"}, {"minMs", "number"}}, "number"));
+    injectModule(program, "game2d", std::move(fns));
 }
 
 void StdlibRegistry::injectCryptoModule(ProgramNode& program) {

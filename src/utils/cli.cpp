@@ -134,7 +134,9 @@ static bool sourceUsesGui(const std::string& source) {
     return source.find("open window") != std::string::npos ||
            source.find("openWindow") != std::string::npos ||
            source.find("import \"std/ui\"") != std::string::npos ||
-           source.find("use ui") != std::string::npos;
+           source.find("import \"std/game2d\"") != std::string::npos ||
+           source.find("use ui") != std::string::npos ||
+           source.find("use game2d") != std::string::npos;
 }
 
 static void applyGuiExecConfig(ProcessConfig& config) {

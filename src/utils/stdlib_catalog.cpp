@@ -1427,12 +1427,15 @@ const StdlibParamSpec kParams_108[] = {
     {"score", "number"},
     {"level", "number"},
     {"xp", "number"},
+    {"ignored", "number"},
     {nullptr, nullptr}
 };
 
 const StdlibFuncSpec kFuncs_108[] = {
     {"scoreBonus", "number", 2, &kParams_108[0]},
     {"levelFromXp", "number", 1, &kParams_108[2]},
+    {"xpForScore", "number", 1, &kParams_108[0]},
+    {"speedMsForLevel", "number", 1, &kParams_108[1]},
     {nullptr, nullptr, 0, nullptr}
 };
 

@@ -563,6 +563,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
     if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
+    if (semantic_.usedModules.count("game2d") > 0) out << "#include \"game2d.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
@@ -2835,8 +2836,9 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         return;
     }
 
-    if (moduleName == "ui") {
-        const std::string rt = "afrilang::runtime::ui::" + func.name;
+    if (moduleName == "ui" || moduleName == "game2d") {
+        const std::string ns = moduleName == "ui" ? "ui" : "game2d";
+        const std::string rt = "afrilang::runtime::" + ns + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {
