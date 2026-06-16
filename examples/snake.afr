@@ -217,26 +217,58 @@ while isOpen() do
     if isState("play") then
         if canMoveAfterCountdown(stateTimeMs()) then
             if everyMs("move", deltaMs(), moveMs) then
-                create beforeScore number = score
-                create stepPack = stepSnake(xs, ys, snakeLen, dirX, dirY, fx, fy, score, W, H)
-                set snakeLen = stepPack at 0
-                set score = stepPack at 1
-                set fx = stepPack at 2
-                set fy = stepPack at 3
-                create gameOver number = stepPack at 4
-                if gameOver is equal to 1 then
+                create newX number = (xs at 0) + dirX
+                create newY number = (ys at 0) + dirY
+
+                if isWallCell(newX, newY, W, H) then
                     setState("gameover")
                 else
-                    if score is greater than beforeScore then
-                        set streak = streak + 1
-                        updateHighScore(score)
-                        saveHighScore(SAVE_PATH)
-                        playSoundVolume("eat", volume)
-                        if score is equal to highScore() then
-                            set flashRecord = 1800
+                    create grow bool = no
+                    if newX is equal to fx then
+                        if newY is equal to fy then
+                            set grow = yes
+                            set score = score + 1
                         end
+                    end
+
+                    create bodyLen number = snakeLen
+                    if grow is equal to no then
+                        set bodyLen = snakeLen - 1
+                    end
+                    create hit bool = snakeOccupies(xs, ys, bodyLen, newX, newY)
+                    if hit is equal to true then
+                        setState("gameover")
                     else
-                        set streak = 0
+                        if grow then
+                            add xs at (snakeLen - 1) to xs
+                            add ys at (snakeLen - 1) to ys
+                            set snakeLen = snakeLen + 1
+                        end
+
+                        create i number = snakeLen - 1
+                        while i is greater than 0 do
+                            set xs at i = xs at (i - 1)
+                            set ys at i = ys at (i - 1)
+                            set i = i - 1
+                        end
+
+                        set xs at 0 = newX
+                        set ys at 0 = newY
+
+                        if grow then
+                            create food2 = placeFood(xs, ys, snakeLen, W, H)
+                            set fx = food2 at 0
+                            set fy = food2 at 1
+                            set streak = streak + 1
+                            updateHighScore(score)
+                            saveHighScore(SAVE_PATH)
+                            playSoundVolume("eat", volume)
+                            if score is equal to highScore() then
+                                set flashRecord = 1800
+                            end
+                        else
+                            set streak = 0
+                        end
                     end
                 end
             end
@@ -286,11 +318,7 @@ while isOpen() do
 
     if isState("play") then
         create cd text = countdownLabel(stateTimeMs())
-        create showCd bool = yes
-        if cd is equal to "" then
-            set showCd = no
-        end
-        if showCd then
+        if cd is not equal to "" then
             drawCenteredText(cd, gridWindowHeight() / 2 - 30, 64, 255, 255, 255)
         end
     end

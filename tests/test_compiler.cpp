@@ -1,8 +1,10 @@
 #include "afrilang/lexer.hpp"
 #include "afrilang/types.hpp"
 #include "afrilang/parser.hpp"
+#include "afrilang/ast.hpp"
 #include "afrilang/semantic.hpp"
 #include "afrilang/compiler.hpp"
+#include "afrilang/codegen.hpp"
 #include "afrilang/cli.hpp"
 #include "afrilang/diagnostics.hpp"
 #include "afrilang/i18n.hpp"
@@ -10,6 +12,8 @@
 #include "afrilang/cache.hpp"
 #include "afrilang/semver.hpp"
 #include "afrilang/utf8.hpp"
+
+#include "afrilang/sandbox.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -331,6 +335,107 @@ static void testSecureTempPath() {
     afrilang::cleanupSecureSandbox();
 }
 
+static void testParseIndexComparison() {
+    const std::string src =
+        "function f(xs list number, i number, gx number)\n"
+        "    if xs at i is equal to gx then\n"
+        "        say \"ok\"\n"
+        "    end\n"
+        "end\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(!program->functions.empty(), "index comparison parses");
+    const auto& body = program->functions[0]->body;
+    expect(!body.empty(), "function body not empty");
+    const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(body[0].get());
+    expect(ifStmt != nullptr, "if statement in body");
+    const auto* cond = dynamic_cast<const afrilang::BinaryOpNode*>(ifStmt->condition.get());
+    expect(cond != nullptr && cond->op == "==", "condition is equality comparison");
+    expect(dynamic_cast<const afrilang::IndexExpressionNode*>(cond->left.get()) != nullptr,
+           "left side is index expression");
+}
+
+static void testParseCallComparison() {
+    const std::string src =
+        "function occupied() returns bool\n"
+        "    return yes\n"
+        "end\n"
+        "function run()\n"
+        "    if occupied() is equal to false then\n"
+        "        say \"bad\"\n"
+        "    end\n"
+        "end\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(program->functions.size() >= 2, "call comparison program parses");
+    const auto& runBody = program->functions[1]->body;
+    const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(runBody[0].get());
+    expect(ifStmt != nullptr, "if in run");
+    const auto* cond = dynamic_cast<const afrilang::BinaryOpNode*>(ifStmt->condition.get());
+    expect(cond != nullptr && cond->op == "==", "call compared with false");
+    expect(dynamic_cast<const afrilang::CallExpressionNode*>(cond->left.get()) != nullptr,
+           "left side is call expression");
+}
+
+static void testParseAssertCallComparison() {
+    const std::string src =
+        "function occupied(xs list number, ys list number, count number, gx number, gy number) returns bool\n"
+        "    return no\n"
+        "end\n"
+        "test \"assert call compare\"\n"
+        "    assert occupied(list of 5, list of 5, 1, 9, 9) is equal to false\n"
+        "end\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(!program->tests.empty(), "assert call comparison parses");
+    afrilang::SourceManager sources;
+    sources.addFile("test.afr", src);
+    afrilang::SemanticAnalyzer analyzer(*program, &sources, "test.afr");
+    analyzer.analyze();
+}
+
+static void testCompileSnake() {
+    afrilang::Compiler compiler("examples/snake.afr", afrilang::detectAfrilangRoot());
+    auto program = compiler.compile();
+    expect(program != nullptr, "compile snake.afr");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "examples/snake.afr");
+    analyzer.analyze();
+}
+
+static void testSnakeLogicUnitTests() {
+    afrilang::CompileOptions opts;
+    opts.runtimeDir = afrilang::detectAfrilangRoot() + "/runtime";
+    opts.useCache = false;
+    opts.outputExecutable = "snake_test_bin";
+    const auto result = afrilang::Pipeline::compileFile("examples/snake_test.afr", opts);
+    expect(result.success, "compile snake_test.afr");
+
+    afrilang::ProcessConfig config;
+    config.timeoutSeconds = 30;
+    config.applyResourceLimits = true;
+    const auto exec = afrilang::execSandboxed("./" + result.executable, {}, config);
+    expect(exec.exitCode == 0, "snake logic unit tests pass");
+}
+
+static void testStringInterpolationCall() {
+    const std::string src =
+        "import \"std/game2d\"\n"
+        "use game2d\n"
+        "create msg text = \"Record {highScore()}\"\n";
+    afrilang::Compiler compiler("examples/snake_interp.afr", ".");
+    auto program = compiler.compileFromSource(src);
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(),
+                                         "examples/snake_interp.afr");
+    const auto semantic = analyzer.analyze();
+    afrilang::CodeGenerator codegen(*program, semantic);
+    const std::string cpp = codegen.generate();
+    expect(cpp.find("game2d::highScore()") != std::string::npos,
+           "interpolation calls highScore()");
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -362,6 +467,12 @@ int main() {
     testIntAndJsonTypes();
     testCompileCacheHash();
     testSecureTempPath();
+    testParseIndexComparison();
+    testParseCallComparison();
+    testParseAssertCallComparison();
+    testCompileSnake();
+    testSnakeLogicUnitTests();
+    testStringInterpolationCall();
 
     std::cout << "\n";
     if (failures == 0) {

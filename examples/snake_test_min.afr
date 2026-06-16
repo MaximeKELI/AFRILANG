@@ -1,5 +1,0 @@
-import "snake_logic.afr"
-
-test "import works"
-    assert snakeOccupies(list of 1, list of 2, 1, 1, 2) is equal to true
-end

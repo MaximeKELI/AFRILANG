@@ -938,7 +938,7 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
             std::vector<std::unique_ptr<ExpressionNode>> elements;
             if (!check(TokenType::End) && !isAtEnd()) {
                 do {
-                    elements.push_back(parseExpression());
+                    elements.push_back(parseOperand());
                 } while (match(TokenType::Comma));
             }
             value = std::make_unique<ListLiteralNode>(std::move(elements));
@@ -953,9 +953,9 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
             if (!check(TokenType::End) && !isAtEnd()) {
                 do {
                     MapPairNode pair;
-                    pair.key = parseExpression();
+                    pair.key = parseOperand();
                     consume(TokenType::To, "'to' attendu dans map of ...");
-                    pair.value = parseExpression();
+                    pair.value = parseOperand();
                     pairs.push_back(std::move(pair));
                 } while (match(TokenType::Comma));
             }
@@ -1001,7 +1001,7 @@ std::unique_ptr<StatementNode> Parser::parseSetStatement() {
                 std::make_unique<IdentifierNode>(nameToken.lexeme), member.lexeme);
         } else if (match(TokenType::At)) {
             auto object = std::make_unique<IdentifierNode>(nameToken.lexeme);
-            auto index = parseExpression();
+            auto index = parseOperand();
             consume(TokenType::Equals, "'=' attendu");
             auto value = parseExpression();
             auto node = std::make_unique<IndexAssignStatementNode>(
@@ -1358,6 +1358,13 @@ std::unique_ptr<ExpressionNode> Parser::parseExpression() {
     return parseComparison();
 }
 
+// Operand: no top-level natural comparisons (is equal to, is greater than, ...).
+// Used for indices, call arguments, and list elements so `xs at i is equal to n`
+// and `f(x) is equal to y` parse as comparisons, not as part of the operand.
+std::unique_ptr<ExpressionNode> Parser::parseOperand() {
+    return parseTerm();
+}
+
 std::unique_ptr<ExpressionNode> Parser::parseComparison() {
     if (check(TokenType::Window)) {
         const std::size_t saved = current_;
@@ -1473,7 +1480,7 @@ std::unique_ptr<ExpressionNode> Parser::parseListLiteral() {
     std::vector<std::unique_ptr<ExpressionNode>> elements;
     if (!check(TokenType::RightBracket)) {
         do {
-            elements.push_back(parseExpression());
+            elements.push_back(parseOperand());
         } while (match(TokenType::Comma));
     }
     consume(TokenType::RightBracket, "']' attendu");
@@ -1584,7 +1591,7 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
             std::vector<std::unique_ptr<ExpressionNode>> elements;
             if (!check(TokenType::End) && !isAtEnd()) {
                 do {
-                    elements.push_back(parseExpression());
+                    elements.push_back(parseOperand());
                 } while (match(TokenType::Comma));
             }
             return std::make_unique<ListLiteralNode>(std::move(elements));
@@ -1657,7 +1664,7 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
         auto expr = std::make_unique<IdentifierNode>(previous().lexeme);
 
         if (match(TokenType::At)) {
-            auto index = parseExpression();
+            auto index = parseOperand();
             return std::make_unique<IndexExpressionNode>(std::move(expr), std::move(index));
         }
 
@@ -1670,7 +1677,7 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
             auto expr = std::make_unique<IdentifierNode>(name);
 
             if (match(TokenType::At)) {
-                auto index = parseExpression();
+                auto index = parseOperand();
                 return std::make_unique<IndexExpressionNode>(std::move(expr), std::move(index));
             }
 
@@ -1684,15 +1691,15 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 std::unique_ptr<ExpressionNode> Parser::parsePostfix(std::unique_ptr<ExpressionNode> expr) {
     while (true) {
         if (match(TokenType::LeftBracket)) {
-            auto index = parseExpression();
+            auto index = parseOperand();
             consume(TokenType::RightBracket, "']' attendu");
             expr = std::make_unique<IndexExpressionNode>(std::move(expr), std::move(index));
             continue;
         }
         if (match(TokenType::From)) {
-            auto start = parseExpression();
+            auto start = parseOperand();
             consume(TokenType::To, "'to' attendu dans l'expression slice");
-            auto end = parseExpression();
+            auto end = parseOperand();
             expr = std::make_unique<SliceExpressionNode>(std::move(expr), std::move(start),
                                                          std::move(end));
             continue;
@@ -1713,7 +1720,7 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
                 std::vector<std::unique_ptr<ExpressionNode>> arguments;
                 if (match(TokenType::With)) {
                     do {
-                        arguments.push_back(parseExpression());
+                        arguments.push_back(parseOperand());
                     } while (match(TokenType::Comma));
                 }
                 callee = std::make_unique<EnumCaseExprNode>(
@@ -1732,7 +1739,7 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             std::vector<std::unique_ptr<ExpressionNode>> arguments;
             if (!check(TokenType::RightParen)) {
                 do {
-                    arguments.push_back(parseExpression());
+                    arguments.push_back(parseOperand());
                 } while (match(TokenType::Comma));
             }
             consume(TokenType::RightParen, "')' attendu après les arguments");
@@ -1743,7 +1750,7 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
         }
 
         if (match(TokenType::LeftBracket)) {
-            auto index = parseExpression();
+            auto index = parseOperand();
             consume(TokenType::RightBracket, "']' attendu");
             callee = std::make_unique<IndexExpressionNode>(std::move(callee), std::move(index));
             continue;
@@ -1752,9 +1759,9 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
         if (check(TokenType::From)) {
             const std::size_t saved = current_;
             advance();
-            auto start = parseExpression();
+            auto start = parseOperand();
             if (match(TokenType::To)) {
-                auto end = parseExpression();
+                auto end = parseOperand();
                 callee = std::make_unique<SliceExpressionNode>(std::move(callee), std::move(start),
                                                                std::move(end));
                 continue;

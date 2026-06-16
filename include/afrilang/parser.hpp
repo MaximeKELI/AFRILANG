@@ -99,6 +99,7 @@ private:
     std::vector<std::unique_ptr<StatementNode>> parseBlock();
 
     std::unique_ptr<ExpressionNode> parseExpression();
+    std::unique_ptr<ExpressionNode> parseOperand();
     std::unique_ptr<ExpressionNode> parseComparison();
     std::unique_ptr<ExpressionNode> parseTerm();
     std::unique_ptr<ExpressionNode> parseFactor();

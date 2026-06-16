@@ -1,4 +1,0 @@
-import "snake_logic.afr"
-test "only"
-    assert snakeOccupies(list of 5, list of 5, 1, 9, 9) is equal to false
-end

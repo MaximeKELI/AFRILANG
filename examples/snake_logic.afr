@@ -7,10 +7,8 @@ use random2
 function snakeOccupies(xs list number, ys list number, count number, gx number, gy number) returns bool
     create i number = 0
     while i is less than count do
-        create cx number = xs at i
-        create cy number = ys at i
-        if cx is equal to gx then
-            if cy is equal to gy then
+        if xs at i is equal to gx then
+            if ys at i is equal to gy then
                 return yes
             end
         end
@@ -40,7 +38,7 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
     repeat 400 times
         set fx = randomRange(1, w - 2)
         set fy = randomRange(1, h - 2)
-        if foodNotOnSnake(xs, ys, snakeLen, fx, fy) then
+        if snakeOccupies(xs, ys, snakeLen, fx, fy) is equal to false then
             return list of fx, fy
         end
     end
@@ -66,57 +64,6 @@ function resetGame(xs list number, ys list number, w number, h number) returns l
     create fx number = food0 at 0
     create fy number = food0 at 1
     return list of snakeLen, dirX, dirY, score, fx, fy
-end
-
-function stepSnake(xs list number, ys list number, snakeLen number, dirX number, dirY number, fx number, fy number, score number, w number, h number) returns list number
-    create newX number = (xs at 0) + dirX
-    create newY number = (ys at 0) + dirY
-
-    if isWallCell(newX, newY, w, h) then
-        return list of snakeLen, score, fx, fy, 1
-    end
-
-    create grow bool = no
-    if newX is equal to fx then
-        if newY is equal to fy then
-            set grow = yes
-            set score = score + 1
-        end
-    end
-
-    create bodyLen number = snakeLen
-    if grow is equal to no then
-        set bodyLen = snakeLen - 1
-    end
-    if snakeOccupies(xs, ys, bodyLen, newX, newY) then
-        return list of snakeLen, score, fx, fy, 1
-    end
-
-    if grow then
-        add xs at (snakeLen - 1) to xs
-        add ys at (snakeLen - 1) to ys
-        set snakeLen = snakeLen + 1
-    end
-
-    create i number = snakeLen - 1
-    while i is greater than 0 do
-        set xs at i = xs at (i - 1)
-        set ys at i = ys at (i - 1)
-        set i = i - 1
-    end
-
-    set xs at 0 = newX
-    set ys at 0 = newY
-
-    if grow then
-        create food2 = placeFood(xs, ys, snakeLen, w, h)
-        create nextFx number = food2 at 0
-        create nextFy number = food2 at 1
-        set fx = nextFx
-        set fy = nextFy
-    end
-
-    return list of snakeLen, score, fx, fy, 0
 end
 
 function moveMsForDifficulty(score number, difficulty number) returns number
