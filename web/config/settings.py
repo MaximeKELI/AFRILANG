@@ -146,6 +146,10 @@ STDLIB_PDF_DIR = os.environ.get(
     'STDLIB_PDF_DIR',
     str(BASE_DIR / 'static' / 'stdlib_pdfs'),
 )
+TECTONIC_BIN = os.environ.get(
+    'TECTONIC_BIN',
+    str(BASE_DIR / 'tectonic') if (BASE_DIR / 'tectonic').is_file() else '',
+)
 
 CACHES = {
     'default': {

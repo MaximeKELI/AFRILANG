@@ -3,4 +3,3 @@ psycopg[binary]>=3.1
 python-dotenv>=1.0
 gunicorn>=22.0
 django-bootstrap5>=24.0
-fpdf2>=2.8

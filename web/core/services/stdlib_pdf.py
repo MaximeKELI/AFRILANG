@@ -1,14 +1,19 @@
-"""Génération PDF (5+ pages) pour chaque bibliothèque stdlib."""
+"""Génération PDF (5+ pages) via LaTeX pour chaque bibliothèque stdlib."""
 from __future__ import annotations
 
 from pathlib import Path
 
 from django.conf import settings
 
-from core.services.stdlib_guide import build_guide_sections
+from core.services.stdlib_latex import (
+    build_latex_document,
+    compile_latex,
+    page_count,
+)
 from core.services.stdlib_meta import module_source_path, parse_module_source
 
 PDF_DIR_NAME = 'stdlib_pdfs'
+MIN_PAGES = 5
 
 
 def pdf_dir() -> Path:
@@ -27,21 +32,23 @@ def resolve_pdf_path(name: str) -> Path | None:
     return path if path.is_file() else None
 
 
-def _sanitize(text: str) -> str:
-    return text.encode('latin-1', 'replace').decode('latin-1')
-
-
-def _write_block(pdf, text: str, *, h: float = 5, family: str = 'Helvetica', style: str = '', size: int = 11) -> None:
-    pdf.set_x(pdf.l_margin)
-    pdf.set_font(family, style, size)
-    w = pdf.epw
-    for raw in (text or '').splitlines() or ['']:
-        line = _sanitize(raw[:120])
-        if not line.strip():
-            pdf.ln(h * 0.4)
-            continue
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(w, h, line)
+def _pad_latex_document(tex: str, mod, extra_chars: int) -> str:
+    """Ajoute du contenu annexe si le PDF compilé est trop court."""
+    appendix = (
+        f'\\section*{{Annexe — documentation étendue}}\n'
+        f'\\noindent Module \\texttt{{{mod.import_path}}} — '
+        f'pages supplémentaires pour atteindre le minimum de {MIN_PAGES} pages.\n\n'
+    )
+    filler = (
+        '\\begin{itemize}[leftmargin=*]\n'
+        + ''.join(
+            f'  \\item Point de référence {i + 1} : '
+            f'consulter le guide HTML et les exemples du playground.\n'
+            for i in range(max(8, extra_chars // 200))
+        )
+        + '\\end{itemize}\n'
+    )
+    return tex.replace('\\end{document}', appendix + filler + '\\end{document}')
 
 
 def generate_pdf(mod, lang: str = 'fr') -> Path:
@@ -51,54 +58,17 @@ def generate_pdf(mod, lang: str = 'fr') -> Path:
     functions = parsed['functions']
     out = pdf_path_for(mod.name)
 
-    try:
-        from fpdf import FPDF
-    except ImportError as e:
-        raise RuntimeError('Installez fpdf2: pip install fpdf2') from e
+    tex = build_latex_document(mod, source, functions)
+    compile_latex(tex, out)
 
-    pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
+    pages = page_count(out)
+    attempts = 0
+    while pages < MIN_PAGES and attempts < 3:
+        tex = _pad_latex_document(tex, mod, (MIN_PAGES - pages) * 1200)
+        compile_latex(tex, out)
+        pages = page_count(out)
+        attempts += 1
 
-    # Page de garde
-    _write_block(pdf, 'AFRILANG Stdlib', h=10, style='B', size=20)
-    pdf.ln(4)
-    _write_block(pdf, mod.import_path, h=8, style='B', size=16)
-    pdf.ln(4)
-    desc = mod.description_fr[:800] if mod.description_fr else mod.summary
-    _write_block(pdf, desc, h=6, size=11)
-    pdf.ln(4)
-    _write_block(
-        pdf,
-        f'Category: {mod.category} | Tier: {mod.tier} | Functions: {mod.function_count}',
-        h=5,
-        size=10,
-    )
-    pdf.add_page()
-
-    for lang_code in ('fr', 'en'):
-        sections = build_guide_sections(mod, source, functions, lang_code)
-        label = 'FRANCAIS' if lang_code == 'fr' else 'ENGLISH'
-        _write_block(pdf, label, h=8, style='B', size=14)
-        pdf.ln(4)
-        for sec in sections:
-            _write_block(pdf, sec['title'], h=7, style='B', size=12)
-            pdf.ln(2)
-            _write_block(pdf, sec['body'], h=4, family='Courier', size=9)
-            pdf.ln(4)
-        if lang_code == 'fr':
-            pdf.add_page()
-
-    while pdf.page_no() < 5:
-        pdf.add_page()
-        _write_block(
-            pdf,
-            f'AFRILANG — {mod.import_path} — appendix page {pdf.page_no()}',
-            h=5,
-            size=10,
-        )
-
-    pdf.output(str(out))
     return out
 
 

@@ -275,8 +275,8 @@ UI = {
             'fn_name': 'Fonction',
             'fn_params': 'Paramètres',
             'fn_returns': 'Retour',
-            'pdf_note_title': 'Générer les PDF',
-            'pdf_note': 'Les PDF sont créés via la commande de management (une fois par module).',
+            'pdf_note_title': 'Générer les PDF (LaTeX)',
+            'pdf_note': 'Les PDF sont compilés en LaTeX (Tectonic ou XeLaTeX) via la commande de management.',
         },
         'releases_page': {
             'title': 'Versions AFRILANG',
@@ -624,8 +624,8 @@ UI = {
             'fn_name': 'Function',
             'fn_params': 'Parameters',
             'fn_returns': 'Returns',
-            'pdf_note_title': 'Generate PDFs',
-            'pdf_note': 'PDFs are created via the management command (once per module).',
+            'pdf_note_title': 'Generate PDFs (LaTeX)',
+            'pdf_note': 'PDFs are compiled from LaTeX (Tectonic or XeLaTeX) via the management command.',
         },
         'releases_page': {
             'title': 'AFRILANG Releases',

@@ -6,4 +6,6 @@ db.sqlite3
 staticfiles/
 tmp/
 node_modules/
+tectonic
+bin/tectonic
 *.egg-info/

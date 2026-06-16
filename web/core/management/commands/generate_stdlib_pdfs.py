@@ -5,7 +5,7 @@ from core.services.stdlib_pdf import generate_all_pdfs, generate_pdf, pdf_dir
 
 
 class Command(BaseCommand):
-    help = 'Génère les PDF explicatifs (5+ pages) pour chaque bibliothèque stdlib'
+    help = 'Génère les PDF explicatifs (5+ pages, LaTeX/Tectonic) pour chaque bibliothèque stdlib'
 
     def add_arguments(self, parser):
         parser.add_argument('--name', help='Un seul module (ex: io, m/uuid2)')
