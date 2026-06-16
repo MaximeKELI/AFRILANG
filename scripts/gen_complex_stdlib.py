@@ -73,6 +73,68 @@ def add_ultra_gis_modules(count: int) -> None:
              hill_body),
         ])
 
+def add_ultra_raster_modules(count: int) -> None:
+    """Add lots of remote-sensing / raster-processing complex modules in std/c/.
+
+    Each module is small (a few raster ops), numeric/list-only, self-contained.
+    Raster storage: row-major list number of length >= w*h.
+    """
+    for i in range(1, count + 1):
+        name = f"rasterultra{i:03d}"
+        # Variation per module: kernel strength & thresholds
+        alpha = 0.7 + (i % 29) * 0.01
+        thr = 0.08 + (i % 17) * 0.01
+
+        cx(name, [
+            # 3x3 box blur (mean). Returns raster w*h (or empty on bad dims).
+            ('boxBlur3', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out;'
+             'if(W<=0||H<=0)return out;out.resize((std::size_t)(W*H));'
+             'auto idx=[&](int x,int y){return (std::size_t)(y*W+x);};'
+             'auto at=[&](int x,int y){if(x<0)x=0;if(y<0)y=0;if(x>=W)x=W-1;if(y>=H)y=H-1;'
+             'std::size_t k=idx(x,y);return k<grid.size()?grid[k]:0.0;};'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){double s=0;'
+             'for(int dy=-1;dy<=1;++dy)for(int dx=-1;dx<=1;++dx)s+=at(x+dx,y+dy);'
+             'out[idx(x,y)]=s/9.0;}}return out;}'),
+
+            # Sobel gradient magnitude (simple edge strength). Returns raster w*h.
+            ('sobelMag', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out;'
+             'if(W<=0||H<=0)return out;out.resize((std::size_t)(W*H));'
+             'auto idx=[&](int x,int y){return (std::size_t)(y*W+x);};'
+             'auto at=[&](int x,int y){if(x<0)x=0;if(y<0)y=0;if(x>=W)x=W-1;if(y>=H)y=H-1;'
+             'std::size_t k=idx(x,y);return k<grid.size()?grid[k]:0.0;};'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){'
+             'double gx = (-1*at(x-1,y-1)) + (1*at(x+1,y-1)) + (-2*at(x-1,y)) + (2*at(x+1,y)) + (-1*at(x-1,y+1)) + (1*at(x+1,y+1));'
+             'double gy = (-1*at(x-1,y-1)) + (-2*at(x,y-1)) + (-1*at(x+1,y-1)) + (1*at(x-1,y+1)) + (2*at(x,y+1)) + (1*at(x+1,y+1));'
+             'out[idx(x,y)] = std::sqrt(gx*gx + gy*gy);}}return out;}'),
+
+            # Binary threshold (>= t => 1, else 0). Returns raster w*h.
+            ('threshold01', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'), ('t', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out;'
+             'if(W<=0||H<=0)return out;out.resize((std::size_t)(W*H));'
+             'std::size_t n=(std::size_t)(W*H);'
+             'for(std::size_t i=0;i<n;++i){double v=i<grid.size()?grid[i]:0.0;out[i]=(v>=t)?1.0:0.0;}'
+             'return out;}'),
+
+            # Simple NDVI classify: returns 1 if ndvi >= thr else 0 (uses nir/red rasters).
+            ('ndviMask', 'list number',
+             [('nir', 'list number'), ('red', 'list number'), ('thr', 'number')],
+             '{std::size_t n=std::min(nir.size(), red.size());std::vector<double> out;out.resize(n);'
+             'for(std::size_t i=0;i<n;++i){double a=nir[i],b=red[i];double d=a+b;double nd=(std::fabs(d)<1e-12)?0.0:((a-b)/d);out[i]=(nd>=thr)?1.0:0.0;}'
+             'return out;}'),
+
+            # Exponential smoothing for a raster: out = alpha*cur + (1-alpha)*prev (size=min).
+            ('smoothRaster', 'list number',
+             [('prev', 'list number'), ('cur', 'list number'), ('alpha', 'number')],
+             f'{{std::size_t n=std::min(prev.size(), cur.size());std::vector<double> out;out.resize(n);'
+             f'double a=alpha; if(a<0)a=0; if(a>1)a=1;'
+             f'for(std::size_t i=0;i<n;++i)out[i]=a*cur[i]+(1.0-a)*prev[i];return out;}}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -3874,6 +3936,9 @@ add_ultra_game3dpro_modules(500)
 
 # Add 500 ultra complex geomatics / remote-sensing / GIS modules in std/c/
 add_ultra_gis_modules(500)
+
+# Add 500 ultra complex raster / remote-sensing modules in std/c/
+add_ultra_raster_modules(500)
 
 
 def main() -> None:

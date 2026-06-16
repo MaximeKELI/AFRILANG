@@ -1,0 +1,18 @@
+module rasterultra288
+
+function boxBlur3(grid list number, w number, h number) returns list number
+end
+
+function sobelMag(grid list number, w number, h number) returns list number
+end
+
+function threshold01(grid list number, w number, h number, t number) returns list number
+end
+
+function ndviMask(nir list number, red list number, thr number) returns list number
+end
+
+function smoothRaster(prev list number, cur list number, alpha number) returns list number
+end
+
+end

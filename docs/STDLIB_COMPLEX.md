@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**2210 modules** — `std/c/{nom}`
+**2710 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -19500,3 +19500,5003 @@
 - `ndviRaster(nir list number, red list number) → list number`
 - `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
 - `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/rasterultra001
+
+`import "std/c/rasterultra001"` · `use rasterultra001`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra002
+
+`import "std/c/rasterultra002"` · `use rasterultra002`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra003
+
+`import "std/c/rasterultra003"` · `use rasterultra003`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra004
+
+`import "std/c/rasterultra004"` · `use rasterultra004`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra005
+
+`import "std/c/rasterultra005"` · `use rasterultra005`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra006
+
+`import "std/c/rasterultra006"` · `use rasterultra006`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra007
+
+`import "std/c/rasterultra007"` · `use rasterultra007`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra008
+
+`import "std/c/rasterultra008"` · `use rasterultra008`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra009
+
+`import "std/c/rasterultra009"` · `use rasterultra009`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra010
+
+`import "std/c/rasterultra010"` · `use rasterultra010`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra011
+
+`import "std/c/rasterultra011"` · `use rasterultra011`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra012
+
+`import "std/c/rasterultra012"` · `use rasterultra012`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra013
+
+`import "std/c/rasterultra013"` · `use rasterultra013`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra014
+
+`import "std/c/rasterultra014"` · `use rasterultra014`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra015
+
+`import "std/c/rasterultra015"` · `use rasterultra015`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra016
+
+`import "std/c/rasterultra016"` · `use rasterultra016`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra017
+
+`import "std/c/rasterultra017"` · `use rasterultra017`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra018
+
+`import "std/c/rasterultra018"` · `use rasterultra018`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra019
+
+`import "std/c/rasterultra019"` · `use rasterultra019`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra020
+
+`import "std/c/rasterultra020"` · `use rasterultra020`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra021
+
+`import "std/c/rasterultra021"` · `use rasterultra021`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra022
+
+`import "std/c/rasterultra022"` · `use rasterultra022`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra023
+
+`import "std/c/rasterultra023"` · `use rasterultra023`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra024
+
+`import "std/c/rasterultra024"` · `use rasterultra024`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra025
+
+`import "std/c/rasterultra025"` · `use rasterultra025`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra026
+
+`import "std/c/rasterultra026"` · `use rasterultra026`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra027
+
+`import "std/c/rasterultra027"` · `use rasterultra027`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra028
+
+`import "std/c/rasterultra028"` · `use rasterultra028`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra029
+
+`import "std/c/rasterultra029"` · `use rasterultra029`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra030
+
+`import "std/c/rasterultra030"` · `use rasterultra030`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra031
+
+`import "std/c/rasterultra031"` · `use rasterultra031`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra032
+
+`import "std/c/rasterultra032"` · `use rasterultra032`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra033
+
+`import "std/c/rasterultra033"` · `use rasterultra033`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra034
+
+`import "std/c/rasterultra034"` · `use rasterultra034`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra035
+
+`import "std/c/rasterultra035"` · `use rasterultra035`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra036
+
+`import "std/c/rasterultra036"` · `use rasterultra036`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra037
+
+`import "std/c/rasterultra037"` · `use rasterultra037`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra038
+
+`import "std/c/rasterultra038"` · `use rasterultra038`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra039
+
+`import "std/c/rasterultra039"` · `use rasterultra039`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra040
+
+`import "std/c/rasterultra040"` · `use rasterultra040`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra041
+
+`import "std/c/rasterultra041"` · `use rasterultra041`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra042
+
+`import "std/c/rasterultra042"` · `use rasterultra042`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra043
+
+`import "std/c/rasterultra043"` · `use rasterultra043`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra044
+
+`import "std/c/rasterultra044"` · `use rasterultra044`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra045
+
+`import "std/c/rasterultra045"` · `use rasterultra045`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra046
+
+`import "std/c/rasterultra046"` · `use rasterultra046`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra047
+
+`import "std/c/rasterultra047"` · `use rasterultra047`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra048
+
+`import "std/c/rasterultra048"` · `use rasterultra048`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra049
+
+`import "std/c/rasterultra049"` · `use rasterultra049`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra050
+
+`import "std/c/rasterultra050"` · `use rasterultra050`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra051
+
+`import "std/c/rasterultra051"` · `use rasterultra051`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra052
+
+`import "std/c/rasterultra052"` · `use rasterultra052`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra053
+
+`import "std/c/rasterultra053"` · `use rasterultra053`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra054
+
+`import "std/c/rasterultra054"` · `use rasterultra054`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra055
+
+`import "std/c/rasterultra055"` · `use rasterultra055`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra056
+
+`import "std/c/rasterultra056"` · `use rasterultra056`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra057
+
+`import "std/c/rasterultra057"` · `use rasterultra057`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra058
+
+`import "std/c/rasterultra058"` · `use rasterultra058`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra059
+
+`import "std/c/rasterultra059"` · `use rasterultra059`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra060
+
+`import "std/c/rasterultra060"` · `use rasterultra060`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra061
+
+`import "std/c/rasterultra061"` · `use rasterultra061`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra062
+
+`import "std/c/rasterultra062"` · `use rasterultra062`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra063
+
+`import "std/c/rasterultra063"` · `use rasterultra063`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra064
+
+`import "std/c/rasterultra064"` · `use rasterultra064`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra065
+
+`import "std/c/rasterultra065"` · `use rasterultra065`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra066
+
+`import "std/c/rasterultra066"` · `use rasterultra066`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra067
+
+`import "std/c/rasterultra067"` · `use rasterultra067`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra068
+
+`import "std/c/rasterultra068"` · `use rasterultra068`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra069
+
+`import "std/c/rasterultra069"` · `use rasterultra069`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra070
+
+`import "std/c/rasterultra070"` · `use rasterultra070`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra071
+
+`import "std/c/rasterultra071"` · `use rasterultra071`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra072
+
+`import "std/c/rasterultra072"` · `use rasterultra072`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra073
+
+`import "std/c/rasterultra073"` · `use rasterultra073`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra074
+
+`import "std/c/rasterultra074"` · `use rasterultra074`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra075
+
+`import "std/c/rasterultra075"` · `use rasterultra075`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra076
+
+`import "std/c/rasterultra076"` · `use rasterultra076`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra077
+
+`import "std/c/rasterultra077"` · `use rasterultra077`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra078
+
+`import "std/c/rasterultra078"` · `use rasterultra078`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra079
+
+`import "std/c/rasterultra079"` · `use rasterultra079`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra080
+
+`import "std/c/rasterultra080"` · `use rasterultra080`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra081
+
+`import "std/c/rasterultra081"` · `use rasterultra081`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra082
+
+`import "std/c/rasterultra082"` · `use rasterultra082`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra083
+
+`import "std/c/rasterultra083"` · `use rasterultra083`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra084
+
+`import "std/c/rasterultra084"` · `use rasterultra084`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra085
+
+`import "std/c/rasterultra085"` · `use rasterultra085`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra086
+
+`import "std/c/rasterultra086"` · `use rasterultra086`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra087
+
+`import "std/c/rasterultra087"` · `use rasterultra087`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra088
+
+`import "std/c/rasterultra088"` · `use rasterultra088`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra089
+
+`import "std/c/rasterultra089"` · `use rasterultra089`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra090
+
+`import "std/c/rasterultra090"` · `use rasterultra090`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra091
+
+`import "std/c/rasterultra091"` · `use rasterultra091`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra092
+
+`import "std/c/rasterultra092"` · `use rasterultra092`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra093
+
+`import "std/c/rasterultra093"` · `use rasterultra093`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra094
+
+`import "std/c/rasterultra094"` · `use rasterultra094`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra095
+
+`import "std/c/rasterultra095"` · `use rasterultra095`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra096
+
+`import "std/c/rasterultra096"` · `use rasterultra096`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra097
+
+`import "std/c/rasterultra097"` · `use rasterultra097`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra098
+
+`import "std/c/rasterultra098"` · `use rasterultra098`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra099
+
+`import "std/c/rasterultra099"` · `use rasterultra099`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra100
+
+`import "std/c/rasterultra100"` · `use rasterultra100`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra101
+
+`import "std/c/rasterultra101"` · `use rasterultra101`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra102
+
+`import "std/c/rasterultra102"` · `use rasterultra102`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra103
+
+`import "std/c/rasterultra103"` · `use rasterultra103`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra104
+
+`import "std/c/rasterultra104"` · `use rasterultra104`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra105
+
+`import "std/c/rasterultra105"` · `use rasterultra105`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra106
+
+`import "std/c/rasterultra106"` · `use rasterultra106`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra107
+
+`import "std/c/rasterultra107"` · `use rasterultra107`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra108
+
+`import "std/c/rasterultra108"` · `use rasterultra108`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra109
+
+`import "std/c/rasterultra109"` · `use rasterultra109`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra110
+
+`import "std/c/rasterultra110"` · `use rasterultra110`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra111
+
+`import "std/c/rasterultra111"` · `use rasterultra111`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra112
+
+`import "std/c/rasterultra112"` · `use rasterultra112`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra113
+
+`import "std/c/rasterultra113"` · `use rasterultra113`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra114
+
+`import "std/c/rasterultra114"` · `use rasterultra114`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra115
+
+`import "std/c/rasterultra115"` · `use rasterultra115`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra116
+
+`import "std/c/rasterultra116"` · `use rasterultra116`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra117
+
+`import "std/c/rasterultra117"` · `use rasterultra117`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra118
+
+`import "std/c/rasterultra118"` · `use rasterultra118`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra119
+
+`import "std/c/rasterultra119"` · `use rasterultra119`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra120
+
+`import "std/c/rasterultra120"` · `use rasterultra120`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra121
+
+`import "std/c/rasterultra121"` · `use rasterultra121`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra122
+
+`import "std/c/rasterultra122"` · `use rasterultra122`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra123
+
+`import "std/c/rasterultra123"` · `use rasterultra123`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra124
+
+`import "std/c/rasterultra124"` · `use rasterultra124`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra125
+
+`import "std/c/rasterultra125"` · `use rasterultra125`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra126
+
+`import "std/c/rasterultra126"` · `use rasterultra126`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra127
+
+`import "std/c/rasterultra127"` · `use rasterultra127`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra128
+
+`import "std/c/rasterultra128"` · `use rasterultra128`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra129
+
+`import "std/c/rasterultra129"` · `use rasterultra129`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra130
+
+`import "std/c/rasterultra130"` · `use rasterultra130`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra131
+
+`import "std/c/rasterultra131"` · `use rasterultra131`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra132
+
+`import "std/c/rasterultra132"` · `use rasterultra132`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra133
+
+`import "std/c/rasterultra133"` · `use rasterultra133`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra134
+
+`import "std/c/rasterultra134"` · `use rasterultra134`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra135
+
+`import "std/c/rasterultra135"` · `use rasterultra135`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra136
+
+`import "std/c/rasterultra136"` · `use rasterultra136`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra137
+
+`import "std/c/rasterultra137"` · `use rasterultra137`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra138
+
+`import "std/c/rasterultra138"` · `use rasterultra138`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra139
+
+`import "std/c/rasterultra139"` · `use rasterultra139`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra140
+
+`import "std/c/rasterultra140"` · `use rasterultra140`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra141
+
+`import "std/c/rasterultra141"` · `use rasterultra141`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra142
+
+`import "std/c/rasterultra142"` · `use rasterultra142`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra143
+
+`import "std/c/rasterultra143"` · `use rasterultra143`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra144
+
+`import "std/c/rasterultra144"` · `use rasterultra144`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra145
+
+`import "std/c/rasterultra145"` · `use rasterultra145`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra146
+
+`import "std/c/rasterultra146"` · `use rasterultra146`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra147
+
+`import "std/c/rasterultra147"` · `use rasterultra147`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra148
+
+`import "std/c/rasterultra148"` · `use rasterultra148`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra149
+
+`import "std/c/rasterultra149"` · `use rasterultra149`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra150
+
+`import "std/c/rasterultra150"` · `use rasterultra150`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra151
+
+`import "std/c/rasterultra151"` · `use rasterultra151`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra152
+
+`import "std/c/rasterultra152"` · `use rasterultra152`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra153
+
+`import "std/c/rasterultra153"` · `use rasterultra153`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra154
+
+`import "std/c/rasterultra154"` · `use rasterultra154`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra155
+
+`import "std/c/rasterultra155"` · `use rasterultra155`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra156
+
+`import "std/c/rasterultra156"` · `use rasterultra156`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra157
+
+`import "std/c/rasterultra157"` · `use rasterultra157`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra158
+
+`import "std/c/rasterultra158"` · `use rasterultra158`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra159
+
+`import "std/c/rasterultra159"` · `use rasterultra159`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra160
+
+`import "std/c/rasterultra160"` · `use rasterultra160`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra161
+
+`import "std/c/rasterultra161"` · `use rasterultra161`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra162
+
+`import "std/c/rasterultra162"` · `use rasterultra162`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra163
+
+`import "std/c/rasterultra163"` · `use rasterultra163`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra164
+
+`import "std/c/rasterultra164"` · `use rasterultra164`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra165
+
+`import "std/c/rasterultra165"` · `use rasterultra165`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra166
+
+`import "std/c/rasterultra166"` · `use rasterultra166`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra167
+
+`import "std/c/rasterultra167"` · `use rasterultra167`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra168
+
+`import "std/c/rasterultra168"` · `use rasterultra168`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra169
+
+`import "std/c/rasterultra169"` · `use rasterultra169`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra170
+
+`import "std/c/rasterultra170"` · `use rasterultra170`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra171
+
+`import "std/c/rasterultra171"` · `use rasterultra171`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra172
+
+`import "std/c/rasterultra172"` · `use rasterultra172`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra173
+
+`import "std/c/rasterultra173"` · `use rasterultra173`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra174
+
+`import "std/c/rasterultra174"` · `use rasterultra174`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra175
+
+`import "std/c/rasterultra175"` · `use rasterultra175`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra176
+
+`import "std/c/rasterultra176"` · `use rasterultra176`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra177
+
+`import "std/c/rasterultra177"` · `use rasterultra177`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra178
+
+`import "std/c/rasterultra178"` · `use rasterultra178`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra179
+
+`import "std/c/rasterultra179"` · `use rasterultra179`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra180
+
+`import "std/c/rasterultra180"` · `use rasterultra180`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra181
+
+`import "std/c/rasterultra181"` · `use rasterultra181`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra182
+
+`import "std/c/rasterultra182"` · `use rasterultra182`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra183
+
+`import "std/c/rasterultra183"` · `use rasterultra183`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra184
+
+`import "std/c/rasterultra184"` · `use rasterultra184`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra185
+
+`import "std/c/rasterultra185"` · `use rasterultra185`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra186
+
+`import "std/c/rasterultra186"` · `use rasterultra186`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra187
+
+`import "std/c/rasterultra187"` · `use rasterultra187`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra188
+
+`import "std/c/rasterultra188"` · `use rasterultra188`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra189
+
+`import "std/c/rasterultra189"` · `use rasterultra189`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra190
+
+`import "std/c/rasterultra190"` · `use rasterultra190`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra191
+
+`import "std/c/rasterultra191"` · `use rasterultra191`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra192
+
+`import "std/c/rasterultra192"` · `use rasterultra192`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra193
+
+`import "std/c/rasterultra193"` · `use rasterultra193`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra194
+
+`import "std/c/rasterultra194"` · `use rasterultra194`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra195
+
+`import "std/c/rasterultra195"` · `use rasterultra195`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra196
+
+`import "std/c/rasterultra196"` · `use rasterultra196`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra197
+
+`import "std/c/rasterultra197"` · `use rasterultra197`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra198
+
+`import "std/c/rasterultra198"` · `use rasterultra198`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra199
+
+`import "std/c/rasterultra199"` · `use rasterultra199`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra200
+
+`import "std/c/rasterultra200"` · `use rasterultra200`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra201
+
+`import "std/c/rasterultra201"` · `use rasterultra201`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra202
+
+`import "std/c/rasterultra202"` · `use rasterultra202`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra203
+
+`import "std/c/rasterultra203"` · `use rasterultra203`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra204
+
+`import "std/c/rasterultra204"` · `use rasterultra204`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra205
+
+`import "std/c/rasterultra205"` · `use rasterultra205`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra206
+
+`import "std/c/rasterultra206"` · `use rasterultra206`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra207
+
+`import "std/c/rasterultra207"` · `use rasterultra207`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra208
+
+`import "std/c/rasterultra208"` · `use rasterultra208`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra209
+
+`import "std/c/rasterultra209"` · `use rasterultra209`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra210
+
+`import "std/c/rasterultra210"` · `use rasterultra210`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra211
+
+`import "std/c/rasterultra211"` · `use rasterultra211`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra212
+
+`import "std/c/rasterultra212"` · `use rasterultra212`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra213
+
+`import "std/c/rasterultra213"` · `use rasterultra213`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra214
+
+`import "std/c/rasterultra214"` · `use rasterultra214`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra215
+
+`import "std/c/rasterultra215"` · `use rasterultra215`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra216
+
+`import "std/c/rasterultra216"` · `use rasterultra216`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra217
+
+`import "std/c/rasterultra217"` · `use rasterultra217`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra218
+
+`import "std/c/rasterultra218"` · `use rasterultra218`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra219
+
+`import "std/c/rasterultra219"` · `use rasterultra219`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra220
+
+`import "std/c/rasterultra220"` · `use rasterultra220`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra221
+
+`import "std/c/rasterultra221"` · `use rasterultra221`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra222
+
+`import "std/c/rasterultra222"` · `use rasterultra222`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra223
+
+`import "std/c/rasterultra223"` · `use rasterultra223`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra224
+
+`import "std/c/rasterultra224"` · `use rasterultra224`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra225
+
+`import "std/c/rasterultra225"` · `use rasterultra225`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra226
+
+`import "std/c/rasterultra226"` · `use rasterultra226`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra227
+
+`import "std/c/rasterultra227"` · `use rasterultra227`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra228
+
+`import "std/c/rasterultra228"` · `use rasterultra228`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra229
+
+`import "std/c/rasterultra229"` · `use rasterultra229`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra230
+
+`import "std/c/rasterultra230"` · `use rasterultra230`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra231
+
+`import "std/c/rasterultra231"` · `use rasterultra231`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra232
+
+`import "std/c/rasterultra232"` · `use rasterultra232`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra233
+
+`import "std/c/rasterultra233"` · `use rasterultra233`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra234
+
+`import "std/c/rasterultra234"` · `use rasterultra234`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra235
+
+`import "std/c/rasterultra235"` · `use rasterultra235`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra236
+
+`import "std/c/rasterultra236"` · `use rasterultra236`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra237
+
+`import "std/c/rasterultra237"` · `use rasterultra237`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra238
+
+`import "std/c/rasterultra238"` · `use rasterultra238`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra239
+
+`import "std/c/rasterultra239"` · `use rasterultra239`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra240
+
+`import "std/c/rasterultra240"` · `use rasterultra240`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra241
+
+`import "std/c/rasterultra241"` · `use rasterultra241`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra242
+
+`import "std/c/rasterultra242"` · `use rasterultra242`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra243
+
+`import "std/c/rasterultra243"` · `use rasterultra243`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra244
+
+`import "std/c/rasterultra244"` · `use rasterultra244`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra245
+
+`import "std/c/rasterultra245"` · `use rasterultra245`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra246
+
+`import "std/c/rasterultra246"` · `use rasterultra246`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra247
+
+`import "std/c/rasterultra247"` · `use rasterultra247`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra248
+
+`import "std/c/rasterultra248"` · `use rasterultra248`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra249
+
+`import "std/c/rasterultra249"` · `use rasterultra249`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra250
+
+`import "std/c/rasterultra250"` · `use rasterultra250`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra251
+
+`import "std/c/rasterultra251"` · `use rasterultra251`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra252
+
+`import "std/c/rasterultra252"` · `use rasterultra252`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra253
+
+`import "std/c/rasterultra253"` · `use rasterultra253`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra254
+
+`import "std/c/rasterultra254"` · `use rasterultra254`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra255
+
+`import "std/c/rasterultra255"` · `use rasterultra255`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra256
+
+`import "std/c/rasterultra256"` · `use rasterultra256`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra257
+
+`import "std/c/rasterultra257"` · `use rasterultra257`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra258
+
+`import "std/c/rasterultra258"` · `use rasterultra258`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra259
+
+`import "std/c/rasterultra259"` · `use rasterultra259`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra260
+
+`import "std/c/rasterultra260"` · `use rasterultra260`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra261
+
+`import "std/c/rasterultra261"` · `use rasterultra261`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra262
+
+`import "std/c/rasterultra262"` · `use rasterultra262`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra263
+
+`import "std/c/rasterultra263"` · `use rasterultra263`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra264
+
+`import "std/c/rasterultra264"` · `use rasterultra264`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra265
+
+`import "std/c/rasterultra265"` · `use rasterultra265`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra266
+
+`import "std/c/rasterultra266"` · `use rasterultra266`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra267
+
+`import "std/c/rasterultra267"` · `use rasterultra267`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra268
+
+`import "std/c/rasterultra268"` · `use rasterultra268`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra269
+
+`import "std/c/rasterultra269"` · `use rasterultra269`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra270
+
+`import "std/c/rasterultra270"` · `use rasterultra270`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra271
+
+`import "std/c/rasterultra271"` · `use rasterultra271`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra272
+
+`import "std/c/rasterultra272"` · `use rasterultra272`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra273
+
+`import "std/c/rasterultra273"` · `use rasterultra273`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra274
+
+`import "std/c/rasterultra274"` · `use rasterultra274`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra275
+
+`import "std/c/rasterultra275"` · `use rasterultra275`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra276
+
+`import "std/c/rasterultra276"` · `use rasterultra276`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra277
+
+`import "std/c/rasterultra277"` · `use rasterultra277`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra278
+
+`import "std/c/rasterultra278"` · `use rasterultra278`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra279
+
+`import "std/c/rasterultra279"` · `use rasterultra279`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra280
+
+`import "std/c/rasterultra280"` · `use rasterultra280`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra281
+
+`import "std/c/rasterultra281"` · `use rasterultra281`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra282
+
+`import "std/c/rasterultra282"` · `use rasterultra282`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra283
+
+`import "std/c/rasterultra283"` · `use rasterultra283`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra284
+
+`import "std/c/rasterultra284"` · `use rasterultra284`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra285
+
+`import "std/c/rasterultra285"` · `use rasterultra285`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra286
+
+`import "std/c/rasterultra286"` · `use rasterultra286`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra287
+
+`import "std/c/rasterultra287"` · `use rasterultra287`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra288
+
+`import "std/c/rasterultra288"` · `use rasterultra288`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra289
+
+`import "std/c/rasterultra289"` · `use rasterultra289`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra290
+
+`import "std/c/rasterultra290"` · `use rasterultra290`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra291
+
+`import "std/c/rasterultra291"` · `use rasterultra291`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra292
+
+`import "std/c/rasterultra292"` · `use rasterultra292`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra293
+
+`import "std/c/rasterultra293"` · `use rasterultra293`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra294
+
+`import "std/c/rasterultra294"` · `use rasterultra294`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra295
+
+`import "std/c/rasterultra295"` · `use rasterultra295`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra296
+
+`import "std/c/rasterultra296"` · `use rasterultra296`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra297
+
+`import "std/c/rasterultra297"` · `use rasterultra297`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra298
+
+`import "std/c/rasterultra298"` · `use rasterultra298`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra299
+
+`import "std/c/rasterultra299"` · `use rasterultra299`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra300
+
+`import "std/c/rasterultra300"` · `use rasterultra300`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra301
+
+`import "std/c/rasterultra301"` · `use rasterultra301`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra302
+
+`import "std/c/rasterultra302"` · `use rasterultra302`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra303
+
+`import "std/c/rasterultra303"` · `use rasterultra303`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra304
+
+`import "std/c/rasterultra304"` · `use rasterultra304`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra305
+
+`import "std/c/rasterultra305"` · `use rasterultra305`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra306
+
+`import "std/c/rasterultra306"` · `use rasterultra306`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra307
+
+`import "std/c/rasterultra307"` · `use rasterultra307`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra308
+
+`import "std/c/rasterultra308"` · `use rasterultra308`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra309
+
+`import "std/c/rasterultra309"` · `use rasterultra309`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra310
+
+`import "std/c/rasterultra310"` · `use rasterultra310`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra311
+
+`import "std/c/rasterultra311"` · `use rasterultra311`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra312
+
+`import "std/c/rasterultra312"` · `use rasterultra312`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra313
+
+`import "std/c/rasterultra313"` · `use rasterultra313`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra314
+
+`import "std/c/rasterultra314"` · `use rasterultra314`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra315
+
+`import "std/c/rasterultra315"` · `use rasterultra315`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra316
+
+`import "std/c/rasterultra316"` · `use rasterultra316`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra317
+
+`import "std/c/rasterultra317"` · `use rasterultra317`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra318
+
+`import "std/c/rasterultra318"` · `use rasterultra318`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra319
+
+`import "std/c/rasterultra319"` · `use rasterultra319`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra320
+
+`import "std/c/rasterultra320"` · `use rasterultra320`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra321
+
+`import "std/c/rasterultra321"` · `use rasterultra321`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra322
+
+`import "std/c/rasterultra322"` · `use rasterultra322`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra323
+
+`import "std/c/rasterultra323"` · `use rasterultra323`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra324
+
+`import "std/c/rasterultra324"` · `use rasterultra324`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra325
+
+`import "std/c/rasterultra325"` · `use rasterultra325`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra326
+
+`import "std/c/rasterultra326"` · `use rasterultra326`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra327
+
+`import "std/c/rasterultra327"` · `use rasterultra327`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra328
+
+`import "std/c/rasterultra328"` · `use rasterultra328`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra329
+
+`import "std/c/rasterultra329"` · `use rasterultra329`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra330
+
+`import "std/c/rasterultra330"` · `use rasterultra330`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra331
+
+`import "std/c/rasterultra331"` · `use rasterultra331`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra332
+
+`import "std/c/rasterultra332"` · `use rasterultra332`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra333
+
+`import "std/c/rasterultra333"` · `use rasterultra333`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra334
+
+`import "std/c/rasterultra334"` · `use rasterultra334`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra335
+
+`import "std/c/rasterultra335"` · `use rasterultra335`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra336
+
+`import "std/c/rasterultra336"` · `use rasterultra336`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra337
+
+`import "std/c/rasterultra337"` · `use rasterultra337`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra338
+
+`import "std/c/rasterultra338"` · `use rasterultra338`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra339
+
+`import "std/c/rasterultra339"` · `use rasterultra339`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra340
+
+`import "std/c/rasterultra340"` · `use rasterultra340`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra341
+
+`import "std/c/rasterultra341"` · `use rasterultra341`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra342
+
+`import "std/c/rasterultra342"` · `use rasterultra342`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra343
+
+`import "std/c/rasterultra343"` · `use rasterultra343`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra344
+
+`import "std/c/rasterultra344"` · `use rasterultra344`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra345
+
+`import "std/c/rasterultra345"` · `use rasterultra345`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra346
+
+`import "std/c/rasterultra346"` · `use rasterultra346`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra347
+
+`import "std/c/rasterultra347"` · `use rasterultra347`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra348
+
+`import "std/c/rasterultra348"` · `use rasterultra348`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra349
+
+`import "std/c/rasterultra349"` · `use rasterultra349`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra350
+
+`import "std/c/rasterultra350"` · `use rasterultra350`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra351
+
+`import "std/c/rasterultra351"` · `use rasterultra351`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra352
+
+`import "std/c/rasterultra352"` · `use rasterultra352`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra353
+
+`import "std/c/rasterultra353"` · `use rasterultra353`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra354
+
+`import "std/c/rasterultra354"` · `use rasterultra354`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra355
+
+`import "std/c/rasterultra355"` · `use rasterultra355`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra356
+
+`import "std/c/rasterultra356"` · `use rasterultra356`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra357
+
+`import "std/c/rasterultra357"` · `use rasterultra357`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra358
+
+`import "std/c/rasterultra358"` · `use rasterultra358`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra359
+
+`import "std/c/rasterultra359"` · `use rasterultra359`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra360
+
+`import "std/c/rasterultra360"` · `use rasterultra360`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra361
+
+`import "std/c/rasterultra361"` · `use rasterultra361`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra362
+
+`import "std/c/rasterultra362"` · `use rasterultra362`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra363
+
+`import "std/c/rasterultra363"` · `use rasterultra363`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra364
+
+`import "std/c/rasterultra364"` · `use rasterultra364`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra365
+
+`import "std/c/rasterultra365"` · `use rasterultra365`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra366
+
+`import "std/c/rasterultra366"` · `use rasterultra366`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra367
+
+`import "std/c/rasterultra367"` · `use rasterultra367`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra368
+
+`import "std/c/rasterultra368"` · `use rasterultra368`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra369
+
+`import "std/c/rasterultra369"` · `use rasterultra369`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra370
+
+`import "std/c/rasterultra370"` · `use rasterultra370`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra371
+
+`import "std/c/rasterultra371"` · `use rasterultra371`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra372
+
+`import "std/c/rasterultra372"` · `use rasterultra372`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra373
+
+`import "std/c/rasterultra373"` · `use rasterultra373`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra374
+
+`import "std/c/rasterultra374"` · `use rasterultra374`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra375
+
+`import "std/c/rasterultra375"` · `use rasterultra375`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra376
+
+`import "std/c/rasterultra376"` · `use rasterultra376`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra377
+
+`import "std/c/rasterultra377"` · `use rasterultra377`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra378
+
+`import "std/c/rasterultra378"` · `use rasterultra378`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra379
+
+`import "std/c/rasterultra379"` · `use rasterultra379`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra380
+
+`import "std/c/rasterultra380"` · `use rasterultra380`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra381
+
+`import "std/c/rasterultra381"` · `use rasterultra381`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra382
+
+`import "std/c/rasterultra382"` · `use rasterultra382`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra383
+
+`import "std/c/rasterultra383"` · `use rasterultra383`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra384
+
+`import "std/c/rasterultra384"` · `use rasterultra384`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra385
+
+`import "std/c/rasterultra385"` · `use rasterultra385`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra386
+
+`import "std/c/rasterultra386"` · `use rasterultra386`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra387
+
+`import "std/c/rasterultra387"` · `use rasterultra387`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra388
+
+`import "std/c/rasterultra388"` · `use rasterultra388`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra389
+
+`import "std/c/rasterultra389"` · `use rasterultra389`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra390
+
+`import "std/c/rasterultra390"` · `use rasterultra390`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra391
+
+`import "std/c/rasterultra391"` · `use rasterultra391`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra392
+
+`import "std/c/rasterultra392"` · `use rasterultra392`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra393
+
+`import "std/c/rasterultra393"` · `use rasterultra393`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra394
+
+`import "std/c/rasterultra394"` · `use rasterultra394`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra395
+
+`import "std/c/rasterultra395"` · `use rasterultra395`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra396
+
+`import "std/c/rasterultra396"` · `use rasterultra396`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra397
+
+`import "std/c/rasterultra397"` · `use rasterultra397`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra398
+
+`import "std/c/rasterultra398"` · `use rasterultra398`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra399
+
+`import "std/c/rasterultra399"` · `use rasterultra399`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra400
+
+`import "std/c/rasterultra400"` · `use rasterultra400`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra401
+
+`import "std/c/rasterultra401"` · `use rasterultra401`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra402
+
+`import "std/c/rasterultra402"` · `use rasterultra402`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra403
+
+`import "std/c/rasterultra403"` · `use rasterultra403`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra404
+
+`import "std/c/rasterultra404"` · `use rasterultra404`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra405
+
+`import "std/c/rasterultra405"` · `use rasterultra405`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra406
+
+`import "std/c/rasterultra406"` · `use rasterultra406`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra407
+
+`import "std/c/rasterultra407"` · `use rasterultra407`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra408
+
+`import "std/c/rasterultra408"` · `use rasterultra408`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra409
+
+`import "std/c/rasterultra409"` · `use rasterultra409`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra410
+
+`import "std/c/rasterultra410"` · `use rasterultra410`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra411
+
+`import "std/c/rasterultra411"` · `use rasterultra411`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra412
+
+`import "std/c/rasterultra412"` · `use rasterultra412`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra413
+
+`import "std/c/rasterultra413"` · `use rasterultra413`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra414
+
+`import "std/c/rasterultra414"` · `use rasterultra414`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra415
+
+`import "std/c/rasterultra415"` · `use rasterultra415`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra416
+
+`import "std/c/rasterultra416"` · `use rasterultra416`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra417
+
+`import "std/c/rasterultra417"` · `use rasterultra417`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra418
+
+`import "std/c/rasterultra418"` · `use rasterultra418`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra419
+
+`import "std/c/rasterultra419"` · `use rasterultra419`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra420
+
+`import "std/c/rasterultra420"` · `use rasterultra420`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra421
+
+`import "std/c/rasterultra421"` · `use rasterultra421`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra422
+
+`import "std/c/rasterultra422"` · `use rasterultra422`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra423
+
+`import "std/c/rasterultra423"` · `use rasterultra423`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra424
+
+`import "std/c/rasterultra424"` · `use rasterultra424`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra425
+
+`import "std/c/rasterultra425"` · `use rasterultra425`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra426
+
+`import "std/c/rasterultra426"` · `use rasterultra426`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra427
+
+`import "std/c/rasterultra427"` · `use rasterultra427`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra428
+
+`import "std/c/rasterultra428"` · `use rasterultra428`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra429
+
+`import "std/c/rasterultra429"` · `use rasterultra429`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra430
+
+`import "std/c/rasterultra430"` · `use rasterultra430`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra431
+
+`import "std/c/rasterultra431"` · `use rasterultra431`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra432
+
+`import "std/c/rasterultra432"` · `use rasterultra432`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra433
+
+`import "std/c/rasterultra433"` · `use rasterultra433`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra434
+
+`import "std/c/rasterultra434"` · `use rasterultra434`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra435
+
+`import "std/c/rasterultra435"` · `use rasterultra435`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra436
+
+`import "std/c/rasterultra436"` · `use rasterultra436`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra437
+
+`import "std/c/rasterultra437"` · `use rasterultra437`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra438
+
+`import "std/c/rasterultra438"` · `use rasterultra438`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra439
+
+`import "std/c/rasterultra439"` · `use rasterultra439`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra440
+
+`import "std/c/rasterultra440"` · `use rasterultra440`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra441
+
+`import "std/c/rasterultra441"` · `use rasterultra441`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra442
+
+`import "std/c/rasterultra442"` · `use rasterultra442`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra443
+
+`import "std/c/rasterultra443"` · `use rasterultra443`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra444
+
+`import "std/c/rasterultra444"` · `use rasterultra444`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra445
+
+`import "std/c/rasterultra445"` · `use rasterultra445`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra446
+
+`import "std/c/rasterultra446"` · `use rasterultra446`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra447
+
+`import "std/c/rasterultra447"` · `use rasterultra447`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra448
+
+`import "std/c/rasterultra448"` · `use rasterultra448`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra449
+
+`import "std/c/rasterultra449"` · `use rasterultra449`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra450
+
+`import "std/c/rasterultra450"` · `use rasterultra450`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra451
+
+`import "std/c/rasterultra451"` · `use rasterultra451`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra452
+
+`import "std/c/rasterultra452"` · `use rasterultra452`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra453
+
+`import "std/c/rasterultra453"` · `use rasterultra453`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra454
+
+`import "std/c/rasterultra454"` · `use rasterultra454`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra455
+
+`import "std/c/rasterultra455"` · `use rasterultra455`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra456
+
+`import "std/c/rasterultra456"` · `use rasterultra456`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra457
+
+`import "std/c/rasterultra457"` · `use rasterultra457`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra458
+
+`import "std/c/rasterultra458"` · `use rasterultra458`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra459
+
+`import "std/c/rasterultra459"` · `use rasterultra459`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra460
+
+`import "std/c/rasterultra460"` · `use rasterultra460`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra461
+
+`import "std/c/rasterultra461"` · `use rasterultra461`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra462
+
+`import "std/c/rasterultra462"` · `use rasterultra462`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra463
+
+`import "std/c/rasterultra463"` · `use rasterultra463`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra464
+
+`import "std/c/rasterultra464"` · `use rasterultra464`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra465
+
+`import "std/c/rasterultra465"` · `use rasterultra465`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra466
+
+`import "std/c/rasterultra466"` · `use rasterultra466`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra467
+
+`import "std/c/rasterultra467"` · `use rasterultra467`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra468
+
+`import "std/c/rasterultra468"` · `use rasterultra468`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra469
+
+`import "std/c/rasterultra469"` · `use rasterultra469`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra470
+
+`import "std/c/rasterultra470"` · `use rasterultra470`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra471
+
+`import "std/c/rasterultra471"` · `use rasterultra471`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra472
+
+`import "std/c/rasterultra472"` · `use rasterultra472`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra473
+
+`import "std/c/rasterultra473"` · `use rasterultra473`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra474
+
+`import "std/c/rasterultra474"` · `use rasterultra474`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra475
+
+`import "std/c/rasterultra475"` · `use rasterultra475`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra476
+
+`import "std/c/rasterultra476"` · `use rasterultra476`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra477
+
+`import "std/c/rasterultra477"` · `use rasterultra477`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra478
+
+`import "std/c/rasterultra478"` · `use rasterultra478`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra479
+
+`import "std/c/rasterultra479"` · `use rasterultra479`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra480
+
+`import "std/c/rasterultra480"` · `use rasterultra480`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra481
+
+`import "std/c/rasterultra481"` · `use rasterultra481`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra482
+
+`import "std/c/rasterultra482"` · `use rasterultra482`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra483
+
+`import "std/c/rasterultra483"` · `use rasterultra483`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra484
+
+`import "std/c/rasterultra484"` · `use rasterultra484`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra485
+
+`import "std/c/rasterultra485"` · `use rasterultra485`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra486
+
+`import "std/c/rasterultra486"` · `use rasterultra486`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra487
+
+`import "std/c/rasterultra487"` · `use rasterultra487`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra488
+
+`import "std/c/rasterultra488"` · `use rasterultra488`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra489
+
+`import "std/c/rasterultra489"` · `use rasterultra489`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra490
+
+`import "std/c/rasterultra490"` · `use rasterultra490`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra491
+
+`import "std/c/rasterultra491"` · `use rasterultra491`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra492
+
+`import "std/c/rasterultra492"` · `use rasterultra492`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra493
+
+`import "std/c/rasterultra493"` · `use rasterultra493`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra494
+
+`import "std/c/rasterultra494"` · `use rasterultra494`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra495
+
+`import "std/c/rasterultra495"` · `use rasterultra495`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra496
+
+`import "std/c/rasterultra496"` · `use rasterultra496`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra497
+
+`import "std/c/rasterultra497"` · `use rasterultra497`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra498
+
+`import "std/c/rasterultra498"` · `use rasterultra498`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra499
+
+`import "std/c/rasterultra499"` · `use rasterultra499`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/rasterultra500
+
+`import "std/c/rasterultra500"` · `use rasterultra500`
+
+- `boxBlur3(grid list number, w number, h number) → list number`
+- `sobelMag(grid list number, w number, h number) → list number`
+- `threshold01(grid list number, w number, h number, t number) → list number`
+- `ndviMask(nir list number, red list number, thr number) → list number`
+- `smoothRaster(prev list number, cur list number, alpha number) → list number`
