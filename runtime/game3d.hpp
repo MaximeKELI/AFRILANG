@@ -41,6 +41,25 @@ struct ObjVertex {
 
 struct ObjModel {
     std::vector<ObjVertex> triangles;
+    std::vector<std::vector<float>> animTimes;
+    std::vector<std::vector<float>> animRotY;
+};
+
+struct LevelObject {
+    std::string type;
+    std::string asset;
+    double x = 0;
+    double y = 0;
+    double z = 0;
+    double scale = 1;
+    double rotY = 0;
+};
+
+struct ModelAnimPlayback {
+    int animIndex = 0;
+    double timeSec = 0;
+    bool playing = false;
+    bool loop = true;
 };
 
 struct RigidBody {
@@ -138,6 +157,13 @@ struct Game3dContext {
     LightingState lighting;
     FogState fog;
     SkyboxState skybox;
+    std::unordered_map<std::string, ModelAnimPlayback> modelAnims;
+    std::vector<LevelObject> levelObjects;
+    bool editMode = false;
+    double lastGroundX = 0;
+    double lastGroundY = 0;
+    double lastGroundZ = 0;
+    bool lastGroundHit = false;
 };
 
 inline Game3dContext& context() {
@@ -225,6 +251,8 @@ inline void releaseGpuAssets() {
     ctx.bodies.clear();
     ctx.bodyOrder.clear();
     ctx.particles.clear();
+    ctx.modelAnims.clear();
+    ctx.levelObjects.clear();
     if (ctx.imgInited) {
         IMG_Quit();
         ctx.imgInited = false;
