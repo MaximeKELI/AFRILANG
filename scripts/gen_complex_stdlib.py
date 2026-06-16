@@ -177,7 +177,7 @@ def add_ultra_seg_modules(count: int) -> None:
              'const int dx4[4]={1,-1,0,0};const int dy4[4]={0,0,1,-1};'
              'for(int k=0;k<4;++k){int nx=cx+dx4[k],ny=cy+dy4[k];if(!in(nx,ny))continue;int v=idx(nx,ny);'
              'std::size_t vk=(std::size_t)v;if(vk>=mask.size()||vis[vk]||mask[vk]<=0)continue;'
-             'vis[vk]=1;q.push_back(v);} }}}}'
+             'vis[vk]=1;q.push_back(v);} } } }'
              'return (double)comps;}'),
 
             # Count connected components with 8-connectivity.
@@ -192,7 +192,7 @@ def add_ultra_seg_modules(count: int) -> None:
              'for(std::size_t qi=0;qi<q.size();++qi){int cur=q[qi];int cx=cur%W,cy=cur/W;'
              'for(int dy=-1;dy<=1;++dy){for(int dx=-1;dx<=1;++dx){if(dx==0&&dy==0)continue;'
              'int nx=cx+dx,ny=cy+dy;if(!in(nx,ny))continue;int v=idx(nx,ny);std::size_t vk=(std::size_t)v;'
-             'if(vk>=mask.size()||vis[vk]||mask[vk]<=0)continue;vis[vk]=1;q.push_back(v);}} }}}}'
+             'if(vk>=mask.size()||vis[vk]||mask[vk]<=0)continue;vis[vk]=1;q.push_back(v);} } } } }'
              'return (double)comps;}'),
 
             # Dilate binary mask with 3x3 neighborhood (one iteration).
