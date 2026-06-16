@@ -3265,3 +3265,2503 @@ namespace afrilang::runtime::gamekit500 {
 inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
 inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
 } // namespace
+
+namespace afrilang::runtime::game2dkit001 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit002 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit003 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit004 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit005 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit006 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit007 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit008 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit009 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit010 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit011 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit012 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit013 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit014 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit015 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit016 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit017 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit018 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit019 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit020 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit021 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit022 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit023 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit024 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit025 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit026 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit027 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit028 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit029 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit030 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit031 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit032 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit033 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit034 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit035 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit036 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit037 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit038 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.094000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit039 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit040 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit041 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit042 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit043 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit044 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.130000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit045 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit046 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit047 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit048 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit049 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit050 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.166000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit051 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit052 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit053 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit054 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit055 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit056 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.202000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit057 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit058 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit059 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit060 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit061 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit062 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit063 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit064 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit065 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit066 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit067 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit068 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit069 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit070 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit071 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit072 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit073 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit074 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit075 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit076 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit077 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit078 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit079 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit080 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit081 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit082 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit083 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit084 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit085 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit086 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit087 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit088 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit089 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit090 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit091 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit092 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit093 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit094 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit095 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit096 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit097 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit098 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit099 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit100 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.118000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit101 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit102 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit103 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit104 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit105 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit106 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.154000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit107 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit108 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit109 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit110 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit111 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit112 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.190000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit113 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit114 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit115 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit116 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit117 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit118 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit119 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit120 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit121 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit122 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit123 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit124 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit125 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit126 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit127 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit128 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit129 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit130 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit131 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit132 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit133 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit134 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit135 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit136 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit137 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit138 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit139 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit140 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit141 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit142 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit143 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit144 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit145 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit146 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit147 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit148 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit149 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit150 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit151 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit152 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit153 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit154 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.094000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit155 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit156 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit157 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit158 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.118000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit159 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit160 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.130000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit161 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit162 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit163 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit164 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.154000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit165 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit166 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.166000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit167 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit168 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit169 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit170 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.190000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit171 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit172 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.202000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit173 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit174 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit175 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit176 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit177 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit178 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit179 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit180 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit181 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit182 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit183 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit184 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit185 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit186 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit187 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit188 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit189 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit190 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit191 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit192 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit193 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit194 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit195 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit196 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit197 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit198 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit199 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit200 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit201 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit202 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit203 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit204 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit205 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit206 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit207 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit208 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit209 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit210 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit211 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit212 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.094000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit213 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit214 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit215 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit216 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit217 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit218 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.130000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit219 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit220 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit221 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit222 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit223 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit224 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.166000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit225 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit226 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit227 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit228 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit229 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit230 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.202000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit231 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit232 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit233 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit234 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit235 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit236 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit237 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit238 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit239 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit240 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit241 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit242 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit243 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit244 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit245 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit246 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit247 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit248 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit249 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit250 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit251 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit252 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit253 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit254 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit255 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit256 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit257 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit258 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit259 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit260 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit261 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit262 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit263 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit264 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit265 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit266 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit267 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit268 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit269 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit270 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit271 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit272 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit273 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit274 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.118000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit275 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit276 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit277 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit278 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit279 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit280 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.154000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit281 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit282 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit283 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit284 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit285 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit286 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.190000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit287 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit288 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit289 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit290 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit291 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit292 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit293 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit294 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit295 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit296 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit297 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit298 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit299 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit300 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit301 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit302 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit303 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit304 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit305 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit306 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit307 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit308 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit309 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit310 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit311 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit312 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit313 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit314 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit315 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit316 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit317 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit318 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit319 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit320 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit321 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit322 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit323 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit324 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit325 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit326 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit327 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit328 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.094000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit329 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit330 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit331 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit332 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.118000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit333 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit334 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.130000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit335 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit336 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit337 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit338 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.154000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit339 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit340 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.166000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit341 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit342 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit343 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit344 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.190000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit345 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit346 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.202000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit347 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit348 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit349 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit350 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit351 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit352 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit353 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit354 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit355 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit356 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit357 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit358 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit359 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit360 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit361 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit362 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit363 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit364 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit365 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit366 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit367 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit368 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit369 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit370 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit371 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit372 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit373 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit374 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit375 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit376 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit377 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit378 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit379 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit380 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit381 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit382 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit383 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit384 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit385 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit386 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.094000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit387 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit388 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit389 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit390 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit391 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit392 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.130000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit393 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit394 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit395 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit396 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit397 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit398 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.166000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit399 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit400 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit401 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit402 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit403 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit404 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.202000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit405 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit406 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit407 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit408 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit409 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit410 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit411 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit412 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit413 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit414 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit415 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit416 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit417 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit418 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit419 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit420 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit421 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit422 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit423 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit424 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit425 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit426 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit427 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit428 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.172000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit429 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit430 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit431 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit432 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit433 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit434 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.208000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit435 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit436 {
+inline double shake(double time, double amp) { return std::sin(time * 0.860000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit437 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit438 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit439 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit440 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.070000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit441 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit442 {
+inline double shake(double time, double amp) { return std::sin(time * 0.760000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit443 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit444 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit445 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit446 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.106000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit447 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit448 {
+inline double shake(double time, double amp) { return std::sin(time * 0.880000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.118000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit449 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit450 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit451 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit452 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.142000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit453 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit454 {
+inline double shake(double time, double amp) { return std::sin(time * 0.780000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.154000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit455 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit456 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit457 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit458 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.178000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit459 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit460 {
+inline double shake(double time, double amp) { return std::sin(time * 0.900000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.190000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit461 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit462 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit463 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit464 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit465 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit466 {
+inline double shake(double time, double amp) { return std::sin(time * 0.800000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit467 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit468 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit469 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit470 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit471 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit472 {
+inline double shake(double time, double amp) { return std::sin(time * 0.920000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit473 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit474 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit475 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit476 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit477 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit478 {
+inline double shake(double time, double amp) { return std::sin(time * 0.820000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit479 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit480 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit481 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit482 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.148000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit483 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit484 {
+inline double shake(double time, double amp) { return std::sin(time * 0.720000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.160000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit485 {
+inline double snapGrid(double v) { double g = 40.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit486 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit487 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit488 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.184000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit489 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit490 {
+inline double shake(double time, double amp) { return std::sin(time * 0.840000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.196000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit491 {
+inline double snapGrid(double v) { double g = 28.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit492 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit493 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit494 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.046000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit495 {
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+inline double wrap(double v, double size) { return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size); }
+} // namespace
+
+namespace afrilang::runtime::game2dkit496 {
+inline double shake(double time, double amp) { return std::sin(time * 0.740000) * amp; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.058000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit497 {
+inline double snapGrid(double v) { double g = 16.0; return std::floor(v / g + 0.5) * g; }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit498 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline bool pointInRect(double px, double py, double rx, double ry, double rw, double rh) { return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit499 {
+inline bool aabbHit(double ax, double ay, double aw, double ah, double bx, double by, double bw, double bh) { return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by); }
+inline double dist2(double x0, double y0, double x1, double y1) { double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy; }
+} // namespace
+
+namespace afrilang::runtime::game2dkit500 {
+inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
+inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
+} // namespace

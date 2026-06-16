@@ -1,0 +1,9 @@
+module game2dkit133
+
+function aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) returns bool
+end
+
+function dist2(x0 number, y0 number, x1 number, y1 number) returns number
+end
+
+end

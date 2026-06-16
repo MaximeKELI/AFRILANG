@@ -8979,6 +8979,9174 @@ const StdlibFuncSpec kFuncs_650[] = {
     {nullptr, nullptr, 0, nullptr}
 };
 
+const StdlibParamSpec kParams_651[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_651[] = {
+    {"aabbHit", "bool", 8, &kParams_651[0]},
+    {"dist2", "number", 4, &kParams_651[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_652[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_652[] = {
+    {"approach", "number", 3, &kParams_652[0]},
+    {"follow", "number", 3, &kParams_652[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_653[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_653[] = {
+    {"dist2", "number", 4, &kParams_653[0]},
+    {"wrap", "number", 2, &kParams_653[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_654[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_654[] = {
+    {"shake", "number", 2, &kParams_654[0]},
+    {"follow", "number", 3, &kParams_654[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_655[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_655[] = {
+    {"snapGrid", "number", 1, &kParams_655[0]},
+    {"pointInRect", "bool", 6, &kParams_655[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_656[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_656[] = {
+    {"aabbHit", "bool", 8, &kParams_656[0]},
+    {"pointInRect", "bool", 6, &kParams_656[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_657[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_657[] = {
+    {"aabbHit", "bool", 8, &kParams_657[0]},
+    {"dist2", "number", 4, &kParams_657[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_658[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_658[] = {
+    {"approach", "number", 3, &kParams_658[0]},
+    {"follow", "number", 3, &kParams_658[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_659[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_659[] = {
+    {"dist2", "number", 4, &kParams_659[0]},
+    {"wrap", "number", 2, &kParams_659[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_660[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_660[] = {
+    {"shake", "number", 2, &kParams_660[0]},
+    {"follow", "number", 3, &kParams_660[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_661[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_661[] = {
+    {"snapGrid", "number", 1, &kParams_661[0]},
+    {"pointInRect", "bool", 6, &kParams_661[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_662[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_662[] = {
+    {"aabbHit", "bool", 8, &kParams_662[0]},
+    {"pointInRect", "bool", 6, &kParams_662[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_663[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_663[] = {
+    {"aabbHit", "bool", 8, &kParams_663[0]},
+    {"dist2", "number", 4, &kParams_663[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_664[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_664[] = {
+    {"approach", "number", 3, &kParams_664[0]},
+    {"follow", "number", 3, &kParams_664[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_665[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_665[] = {
+    {"dist2", "number", 4, &kParams_665[0]},
+    {"wrap", "number", 2, &kParams_665[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_666[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_666[] = {
+    {"shake", "number", 2, &kParams_666[0]},
+    {"follow", "number", 3, &kParams_666[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_667[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_667[] = {
+    {"snapGrid", "number", 1, &kParams_667[0]},
+    {"pointInRect", "bool", 6, &kParams_667[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_668[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_668[] = {
+    {"aabbHit", "bool", 8, &kParams_668[0]},
+    {"pointInRect", "bool", 6, &kParams_668[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_669[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_669[] = {
+    {"aabbHit", "bool", 8, &kParams_669[0]},
+    {"dist2", "number", 4, &kParams_669[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_670[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_670[] = {
+    {"approach", "number", 3, &kParams_670[0]},
+    {"follow", "number", 3, &kParams_670[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_671[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_671[] = {
+    {"dist2", "number", 4, &kParams_671[0]},
+    {"wrap", "number", 2, &kParams_671[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_672[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_672[] = {
+    {"shake", "number", 2, &kParams_672[0]},
+    {"follow", "number", 3, &kParams_672[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_673[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_673[] = {
+    {"snapGrid", "number", 1, &kParams_673[0]},
+    {"pointInRect", "bool", 6, &kParams_673[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_674[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_674[] = {
+    {"aabbHit", "bool", 8, &kParams_674[0]},
+    {"pointInRect", "bool", 6, &kParams_674[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_675[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_675[] = {
+    {"aabbHit", "bool", 8, &kParams_675[0]},
+    {"dist2", "number", 4, &kParams_675[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_676[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_676[] = {
+    {"approach", "number", 3, &kParams_676[0]},
+    {"follow", "number", 3, &kParams_676[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_677[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_677[] = {
+    {"dist2", "number", 4, &kParams_677[0]},
+    {"wrap", "number", 2, &kParams_677[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_678[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_678[] = {
+    {"shake", "number", 2, &kParams_678[0]},
+    {"follow", "number", 3, &kParams_678[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_679[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_679[] = {
+    {"snapGrid", "number", 1, &kParams_679[0]},
+    {"pointInRect", "bool", 6, &kParams_679[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_680[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_680[] = {
+    {"aabbHit", "bool", 8, &kParams_680[0]},
+    {"pointInRect", "bool", 6, &kParams_680[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_681[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_681[] = {
+    {"aabbHit", "bool", 8, &kParams_681[0]},
+    {"dist2", "number", 4, &kParams_681[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_682[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_682[] = {
+    {"approach", "number", 3, &kParams_682[0]},
+    {"follow", "number", 3, &kParams_682[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_683[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_683[] = {
+    {"dist2", "number", 4, &kParams_683[0]},
+    {"wrap", "number", 2, &kParams_683[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_684[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_684[] = {
+    {"shake", "number", 2, &kParams_684[0]},
+    {"follow", "number", 3, &kParams_684[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_685[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_685[] = {
+    {"snapGrid", "number", 1, &kParams_685[0]},
+    {"pointInRect", "bool", 6, &kParams_685[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_686[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_686[] = {
+    {"aabbHit", "bool", 8, &kParams_686[0]},
+    {"pointInRect", "bool", 6, &kParams_686[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_687[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_687[] = {
+    {"aabbHit", "bool", 8, &kParams_687[0]},
+    {"dist2", "number", 4, &kParams_687[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_688[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_688[] = {
+    {"approach", "number", 3, &kParams_688[0]},
+    {"follow", "number", 3, &kParams_688[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_689[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_689[] = {
+    {"dist2", "number", 4, &kParams_689[0]},
+    {"wrap", "number", 2, &kParams_689[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_690[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_690[] = {
+    {"shake", "number", 2, &kParams_690[0]},
+    {"follow", "number", 3, &kParams_690[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_691[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_691[] = {
+    {"snapGrid", "number", 1, &kParams_691[0]},
+    {"pointInRect", "bool", 6, &kParams_691[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_692[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_692[] = {
+    {"aabbHit", "bool", 8, &kParams_692[0]},
+    {"pointInRect", "bool", 6, &kParams_692[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_693[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_693[] = {
+    {"aabbHit", "bool", 8, &kParams_693[0]},
+    {"dist2", "number", 4, &kParams_693[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_694[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_694[] = {
+    {"approach", "number", 3, &kParams_694[0]},
+    {"follow", "number", 3, &kParams_694[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_695[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_695[] = {
+    {"dist2", "number", 4, &kParams_695[0]},
+    {"wrap", "number", 2, &kParams_695[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_696[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_696[] = {
+    {"shake", "number", 2, &kParams_696[0]},
+    {"follow", "number", 3, &kParams_696[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_697[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_697[] = {
+    {"snapGrid", "number", 1, &kParams_697[0]},
+    {"pointInRect", "bool", 6, &kParams_697[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_698[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_698[] = {
+    {"aabbHit", "bool", 8, &kParams_698[0]},
+    {"pointInRect", "bool", 6, &kParams_698[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_699[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_699[] = {
+    {"aabbHit", "bool", 8, &kParams_699[0]},
+    {"dist2", "number", 4, &kParams_699[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_700[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_700[] = {
+    {"approach", "number", 3, &kParams_700[0]},
+    {"follow", "number", 3, &kParams_700[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_701[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_701[] = {
+    {"dist2", "number", 4, &kParams_701[0]},
+    {"wrap", "number", 2, &kParams_701[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_702[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_702[] = {
+    {"shake", "number", 2, &kParams_702[0]},
+    {"follow", "number", 3, &kParams_702[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_703[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_703[] = {
+    {"snapGrid", "number", 1, &kParams_703[0]},
+    {"pointInRect", "bool", 6, &kParams_703[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_704[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_704[] = {
+    {"aabbHit", "bool", 8, &kParams_704[0]},
+    {"pointInRect", "bool", 6, &kParams_704[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_705[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_705[] = {
+    {"aabbHit", "bool", 8, &kParams_705[0]},
+    {"dist2", "number", 4, &kParams_705[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_706[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_706[] = {
+    {"approach", "number", 3, &kParams_706[0]},
+    {"follow", "number", 3, &kParams_706[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_707[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_707[] = {
+    {"dist2", "number", 4, &kParams_707[0]},
+    {"wrap", "number", 2, &kParams_707[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_708[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_708[] = {
+    {"shake", "number", 2, &kParams_708[0]},
+    {"follow", "number", 3, &kParams_708[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_709[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_709[] = {
+    {"snapGrid", "number", 1, &kParams_709[0]},
+    {"pointInRect", "bool", 6, &kParams_709[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_710[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_710[] = {
+    {"aabbHit", "bool", 8, &kParams_710[0]},
+    {"pointInRect", "bool", 6, &kParams_710[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_711[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_711[] = {
+    {"aabbHit", "bool", 8, &kParams_711[0]},
+    {"dist2", "number", 4, &kParams_711[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_712[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_712[] = {
+    {"approach", "number", 3, &kParams_712[0]},
+    {"follow", "number", 3, &kParams_712[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_713[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_713[] = {
+    {"dist2", "number", 4, &kParams_713[0]},
+    {"wrap", "number", 2, &kParams_713[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_714[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_714[] = {
+    {"shake", "number", 2, &kParams_714[0]},
+    {"follow", "number", 3, &kParams_714[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_715[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_715[] = {
+    {"snapGrid", "number", 1, &kParams_715[0]},
+    {"pointInRect", "bool", 6, &kParams_715[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_716[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_716[] = {
+    {"aabbHit", "bool", 8, &kParams_716[0]},
+    {"pointInRect", "bool", 6, &kParams_716[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_717[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_717[] = {
+    {"aabbHit", "bool", 8, &kParams_717[0]},
+    {"dist2", "number", 4, &kParams_717[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_718[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_718[] = {
+    {"approach", "number", 3, &kParams_718[0]},
+    {"follow", "number", 3, &kParams_718[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_719[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_719[] = {
+    {"dist2", "number", 4, &kParams_719[0]},
+    {"wrap", "number", 2, &kParams_719[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_720[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_720[] = {
+    {"shake", "number", 2, &kParams_720[0]},
+    {"follow", "number", 3, &kParams_720[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_721[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_721[] = {
+    {"snapGrid", "number", 1, &kParams_721[0]},
+    {"pointInRect", "bool", 6, &kParams_721[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_722[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_722[] = {
+    {"aabbHit", "bool", 8, &kParams_722[0]},
+    {"pointInRect", "bool", 6, &kParams_722[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_723[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_723[] = {
+    {"aabbHit", "bool", 8, &kParams_723[0]},
+    {"dist2", "number", 4, &kParams_723[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_724[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_724[] = {
+    {"approach", "number", 3, &kParams_724[0]},
+    {"follow", "number", 3, &kParams_724[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_725[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_725[] = {
+    {"dist2", "number", 4, &kParams_725[0]},
+    {"wrap", "number", 2, &kParams_725[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_726[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_726[] = {
+    {"shake", "number", 2, &kParams_726[0]},
+    {"follow", "number", 3, &kParams_726[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_727[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_727[] = {
+    {"snapGrid", "number", 1, &kParams_727[0]},
+    {"pointInRect", "bool", 6, &kParams_727[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_728[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_728[] = {
+    {"aabbHit", "bool", 8, &kParams_728[0]},
+    {"pointInRect", "bool", 6, &kParams_728[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_729[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_729[] = {
+    {"aabbHit", "bool", 8, &kParams_729[0]},
+    {"dist2", "number", 4, &kParams_729[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_730[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_730[] = {
+    {"approach", "number", 3, &kParams_730[0]},
+    {"follow", "number", 3, &kParams_730[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_731[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_731[] = {
+    {"dist2", "number", 4, &kParams_731[0]},
+    {"wrap", "number", 2, &kParams_731[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_732[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_732[] = {
+    {"shake", "number", 2, &kParams_732[0]},
+    {"follow", "number", 3, &kParams_732[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_733[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_733[] = {
+    {"snapGrid", "number", 1, &kParams_733[0]},
+    {"pointInRect", "bool", 6, &kParams_733[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_734[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_734[] = {
+    {"aabbHit", "bool", 8, &kParams_734[0]},
+    {"pointInRect", "bool", 6, &kParams_734[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_735[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_735[] = {
+    {"aabbHit", "bool", 8, &kParams_735[0]},
+    {"dist2", "number", 4, &kParams_735[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_736[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_736[] = {
+    {"approach", "number", 3, &kParams_736[0]},
+    {"follow", "number", 3, &kParams_736[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_737[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_737[] = {
+    {"dist2", "number", 4, &kParams_737[0]},
+    {"wrap", "number", 2, &kParams_737[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_738[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_738[] = {
+    {"shake", "number", 2, &kParams_738[0]},
+    {"follow", "number", 3, &kParams_738[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_739[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_739[] = {
+    {"snapGrid", "number", 1, &kParams_739[0]},
+    {"pointInRect", "bool", 6, &kParams_739[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_740[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_740[] = {
+    {"aabbHit", "bool", 8, &kParams_740[0]},
+    {"pointInRect", "bool", 6, &kParams_740[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_741[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_741[] = {
+    {"aabbHit", "bool", 8, &kParams_741[0]},
+    {"dist2", "number", 4, &kParams_741[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_742[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_742[] = {
+    {"approach", "number", 3, &kParams_742[0]},
+    {"follow", "number", 3, &kParams_742[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_743[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_743[] = {
+    {"dist2", "number", 4, &kParams_743[0]},
+    {"wrap", "number", 2, &kParams_743[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_744[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_744[] = {
+    {"shake", "number", 2, &kParams_744[0]},
+    {"follow", "number", 3, &kParams_744[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_745[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_745[] = {
+    {"snapGrid", "number", 1, &kParams_745[0]},
+    {"pointInRect", "bool", 6, &kParams_745[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_746[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_746[] = {
+    {"aabbHit", "bool", 8, &kParams_746[0]},
+    {"pointInRect", "bool", 6, &kParams_746[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_747[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_747[] = {
+    {"aabbHit", "bool", 8, &kParams_747[0]},
+    {"dist2", "number", 4, &kParams_747[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_748[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_748[] = {
+    {"approach", "number", 3, &kParams_748[0]},
+    {"follow", "number", 3, &kParams_748[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_749[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_749[] = {
+    {"dist2", "number", 4, &kParams_749[0]},
+    {"wrap", "number", 2, &kParams_749[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_750[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_750[] = {
+    {"shake", "number", 2, &kParams_750[0]},
+    {"follow", "number", 3, &kParams_750[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_751[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_751[] = {
+    {"snapGrid", "number", 1, &kParams_751[0]},
+    {"pointInRect", "bool", 6, &kParams_751[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_752[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_752[] = {
+    {"aabbHit", "bool", 8, &kParams_752[0]},
+    {"pointInRect", "bool", 6, &kParams_752[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_753[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_753[] = {
+    {"aabbHit", "bool", 8, &kParams_753[0]},
+    {"dist2", "number", 4, &kParams_753[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_754[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_754[] = {
+    {"approach", "number", 3, &kParams_754[0]},
+    {"follow", "number", 3, &kParams_754[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_755[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_755[] = {
+    {"dist2", "number", 4, &kParams_755[0]},
+    {"wrap", "number", 2, &kParams_755[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_756[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_756[] = {
+    {"shake", "number", 2, &kParams_756[0]},
+    {"follow", "number", 3, &kParams_756[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_757[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_757[] = {
+    {"snapGrid", "number", 1, &kParams_757[0]},
+    {"pointInRect", "bool", 6, &kParams_757[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_758[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_758[] = {
+    {"aabbHit", "bool", 8, &kParams_758[0]},
+    {"pointInRect", "bool", 6, &kParams_758[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_759[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_759[] = {
+    {"aabbHit", "bool", 8, &kParams_759[0]},
+    {"dist2", "number", 4, &kParams_759[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_760[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_760[] = {
+    {"approach", "number", 3, &kParams_760[0]},
+    {"follow", "number", 3, &kParams_760[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_761[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_761[] = {
+    {"dist2", "number", 4, &kParams_761[0]},
+    {"wrap", "number", 2, &kParams_761[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_762[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_762[] = {
+    {"shake", "number", 2, &kParams_762[0]},
+    {"follow", "number", 3, &kParams_762[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_763[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_763[] = {
+    {"snapGrid", "number", 1, &kParams_763[0]},
+    {"pointInRect", "bool", 6, &kParams_763[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_764[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_764[] = {
+    {"aabbHit", "bool", 8, &kParams_764[0]},
+    {"pointInRect", "bool", 6, &kParams_764[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_765[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_765[] = {
+    {"aabbHit", "bool", 8, &kParams_765[0]},
+    {"dist2", "number", 4, &kParams_765[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_766[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_766[] = {
+    {"approach", "number", 3, &kParams_766[0]},
+    {"follow", "number", 3, &kParams_766[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_767[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_767[] = {
+    {"dist2", "number", 4, &kParams_767[0]},
+    {"wrap", "number", 2, &kParams_767[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_768[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_768[] = {
+    {"shake", "number", 2, &kParams_768[0]},
+    {"follow", "number", 3, &kParams_768[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_769[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_769[] = {
+    {"snapGrid", "number", 1, &kParams_769[0]},
+    {"pointInRect", "bool", 6, &kParams_769[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_770[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_770[] = {
+    {"aabbHit", "bool", 8, &kParams_770[0]},
+    {"pointInRect", "bool", 6, &kParams_770[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_771[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_771[] = {
+    {"aabbHit", "bool", 8, &kParams_771[0]},
+    {"dist2", "number", 4, &kParams_771[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_772[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_772[] = {
+    {"approach", "number", 3, &kParams_772[0]},
+    {"follow", "number", 3, &kParams_772[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_773[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_773[] = {
+    {"dist2", "number", 4, &kParams_773[0]},
+    {"wrap", "number", 2, &kParams_773[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_774[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_774[] = {
+    {"shake", "number", 2, &kParams_774[0]},
+    {"follow", "number", 3, &kParams_774[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_775[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_775[] = {
+    {"snapGrid", "number", 1, &kParams_775[0]},
+    {"pointInRect", "bool", 6, &kParams_775[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_776[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_776[] = {
+    {"aabbHit", "bool", 8, &kParams_776[0]},
+    {"pointInRect", "bool", 6, &kParams_776[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_777[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_777[] = {
+    {"aabbHit", "bool", 8, &kParams_777[0]},
+    {"dist2", "number", 4, &kParams_777[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_778[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_778[] = {
+    {"approach", "number", 3, &kParams_778[0]},
+    {"follow", "number", 3, &kParams_778[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_779[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_779[] = {
+    {"dist2", "number", 4, &kParams_779[0]},
+    {"wrap", "number", 2, &kParams_779[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_780[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_780[] = {
+    {"shake", "number", 2, &kParams_780[0]},
+    {"follow", "number", 3, &kParams_780[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_781[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_781[] = {
+    {"snapGrid", "number", 1, &kParams_781[0]},
+    {"pointInRect", "bool", 6, &kParams_781[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_782[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_782[] = {
+    {"aabbHit", "bool", 8, &kParams_782[0]},
+    {"pointInRect", "bool", 6, &kParams_782[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_783[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_783[] = {
+    {"aabbHit", "bool", 8, &kParams_783[0]},
+    {"dist2", "number", 4, &kParams_783[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_784[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_784[] = {
+    {"approach", "number", 3, &kParams_784[0]},
+    {"follow", "number", 3, &kParams_784[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_785[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_785[] = {
+    {"dist2", "number", 4, &kParams_785[0]},
+    {"wrap", "number", 2, &kParams_785[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_786[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_786[] = {
+    {"shake", "number", 2, &kParams_786[0]},
+    {"follow", "number", 3, &kParams_786[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_787[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_787[] = {
+    {"snapGrid", "number", 1, &kParams_787[0]},
+    {"pointInRect", "bool", 6, &kParams_787[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_788[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_788[] = {
+    {"aabbHit", "bool", 8, &kParams_788[0]},
+    {"pointInRect", "bool", 6, &kParams_788[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_789[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_789[] = {
+    {"aabbHit", "bool", 8, &kParams_789[0]},
+    {"dist2", "number", 4, &kParams_789[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_790[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_790[] = {
+    {"approach", "number", 3, &kParams_790[0]},
+    {"follow", "number", 3, &kParams_790[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_791[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_791[] = {
+    {"dist2", "number", 4, &kParams_791[0]},
+    {"wrap", "number", 2, &kParams_791[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_792[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_792[] = {
+    {"shake", "number", 2, &kParams_792[0]},
+    {"follow", "number", 3, &kParams_792[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_793[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_793[] = {
+    {"snapGrid", "number", 1, &kParams_793[0]},
+    {"pointInRect", "bool", 6, &kParams_793[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_794[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_794[] = {
+    {"aabbHit", "bool", 8, &kParams_794[0]},
+    {"pointInRect", "bool", 6, &kParams_794[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_795[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_795[] = {
+    {"aabbHit", "bool", 8, &kParams_795[0]},
+    {"dist2", "number", 4, &kParams_795[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_796[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_796[] = {
+    {"approach", "number", 3, &kParams_796[0]},
+    {"follow", "number", 3, &kParams_796[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_797[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_797[] = {
+    {"dist2", "number", 4, &kParams_797[0]},
+    {"wrap", "number", 2, &kParams_797[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_798[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_798[] = {
+    {"shake", "number", 2, &kParams_798[0]},
+    {"follow", "number", 3, &kParams_798[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_799[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_799[] = {
+    {"snapGrid", "number", 1, &kParams_799[0]},
+    {"pointInRect", "bool", 6, &kParams_799[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_800[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_800[] = {
+    {"aabbHit", "bool", 8, &kParams_800[0]},
+    {"pointInRect", "bool", 6, &kParams_800[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_801[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_801[] = {
+    {"aabbHit", "bool", 8, &kParams_801[0]},
+    {"dist2", "number", 4, &kParams_801[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_802[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_802[] = {
+    {"approach", "number", 3, &kParams_802[0]},
+    {"follow", "number", 3, &kParams_802[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_803[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_803[] = {
+    {"dist2", "number", 4, &kParams_803[0]},
+    {"wrap", "number", 2, &kParams_803[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_804[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_804[] = {
+    {"shake", "number", 2, &kParams_804[0]},
+    {"follow", "number", 3, &kParams_804[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_805[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_805[] = {
+    {"snapGrid", "number", 1, &kParams_805[0]},
+    {"pointInRect", "bool", 6, &kParams_805[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_806[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_806[] = {
+    {"aabbHit", "bool", 8, &kParams_806[0]},
+    {"pointInRect", "bool", 6, &kParams_806[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_807[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_807[] = {
+    {"aabbHit", "bool", 8, &kParams_807[0]},
+    {"dist2", "number", 4, &kParams_807[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_808[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_808[] = {
+    {"approach", "number", 3, &kParams_808[0]},
+    {"follow", "number", 3, &kParams_808[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_809[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_809[] = {
+    {"dist2", "number", 4, &kParams_809[0]},
+    {"wrap", "number", 2, &kParams_809[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_810[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_810[] = {
+    {"shake", "number", 2, &kParams_810[0]},
+    {"follow", "number", 3, &kParams_810[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_811[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_811[] = {
+    {"snapGrid", "number", 1, &kParams_811[0]},
+    {"pointInRect", "bool", 6, &kParams_811[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_812[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_812[] = {
+    {"aabbHit", "bool", 8, &kParams_812[0]},
+    {"pointInRect", "bool", 6, &kParams_812[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_813[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_813[] = {
+    {"aabbHit", "bool", 8, &kParams_813[0]},
+    {"dist2", "number", 4, &kParams_813[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_814[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_814[] = {
+    {"approach", "number", 3, &kParams_814[0]},
+    {"follow", "number", 3, &kParams_814[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_815[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_815[] = {
+    {"dist2", "number", 4, &kParams_815[0]},
+    {"wrap", "number", 2, &kParams_815[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_816[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_816[] = {
+    {"shake", "number", 2, &kParams_816[0]},
+    {"follow", "number", 3, &kParams_816[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_817[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_817[] = {
+    {"snapGrid", "number", 1, &kParams_817[0]},
+    {"pointInRect", "bool", 6, &kParams_817[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_818[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_818[] = {
+    {"aabbHit", "bool", 8, &kParams_818[0]},
+    {"pointInRect", "bool", 6, &kParams_818[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_819[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_819[] = {
+    {"aabbHit", "bool", 8, &kParams_819[0]},
+    {"dist2", "number", 4, &kParams_819[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_820[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_820[] = {
+    {"approach", "number", 3, &kParams_820[0]},
+    {"follow", "number", 3, &kParams_820[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_821[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_821[] = {
+    {"dist2", "number", 4, &kParams_821[0]},
+    {"wrap", "number", 2, &kParams_821[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_822[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_822[] = {
+    {"shake", "number", 2, &kParams_822[0]},
+    {"follow", "number", 3, &kParams_822[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_823[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_823[] = {
+    {"snapGrid", "number", 1, &kParams_823[0]},
+    {"pointInRect", "bool", 6, &kParams_823[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_824[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_824[] = {
+    {"aabbHit", "bool", 8, &kParams_824[0]},
+    {"pointInRect", "bool", 6, &kParams_824[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_825[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_825[] = {
+    {"aabbHit", "bool", 8, &kParams_825[0]},
+    {"dist2", "number", 4, &kParams_825[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_826[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_826[] = {
+    {"approach", "number", 3, &kParams_826[0]},
+    {"follow", "number", 3, &kParams_826[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_827[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_827[] = {
+    {"dist2", "number", 4, &kParams_827[0]},
+    {"wrap", "number", 2, &kParams_827[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_828[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_828[] = {
+    {"shake", "number", 2, &kParams_828[0]},
+    {"follow", "number", 3, &kParams_828[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_829[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_829[] = {
+    {"snapGrid", "number", 1, &kParams_829[0]},
+    {"pointInRect", "bool", 6, &kParams_829[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_830[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_830[] = {
+    {"aabbHit", "bool", 8, &kParams_830[0]},
+    {"pointInRect", "bool", 6, &kParams_830[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_831[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_831[] = {
+    {"aabbHit", "bool", 8, &kParams_831[0]},
+    {"dist2", "number", 4, &kParams_831[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_832[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_832[] = {
+    {"approach", "number", 3, &kParams_832[0]},
+    {"follow", "number", 3, &kParams_832[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_833[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_833[] = {
+    {"dist2", "number", 4, &kParams_833[0]},
+    {"wrap", "number", 2, &kParams_833[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_834[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_834[] = {
+    {"shake", "number", 2, &kParams_834[0]},
+    {"follow", "number", 3, &kParams_834[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_835[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_835[] = {
+    {"snapGrid", "number", 1, &kParams_835[0]},
+    {"pointInRect", "bool", 6, &kParams_835[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_836[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_836[] = {
+    {"aabbHit", "bool", 8, &kParams_836[0]},
+    {"pointInRect", "bool", 6, &kParams_836[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_837[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_837[] = {
+    {"aabbHit", "bool", 8, &kParams_837[0]},
+    {"dist2", "number", 4, &kParams_837[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_838[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_838[] = {
+    {"approach", "number", 3, &kParams_838[0]},
+    {"follow", "number", 3, &kParams_838[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_839[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_839[] = {
+    {"dist2", "number", 4, &kParams_839[0]},
+    {"wrap", "number", 2, &kParams_839[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_840[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_840[] = {
+    {"shake", "number", 2, &kParams_840[0]},
+    {"follow", "number", 3, &kParams_840[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_841[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_841[] = {
+    {"snapGrid", "number", 1, &kParams_841[0]},
+    {"pointInRect", "bool", 6, &kParams_841[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_842[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_842[] = {
+    {"aabbHit", "bool", 8, &kParams_842[0]},
+    {"pointInRect", "bool", 6, &kParams_842[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_843[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_843[] = {
+    {"aabbHit", "bool", 8, &kParams_843[0]},
+    {"dist2", "number", 4, &kParams_843[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_844[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_844[] = {
+    {"approach", "number", 3, &kParams_844[0]},
+    {"follow", "number", 3, &kParams_844[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_845[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_845[] = {
+    {"dist2", "number", 4, &kParams_845[0]},
+    {"wrap", "number", 2, &kParams_845[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_846[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_846[] = {
+    {"shake", "number", 2, &kParams_846[0]},
+    {"follow", "number", 3, &kParams_846[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_847[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_847[] = {
+    {"snapGrid", "number", 1, &kParams_847[0]},
+    {"pointInRect", "bool", 6, &kParams_847[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_848[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_848[] = {
+    {"aabbHit", "bool", 8, &kParams_848[0]},
+    {"pointInRect", "bool", 6, &kParams_848[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_849[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_849[] = {
+    {"aabbHit", "bool", 8, &kParams_849[0]},
+    {"dist2", "number", 4, &kParams_849[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_850[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_850[] = {
+    {"approach", "number", 3, &kParams_850[0]},
+    {"follow", "number", 3, &kParams_850[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_851[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_851[] = {
+    {"dist2", "number", 4, &kParams_851[0]},
+    {"wrap", "number", 2, &kParams_851[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_852[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_852[] = {
+    {"shake", "number", 2, &kParams_852[0]},
+    {"follow", "number", 3, &kParams_852[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_853[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_853[] = {
+    {"snapGrid", "number", 1, &kParams_853[0]},
+    {"pointInRect", "bool", 6, &kParams_853[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_854[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_854[] = {
+    {"aabbHit", "bool", 8, &kParams_854[0]},
+    {"pointInRect", "bool", 6, &kParams_854[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_855[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_855[] = {
+    {"aabbHit", "bool", 8, &kParams_855[0]},
+    {"dist2", "number", 4, &kParams_855[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_856[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_856[] = {
+    {"approach", "number", 3, &kParams_856[0]},
+    {"follow", "number", 3, &kParams_856[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_857[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_857[] = {
+    {"dist2", "number", 4, &kParams_857[0]},
+    {"wrap", "number", 2, &kParams_857[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_858[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_858[] = {
+    {"shake", "number", 2, &kParams_858[0]},
+    {"follow", "number", 3, &kParams_858[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_859[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_859[] = {
+    {"snapGrid", "number", 1, &kParams_859[0]},
+    {"pointInRect", "bool", 6, &kParams_859[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_860[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_860[] = {
+    {"aabbHit", "bool", 8, &kParams_860[0]},
+    {"pointInRect", "bool", 6, &kParams_860[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_861[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_861[] = {
+    {"aabbHit", "bool", 8, &kParams_861[0]},
+    {"dist2", "number", 4, &kParams_861[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_862[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_862[] = {
+    {"approach", "number", 3, &kParams_862[0]},
+    {"follow", "number", 3, &kParams_862[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_863[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_863[] = {
+    {"dist2", "number", 4, &kParams_863[0]},
+    {"wrap", "number", 2, &kParams_863[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_864[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_864[] = {
+    {"shake", "number", 2, &kParams_864[0]},
+    {"follow", "number", 3, &kParams_864[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_865[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_865[] = {
+    {"snapGrid", "number", 1, &kParams_865[0]},
+    {"pointInRect", "bool", 6, &kParams_865[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_866[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_866[] = {
+    {"aabbHit", "bool", 8, &kParams_866[0]},
+    {"pointInRect", "bool", 6, &kParams_866[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_867[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_867[] = {
+    {"aabbHit", "bool", 8, &kParams_867[0]},
+    {"dist2", "number", 4, &kParams_867[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_868[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_868[] = {
+    {"approach", "number", 3, &kParams_868[0]},
+    {"follow", "number", 3, &kParams_868[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_869[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_869[] = {
+    {"dist2", "number", 4, &kParams_869[0]},
+    {"wrap", "number", 2, &kParams_869[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_870[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_870[] = {
+    {"shake", "number", 2, &kParams_870[0]},
+    {"follow", "number", 3, &kParams_870[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_871[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_871[] = {
+    {"snapGrid", "number", 1, &kParams_871[0]},
+    {"pointInRect", "bool", 6, &kParams_871[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_872[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_872[] = {
+    {"aabbHit", "bool", 8, &kParams_872[0]},
+    {"pointInRect", "bool", 6, &kParams_872[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_873[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_873[] = {
+    {"aabbHit", "bool", 8, &kParams_873[0]},
+    {"dist2", "number", 4, &kParams_873[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_874[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_874[] = {
+    {"approach", "number", 3, &kParams_874[0]},
+    {"follow", "number", 3, &kParams_874[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_875[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_875[] = {
+    {"dist2", "number", 4, &kParams_875[0]},
+    {"wrap", "number", 2, &kParams_875[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_876[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_876[] = {
+    {"shake", "number", 2, &kParams_876[0]},
+    {"follow", "number", 3, &kParams_876[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_877[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_877[] = {
+    {"snapGrid", "number", 1, &kParams_877[0]},
+    {"pointInRect", "bool", 6, &kParams_877[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_878[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_878[] = {
+    {"aabbHit", "bool", 8, &kParams_878[0]},
+    {"pointInRect", "bool", 6, &kParams_878[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_879[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_879[] = {
+    {"aabbHit", "bool", 8, &kParams_879[0]},
+    {"dist2", "number", 4, &kParams_879[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_880[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_880[] = {
+    {"approach", "number", 3, &kParams_880[0]},
+    {"follow", "number", 3, &kParams_880[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_881[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_881[] = {
+    {"dist2", "number", 4, &kParams_881[0]},
+    {"wrap", "number", 2, &kParams_881[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_882[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_882[] = {
+    {"shake", "number", 2, &kParams_882[0]},
+    {"follow", "number", 3, &kParams_882[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_883[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_883[] = {
+    {"snapGrid", "number", 1, &kParams_883[0]},
+    {"pointInRect", "bool", 6, &kParams_883[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_884[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_884[] = {
+    {"aabbHit", "bool", 8, &kParams_884[0]},
+    {"pointInRect", "bool", 6, &kParams_884[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_885[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_885[] = {
+    {"aabbHit", "bool", 8, &kParams_885[0]},
+    {"dist2", "number", 4, &kParams_885[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_886[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_886[] = {
+    {"approach", "number", 3, &kParams_886[0]},
+    {"follow", "number", 3, &kParams_886[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_887[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_887[] = {
+    {"dist2", "number", 4, &kParams_887[0]},
+    {"wrap", "number", 2, &kParams_887[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_888[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_888[] = {
+    {"shake", "number", 2, &kParams_888[0]},
+    {"follow", "number", 3, &kParams_888[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_889[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_889[] = {
+    {"snapGrid", "number", 1, &kParams_889[0]},
+    {"pointInRect", "bool", 6, &kParams_889[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_890[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_890[] = {
+    {"aabbHit", "bool", 8, &kParams_890[0]},
+    {"pointInRect", "bool", 6, &kParams_890[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_891[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_891[] = {
+    {"aabbHit", "bool", 8, &kParams_891[0]},
+    {"dist2", "number", 4, &kParams_891[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_892[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_892[] = {
+    {"approach", "number", 3, &kParams_892[0]},
+    {"follow", "number", 3, &kParams_892[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_893[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_893[] = {
+    {"dist2", "number", 4, &kParams_893[0]},
+    {"wrap", "number", 2, &kParams_893[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_894[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_894[] = {
+    {"shake", "number", 2, &kParams_894[0]},
+    {"follow", "number", 3, &kParams_894[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_895[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_895[] = {
+    {"snapGrid", "number", 1, &kParams_895[0]},
+    {"pointInRect", "bool", 6, &kParams_895[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_896[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_896[] = {
+    {"aabbHit", "bool", 8, &kParams_896[0]},
+    {"pointInRect", "bool", 6, &kParams_896[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_897[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_897[] = {
+    {"aabbHit", "bool", 8, &kParams_897[0]},
+    {"dist2", "number", 4, &kParams_897[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_898[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_898[] = {
+    {"approach", "number", 3, &kParams_898[0]},
+    {"follow", "number", 3, &kParams_898[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_899[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_899[] = {
+    {"dist2", "number", 4, &kParams_899[0]},
+    {"wrap", "number", 2, &kParams_899[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_900[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_900[] = {
+    {"shake", "number", 2, &kParams_900[0]},
+    {"follow", "number", 3, &kParams_900[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_901[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_901[] = {
+    {"snapGrid", "number", 1, &kParams_901[0]},
+    {"pointInRect", "bool", 6, &kParams_901[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_902[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_902[] = {
+    {"aabbHit", "bool", 8, &kParams_902[0]},
+    {"pointInRect", "bool", 6, &kParams_902[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_903[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_903[] = {
+    {"aabbHit", "bool", 8, &kParams_903[0]},
+    {"dist2", "number", 4, &kParams_903[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_904[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_904[] = {
+    {"approach", "number", 3, &kParams_904[0]},
+    {"follow", "number", 3, &kParams_904[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_905[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_905[] = {
+    {"dist2", "number", 4, &kParams_905[0]},
+    {"wrap", "number", 2, &kParams_905[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_906[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_906[] = {
+    {"shake", "number", 2, &kParams_906[0]},
+    {"follow", "number", 3, &kParams_906[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_907[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_907[] = {
+    {"snapGrid", "number", 1, &kParams_907[0]},
+    {"pointInRect", "bool", 6, &kParams_907[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_908[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_908[] = {
+    {"aabbHit", "bool", 8, &kParams_908[0]},
+    {"pointInRect", "bool", 6, &kParams_908[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_909[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_909[] = {
+    {"aabbHit", "bool", 8, &kParams_909[0]},
+    {"dist2", "number", 4, &kParams_909[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_910[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_910[] = {
+    {"approach", "number", 3, &kParams_910[0]},
+    {"follow", "number", 3, &kParams_910[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_911[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_911[] = {
+    {"dist2", "number", 4, &kParams_911[0]},
+    {"wrap", "number", 2, &kParams_911[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_912[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_912[] = {
+    {"shake", "number", 2, &kParams_912[0]},
+    {"follow", "number", 3, &kParams_912[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_913[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_913[] = {
+    {"snapGrid", "number", 1, &kParams_913[0]},
+    {"pointInRect", "bool", 6, &kParams_913[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_914[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_914[] = {
+    {"aabbHit", "bool", 8, &kParams_914[0]},
+    {"pointInRect", "bool", 6, &kParams_914[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_915[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_915[] = {
+    {"aabbHit", "bool", 8, &kParams_915[0]},
+    {"dist2", "number", 4, &kParams_915[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_916[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_916[] = {
+    {"approach", "number", 3, &kParams_916[0]},
+    {"follow", "number", 3, &kParams_916[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_917[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_917[] = {
+    {"dist2", "number", 4, &kParams_917[0]},
+    {"wrap", "number", 2, &kParams_917[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_918[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_918[] = {
+    {"shake", "number", 2, &kParams_918[0]},
+    {"follow", "number", 3, &kParams_918[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_919[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_919[] = {
+    {"snapGrid", "number", 1, &kParams_919[0]},
+    {"pointInRect", "bool", 6, &kParams_919[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_920[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_920[] = {
+    {"aabbHit", "bool", 8, &kParams_920[0]},
+    {"pointInRect", "bool", 6, &kParams_920[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_921[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_921[] = {
+    {"aabbHit", "bool", 8, &kParams_921[0]},
+    {"dist2", "number", 4, &kParams_921[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_922[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_922[] = {
+    {"approach", "number", 3, &kParams_922[0]},
+    {"follow", "number", 3, &kParams_922[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_923[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_923[] = {
+    {"dist2", "number", 4, &kParams_923[0]},
+    {"wrap", "number", 2, &kParams_923[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_924[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_924[] = {
+    {"shake", "number", 2, &kParams_924[0]},
+    {"follow", "number", 3, &kParams_924[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_925[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_925[] = {
+    {"snapGrid", "number", 1, &kParams_925[0]},
+    {"pointInRect", "bool", 6, &kParams_925[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_926[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_926[] = {
+    {"aabbHit", "bool", 8, &kParams_926[0]},
+    {"pointInRect", "bool", 6, &kParams_926[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_927[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_927[] = {
+    {"aabbHit", "bool", 8, &kParams_927[0]},
+    {"dist2", "number", 4, &kParams_927[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_928[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_928[] = {
+    {"approach", "number", 3, &kParams_928[0]},
+    {"follow", "number", 3, &kParams_928[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_929[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_929[] = {
+    {"dist2", "number", 4, &kParams_929[0]},
+    {"wrap", "number", 2, &kParams_929[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_930[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_930[] = {
+    {"shake", "number", 2, &kParams_930[0]},
+    {"follow", "number", 3, &kParams_930[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_931[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_931[] = {
+    {"snapGrid", "number", 1, &kParams_931[0]},
+    {"pointInRect", "bool", 6, &kParams_931[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_932[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_932[] = {
+    {"aabbHit", "bool", 8, &kParams_932[0]},
+    {"pointInRect", "bool", 6, &kParams_932[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_933[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_933[] = {
+    {"aabbHit", "bool", 8, &kParams_933[0]},
+    {"dist2", "number", 4, &kParams_933[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_934[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_934[] = {
+    {"approach", "number", 3, &kParams_934[0]},
+    {"follow", "number", 3, &kParams_934[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_935[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_935[] = {
+    {"dist2", "number", 4, &kParams_935[0]},
+    {"wrap", "number", 2, &kParams_935[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_936[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_936[] = {
+    {"shake", "number", 2, &kParams_936[0]},
+    {"follow", "number", 3, &kParams_936[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_937[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_937[] = {
+    {"snapGrid", "number", 1, &kParams_937[0]},
+    {"pointInRect", "bool", 6, &kParams_937[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_938[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_938[] = {
+    {"aabbHit", "bool", 8, &kParams_938[0]},
+    {"pointInRect", "bool", 6, &kParams_938[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_939[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_939[] = {
+    {"aabbHit", "bool", 8, &kParams_939[0]},
+    {"dist2", "number", 4, &kParams_939[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_940[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_940[] = {
+    {"approach", "number", 3, &kParams_940[0]},
+    {"follow", "number", 3, &kParams_940[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_941[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_941[] = {
+    {"dist2", "number", 4, &kParams_941[0]},
+    {"wrap", "number", 2, &kParams_941[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_942[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_942[] = {
+    {"shake", "number", 2, &kParams_942[0]},
+    {"follow", "number", 3, &kParams_942[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_943[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_943[] = {
+    {"snapGrid", "number", 1, &kParams_943[0]},
+    {"pointInRect", "bool", 6, &kParams_943[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_944[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_944[] = {
+    {"aabbHit", "bool", 8, &kParams_944[0]},
+    {"pointInRect", "bool", 6, &kParams_944[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_945[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_945[] = {
+    {"aabbHit", "bool", 8, &kParams_945[0]},
+    {"dist2", "number", 4, &kParams_945[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_946[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_946[] = {
+    {"approach", "number", 3, &kParams_946[0]},
+    {"follow", "number", 3, &kParams_946[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_947[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_947[] = {
+    {"dist2", "number", 4, &kParams_947[0]},
+    {"wrap", "number", 2, &kParams_947[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_948[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_948[] = {
+    {"shake", "number", 2, &kParams_948[0]},
+    {"follow", "number", 3, &kParams_948[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_949[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_949[] = {
+    {"snapGrid", "number", 1, &kParams_949[0]},
+    {"pointInRect", "bool", 6, &kParams_949[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_950[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_950[] = {
+    {"aabbHit", "bool", 8, &kParams_950[0]},
+    {"pointInRect", "bool", 6, &kParams_950[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_951[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_951[] = {
+    {"aabbHit", "bool", 8, &kParams_951[0]},
+    {"dist2", "number", 4, &kParams_951[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_952[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_952[] = {
+    {"approach", "number", 3, &kParams_952[0]},
+    {"follow", "number", 3, &kParams_952[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_953[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_953[] = {
+    {"dist2", "number", 4, &kParams_953[0]},
+    {"wrap", "number", 2, &kParams_953[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_954[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_954[] = {
+    {"shake", "number", 2, &kParams_954[0]},
+    {"follow", "number", 3, &kParams_954[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_955[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_955[] = {
+    {"snapGrid", "number", 1, &kParams_955[0]},
+    {"pointInRect", "bool", 6, &kParams_955[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_956[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_956[] = {
+    {"aabbHit", "bool", 8, &kParams_956[0]},
+    {"pointInRect", "bool", 6, &kParams_956[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_957[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_957[] = {
+    {"aabbHit", "bool", 8, &kParams_957[0]},
+    {"dist2", "number", 4, &kParams_957[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_958[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_958[] = {
+    {"approach", "number", 3, &kParams_958[0]},
+    {"follow", "number", 3, &kParams_958[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_959[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_959[] = {
+    {"dist2", "number", 4, &kParams_959[0]},
+    {"wrap", "number", 2, &kParams_959[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_960[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_960[] = {
+    {"shake", "number", 2, &kParams_960[0]},
+    {"follow", "number", 3, &kParams_960[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_961[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_961[] = {
+    {"snapGrid", "number", 1, &kParams_961[0]},
+    {"pointInRect", "bool", 6, &kParams_961[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_962[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_962[] = {
+    {"aabbHit", "bool", 8, &kParams_962[0]},
+    {"pointInRect", "bool", 6, &kParams_962[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_963[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_963[] = {
+    {"aabbHit", "bool", 8, &kParams_963[0]},
+    {"dist2", "number", 4, &kParams_963[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_964[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_964[] = {
+    {"approach", "number", 3, &kParams_964[0]},
+    {"follow", "number", 3, &kParams_964[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_965[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_965[] = {
+    {"dist2", "number", 4, &kParams_965[0]},
+    {"wrap", "number", 2, &kParams_965[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_966[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_966[] = {
+    {"shake", "number", 2, &kParams_966[0]},
+    {"follow", "number", 3, &kParams_966[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_967[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_967[] = {
+    {"snapGrid", "number", 1, &kParams_967[0]},
+    {"pointInRect", "bool", 6, &kParams_967[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_968[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_968[] = {
+    {"aabbHit", "bool", 8, &kParams_968[0]},
+    {"pointInRect", "bool", 6, &kParams_968[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_969[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_969[] = {
+    {"aabbHit", "bool", 8, &kParams_969[0]},
+    {"dist2", "number", 4, &kParams_969[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_970[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_970[] = {
+    {"approach", "number", 3, &kParams_970[0]},
+    {"follow", "number", 3, &kParams_970[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_971[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_971[] = {
+    {"dist2", "number", 4, &kParams_971[0]},
+    {"wrap", "number", 2, &kParams_971[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_972[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_972[] = {
+    {"shake", "number", 2, &kParams_972[0]},
+    {"follow", "number", 3, &kParams_972[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_973[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_973[] = {
+    {"snapGrid", "number", 1, &kParams_973[0]},
+    {"pointInRect", "bool", 6, &kParams_973[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_974[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_974[] = {
+    {"aabbHit", "bool", 8, &kParams_974[0]},
+    {"pointInRect", "bool", 6, &kParams_974[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_975[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_975[] = {
+    {"aabbHit", "bool", 8, &kParams_975[0]},
+    {"dist2", "number", 4, &kParams_975[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_976[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_976[] = {
+    {"approach", "number", 3, &kParams_976[0]},
+    {"follow", "number", 3, &kParams_976[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_977[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_977[] = {
+    {"dist2", "number", 4, &kParams_977[0]},
+    {"wrap", "number", 2, &kParams_977[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_978[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_978[] = {
+    {"shake", "number", 2, &kParams_978[0]},
+    {"follow", "number", 3, &kParams_978[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_979[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_979[] = {
+    {"snapGrid", "number", 1, &kParams_979[0]},
+    {"pointInRect", "bool", 6, &kParams_979[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_980[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_980[] = {
+    {"aabbHit", "bool", 8, &kParams_980[0]},
+    {"pointInRect", "bool", 6, &kParams_980[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_981[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_981[] = {
+    {"aabbHit", "bool", 8, &kParams_981[0]},
+    {"dist2", "number", 4, &kParams_981[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_982[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_982[] = {
+    {"approach", "number", 3, &kParams_982[0]},
+    {"follow", "number", 3, &kParams_982[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_983[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_983[] = {
+    {"dist2", "number", 4, &kParams_983[0]},
+    {"wrap", "number", 2, &kParams_983[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_984[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_984[] = {
+    {"shake", "number", 2, &kParams_984[0]},
+    {"follow", "number", 3, &kParams_984[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_985[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_985[] = {
+    {"snapGrid", "number", 1, &kParams_985[0]},
+    {"pointInRect", "bool", 6, &kParams_985[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_986[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_986[] = {
+    {"aabbHit", "bool", 8, &kParams_986[0]},
+    {"pointInRect", "bool", 6, &kParams_986[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_987[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_987[] = {
+    {"aabbHit", "bool", 8, &kParams_987[0]},
+    {"dist2", "number", 4, &kParams_987[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_988[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_988[] = {
+    {"approach", "number", 3, &kParams_988[0]},
+    {"follow", "number", 3, &kParams_988[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_989[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_989[] = {
+    {"dist2", "number", 4, &kParams_989[0]},
+    {"wrap", "number", 2, &kParams_989[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_990[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_990[] = {
+    {"shake", "number", 2, &kParams_990[0]},
+    {"follow", "number", 3, &kParams_990[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_991[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_991[] = {
+    {"snapGrid", "number", 1, &kParams_991[0]},
+    {"pointInRect", "bool", 6, &kParams_991[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_992[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_992[] = {
+    {"aabbHit", "bool", 8, &kParams_992[0]},
+    {"pointInRect", "bool", 6, &kParams_992[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_993[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_993[] = {
+    {"aabbHit", "bool", 8, &kParams_993[0]},
+    {"dist2", "number", 4, &kParams_993[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_994[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_994[] = {
+    {"approach", "number", 3, &kParams_994[0]},
+    {"follow", "number", 3, &kParams_994[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_995[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_995[] = {
+    {"dist2", "number", 4, &kParams_995[0]},
+    {"wrap", "number", 2, &kParams_995[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_996[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_996[] = {
+    {"shake", "number", 2, &kParams_996[0]},
+    {"follow", "number", 3, &kParams_996[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_997[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_997[] = {
+    {"snapGrid", "number", 1, &kParams_997[0]},
+    {"pointInRect", "bool", 6, &kParams_997[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_998[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_998[] = {
+    {"aabbHit", "bool", 8, &kParams_998[0]},
+    {"pointInRect", "bool", 6, &kParams_998[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_999[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_999[] = {
+    {"aabbHit", "bool", 8, &kParams_999[0]},
+    {"dist2", "number", 4, &kParams_999[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1000[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1000[] = {
+    {"approach", "number", 3, &kParams_1000[0]},
+    {"follow", "number", 3, &kParams_1000[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1001[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1001[] = {
+    {"dist2", "number", 4, &kParams_1001[0]},
+    {"wrap", "number", 2, &kParams_1001[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1002[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1002[] = {
+    {"shake", "number", 2, &kParams_1002[0]},
+    {"follow", "number", 3, &kParams_1002[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1003[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1003[] = {
+    {"snapGrid", "number", 1, &kParams_1003[0]},
+    {"pointInRect", "bool", 6, &kParams_1003[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1004[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1004[] = {
+    {"aabbHit", "bool", 8, &kParams_1004[0]},
+    {"pointInRect", "bool", 6, &kParams_1004[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1005[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1005[] = {
+    {"aabbHit", "bool", 8, &kParams_1005[0]},
+    {"dist2", "number", 4, &kParams_1005[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1006[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1006[] = {
+    {"approach", "number", 3, &kParams_1006[0]},
+    {"follow", "number", 3, &kParams_1006[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1007[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1007[] = {
+    {"dist2", "number", 4, &kParams_1007[0]},
+    {"wrap", "number", 2, &kParams_1007[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1008[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1008[] = {
+    {"shake", "number", 2, &kParams_1008[0]},
+    {"follow", "number", 3, &kParams_1008[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1009[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1009[] = {
+    {"snapGrid", "number", 1, &kParams_1009[0]},
+    {"pointInRect", "bool", 6, &kParams_1009[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1010[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1010[] = {
+    {"aabbHit", "bool", 8, &kParams_1010[0]},
+    {"pointInRect", "bool", 6, &kParams_1010[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1011[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1011[] = {
+    {"aabbHit", "bool", 8, &kParams_1011[0]},
+    {"dist2", "number", 4, &kParams_1011[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1012[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1012[] = {
+    {"approach", "number", 3, &kParams_1012[0]},
+    {"follow", "number", 3, &kParams_1012[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1013[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1013[] = {
+    {"dist2", "number", 4, &kParams_1013[0]},
+    {"wrap", "number", 2, &kParams_1013[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1014[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1014[] = {
+    {"shake", "number", 2, &kParams_1014[0]},
+    {"follow", "number", 3, &kParams_1014[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1015[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1015[] = {
+    {"snapGrid", "number", 1, &kParams_1015[0]},
+    {"pointInRect", "bool", 6, &kParams_1015[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1016[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1016[] = {
+    {"aabbHit", "bool", 8, &kParams_1016[0]},
+    {"pointInRect", "bool", 6, &kParams_1016[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1017[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1017[] = {
+    {"aabbHit", "bool", 8, &kParams_1017[0]},
+    {"dist2", "number", 4, &kParams_1017[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1018[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1018[] = {
+    {"approach", "number", 3, &kParams_1018[0]},
+    {"follow", "number", 3, &kParams_1018[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1019[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1019[] = {
+    {"dist2", "number", 4, &kParams_1019[0]},
+    {"wrap", "number", 2, &kParams_1019[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1020[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1020[] = {
+    {"shake", "number", 2, &kParams_1020[0]},
+    {"follow", "number", 3, &kParams_1020[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1021[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1021[] = {
+    {"snapGrid", "number", 1, &kParams_1021[0]},
+    {"pointInRect", "bool", 6, &kParams_1021[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1022[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1022[] = {
+    {"aabbHit", "bool", 8, &kParams_1022[0]},
+    {"pointInRect", "bool", 6, &kParams_1022[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1023[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1023[] = {
+    {"aabbHit", "bool", 8, &kParams_1023[0]},
+    {"dist2", "number", 4, &kParams_1023[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1024[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1024[] = {
+    {"approach", "number", 3, &kParams_1024[0]},
+    {"follow", "number", 3, &kParams_1024[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1025[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1025[] = {
+    {"dist2", "number", 4, &kParams_1025[0]},
+    {"wrap", "number", 2, &kParams_1025[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1026[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1026[] = {
+    {"shake", "number", 2, &kParams_1026[0]},
+    {"follow", "number", 3, &kParams_1026[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1027[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1027[] = {
+    {"snapGrid", "number", 1, &kParams_1027[0]},
+    {"pointInRect", "bool", 6, &kParams_1027[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1028[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1028[] = {
+    {"aabbHit", "bool", 8, &kParams_1028[0]},
+    {"pointInRect", "bool", 6, &kParams_1028[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1029[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1029[] = {
+    {"aabbHit", "bool", 8, &kParams_1029[0]},
+    {"dist2", "number", 4, &kParams_1029[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1030[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1030[] = {
+    {"approach", "number", 3, &kParams_1030[0]},
+    {"follow", "number", 3, &kParams_1030[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1031[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1031[] = {
+    {"dist2", "number", 4, &kParams_1031[0]},
+    {"wrap", "number", 2, &kParams_1031[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1032[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1032[] = {
+    {"shake", "number", 2, &kParams_1032[0]},
+    {"follow", "number", 3, &kParams_1032[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1033[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1033[] = {
+    {"snapGrid", "number", 1, &kParams_1033[0]},
+    {"pointInRect", "bool", 6, &kParams_1033[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1034[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1034[] = {
+    {"aabbHit", "bool", 8, &kParams_1034[0]},
+    {"pointInRect", "bool", 6, &kParams_1034[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1035[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1035[] = {
+    {"aabbHit", "bool", 8, &kParams_1035[0]},
+    {"dist2", "number", 4, &kParams_1035[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1036[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1036[] = {
+    {"approach", "number", 3, &kParams_1036[0]},
+    {"follow", "number", 3, &kParams_1036[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1037[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1037[] = {
+    {"dist2", "number", 4, &kParams_1037[0]},
+    {"wrap", "number", 2, &kParams_1037[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1038[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1038[] = {
+    {"shake", "number", 2, &kParams_1038[0]},
+    {"follow", "number", 3, &kParams_1038[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1039[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1039[] = {
+    {"snapGrid", "number", 1, &kParams_1039[0]},
+    {"pointInRect", "bool", 6, &kParams_1039[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1040[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1040[] = {
+    {"aabbHit", "bool", 8, &kParams_1040[0]},
+    {"pointInRect", "bool", 6, &kParams_1040[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1041[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1041[] = {
+    {"aabbHit", "bool", 8, &kParams_1041[0]},
+    {"dist2", "number", 4, &kParams_1041[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1042[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1042[] = {
+    {"approach", "number", 3, &kParams_1042[0]},
+    {"follow", "number", 3, &kParams_1042[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1043[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1043[] = {
+    {"dist2", "number", 4, &kParams_1043[0]},
+    {"wrap", "number", 2, &kParams_1043[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1044[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1044[] = {
+    {"shake", "number", 2, &kParams_1044[0]},
+    {"follow", "number", 3, &kParams_1044[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1045[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1045[] = {
+    {"snapGrid", "number", 1, &kParams_1045[0]},
+    {"pointInRect", "bool", 6, &kParams_1045[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1046[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1046[] = {
+    {"aabbHit", "bool", 8, &kParams_1046[0]},
+    {"pointInRect", "bool", 6, &kParams_1046[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1047[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1047[] = {
+    {"aabbHit", "bool", 8, &kParams_1047[0]},
+    {"dist2", "number", 4, &kParams_1047[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1048[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1048[] = {
+    {"approach", "number", 3, &kParams_1048[0]},
+    {"follow", "number", 3, &kParams_1048[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1049[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1049[] = {
+    {"dist2", "number", 4, &kParams_1049[0]},
+    {"wrap", "number", 2, &kParams_1049[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1050[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1050[] = {
+    {"shake", "number", 2, &kParams_1050[0]},
+    {"follow", "number", 3, &kParams_1050[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1051[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1051[] = {
+    {"snapGrid", "number", 1, &kParams_1051[0]},
+    {"pointInRect", "bool", 6, &kParams_1051[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1052[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1052[] = {
+    {"aabbHit", "bool", 8, &kParams_1052[0]},
+    {"pointInRect", "bool", 6, &kParams_1052[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1053[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1053[] = {
+    {"aabbHit", "bool", 8, &kParams_1053[0]},
+    {"dist2", "number", 4, &kParams_1053[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1054[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1054[] = {
+    {"approach", "number", 3, &kParams_1054[0]},
+    {"follow", "number", 3, &kParams_1054[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1055[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1055[] = {
+    {"dist2", "number", 4, &kParams_1055[0]},
+    {"wrap", "number", 2, &kParams_1055[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1056[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1056[] = {
+    {"shake", "number", 2, &kParams_1056[0]},
+    {"follow", "number", 3, &kParams_1056[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1057[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1057[] = {
+    {"snapGrid", "number", 1, &kParams_1057[0]},
+    {"pointInRect", "bool", 6, &kParams_1057[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1058[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1058[] = {
+    {"aabbHit", "bool", 8, &kParams_1058[0]},
+    {"pointInRect", "bool", 6, &kParams_1058[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1059[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1059[] = {
+    {"aabbHit", "bool", 8, &kParams_1059[0]},
+    {"dist2", "number", 4, &kParams_1059[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1060[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1060[] = {
+    {"approach", "number", 3, &kParams_1060[0]},
+    {"follow", "number", 3, &kParams_1060[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1061[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1061[] = {
+    {"dist2", "number", 4, &kParams_1061[0]},
+    {"wrap", "number", 2, &kParams_1061[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1062[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1062[] = {
+    {"shake", "number", 2, &kParams_1062[0]},
+    {"follow", "number", 3, &kParams_1062[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1063[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1063[] = {
+    {"snapGrid", "number", 1, &kParams_1063[0]},
+    {"pointInRect", "bool", 6, &kParams_1063[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1064[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1064[] = {
+    {"aabbHit", "bool", 8, &kParams_1064[0]},
+    {"pointInRect", "bool", 6, &kParams_1064[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1065[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1065[] = {
+    {"aabbHit", "bool", 8, &kParams_1065[0]},
+    {"dist2", "number", 4, &kParams_1065[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1066[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1066[] = {
+    {"approach", "number", 3, &kParams_1066[0]},
+    {"follow", "number", 3, &kParams_1066[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1067[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1067[] = {
+    {"dist2", "number", 4, &kParams_1067[0]},
+    {"wrap", "number", 2, &kParams_1067[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1068[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1068[] = {
+    {"shake", "number", 2, &kParams_1068[0]},
+    {"follow", "number", 3, &kParams_1068[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1069[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1069[] = {
+    {"snapGrid", "number", 1, &kParams_1069[0]},
+    {"pointInRect", "bool", 6, &kParams_1069[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1070[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1070[] = {
+    {"aabbHit", "bool", 8, &kParams_1070[0]},
+    {"pointInRect", "bool", 6, &kParams_1070[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1071[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1071[] = {
+    {"aabbHit", "bool", 8, &kParams_1071[0]},
+    {"dist2", "number", 4, &kParams_1071[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1072[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1072[] = {
+    {"approach", "number", 3, &kParams_1072[0]},
+    {"follow", "number", 3, &kParams_1072[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1073[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1073[] = {
+    {"dist2", "number", 4, &kParams_1073[0]},
+    {"wrap", "number", 2, &kParams_1073[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1074[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1074[] = {
+    {"shake", "number", 2, &kParams_1074[0]},
+    {"follow", "number", 3, &kParams_1074[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1075[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1075[] = {
+    {"snapGrid", "number", 1, &kParams_1075[0]},
+    {"pointInRect", "bool", 6, &kParams_1075[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1076[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1076[] = {
+    {"aabbHit", "bool", 8, &kParams_1076[0]},
+    {"pointInRect", "bool", 6, &kParams_1076[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1077[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1077[] = {
+    {"aabbHit", "bool", 8, &kParams_1077[0]},
+    {"dist2", "number", 4, &kParams_1077[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1078[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1078[] = {
+    {"approach", "number", 3, &kParams_1078[0]},
+    {"follow", "number", 3, &kParams_1078[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1079[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1079[] = {
+    {"dist2", "number", 4, &kParams_1079[0]},
+    {"wrap", "number", 2, &kParams_1079[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1080[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1080[] = {
+    {"shake", "number", 2, &kParams_1080[0]},
+    {"follow", "number", 3, &kParams_1080[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1081[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1081[] = {
+    {"snapGrid", "number", 1, &kParams_1081[0]},
+    {"pointInRect", "bool", 6, &kParams_1081[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1082[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1082[] = {
+    {"aabbHit", "bool", 8, &kParams_1082[0]},
+    {"pointInRect", "bool", 6, &kParams_1082[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1083[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1083[] = {
+    {"aabbHit", "bool", 8, &kParams_1083[0]},
+    {"dist2", "number", 4, &kParams_1083[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1084[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1084[] = {
+    {"approach", "number", 3, &kParams_1084[0]},
+    {"follow", "number", 3, &kParams_1084[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1085[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1085[] = {
+    {"dist2", "number", 4, &kParams_1085[0]},
+    {"wrap", "number", 2, &kParams_1085[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1086[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1086[] = {
+    {"shake", "number", 2, &kParams_1086[0]},
+    {"follow", "number", 3, &kParams_1086[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1087[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1087[] = {
+    {"snapGrid", "number", 1, &kParams_1087[0]},
+    {"pointInRect", "bool", 6, &kParams_1087[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1088[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1088[] = {
+    {"aabbHit", "bool", 8, &kParams_1088[0]},
+    {"pointInRect", "bool", 6, &kParams_1088[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1089[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1089[] = {
+    {"aabbHit", "bool", 8, &kParams_1089[0]},
+    {"dist2", "number", 4, &kParams_1089[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1090[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1090[] = {
+    {"approach", "number", 3, &kParams_1090[0]},
+    {"follow", "number", 3, &kParams_1090[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1091[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1091[] = {
+    {"dist2", "number", 4, &kParams_1091[0]},
+    {"wrap", "number", 2, &kParams_1091[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1092[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1092[] = {
+    {"shake", "number", 2, &kParams_1092[0]},
+    {"follow", "number", 3, &kParams_1092[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1093[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1093[] = {
+    {"snapGrid", "number", 1, &kParams_1093[0]},
+    {"pointInRect", "bool", 6, &kParams_1093[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1094[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1094[] = {
+    {"aabbHit", "bool", 8, &kParams_1094[0]},
+    {"pointInRect", "bool", 6, &kParams_1094[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1095[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1095[] = {
+    {"aabbHit", "bool", 8, &kParams_1095[0]},
+    {"dist2", "number", 4, &kParams_1095[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1096[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1096[] = {
+    {"approach", "number", 3, &kParams_1096[0]},
+    {"follow", "number", 3, &kParams_1096[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1097[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1097[] = {
+    {"dist2", "number", 4, &kParams_1097[0]},
+    {"wrap", "number", 2, &kParams_1097[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1098[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1098[] = {
+    {"shake", "number", 2, &kParams_1098[0]},
+    {"follow", "number", 3, &kParams_1098[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1099[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1099[] = {
+    {"snapGrid", "number", 1, &kParams_1099[0]},
+    {"pointInRect", "bool", 6, &kParams_1099[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1100[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1100[] = {
+    {"aabbHit", "bool", 8, &kParams_1100[0]},
+    {"pointInRect", "bool", 6, &kParams_1100[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1101[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1101[] = {
+    {"aabbHit", "bool", 8, &kParams_1101[0]},
+    {"dist2", "number", 4, &kParams_1101[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1102[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1102[] = {
+    {"approach", "number", 3, &kParams_1102[0]},
+    {"follow", "number", 3, &kParams_1102[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1103[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1103[] = {
+    {"dist2", "number", 4, &kParams_1103[0]},
+    {"wrap", "number", 2, &kParams_1103[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1104[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1104[] = {
+    {"shake", "number", 2, &kParams_1104[0]},
+    {"follow", "number", 3, &kParams_1104[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1105[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1105[] = {
+    {"snapGrid", "number", 1, &kParams_1105[0]},
+    {"pointInRect", "bool", 6, &kParams_1105[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1106[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1106[] = {
+    {"aabbHit", "bool", 8, &kParams_1106[0]},
+    {"pointInRect", "bool", 6, &kParams_1106[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1107[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1107[] = {
+    {"aabbHit", "bool", 8, &kParams_1107[0]},
+    {"dist2", "number", 4, &kParams_1107[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1108[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1108[] = {
+    {"approach", "number", 3, &kParams_1108[0]},
+    {"follow", "number", 3, &kParams_1108[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1109[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1109[] = {
+    {"dist2", "number", 4, &kParams_1109[0]},
+    {"wrap", "number", 2, &kParams_1109[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1110[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1110[] = {
+    {"shake", "number", 2, &kParams_1110[0]},
+    {"follow", "number", 3, &kParams_1110[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1111[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1111[] = {
+    {"snapGrid", "number", 1, &kParams_1111[0]},
+    {"pointInRect", "bool", 6, &kParams_1111[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1112[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1112[] = {
+    {"aabbHit", "bool", 8, &kParams_1112[0]},
+    {"pointInRect", "bool", 6, &kParams_1112[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1113[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1113[] = {
+    {"aabbHit", "bool", 8, &kParams_1113[0]},
+    {"dist2", "number", 4, &kParams_1113[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1114[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1114[] = {
+    {"approach", "number", 3, &kParams_1114[0]},
+    {"follow", "number", 3, &kParams_1114[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1115[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1115[] = {
+    {"dist2", "number", 4, &kParams_1115[0]},
+    {"wrap", "number", 2, &kParams_1115[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1116[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1116[] = {
+    {"shake", "number", 2, &kParams_1116[0]},
+    {"follow", "number", 3, &kParams_1116[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1117[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1117[] = {
+    {"snapGrid", "number", 1, &kParams_1117[0]},
+    {"pointInRect", "bool", 6, &kParams_1117[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1118[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1118[] = {
+    {"aabbHit", "bool", 8, &kParams_1118[0]},
+    {"pointInRect", "bool", 6, &kParams_1118[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1119[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1119[] = {
+    {"aabbHit", "bool", 8, &kParams_1119[0]},
+    {"dist2", "number", 4, &kParams_1119[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1120[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1120[] = {
+    {"approach", "number", 3, &kParams_1120[0]},
+    {"follow", "number", 3, &kParams_1120[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1121[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1121[] = {
+    {"dist2", "number", 4, &kParams_1121[0]},
+    {"wrap", "number", 2, &kParams_1121[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1122[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1122[] = {
+    {"shake", "number", 2, &kParams_1122[0]},
+    {"follow", "number", 3, &kParams_1122[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1123[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1123[] = {
+    {"snapGrid", "number", 1, &kParams_1123[0]},
+    {"pointInRect", "bool", 6, &kParams_1123[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1124[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1124[] = {
+    {"aabbHit", "bool", 8, &kParams_1124[0]},
+    {"pointInRect", "bool", 6, &kParams_1124[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1125[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1125[] = {
+    {"aabbHit", "bool", 8, &kParams_1125[0]},
+    {"dist2", "number", 4, &kParams_1125[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1126[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1126[] = {
+    {"approach", "number", 3, &kParams_1126[0]},
+    {"follow", "number", 3, &kParams_1126[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1127[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1127[] = {
+    {"dist2", "number", 4, &kParams_1127[0]},
+    {"wrap", "number", 2, &kParams_1127[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1128[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1128[] = {
+    {"shake", "number", 2, &kParams_1128[0]},
+    {"follow", "number", 3, &kParams_1128[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1129[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1129[] = {
+    {"snapGrid", "number", 1, &kParams_1129[0]},
+    {"pointInRect", "bool", 6, &kParams_1129[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1130[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1130[] = {
+    {"aabbHit", "bool", 8, &kParams_1130[0]},
+    {"pointInRect", "bool", 6, &kParams_1130[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1131[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1131[] = {
+    {"aabbHit", "bool", 8, &kParams_1131[0]},
+    {"dist2", "number", 4, &kParams_1131[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1132[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1132[] = {
+    {"approach", "number", 3, &kParams_1132[0]},
+    {"follow", "number", 3, &kParams_1132[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1133[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1133[] = {
+    {"dist2", "number", 4, &kParams_1133[0]},
+    {"wrap", "number", 2, &kParams_1133[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1134[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1134[] = {
+    {"shake", "number", 2, &kParams_1134[0]},
+    {"follow", "number", 3, &kParams_1134[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1135[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1135[] = {
+    {"snapGrid", "number", 1, &kParams_1135[0]},
+    {"pointInRect", "bool", 6, &kParams_1135[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1136[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1136[] = {
+    {"aabbHit", "bool", 8, &kParams_1136[0]},
+    {"pointInRect", "bool", 6, &kParams_1136[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1137[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1137[] = {
+    {"aabbHit", "bool", 8, &kParams_1137[0]},
+    {"dist2", "number", 4, &kParams_1137[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1138[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1138[] = {
+    {"approach", "number", 3, &kParams_1138[0]},
+    {"follow", "number", 3, &kParams_1138[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1139[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1139[] = {
+    {"dist2", "number", 4, &kParams_1139[0]},
+    {"wrap", "number", 2, &kParams_1139[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1140[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1140[] = {
+    {"shake", "number", 2, &kParams_1140[0]},
+    {"follow", "number", 3, &kParams_1140[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1141[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1141[] = {
+    {"snapGrid", "number", 1, &kParams_1141[0]},
+    {"pointInRect", "bool", 6, &kParams_1141[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1142[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1142[] = {
+    {"aabbHit", "bool", 8, &kParams_1142[0]},
+    {"pointInRect", "bool", 6, &kParams_1142[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1143[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1143[] = {
+    {"aabbHit", "bool", 8, &kParams_1143[0]},
+    {"dist2", "number", 4, &kParams_1143[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1144[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1144[] = {
+    {"approach", "number", 3, &kParams_1144[0]},
+    {"follow", "number", 3, &kParams_1144[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1145[] = {
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"v", "number"},
+    {"size", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1145[] = {
+    {"dist2", "number", 4, &kParams_1145[0]},
+    {"wrap", "number", 2, &kParams_1145[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1146[] = {
+    {"time", "number"},
+    {"amp", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1146[] = {
+    {"shake", "number", 2, &kParams_1146[0]},
+    {"follow", "number", 3, &kParams_1146[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1147[] = {
+    {"v", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1147[] = {
+    {"snapGrid", "number", 1, &kParams_1147[0]},
+    {"pointInRect", "bool", 6, &kParams_1147[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1148[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"px", "number"},
+    {"py", "number"},
+    {"rx", "number"},
+    {"ry", "number"},
+    {"rw", "number"},
+    {"rh", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1148[] = {
+    {"aabbHit", "bool", 8, &kParams_1148[0]},
+    {"pointInRect", "bool", 6, &kParams_1148[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1149[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"aw", "number"},
+    {"ah", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bw", "number"},
+    {"bh", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1149[] = {
+    {"aabbHit", "bool", 8, &kParams_1149[0]},
+    {"dist2", "number", 4, &kParams_1149[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1150[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"maxDelta", "number"},
+    {"cam", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1150[] = {
+    {"approach", "number", 3, &kParams_1150[0]},
+    {"follow", "number", 3, &kParams_1150[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
 const StdlibModuleSpec kSimpleModules[] = {
     {"absnum", "absnum", kFuncs_0, 2, "simple/absnum.hpp", false},
     {"sqrtlib", "sqrtlib", kFuncs_1, 2, "simple/sqrtlib.hpp", false},
@@ -9631,10 +18799,510 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"gamekit498", "gamekit498", kFuncs_648, 2, "simple/gamekit498.hpp", false},
     {"gamekit499", "gamekit499", kFuncs_649, 2, "simple/gamekit499.hpp", false},
     {"gamekit500", "gamekit500", kFuncs_650, 2, "simple/gamekit500.hpp", false},
+    {"game2dkit001", "game2dkit001", kFuncs_651, 2, "simple/game2dkit001.hpp", false},
+    {"game2dkit002", "game2dkit002", kFuncs_652, 2, "simple/game2dkit002.hpp", false},
+    {"game2dkit003", "game2dkit003", kFuncs_653, 2, "simple/game2dkit003.hpp", false},
+    {"game2dkit004", "game2dkit004", kFuncs_654, 2, "simple/game2dkit004.hpp", false},
+    {"game2dkit005", "game2dkit005", kFuncs_655, 2, "simple/game2dkit005.hpp", false},
+    {"game2dkit006", "game2dkit006", kFuncs_656, 2, "simple/game2dkit006.hpp", false},
+    {"game2dkit007", "game2dkit007", kFuncs_657, 2, "simple/game2dkit007.hpp", false},
+    {"game2dkit008", "game2dkit008", kFuncs_658, 2, "simple/game2dkit008.hpp", false},
+    {"game2dkit009", "game2dkit009", kFuncs_659, 2, "simple/game2dkit009.hpp", false},
+    {"game2dkit010", "game2dkit010", kFuncs_660, 2, "simple/game2dkit010.hpp", false},
+    {"game2dkit011", "game2dkit011", kFuncs_661, 2, "simple/game2dkit011.hpp", false},
+    {"game2dkit012", "game2dkit012", kFuncs_662, 2, "simple/game2dkit012.hpp", false},
+    {"game2dkit013", "game2dkit013", kFuncs_663, 2, "simple/game2dkit013.hpp", false},
+    {"game2dkit014", "game2dkit014", kFuncs_664, 2, "simple/game2dkit014.hpp", false},
+    {"game2dkit015", "game2dkit015", kFuncs_665, 2, "simple/game2dkit015.hpp", false},
+    {"game2dkit016", "game2dkit016", kFuncs_666, 2, "simple/game2dkit016.hpp", false},
+    {"game2dkit017", "game2dkit017", kFuncs_667, 2, "simple/game2dkit017.hpp", false},
+    {"game2dkit018", "game2dkit018", kFuncs_668, 2, "simple/game2dkit018.hpp", false},
+    {"game2dkit019", "game2dkit019", kFuncs_669, 2, "simple/game2dkit019.hpp", false},
+    {"game2dkit020", "game2dkit020", kFuncs_670, 2, "simple/game2dkit020.hpp", false},
+    {"game2dkit021", "game2dkit021", kFuncs_671, 2, "simple/game2dkit021.hpp", false},
+    {"game2dkit022", "game2dkit022", kFuncs_672, 2, "simple/game2dkit022.hpp", false},
+    {"game2dkit023", "game2dkit023", kFuncs_673, 2, "simple/game2dkit023.hpp", false},
+    {"game2dkit024", "game2dkit024", kFuncs_674, 2, "simple/game2dkit024.hpp", false},
+    {"game2dkit025", "game2dkit025", kFuncs_675, 2, "simple/game2dkit025.hpp", false},
+    {"game2dkit026", "game2dkit026", kFuncs_676, 2, "simple/game2dkit026.hpp", false},
+    {"game2dkit027", "game2dkit027", kFuncs_677, 2, "simple/game2dkit027.hpp", false},
+    {"game2dkit028", "game2dkit028", kFuncs_678, 2, "simple/game2dkit028.hpp", false},
+    {"game2dkit029", "game2dkit029", kFuncs_679, 2, "simple/game2dkit029.hpp", false},
+    {"game2dkit030", "game2dkit030", kFuncs_680, 2, "simple/game2dkit030.hpp", false},
+    {"game2dkit031", "game2dkit031", kFuncs_681, 2, "simple/game2dkit031.hpp", false},
+    {"game2dkit032", "game2dkit032", kFuncs_682, 2, "simple/game2dkit032.hpp", false},
+    {"game2dkit033", "game2dkit033", kFuncs_683, 2, "simple/game2dkit033.hpp", false},
+    {"game2dkit034", "game2dkit034", kFuncs_684, 2, "simple/game2dkit034.hpp", false},
+    {"game2dkit035", "game2dkit035", kFuncs_685, 2, "simple/game2dkit035.hpp", false},
+    {"game2dkit036", "game2dkit036", kFuncs_686, 2, "simple/game2dkit036.hpp", false},
+    {"game2dkit037", "game2dkit037", kFuncs_687, 2, "simple/game2dkit037.hpp", false},
+    {"game2dkit038", "game2dkit038", kFuncs_688, 2, "simple/game2dkit038.hpp", false},
+    {"game2dkit039", "game2dkit039", kFuncs_689, 2, "simple/game2dkit039.hpp", false},
+    {"game2dkit040", "game2dkit040", kFuncs_690, 2, "simple/game2dkit040.hpp", false},
+    {"game2dkit041", "game2dkit041", kFuncs_691, 2, "simple/game2dkit041.hpp", false},
+    {"game2dkit042", "game2dkit042", kFuncs_692, 2, "simple/game2dkit042.hpp", false},
+    {"game2dkit043", "game2dkit043", kFuncs_693, 2, "simple/game2dkit043.hpp", false},
+    {"game2dkit044", "game2dkit044", kFuncs_694, 2, "simple/game2dkit044.hpp", false},
+    {"game2dkit045", "game2dkit045", kFuncs_695, 2, "simple/game2dkit045.hpp", false},
+    {"game2dkit046", "game2dkit046", kFuncs_696, 2, "simple/game2dkit046.hpp", false},
+    {"game2dkit047", "game2dkit047", kFuncs_697, 2, "simple/game2dkit047.hpp", false},
+    {"game2dkit048", "game2dkit048", kFuncs_698, 2, "simple/game2dkit048.hpp", false},
+    {"game2dkit049", "game2dkit049", kFuncs_699, 2, "simple/game2dkit049.hpp", false},
+    {"game2dkit050", "game2dkit050", kFuncs_700, 2, "simple/game2dkit050.hpp", false},
+    {"game2dkit051", "game2dkit051", kFuncs_701, 2, "simple/game2dkit051.hpp", false},
+    {"game2dkit052", "game2dkit052", kFuncs_702, 2, "simple/game2dkit052.hpp", false},
+    {"game2dkit053", "game2dkit053", kFuncs_703, 2, "simple/game2dkit053.hpp", false},
+    {"game2dkit054", "game2dkit054", kFuncs_704, 2, "simple/game2dkit054.hpp", false},
+    {"game2dkit055", "game2dkit055", kFuncs_705, 2, "simple/game2dkit055.hpp", false},
+    {"game2dkit056", "game2dkit056", kFuncs_706, 2, "simple/game2dkit056.hpp", false},
+    {"game2dkit057", "game2dkit057", kFuncs_707, 2, "simple/game2dkit057.hpp", false},
+    {"game2dkit058", "game2dkit058", kFuncs_708, 2, "simple/game2dkit058.hpp", false},
+    {"game2dkit059", "game2dkit059", kFuncs_709, 2, "simple/game2dkit059.hpp", false},
+    {"game2dkit060", "game2dkit060", kFuncs_710, 2, "simple/game2dkit060.hpp", false},
+    {"game2dkit061", "game2dkit061", kFuncs_711, 2, "simple/game2dkit061.hpp", false},
+    {"game2dkit062", "game2dkit062", kFuncs_712, 2, "simple/game2dkit062.hpp", false},
+    {"game2dkit063", "game2dkit063", kFuncs_713, 2, "simple/game2dkit063.hpp", false},
+    {"game2dkit064", "game2dkit064", kFuncs_714, 2, "simple/game2dkit064.hpp", false},
+    {"game2dkit065", "game2dkit065", kFuncs_715, 2, "simple/game2dkit065.hpp", false},
+    {"game2dkit066", "game2dkit066", kFuncs_716, 2, "simple/game2dkit066.hpp", false},
+    {"game2dkit067", "game2dkit067", kFuncs_717, 2, "simple/game2dkit067.hpp", false},
+    {"game2dkit068", "game2dkit068", kFuncs_718, 2, "simple/game2dkit068.hpp", false},
+    {"game2dkit069", "game2dkit069", kFuncs_719, 2, "simple/game2dkit069.hpp", false},
+    {"game2dkit070", "game2dkit070", kFuncs_720, 2, "simple/game2dkit070.hpp", false},
+    {"game2dkit071", "game2dkit071", kFuncs_721, 2, "simple/game2dkit071.hpp", false},
+    {"game2dkit072", "game2dkit072", kFuncs_722, 2, "simple/game2dkit072.hpp", false},
+    {"game2dkit073", "game2dkit073", kFuncs_723, 2, "simple/game2dkit073.hpp", false},
+    {"game2dkit074", "game2dkit074", kFuncs_724, 2, "simple/game2dkit074.hpp", false},
+    {"game2dkit075", "game2dkit075", kFuncs_725, 2, "simple/game2dkit075.hpp", false},
+    {"game2dkit076", "game2dkit076", kFuncs_726, 2, "simple/game2dkit076.hpp", false},
+    {"game2dkit077", "game2dkit077", kFuncs_727, 2, "simple/game2dkit077.hpp", false},
+    {"game2dkit078", "game2dkit078", kFuncs_728, 2, "simple/game2dkit078.hpp", false},
+    {"game2dkit079", "game2dkit079", kFuncs_729, 2, "simple/game2dkit079.hpp", false},
+    {"game2dkit080", "game2dkit080", kFuncs_730, 2, "simple/game2dkit080.hpp", false},
+    {"game2dkit081", "game2dkit081", kFuncs_731, 2, "simple/game2dkit081.hpp", false},
+    {"game2dkit082", "game2dkit082", kFuncs_732, 2, "simple/game2dkit082.hpp", false},
+    {"game2dkit083", "game2dkit083", kFuncs_733, 2, "simple/game2dkit083.hpp", false},
+    {"game2dkit084", "game2dkit084", kFuncs_734, 2, "simple/game2dkit084.hpp", false},
+    {"game2dkit085", "game2dkit085", kFuncs_735, 2, "simple/game2dkit085.hpp", false},
+    {"game2dkit086", "game2dkit086", kFuncs_736, 2, "simple/game2dkit086.hpp", false},
+    {"game2dkit087", "game2dkit087", kFuncs_737, 2, "simple/game2dkit087.hpp", false},
+    {"game2dkit088", "game2dkit088", kFuncs_738, 2, "simple/game2dkit088.hpp", false},
+    {"game2dkit089", "game2dkit089", kFuncs_739, 2, "simple/game2dkit089.hpp", false},
+    {"game2dkit090", "game2dkit090", kFuncs_740, 2, "simple/game2dkit090.hpp", false},
+    {"game2dkit091", "game2dkit091", kFuncs_741, 2, "simple/game2dkit091.hpp", false},
+    {"game2dkit092", "game2dkit092", kFuncs_742, 2, "simple/game2dkit092.hpp", false},
+    {"game2dkit093", "game2dkit093", kFuncs_743, 2, "simple/game2dkit093.hpp", false},
+    {"game2dkit094", "game2dkit094", kFuncs_744, 2, "simple/game2dkit094.hpp", false},
+    {"game2dkit095", "game2dkit095", kFuncs_745, 2, "simple/game2dkit095.hpp", false},
+    {"game2dkit096", "game2dkit096", kFuncs_746, 2, "simple/game2dkit096.hpp", false},
+    {"game2dkit097", "game2dkit097", kFuncs_747, 2, "simple/game2dkit097.hpp", false},
+    {"game2dkit098", "game2dkit098", kFuncs_748, 2, "simple/game2dkit098.hpp", false},
+    {"game2dkit099", "game2dkit099", kFuncs_749, 2, "simple/game2dkit099.hpp", false},
+    {"game2dkit100", "game2dkit100", kFuncs_750, 2, "simple/game2dkit100.hpp", false},
+    {"game2dkit101", "game2dkit101", kFuncs_751, 2, "simple/game2dkit101.hpp", false},
+    {"game2dkit102", "game2dkit102", kFuncs_752, 2, "simple/game2dkit102.hpp", false},
+    {"game2dkit103", "game2dkit103", kFuncs_753, 2, "simple/game2dkit103.hpp", false},
+    {"game2dkit104", "game2dkit104", kFuncs_754, 2, "simple/game2dkit104.hpp", false},
+    {"game2dkit105", "game2dkit105", kFuncs_755, 2, "simple/game2dkit105.hpp", false},
+    {"game2dkit106", "game2dkit106", kFuncs_756, 2, "simple/game2dkit106.hpp", false},
+    {"game2dkit107", "game2dkit107", kFuncs_757, 2, "simple/game2dkit107.hpp", false},
+    {"game2dkit108", "game2dkit108", kFuncs_758, 2, "simple/game2dkit108.hpp", false},
+    {"game2dkit109", "game2dkit109", kFuncs_759, 2, "simple/game2dkit109.hpp", false},
+    {"game2dkit110", "game2dkit110", kFuncs_760, 2, "simple/game2dkit110.hpp", false},
+    {"game2dkit111", "game2dkit111", kFuncs_761, 2, "simple/game2dkit111.hpp", false},
+    {"game2dkit112", "game2dkit112", kFuncs_762, 2, "simple/game2dkit112.hpp", false},
+    {"game2dkit113", "game2dkit113", kFuncs_763, 2, "simple/game2dkit113.hpp", false},
+    {"game2dkit114", "game2dkit114", kFuncs_764, 2, "simple/game2dkit114.hpp", false},
+    {"game2dkit115", "game2dkit115", kFuncs_765, 2, "simple/game2dkit115.hpp", false},
+    {"game2dkit116", "game2dkit116", kFuncs_766, 2, "simple/game2dkit116.hpp", false},
+    {"game2dkit117", "game2dkit117", kFuncs_767, 2, "simple/game2dkit117.hpp", false},
+    {"game2dkit118", "game2dkit118", kFuncs_768, 2, "simple/game2dkit118.hpp", false},
+    {"game2dkit119", "game2dkit119", kFuncs_769, 2, "simple/game2dkit119.hpp", false},
+    {"game2dkit120", "game2dkit120", kFuncs_770, 2, "simple/game2dkit120.hpp", false},
+    {"game2dkit121", "game2dkit121", kFuncs_771, 2, "simple/game2dkit121.hpp", false},
+    {"game2dkit122", "game2dkit122", kFuncs_772, 2, "simple/game2dkit122.hpp", false},
+    {"game2dkit123", "game2dkit123", kFuncs_773, 2, "simple/game2dkit123.hpp", false},
+    {"game2dkit124", "game2dkit124", kFuncs_774, 2, "simple/game2dkit124.hpp", false},
+    {"game2dkit125", "game2dkit125", kFuncs_775, 2, "simple/game2dkit125.hpp", false},
+    {"game2dkit126", "game2dkit126", kFuncs_776, 2, "simple/game2dkit126.hpp", false},
+    {"game2dkit127", "game2dkit127", kFuncs_777, 2, "simple/game2dkit127.hpp", false},
+    {"game2dkit128", "game2dkit128", kFuncs_778, 2, "simple/game2dkit128.hpp", false},
+    {"game2dkit129", "game2dkit129", kFuncs_779, 2, "simple/game2dkit129.hpp", false},
+    {"game2dkit130", "game2dkit130", kFuncs_780, 2, "simple/game2dkit130.hpp", false},
+    {"game2dkit131", "game2dkit131", kFuncs_781, 2, "simple/game2dkit131.hpp", false},
+    {"game2dkit132", "game2dkit132", kFuncs_782, 2, "simple/game2dkit132.hpp", false},
+    {"game2dkit133", "game2dkit133", kFuncs_783, 2, "simple/game2dkit133.hpp", false},
+    {"game2dkit134", "game2dkit134", kFuncs_784, 2, "simple/game2dkit134.hpp", false},
+    {"game2dkit135", "game2dkit135", kFuncs_785, 2, "simple/game2dkit135.hpp", false},
+    {"game2dkit136", "game2dkit136", kFuncs_786, 2, "simple/game2dkit136.hpp", false},
+    {"game2dkit137", "game2dkit137", kFuncs_787, 2, "simple/game2dkit137.hpp", false},
+    {"game2dkit138", "game2dkit138", kFuncs_788, 2, "simple/game2dkit138.hpp", false},
+    {"game2dkit139", "game2dkit139", kFuncs_789, 2, "simple/game2dkit139.hpp", false},
+    {"game2dkit140", "game2dkit140", kFuncs_790, 2, "simple/game2dkit140.hpp", false},
+    {"game2dkit141", "game2dkit141", kFuncs_791, 2, "simple/game2dkit141.hpp", false},
+    {"game2dkit142", "game2dkit142", kFuncs_792, 2, "simple/game2dkit142.hpp", false},
+    {"game2dkit143", "game2dkit143", kFuncs_793, 2, "simple/game2dkit143.hpp", false},
+    {"game2dkit144", "game2dkit144", kFuncs_794, 2, "simple/game2dkit144.hpp", false},
+    {"game2dkit145", "game2dkit145", kFuncs_795, 2, "simple/game2dkit145.hpp", false},
+    {"game2dkit146", "game2dkit146", kFuncs_796, 2, "simple/game2dkit146.hpp", false},
+    {"game2dkit147", "game2dkit147", kFuncs_797, 2, "simple/game2dkit147.hpp", false},
+    {"game2dkit148", "game2dkit148", kFuncs_798, 2, "simple/game2dkit148.hpp", false},
+    {"game2dkit149", "game2dkit149", kFuncs_799, 2, "simple/game2dkit149.hpp", false},
+    {"game2dkit150", "game2dkit150", kFuncs_800, 2, "simple/game2dkit150.hpp", false},
+    {"game2dkit151", "game2dkit151", kFuncs_801, 2, "simple/game2dkit151.hpp", false},
+    {"game2dkit152", "game2dkit152", kFuncs_802, 2, "simple/game2dkit152.hpp", false},
+    {"game2dkit153", "game2dkit153", kFuncs_803, 2, "simple/game2dkit153.hpp", false},
+    {"game2dkit154", "game2dkit154", kFuncs_804, 2, "simple/game2dkit154.hpp", false},
+    {"game2dkit155", "game2dkit155", kFuncs_805, 2, "simple/game2dkit155.hpp", false},
+    {"game2dkit156", "game2dkit156", kFuncs_806, 2, "simple/game2dkit156.hpp", false},
+    {"game2dkit157", "game2dkit157", kFuncs_807, 2, "simple/game2dkit157.hpp", false},
+    {"game2dkit158", "game2dkit158", kFuncs_808, 2, "simple/game2dkit158.hpp", false},
+    {"game2dkit159", "game2dkit159", kFuncs_809, 2, "simple/game2dkit159.hpp", false},
+    {"game2dkit160", "game2dkit160", kFuncs_810, 2, "simple/game2dkit160.hpp", false},
+    {"game2dkit161", "game2dkit161", kFuncs_811, 2, "simple/game2dkit161.hpp", false},
+    {"game2dkit162", "game2dkit162", kFuncs_812, 2, "simple/game2dkit162.hpp", false},
+    {"game2dkit163", "game2dkit163", kFuncs_813, 2, "simple/game2dkit163.hpp", false},
+    {"game2dkit164", "game2dkit164", kFuncs_814, 2, "simple/game2dkit164.hpp", false},
+    {"game2dkit165", "game2dkit165", kFuncs_815, 2, "simple/game2dkit165.hpp", false},
+    {"game2dkit166", "game2dkit166", kFuncs_816, 2, "simple/game2dkit166.hpp", false},
+    {"game2dkit167", "game2dkit167", kFuncs_817, 2, "simple/game2dkit167.hpp", false},
+    {"game2dkit168", "game2dkit168", kFuncs_818, 2, "simple/game2dkit168.hpp", false},
+    {"game2dkit169", "game2dkit169", kFuncs_819, 2, "simple/game2dkit169.hpp", false},
+    {"game2dkit170", "game2dkit170", kFuncs_820, 2, "simple/game2dkit170.hpp", false},
+    {"game2dkit171", "game2dkit171", kFuncs_821, 2, "simple/game2dkit171.hpp", false},
+    {"game2dkit172", "game2dkit172", kFuncs_822, 2, "simple/game2dkit172.hpp", false},
+    {"game2dkit173", "game2dkit173", kFuncs_823, 2, "simple/game2dkit173.hpp", false},
+    {"game2dkit174", "game2dkit174", kFuncs_824, 2, "simple/game2dkit174.hpp", false},
+    {"game2dkit175", "game2dkit175", kFuncs_825, 2, "simple/game2dkit175.hpp", false},
+    {"game2dkit176", "game2dkit176", kFuncs_826, 2, "simple/game2dkit176.hpp", false},
+    {"game2dkit177", "game2dkit177", kFuncs_827, 2, "simple/game2dkit177.hpp", false},
+    {"game2dkit178", "game2dkit178", kFuncs_828, 2, "simple/game2dkit178.hpp", false},
+    {"game2dkit179", "game2dkit179", kFuncs_829, 2, "simple/game2dkit179.hpp", false},
+    {"game2dkit180", "game2dkit180", kFuncs_830, 2, "simple/game2dkit180.hpp", false},
+    {"game2dkit181", "game2dkit181", kFuncs_831, 2, "simple/game2dkit181.hpp", false},
+    {"game2dkit182", "game2dkit182", kFuncs_832, 2, "simple/game2dkit182.hpp", false},
+    {"game2dkit183", "game2dkit183", kFuncs_833, 2, "simple/game2dkit183.hpp", false},
+    {"game2dkit184", "game2dkit184", kFuncs_834, 2, "simple/game2dkit184.hpp", false},
+    {"game2dkit185", "game2dkit185", kFuncs_835, 2, "simple/game2dkit185.hpp", false},
+    {"game2dkit186", "game2dkit186", kFuncs_836, 2, "simple/game2dkit186.hpp", false},
+    {"game2dkit187", "game2dkit187", kFuncs_837, 2, "simple/game2dkit187.hpp", false},
+    {"game2dkit188", "game2dkit188", kFuncs_838, 2, "simple/game2dkit188.hpp", false},
+    {"game2dkit189", "game2dkit189", kFuncs_839, 2, "simple/game2dkit189.hpp", false},
+    {"game2dkit190", "game2dkit190", kFuncs_840, 2, "simple/game2dkit190.hpp", false},
+    {"game2dkit191", "game2dkit191", kFuncs_841, 2, "simple/game2dkit191.hpp", false},
+    {"game2dkit192", "game2dkit192", kFuncs_842, 2, "simple/game2dkit192.hpp", false},
+    {"game2dkit193", "game2dkit193", kFuncs_843, 2, "simple/game2dkit193.hpp", false},
+    {"game2dkit194", "game2dkit194", kFuncs_844, 2, "simple/game2dkit194.hpp", false},
+    {"game2dkit195", "game2dkit195", kFuncs_845, 2, "simple/game2dkit195.hpp", false},
+    {"game2dkit196", "game2dkit196", kFuncs_846, 2, "simple/game2dkit196.hpp", false},
+    {"game2dkit197", "game2dkit197", kFuncs_847, 2, "simple/game2dkit197.hpp", false},
+    {"game2dkit198", "game2dkit198", kFuncs_848, 2, "simple/game2dkit198.hpp", false},
+    {"game2dkit199", "game2dkit199", kFuncs_849, 2, "simple/game2dkit199.hpp", false},
+    {"game2dkit200", "game2dkit200", kFuncs_850, 2, "simple/game2dkit200.hpp", false},
+    {"game2dkit201", "game2dkit201", kFuncs_851, 2, "simple/game2dkit201.hpp", false},
+    {"game2dkit202", "game2dkit202", kFuncs_852, 2, "simple/game2dkit202.hpp", false},
+    {"game2dkit203", "game2dkit203", kFuncs_853, 2, "simple/game2dkit203.hpp", false},
+    {"game2dkit204", "game2dkit204", kFuncs_854, 2, "simple/game2dkit204.hpp", false},
+    {"game2dkit205", "game2dkit205", kFuncs_855, 2, "simple/game2dkit205.hpp", false},
+    {"game2dkit206", "game2dkit206", kFuncs_856, 2, "simple/game2dkit206.hpp", false},
+    {"game2dkit207", "game2dkit207", kFuncs_857, 2, "simple/game2dkit207.hpp", false},
+    {"game2dkit208", "game2dkit208", kFuncs_858, 2, "simple/game2dkit208.hpp", false},
+    {"game2dkit209", "game2dkit209", kFuncs_859, 2, "simple/game2dkit209.hpp", false},
+    {"game2dkit210", "game2dkit210", kFuncs_860, 2, "simple/game2dkit210.hpp", false},
+    {"game2dkit211", "game2dkit211", kFuncs_861, 2, "simple/game2dkit211.hpp", false},
+    {"game2dkit212", "game2dkit212", kFuncs_862, 2, "simple/game2dkit212.hpp", false},
+    {"game2dkit213", "game2dkit213", kFuncs_863, 2, "simple/game2dkit213.hpp", false},
+    {"game2dkit214", "game2dkit214", kFuncs_864, 2, "simple/game2dkit214.hpp", false},
+    {"game2dkit215", "game2dkit215", kFuncs_865, 2, "simple/game2dkit215.hpp", false},
+    {"game2dkit216", "game2dkit216", kFuncs_866, 2, "simple/game2dkit216.hpp", false},
+    {"game2dkit217", "game2dkit217", kFuncs_867, 2, "simple/game2dkit217.hpp", false},
+    {"game2dkit218", "game2dkit218", kFuncs_868, 2, "simple/game2dkit218.hpp", false},
+    {"game2dkit219", "game2dkit219", kFuncs_869, 2, "simple/game2dkit219.hpp", false},
+    {"game2dkit220", "game2dkit220", kFuncs_870, 2, "simple/game2dkit220.hpp", false},
+    {"game2dkit221", "game2dkit221", kFuncs_871, 2, "simple/game2dkit221.hpp", false},
+    {"game2dkit222", "game2dkit222", kFuncs_872, 2, "simple/game2dkit222.hpp", false},
+    {"game2dkit223", "game2dkit223", kFuncs_873, 2, "simple/game2dkit223.hpp", false},
+    {"game2dkit224", "game2dkit224", kFuncs_874, 2, "simple/game2dkit224.hpp", false},
+    {"game2dkit225", "game2dkit225", kFuncs_875, 2, "simple/game2dkit225.hpp", false},
+    {"game2dkit226", "game2dkit226", kFuncs_876, 2, "simple/game2dkit226.hpp", false},
+    {"game2dkit227", "game2dkit227", kFuncs_877, 2, "simple/game2dkit227.hpp", false},
+    {"game2dkit228", "game2dkit228", kFuncs_878, 2, "simple/game2dkit228.hpp", false},
+    {"game2dkit229", "game2dkit229", kFuncs_879, 2, "simple/game2dkit229.hpp", false},
+    {"game2dkit230", "game2dkit230", kFuncs_880, 2, "simple/game2dkit230.hpp", false},
+    {"game2dkit231", "game2dkit231", kFuncs_881, 2, "simple/game2dkit231.hpp", false},
+    {"game2dkit232", "game2dkit232", kFuncs_882, 2, "simple/game2dkit232.hpp", false},
+    {"game2dkit233", "game2dkit233", kFuncs_883, 2, "simple/game2dkit233.hpp", false},
+    {"game2dkit234", "game2dkit234", kFuncs_884, 2, "simple/game2dkit234.hpp", false},
+    {"game2dkit235", "game2dkit235", kFuncs_885, 2, "simple/game2dkit235.hpp", false},
+    {"game2dkit236", "game2dkit236", kFuncs_886, 2, "simple/game2dkit236.hpp", false},
+    {"game2dkit237", "game2dkit237", kFuncs_887, 2, "simple/game2dkit237.hpp", false},
+    {"game2dkit238", "game2dkit238", kFuncs_888, 2, "simple/game2dkit238.hpp", false},
+    {"game2dkit239", "game2dkit239", kFuncs_889, 2, "simple/game2dkit239.hpp", false},
+    {"game2dkit240", "game2dkit240", kFuncs_890, 2, "simple/game2dkit240.hpp", false},
+    {"game2dkit241", "game2dkit241", kFuncs_891, 2, "simple/game2dkit241.hpp", false},
+    {"game2dkit242", "game2dkit242", kFuncs_892, 2, "simple/game2dkit242.hpp", false},
+    {"game2dkit243", "game2dkit243", kFuncs_893, 2, "simple/game2dkit243.hpp", false},
+    {"game2dkit244", "game2dkit244", kFuncs_894, 2, "simple/game2dkit244.hpp", false},
+    {"game2dkit245", "game2dkit245", kFuncs_895, 2, "simple/game2dkit245.hpp", false},
+    {"game2dkit246", "game2dkit246", kFuncs_896, 2, "simple/game2dkit246.hpp", false},
+    {"game2dkit247", "game2dkit247", kFuncs_897, 2, "simple/game2dkit247.hpp", false},
+    {"game2dkit248", "game2dkit248", kFuncs_898, 2, "simple/game2dkit248.hpp", false},
+    {"game2dkit249", "game2dkit249", kFuncs_899, 2, "simple/game2dkit249.hpp", false},
+    {"game2dkit250", "game2dkit250", kFuncs_900, 2, "simple/game2dkit250.hpp", false},
+    {"game2dkit251", "game2dkit251", kFuncs_901, 2, "simple/game2dkit251.hpp", false},
+    {"game2dkit252", "game2dkit252", kFuncs_902, 2, "simple/game2dkit252.hpp", false},
+    {"game2dkit253", "game2dkit253", kFuncs_903, 2, "simple/game2dkit253.hpp", false},
+    {"game2dkit254", "game2dkit254", kFuncs_904, 2, "simple/game2dkit254.hpp", false},
+    {"game2dkit255", "game2dkit255", kFuncs_905, 2, "simple/game2dkit255.hpp", false},
+    {"game2dkit256", "game2dkit256", kFuncs_906, 2, "simple/game2dkit256.hpp", false},
+    {"game2dkit257", "game2dkit257", kFuncs_907, 2, "simple/game2dkit257.hpp", false},
+    {"game2dkit258", "game2dkit258", kFuncs_908, 2, "simple/game2dkit258.hpp", false},
+    {"game2dkit259", "game2dkit259", kFuncs_909, 2, "simple/game2dkit259.hpp", false},
+    {"game2dkit260", "game2dkit260", kFuncs_910, 2, "simple/game2dkit260.hpp", false},
+    {"game2dkit261", "game2dkit261", kFuncs_911, 2, "simple/game2dkit261.hpp", false},
+    {"game2dkit262", "game2dkit262", kFuncs_912, 2, "simple/game2dkit262.hpp", false},
+    {"game2dkit263", "game2dkit263", kFuncs_913, 2, "simple/game2dkit263.hpp", false},
+    {"game2dkit264", "game2dkit264", kFuncs_914, 2, "simple/game2dkit264.hpp", false},
+    {"game2dkit265", "game2dkit265", kFuncs_915, 2, "simple/game2dkit265.hpp", false},
+    {"game2dkit266", "game2dkit266", kFuncs_916, 2, "simple/game2dkit266.hpp", false},
+    {"game2dkit267", "game2dkit267", kFuncs_917, 2, "simple/game2dkit267.hpp", false},
+    {"game2dkit268", "game2dkit268", kFuncs_918, 2, "simple/game2dkit268.hpp", false},
+    {"game2dkit269", "game2dkit269", kFuncs_919, 2, "simple/game2dkit269.hpp", false},
+    {"game2dkit270", "game2dkit270", kFuncs_920, 2, "simple/game2dkit270.hpp", false},
+    {"game2dkit271", "game2dkit271", kFuncs_921, 2, "simple/game2dkit271.hpp", false},
+    {"game2dkit272", "game2dkit272", kFuncs_922, 2, "simple/game2dkit272.hpp", false},
+    {"game2dkit273", "game2dkit273", kFuncs_923, 2, "simple/game2dkit273.hpp", false},
+    {"game2dkit274", "game2dkit274", kFuncs_924, 2, "simple/game2dkit274.hpp", false},
+    {"game2dkit275", "game2dkit275", kFuncs_925, 2, "simple/game2dkit275.hpp", false},
+    {"game2dkit276", "game2dkit276", kFuncs_926, 2, "simple/game2dkit276.hpp", false},
+    {"game2dkit277", "game2dkit277", kFuncs_927, 2, "simple/game2dkit277.hpp", false},
+    {"game2dkit278", "game2dkit278", kFuncs_928, 2, "simple/game2dkit278.hpp", false},
+    {"game2dkit279", "game2dkit279", kFuncs_929, 2, "simple/game2dkit279.hpp", false},
+    {"game2dkit280", "game2dkit280", kFuncs_930, 2, "simple/game2dkit280.hpp", false},
+    {"game2dkit281", "game2dkit281", kFuncs_931, 2, "simple/game2dkit281.hpp", false},
+    {"game2dkit282", "game2dkit282", kFuncs_932, 2, "simple/game2dkit282.hpp", false},
+    {"game2dkit283", "game2dkit283", kFuncs_933, 2, "simple/game2dkit283.hpp", false},
+    {"game2dkit284", "game2dkit284", kFuncs_934, 2, "simple/game2dkit284.hpp", false},
+    {"game2dkit285", "game2dkit285", kFuncs_935, 2, "simple/game2dkit285.hpp", false},
+    {"game2dkit286", "game2dkit286", kFuncs_936, 2, "simple/game2dkit286.hpp", false},
+    {"game2dkit287", "game2dkit287", kFuncs_937, 2, "simple/game2dkit287.hpp", false},
+    {"game2dkit288", "game2dkit288", kFuncs_938, 2, "simple/game2dkit288.hpp", false},
+    {"game2dkit289", "game2dkit289", kFuncs_939, 2, "simple/game2dkit289.hpp", false},
+    {"game2dkit290", "game2dkit290", kFuncs_940, 2, "simple/game2dkit290.hpp", false},
+    {"game2dkit291", "game2dkit291", kFuncs_941, 2, "simple/game2dkit291.hpp", false},
+    {"game2dkit292", "game2dkit292", kFuncs_942, 2, "simple/game2dkit292.hpp", false},
+    {"game2dkit293", "game2dkit293", kFuncs_943, 2, "simple/game2dkit293.hpp", false},
+    {"game2dkit294", "game2dkit294", kFuncs_944, 2, "simple/game2dkit294.hpp", false},
+    {"game2dkit295", "game2dkit295", kFuncs_945, 2, "simple/game2dkit295.hpp", false},
+    {"game2dkit296", "game2dkit296", kFuncs_946, 2, "simple/game2dkit296.hpp", false},
+    {"game2dkit297", "game2dkit297", kFuncs_947, 2, "simple/game2dkit297.hpp", false},
+    {"game2dkit298", "game2dkit298", kFuncs_948, 2, "simple/game2dkit298.hpp", false},
+    {"game2dkit299", "game2dkit299", kFuncs_949, 2, "simple/game2dkit299.hpp", false},
+    {"game2dkit300", "game2dkit300", kFuncs_950, 2, "simple/game2dkit300.hpp", false},
+    {"game2dkit301", "game2dkit301", kFuncs_951, 2, "simple/game2dkit301.hpp", false},
+    {"game2dkit302", "game2dkit302", kFuncs_952, 2, "simple/game2dkit302.hpp", false},
+    {"game2dkit303", "game2dkit303", kFuncs_953, 2, "simple/game2dkit303.hpp", false},
+    {"game2dkit304", "game2dkit304", kFuncs_954, 2, "simple/game2dkit304.hpp", false},
+    {"game2dkit305", "game2dkit305", kFuncs_955, 2, "simple/game2dkit305.hpp", false},
+    {"game2dkit306", "game2dkit306", kFuncs_956, 2, "simple/game2dkit306.hpp", false},
+    {"game2dkit307", "game2dkit307", kFuncs_957, 2, "simple/game2dkit307.hpp", false},
+    {"game2dkit308", "game2dkit308", kFuncs_958, 2, "simple/game2dkit308.hpp", false},
+    {"game2dkit309", "game2dkit309", kFuncs_959, 2, "simple/game2dkit309.hpp", false},
+    {"game2dkit310", "game2dkit310", kFuncs_960, 2, "simple/game2dkit310.hpp", false},
+    {"game2dkit311", "game2dkit311", kFuncs_961, 2, "simple/game2dkit311.hpp", false},
+    {"game2dkit312", "game2dkit312", kFuncs_962, 2, "simple/game2dkit312.hpp", false},
+    {"game2dkit313", "game2dkit313", kFuncs_963, 2, "simple/game2dkit313.hpp", false},
+    {"game2dkit314", "game2dkit314", kFuncs_964, 2, "simple/game2dkit314.hpp", false},
+    {"game2dkit315", "game2dkit315", kFuncs_965, 2, "simple/game2dkit315.hpp", false},
+    {"game2dkit316", "game2dkit316", kFuncs_966, 2, "simple/game2dkit316.hpp", false},
+    {"game2dkit317", "game2dkit317", kFuncs_967, 2, "simple/game2dkit317.hpp", false},
+    {"game2dkit318", "game2dkit318", kFuncs_968, 2, "simple/game2dkit318.hpp", false},
+    {"game2dkit319", "game2dkit319", kFuncs_969, 2, "simple/game2dkit319.hpp", false},
+    {"game2dkit320", "game2dkit320", kFuncs_970, 2, "simple/game2dkit320.hpp", false},
+    {"game2dkit321", "game2dkit321", kFuncs_971, 2, "simple/game2dkit321.hpp", false},
+    {"game2dkit322", "game2dkit322", kFuncs_972, 2, "simple/game2dkit322.hpp", false},
+    {"game2dkit323", "game2dkit323", kFuncs_973, 2, "simple/game2dkit323.hpp", false},
+    {"game2dkit324", "game2dkit324", kFuncs_974, 2, "simple/game2dkit324.hpp", false},
+    {"game2dkit325", "game2dkit325", kFuncs_975, 2, "simple/game2dkit325.hpp", false},
+    {"game2dkit326", "game2dkit326", kFuncs_976, 2, "simple/game2dkit326.hpp", false},
+    {"game2dkit327", "game2dkit327", kFuncs_977, 2, "simple/game2dkit327.hpp", false},
+    {"game2dkit328", "game2dkit328", kFuncs_978, 2, "simple/game2dkit328.hpp", false},
+    {"game2dkit329", "game2dkit329", kFuncs_979, 2, "simple/game2dkit329.hpp", false},
+    {"game2dkit330", "game2dkit330", kFuncs_980, 2, "simple/game2dkit330.hpp", false},
+    {"game2dkit331", "game2dkit331", kFuncs_981, 2, "simple/game2dkit331.hpp", false},
+    {"game2dkit332", "game2dkit332", kFuncs_982, 2, "simple/game2dkit332.hpp", false},
+    {"game2dkit333", "game2dkit333", kFuncs_983, 2, "simple/game2dkit333.hpp", false},
+    {"game2dkit334", "game2dkit334", kFuncs_984, 2, "simple/game2dkit334.hpp", false},
+    {"game2dkit335", "game2dkit335", kFuncs_985, 2, "simple/game2dkit335.hpp", false},
+    {"game2dkit336", "game2dkit336", kFuncs_986, 2, "simple/game2dkit336.hpp", false},
+    {"game2dkit337", "game2dkit337", kFuncs_987, 2, "simple/game2dkit337.hpp", false},
+    {"game2dkit338", "game2dkit338", kFuncs_988, 2, "simple/game2dkit338.hpp", false},
+    {"game2dkit339", "game2dkit339", kFuncs_989, 2, "simple/game2dkit339.hpp", false},
+    {"game2dkit340", "game2dkit340", kFuncs_990, 2, "simple/game2dkit340.hpp", false},
+    {"game2dkit341", "game2dkit341", kFuncs_991, 2, "simple/game2dkit341.hpp", false},
+    {"game2dkit342", "game2dkit342", kFuncs_992, 2, "simple/game2dkit342.hpp", false},
+    {"game2dkit343", "game2dkit343", kFuncs_993, 2, "simple/game2dkit343.hpp", false},
+    {"game2dkit344", "game2dkit344", kFuncs_994, 2, "simple/game2dkit344.hpp", false},
+    {"game2dkit345", "game2dkit345", kFuncs_995, 2, "simple/game2dkit345.hpp", false},
+    {"game2dkit346", "game2dkit346", kFuncs_996, 2, "simple/game2dkit346.hpp", false},
+    {"game2dkit347", "game2dkit347", kFuncs_997, 2, "simple/game2dkit347.hpp", false},
+    {"game2dkit348", "game2dkit348", kFuncs_998, 2, "simple/game2dkit348.hpp", false},
+    {"game2dkit349", "game2dkit349", kFuncs_999, 2, "simple/game2dkit349.hpp", false},
+    {"game2dkit350", "game2dkit350", kFuncs_1000, 2, "simple/game2dkit350.hpp", false},
+    {"game2dkit351", "game2dkit351", kFuncs_1001, 2, "simple/game2dkit351.hpp", false},
+    {"game2dkit352", "game2dkit352", kFuncs_1002, 2, "simple/game2dkit352.hpp", false},
+    {"game2dkit353", "game2dkit353", kFuncs_1003, 2, "simple/game2dkit353.hpp", false},
+    {"game2dkit354", "game2dkit354", kFuncs_1004, 2, "simple/game2dkit354.hpp", false},
+    {"game2dkit355", "game2dkit355", kFuncs_1005, 2, "simple/game2dkit355.hpp", false},
+    {"game2dkit356", "game2dkit356", kFuncs_1006, 2, "simple/game2dkit356.hpp", false},
+    {"game2dkit357", "game2dkit357", kFuncs_1007, 2, "simple/game2dkit357.hpp", false},
+    {"game2dkit358", "game2dkit358", kFuncs_1008, 2, "simple/game2dkit358.hpp", false},
+    {"game2dkit359", "game2dkit359", kFuncs_1009, 2, "simple/game2dkit359.hpp", false},
+    {"game2dkit360", "game2dkit360", kFuncs_1010, 2, "simple/game2dkit360.hpp", false},
+    {"game2dkit361", "game2dkit361", kFuncs_1011, 2, "simple/game2dkit361.hpp", false},
+    {"game2dkit362", "game2dkit362", kFuncs_1012, 2, "simple/game2dkit362.hpp", false},
+    {"game2dkit363", "game2dkit363", kFuncs_1013, 2, "simple/game2dkit363.hpp", false},
+    {"game2dkit364", "game2dkit364", kFuncs_1014, 2, "simple/game2dkit364.hpp", false},
+    {"game2dkit365", "game2dkit365", kFuncs_1015, 2, "simple/game2dkit365.hpp", false},
+    {"game2dkit366", "game2dkit366", kFuncs_1016, 2, "simple/game2dkit366.hpp", false},
+    {"game2dkit367", "game2dkit367", kFuncs_1017, 2, "simple/game2dkit367.hpp", false},
+    {"game2dkit368", "game2dkit368", kFuncs_1018, 2, "simple/game2dkit368.hpp", false},
+    {"game2dkit369", "game2dkit369", kFuncs_1019, 2, "simple/game2dkit369.hpp", false},
+    {"game2dkit370", "game2dkit370", kFuncs_1020, 2, "simple/game2dkit370.hpp", false},
+    {"game2dkit371", "game2dkit371", kFuncs_1021, 2, "simple/game2dkit371.hpp", false},
+    {"game2dkit372", "game2dkit372", kFuncs_1022, 2, "simple/game2dkit372.hpp", false},
+    {"game2dkit373", "game2dkit373", kFuncs_1023, 2, "simple/game2dkit373.hpp", false},
+    {"game2dkit374", "game2dkit374", kFuncs_1024, 2, "simple/game2dkit374.hpp", false},
+    {"game2dkit375", "game2dkit375", kFuncs_1025, 2, "simple/game2dkit375.hpp", false},
+    {"game2dkit376", "game2dkit376", kFuncs_1026, 2, "simple/game2dkit376.hpp", false},
+    {"game2dkit377", "game2dkit377", kFuncs_1027, 2, "simple/game2dkit377.hpp", false},
+    {"game2dkit378", "game2dkit378", kFuncs_1028, 2, "simple/game2dkit378.hpp", false},
+    {"game2dkit379", "game2dkit379", kFuncs_1029, 2, "simple/game2dkit379.hpp", false},
+    {"game2dkit380", "game2dkit380", kFuncs_1030, 2, "simple/game2dkit380.hpp", false},
+    {"game2dkit381", "game2dkit381", kFuncs_1031, 2, "simple/game2dkit381.hpp", false},
+    {"game2dkit382", "game2dkit382", kFuncs_1032, 2, "simple/game2dkit382.hpp", false},
+    {"game2dkit383", "game2dkit383", kFuncs_1033, 2, "simple/game2dkit383.hpp", false},
+    {"game2dkit384", "game2dkit384", kFuncs_1034, 2, "simple/game2dkit384.hpp", false},
+    {"game2dkit385", "game2dkit385", kFuncs_1035, 2, "simple/game2dkit385.hpp", false},
+    {"game2dkit386", "game2dkit386", kFuncs_1036, 2, "simple/game2dkit386.hpp", false},
+    {"game2dkit387", "game2dkit387", kFuncs_1037, 2, "simple/game2dkit387.hpp", false},
+    {"game2dkit388", "game2dkit388", kFuncs_1038, 2, "simple/game2dkit388.hpp", false},
+    {"game2dkit389", "game2dkit389", kFuncs_1039, 2, "simple/game2dkit389.hpp", false},
+    {"game2dkit390", "game2dkit390", kFuncs_1040, 2, "simple/game2dkit390.hpp", false},
+    {"game2dkit391", "game2dkit391", kFuncs_1041, 2, "simple/game2dkit391.hpp", false},
+    {"game2dkit392", "game2dkit392", kFuncs_1042, 2, "simple/game2dkit392.hpp", false},
+    {"game2dkit393", "game2dkit393", kFuncs_1043, 2, "simple/game2dkit393.hpp", false},
+    {"game2dkit394", "game2dkit394", kFuncs_1044, 2, "simple/game2dkit394.hpp", false},
+    {"game2dkit395", "game2dkit395", kFuncs_1045, 2, "simple/game2dkit395.hpp", false},
+    {"game2dkit396", "game2dkit396", kFuncs_1046, 2, "simple/game2dkit396.hpp", false},
+    {"game2dkit397", "game2dkit397", kFuncs_1047, 2, "simple/game2dkit397.hpp", false},
+    {"game2dkit398", "game2dkit398", kFuncs_1048, 2, "simple/game2dkit398.hpp", false},
+    {"game2dkit399", "game2dkit399", kFuncs_1049, 2, "simple/game2dkit399.hpp", false},
+    {"game2dkit400", "game2dkit400", kFuncs_1050, 2, "simple/game2dkit400.hpp", false},
+    {"game2dkit401", "game2dkit401", kFuncs_1051, 2, "simple/game2dkit401.hpp", false},
+    {"game2dkit402", "game2dkit402", kFuncs_1052, 2, "simple/game2dkit402.hpp", false},
+    {"game2dkit403", "game2dkit403", kFuncs_1053, 2, "simple/game2dkit403.hpp", false},
+    {"game2dkit404", "game2dkit404", kFuncs_1054, 2, "simple/game2dkit404.hpp", false},
+    {"game2dkit405", "game2dkit405", kFuncs_1055, 2, "simple/game2dkit405.hpp", false},
+    {"game2dkit406", "game2dkit406", kFuncs_1056, 2, "simple/game2dkit406.hpp", false},
+    {"game2dkit407", "game2dkit407", kFuncs_1057, 2, "simple/game2dkit407.hpp", false},
+    {"game2dkit408", "game2dkit408", kFuncs_1058, 2, "simple/game2dkit408.hpp", false},
+    {"game2dkit409", "game2dkit409", kFuncs_1059, 2, "simple/game2dkit409.hpp", false},
+    {"game2dkit410", "game2dkit410", kFuncs_1060, 2, "simple/game2dkit410.hpp", false},
+    {"game2dkit411", "game2dkit411", kFuncs_1061, 2, "simple/game2dkit411.hpp", false},
+    {"game2dkit412", "game2dkit412", kFuncs_1062, 2, "simple/game2dkit412.hpp", false},
+    {"game2dkit413", "game2dkit413", kFuncs_1063, 2, "simple/game2dkit413.hpp", false},
+    {"game2dkit414", "game2dkit414", kFuncs_1064, 2, "simple/game2dkit414.hpp", false},
+    {"game2dkit415", "game2dkit415", kFuncs_1065, 2, "simple/game2dkit415.hpp", false},
+    {"game2dkit416", "game2dkit416", kFuncs_1066, 2, "simple/game2dkit416.hpp", false},
+    {"game2dkit417", "game2dkit417", kFuncs_1067, 2, "simple/game2dkit417.hpp", false},
+    {"game2dkit418", "game2dkit418", kFuncs_1068, 2, "simple/game2dkit418.hpp", false},
+    {"game2dkit419", "game2dkit419", kFuncs_1069, 2, "simple/game2dkit419.hpp", false},
+    {"game2dkit420", "game2dkit420", kFuncs_1070, 2, "simple/game2dkit420.hpp", false},
+    {"game2dkit421", "game2dkit421", kFuncs_1071, 2, "simple/game2dkit421.hpp", false},
+    {"game2dkit422", "game2dkit422", kFuncs_1072, 2, "simple/game2dkit422.hpp", false},
+    {"game2dkit423", "game2dkit423", kFuncs_1073, 2, "simple/game2dkit423.hpp", false},
+    {"game2dkit424", "game2dkit424", kFuncs_1074, 2, "simple/game2dkit424.hpp", false},
+    {"game2dkit425", "game2dkit425", kFuncs_1075, 2, "simple/game2dkit425.hpp", false},
+    {"game2dkit426", "game2dkit426", kFuncs_1076, 2, "simple/game2dkit426.hpp", false},
+    {"game2dkit427", "game2dkit427", kFuncs_1077, 2, "simple/game2dkit427.hpp", false},
+    {"game2dkit428", "game2dkit428", kFuncs_1078, 2, "simple/game2dkit428.hpp", false},
+    {"game2dkit429", "game2dkit429", kFuncs_1079, 2, "simple/game2dkit429.hpp", false},
+    {"game2dkit430", "game2dkit430", kFuncs_1080, 2, "simple/game2dkit430.hpp", false},
+    {"game2dkit431", "game2dkit431", kFuncs_1081, 2, "simple/game2dkit431.hpp", false},
+    {"game2dkit432", "game2dkit432", kFuncs_1082, 2, "simple/game2dkit432.hpp", false},
+    {"game2dkit433", "game2dkit433", kFuncs_1083, 2, "simple/game2dkit433.hpp", false},
+    {"game2dkit434", "game2dkit434", kFuncs_1084, 2, "simple/game2dkit434.hpp", false},
+    {"game2dkit435", "game2dkit435", kFuncs_1085, 2, "simple/game2dkit435.hpp", false},
+    {"game2dkit436", "game2dkit436", kFuncs_1086, 2, "simple/game2dkit436.hpp", false},
+    {"game2dkit437", "game2dkit437", kFuncs_1087, 2, "simple/game2dkit437.hpp", false},
+    {"game2dkit438", "game2dkit438", kFuncs_1088, 2, "simple/game2dkit438.hpp", false},
+    {"game2dkit439", "game2dkit439", kFuncs_1089, 2, "simple/game2dkit439.hpp", false},
+    {"game2dkit440", "game2dkit440", kFuncs_1090, 2, "simple/game2dkit440.hpp", false},
+    {"game2dkit441", "game2dkit441", kFuncs_1091, 2, "simple/game2dkit441.hpp", false},
+    {"game2dkit442", "game2dkit442", kFuncs_1092, 2, "simple/game2dkit442.hpp", false},
+    {"game2dkit443", "game2dkit443", kFuncs_1093, 2, "simple/game2dkit443.hpp", false},
+    {"game2dkit444", "game2dkit444", kFuncs_1094, 2, "simple/game2dkit444.hpp", false},
+    {"game2dkit445", "game2dkit445", kFuncs_1095, 2, "simple/game2dkit445.hpp", false},
+    {"game2dkit446", "game2dkit446", kFuncs_1096, 2, "simple/game2dkit446.hpp", false},
+    {"game2dkit447", "game2dkit447", kFuncs_1097, 2, "simple/game2dkit447.hpp", false},
+    {"game2dkit448", "game2dkit448", kFuncs_1098, 2, "simple/game2dkit448.hpp", false},
+    {"game2dkit449", "game2dkit449", kFuncs_1099, 2, "simple/game2dkit449.hpp", false},
+    {"game2dkit450", "game2dkit450", kFuncs_1100, 2, "simple/game2dkit450.hpp", false},
+    {"game2dkit451", "game2dkit451", kFuncs_1101, 2, "simple/game2dkit451.hpp", false},
+    {"game2dkit452", "game2dkit452", kFuncs_1102, 2, "simple/game2dkit452.hpp", false},
+    {"game2dkit453", "game2dkit453", kFuncs_1103, 2, "simple/game2dkit453.hpp", false},
+    {"game2dkit454", "game2dkit454", kFuncs_1104, 2, "simple/game2dkit454.hpp", false},
+    {"game2dkit455", "game2dkit455", kFuncs_1105, 2, "simple/game2dkit455.hpp", false},
+    {"game2dkit456", "game2dkit456", kFuncs_1106, 2, "simple/game2dkit456.hpp", false},
+    {"game2dkit457", "game2dkit457", kFuncs_1107, 2, "simple/game2dkit457.hpp", false},
+    {"game2dkit458", "game2dkit458", kFuncs_1108, 2, "simple/game2dkit458.hpp", false},
+    {"game2dkit459", "game2dkit459", kFuncs_1109, 2, "simple/game2dkit459.hpp", false},
+    {"game2dkit460", "game2dkit460", kFuncs_1110, 2, "simple/game2dkit460.hpp", false},
+    {"game2dkit461", "game2dkit461", kFuncs_1111, 2, "simple/game2dkit461.hpp", false},
+    {"game2dkit462", "game2dkit462", kFuncs_1112, 2, "simple/game2dkit462.hpp", false},
+    {"game2dkit463", "game2dkit463", kFuncs_1113, 2, "simple/game2dkit463.hpp", false},
+    {"game2dkit464", "game2dkit464", kFuncs_1114, 2, "simple/game2dkit464.hpp", false},
+    {"game2dkit465", "game2dkit465", kFuncs_1115, 2, "simple/game2dkit465.hpp", false},
+    {"game2dkit466", "game2dkit466", kFuncs_1116, 2, "simple/game2dkit466.hpp", false},
+    {"game2dkit467", "game2dkit467", kFuncs_1117, 2, "simple/game2dkit467.hpp", false},
+    {"game2dkit468", "game2dkit468", kFuncs_1118, 2, "simple/game2dkit468.hpp", false},
+    {"game2dkit469", "game2dkit469", kFuncs_1119, 2, "simple/game2dkit469.hpp", false},
+    {"game2dkit470", "game2dkit470", kFuncs_1120, 2, "simple/game2dkit470.hpp", false},
+    {"game2dkit471", "game2dkit471", kFuncs_1121, 2, "simple/game2dkit471.hpp", false},
+    {"game2dkit472", "game2dkit472", kFuncs_1122, 2, "simple/game2dkit472.hpp", false},
+    {"game2dkit473", "game2dkit473", kFuncs_1123, 2, "simple/game2dkit473.hpp", false},
+    {"game2dkit474", "game2dkit474", kFuncs_1124, 2, "simple/game2dkit474.hpp", false},
+    {"game2dkit475", "game2dkit475", kFuncs_1125, 2, "simple/game2dkit475.hpp", false},
+    {"game2dkit476", "game2dkit476", kFuncs_1126, 2, "simple/game2dkit476.hpp", false},
+    {"game2dkit477", "game2dkit477", kFuncs_1127, 2, "simple/game2dkit477.hpp", false},
+    {"game2dkit478", "game2dkit478", kFuncs_1128, 2, "simple/game2dkit478.hpp", false},
+    {"game2dkit479", "game2dkit479", kFuncs_1129, 2, "simple/game2dkit479.hpp", false},
+    {"game2dkit480", "game2dkit480", kFuncs_1130, 2, "simple/game2dkit480.hpp", false},
+    {"game2dkit481", "game2dkit481", kFuncs_1131, 2, "simple/game2dkit481.hpp", false},
+    {"game2dkit482", "game2dkit482", kFuncs_1132, 2, "simple/game2dkit482.hpp", false},
+    {"game2dkit483", "game2dkit483", kFuncs_1133, 2, "simple/game2dkit483.hpp", false},
+    {"game2dkit484", "game2dkit484", kFuncs_1134, 2, "simple/game2dkit484.hpp", false},
+    {"game2dkit485", "game2dkit485", kFuncs_1135, 2, "simple/game2dkit485.hpp", false},
+    {"game2dkit486", "game2dkit486", kFuncs_1136, 2, "simple/game2dkit486.hpp", false},
+    {"game2dkit487", "game2dkit487", kFuncs_1137, 2, "simple/game2dkit487.hpp", false},
+    {"game2dkit488", "game2dkit488", kFuncs_1138, 2, "simple/game2dkit488.hpp", false},
+    {"game2dkit489", "game2dkit489", kFuncs_1139, 2, "simple/game2dkit489.hpp", false},
+    {"game2dkit490", "game2dkit490", kFuncs_1140, 2, "simple/game2dkit490.hpp", false},
+    {"game2dkit491", "game2dkit491", kFuncs_1141, 2, "simple/game2dkit491.hpp", false},
+    {"game2dkit492", "game2dkit492", kFuncs_1142, 2, "simple/game2dkit492.hpp", false},
+    {"game2dkit493", "game2dkit493", kFuncs_1143, 2, "simple/game2dkit493.hpp", false},
+    {"game2dkit494", "game2dkit494", kFuncs_1144, 2, "simple/game2dkit494.hpp", false},
+    {"game2dkit495", "game2dkit495", kFuncs_1145, 2, "simple/game2dkit495.hpp", false},
+    {"game2dkit496", "game2dkit496", kFuncs_1146, 2, "simple/game2dkit496.hpp", false},
+    {"game2dkit497", "game2dkit497", kFuncs_1147, 2, "simple/game2dkit497.hpp", false},
+    {"game2dkit498", "game2dkit498", kFuncs_1148, 2, "simple/game2dkit498.hpp", false},
+    {"game2dkit499", "game2dkit499", kFuncs_1149, 2, "simple/game2dkit499.hpp", false},
+    {"game2dkit500", "game2dkit500", kFuncs_1150, 2, "simple/game2dkit500.hpp", false},
     {nullptr, nullptr, nullptr, 0, nullptr, false}
 };
 
-const std::size_t kSimpleModuleCount = 651;
+const std::size_t kSimpleModuleCount = 1151;
 
 } // namespace
 

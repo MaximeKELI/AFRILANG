@@ -1,0 +1,9 @@
+module game2dkit404
+
+function approach(cur number, target number, maxDelta number) returns number
+end
+
+function follow(cam number, target number, dt number) returns number
+end
+
+end

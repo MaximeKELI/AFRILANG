@@ -1,0 +1,9 @@
+module game2dkit467
+
+function snapGrid(v number) returns number
+end
+
+function pointInRect(px number, py number, rx number, ry number, rw number, rh number) returns bool
+end
+
+end

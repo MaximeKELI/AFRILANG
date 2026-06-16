@@ -1,6 +1,6 @@
 # Bibliothèques simples AFRILANG
 
-**651 modules** importables via `import "std/nom"` puis `use nom`.
+**1151 modules** importables via `import "std/nom"` puis `use nom`.
 
 ## std/absnum
 
@@ -4560,3 +4560,3503 @@
 
 - `easeIn(t number) → number`
 - `easeOut(t number) → number`
+
+## std/game2dkit001
+
+`import "std/game2dkit001"` · `use game2dkit001`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit002
+
+`import "std/game2dkit002"` · `use game2dkit002`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit003
+
+`import "std/game2dkit003"` · `use game2dkit003`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit004
+
+`import "std/game2dkit004"` · `use game2dkit004`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit005
+
+`import "std/game2dkit005"` · `use game2dkit005`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit006
+
+`import "std/game2dkit006"` · `use game2dkit006`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit007
+
+`import "std/game2dkit007"` · `use game2dkit007`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit008
+
+`import "std/game2dkit008"` · `use game2dkit008`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit009
+
+`import "std/game2dkit009"` · `use game2dkit009`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit010
+
+`import "std/game2dkit010"` · `use game2dkit010`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit011
+
+`import "std/game2dkit011"` · `use game2dkit011`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit012
+
+`import "std/game2dkit012"` · `use game2dkit012`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit013
+
+`import "std/game2dkit013"` · `use game2dkit013`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit014
+
+`import "std/game2dkit014"` · `use game2dkit014`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit015
+
+`import "std/game2dkit015"` · `use game2dkit015`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit016
+
+`import "std/game2dkit016"` · `use game2dkit016`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit017
+
+`import "std/game2dkit017"` · `use game2dkit017`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit018
+
+`import "std/game2dkit018"` · `use game2dkit018`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit019
+
+`import "std/game2dkit019"` · `use game2dkit019`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit020
+
+`import "std/game2dkit020"` · `use game2dkit020`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit021
+
+`import "std/game2dkit021"` · `use game2dkit021`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit022
+
+`import "std/game2dkit022"` · `use game2dkit022`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit023
+
+`import "std/game2dkit023"` · `use game2dkit023`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit024
+
+`import "std/game2dkit024"` · `use game2dkit024`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit025
+
+`import "std/game2dkit025"` · `use game2dkit025`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit026
+
+`import "std/game2dkit026"` · `use game2dkit026`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit027
+
+`import "std/game2dkit027"` · `use game2dkit027`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit028
+
+`import "std/game2dkit028"` · `use game2dkit028`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit029
+
+`import "std/game2dkit029"` · `use game2dkit029`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit030
+
+`import "std/game2dkit030"` · `use game2dkit030`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit031
+
+`import "std/game2dkit031"` · `use game2dkit031`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit032
+
+`import "std/game2dkit032"` · `use game2dkit032`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit033
+
+`import "std/game2dkit033"` · `use game2dkit033`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit034
+
+`import "std/game2dkit034"` · `use game2dkit034`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit035
+
+`import "std/game2dkit035"` · `use game2dkit035`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit036
+
+`import "std/game2dkit036"` · `use game2dkit036`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit037
+
+`import "std/game2dkit037"` · `use game2dkit037`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit038
+
+`import "std/game2dkit038"` · `use game2dkit038`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit039
+
+`import "std/game2dkit039"` · `use game2dkit039`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit040
+
+`import "std/game2dkit040"` · `use game2dkit040`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit041
+
+`import "std/game2dkit041"` · `use game2dkit041`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit042
+
+`import "std/game2dkit042"` · `use game2dkit042`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit043
+
+`import "std/game2dkit043"` · `use game2dkit043`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit044
+
+`import "std/game2dkit044"` · `use game2dkit044`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit045
+
+`import "std/game2dkit045"` · `use game2dkit045`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit046
+
+`import "std/game2dkit046"` · `use game2dkit046`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit047
+
+`import "std/game2dkit047"` · `use game2dkit047`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit048
+
+`import "std/game2dkit048"` · `use game2dkit048`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit049
+
+`import "std/game2dkit049"` · `use game2dkit049`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit050
+
+`import "std/game2dkit050"` · `use game2dkit050`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit051
+
+`import "std/game2dkit051"` · `use game2dkit051`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit052
+
+`import "std/game2dkit052"` · `use game2dkit052`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit053
+
+`import "std/game2dkit053"` · `use game2dkit053`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit054
+
+`import "std/game2dkit054"` · `use game2dkit054`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit055
+
+`import "std/game2dkit055"` · `use game2dkit055`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit056
+
+`import "std/game2dkit056"` · `use game2dkit056`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit057
+
+`import "std/game2dkit057"` · `use game2dkit057`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit058
+
+`import "std/game2dkit058"` · `use game2dkit058`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit059
+
+`import "std/game2dkit059"` · `use game2dkit059`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit060
+
+`import "std/game2dkit060"` · `use game2dkit060`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit061
+
+`import "std/game2dkit061"` · `use game2dkit061`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit062
+
+`import "std/game2dkit062"` · `use game2dkit062`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit063
+
+`import "std/game2dkit063"` · `use game2dkit063`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit064
+
+`import "std/game2dkit064"` · `use game2dkit064`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit065
+
+`import "std/game2dkit065"` · `use game2dkit065`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit066
+
+`import "std/game2dkit066"` · `use game2dkit066`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit067
+
+`import "std/game2dkit067"` · `use game2dkit067`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit068
+
+`import "std/game2dkit068"` · `use game2dkit068`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit069
+
+`import "std/game2dkit069"` · `use game2dkit069`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit070
+
+`import "std/game2dkit070"` · `use game2dkit070`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit071
+
+`import "std/game2dkit071"` · `use game2dkit071`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit072
+
+`import "std/game2dkit072"` · `use game2dkit072`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit073
+
+`import "std/game2dkit073"` · `use game2dkit073`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit074
+
+`import "std/game2dkit074"` · `use game2dkit074`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit075
+
+`import "std/game2dkit075"` · `use game2dkit075`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit076
+
+`import "std/game2dkit076"` · `use game2dkit076`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit077
+
+`import "std/game2dkit077"` · `use game2dkit077`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit078
+
+`import "std/game2dkit078"` · `use game2dkit078`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit079
+
+`import "std/game2dkit079"` · `use game2dkit079`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit080
+
+`import "std/game2dkit080"` · `use game2dkit080`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit081
+
+`import "std/game2dkit081"` · `use game2dkit081`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit082
+
+`import "std/game2dkit082"` · `use game2dkit082`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit083
+
+`import "std/game2dkit083"` · `use game2dkit083`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit084
+
+`import "std/game2dkit084"` · `use game2dkit084`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit085
+
+`import "std/game2dkit085"` · `use game2dkit085`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit086
+
+`import "std/game2dkit086"` · `use game2dkit086`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit087
+
+`import "std/game2dkit087"` · `use game2dkit087`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit088
+
+`import "std/game2dkit088"` · `use game2dkit088`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit089
+
+`import "std/game2dkit089"` · `use game2dkit089`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit090
+
+`import "std/game2dkit090"` · `use game2dkit090`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit091
+
+`import "std/game2dkit091"` · `use game2dkit091`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit092
+
+`import "std/game2dkit092"` · `use game2dkit092`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit093
+
+`import "std/game2dkit093"` · `use game2dkit093`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit094
+
+`import "std/game2dkit094"` · `use game2dkit094`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit095
+
+`import "std/game2dkit095"` · `use game2dkit095`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit096
+
+`import "std/game2dkit096"` · `use game2dkit096`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit097
+
+`import "std/game2dkit097"` · `use game2dkit097`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit098
+
+`import "std/game2dkit098"` · `use game2dkit098`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit099
+
+`import "std/game2dkit099"` · `use game2dkit099`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit100
+
+`import "std/game2dkit100"` · `use game2dkit100`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit101
+
+`import "std/game2dkit101"` · `use game2dkit101`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit102
+
+`import "std/game2dkit102"` · `use game2dkit102`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit103
+
+`import "std/game2dkit103"` · `use game2dkit103`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit104
+
+`import "std/game2dkit104"` · `use game2dkit104`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit105
+
+`import "std/game2dkit105"` · `use game2dkit105`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit106
+
+`import "std/game2dkit106"` · `use game2dkit106`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit107
+
+`import "std/game2dkit107"` · `use game2dkit107`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit108
+
+`import "std/game2dkit108"` · `use game2dkit108`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit109
+
+`import "std/game2dkit109"` · `use game2dkit109`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit110
+
+`import "std/game2dkit110"` · `use game2dkit110`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit111
+
+`import "std/game2dkit111"` · `use game2dkit111`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit112
+
+`import "std/game2dkit112"` · `use game2dkit112`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit113
+
+`import "std/game2dkit113"` · `use game2dkit113`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit114
+
+`import "std/game2dkit114"` · `use game2dkit114`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit115
+
+`import "std/game2dkit115"` · `use game2dkit115`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit116
+
+`import "std/game2dkit116"` · `use game2dkit116`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit117
+
+`import "std/game2dkit117"` · `use game2dkit117`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit118
+
+`import "std/game2dkit118"` · `use game2dkit118`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit119
+
+`import "std/game2dkit119"` · `use game2dkit119`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit120
+
+`import "std/game2dkit120"` · `use game2dkit120`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit121
+
+`import "std/game2dkit121"` · `use game2dkit121`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit122
+
+`import "std/game2dkit122"` · `use game2dkit122`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit123
+
+`import "std/game2dkit123"` · `use game2dkit123`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit124
+
+`import "std/game2dkit124"` · `use game2dkit124`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit125
+
+`import "std/game2dkit125"` · `use game2dkit125`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit126
+
+`import "std/game2dkit126"` · `use game2dkit126`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit127
+
+`import "std/game2dkit127"` · `use game2dkit127`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit128
+
+`import "std/game2dkit128"` · `use game2dkit128`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit129
+
+`import "std/game2dkit129"` · `use game2dkit129`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit130
+
+`import "std/game2dkit130"` · `use game2dkit130`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit131
+
+`import "std/game2dkit131"` · `use game2dkit131`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit132
+
+`import "std/game2dkit132"` · `use game2dkit132`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit133
+
+`import "std/game2dkit133"` · `use game2dkit133`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit134
+
+`import "std/game2dkit134"` · `use game2dkit134`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit135
+
+`import "std/game2dkit135"` · `use game2dkit135`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit136
+
+`import "std/game2dkit136"` · `use game2dkit136`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit137
+
+`import "std/game2dkit137"` · `use game2dkit137`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit138
+
+`import "std/game2dkit138"` · `use game2dkit138`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit139
+
+`import "std/game2dkit139"` · `use game2dkit139`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit140
+
+`import "std/game2dkit140"` · `use game2dkit140`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit141
+
+`import "std/game2dkit141"` · `use game2dkit141`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit142
+
+`import "std/game2dkit142"` · `use game2dkit142`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit143
+
+`import "std/game2dkit143"` · `use game2dkit143`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit144
+
+`import "std/game2dkit144"` · `use game2dkit144`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit145
+
+`import "std/game2dkit145"` · `use game2dkit145`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit146
+
+`import "std/game2dkit146"` · `use game2dkit146`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit147
+
+`import "std/game2dkit147"` · `use game2dkit147`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit148
+
+`import "std/game2dkit148"` · `use game2dkit148`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit149
+
+`import "std/game2dkit149"` · `use game2dkit149`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit150
+
+`import "std/game2dkit150"` · `use game2dkit150`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit151
+
+`import "std/game2dkit151"` · `use game2dkit151`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit152
+
+`import "std/game2dkit152"` · `use game2dkit152`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit153
+
+`import "std/game2dkit153"` · `use game2dkit153`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit154
+
+`import "std/game2dkit154"` · `use game2dkit154`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit155
+
+`import "std/game2dkit155"` · `use game2dkit155`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit156
+
+`import "std/game2dkit156"` · `use game2dkit156`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit157
+
+`import "std/game2dkit157"` · `use game2dkit157`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit158
+
+`import "std/game2dkit158"` · `use game2dkit158`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit159
+
+`import "std/game2dkit159"` · `use game2dkit159`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit160
+
+`import "std/game2dkit160"` · `use game2dkit160`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit161
+
+`import "std/game2dkit161"` · `use game2dkit161`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit162
+
+`import "std/game2dkit162"` · `use game2dkit162`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit163
+
+`import "std/game2dkit163"` · `use game2dkit163`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit164
+
+`import "std/game2dkit164"` · `use game2dkit164`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit165
+
+`import "std/game2dkit165"` · `use game2dkit165`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit166
+
+`import "std/game2dkit166"` · `use game2dkit166`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit167
+
+`import "std/game2dkit167"` · `use game2dkit167`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit168
+
+`import "std/game2dkit168"` · `use game2dkit168`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit169
+
+`import "std/game2dkit169"` · `use game2dkit169`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit170
+
+`import "std/game2dkit170"` · `use game2dkit170`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit171
+
+`import "std/game2dkit171"` · `use game2dkit171`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit172
+
+`import "std/game2dkit172"` · `use game2dkit172`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit173
+
+`import "std/game2dkit173"` · `use game2dkit173`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit174
+
+`import "std/game2dkit174"` · `use game2dkit174`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit175
+
+`import "std/game2dkit175"` · `use game2dkit175`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit176
+
+`import "std/game2dkit176"` · `use game2dkit176`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit177
+
+`import "std/game2dkit177"` · `use game2dkit177`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit178
+
+`import "std/game2dkit178"` · `use game2dkit178`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit179
+
+`import "std/game2dkit179"` · `use game2dkit179`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit180
+
+`import "std/game2dkit180"` · `use game2dkit180`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit181
+
+`import "std/game2dkit181"` · `use game2dkit181`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit182
+
+`import "std/game2dkit182"` · `use game2dkit182`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit183
+
+`import "std/game2dkit183"` · `use game2dkit183`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit184
+
+`import "std/game2dkit184"` · `use game2dkit184`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit185
+
+`import "std/game2dkit185"` · `use game2dkit185`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit186
+
+`import "std/game2dkit186"` · `use game2dkit186`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit187
+
+`import "std/game2dkit187"` · `use game2dkit187`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit188
+
+`import "std/game2dkit188"` · `use game2dkit188`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit189
+
+`import "std/game2dkit189"` · `use game2dkit189`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit190
+
+`import "std/game2dkit190"` · `use game2dkit190`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit191
+
+`import "std/game2dkit191"` · `use game2dkit191`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit192
+
+`import "std/game2dkit192"` · `use game2dkit192`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit193
+
+`import "std/game2dkit193"` · `use game2dkit193`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit194
+
+`import "std/game2dkit194"` · `use game2dkit194`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit195
+
+`import "std/game2dkit195"` · `use game2dkit195`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit196
+
+`import "std/game2dkit196"` · `use game2dkit196`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit197
+
+`import "std/game2dkit197"` · `use game2dkit197`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit198
+
+`import "std/game2dkit198"` · `use game2dkit198`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit199
+
+`import "std/game2dkit199"` · `use game2dkit199`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit200
+
+`import "std/game2dkit200"` · `use game2dkit200`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit201
+
+`import "std/game2dkit201"` · `use game2dkit201`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit202
+
+`import "std/game2dkit202"` · `use game2dkit202`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit203
+
+`import "std/game2dkit203"` · `use game2dkit203`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit204
+
+`import "std/game2dkit204"` · `use game2dkit204`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit205
+
+`import "std/game2dkit205"` · `use game2dkit205`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit206
+
+`import "std/game2dkit206"` · `use game2dkit206`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit207
+
+`import "std/game2dkit207"` · `use game2dkit207`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit208
+
+`import "std/game2dkit208"` · `use game2dkit208`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit209
+
+`import "std/game2dkit209"` · `use game2dkit209`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit210
+
+`import "std/game2dkit210"` · `use game2dkit210`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit211
+
+`import "std/game2dkit211"` · `use game2dkit211`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit212
+
+`import "std/game2dkit212"` · `use game2dkit212`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit213
+
+`import "std/game2dkit213"` · `use game2dkit213`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit214
+
+`import "std/game2dkit214"` · `use game2dkit214`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit215
+
+`import "std/game2dkit215"` · `use game2dkit215`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit216
+
+`import "std/game2dkit216"` · `use game2dkit216`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit217
+
+`import "std/game2dkit217"` · `use game2dkit217`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit218
+
+`import "std/game2dkit218"` · `use game2dkit218`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit219
+
+`import "std/game2dkit219"` · `use game2dkit219`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit220
+
+`import "std/game2dkit220"` · `use game2dkit220`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit221
+
+`import "std/game2dkit221"` · `use game2dkit221`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit222
+
+`import "std/game2dkit222"` · `use game2dkit222`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit223
+
+`import "std/game2dkit223"` · `use game2dkit223`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit224
+
+`import "std/game2dkit224"` · `use game2dkit224`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit225
+
+`import "std/game2dkit225"` · `use game2dkit225`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit226
+
+`import "std/game2dkit226"` · `use game2dkit226`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit227
+
+`import "std/game2dkit227"` · `use game2dkit227`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit228
+
+`import "std/game2dkit228"` · `use game2dkit228`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit229
+
+`import "std/game2dkit229"` · `use game2dkit229`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit230
+
+`import "std/game2dkit230"` · `use game2dkit230`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit231
+
+`import "std/game2dkit231"` · `use game2dkit231`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit232
+
+`import "std/game2dkit232"` · `use game2dkit232`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit233
+
+`import "std/game2dkit233"` · `use game2dkit233`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit234
+
+`import "std/game2dkit234"` · `use game2dkit234`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit235
+
+`import "std/game2dkit235"` · `use game2dkit235`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit236
+
+`import "std/game2dkit236"` · `use game2dkit236`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit237
+
+`import "std/game2dkit237"` · `use game2dkit237`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit238
+
+`import "std/game2dkit238"` · `use game2dkit238`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit239
+
+`import "std/game2dkit239"` · `use game2dkit239`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit240
+
+`import "std/game2dkit240"` · `use game2dkit240`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit241
+
+`import "std/game2dkit241"` · `use game2dkit241`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit242
+
+`import "std/game2dkit242"` · `use game2dkit242`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit243
+
+`import "std/game2dkit243"` · `use game2dkit243`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit244
+
+`import "std/game2dkit244"` · `use game2dkit244`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit245
+
+`import "std/game2dkit245"` · `use game2dkit245`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit246
+
+`import "std/game2dkit246"` · `use game2dkit246`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit247
+
+`import "std/game2dkit247"` · `use game2dkit247`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit248
+
+`import "std/game2dkit248"` · `use game2dkit248`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit249
+
+`import "std/game2dkit249"` · `use game2dkit249`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit250
+
+`import "std/game2dkit250"` · `use game2dkit250`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit251
+
+`import "std/game2dkit251"` · `use game2dkit251`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit252
+
+`import "std/game2dkit252"` · `use game2dkit252`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit253
+
+`import "std/game2dkit253"` · `use game2dkit253`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit254
+
+`import "std/game2dkit254"` · `use game2dkit254`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit255
+
+`import "std/game2dkit255"` · `use game2dkit255`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit256
+
+`import "std/game2dkit256"` · `use game2dkit256`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit257
+
+`import "std/game2dkit257"` · `use game2dkit257`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit258
+
+`import "std/game2dkit258"` · `use game2dkit258`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit259
+
+`import "std/game2dkit259"` · `use game2dkit259`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit260
+
+`import "std/game2dkit260"` · `use game2dkit260`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit261
+
+`import "std/game2dkit261"` · `use game2dkit261`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit262
+
+`import "std/game2dkit262"` · `use game2dkit262`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit263
+
+`import "std/game2dkit263"` · `use game2dkit263`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit264
+
+`import "std/game2dkit264"` · `use game2dkit264`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit265
+
+`import "std/game2dkit265"` · `use game2dkit265`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit266
+
+`import "std/game2dkit266"` · `use game2dkit266`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit267
+
+`import "std/game2dkit267"` · `use game2dkit267`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit268
+
+`import "std/game2dkit268"` · `use game2dkit268`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit269
+
+`import "std/game2dkit269"` · `use game2dkit269`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit270
+
+`import "std/game2dkit270"` · `use game2dkit270`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit271
+
+`import "std/game2dkit271"` · `use game2dkit271`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit272
+
+`import "std/game2dkit272"` · `use game2dkit272`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit273
+
+`import "std/game2dkit273"` · `use game2dkit273`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit274
+
+`import "std/game2dkit274"` · `use game2dkit274`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit275
+
+`import "std/game2dkit275"` · `use game2dkit275`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit276
+
+`import "std/game2dkit276"` · `use game2dkit276`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit277
+
+`import "std/game2dkit277"` · `use game2dkit277`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit278
+
+`import "std/game2dkit278"` · `use game2dkit278`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit279
+
+`import "std/game2dkit279"` · `use game2dkit279`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit280
+
+`import "std/game2dkit280"` · `use game2dkit280`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit281
+
+`import "std/game2dkit281"` · `use game2dkit281`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit282
+
+`import "std/game2dkit282"` · `use game2dkit282`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit283
+
+`import "std/game2dkit283"` · `use game2dkit283`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit284
+
+`import "std/game2dkit284"` · `use game2dkit284`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit285
+
+`import "std/game2dkit285"` · `use game2dkit285`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit286
+
+`import "std/game2dkit286"` · `use game2dkit286`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit287
+
+`import "std/game2dkit287"` · `use game2dkit287`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit288
+
+`import "std/game2dkit288"` · `use game2dkit288`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit289
+
+`import "std/game2dkit289"` · `use game2dkit289`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit290
+
+`import "std/game2dkit290"` · `use game2dkit290`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit291
+
+`import "std/game2dkit291"` · `use game2dkit291`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit292
+
+`import "std/game2dkit292"` · `use game2dkit292`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit293
+
+`import "std/game2dkit293"` · `use game2dkit293`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit294
+
+`import "std/game2dkit294"` · `use game2dkit294`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit295
+
+`import "std/game2dkit295"` · `use game2dkit295`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit296
+
+`import "std/game2dkit296"` · `use game2dkit296`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit297
+
+`import "std/game2dkit297"` · `use game2dkit297`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit298
+
+`import "std/game2dkit298"` · `use game2dkit298`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit299
+
+`import "std/game2dkit299"` · `use game2dkit299`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit300
+
+`import "std/game2dkit300"` · `use game2dkit300`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit301
+
+`import "std/game2dkit301"` · `use game2dkit301`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit302
+
+`import "std/game2dkit302"` · `use game2dkit302`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit303
+
+`import "std/game2dkit303"` · `use game2dkit303`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit304
+
+`import "std/game2dkit304"` · `use game2dkit304`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit305
+
+`import "std/game2dkit305"` · `use game2dkit305`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit306
+
+`import "std/game2dkit306"` · `use game2dkit306`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit307
+
+`import "std/game2dkit307"` · `use game2dkit307`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit308
+
+`import "std/game2dkit308"` · `use game2dkit308`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit309
+
+`import "std/game2dkit309"` · `use game2dkit309`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit310
+
+`import "std/game2dkit310"` · `use game2dkit310`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit311
+
+`import "std/game2dkit311"` · `use game2dkit311`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit312
+
+`import "std/game2dkit312"` · `use game2dkit312`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit313
+
+`import "std/game2dkit313"` · `use game2dkit313`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit314
+
+`import "std/game2dkit314"` · `use game2dkit314`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit315
+
+`import "std/game2dkit315"` · `use game2dkit315`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit316
+
+`import "std/game2dkit316"` · `use game2dkit316`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit317
+
+`import "std/game2dkit317"` · `use game2dkit317`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit318
+
+`import "std/game2dkit318"` · `use game2dkit318`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit319
+
+`import "std/game2dkit319"` · `use game2dkit319`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit320
+
+`import "std/game2dkit320"` · `use game2dkit320`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit321
+
+`import "std/game2dkit321"` · `use game2dkit321`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit322
+
+`import "std/game2dkit322"` · `use game2dkit322`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit323
+
+`import "std/game2dkit323"` · `use game2dkit323`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit324
+
+`import "std/game2dkit324"` · `use game2dkit324`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit325
+
+`import "std/game2dkit325"` · `use game2dkit325`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit326
+
+`import "std/game2dkit326"` · `use game2dkit326`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit327
+
+`import "std/game2dkit327"` · `use game2dkit327`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit328
+
+`import "std/game2dkit328"` · `use game2dkit328`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit329
+
+`import "std/game2dkit329"` · `use game2dkit329`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit330
+
+`import "std/game2dkit330"` · `use game2dkit330`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit331
+
+`import "std/game2dkit331"` · `use game2dkit331`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit332
+
+`import "std/game2dkit332"` · `use game2dkit332`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit333
+
+`import "std/game2dkit333"` · `use game2dkit333`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit334
+
+`import "std/game2dkit334"` · `use game2dkit334`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit335
+
+`import "std/game2dkit335"` · `use game2dkit335`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit336
+
+`import "std/game2dkit336"` · `use game2dkit336`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit337
+
+`import "std/game2dkit337"` · `use game2dkit337`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit338
+
+`import "std/game2dkit338"` · `use game2dkit338`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit339
+
+`import "std/game2dkit339"` · `use game2dkit339`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit340
+
+`import "std/game2dkit340"` · `use game2dkit340`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit341
+
+`import "std/game2dkit341"` · `use game2dkit341`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit342
+
+`import "std/game2dkit342"` · `use game2dkit342`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit343
+
+`import "std/game2dkit343"` · `use game2dkit343`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit344
+
+`import "std/game2dkit344"` · `use game2dkit344`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit345
+
+`import "std/game2dkit345"` · `use game2dkit345`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit346
+
+`import "std/game2dkit346"` · `use game2dkit346`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit347
+
+`import "std/game2dkit347"` · `use game2dkit347`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit348
+
+`import "std/game2dkit348"` · `use game2dkit348`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit349
+
+`import "std/game2dkit349"` · `use game2dkit349`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit350
+
+`import "std/game2dkit350"` · `use game2dkit350`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit351
+
+`import "std/game2dkit351"` · `use game2dkit351`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit352
+
+`import "std/game2dkit352"` · `use game2dkit352`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit353
+
+`import "std/game2dkit353"` · `use game2dkit353`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit354
+
+`import "std/game2dkit354"` · `use game2dkit354`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit355
+
+`import "std/game2dkit355"` · `use game2dkit355`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit356
+
+`import "std/game2dkit356"` · `use game2dkit356`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit357
+
+`import "std/game2dkit357"` · `use game2dkit357`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit358
+
+`import "std/game2dkit358"` · `use game2dkit358`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit359
+
+`import "std/game2dkit359"` · `use game2dkit359`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit360
+
+`import "std/game2dkit360"` · `use game2dkit360`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit361
+
+`import "std/game2dkit361"` · `use game2dkit361`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit362
+
+`import "std/game2dkit362"` · `use game2dkit362`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit363
+
+`import "std/game2dkit363"` · `use game2dkit363`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit364
+
+`import "std/game2dkit364"` · `use game2dkit364`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit365
+
+`import "std/game2dkit365"` · `use game2dkit365`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit366
+
+`import "std/game2dkit366"` · `use game2dkit366`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit367
+
+`import "std/game2dkit367"` · `use game2dkit367`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit368
+
+`import "std/game2dkit368"` · `use game2dkit368`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit369
+
+`import "std/game2dkit369"` · `use game2dkit369`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit370
+
+`import "std/game2dkit370"` · `use game2dkit370`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit371
+
+`import "std/game2dkit371"` · `use game2dkit371`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit372
+
+`import "std/game2dkit372"` · `use game2dkit372`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit373
+
+`import "std/game2dkit373"` · `use game2dkit373`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit374
+
+`import "std/game2dkit374"` · `use game2dkit374`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit375
+
+`import "std/game2dkit375"` · `use game2dkit375`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit376
+
+`import "std/game2dkit376"` · `use game2dkit376`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit377
+
+`import "std/game2dkit377"` · `use game2dkit377`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit378
+
+`import "std/game2dkit378"` · `use game2dkit378`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit379
+
+`import "std/game2dkit379"` · `use game2dkit379`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit380
+
+`import "std/game2dkit380"` · `use game2dkit380`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit381
+
+`import "std/game2dkit381"` · `use game2dkit381`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit382
+
+`import "std/game2dkit382"` · `use game2dkit382`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit383
+
+`import "std/game2dkit383"` · `use game2dkit383`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit384
+
+`import "std/game2dkit384"` · `use game2dkit384`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit385
+
+`import "std/game2dkit385"` · `use game2dkit385`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit386
+
+`import "std/game2dkit386"` · `use game2dkit386`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit387
+
+`import "std/game2dkit387"` · `use game2dkit387`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit388
+
+`import "std/game2dkit388"` · `use game2dkit388`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit389
+
+`import "std/game2dkit389"` · `use game2dkit389`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit390
+
+`import "std/game2dkit390"` · `use game2dkit390`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit391
+
+`import "std/game2dkit391"` · `use game2dkit391`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit392
+
+`import "std/game2dkit392"` · `use game2dkit392`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit393
+
+`import "std/game2dkit393"` · `use game2dkit393`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit394
+
+`import "std/game2dkit394"` · `use game2dkit394`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit395
+
+`import "std/game2dkit395"` · `use game2dkit395`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit396
+
+`import "std/game2dkit396"` · `use game2dkit396`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit397
+
+`import "std/game2dkit397"` · `use game2dkit397`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit398
+
+`import "std/game2dkit398"` · `use game2dkit398`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit399
+
+`import "std/game2dkit399"` · `use game2dkit399`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit400
+
+`import "std/game2dkit400"` · `use game2dkit400`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit401
+
+`import "std/game2dkit401"` · `use game2dkit401`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit402
+
+`import "std/game2dkit402"` · `use game2dkit402`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit403
+
+`import "std/game2dkit403"` · `use game2dkit403`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit404
+
+`import "std/game2dkit404"` · `use game2dkit404`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit405
+
+`import "std/game2dkit405"` · `use game2dkit405`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit406
+
+`import "std/game2dkit406"` · `use game2dkit406`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit407
+
+`import "std/game2dkit407"` · `use game2dkit407`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit408
+
+`import "std/game2dkit408"` · `use game2dkit408`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit409
+
+`import "std/game2dkit409"` · `use game2dkit409`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit410
+
+`import "std/game2dkit410"` · `use game2dkit410`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit411
+
+`import "std/game2dkit411"` · `use game2dkit411`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit412
+
+`import "std/game2dkit412"` · `use game2dkit412`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit413
+
+`import "std/game2dkit413"` · `use game2dkit413`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit414
+
+`import "std/game2dkit414"` · `use game2dkit414`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit415
+
+`import "std/game2dkit415"` · `use game2dkit415`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit416
+
+`import "std/game2dkit416"` · `use game2dkit416`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit417
+
+`import "std/game2dkit417"` · `use game2dkit417`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit418
+
+`import "std/game2dkit418"` · `use game2dkit418`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit419
+
+`import "std/game2dkit419"` · `use game2dkit419`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit420
+
+`import "std/game2dkit420"` · `use game2dkit420`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit421
+
+`import "std/game2dkit421"` · `use game2dkit421`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit422
+
+`import "std/game2dkit422"` · `use game2dkit422`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit423
+
+`import "std/game2dkit423"` · `use game2dkit423`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit424
+
+`import "std/game2dkit424"` · `use game2dkit424`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit425
+
+`import "std/game2dkit425"` · `use game2dkit425`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit426
+
+`import "std/game2dkit426"` · `use game2dkit426`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit427
+
+`import "std/game2dkit427"` · `use game2dkit427`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit428
+
+`import "std/game2dkit428"` · `use game2dkit428`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit429
+
+`import "std/game2dkit429"` · `use game2dkit429`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit430
+
+`import "std/game2dkit430"` · `use game2dkit430`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit431
+
+`import "std/game2dkit431"` · `use game2dkit431`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit432
+
+`import "std/game2dkit432"` · `use game2dkit432`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit433
+
+`import "std/game2dkit433"` · `use game2dkit433`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit434
+
+`import "std/game2dkit434"` · `use game2dkit434`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit435
+
+`import "std/game2dkit435"` · `use game2dkit435`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit436
+
+`import "std/game2dkit436"` · `use game2dkit436`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit437
+
+`import "std/game2dkit437"` · `use game2dkit437`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit438
+
+`import "std/game2dkit438"` · `use game2dkit438`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit439
+
+`import "std/game2dkit439"` · `use game2dkit439`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit440
+
+`import "std/game2dkit440"` · `use game2dkit440`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit441
+
+`import "std/game2dkit441"` · `use game2dkit441`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit442
+
+`import "std/game2dkit442"` · `use game2dkit442`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit443
+
+`import "std/game2dkit443"` · `use game2dkit443`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit444
+
+`import "std/game2dkit444"` · `use game2dkit444`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit445
+
+`import "std/game2dkit445"` · `use game2dkit445`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit446
+
+`import "std/game2dkit446"` · `use game2dkit446`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit447
+
+`import "std/game2dkit447"` · `use game2dkit447`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit448
+
+`import "std/game2dkit448"` · `use game2dkit448`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit449
+
+`import "std/game2dkit449"` · `use game2dkit449`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit450
+
+`import "std/game2dkit450"` · `use game2dkit450`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit451
+
+`import "std/game2dkit451"` · `use game2dkit451`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit452
+
+`import "std/game2dkit452"` · `use game2dkit452`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit453
+
+`import "std/game2dkit453"` · `use game2dkit453`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit454
+
+`import "std/game2dkit454"` · `use game2dkit454`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit455
+
+`import "std/game2dkit455"` · `use game2dkit455`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit456
+
+`import "std/game2dkit456"` · `use game2dkit456`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit457
+
+`import "std/game2dkit457"` · `use game2dkit457`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit458
+
+`import "std/game2dkit458"` · `use game2dkit458`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit459
+
+`import "std/game2dkit459"` · `use game2dkit459`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit460
+
+`import "std/game2dkit460"` · `use game2dkit460`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit461
+
+`import "std/game2dkit461"` · `use game2dkit461`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit462
+
+`import "std/game2dkit462"` · `use game2dkit462`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit463
+
+`import "std/game2dkit463"` · `use game2dkit463`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit464
+
+`import "std/game2dkit464"` · `use game2dkit464`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit465
+
+`import "std/game2dkit465"` · `use game2dkit465`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit466
+
+`import "std/game2dkit466"` · `use game2dkit466`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit467
+
+`import "std/game2dkit467"` · `use game2dkit467`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit468
+
+`import "std/game2dkit468"` · `use game2dkit468`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit469
+
+`import "std/game2dkit469"` · `use game2dkit469`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit470
+
+`import "std/game2dkit470"` · `use game2dkit470`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit471
+
+`import "std/game2dkit471"` · `use game2dkit471`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit472
+
+`import "std/game2dkit472"` · `use game2dkit472`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit473
+
+`import "std/game2dkit473"` · `use game2dkit473`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit474
+
+`import "std/game2dkit474"` · `use game2dkit474`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit475
+
+`import "std/game2dkit475"` · `use game2dkit475`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit476
+
+`import "std/game2dkit476"` · `use game2dkit476`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit477
+
+`import "std/game2dkit477"` · `use game2dkit477`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit478
+
+`import "std/game2dkit478"` · `use game2dkit478`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit479
+
+`import "std/game2dkit479"` · `use game2dkit479`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit480
+
+`import "std/game2dkit480"` · `use game2dkit480`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit481
+
+`import "std/game2dkit481"` · `use game2dkit481`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit482
+
+`import "std/game2dkit482"` · `use game2dkit482`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit483
+
+`import "std/game2dkit483"` · `use game2dkit483`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit484
+
+`import "std/game2dkit484"` · `use game2dkit484`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit485
+
+`import "std/game2dkit485"` · `use game2dkit485`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit486
+
+`import "std/game2dkit486"` · `use game2dkit486`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit487
+
+`import "std/game2dkit487"` · `use game2dkit487`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit488
+
+`import "std/game2dkit488"` · `use game2dkit488`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit489
+
+`import "std/game2dkit489"` · `use game2dkit489`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit490
+
+`import "std/game2dkit490"` · `use game2dkit490`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit491
+
+`import "std/game2dkit491"` · `use game2dkit491`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit492
+
+`import "std/game2dkit492"` · `use game2dkit492`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit493
+
+`import "std/game2dkit493"` · `use game2dkit493`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit494
+
+`import "std/game2dkit494"` · `use game2dkit494`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit495
+
+`import "std/game2dkit495"` · `use game2dkit495`
+
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+- `wrap(v number, size number) → number`
+
+## std/game2dkit496
+
+`import "std/game2dkit496"` · `use game2dkit496`
+
+- `shake(time number, amp number) → number`
+- `follow(cam number, target number, dt number) → number`
+
+## std/game2dkit497
+
+`import "std/game2dkit497"` · `use game2dkit497`
+
+- `snapGrid(v number) → number`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit498
+
+`import "std/game2dkit498"` · `use game2dkit498`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `pointInRect(px number, py number, rx number, ry number, rw number, rh number) → bool`
+
+## std/game2dkit499
+
+`import "std/game2dkit499"` · `use game2dkit499`
+
+- `aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) → bool`
+- `dist2(x0 number, y0 number, x1 number, y1 number) → number`
+
+## std/game2dkit500
+
+`import "std/game2dkit500"` · `use game2dkit500`
+
+- `approach(cur number, target number, maxDelta number) → number`
+- `follow(cam number, target number, dt number) → number`
