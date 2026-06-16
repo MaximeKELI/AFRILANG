@@ -17,13 +17,13 @@
     {% endif %}
   </div>
   <div class="card-body docs-content release-body">
-    {% for line in rel.body.splitlines %}
-      {% if line.startswith('### ') %}
-        <h3 class="h6 fw-bold mt-3">{{ line|slice:"4:" }}</h3>
-      {% elif line.startswith('- ') %}
-        <p class="mb-1 small">• {{ line|slice:"2:" }}</p>
-      {% elif line.strip %}
-        <p class="small text-secondary-custom mb-1">{{ line }}</p>
+    {% for block in rel.blocks %}
+      {% if block.type == 'h3' %}
+        <h3 class="h6 fw-bold mt-3">{{ block.text }}</h3>
+      {% elif block.type == 'li' %}
+        <p class="mb-1 small">• {{ block.text }}</p>
+      {% else %}
+        <p class="small text-secondary-custom mb-1">{{ block.text }}</p>
       {% endif %}
     {% endfor %}
   </div>

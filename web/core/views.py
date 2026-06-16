@@ -131,8 +131,29 @@ def stdlib_detail(request, name):
     return render(request, 'core/stdlib_detail.html', {'mod': mod, 'source': source})
 
 
+def _parse_release_body(body: str) -> list[dict]:
+    items = []
+    for line in body.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if stripped.startswith('### '):
+            items.append({'type': 'h3', 'text': stripped[4:]})
+        elif stripped.startswith('- '):
+            items.append({'type': 'li', 'text': stripped[2:]})
+        else:
+            items.append({'type': 'p', 'text': stripped})
+    return items
+
+
 def releases(request):
-    items = Release.objects.all()
+    items = []
+    for rel in Release.objects.all():
+        items.append({
+            'version': rel.version,
+            'released_at': rel.released_at,
+            'blocks': _parse_release_body(rel.body),
+        })
     return render(request, 'core/releases.html', {'releases': items})
 
 

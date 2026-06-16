@@ -1,4 +1,5 @@
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -22,6 +23,9 @@ def _repo_version() -> str:
         out = (proc.stdout or proc.stderr or '').strip()
         if not out:
             return '1.0.0'
+        m = re.search(r'v(\d+(?:\.\d+)*)', out)
+        if m:
+            return m.group(1)
         parts = out.split()
         for part in reversed(parts):
             if part and part[0].isdigit():
