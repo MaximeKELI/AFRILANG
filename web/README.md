@@ -51,7 +51,10 @@ Ouvrir **http://127.0.0.1:8000**
 | Endpoint | Méthode | Description |
 |----------|---------|-------------|
 | `/api/run/` | POST | `{ "source": "..." }` → exécution native |
-| `/api/run/wasm/` | POST | Exécution WASM (emscripten requis) |
+| `/api/compile/js/` | POST | Transpile vers JavaScript (exécution navigateur) |
+| `/api/build/wasm/` | POST | Module WASM pour le navigateur (Emscripten serveur) |
+| `/api/wasm/<id>/module.js` | GET | Artefact WASM de session |
+| `/api/run/wasm/` | POST | Exécution WASM serveur (emscripten requis) |
 | `/api/fmt/` | POST | Formatage |
 | `/api/packages/` | GET | Liste JSON des paquets |
 
@@ -64,6 +67,17 @@ Voir `.env.example` :
 - `DATABASE_URL` — PostgreSQL
 - `AFRILANG_BIN` — chemin vers le compilateur
 - `AFRILANG_ROOT` — racine du repo
+- `PLAYGROUND_WASM_DIR` — sessions WASM temporaires (défaut: `web/tmp/wasm_sessions`)
+
+### Compilateur WASM client (optionnel)
+
+Pour exécuter la compilation **dans le navigateur** sans appeler `/api/compile/js` :
+
+```bash
+# Nécessite Emscripten (emsdk)
+./scripts/build_wasm_compiler.sh
+# → web/static/compiler/afrilang-compiler.js
+```
 
 ## Commandes utiles
 

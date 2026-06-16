@@ -693,7 +693,8 @@ static int cmdBuildWasmWeb(const std::string& sourcePath, const std::string& out
             return 1;
         }
 
-        const fs::path wasmPath = jsPath.replace_extension(".wasm");
+        fs::path wasmPath = jsPath;
+        wasmPath.replace_extension(".wasm");
         if (!fs::exists(wasmPath)) {
             std::cerr << "Fichier .wasm introuvable après compilation\n";
             return 1;
