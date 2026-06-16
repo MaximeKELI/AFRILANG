@@ -8509,8 +8509,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit016 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit017 {
@@ -8589,8 +8589,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit032 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit033 {
@@ -8669,8 +8669,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit048 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit049 {
@@ -8749,8 +8749,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit064 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit065 {
@@ -8829,8 +8829,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit080 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit081 {
@@ -8909,8 +8909,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit096 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit097 {
@@ -8989,8 +8989,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit112 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit113 {
@@ -9069,8 +9069,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit128 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit129 {
@@ -9149,8 +9149,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit144 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit145 {
@@ -9229,8 +9229,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit160 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit161 {
@@ -9309,8 +9309,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit176 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit177 {
@@ -9389,8 +9389,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit192 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit193 {
@@ -9469,8 +9469,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit208 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit209 {
@@ -9549,8 +9549,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit224 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit225 {
@@ -9629,8 +9629,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit240 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit241 {
@@ -9709,8 +9709,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit256 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit257 {
@@ -9789,8 +9789,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit272 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit273 {
@@ -9869,8 +9869,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit288 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit289 {
@@ -9949,8 +9949,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit304 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit305 {
@@ -10029,8 +10029,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit320 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit321 {
@@ -10109,8 +10109,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit336 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit337 {
@@ -10189,8 +10189,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit352 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit353 {
@@ -10269,8 +10269,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit368 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit369 {
@@ -10349,8 +10349,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit384 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit385 {
@@ -10429,8 +10429,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit400 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit401 {
@@ -10509,8 +10509,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit416 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit417 {
@@ -10589,8 +10589,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit432 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit433 {
@@ -10669,8 +10669,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit448 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit449 {
@@ -10749,8 +10749,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit464 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit465 {
@@ -10829,8 +10829,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit480 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit481 {
@@ -10909,8 +10909,8 @@ inline double tileOriginY(double tileRow, double tileSize) { return tileRow * ti
 } // namespace
 
 namespace afrilang::runtime::giskit496 {
-inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
-inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); } }
 } // namespace
 
 namespace afrilang::runtime::giskit497 {

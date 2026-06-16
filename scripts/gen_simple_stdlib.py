@@ -813,7 +813,7 @@ def gen_giskit_modules(count: int) -> list[tuple]:
             "double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); "
             "double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))"
             "*std::sin(dLon/2)*std::sin(dLon/2); "
-            "return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }}"
+            f"return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }}"
         )
 
     def hav_m() -> str:
