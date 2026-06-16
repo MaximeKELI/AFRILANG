@@ -45,6 +45,21 @@ end
 function windowHeight() returns number
 end
 
+function mouseX() returns number
+end
+
+function mouseY() returns number
+end
+
+function isMouseDown() returns bool
+end
+
+function wasMousePressed() returns bool
+end
+
+function wasMouseClicked() returns bool
+end
+
 function showFrame()
 end
 end
