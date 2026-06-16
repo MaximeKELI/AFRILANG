@@ -44,6 +44,8 @@ class Command(BaseCommand):
             count += 1
 
         removed, _ = StdlibModule.objects.exclude(name__in=seen).delete()
+        from core.services.stdlib_docs import _load_all_sections
+        _load_all_sections.cache_clear()
         self.stdout.write(self.style.SUCCESS(
             f'{count} module(s) synchronisé(s), {removed} supprimé(s).'
         ))

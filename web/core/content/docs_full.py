@@ -880,7 +880,7 @@ def _extend_overview(pages):
             ['GUI SDL2', 'Interfaces graphiques', '<code>?example=gui-demo</code>'],
             ['Stdlib', 'Bibliothèque standard + /stdlib/', '<code>?example=stdlib-demo</code>'],
         ]),
-        h2('Index des 59 exemples'),
+        h2('Index des exemples officiels'),
         p('Galerie complète avec recherche : <a href="/examples/">/examples/</a>. '
               'Chaque exemple s\'ouvre dans le <a href="/playground/">playground</a>.'),
     ])
