@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ ui.download.title }}{% endblock %}
 
 {% block content %}
@@ -7,6 +8,47 @@
   <h1 class="display-6 fw-bold">{{ ui.download.h1 }}</h1>
   <p class="lead text-secondary-custom">{{ ui.download.lead }}</p>
 </div>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.binary_title }}</h2>
+  <p class="text-secondary-custom">{{ ui.download.binary_lead }}</p>
+  {% if has_binary %}
+  <div class="row g-3">
+    {% for bin in binaries %}
+    <div class="col-md-6">
+      <article class="afr-feature-card h-100">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="badge text-bg-primary">{{ bin.label }}</span>
+          {% if bin.platform == current_platform %}
+          <span class="badge text-bg-success">{% if current_lang == 'en' %}Your platform{% else %}Votre plateforme{% endif %}</span>
+          {% endif %}
+        </div>
+        <p class="small text-secondary-custom mb-2">{{ ui.download.binary_size }}: {{ bin.size_human }}</p>
+        <p class="small font-monospace text-secondary-custom mb-3" title="{{ bin.sha256 }}">{{ ui.download.binary_sha256 }}: {{ bin.sha256|slice:":32" }}…</p>
+        <a href="{% url 'download_binary' bin.platform %}" class="btn btn-afr-primary">{{ ui.download.binary_download }} afrilang</a>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="docs-callout">{{ ui.download.binary_none }}</div>
+  {% endif %}
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.install_title }}</h2>
+  <p class="text-secondary-custom">{{ ui.download.install_lead }}</p>
+  <div class="code-panel mb-3">
+    <pre>curl -fsSL {{ request.scheme }}://{{ request.get_host }}{% static 'install-afrilang.sh' %} | bash</pre>
+  </div>
+  <a href="{% static 'install-afrilang.sh' %}" class="btn btn-afr-outline btn-sm" download>{% if current_lang == 'en' %}Download script{% else %}Télécharger le script{% endif %}</a>
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.download.github_title }}</h2>
+  <p class="text-secondary-custom">{{ ui.download.github_lead }}</p>
+  <a href="{{ github_releases }}" class="btn btn-afr-outline" target="_blank" rel="noopener noreferrer">{{ ui.download.github_btn }}</a>
+</section>
 
 <section class="mb-5">
   <h2 class="h4 fw-bold mb-3">{{ ui.download.requirements }}</h2>
@@ -31,8 +73,7 @@ cmake --build . -j$(nproc)</pre>
 <section class="mb-5">
   <h2 class="h4 fw-bold mb-3">{{ ui.download.verify }}</h2>
   <div class="code-panel">
-    <pre>./afrilang --version
-./afrilang run ../examples/hello.afr
+    <pre>./afrilang run ../examples/hello.afr --run
 ./afrilang test ..</pre>
   </div>
 </section>

@@ -48,6 +48,10 @@
   <p class="text-secondary-custom">{% if current_lang == 'en' %}Fetch a code example by slug.{% else %}Récupère un exemple de code par slug.{% endif %}</p>
 
   <div class="docs-callout mt-4">
+    <strong>Rate limiting</strong> — {% if current_lang == 'en' %}Playground API endpoints are limited to {{ PLAYGROUND_RATE_LIMIT }} requests per {% widthratio PLAYGROUND_RATE_WINDOW 60 1 %} minutes per IP (HTTP 429).{% else %}Les endpoints playground sont limités à {{ PLAYGROUND_RATE_LIMIT }} requêtes par {% widthratio PLAYGROUND_RATE_WINDOW 60 1 %} minutes par IP (HTTP 429).{% endif %}
+  </div>
+
+  <div class="docs-callout mt-4">
     <strong>CSRF</strong> — {% if current_lang == 'en' %}Browser requests require CSRF token. Use curl with session cookie for testing.{% else %}Les requêtes navigateur nécessitent un token CSRF. Utilisez curl avec cookie de session pour les tests.{% endif %}
   </div>
 </div>

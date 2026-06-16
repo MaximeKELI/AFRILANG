@@ -4,10 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  (function () {
+    var stored = localStorage.getItem('afr_theme');
+    var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) {
+      document.documentElement.setAttribute('data-afr-theme', 'dark');
+      document.documentElement.setAttribute('data-bs-theme', 'dark');
+    }
+  })();
+  </script>
   <title>{% block title %}AFRILANG{% endblock %}</title>
   <meta name="description" content="{% block meta %}{{ ui.meta_default }}{% endblock %}">
   <meta name="author" content="AFRILANG">
-  <meta name="theme-color" content="#1d4ed8">
+  <meta name="theme-color" content="#1d4ed8" id="meta-theme-color">
   <link rel="canonical" href="{{ request.build_absolute_uri }}">
   {% for lang_code, lang_name in languages %}
   <link rel="alternate" hreflang="{{ lang_code }}" href="{% hreflang_url lang_code %}">
@@ -102,6 +112,11 @@
           </li>
         </ul>
         <div class="d-flex gap-2 align-items-center flex-wrap">
+          <button type="button" class="btn btn-afr-outline btn-sm theme-toggle" id="theme-toggle"
+                  aria-label="{{ ui.nav_theme_dark }}" title="{{ ui.nav_theme_dark }}">
+            <span class="theme-icon-light" aria-hidden="true">☀</span>
+            <span class="theme-icon-dark d-none" aria-hidden="true">☾</span>
+          </button>
           <div class="lang-switcher" role="group" aria-label="{% trans 'Language' %}">
             {% for lang_code, lang_name in languages %}
             <form id="lang-form-{{ lang_code }}" action="{% url 'set_language' %}" method="post" class="d-none">
@@ -159,7 +174,8 @@
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_versions }}</h6>
-          <a href="{% url 'releases' %}">{% if current_lang == 'en' %}Changelog{% else %}Changelog{% endif %}</a>
+          <a href="{% url 'releases' %}">Changelog</a>
+          <a href="{% url 'download' %}">{{ ui.nav_download }}</a>
           <span class="small text-secondary-custom d-block">{{ ui.footer_lang }} {{ SITE_STATS.version }}</span>
           <span class="small text-secondary-custom d-block">{{ ui.footer_compiler }} {{ SITE_STATS.compiler_version }}</span>
         </div>

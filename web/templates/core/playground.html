@@ -13,7 +13,7 @@
 
 <div class="row g-4 playground-grid">
   <div class="col-lg-6">
-    <div class="afr-card h-100">
+    <div class="afr-card h-100 playground-card">
       <div class="card-header d-flex align-items-center gap-2 flex-wrap">
         <label for="examples" class="mb-0 small text-secondary-custom">{{ ui.playground_page.example }}</label>
         <select id="examples" class="form-select form-select-sm" style="max-width:220px" aria-label="{{ ui.playground_page.example }}">
@@ -27,7 +27,9 @@
       </div>
       <div class="card-body d-flex flex-column p-0">
         <label for="editor" class="visually-hidden">AFRILANG source</label>
-        <textarea id="editor" class="form-control font-monospace flex-grow-1 playground-editor border-0" spellcheck="false" aria-label="AFRILANG source code">say "Hello from AFRILANG!"</textarea>
+        <div class="playground-cm-wrap">
+          <textarea id="editor" spellcheck="false" aria-label="AFRILANG source code">say "Hello from AFRILANG!"</textarea>
+        </div>
         <div class="d-flex flex-wrap gap-2 p-3 border-top">
           <button type="button" class="btn btn-afr-primary" id="run">▶ {{ ui.playground_page.run }}</button>
           <button type="button" class="btn btn-afr-outline btn-sm" id="check">{{ ui.playground_page.check }}</button>
@@ -45,7 +47,7 @@
         <span class="small text-secondary-custom">{{ ui.playground_page.output }}</span>
         <button type="button" class="btn btn-afr-outline btn-sm" id="copyOutput">{{ ui.playground_page.copy_output }}</button>
       </div>
-      <pre id="output" class="card-body code-block mb-0 overflow-auto flex-grow-1" style="min-height:300px;background:var(--afr-code-bg);color:var(--afr-code-text);border-radius:0 0 var(--afr-radius) var(--afr-radius)" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
+      <pre id="output" class="card-body code-block mb-0 overflow-auto flex-grow-1 playground-output" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
     </div>
   </div>
 </div>
@@ -59,6 +61,10 @@
 {% endblock %}
 
 {% block extra_js %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/dracula.min.css" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/afrilang-cm-mode.js' %}"></script>
 <script>
 window.AFR_PLAYGROUND = {
   examples: JSON.parse(document.getElementById('examples-data')?.textContent || '{}'),
