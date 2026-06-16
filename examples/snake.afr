@@ -283,8 +283,10 @@ while isOpen() do
                         set moveDy = 0
                     end
                 end
-                create newX number = (xs at 0) + moveDx
-                create newY number = (ys at 0) + moveDy
+                create headX number = xs at 0
+                create headY number = ys at 0
+                create newX number = headX + moveDx
+                create newY number = headY + moveDy
 
                 if isWallCell(newX, newY, W, H) then
                     setState("gameover")

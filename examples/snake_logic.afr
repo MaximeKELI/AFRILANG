@@ -83,8 +83,10 @@ function isMoveSafe(xs list number, ys list number, snakeLen number, w number, h
             return no
         end
     end
-    create newX number = xs at 0 + dx
-    create newY number = ys at 0 + dy
+    create headX number = xs at 0
+    create headY number = ys at 0
+    create newX number = headX + dx
+    create newY number = headY + dy
     if isWallCell(newX, newY, w, h) then
         return no
     end
@@ -126,8 +128,10 @@ end
 function firstMoveIsSafe(pack list number, w number, h number) returns bool
     create hx number = pack at 6
     create hy number = pack at 9
-    create newX number = hx + pack at 1
-    create newY number = hy + pack at 2
+    create dirX number = pack at 1
+    create dirY number = pack at 2
+    create newX number = hx + dirX
+    create newY number = hy + dirY
     if isWallCell(newX, newY, w, h) then
         return no
     end
