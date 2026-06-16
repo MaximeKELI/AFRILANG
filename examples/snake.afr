@@ -1,10 +1,3 @@
-# Snake (ASCII) — jouable dans le Playground (sans saisie interactive).
-# Modifiez la variable `moves` pour contrôler le serpent :
-# - W = haut, A = gauche, S = bas, D = droite
-# - Q = quitter
-#
-# Astuce : mettez une longue chaîne (ex: "DDDDSSSSAAAAWWWW") puis relancez.
-
 import "std/io"
 use io
 
@@ -59,7 +52,7 @@ generator function prepend(v list number, head number) returns list number
 end
 
 function foodX(seed number) returns number
-    return randomRange(1, W - 2)  # évite les murs
+    return randomRange(1, W - 2)
 end
 
 function foodY(seed number) returns number
@@ -67,7 +60,6 @@ function foodY(seed number) returns number
 end
 
 function placeFood(xs list number, ys list number, seed number) returns list number
-    # Retourne list of fx, fy, seed2
     create s number = seed
     create fx number = 1
     create fy number = 1
@@ -99,7 +91,6 @@ function render(xs list number, ys list number, fx number, fy number, score numb
                 if x is equal to fx and y is equal to fy then
                     set row = row + "*"
                 else
-                    # tête
                     if x is equal to (xs at 0) and y is equal to (ys at 0) then
                         set row = row + "@"
                     else
@@ -120,7 +111,6 @@ function render(xs list number, ys list number, fx number, fy number, score numb
 end
 
 function dirFromChar(c text, dx number, dy number) returns list number
-    # Retourne list of dx, dy
     if c is equal to "W" or c is equal to "w" then
         if dy is equal to 1 then return list of dx, dy end
         return list of 0, -1
@@ -140,7 +130,6 @@ function dirFromChar(c text, dx number, dy number) returns list number
     return list of dx, dy
 end
 
-# --- Game setup ---
 create seed number = nowMs(0)
 set seed = seedRandom(seed)
 
@@ -160,19 +149,16 @@ create fx number = food at 0
 create fy number = food at 1
 set seed = food at 2
 
-# Éditez cette chaîne pour jouer dans le Playground.
 create moves text = "DDDDDDSSSSSSAAAAAAWWWWWWDDDDSSAAWWDDSSAAWWDDDDSSSSAAAWW"
 
 create step number = 0
 while step is less than MAX_STEPS do
-    # “Clear screen” simple (portable)
     repeat 30 times
         say ""
     end
 
     say render(xs, ys, fx, fy, score, step)
 
-    # Lire la direction depuis moves
     if step is less than length of moves then
         create c = moves at step
         if c is equal to "Q" or c is equal to "q" then
@@ -187,13 +173,11 @@ while step is less than MAX_STEPS do
     create newX number = (xs at 0) + dirX
     create newY number = (ys at 0) + dirY
 
-    # collisions murs
     if newX is less than 1 or newX is greater than (W - 2) or newY is less than 1 or newY is greater than (H - 2) then
         say "Game over: wall collision."
         break
     end
 
-    # collision avec soi-même (sauf la queue si elle bouge)
     if contains(xs, ys, newX, newY) then
         say "Game over: self collision."
         break
@@ -205,7 +189,6 @@ while step is less than MAX_STEPS do
         set score = score + 1
     end
 
-    # update snake lists (immutable rebuild)
     if grow then
         set xs = prepend(xs, newX)
         set ys = prepend(ys, newY)
@@ -214,7 +197,6 @@ while step is less than MAX_STEPS do
         set fy = food2 at 1
         set seed = food2 at 2
     else
-        # new = [newHead] + take(old, len-1)
         set xs = prepend(takeN(xs, (length of xs) - 1), newX)
         set ys = prepend(takeN(ys, (length of ys) - 1), newY)
     end

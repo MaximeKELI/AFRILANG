@@ -10,6 +10,7 @@ from core.models import CodeExample
 FEATURED = {
     'hello', 'conditions', 'oop', 'generics', 'async_demo', 'traits_demo',
     'gui_demo', 'wasm', 'match_demo', 'stdlib_demo',
+    'snake',
 }
 
 
