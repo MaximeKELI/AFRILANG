@@ -45,7 +45,6 @@ while isOpen() do
     create dt number = deltaMs()
     set rot = rot + dt * 0.01
     updateGltfAnims(dt)
-    playGltfAnim("pyramid", 0, true)
 
     create move number = dt * 0.014
     create turn number = dt * 0.04
