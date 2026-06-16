@@ -971,72 +971,41 @@ def gen_giskit_modules(count: int) -> list[tuple]:
              f"return tileRow * tileSize * {gsd:.6f};"),
         ]
 
-        # Remove bad placeholder - use expand functions instead
-        funcs = [f for f in funcs if f[0] != "bufferExpand"]
-
         pick = i % 16
-        if pick == 0:
-            use = [funcs[0], funcs[1]]
-        elif pick == 1:
-            use = [funcs[2], funcs[3]]
-        elif pick == 2:
-            use = [funcs[4], funcs[8]]
-        elif pick == 3:
-            use = [funcs[6], funcs[7]]
-        elif pick == 4:
-            use = [funcs[9], funcs[10]]
-        elif pick == 5:
-            use = [funcs[12], funcs[13]]
-        elif pick == 6:
-            use = [funcs[14], funcs[15]]
-        elif pick == 7:
-            use = [funcs[16], funcs[17]]
-        elif pick == 8:
-            use = [funcs[18], funcs[19]]
-        elif pick == 9:
-            use = [funcs[20], funcs[21]]
-        elif pick == 10:
-            use = [funcs[22], funcs[25]]
-        elif pick == 11:
-            use = [funcs[26], funcs[27]]
-        elif pick == 12:
-            use = [funcs[30], funcs[31]]
-        elif pick == 13:
+        pairs = [
+            (0, 1),    # haversine km/m
+            (2, 3),    # bearing
+            (4, 8),    # bbox width/area
+            (6, 7),    # bbox center
+            (9, 10),   # point in bbox + deg2rad
+            (12, 13),  # m/km
+            (16, 17),  # lon/lat normalize
+            (18, 21),  # pixel index + geoToPixelX
+            (25, 26),  # NDVI / NDWI
+            (28, 29),  # SAVI / EVI
+            (31, 32),  # GSD helpers
+            (34, 35),  # web tile row/col
+            (38, 39),  # UTM zone / hemisphere
+            (41, 42),  # planar distance
+            (45, 46),  # slope percent/deg
+            (57, 58),  # equirectangular proj
+        ]
+        a, b = pairs[pick]
+        use = [funcs[a], funcs[b]]
+
+        if pick in (8, 9):
+            use = [
+                ("ndvi", "number", [("nir", "number"), ("red", "number")],
+                 "double d=nir+red; return d==0?0:(nir-red)/d;"),
+                ("brightness", "number", [("r", "number"), ("g", "number"), ("b", "number")],
+                 f"return (r*{band_a:.4f}+g*{band_b:.4f}+b*0.2)/({band_a+band_b+0.2:.4f});"),
+            ]
+
+        if pick == 11:
             use = [funcs[34], funcs[35]]
-        elif pick == 14:
-            use = [funcs[36], funcs[37]]
-        else:
-            use = [funcs[40], funcs[41]]
 
-        # Per-module band constants for RS indices
-        if pick in (8, 9, 10):
-            nir = band_a + 0.35
-            red = band_b
-            if use[0][0] == "ndvi":
-                use = [
-                    ("ndvi", "number", [("nir", "number"), ("red", "number")],
-                     f"double d=nir+red; return d==0?0:(nir-red)/d;"),
-                    ("ndwi", "number", [("green", "number"), ("nir", "number")],
-                     f"double d=green+nir; return d==0?0:(green-nir)/d;"),
-                ]
-            elif use[0][0] in ("ndwi", "ndbi", "savi", "evi"):
-                use = [
-                    use[0],
-                    ("brightness", "number", [("r", "number"), ("g", "number"), ("b", "number")],
-                     f"return (r*{band_a:.4f}+g*{band_b:.4f}+b*0.2)/({band_a+band_b+0.2:.4f});"),
-                ]
-
-        if pick in (12, 13):
-            use = [
-                ("tileRow", "number", [("lat", "number"), ("z", "number")], funcs[26][3]),
-                ("tileCol", "number", [("lon", "number"), ("z", "number")], funcs[27][3]),
-            ]
-
-        if pick == 14:
-            use = [
-                ("utmZone", "number", [("lon", "number")], funcs[30][3]),
-                ("isNorthernHemisphere", "bool", [("lat", "number")], funcs[31][3]),
-            ]
+        if pick == 12:
+            use = [funcs[38], funcs[39]]
 
         if pick == 15:
             use = [
@@ -1045,7 +1014,7 @@ def gen_giskit_modules(count: int) -> list[tuple]:
                 ("tileOriginY", "number", [("tileRow", "number"), ("tileSize", "number")],
                  f"return tileRow * tileSize * {gsd:.6f};"),
             ]
-            _ = tile  # keep tile size variation in module identity via gsd
+            _ = tile
 
         mods.append((name, name, use))
     return mods
