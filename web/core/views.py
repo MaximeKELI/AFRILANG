@@ -9,6 +9,7 @@ from django.views.decorators.http import require_GET, require_POST
 from .content.docs_nav import docs_context
 from .content.docs_pages import get_doc_page_by_url_name
 from .content.docs_search import search_docs
+from .content.ecosystem_i18n import translate_ecosystem
 from .content.example_topics import grouped_examples
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash

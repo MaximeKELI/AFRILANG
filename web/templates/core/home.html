@@ -27,6 +27,7 @@
         </p>
         <div class="d-flex flex-wrap gap-2 mt-4">
           <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">{{ ui.home.btn_start }}</a>
+          <a href="{% url 'download' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_download }}</a>
           <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.btn_try }}</a>
         </div>
         <p class="small text-secondary-custom mt-3 mb-0">{{ ui.home.hero_compat }}</p>
@@ -78,10 +79,12 @@ end</pre>
         </div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="afr-stat-card">
-          <div class="stat-value">3</div>
-          <div class="stat-label">{{ ui.home.stat_targets }}</div>
-        </div>
+        <a href="{% url 'download' %}" class="text-decoration-none">
+          <div class="afr-stat-card">
+            <div class="stat-value">v{{ SITE_STATS.compiler_version }}</div>
+            <div class="stat-label">{% if current_lang == 'en' %}Compiler{% else %}Compilateur{% endif %}</div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -215,9 +218,10 @@ rex.speak()</pre>
     <h2 class="fw-bold mb-3">{{ ui.home.cta_title }}</h2>
     <p class="text-secondary-custom mb-4">{{ ui.home.cta_desc }}</p>
     <div class="d-flex flex-wrap justify-content-center gap-2">
-      <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">{{ ui.home.cta_guide }}</a>
+      <a href="{% url 'download' %}" class="btn btn-afr-primary btn-lg">{{ ui.nav_download }}</a>
+      <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_guide }}</a>
       <a href="{% url 'language' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_lang }}</a>
-      <a href="{% url 'examples' %}" class="btn btn-afr-outline btn-lg me-2">{{ ui.nav_examples }}</a>
+      <a href="{% url 'examples' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_examples }}</a>
       <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_play }}</a>
     </div>
   </div>

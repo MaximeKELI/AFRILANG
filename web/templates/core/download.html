@@ -12,6 +12,11 @@
 <section class="mb-5">
   <h2 class="h4 fw-bold mb-3">{{ ui.download.binary_title }}</h2>
   <p class="text-secondary-custom">{{ ui.download.binary_lead }}</p>
+  <p class="small text-secondary-custom mb-3">
+    {% if current_lang == 'en' %}Compiler{% else %}Compilateur{% endif %}
+    <strong>v{{ SITE_STATS.compiler_version }}</strong>
+    · {% if current_lang == 'en' %}Language{% else %}Langage{% endif %} {{ SITE_STATS.version }}
+  </p>
   {% if has_binary %}
   <div class="row g-3">
     {% for bin in binaries %}
