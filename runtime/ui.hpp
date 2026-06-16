@@ -14,11 +14,15 @@ struct UiContext {
     SDL_Renderer* renderer = nullptr;
     std::unordered_map<int, TTF_Font*> fonts;
     bool open = false;
+    int windowW = 0;
+    int windowH = 0;
     int mouseX = 0;
     int mouseY = 0;
     bool clickThisFrame = false;
     bool keys[SDL_NUM_SCANCODES]{};
     bool pressed[SDL_NUM_SCANCODES]{};
+    Uint32 lastFrameTicks = 0;
+    double frameDeltaMs = 16.0;
 };
 
 inline UiContext& context() {
@@ -74,6 +78,8 @@ inline void openWindow(const std::string& title, double width, double height) {
     }
 
     if (ctx.window) SDL_SetWindowTitle(ctx.window, title.c_str());
+    ctx.windowW = w;
+    ctx.windowH = h;
     if (!ctx.window || !ctx.renderer) {
         // Hard fail: keep ctx.open false to avoid running a draw loop that can't draw anything.
         if (ctx.renderer) SDL_DestroyRenderer(ctx.renderer);
@@ -142,7 +148,25 @@ inline void pollEvents() {
 }
 
 inline void beginFrame() {
+    UiContext& ctx = context();
+    const Uint32 now = SDL_GetTicks();
+    if (ctx.lastFrameTicks > 0) {
+        ctx.frameDeltaMs = static_cast<double>(now - ctx.lastFrameTicks);
+    }
+    ctx.lastFrameTicks = now;
     pollEvents();
+}
+
+inline double deltaMs() {
+    return context().frameDeltaMs;
+}
+
+inline double windowWidth() {
+    return static_cast<double>(context().windowW);
+}
+
+inline double windowHeight() {
+    return static_cast<double>(context().windowH);
 }
 
 inline void clearBackground(double r, double g, double b) {
@@ -156,7 +180,46 @@ inline void clearBackground(double r, double g, double b) {
     SDL_RenderClear(ctx.renderer);
 }
 
+inline void fillRect(double x, double y, double w, double h, double r, double g, double b) {
+    UiContext& ctx = context();
+    if (!ctx.renderer) return;
+    SDL_SetRenderDrawColor(ctx.renderer,
+                           static_cast<Uint8>(r),
+                           static_cast<Uint8>(g),
+                           static_cast<Uint8>(b),
+                           255);
+    const SDL_Rect rect{
+        static_cast<int>(x),
+        static_cast<int>(y),
+        static_cast<int>(w),
+        static_cast<int>(h),
+    };
+    SDL_RenderFillRect(ctx.renderer, &rect);
+}
+
+inline void drawRect(double x, double y, double w, double h, double r, double g, double b) {
+    UiContext& ctx = context();
+    if (!ctx.renderer) return;
+    SDL_SetRenderDrawColor(ctx.renderer,
+                           static_cast<Uint8>(r),
+                           static_cast<Uint8>(g),
+                           static_cast<Uint8>(b),
+                           255);
+    const SDL_Rect rect{
+        static_cast<int>(x),
+        static_cast<int>(y),
+        static_cast<int>(w),
+        static_cast<int>(h),
+    };
+    SDL_RenderDrawRect(ctx.renderer, &rect);
+}
+
 inline void drawText(const std::string& text, double x, double y, double fontSize) {
+    drawText(text, x, y, fontSize, 240.0, 240.0, 245.0);
+}
+
+inline void drawText(const std::string& text, double x, double y, double fontSize,
+                     double r, double g, double b) {
     UiContext& ctx = context();
     if (!ctx.renderer) return;
 
@@ -164,7 +227,12 @@ inline void drawText(const std::string& text, double x, double y, double fontSiz
     TTF_Font* font = fontForSize(size);
     if (!font) return;
 
-    SDL_Color color{240, 240, 245, 255};
+    SDL_Color color{
+        static_cast<Uint8>(r),
+        static_cast<Uint8>(g),
+        static_cast<Uint8>(b),
+        255,
+    };
     // SDL_ttf ne gère pas les sauts de ligne dans un seul rendu.
     // On rend donc ligne par ligne pour supporter les textes multi-lignes (ex: Snake, logs, etc.).
     const int lineH = std::max(10, TTF_FontHeight(font) + 2);
@@ -253,7 +321,6 @@ inline void showFrame() {
     UiContext& ctx = context();
     if (!ctx.renderer) return;
     SDL_RenderPresent(ctx.renderer);
-    SDL_Delay(16);
 }
 
 inline SDL_Scancode scancodeFromName(const std::string& key) {
