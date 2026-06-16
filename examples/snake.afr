@@ -7,19 +7,22 @@ use random2
 import "std/stopwatch"
 use stopwatch
 
-create W = 22
-create H = 16
+create W = 24
+create H = 18
+create CELL = 28
+create PAD_X = 32
+create PAD_Y = 88
 
-function clampDirX(dx number) returns number
-    if dx is greater than 1 then return 1 end
-    if dx is less than -1 then return -1 end
-    return dx
+function px(gx number) returns number
+    return PAD_X + gx * CELL
 end
 
-function clampDirY(dy number) returns number
-    if dy is greater than 1 then return 1 end
-    if dy is less than -1 then return -1 end
-    return dy
+function py(gy number) returns number
+    return PAD_Y + gy * CELL
+end
+
+function drawCell(gx number, gy number, r number, g number, b number)
+    fillRect(px(gx) + 1, py(gy) + 1, CELL - 2, CELL - 2, r, g, b)
 end
 
 function containsN(xs list number, ys list number, n number, x number, y number) returns bool
@@ -48,15 +51,13 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
     return list of fx, fy
 end
 
-function render(xs list number, ys list number, snakeLen number, fx number, fy number, score number, w number, h number) returns text
-    create out text = ""
-    set out = out + "AFRILANG Snake — clavier live (WASD / flèches)\n"
-    set out = out + "Score: {score}\n"
-    set out = out + "Echap: quitter · Espace: pause\n\n"
+function drawBoard(xs list number, ys list number, snakeLen number, fx number, fy number, w number, h number)
+    create boardW number = w * CELL
+    create boardH number = h * CELL
+    fillRect(px(0), py(0), boardW, boardH, 28, 32, 44)
 
     create y number = 0
     while y is less than h do
-        create row text = ""
         create x number = 0
         while x is less than w do
             create wall bool = no
@@ -64,85 +65,70 @@ function render(xs list number, ys list number, snakeLen number, fx number, fy n
             if y is equal to (h - 1) then set wall = yes end
             if x is equal to 0 then set wall = yes end
             if x is equal to (w - 1) then set wall = yes end
-
             if wall then
-                set row = row + "#"
-            else
-                if x is equal to fx then
-                    if y is equal to fy then
-                        set row = row + "*"
-                    else
-                        if x is equal to (xs at 0) then
-                            if y is equal to (ys at 0) then
-                                set row = row + "@"
-                            else
-                                if containsN(xs, ys, snakeLen, x, y) then
-                                    set row = row + "o"
-                                else
-                                    set row = row + " "
-                                end
-                            end
-                        else
-                            if containsN(xs, ys, snakeLen, x, y) then
-                                set row = row + "o"
-                            else
-                                set row = row + " "
-                            end
-                        end
-                    end
-                else
-                    if x is equal to (xs at 0) then
-                        if y is equal to (ys at 0) then
-                            set row = row + "@"
-                        else
-                            if containsN(xs, ys, snakeLen, x, y) then
-                                set row = row + "o"
-                            else
-                                set row = row + " "
-                            end
-                        end
-                    else
-                        if containsN(xs, ys, snakeLen, x, y) then
-                            set row = row + "o"
-                        else
-                            set row = row + " "
-                        end
-                    end
-                end
+                drawCell(x, y, 55, 60, 75)
             end
             set x = x + 1
         end
-        set out = out + row + "\n"
         set y = y + 1
     end
-    return out
+
+    drawCell(fx, fy, 240, 90, 90)
+
+    create i number = 0
+    while i is less than snakeLen do
+        if i is equal to 0 then
+            drawCell(xs at i, ys at i, 110, 230, 130)
+        else
+            drawCell(xs at i, ys at i, 70, 170, 95)
+        end
+        set i = i + 1
+    end
+end
+
+function initSnake() returns list number
+    create startX number = W / 2
+    create startY number = H / 2
+    set xs at 0 = startX
+    set xs at 1 = startX - 1
+    set xs at 2 = startX - 2
+    set ys at 0 = startY
+    set ys at 1 = startY
+    set ys at 2 = startY
+    set snakeLen = 3
+    set dirX = 1
+    set dirY = 0
+    set score = 0
+    set paused = false
+    set gameOver = false
+    set moveAccum = 0
+    create food = placeFood(xs, ys, snakeLen, W, H)
+    set fx = food at 0
+    set fy = food at 1
+    return list of 0
 end
 
 seedRandom(nowMs(0))
 
-create startX number = W / 2
-create startY number = H / 2
-
-create xs list number = list of startX, startX - 1, startX - 2
-create ys list number = list of startY, startY, startY
-create snakeLen number = length of xs
-
+create xs list number = list of 0, 0, 0
+create ys list number = list of 0, 0, 0
+create snakeLen number = 3
 create dirX number = 1
 create dirY number = 0
-
 create score number = 0
-
-create food = placeFood(xs, ys, snakeLen, W, H)
-create fx number = food at 0
-create fy number = food at 1
-
+create fx number = 1
+create fy number = 1
 create paused bool = false
 create gameOver bool = false
+create moveAccum number = 0
+create moveInterval number = 110
 
-create lastTick number = nowMs(0)
-create tickMs number = 120
+initSnake()
 
-openWindow("AFRILANG Snake", 860, 640)
+create winW number = PAD_X * 2 + W * CELL
+create winH number = PAD_Y + H * CELL + 40
+
+openWindow("AFRILANG Snake", winW, winH)
 
 while isOpen() do
     beginFrame()
@@ -156,6 +142,12 @@ while isOpen() do
             set paused = false
         else
             set paused = true
+        end
+    end
+
+    if gameOver then
+        if wasKeyPressed("R") then
+            initSnake()
         end
     end
 
@@ -224,73 +216,76 @@ while isOpen() do
         end
     end
 
-    create now number = nowMs(0)
     if paused is equal to false then
         if gameOver is equal to false then
-        if (now - lastTick) is greater than tickMs then
-            set lastTick = now
+            set moveAccum = moveAccum + deltaMs()
+            if moveAccum is greater than moveInterval then
+                set moveAccum = moveAccum - moveInterval
 
-            create newX number = (xs at 0) + dirX
-            create newY number = (ys at 0) + dirY
+                create newX number = (xs at 0) + dirX
+                create newY number = (ys at 0) + dirY
 
-            create hitWall bool = no
-            if newX is less than 1 then set hitWall = yes end
-            if newX is greater than (W - 2) then set hitWall = yes end
-            if newY is less than 1 then set hitWall = yes end
-            if newY is greater than (H - 2) then set hitWall = yes end
+                create hitWall bool = no
+                if newX is less than 1 then set hitWall = yes end
+                if newX is greater than (W - 2) then set hitWall = yes end
+                if newY is less than 1 then set hitWall = yes end
+                if newY is greater than (H - 2) then set hitWall = yes end
 
-            if hitWall then
-                set gameOver = true
-            else
-                if containsN(xs, ys, snakeLen, newX, newY) then
+                if hitWall then
                     set gameOver = true
                 else
-                    create grow bool = no
-                    if newX is equal to fx then
-                        if newY is equal to fy then
-                            set grow = yes
-                            set score = score + 1
+                    if containsN(xs, ys, snakeLen, newX, newY) then
+                        set gameOver = true
+                    else
+                        create grow bool = no
+                        if newX is equal to fx then
+                            if newY is equal to fy then
+                                set grow = yes
+                                set score = score + 1
+                            end
                         end
-                    end
 
-                    if grow then
-                        add xs at (snakeLen - 1) to xs
-                        add ys at (snakeLen - 1) to ys
-                        set snakeLen = snakeLen + 1
-                    end
+                        if grow then
+                            add xs at (snakeLen - 1) to xs
+                            add ys at (snakeLen - 1) to ys
+                            set snakeLen = snakeLen + 1
+                        end
 
-                    create i number = snakeLen - 1
-                    while i is greater than 0 do
-                        set xs at i = xs at (i - 1)
-                        set ys at i = ys at (i - 1)
-                        set i = i - 1
-                    end
+                        create i number = snakeLen - 1
+                        while i is greater than 0 do
+                            set xs at i = xs at (i - 1)
+                            set ys at i = ys at (i - 1)
+                            set i = i - 1
+                        end
 
-                    set xs at 0 = newX
-                    set ys at 0 = newY
+                        set xs at 0 = newX
+                        set ys at 0 = newY
 
-                    if grow then
-                        create food2 = placeFood(xs, ys, snakeLen, W, H)
-                        set fx = food2 at 0
-                        set fy = food2 at 1
+                        if grow then
+                            create food2 = placeFood(xs, ys, snakeLen, W, H)
+                            set fx = food2 at 0
+                            set fy = food2 at 1
+                        end
                     end
                 end
             end
         end
-        end
     end
 
-    clearBackground(20, 20, 28)
-    drawText(render(xs, ys, snakeLen, fx, fy, score, W, H), 20, 20, 18)
+    clearBackground(18, 22, 30)
+    drawTextColor("AFRILANG Snake", PAD_X, 20, 28, 240, 240, 245)
+    drawTextColor("Score: {score}", PAD_X, 52, 22, 180, 220, 255)
+    drawTextColor("WASD / fleches · Espace pause · Echap quitter", PAD_X + 220, 52, 18, 150, 155, 170)
+
+    drawBoard(xs, ys, snakeLen, fx, fy, W, H)
 
     if paused then
-        drawText("PAUSE", 700, 20, 22)
+        drawTextColor("PAUSE", winW / 2 - 40, winH / 2 - 20, 36, 255, 220, 90)
     end
     if gameOver then
-        drawText("GAME OVER — appuyez Echap", 450, 20, 18)
+        drawTextColor("GAME OVER", winW / 2 - 90, winH / 2 - 30, 36, 255, 100, 100)
+        drawTextColor("R pour rejouer", winW / 2 - 80, winH / 2 + 16, 22, 220, 220, 230)
     end
 
     showFrame()
 end
-
-
