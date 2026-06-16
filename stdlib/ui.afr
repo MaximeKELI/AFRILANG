@@ -60,6 +60,9 @@ end
 function wasMouseClicked() returns bool
 end
 
+function fps() returns number
+end
+
 function showFrame()
 end
 end

@@ -171,6 +171,39 @@ end
 function setMusicVolume(volume number)
 end
 
+function defineTrigger(name text, x number, y number, w number, h number)
+end
+
+function setTriggerActive(name text, active bool)
+end
+
+function pointInTrigger(name text, wx number, wy number) returns bool
+end
+
+function mouseInTrigger(name text) returns bool
+end
+
+function mouseWorldX() returns number
+end
+
+function mouseWorldY() returns number
+end
+
+function saveValue(path text, key text, value number) returns bool
+end
+
+function loadValue(path text, key text, defaultValue number) returns number
+end
+
+function loadHighScore(path text)
+end
+
+function saveHighScore(path text) returns bool
+end
+
+function drawFps(x number, y number)
+end
+
 function shutdown()
 end
 end

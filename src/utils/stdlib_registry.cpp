@@ -75,7 +75,7 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
            moduleName == "email" || moduleName == "uuid" ||
            moduleName == "async" || moduleName == "ui" || moduleName == "game2d" ||
-           moduleName == "game3d";
+           moduleName == "game3d" || moduleName == "gamestate";
 }
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
@@ -121,6 +121,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "ui") return "ui";
     if (normalized == "game2d") return "game2d";
     if (normalized == "game3d") return "game3d";
+    if (normalized == "gamestate") return "gamestate";
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
     if (normalized == "sql") return "sql";
@@ -223,6 +224,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "ui") injectUiModule(program);
     else if (moduleName == "game2d") injectGame2dModule(program);
     else if (moduleName == "game3d") injectGame3dModule(program);
+    else if (moduleName == "gamestate") injectGamestateModule(program);
     else injectCatalogModule(program, moduleName);
 }
 
@@ -421,6 +423,7 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("isMouseDown", {}, "bool"));
     fns.push_back(makeStubFunction("wasMousePressed", {}, "bool"));
     fns.push_back(makeStubFunction("wasMouseClicked", {}, "bool"));
+    fns.push_back(makeStubFunction("fps", {}, "number"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
 }
@@ -509,6 +512,21 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("playMusic", {{"name", "text"}, {"loops", "number"}}, "bool"));
     fns.push_back(makeStubFunction("stopMusic", {}, ""));
     fns.push_back(makeStubFunction("setMusicVolume", {{"volume", "number"}}, ""));
+    fns.push_back(makeStubFunction("defineTrigger",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"w", "number"}, {"h", "number"}}, ""));
+    fns.push_back(makeStubFunction("setTriggerActive", {{"name", "text"}, {"active", "bool"}}, ""));
+    fns.push_back(makeStubFunction("pointInTrigger",
+        {{"name", "text"}, {"wx", "number"}, {"wy", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("mouseInTrigger", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("mouseWorldX", {}, "number"));
+    fns.push_back(makeStubFunction("mouseWorldY", {}, "number"));
+    fns.push_back(makeStubFunction("saveValue",
+        {{"path", "text"}, {"key", "text"}, {"value", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("loadValue",
+        {{"path", "text"}, {"key", "text"}, {"defaultValue", "number"}}, "number"));
+    fns.push_back(makeStubFunction("loadHighScore", {{"path", "text"}}, ""));
+    fns.push_back(makeStubFunction("saveHighScore", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("drawFps", {{"x", "number"}, {"y", "number"}}, ""));
     fns.push_back(makeStubFunction("shutdown", {}, ""));
     injectModule(program, "game2d", std::move(fns));
 }
@@ -602,8 +620,28 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
         {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"count", "number"}, {"speed", "number"}}, ""));
     fns.push_back(makeStubFunction("updateParticles", {{"deltaMs", "number"}}, ""));
     fns.push_back(makeStubFunction("drawParticles", {}, ""));
+    fns.push_back(makeStubFunction("mouseX", {}, "number"));
+    fns.push_back(makeStubFunction("mouseY", {}, "number"));
+    fns.push_back(makeStubFunction("isMouseDown", {}, "bool"));
+    fns.push_back(makeStubFunction("wasMousePressed", {}, "bool"));
+    fns.push_back(makeStubFunction("wasMouseClicked", {}, "bool"));
+    fns.push_back(makeStubFunction("drawSkyGradient",
+        {{"topR", "number"}, {"topG", "number"}, {"topB", "number"},
+         {"botR", "number"}, {"botG", "number"}, {"botB", "number"}}, ""));
     fns.push_back(makeStubFunction("pickBody", {{"screenX", "number"}, {"screenY", "number"}}, "number"));
+    fns.push_back(makeStubFunction("pickBodyName", {{"screenX", "number"}, {"screenY", "number"}}, "text"));
     injectModule(program, "game3d", std::move(fns));
+}
+
+void StdlibRegistry::injectGamestateModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("setState", {{"name", "text"}}, ""));
+    fns.push_back(makeStubFunction("getState", {}, "text"));
+    fns.push_back(makeStubFunction("isState", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("stateTimeMs", {}, "number"));
+    fns.push_back(makeStubFunction("wasStateChanged", {}, "bool"));
+    fns.push_back(makeStubFunction("tickState", {{"deltaMs", "number"}}, ""));
+    injectModule(program, "gamestate", std::move(fns));
 }
 
 void StdlibRegistry::injectCryptoModule(ProgramNode& program) {
