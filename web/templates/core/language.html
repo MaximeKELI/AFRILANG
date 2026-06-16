@@ -135,8 +135,34 @@ end</pre>
   </div>
 </section>
 
+<section class="mb-5">
+  <h2 class="h3 fw-bold mb-4">{% if current_lang == 'en' %}Full documentation{% else %}Documentation complète{% endif %}</h2>
+  <div class="row g-2">
+    {% for item in docs_nav %}
+    <div class="col-md-6 col-lg-4">
+      <a href="{% url item.url_name %}" class="afr-feature-card d-block text-decoration-none h-100 py-3">
+        <strong class="text-primary">{{ item.title }}</strong>
+        <p class="small text-secondary-custom mb-0 mt-1">{{ item.description }}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="small text-secondary-custom mt-3">
+    {% if current_lang == 'en' %}
+    <a href="{% url 'examples' %}">59 examples</a> ·
+    <a href="{% url 'stdlib' %}">463+ stdlib modules</a> ·
+    <a href="{% url 'docs_search' %}">Search docs</a>
+    {% else %}
+    <a href="{% url 'examples' %}">59 exemples</a> ·
+    <a href="{% url 'stdlib' %}">463+ modules stdlib</a> ·
+    <a href="{% url 'docs_search' %}">Rechercher</a>
+    {% endif %}
+  </p>
+</section>
+
 <div class="text-center py-4">
-  <a href="{% url 'docs_overview' %}" class="btn btn-afr-primary me-2">Lire la documentation</a>
-  <a href="{% url 'playground' %}" class="btn btn-afr-outline">Essayer maintenant</a>
+  <a href="{% url 'docs_overview' %}" class="btn btn-afr-primary me-2">{% if current_lang == 'en' %}Read the docs{% else %}Lire la documentation{% endif %}</a>
+  <a href="{% url 'examples' %}" class="btn btn-afr-outline me-2">{% if current_lang == 'en' %}Examples{% else %}Exemples{% endif %}</a>
+  <a href="{% url 'playground' %}" class="btn btn-afr-outline">{% if current_lang == 'en' %}Try now{% else %}Essayer maintenant{% endif %}</a>
 </div>
 {% endblock %}
