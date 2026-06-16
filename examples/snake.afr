@@ -32,6 +32,37 @@ create streak number = 0
 create flashRecord number = 0
 create justStartedPlay bool = no
 
+create xs list number = list of 0, 0, 0
+create ys list number = list of 0, 0, 0
+create snakeLen number = 3
+create dirX number = 1
+create dirY number = 0
+create score number = 0
+create fx number = 1
+create fy number = 1
+
+function applyPlayPack(pack list number)
+    create n number = pack at 0
+    create dx number = pack at 1
+    create dy number = pack at 2
+    create sc number = pack at 3
+    create fpx number = pack at 4
+    create fpy number = pack at 5
+    set snakeLen = n
+    set dirX = dx
+    set dirY = dy
+    set score = sc
+    set fx = fpx
+    set fy = fpy
+end
+
+function startNewPlay()
+    create pack = resetGame(xs, ys, W, H)
+    applyPlayPack(pack)
+    set justStartedPlay = yes
+    setState("play")
+end
+
 function drawWallsLayer(w number, h number)
     create y number = 0
     while y is less than h do
