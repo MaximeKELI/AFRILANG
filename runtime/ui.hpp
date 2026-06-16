@@ -276,6 +276,11 @@ inline void drawText(const std::string& text, double x, double y, double fontSiz
     }
 }
 
+inline void drawTextColor(const std::string& text, double x, double y, double fontSize,
+                          double r, double g, double b) {
+    drawText(text, x, y, fontSize, r, g, b);
+}
+
 inline bool drawButton(const std::string& label, double x, double y, double w, double h) {
     UiContext& ctx = context();
     if (!ctx.renderer) return false;
