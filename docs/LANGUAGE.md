@@ -416,6 +416,26 @@ Primitives pour créer de vrais jeux (rectangles colorés, timing, clavier) :
 | `windowWidth()` / `windowHeight()` | Taille de la fenêtre |
 | `isKeyDown(key)` / `wasKeyPressed(key)` | Clavier (WASD, flèches, Space, Escape) |
 
+### Moteur 2D (`std/game2d`)
+
+Bibliothèque de jeu haut niveau (grille, timers, entrées, collisions) — bâtie sur `std/ui` :
+
+| Fonction | Description |
+|----------|-------------|
+| `configureGrid(cols, rows, cellSize, padX, padY)` | Configure une grille logique |
+| `gridWindowWidth()` / `gridWindowHeight()` | Taille fenêtre pour la grille |
+| `fillCell(col, row, r, g, b)` | Dessine une case |
+| `fillBoard` / `drawWalls` / `drawGridLines` | Arrière-plan et murs |
+| `fillCircleSolid(x, y, radius, r, g, b)` | Cercle plein (nourriture, effets) |
+| `everyMs(name, delta, interval)` | Timer nommé (retourne `yes` quand l’intervalle est écoulé) |
+| `updateDirection(curDx, curDy)` + `inputDirX()` / `inputDirY()` | Entrées clavier sans demi-tour |
+| `gridHas(xs, ys, count, gx, gy)` | Collision sur grille |
+| `pulse01(period)` | Animation sinusoïdale 0–1 |
+| `drawCenteredText` / `drawHud` | Interface de jeu |
+| `moveIntervalForScore(score, base, min)` | Vitesse progressive |
+
+`import "std/game2d"` puis `use game2d`. Voir aussi `std/game` (score, niveau, XP).
+
 Exemple minimal :
 
 ```afr
