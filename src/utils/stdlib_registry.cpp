@@ -74,7 +74,7 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "url" || moduleName == "random" || moduleName == "hex" ||
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
            moduleName == "email" || moduleName == "uuid" ||
-           moduleName == "async" || moduleName == "ui";
+           moduleName == "async" || moduleName == "ui" || moduleName == "game2d";
 }
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
@@ -118,6 +118,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "path") return "path";
     if (normalized == "async") return "async";
     if (normalized == "ui") return "ui";
+    if (normalized == "game2d") return "game2d";
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
     if (normalized == "sql") return "sql";

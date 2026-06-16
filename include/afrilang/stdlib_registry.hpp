@@ -28,6 +28,7 @@ public:
     static void injectThreadModule(ProgramNode& program);
     static void injectBigintModule(ProgramNode& program);
     static void injectUiModule(ProgramNode& program);
+    static void injectGame2dModule(ProgramNode& program);
     static void injectCryptoModule(ProgramNode& program);
     static void injectYamlModule(ProgramNode& program);
     static void injectDatetimeModule(ProgramNode& program);
