@@ -188,8 +188,8 @@ inline void fillCircleSolid(double x, double y, double radius, double r, double 
                            static_cast<Uint8>(g),
                            static_cast<Uint8>(b),
                            255);
-    const int cx = static_cast<int>(x);
-    const int cy = static_cast<int>(y);
+    const int cx = static_cast<int>(sx);
+    const int cy = static_cast<int>(sy);
     const int rad = std::max(1, static_cast<int>(radius));
     for (int dy = -rad; dy <= rad; ++dy) {
         const int span = static_cast<int>(std::sqrt(static_cast<double>(rad * rad - dy * dy)));
