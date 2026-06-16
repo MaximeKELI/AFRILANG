@@ -14,15 +14,15 @@ create PAD_X = 32
 create PAD_Y = 88
 
 function px(gx number) returns number
-    return PAD_X + gx * CELL
+    return 32 + gx * 28
 end
 
 function py(gy number) returns number
-    return PAD_Y + gy * CELL
+    return 88 + gy * 28
 end
 
 function drawCell(gx number, gy number, r number, g number, b number)
-    fillRect(px(gx) + 1, py(gy) + 1, CELL - 2, CELL - 2, r, g, b)
+    fillRect(px(gx) + 1, py(gy) + 1, 26, 26, r, g, b)
 end
 
 function containsN(xs list number, ys list number, n number, x number, y number) returns bool
@@ -52,8 +52,8 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
 end
 
 function drawBoard(xs list number, ys list number, snakeLen number, fx number, fy number, w number, h number)
-    create boardW number = w * CELL
-    create boardH number = h * CELL
+    create boardW number = w * 28
+    create boardH number = h * 28
     fillRect(px(0), py(0), boardW, boardH, 28, 32, 44)
 
     create y number = 0
@@ -86,28 +86,6 @@ function drawBoard(xs list number, ys list number, snakeLen number, fx number, f
     end
 end
 
-function initSnake() returns list number
-    create startX number = W / 2
-    create startY number = H / 2
-    set xs at 0 = startX
-    set xs at 1 = startX - 1
-    set xs at 2 = startX - 2
-    set ys at 0 = startY
-    set ys at 1 = startY
-    set ys at 2 = startY
-    set snakeLen = 3
-    set dirX = 1
-    set dirY = 0
-    set score = 0
-    set paused = false
-    set gameOver = false
-    set moveAccum = 0
-    create food = placeFood(xs, ys, snakeLen, W, H)
-    set fx = food at 0
-    set fy = food at 1
-    return list of 0
-end
-
 seedRandom(nowMs(0))
 
 create xs list number = list of 0, 0, 0
@@ -123,7 +101,17 @@ create gameOver bool = false
 create moveAccum number = 0
 create moveInterval number = 110
 
-initSnake()
+create startX number = W / 2
+create startY number = H / 2
+set xs at 0 = startX
+set xs at 1 = startX - 1
+set xs at 2 = startX - 2
+set ys at 0 = startY
+set ys at 1 = startY
+set ys at 2 = startY
+create food0 = placeFood(xs, ys, snakeLen, W, H)
+set fx = food0 at 0
+set fy = food0 at 1
 
 create winW number = PAD_X * 2 + W * CELL
 create winH number = PAD_Y + H * CELL + 40
@@ -147,7 +135,24 @@ while isOpen() do
 
     if gameOver then
         if wasKeyPressed("R") then
-            initSnake()
+            set startX = W / 2
+            set startY = H / 2
+            set xs at 0 = startX
+            set xs at 1 = startX - 1
+            set xs at 2 = startX - 2
+            set ys at 0 = startY
+            set ys at 1 = startY
+            set ys at 2 = startY
+            set snakeLen = 3
+            set dirX = 1
+            set dirY = 0
+            set score = 0
+            set paused = false
+            set gameOver = false
+            set moveAccum = 0
+            create food1 = placeFood(xs, ys, snakeLen, W, H)
+            set fx = food1 at 0
+            set fy = food1 at 1
         end
     end
 
