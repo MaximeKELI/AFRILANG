@@ -3131,6 +3131,10 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         args.push_back("-lSDL2");
         args.push_back("-lSDL2_ttf");
     }
+    if (semantic_.usedModules.count("game2d") > 0 && !wasmBuild) {
+        args.push_back("-lSDL2_image");
+        args.push_back("-lSDL2_mixer");
+    }
 
     ProcessConfig config;
     config.timeoutSeconds = securityLimits(SecurityContext::TrustedCompile).compileTimeoutSeconds;
