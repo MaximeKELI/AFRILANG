@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ ui.tutorial_page.title }}{% endblock %}
+{% block meta %}{{ ui.tutorial_page.lead }}{% endblock %}
+{% block main_class %}container tutorial-layout py-4 py-lg-5{% endblock %}
+
+{% block content %}
+<div class="row g-4 g-lg-5">
+  <aside class="col-lg-3" aria-label="{% if current_lang == 'en' %}Tutorial steps{% else %}Étapes du tutoriel{% endif %}">
+    <nav class="tutorial-sidebar">
+      <div class="tutorial-sidebar-title">{{ ui.tutorial_page.sidebar }}</div>
+      <div class="tutorial-progress mb-3" aria-hidden="true">
+        <div class="tutorial-progress-bar" id="tutorial-progress-bar" style="width:0%"></div>
+      </div>
+      <p class="small text-secondary-custom mb-3" id="tutorial-progress-text">0 / {{ total_steps }}</p>
+      {% for lesson in lessons %}
+      <a href="{% url 'tutorial_step' lesson.step %}"
+         class="tutorial-step-link {% if current_step == lesson.step %}active{% endif %}"
+         data-step="{{ lesson.step }}">
+        <span class="tutorial-step-num">{{ lesson.step }}</span>
+        <span>
+          <strong class="d-block">{{ lesson.title }}</strong>
+          <small class="text-secondary-custom">{{ lesson.duration_min }} min</small>
+        </span>
+        <span class="tutorial-step-check" data-step-check="{{ lesson.step }}" aria-hidden="true">✓</span>
+      </a>
+      {% endfor %}
+    </nav>
+  </aside>
+
+  <article class="col-lg-9">
+    {% if lesson %}
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb small mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'tutorial' %}">{{ ui.tutorial_page.h1 }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ ui.tutorial_page.step_label }} {{ lesson.step }}</li>
+      </ol>
+    </nav>
+
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+      <span class="badge text-bg-primary">{{ ui.tutorial_page.step_label }} {{ lesson.step }}/{{ total_steps }}</span>
+      <span class="badge text-bg-light border">~{{ lesson.duration_min }} min</span>
+    </div>
+    <h1 class="h2 fw-bold mb-2">{{ lesson.title }}</h1>
+    <p class="lead text-secondary-custom">{{ lesson.summary }}</p>
+
+    <section class="mb-4">
+      <h2 class="h5 fw-bold mb-3">{{ ui.tutorial_page.objectives }}</h2>
+      <ul class="text-secondary-custom">
+        {% for obj in lesson.objectives %}
+        <li>{{ obj|safe }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="mb-4">
+      {% for para in lesson.content %}
+      <p class="text-secondary-custom">{{ para|safe }}</p>
+      {% endfor %}
+    </section>
+
+    <section class="mb-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+        <h2 class="h5 fw-bold mb-0">{{ ui.tutorial_page.code_title }}</h2>
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-afr-outline btn-sm" id="copy-lesson-code">{{ ui.tutorial_page.copy }}</button>
+          <button type="button" class="btn btn-afr-primary btn-sm" id="try-playground"
+                  data-code="{{ lesson.code|escape }}"
+                  data-slug="{{ lesson.playground_slug }}">
+            ▶ {{ ui.tutorial_page.try_playground }}
+          </button>
+        </div>
+      </div>
+      <div class="code-panel">
+        <div class="code-panel-header"><span>lesson{{ lesson.step }}.afr</span></div>
+        <pre id="lesson-code">{{ lesson.code }}</pre>
+      </div>
+    </section>
+
+    <section class="mb-4">
+      <div class="docs-callout docs-callout-warning">
+        <strong>{{ ui.tutorial_page.challenge }}</strong>
+        <p class="mb-0 small mt-1">{{ lesson.challenge|safe }}</p>
+      </div>
+    </section>
+
+    <div class="d-flex flex-wrap justify-content-between gap-3 pt-3 border-top tutorial-nav-footer">
+      {% if prev_step %}
+      <a href="{% url 'tutorial_step' prev_step %}" class="btn btn-afr-outline">← {{ ui.tutorial_page.prev }}</a>
+      {% else %}
+      <a href="{% url 'tutorial' %}" class="btn btn-afr-outline">← {{ ui.tutorial_page.overview }}</a>
+      {% endif %}
+      <button type="button" class="btn btn-afr-outline" id="mark-complete" data-step="{{ lesson.step }}">
+        {{ ui.tutorial_page.mark_done }}
+      </button>
+      {% if next_step %}
+      <a href="{% url 'tutorial_step' next_step %}" class="btn btn-afr-primary">{{ ui.tutorial_page.next }} →</a>
+      {% else %}
+      <a href="{% url 'download' %}" class="btn btn-afr-primary">{{ ui.tutorial_page.finish }} →</a>
+      {% endif %}
+    </div>
+
+    <p class="small text-secondary-custom mt-3">
+      <a href="{% url lesson.doc_url %}">{{ ui.tutorial_page.read_doc }}</a>
+    </p>
+
+    {% else %}
+    <div class="mb-4">
+      <div class="section-label">{{ ui.tutorial_page.label }}</div>
+      <h1 class="h2 fw-bold mb-2">{{ ui.tutorial_page.h1 }}</h1>
+      <p class="lead text-secondary-custom">{{ ui.tutorial_page.lead }}</p>
+    </div>
+
+    <div class="tutorial-progress mb-2" style="height:8px">
+      <div class="tutorial-progress-bar" id="tutorial-progress-bar" style="width:0%"></div>
+    </div>
+    <p class="small text-secondary-custom mb-4" id="tutorial-progress-text">0 / {{ total_steps }} {{ ui.tutorial_page.completed }}</p>
+
+    <div class="row g-3">
+      {% for lesson in lessons %}
+      <div class="col-md-6">
+        <a href="{% url 'tutorial_step' lesson.step %}" class="text-decoration-none">
+          <article class="afr-feature-card h-100 tutorial-overview-card" data-step="{{ lesson.step }}">
+            <div class="d-flex align-items-start gap-3">
+              <span class="tutorial-step-num tutorial-step-num-lg">{{ lesson.step }}</span>
+              <div>
+                <h2 class="h6 fw-bold mb-1">{{ lesson.title }}</h2>
+                <p class="small text-secondary-custom mb-2">{{ lesson.summary }}</p>
+                <span class="badge text-bg-light border">~{{ lesson.duration_min }} min</span>
+                <span class="tutorial-step-check ms-2" data-step-check="{{ lesson.step }}">✓</span>
+              </div>
+            </div>
+          </article>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="{% url 'tutorial_step' 1 %}" class="btn btn-afr-primary btn-lg">{{ ui.tutorial_page.start }}</a>
+    </div>
+    {% endif %}
+  </article>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.AFR_TUTORIAL = { totalSteps: {{ total_steps }}, currentStep: {{ current_step|default:0 }} };
+</script>
+<script src="{% static 'js/tutorial.js' %}"></script>
+{% endblock %}
