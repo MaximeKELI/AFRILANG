@@ -53,23 +53,15 @@ generator function prepend(v list number, head number) returns list number
     end
 end
 
-function foodX(seed number) returns number
-    return randomRange(1, W - 2)
-end
-
-function foodY(seed number) returns number
-    return randomRange(1, H - 2)
-end
-
-function placeFood(xs list number, ys list number, seed number) returns list number
+function placeFood(xs list number, ys list number, seed number, w number, h number) returns list number
     create s number = seed
     create fx number = 1
     create fy number = 1
     repeat 200 times
         set s = seedRandom(s)
-        set fx = randomRange(1, W - 2)
+        set fx = randomRange(1, w - 2)
         set s = seedRandom(s)
-        set fy = randomRange(1, H - 2)
+        set fy = randomRange(1, h - 2)
         if contains(xs, ys, fx, fy) is equal to false then
             return list of fx, fy, s
         end
@@ -77,27 +69,27 @@ function placeFood(xs list number, ys list number, seed number) returns list num
     return list of fx, fy, s
 end
 
-function render(xs list number, ys list number, fx number, fy number, score number, step number) returns text
+function render(xs list number, ys list number, fx number, fy number, score number, step number, w number, h number, maxSteps number) returns text
     create out text = ""
-    set out = out + "AFRILANG Snake  |  score={score}  step={step}/{MAX_STEPS}\n"
+    set out = out + "AFRILANG Snake  |  score={score}  step={step}/{maxSteps}\n"
     set out = out + "Moves: W/A/S/D (editez la variable moves)  |  Q quit\n\n"
 
     create y number = 0
-    while y is less than H do
+    while y is less than h do
         create row text = ""
         create x number = 0
-        while x is less than W do
+        while x is less than w do
             create wall bool = no
             if y is equal to 0 then
                 set wall = yes
             end
-            if y is equal to (H - 1) then
+            if y is equal to (h - 1) then
                 set wall = yes
             end
             if x is equal to 0 then
                 set wall = yes
             end
-            if x is equal to (W - 1) then
+            if x is equal to (w - 1) then
                 set wall = yes
             end
 
@@ -204,7 +196,7 @@ create dirY number = 0
 
 create score number = 0
 
-create food = placeFood(xs, ys, seed)
+create food = placeFood(xs, ys, seed, W, H)
 create fx number = food at 0
 create fy number = food at 1
 set seed = food at 2
@@ -217,7 +209,7 @@ while step is less than MAX_STEPS do
         say ""
     end
 
-    say render(xs, ys, fx, fy, score, step)
+    say render(xs, ys, fx, fy, score, step, W, H, MAX_STEPS)
 
     if step is less than length of moves then
         create c = moves at step
@@ -264,7 +256,7 @@ while step is less than MAX_STEPS do
     if grow then
         set xs = prepend(xs, newX)
         set ys = prepend(ys, newY)
-        create food2 = placeFood(xs, ys, seed)
+        create food2 = placeFood(xs, ys, seed, W, H)
         set fx = food2 at 0
         set fy = food2 at 1
         set seed = food2 at 2
