@@ -403,6 +403,8 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("clearBackground", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
     fns.push_back(makeStubFunction("drawText", {{"text", "text"}, {"x", "number"}, {"y", "number"}, {"size", "number"}}, ""));
     fns.push_back(makeStubFunction("drawButton", {{"label", "text"}, {"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("isKeyDown", {{"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("wasKeyPressed", {{"key", "text"}}, "bool"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
 }

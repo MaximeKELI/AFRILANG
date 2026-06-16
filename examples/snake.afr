@@ -162,20 +162,36 @@ while isOpen() do
     if paused is equal to false then
         if gameOver is equal to false then
             create left bool = isKeyDown("Left")
-            if left is equal to false then left = isKeyDown("A") end
-            if left is equal to false then left = isKeyDown("a") end
+            if left is equal to false then
+                set left = isKeyDown("A")
+            end
+            if left is equal to false then
+                set left = isKeyDown("a")
+            end
 
             create right bool = isKeyDown("Right")
-            if right is equal to false then right = isKeyDown("D") end
-            if right is equal to false then right = isKeyDown("d") end
+            if right is equal to false then
+                set right = isKeyDown("D")
+            end
+            if right is equal to false then
+                set right = isKeyDown("d")
+            end
 
             create up bool = isKeyDown("Up")
-            if up is equal to false then up = isKeyDown("W") end
-            if up is equal to false then up = isKeyDown("w") end
+            if up is equal to false then
+                set up = isKeyDown("W")
+            end
+            if up is equal to false then
+                set up = isKeyDown("w")
+            end
 
             create down bool = isKeyDown("Down")
-            if down is equal to false then down = isKeyDown("S") end
-            if down is equal to false then down = isKeyDown("s") end
+            if down is equal to false then
+                set down = isKeyDown("S")
+            end
+            if down is equal to false then
+                set down = isKeyDown("s")
+            end
 
             if left then
                 if dirX is equal to 1 then
