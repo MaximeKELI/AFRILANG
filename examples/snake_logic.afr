@@ -48,26 +48,33 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
     return list of fx, fy
 end
 
-function resetGame(xs list number, ys list number, w number, h number) returns list number
+function snakeStartCoords(w number, h number) returns list number
+    create startX number = w / 2
+    create startY number = h / 2
+    return list of startX, startX - 1, startX - 2, startY, startY, startY
+end
+
+function resetGame(w number, h number) returns list number
     create snakeLen number = 3
     create dirX number = 1
     create dirY number = 0
     create score number = 0
 
-    create startX number = w / 2
-    create startY number = h / 2
-    set xs at 0 = startX
-    set xs at 1 = startX - 1
-    set xs at 2 = startX - 2
-    set ys at 0 = startY
-    set ys at 1 = startY
-    set ys at 2 = startY
+    create coords = snakeStartCoords(w, h)
+    create x0 number = coords at 0
+    create x1 number = coords at 1
+    create x2 number = coords at 2
+    create y0 number = coords at 3
+    create y1 number = coords at 4
+    create y2 number = coords at 5
+    create tx list number = list of x0, x1, x2
+    create ty list number = list of y0, y1, y2
 
     resetTimer("move")
-    create food0 = placeFood(xs, ys, snakeLen, w, h)
+    create food0 = placeFood(tx, ty, snakeLen, w, h)
     create fx number = food0 at 0
     create fy number = food0 at 1
-    return list of snakeLen, dirX, dirY, score, fx, fy
+    return list of snakeLen, dirX, dirY, score, fx, fy, x0, x1, x2, y0, y1, y2
 end
 
 function moveMsForDifficulty(score number, difficulty number) returns number

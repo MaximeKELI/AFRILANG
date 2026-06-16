@@ -27,12 +27,12 @@ end
 
 test "resetGame pack shape"
     seedRandom(42)
-    create xs list number = list of 0, 0, 0
-    create ys list number = list of 0, 0, 0
-    create pack = resetGame(xs, ys, 12, 10)
+    create pack = resetGame(12, 10)
     assert pack at 0 is equal to 3
     assert pack at 1 is equal to 1
     assert pack at 3 is equal to 0
+    assert pack at 6 is equal to 6
+    assert pack at 9 is equal to 5
 end
 
 test "placeFood avoids snake body"
