@@ -2,6 +2,12 @@
  * Charge et exécute un module WASM Emscripten compilé par /api/build/wasm/.
  */
 async function runWasmInBrowser(sessionId, outputEl, statusEl, cfg) {
+  var canvasEl = document.getElementById('wasm-canvas');
+  if (canvasEl) {
+    canvasEl.style.display = 'block';
+    // ensure focus for keyboard events
+    setTimeout(() => canvasEl.focus(), 50);
+  }
   var base = (cfg?.urls?.wasmBase || '/api/wasm/') + encodeURIComponent(sessionId) + '/';
   var wasmUrl = base + 'module.wasm';
 
@@ -20,6 +26,7 @@ async function runWasmInBrowser(sessionId, outputEl, statusEl, cfg) {
         }
         var text = '';
         var module = await createAfrilangModule({
+          canvas: canvasEl || undefined,
           locateFile: function (path) {
             return path.endsWith('.wasm') ? wasmUrl : path;
           },

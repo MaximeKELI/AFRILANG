@@ -48,7 +48,10 @@
         <span class="small text-secondary-custom">{{ ui.playground_page.output }}</span>
         <button type="button" class="btn btn-afr-outline btn-sm" id="copyOutput">{{ ui.playground_page.copy_output }}</button>
       </div>
-      <pre id="output" class="card-body code-block mb-0 overflow-auto flex-grow-1 playground-output" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
+      <div class="card-body p-0 d-flex flex-column">
+        <canvas id="wasm-canvas" class="w-100" style="display:none; background:#0b1020; height: 420px; outline:none;" tabindex="0"></canvas>
+        <pre id="output" class="code-block mb-0 overflow-auto flex-grow-1 playground-output" role="log" aria-live="polite" style="min-height: 180px">{{ ui.playground_page.output_hint }}</pre>
+      </div>
     </div>
   </div>
 </div>
