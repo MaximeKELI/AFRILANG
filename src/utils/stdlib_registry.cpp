@@ -75,7 +75,7 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
            moduleName == "email" || moduleName == "uuid" ||
            moduleName == "async" || moduleName == "ui" || moduleName == "game2d" ||
-           moduleName == "game3d" || moduleName == "gamestate";
+           moduleName == "game3d" || moduleName == "gamestate" || moduleName == "gamenet";
 }
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
@@ -122,6 +122,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "game2d") return "game2d";
     if (normalized == "game3d") return "game3d";
     if (normalized == "gamestate") return "gamestate";
+    if (normalized == "gamenet") return "gamenet";
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
     if (normalized == "sql") return "sql";
@@ -225,6 +226,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "game2d") injectGame2dModule(program);
     else if (moduleName == "game3d") injectGame3dModule(program);
     else if (moduleName == "gamestate") injectGamestateModule(program);
+    else if (moduleName == "gamenet") injectGamenetModule(program);
     else injectCatalogModule(program, moduleName);
 }
 
