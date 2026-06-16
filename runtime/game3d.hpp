@@ -106,6 +106,9 @@ struct Game3dContext {
     double animTimeMs = 0;
     double followSmooth = 0.12;
     std::string followTarget;
+    GLdouble lastModelView[16]{};
+    GLdouble lastProjection[16]{};
+    GLint lastViewport[4]{};
     std::unordered_map<std::string, Texture3d> textures;
     std::unordered_map<std::string, ObjModel> models;
     std::unordered_map<std::string, RigidBody> bodies;
@@ -324,6 +327,10 @@ inline void applyCamera() {
     const double lookZ = ctx.camZ - std::cos(yawRad) * std::cos(pitchRad);
 
     gluLookAt(ctx.camX, ctx.camY, ctx.camZ, lookX, lookY, lookZ, 0, 1, 0);
+
+    glGetDoublev(GL_MODELVIEW_MATRIX, ctx.lastModelView);
+    glGetDoublev(GL_PROJECTION_MATRIX, ctx.lastProjection);
+    glGetIntegerv(GL_VIEWPORT, ctx.lastViewport);
 }
 
 inline void updateFlyCamera(double moveSpeed, double turnSpeed) {
@@ -1139,6 +1146,73 @@ inline void drawModelLit(const std::string& name, double x, double y, double z,
     glEnd();
     glPopMatrix();
     if (textured) unbindTexture3d();
+}
+
+inline bool rayFromScreen(double sx, double sy,
+                          double& ox, double& oy, double& oz,
+                          double& dx, double& dy, double& dz) {
+    Game3dContext& ctx = context();
+    const GLdouble* MV = ctx.lastModelView;
+    const GLdouble* PR = ctx.lastProjection;
+    const GLint* VP = ctx.lastViewport;
+    if (VP[2] <= 0 || VP[3] <= 0) return false;
+
+    const GLdouble x = sx;
+    const GLdouble y = static_cast<GLdouble>(VP[3]) - sy;
+
+    GLdouble nx, ny, nz;
+    GLdouble fx, fy, fz;
+    if (gluUnProject(x, y, 0.0, MV, PR, VP, &nx, &ny, &nz) == GL_FALSE) return false;
+    if (gluUnProject(x, y, 1.0, MV, PR, VP, &fx, &fy, &fz) == GL_FALSE) return false;
+
+    ox = nx; oy = ny; oz = nz;
+    dx = fx - nx; dy = fy - ny; dz = fz - nz;
+    const double len = std::sqrt(dx * dx + dy * dy + dz * dz);
+    if (len < 1e-9) return false;
+    dx /= len; dy /= len; dz /= len;
+    return true;
+}
+
+inline bool raySphereHit(double ox, double oy, double oz,
+                         double dx, double dy, double dz,
+                         double cx, double cy, double cz, double radius,
+                         double& tHit) {
+    const double lx = cx - ox;
+    const double ly = cy - oy;
+    const double lz = cz - oz;
+    const double tca = lx * dx + ly * dy + lz * dz;
+    if (tca < 0) return false;
+    const double d2 = (lx * lx + ly * ly + lz * lz) - tca * tca;
+    const double r2 = radius * radius;
+    if (d2 > r2) return false;
+    const double thc = std::sqrt(std::max(0.0, r2 - d2));
+    const double t0 = tca - thc;
+    const double t1 = tca + thc;
+    tHit = t0 > 0 ? t0 : t1;
+    return tHit > 0;
+}
+
+inline double pickBody(double screenX, double screenY) {
+    double ox, oy, oz, dx, dy, dz;
+    if (!rayFromScreen(screenX, screenY, ox, oy, oz, dx, dy, dz)) return -1;
+
+    Game3dContext& ctx = context();
+    double bestT = 1e18;
+    int bestIndex = -1;
+    int idx = 0;
+    for (auto& [name, body] : ctx.bodies) {
+        (void)name;
+        if (!body.active) { idx++; continue; }
+        double t;
+        if (raySphereHit(ox, oy, oz, dx, dy, dz, body.px, body.py, body.pz, body.radius, t)) {
+            if (t < bestT) {
+                bestT = t;
+                bestIndex = idx;
+            }
+        }
+        idx++;
+    }
+    return static_cast<double>(bestIndex);
 }
 
 } // namespace afrilang::runtime::game3d

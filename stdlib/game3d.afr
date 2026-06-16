@@ -173,4 +173,7 @@ end
 
 function drawParticles()
 end
+
+function pickBody(screenX number, screenY number) returns number
+end
 end
