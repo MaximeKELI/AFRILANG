@@ -1,0 +1,13 @@
+<article class="afr-feature-card h-100">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    {% if ex.featured %}<span class="badge text-bg-warning text-dark">★</span>{% endif %}
+    <h3 class="h6 fw-bold mb-0">{{ ex.title }}</h3>
+  </div>
+  {% if ex.description %}
+  <p class="small text-secondary-custom">{{ ex.description|truncatewords:18 }}</p>
+  {% endif %}
+  <pre class="code-block small mb-3" style="max-height:100px;overflow:hidden;font-size:0.75rem">{{ ex.source|truncatewords:25 }}</pre>
+  <div class="d-flex gap-2 mt-auto">
+    <a class="btn btn-afr-primary btn-sm" href="{% url 'playground' %}?example={{ ex.slug }}">{{ ui.examples_page.try_btn }}</a>
+  </div>
+</article>

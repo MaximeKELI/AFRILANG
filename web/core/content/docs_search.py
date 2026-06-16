@@ -1,4 +1,4 @@
-"""Recherche plein texte dans la documentation bilingue."""
+"""Recherche plein texte dans la documentation bilingue et stdlib."""
 from __future__ import annotations
 
 import re
@@ -18,7 +18,7 @@ def _block_text(block: dict) -> str:
     if t == 'callout':
         return re.sub(r'<[^>]+>', ' ', str(block.get('html', '')))
     if t == 'table':
-        parts = block.get('headers', [])
+        parts = list(block.get('headers', []))
         for row in block.get('rows', []):
             parts.extend(str(c) for c in row)
         return ' '.join(parts)
@@ -50,5 +50,22 @@ def search_docs(query: str, lang: str) -> list[dict]:
             'url_name': slug_to_url.get(slug, 'docs_overview'),
             'title': title,
             'snippet': snippet,
+            'kind': 'doc',
         })
-    return results
+
+    try:
+        from core.models import StdlibModule
+        for mod in StdlibModule.objects.filter(
+            name__icontains=q
+        ) | StdlibModule.objects.filter(summary__icontains=q)[:15]:
+            results.append({
+                'url_name': None,
+                'stdlib_name': mod.name,
+                'title': f'std/{mod.name}',
+                'snippet': mod.summary or mod.import_path,
+                'kind': 'stdlib',
+            })
+    except Exception:
+        pass
+
+    return results[:40]

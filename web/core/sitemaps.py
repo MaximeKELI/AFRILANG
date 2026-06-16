@@ -17,6 +17,3 @@ class StaticViewSitemap(Sitemap):
         ]
         docs = [url_name for _, url_name in NAV_META]
         return views + docs
-
-    def location(self, item):
-        return reverse(item)

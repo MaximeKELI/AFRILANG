@@ -15,23 +15,24 @@
   </form>
 </div>
 
+{% if groups and not query %}
+  {% for group in groups %}
+  <section class="mb-5">
+    <h2 class="h5 fw-bold mb-3">{{ group.label }} <span class="badge text-bg-light border">{{ group.examples|length }}</span></h2>
+    <div class="row g-3">
+      {% for ex in group.examples %}
+      <div class="col-md-6 col-lg-4">
+        {% include 'includes/example_card.html' with ex=ex %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+{% else %}
 <div class="row g-3">
   {% for ex in examples %}
   <div class="col-md-6 col-lg-4">
-    <article class="afr-feature-card h-100">
-      <div class="d-flex align-items-center gap-2 mb-2">
-        {% if ex.featured %}<span class="badge text-bg-warning text-dark">★</span>{% endif %}
-        <h2 class="h5 fw-bold mb-0">{{ ex.title }}</h2>
-      </div>
-      {% if ex.description %}
-      <p class="small text-secondary-custom">{{ ex.description|truncatewords:20 }}</p>
-      {% endif %}
-      <pre class="code-block small mb-3" style="max-height:120px;overflow:hidden">{{ ex.source|truncatewords:30 }}</pre>
-      <div class="d-flex gap-2 mt-auto">
-        <a class="btn btn-afr-primary btn-sm" href="{% url 'playground' %}?example={{ ex.slug }}">{{ ui.examples_page.try_btn }}</a>
-        <a class="btn btn-afr-outline btn-sm" href="{% url 'api_example' ex.slug %}" target="_blank" rel="noopener">JSON</a>
-      </div>
-    </article>
+    {% include 'includes/example_card.html' with ex=ex %}
   </div>
   {% empty %}
   <div class="col-12">
@@ -39,4 +40,5 @@
   </div>
   {% endfor %}
 </div>
+{% endif %}
 {% endblock %}

@@ -16,10 +16,19 @@
   {% endif %}
 </div>
 
+{% if doc %}
+<div class="afr-card mb-4">
+  <div class="card-header small fw-bold">API — docs/STDLIB</div>
+  <div class="card-body docs-content small">
+    <pre class="code-block mb-0" style="white-space:pre-wrap;background:transparent;color:inherit">{{ doc.body }}</pre>
+  </div>
+</div>
+{% endif %}
+
 <div class="afr-card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <span class="small text-secondary-custom">{{ mod.name }}.afr</span>
-    <a class="btn btn-afr-outline btn-sm" href="{% url 'playground' %}?example=hello">{{ ui.stdlib_page.try_playground }}</a>
+    <a class="btn btn-afr-outline btn-sm" href="{% url 'playground' %}?example=stdlib-demo">{{ ui.stdlib_page.try_playground }}</a>
   </div>
   <pre class="card-body code-block mb-0 overflow-auto" style="max-height:520px">{{ source }}</pre>
 </div>
