@@ -19,6 +19,8 @@ struct UiContext {
     int mouseX = 0;
     int mouseY = 0;
     bool clickThisFrame = false;
+    bool mouseDown = false;
+    bool mousePressed = false;
     bool keys[SDL_NUM_SCANCODES]{};
     bool pressed[SDL_NUM_SCANCODES]{};
     Uint32 lastFrameTicks = 0;
@@ -117,6 +119,7 @@ inline bool isOpen() {
 inline void pollEvents() {
     UiContext& ctx = context();
     ctx.clickThisFrame = false;
+    ctx.mousePressed = false;
     for (int i = 0; i < SDL_NUM_SCANCODES; ++i) {
         ctx.pressed[i] = false;
     }
@@ -129,6 +132,12 @@ inline void pollEvents() {
             ctx.mouseX = event.button.x;
             ctx.mouseY = event.button.y;
             ctx.clickThisFrame = true;
+            ctx.mouseDown = true;
+            ctx.mousePressed = true;
+        } else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_LEFT) {
+            ctx.mouseX = event.button.x;
+            ctx.mouseY = event.button.y;
+            ctx.mouseDown = false;
         } else if (event.type == SDL_MOUSEMOTION) {
             ctx.mouseX = event.motion.x;
             ctx.mouseY = event.motion.y;
@@ -167,6 +176,26 @@ inline double windowWidth() {
 
 inline double windowHeight() {
     return static_cast<double>(context().windowH);
+}
+
+inline double mouseX() {
+    return static_cast<double>(context().mouseX);
+}
+
+inline double mouseY() {
+    return static_cast<double>(context().mouseY);
+}
+
+inline bool isMouseDown() {
+    return context().mouseDown;
+}
+
+inline bool wasMousePressed() {
+    return context().mousePressed;
+}
+
+inline bool wasMouseClicked() {
+    return context().clickThisFrame;
 }
 
 inline void clearBackground(double r, double g, double b) {
