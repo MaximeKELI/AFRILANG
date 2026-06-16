@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ current_lang }}" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  (function () {
+    var stored = localStorage.getItem('afr_theme');
+    var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) {
+      document.documentElement.setAttribute('data-afr-theme', 'dark');
+      document.documentElement.setAttribute('data-bs-theme', 'dark');
+    }
+  })();
+  </script>
+  <title>{{ ui.playground_embed_page.widget_title }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/embed.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/dracula.min.css" crossorigin="anonymous">
+</head>
+<body class="afr-body afr-embed-body">
+  {{ examples_map|json_script:"examples-data" }}
+
+  <div class="afr-embed-shell">
+    <header class="afr-embed-header">
+      <a href="{% url 'home' %}" target="_blank" rel="noopener noreferrer" class="afr-embed-brand">
+        <img src="{% static 'img/icon.png' %}" alt="" width="22" height="22">
+        <span>AFRILANG</span>
+      </a>
+      {% if show_examples %}
+      <label class="visually-hidden" for="examples">{{ ui.playground_page.example }}</label>
+      <select id="examples" class="form-select form-select-sm afr-embed-select" aria-label="{{ ui.playground_page.example }}">
+        {% for ex in examples %}
+        <option value="{{ ex.slug }}" {% if initial_slug == ex.slug %}selected{% endif %}>{{ ex.title }}</option>
+        {% endfor %}
+      </select>
+      {% endif %}
+      <div class="afr-embed-actions">
+        <button type="button" class="btn btn-afr-primary btn-sm" id="run">▶ {{ ui.playground_page.run }}</button>
+        <button type="button" class="btn btn-afr-outline btn-sm" id="runBrowser">⚡</button>
+        <button type="button" class="btn btn-afr-outline btn-sm" id="check">{{ ui.playground_page.check }}</button>
+        <span id="status" class="small text-secondary-custom" role="status" aria-live="polite"></span>
+      </div>
+    </header>
+
+    <div class="afr-embed-grid">
+      <div class="afr-embed-editor playground-card">
+        <label for="editor" class="visually-hidden">AFRILANG source</label>
+        <div class="playground-cm-wrap">
+          <textarea id="editor" spellcheck="false">say "Hello from AFRILANG!"</textarea>
+        </div>
+      </div>
+      <div class="afr-embed-output">
+        <div class="afr-embed-output-header">
+          <span class="small text-secondary-custom">{{ ui.playground_page.output }}</span>
+          <button type="button" class="btn btn-afr-outline btn-sm py-0" id="copyOutput">{{ ui.playground_page.copy_output }}</button>
+        </div>
+        <pre id="output" class="playground-output mb-0" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/afrilang-cm-mode.js' %}"></script>
+  <script src="{% static 'js/compiler-client.js' %}"></script>
+  <script>
+  window.AFR_PLAYGROUND = {
+    examples: JSON.parse(document.getElementById('examples-data')?.textContent || '{}'),
+    initialSlug: {% if initial_slug %}"{{ initial_slug|escapejs }}"{% else %}null{% endif %},
+    initialCode: {% if initial_code %}{{ initial_code|escapejs|safe }}{% else %}null{% endif %},
+    embedMode: true,
+    urls: {
+      run: '{% url "api_run" %}',
+      compileJs: '{% url "api_compile_js" %}',
+      buildWasm: '{% url "api_build_wasm" %}',
+      wasmBase: '/api/wasm/',
+      compilerJs: '{% static "compiler/afrilang-compiler.js" %}',
+      fmt: '{% url "api_fmt" %}',
+      check: '{% url "api_check" %}',
+    },
+  };
+  </script>
+  <script src="{% static 'js/playground.js' %}"></script>
+</body>
+</html>
