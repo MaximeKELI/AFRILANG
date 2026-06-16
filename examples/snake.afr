@@ -283,6 +283,11 @@ while isOpen() do
     clearBackground(20, 20, 28)
     drawText(render(xs, ys, snakeLen, fx, fy, score, W, H), 20, 20, 18)
 
+    # Diagnostic visuel: un gros bouton doit être visible même si le texte échoue.
+    if drawButton("TEST RENDER", 20, 560, 240, 60) then
+        set score = score + 10
+    end
+
     if paused then
         drawText("PAUSE", 700, 20, 22)
     end

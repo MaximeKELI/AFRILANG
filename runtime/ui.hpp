@@ -157,6 +157,13 @@ inline void clearBackground(double r, double g, double b) {
                            static_cast<Uint8>(b),
                            255);
     SDL_RenderClear(ctx.renderer);
+
+    // Diagnostic: always draw a visible marker in the corner.
+    // If you don't see it, rendering/present is not working.
+    SDL_SetRenderDrawColor(ctx.renderer, 255, 0, 70, 255);
+    SDL_RenderDrawPoint(ctx.renderer, 5, 5);
+    SDL_Rect marker{8, 3, 10, 10};
+    SDL_RenderFillRect(ctx.renderer, &marker);
 }
 
 inline void drawText(const std::string& text, double x, double y, double fontSize) {
