@@ -60,18 +60,15 @@ inline void openWindow(const std::string& title, double width, double height) {
     const int w = static_cast<int>(width);
     const int h = static_cast<int>(height);
 
-    // Prefer a renderer that actually exists on the machine.
-    // Some environments show a window but fail to create a renderer (leading to a black screen).
-    SDL_SetHint(SDL_HINT_RENDER_DRIVER, "software");
-    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
-
-    if (SDL_CreateWindowAndRenderer(w, h, SDL_WINDOW_SHOWN, &ctx.window, &ctx.renderer) != 0) {
+    Uint32 flags = SDL_WINDOW_SHOWN;
+    if (SDL_CreateWindowAndRenderer(w, h, flags, &ctx.window, &ctx.renderer) != 0) {
         ctx.window = SDL_CreateWindow(
-            title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
+            title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, flags);
         if (ctx.window) {
-            ctx.renderer = SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_SOFTWARE);
+            ctx.renderer = SDL_CreateRenderer(
+                ctx.window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
             if (!ctx.renderer) {
-                ctx.renderer = SDL_CreateRenderer(ctx.window, -1, 0);
+                ctx.renderer = SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_SOFTWARE);
             }
         }
     }
@@ -157,13 +154,6 @@ inline void clearBackground(double r, double g, double b) {
                            static_cast<Uint8>(b),
                            255);
     SDL_RenderClear(ctx.renderer);
-
-    // Diagnostic: always draw a visible marker in the corner.
-    // If you don't see it, rendering/present is not working.
-    SDL_SetRenderDrawColor(ctx.renderer, 255, 0, 70, 255);
-    SDL_RenderDrawPoint(ctx.renderer, 5, 5);
-    SDL_Rect marker{8, 3, 10, 10};
-    SDL_RenderFillRect(ctx.renderer, &marker);
 }
 
 inline void drawText(const std::string& text, double x, double y, double fontSize) {
