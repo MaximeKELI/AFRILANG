@@ -21,6 +21,54 @@ MODULES: list[tuple] = []
 def cx(name: str, funcs: list) -> None:
     MODULES.append((name, name, funcs))
 
+def add_ultra_gis_modules(count: int) -> None:
+    """Add lots of geomatics / remote-sensing / GIS complex modules in std/c/.
+
+    Design goals:
+    - Numeric/list-only APIs (AFRILANG-friendly)
+    - Self-contained C++ bodies (no extra deps)
+    - Each module exposes a small, useful cluster of raster/vector helpers
+    """
+    for i in range(1, count + 1):
+        name = f"gisultra{i:03d}"
+        # Small per-module variation to keep modules distinct
+        k = 0.6 + (i % 23) * 0.03
+        sunAz = (i % 360) * 1.0
+        sunAlt = 35.0 + (i % 41) * 0.5
+
+        cx(name, [
+            # Compute NDVI pixelwise: (nir - red) / (nir + red). Returns list with same length as inputs.
+            ('ndviRaster', 'list number',
+             [('nir', 'list number'), ('red', 'list number')],
+             '{std::size_t n=std::min(nir.size(), red.size());'
+             'std::vector<double> out;out.resize(n);'
+             'for(std::size_t i=0;i<n;++i){double a=nir[i],b=red[i];double d=a+b;out[i]=(std::fabs(d)<1e-12)?0.0:((a-b)/d);}return out;}'),
+
+            # Box filter mean around (x,y) with radius r on a raster stored row-major.
+            ('rasterWindowMean', 'number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'),
+              ('x', 'number'), ('y', 'number'), ('r', 'number')],
+             '{int W=(int)w,H=(int)h;int X=(int)x,Y=(int)y;int R=(int)r;'
+             'if(W<=0||H<=0||R<0)return 0;auto in=[&](int xx,int yy){return xx>=0&&yy>=0&&xx<W&&yy<H;};'
+             'if(!in(X,Y))return 0;double s=0;int c=0;'
+             'for(int yy=Y-R;yy<=Y+R;++yy){for(int xx=X-R;xx<=X+R;++xx){if(!in(xx,yy))continue;'
+             'std::size_t k=(std::size_t)(yy*W+xx);if(k>=grid.size())continue;s+=grid[k];++c;}}'
+             'return c==0?0:(s/(double)c);}'),
+
+            # Lightweight hillshade factor per cell from slope/aspect rasters (degrees).
+            # Returns list length = min(slope.size, aspect.size).
+            ('hillshadeRaster', 'list number',
+             [('slopeDeg', 'list number'), ('aspectDeg', 'list number')],
+             f'{{std::size_t n=std::min(slopeDeg.size(), aspectDeg.size());'
+             'std::vector<double> out;out.resize(n);'
+             f'double az={sunAz:.6f}*3.141592653589793/180.0;'
+             f'double alt={sunAlt:.6f}*3.141592653589793/180.0;'
+             'for(std::size_t i=0;i<n;++i){double s=slopeDeg[i]*3.141592653589793/180.0;'
+             'double a=aspectDeg[i]*3.141592653589793/180.0;'
+             f'double v=std::cos(s)*std::sin(alt)+std::sin(s)*std::cos(alt)*std::cos(az-a);'
+             f'v = v*{k:.6f}; out[i]=v<0?0:(v>1?1:v);}return out;}}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -3819,6 +3867,9 @@ add_ultra_game3d_modules(500)
 
 # Add 500 ultra complex 3D PRO game modules in std/c/
 add_ultra_game3dpro_modules(500)
+
+# Add 500 ultra complex geomatics / remote-sensing / GIS modules in std/c/
+add_ultra_gis_modules(500)
 
 
 def main() -> None:
