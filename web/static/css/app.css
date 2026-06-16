@@ -1056,6 +1056,23 @@ body.afr-body.afr-loaded main {
   opacity: 0.9;
 }
 
+.stdlib-guide-body {
+  white-space: pre-wrap;
+  font-size: 0.88rem;
+  max-height: none;
+}
+
+@media print {
+  .stdlib-guide-section.page-break {
+    page-break-before: always;
+  }
+  .stdlib-guide-print .no-print,
+  .afr-navbar,
+  .afr-footer {
+    display: none !important;
+  }
+}
+
 .afr-error-code-500 {
   background: linear-gradient(135deg, #dc2626, #f97316);
   -webkit-background-clip: text;

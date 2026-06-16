@@ -4,21 +4,51 @@
 {% block content %}
 <nav aria-label="breadcrumb" class="mb-3">
   <ol class="breadcrumb small">
+    <li class="breadcrumb-item"><a href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a></li>
     <li class="breadcrumb-item"><a href="{% url 'stdlib' %}">{{ ui.stdlib_page.h1 }}</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{ mod.name }}</li>
   </ol>
 </nav>
 
 <div class="mb-4">
+  <div class="d-flex flex-wrap gap-2 mb-2">
+    {% if category %}<span class="badge text-bg-light border">{{ category.label }}</span>{% endif %}
+    <span class="badge text-bg-light border">{{ mod.tier }}</span>
+    <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
+  </div>
   <h1 class="h2 fw-bold mb-1"><code>import "{{ mod.import_path }}"</code></h1>
-  {% if mod.summary %}
-  <p class="text-secondary-custom mb-0">{{ ui.stdlib_page.exports }}: {{ mod.summary }}</p>
-  {% endif %}
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr }}{% else %}{{ mod.description_fr|default:mod.description_en }}{% endif %}</p>
 </div>
+
+<div class="d-flex flex-wrap gap-2 mb-4">
+  <a href="{% url 'stdlib_guide' mod.name %}" class="btn btn-afr-primary btn-sm">{{ ui.libraries_page.guide }}</a>
+  <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-outline btn-sm">↓ PDF (5+ {{ ui.libraries_page.pages }})</a>
+  <a href="{% url 'playground' %}?example=stdlib-demo" class="btn btn-afr-outline btn-sm">{{ ui.stdlib_page.try_playground }}</a>
+</div>
+
+{% if functions %}
+<section class="mb-4">
+  <h2 class="h5 fw-bold mb-3">{{ ui.libraries_page.api_title }}</h2>
+  <div class="table-responsive">
+    <table class="table table-sm align-middle">
+      <thead><tr><th>{{ ui.libraries_page.fn_name }}</th><th>{{ ui.libraries_page.fn_params }}</th><th>{{ ui.libraries_page.fn_returns }}</th></tr></thead>
+      <tbody>
+        {% for fn in functions %}
+        <tr>
+          <td><code>{{ fn.name }}</code></td>
+          <td class="small text-secondary-custom">{{ fn.params|join:", " }}</td>
+          <td><code>{{ fn.returns }}</code></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
 
 {% if doc %}
 <div class="afr-card mb-4">
-  <div class="card-header small fw-bold">API — docs/STDLIB</div>
+  <div class="card-header small fw-bold">docs/STDLIB</div>
   <div class="card-body docs-content small">
     <pre class="code-block mb-0" style="white-space:pre-wrap;background:transparent;color:inherit">{{ doc.body }}</pre>
   </div>
@@ -28,7 +58,6 @@
 <div class="afr-card">
   <div class="card-header d-flex justify-content-between align-items-center">
     <span class="small text-secondary-custom">{{ mod.name }}.afr</span>
-    <a class="btn btn-afr-outline btn-sm" href="{% url 'playground' %}?example=stdlib-demo">{{ ui.stdlib_page.try_playground }}</a>
   </div>
   <pre class="card-body code-block mb-0 overflow-auto" style="max-height:520px">{{ source }}</pre>
 </div>

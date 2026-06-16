@@ -8,27 +8,45 @@
     <h1 class="h2 fw-bold mb-1">{{ ui.stdlib_page.h1 }}</h1>
     <p class="text-secondary-custom mb-0">{{ ui.stdlib_page.lead }}</p>
   </div>
-  <form method="get" class="d-flex gap-2" style="min-width:280px" role="search">
+  <form method="get" class="d-flex gap-2 flex-wrap" style="min-width:280px" role="search">
+    {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
     <label for="std-search" class="visually-hidden">{{ ui.stdlib_page.search }}</label>
     <input id="std-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.stdlib_page.search }}">
     <button type="submit" class="btn btn-afr-primary">{{ ui.stdlib_page.filter }}</button>
   </form>
 </div>
 
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <a href="{% url 'stdlib' %}" class="btn btn-sm {% if not category %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.all }}</a>
+  {% for cat in categories %}
+  <a href="{% url 'stdlib' %}?category={{ cat.id }}" class="btn btn-sm {% if category == cat.id %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ cat.label }}</a>
+  {% endfor %}
+  <a href="{% url 'libraries' %}" class="btn btn-sm btn-afr-outline ms-auto">{{ ui.nav_libraries }}</a>
+</div>
+
 <p class="small text-secondary-custom mb-3">{{ modules|length }} {{ ui.stdlib_page.count_label }}</p>
 
+{% if grouped and not query %}
+  {% for g in grouped %}
+  <section class="mb-4">
+    <h2 class="h6 fw-bold text-uppercase text-secondary-custom mb-2" style="font-size:0.75rem;letter-spacing:0.05em">{{ g.label }} ({{ g.count }})</h2>
+    <div class="row g-2">
+      {% for mod in g.modules %}
+      <div class="col-md-6 col-lg-4">
+        {% include 'includes/stdlib_card.html' with mod=mod %}
+      </div>
+      {% endfor %}
+      {% if g.count > 6 %}
+      <div class="col-12"><a href="{% url 'stdlib' %}?category={{ g.id }}" class="small">{{ ui.stdlib_page.view_category }} →</a></div>
+      {% endif %}
+    </div>
+  </section>
+  {% endfor %}
+{% else %}
 <div class="row g-2">
   {% for mod in modules %}
   <div class="col-md-6 col-lg-4">
-    <a href="{% url 'stdlib_detail' mod.name %}" class="text-decoration-none">
-      <article class="afr-feature-card h-100 py-3 px-3">
-        <code class="fw-bold text-primary">import "{{ mod.import_path }}"</code>
-        {% if mod.summary %}
-        <p class="small text-secondary-custom mb-1 mt-2">{{ mod.summary }}</p>
-        {% endif %}
-        <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
-      </article>
-    </a>
+    {% include 'includes/stdlib_card.html' with mod=mod %}
   </div>
   {% empty %}
   <div class="col-12">
@@ -36,4 +54,5 @@
   </div>
   {% endfor %}
 </div>
+{% endif %}
 {% endblock %}

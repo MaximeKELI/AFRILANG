@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{{ mod.import_path }} — {{ ui.libraries_page.guide_title }}{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb small">
+    <li class="breadcrumb-item"><a href="{% url 'libraries' %}">{{ ui.libraries_page.h1 }}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'stdlib_detail' mod.name %}">{{ mod.name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ ui.libraries_page.guide }}</li>
+  </ol>
+</nav>
+
+<div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4 no-print">
+  <div>
+    <h1 class="h2 fw-bold mb-1"><code>{{ mod.import_path }}</code></h1>
+    <p class="text-secondary-custom mb-0">{{ ui.libraries_page.guide_lead }}</p>
+  </div>
+  <div class="d-flex gap-2">
+    <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-primary btn-sm">↓ PDF</a>
+    <button type="button" class="btn btn-afr-outline btn-sm" onclick="window.print()">{{ ui.libraries_page.print }}</button>
+  </div>
+</div>
+
+<div class="stdlib-guide-print">
+  {% for sec in sections %}
+  <section class="stdlib-guide-section mb-5 {% if not forloop.first %}page-break{% endif %}">
+    <h2 class="h4 fw-bold mb-3">{{ sec.title }}</h2>
+    <pre class="code-block stdlib-guide-body">{{ sec.body }}</pre>
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}
+

@@ -102,7 +102,7 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'examples' %}active{% endif %}" href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' %}active{% endif %}" href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' or request.resolver_match.url_name == 'libraries' %}active{% endif %}" href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' %}active{% endif %}" href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a>
@@ -160,6 +160,7 @@
           <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
           <a href="{% url 'docs_stdlib' %}">{{ docs_nav.6.title }}</a>
           <a href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
+          <a href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a>
           <a href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
           <a href="{% url 'playground' %}">Playground</a>
         </div>

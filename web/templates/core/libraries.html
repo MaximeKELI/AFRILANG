@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.libraries_page.title }}{% endblock %}
+{% block meta %}{{ ui.libraries_page.lead }}{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <div class="section-label">{{ ui.libraries_page.label }}</div>
+  <h1 class="h2 fw-bold mb-2">{{ ui.libraries_page.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.libraries_page.lead }}</p>
+  <p class="small text-secondary-custom mb-0">
+    {{ total }} {{ ui.libraries_page.count_label }}
+    · {{ pdf_count }} PDF
+  </p>
+</div>
+
+{% for group in groups %}
+<section class="mb-5 afr-reveal" id="cat-{{ group.id }}">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h5 fw-bold mb-0">
+      {{ group.label }}
+      <span class="badge text-bg-light border">{{ group.count }}</span>
+    </h2>
+    <a href="{% url 'stdlib' %}?category={{ group.id }}" class="small">{{ ui.libraries_page.view_all }} →</a>
+  </div>
+  <p class="small text-secondary-custom">{{ group.description }}</p>
+  <div class="row g-2">
+    {% for mod in group.modules %}
+    <div class="col-md-6 col-lg-4">
+      <article class="afr-feature-card h-100 py-3 px-3">
+        <a href="{% url 'stdlib_detail' mod.name %}" class="text-decoration-none">
+          <code class="fw-bold text-primary">import "{{ mod.import_path }}"</code>
+        </a>
+        <p class="small text-secondary-custom mt-2 mb-2">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr|truncatewords:28 }}{% else %}{{ mod.description_fr|default:mod.description_en|truncatewords:28 }}{% endif %}</p>
+        <div class="d-flex flex-wrap gap-1 align-items-center">
+          <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
+          <span class="badge text-bg-light border">{{ mod.tier }}</span>
+          {% if mod.has_pdf %}
+          <a href="{% url 'stdlib_pdf' mod.name %}" class="badge text-bg-primary text-decoration-none">PDF</a>
+          {% endif %}
+          <a href="{% url 'stdlib_guide' mod.name %}" class="small ms-auto">{{ ui.libraries_page.guide }}</a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<div class="docs-callout">
+  <strong>{{ ui.libraries_page.pdf_note_title }}</strong>
+  <p class="small text-secondary-custom mb-2 mt-1">{{ ui.libraries_page.pdf_note }}</p>
+  <code class="small">python manage.py generate_stdlib_pdfs</code>
+</div>
+{% endblock %}

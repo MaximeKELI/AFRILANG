@@ -5,8 +5,8 @@ from pathlib import Path
 
 from django.conf import settings
 
-from core.services.stdlib_guide import build_guide_sections, guide_html
-from core.services.stdlib_meta import enrich_module, module_source_path, parse_module_source
+from core.services.stdlib_guide import build_guide_sections
+from core.services.stdlib_meta import module_source_path, parse_module_source
 
 PDF_DIR_NAME = 'stdlib_pdfs'
 
@@ -27,16 +27,29 @@ def resolve_pdf_path(name: str) -> Path | None:
     return path if path.is_file() else None
 
 
+def _sanitize(text: str) -> str:
+    return text.encode('latin-1', 'replace').decode('latin-1')
+
+
+def _write_block(pdf, text: str, *, h: float = 5, family: str = 'Helvetica', style: str = '', size: int = 11) -> None:
+    pdf.set_x(pdf.l_margin)
+    pdf.set_font(family, style, size)
+    w = pdf.epw
+    for raw in (text or '').splitlines() or ['']:
+        line = _sanitize(raw[:120])
+        if not line.strip():
+            pdf.ln(h * 0.4)
+            continue
+        pdf.set_x(pdf.l_margin)
+        pdf.multi_cell(w, h, line)
+
+
 def generate_pdf(mod, lang: str = 'fr') -> Path:
     src_path = module_source_path(mod.name)
     source = src_path.read_text(encoding='utf-8', errors='replace')
     parsed = parse_module_source(source)
     functions = parsed['functions']
     out = pdf_path_for(mod.name)
-
-    html_fr = guide_html(mod, source, functions, 'fr')
-    html_en = guide_html(mod, source, functions, 'en')
-    combined = f'{html_fr}<div style="page-break-before:always"></div>{html_en}'
 
     try:
         from fpdf import FPDF
@@ -46,50 +59,43 @@ def generate_pdf(mod, lang: str = 'fr') -> Path:
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
-    pdf.set_font('Helvetica', size=11)
 
     # Page de garde
-    pdf.set_font('Helvetica', 'B', 20)
-    pdf.cell(text='AFRILANG Stdlib')
-    pdf.ln(12)
-    pdf.set_font('Helvetica', 'B', 16)
-    pdf.multi_cell(0, 10, mod.import_path)
-    pdf.ln(8)
-    pdf.set_font('Helvetica', size=11)
-    pdf.multi_cell(0, 6, mod.description_fr[:800] if mod.description_fr else mod.summary)
-    pdf.ln(6)
-    pdf.set_font('Helvetica', size=10)
-    pdf.multi_cell(0, 5, f'Category: {mod.category} | Tier: {mod.tier} | Functions: {mod.function_count}')
+    _write_block(pdf, 'AFRILANG Stdlib', h=10, style='B', size=20)
+    pdf.ln(4)
+    _write_block(pdf, mod.import_path, h=8, style='B', size=16)
+    pdf.ln(4)
+    desc = mod.description_fr[:800] if mod.description_fr else mod.summary
+    _write_block(pdf, desc, h=6, size=11)
+    pdf.ln(4)
+    _write_block(
+        pdf,
+        f'Category: {mod.category} | Tier: {mod.tier} | Functions: {mod.function_count}',
+        h=5,
+        size=10,
+    )
     pdf.add_page()
 
     for lang_code in ('fr', 'en'):
         sections = build_guide_sections(mod, source, functions, lang_code)
         label = 'FRANCAIS' if lang_code == 'fr' else 'ENGLISH'
-        pdf.set_font('Helvetica', 'B', 14)
-        pdf.cell(text=label)
-        pdf.ln(10)
+        _write_block(pdf, label, h=8, style='B', size=14)
+        pdf.ln(4)
         for sec in sections:
-            pdf.set_font('Helvetica', 'B', 12)
-            pdf.multi_cell(0, 7, sec['title'])
+            _write_block(pdf, sec['title'], h=7, style='B', size=12)
             pdf.ln(2)
-            pdf.set_font('Courier', size=9)
-            for line in sec['body'].splitlines():
-                line = line[:110]
-                try:
-                    pdf.multi_cell(0, 4, line)
-                except Exception:
-                    pdf.multi_cell(0, 4, line.encode('latin-1', 'replace').decode('latin-1'))
-            pdf.ln(6)
+            _write_block(pdf, sec['body'], h=4, family='Courier', size=9)
+            pdf.ln(4)
         if lang_code == 'fr':
             pdf.add_page()
 
-    # Garantir au moins 5 pages
     while pdf.page_no() < 5:
         pdf.add_page()
-        pdf.set_font('Helvetica', size=10)
-        pdf.multi_cell(
-            0, 5,
+        _write_block(
+            pdf,
             f'AFRILANG — {mod.import_path} — appendix page {pdf.page_no()}',
+            h=5,
+            size=10,
         )
 
     pdf.output(str(out))
