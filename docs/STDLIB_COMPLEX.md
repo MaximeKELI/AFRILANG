@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**2710 modules** — `std/c/{nom}`
+**3210 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -24500,3 +24500,6503 @@
 - `threshold01(grid list number, w number, h number, t number) → list number`
 - `ndviMask(nir list number, red list number, thr number) → list number`
 - `smoothRaster(prev list number, cur list number, alpha number) → list number`
+
+## std/c/segultra001
+
+`import "std/c/segultra001"` · `use segultra001`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra002
+
+`import "std/c/segultra002"` · `use segultra002`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra003
+
+`import "std/c/segultra003"` · `use segultra003`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra004
+
+`import "std/c/segultra004"` · `use segultra004`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra005
+
+`import "std/c/segultra005"` · `use segultra005`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra006
+
+`import "std/c/segultra006"` · `use segultra006`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra007
+
+`import "std/c/segultra007"` · `use segultra007`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra008
+
+`import "std/c/segultra008"` · `use segultra008`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra009
+
+`import "std/c/segultra009"` · `use segultra009`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra010
+
+`import "std/c/segultra010"` · `use segultra010`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra011
+
+`import "std/c/segultra011"` · `use segultra011`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra012
+
+`import "std/c/segultra012"` · `use segultra012`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra013
+
+`import "std/c/segultra013"` · `use segultra013`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra014
+
+`import "std/c/segultra014"` · `use segultra014`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra015
+
+`import "std/c/segultra015"` · `use segultra015`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra016
+
+`import "std/c/segultra016"` · `use segultra016`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra017
+
+`import "std/c/segultra017"` · `use segultra017`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra018
+
+`import "std/c/segultra018"` · `use segultra018`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra019
+
+`import "std/c/segultra019"` · `use segultra019`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra020
+
+`import "std/c/segultra020"` · `use segultra020`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra021
+
+`import "std/c/segultra021"` · `use segultra021`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra022
+
+`import "std/c/segultra022"` · `use segultra022`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra023
+
+`import "std/c/segultra023"` · `use segultra023`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra024
+
+`import "std/c/segultra024"` · `use segultra024`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra025
+
+`import "std/c/segultra025"` · `use segultra025`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra026
+
+`import "std/c/segultra026"` · `use segultra026`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra027
+
+`import "std/c/segultra027"` · `use segultra027`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra028
+
+`import "std/c/segultra028"` · `use segultra028`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra029
+
+`import "std/c/segultra029"` · `use segultra029`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra030
+
+`import "std/c/segultra030"` · `use segultra030`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra031
+
+`import "std/c/segultra031"` · `use segultra031`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra032
+
+`import "std/c/segultra032"` · `use segultra032`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra033
+
+`import "std/c/segultra033"` · `use segultra033`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra034
+
+`import "std/c/segultra034"` · `use segultra034`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra035
+
+`import "std/c/segultra035"` · `use segultra035`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra036
+
+`import "std/c/segultra036"` · `use segultra036`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra037
+
+`import "std/c/segultra037"` · `use segultra037`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra038
+
+`import "std/c/segultra038"` · `use segultra038`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra039
+
+`import "std/c/segultra039"` · `use segultra039`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra040
+
+`import "std/c/segultra040"` · `use segultra040`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra041
+
+`import "std/c/segultra041"` · `use segultra041`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra042
+
+`import "std/c/segultra042"` · `use segultra042`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra043
+
+`import "std/c/segultra043"` · `use segultra043`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra044
+
+`import "std/c/segultra044"` · `use segultra044`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra045
+
+`import "std/c/segultra045"` · `use segultra045`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra046
+
+`import "std/c/segultra046"` · `use segultra046`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra047
+
+`import "std/c/segultra047"` · `use segultra047`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra048
+
+`import "std/c/segultra048"` · `use segultra048`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra049
+
+`import "std/c/segultra049"` · `use segultra049`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra050
+
+`import "std/c/segultra050"` · `use segultra050`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra051
+
+`import "std/c/segultra051"` · `use segultra051`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra052
+
+`import "std/c/segultra052"` · `use segultra052`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra053
+
+`import "std/c/segultra053"` · `use segultra053`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra054
+
+`import "std/c/segultra054"` · `use segultra054`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra055
+
+`import "std/c/segultra055"` · `use segultra055`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra056
+
+`import "std/c/segultra056"` · `use segultra056`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra057
+
+`import "std/c/segultra057"` · `use segultra057`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra058
+
+`import "std/c/segultra058"` · `use segultra058`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra059
+
+`import "std/c/segultra059"` · `use segultra059`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra060
+
+`import "std/c/segultra060"` · `use segultra060`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra061
+
+`import "std/c/segultra061"` · `use segultra061`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra062
+
+`import "std/c/segultra062"` · `use segultra062`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra063
+
+`import "std/c/segultra063"` · `use segultra063`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra064
+
+`import "std/c/segultra064"` · `use segultra064`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra065
+
+`import "std/c/segultra065"` · `use segultra065`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra066
+
+`import "std/c/segultra066"` · `use segultra066`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra067
+
+`import "std/c/segultra067"` · `use segultra067`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra068
+
+`import "std/c/segultra068"` · `use segultra068`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra069
+
+`import "std/c/segultra069"` · `use segultra069`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra070
+
+`import "std/c/segultra070"` · `use segultra070`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra071
+
+`import "std/c/segultra071"` · `use segultra071`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra072
+
+`import "std/c/segultra072"` · `use segultra072`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra073
+
+`import "std/c/segultra073"` · `use segultra073`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra074
+
+`import "std/c/segultra074"` · `use segultra074`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra075
+
+`import "std/c/segultra075"` · `use segultra075`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra076
+
+`import "std/c/segultra076"` · `use segultra076`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra077
+
+`import "std/c/segultra077"` · `use segultra077`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra078
+
+`import "std/c/segultra078"` · `use segultra078`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra079
+
+`import "std/c/segultra079"` · `use segultra079`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra080
+
+`import "std/c/segultra080"` · `use segultra080`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra081
+
+`import "std/c/segultra081"` · `use segultra081`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra082
+
+`import "std/c/segultra082"` · `use segultra082`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra083
+
+`import "std/c/segultra083"` · `use segultra083`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra084
+
+`import "std/c/segultra084"` · `use segultra084`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra085
+
+`import "std/c/segultra085"` · `use segultra085`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra086
+
+`import "std/c/segultra086"` · `use segultra086`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra087
+
+`import "std/c/segultra087"` · `use segultra087`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra088
+
+`import "std/c/segultra088"` · `use segultra088`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra089
+
+`import "std/c/segultra089"` · `use segultra089`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra090
+
+`import "std/c/segultra090"` · `use segultra090`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra091
+
+`import "std/c/segultra091"` · `use segultra091`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra092
+
+`import "std/c/segultra092"` · `use segultra092`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra093
+
+`import "std/c/segultra093"` · `use segultra093`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra094
+
+`import "std/c/segultra094"` · `use segultra094`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra095
+
+`import "std/c/segultra095"` · `use segultra095`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra096
+
+`import "std/c/segultra096"` · `use segultra096`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra097
+
+`import "std/c/segultra097"` · `use segultra097`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra098
+
+`import "std/c/segultra098"` · `use segultra098`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra099
+
+`import "std/c/segultra099"` · `use segultra099`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra100
+
+`import "std/c/segultra100"` · `use segultra100`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra101
+
+`import "std/c/segultra101"` · `use segultra101`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra102
+
+`import "std/c/segultra102"` · `use segultra102`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra103
+
+`import "std/c/segultra103"` · `use segultra103`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra104
+
+`import "std/c/segultra104"` · `use segultra104`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra105
+
+`import "std/c/segultra105"` · `use segultra105`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra106
+
+`import "std/c/segultra106"` · `use segultra106`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra107
+
+`import "std/c/segultra107"` · `use segultra107`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra108
+
+`import "std/c/segultra108"` · `use segultra108`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra109
+
+`import "std/c/segultra109"` · `use segultra109`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra110
+
+`import "std/c/segultra110"` · `use segultra110`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra111
+
+`import "std/c/segultra111"` · `use segultra111`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra112
+
+`import "std/c/segultra112"` · `use segultra112`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra113
+
+`import "std/c/segultra113"` · `use segultra113`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra114
+
+`import "std/c/segultra114"` · `use segultra114`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra115
+
+`import "std/c/segultra115"` · `use segultra115`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra116
+
+`import "std/c/segultra116"` · `use segultra116`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra117
+
+`import "std/c/segultra117"` · `use segultra117`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra118
+
+`import "std/c/segultra118"` · `use segultra118`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra119
+
+`import "std/c/segultra119"` · `use segultra119`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra120
+
+`import "std/c/segultra120"` · `use segultra120`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra121
+
+`import "std/c/segultra121"` · `use segultra121`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra122
+
+`import "std/c/segultra122"` · `use segultra122`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra123
+
+`import "std/c/segultra123"` · `use segultra123`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra124
+
+`import "std/c/segultra124"` · `use segultra124`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra125
+
+`import "std/c/segultra125"` · `use segultra125`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra126
+
+`import "std/c/segultra126"` · `use segultra126`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra127
+
+`import "std/c/segultra127"` · `use segultra127`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra128
+
+`import "std/c/segultra128"` · `use segultra128`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra129
+
+`import "std/c/segultra129"` · `use segultra129`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra130
+
+`import "std/c/segultra130"` · `use segultra130`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra131
+
+`import "std/c/segultra131"` · `use segultra131`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra132
+
+`import "std/c/segultra132"` · `use segultra132`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra133
+
+`import "std/c/segultra133"` · `use segultra133`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra134
+
+`import "std/c/segultra134"` · `use segultra134`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra135
+
+`import "std/c/segultra135"` · `use segultra135`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra136
+
+`import "std/c/segultra136"` · `use segultra136`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra137
+
+`import "std/c/segultra137"` · `use segultra137`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra138
+
+`import "std/c/segultra138"` · `use segultra138`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra139
+
+`import "std/c/segultra139"` · `use segultra139`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra140
+
+`import "std/c/segultra140"` · `use segultra140`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra141
+
+`import "std/c/segultra141"` · `use segultra141`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra142
+
+`import "std/c/segultra142"` · `use segultra142`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra143
+
+`import "std/c/segultra143"` · `use segultra143`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra144
+
+`import "std/c/segultra144"` · `use segultra144`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra145
+
+`import "std/c/segultra145"` · `use segultra145`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra146
+
+`import "std/c/segultra146"` · `use segultra146`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra147
+
+`import "std/c/segultra147"` · `use segultra147`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra148
+
+`import "std/c/segultra148"` · `use segultra148`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra149
+
+`import "std/c/segultra149"` · `use segultra149`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra150
+
+`import "std/c/segultra150"` · `use segultra150`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra151
+
+`import "std/c/segultra151"` · `use segultra151`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra152
+
+`import "std/c/segultra152"` · `use segultra152`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra153
+
+`import "std/c/segultra153"` · `use segultra153`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra154
+
+`import "std/c/segultra154"` · `use segultra154`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra155
+
+`import "std/c/segultra155"` · `use segultra155`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra156
+
+`import "std/c/segultra156"` · `use segultra156`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra157
+
+`import "std/c/segultra157"` · `use segultra157`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra158
+
+`import "std/c/segultra158"` · `use segultra158`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra159
+
+`import "std/c/segultra159"` · `use segultra159`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra160
+
+`import "std/c/segultra160"` · `use segultra160`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra161
+
+`import "std/c/segultra161"` · `use segultra161`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra162
+
+`import "std/c/segultra162"` · `use segultra162`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra163
+
+`import "std/c/segultra163"` · `use segultra163`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra164
+
+`import "std/c/segultra164"` · `use segultra164`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra165
+
+`import "std/c/segultra165"` · `use segultra165`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra166
+
+`import "std/c/segultra166"` · `use segultra166`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra167
+
+`import "std/c/segultra167"` · `use segultra167`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra168
+
+`import "std/c/segultra168"` · `use segultra168`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra169
+
+`import "std/c/segultra169"` · `use segultra169`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra170
+
+`import "std/c/segultra170"` · `use segultra170`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra171
+
+`import "std/c/segultra171"` · `use segultra171`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra172
+
+`import "std/c/segultra172"` · `use segultra172`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra173
+
+`import "std/c/segultra173"` · `use segultra173`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra174
+
+`import "std/c/segultra174"` · `use segultra174`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra175
+
+`import "std/c/segultra175"` · `use segultra175`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra176
+
+`import "std/c/segultra176"` · `use segultra176`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra177
+
+`import "std/c/segultra177"` · `use segultra177`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra178
+
+`import "std/c/segultra178"` · `use segultra178`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra179
+
+`import "std/c/segultra179"` · `use segultra179`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra180
+
+`import "std/c/segultra180"` · `use segultra180`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra181
+
+`import "std/c/segultra181"` · `use segultra181`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra182
+
+`import "std/c/segultra182"` · `use segultra182`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra183
+
+`import "std/c/segultra183"` · `use segultra183`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra184
+
+`import "std/c/segultra184"` · `use segultra184`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra185
+
+`import "std/c/segultra185"` · `use segultra185`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra186
+
+`import "std/c/segultra186"` · `use segultra186`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra187
+
+`import "std/c/segultra187"` · `use segultra187`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra188
+
+`import "std/c/segultra188"` · `use segultra188`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra189
+
+`import "std/c/segultra189"` · `use segultra189`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra190
+
+`import "std/c/segultra190"` · `use segultra190`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra191
+
+`import "std/c/segultra191"` · `use segultra191`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra192
+
+`import "std/c/segultra192"` · `use segultra192`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra193
+
+`import "std/c/segultra193"` · `use segultra193`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra194
+
+`import "std/c/segultra194"` · `use segultra194`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra195
+
+`import "std/c/segultra195"` · `use segultra195`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra196
+
+`import "std/c/segultra196"` · `use segultra196`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra197
+
+`import "std/c/segultra197"` · `use segultra197`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra198
+
+`import "std/c/segultra198"` · `use segultra198`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra199
+
+`import "std/c/segultra199"` · `use segultra199`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra200
+
+`import "std/c/segultra200"` · `use segultra200`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra201
+
+`import "std/c/segultra201"` · `use segultra201`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra202
+
+`import "std/c/segultra202"` · `use segultra202`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra203
+
+`import "std/c/segultra203"` · `use segultra203`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra204
+
+`import "std/c/segultra204"` · `use segultra204`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra205
+
+`import "std/c/segultra205"` · `use segultra205`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra206
+
+`import "std/c/segultra206"` · `use segultra206`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra207
+
+`import "std/c/segultra207"` · `use segultra207`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra208
+
+`import "std/c/segultra208"` · `use segultra208`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra209
+
+`import "std/c/segultra209"` · `use segultra209`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra210
+
+`import "std/c/segultra210"` · `use segultra210`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra211
+
+`import "std/c/segultra211"` · `use segultra211`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra212
+
+`import "std/c/segultra212"` · `use segultra212`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra213
+
+`import "std/c/segultra213"` · `use segultra213`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra214
+
+`import "std/c/segultra214"` · `use segultra214`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra215
+
+`import "std/c/segultra215"` · `use segultra215`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra216
+
+`import "std/c/segultra216"` · `use segultra216`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra217
+
+`import "std/c/segultra217"` · `use segultra217`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra218
+
+`import "std/c/segultra218"` · `use segultra218`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra219
+
+`import "std/c/segultra219"` · `use segultra219`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra220
+
+`import "std/c/segultra220"` · `use segultra220`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra221
+
+`import "std/c/segultra221"` · `use segultra221`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra222
+
+`import "std/c/segultra222"` · `use segultra222`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra223
+
+`import "std/c/segultra223"` · `use segultra223`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra224
+
+`import "std/c/segultra224"` · `use segultra224`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra225
+
+`import "std/c/segultra225"` · `use segultra225`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra226
+
+`import "std/c/segultra226"` · `use segultra226`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra227
+
+`import "std/c/segultra227"` · `use segultra227`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra228
+
+`import "std/c/segultra228"` · `use segultra228`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra229
+
+`import "std/c/segultra229"` · `use segultra229`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra230
+
+`import "std/c/segultra230"` · `use segultra230`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra231
+
+`import "std/c/segultra231"` · `use segultra231`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra232
+
+`import "std/c/segultra232"` · `use segultra232`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra233
+
+`import "std/c/segultra233"` · `use segultra233`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra234
+
+`import "std/c/segultra234"` · `use segultra234`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra235
+
+`import "std/c/segultra235"` · `use segultra235`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra236
+
+`import "std/c/segultra236"` · `use segultra236`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra237
+
+`import "std/c/segultra237"` · `use segultra237`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra238
+
+`import "std/c/segultra238"` · `use segultra238`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra239
+
+`import "std/c/segultra239"` · `use segultra239`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra240
+
+`import "std/c/segultra240"` · `use segultra240`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra241
+
+`import "std/c/segultra241"` · `use segultra241`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra242
+
+`import "std/c/segultra242"` · `use segultra242`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra243
+
+`import "std/c/segultra243"` · `use segultra243`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra244
+
+`import "std/c/segultra244"` · `use segultra244`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra245
+
+`import "std/c/segultra245"` · `use segultra245`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra246
+
+`import "std/c/segultra246"` · `use segultra246`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra247
+
+`import "std/c/segultra247"` · `use segultra247`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra248
+
+`import "std/c/segultra248"` · `use segultra248`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra249
+
+`import "std/c/segultra249"` · `use segultra249`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra250
+
+`import "std/c/segultra250"` · `use segultra250`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra251
+
+`import "std/c/segultra251"` · `use segultra251`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra252
+
+`import "std/c/segultra252"` · `use segultra252`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra253
+
+`import "std/c/segultra253"` · `use segultra253`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra254
+
+`import "std/c/segultra254"` · `use segultra254`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra255
+
+`import "std/c/segultra255"` · `use segultra255`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra256
+
+`import "std/c/segultra256"` · `use segultra256`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra257
+
+`import "std/c/segultra257"` · `use segultra257`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra258
+
+`import "std/c/segultra258"` · `use segultra258`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra259
+
+`import "std/c/segultra259"` · `use segultra259`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra260
+
+`import "std/c/segultra260"` · `use segultra260`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra261
+
+`import "std/c/segultra261"` · `use segultra261`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra262
+
+`import "std/c/segultra262"` · `use segultra262`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra263
+
+`import "std/c/segultra263"` · `use segultra263`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra264
+
+`import "std/c/segultra264"` · `use segultra264`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra265
+
+`import "std/c/segultra265"` · `use segultra265`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra266
+
+`import "std/c/segultra266"` · `use segultra266`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra267
+
+`import "std/c/segultra267"` · `use segultra267`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra268
+
+`import "std/c/segultra268"` · `use segultra268`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra269
+
+`import "std/c/segultra269"` · `use segultra269`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra270
+
+`import "std/c/segultra270"` · `use segultra270`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra271
+
+`import "std/c/segultra271"` · `use segultra271`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra272
+
+`import "std/c/segultra272"` · `use segultra272`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra273
+
+`import "std/c/segultra273"` · `use segultra273`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra274
+
+`import "std/c/segultra274"` · `use segultra274`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra275
+
+`import "std/c/segultra275"` · `use segultra275`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra276
+
+`import "std/c/segultra276"` · `use segultra276`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra277
+
+`import "std/c/segultra277"` · `use segultra277`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra278
+
+`import "std/c/segultra278"` · `use segultra278`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra279
+
+`import "std/c/segultra279"` · `use segultra279`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra280
+
+`import "std/c/segultra280"` · `use segultra280`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra281
+
+`import "std/c/segultra281"` · `use segultra281`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra282
+
+`import "std/c/segultra282"` · `use segultra282`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra283
+
+`import "std/c/segultra283"` · `use segultra283`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra284
+
+`import "std/c/segultra284"` · `use segultra284`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra285
+
+`import "std/c/segultra285"` · `use segultra285`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra286
+
+`import "std/c/segultra286"` · `use segultra286`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra287
+
+`import "std/c/segultra287"` · `use segultra287`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra288
+
+`import "std/c/segultra288"` · `use segultra288`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra289
+
+`import "std/c/segultra289"` · `use segultra289`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra290
+
+`import "std/c/segultra290"` · `use segultra290`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra291
+
+`import "std/c/segultra291"` · `use segultra291`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra292
+
+`import "std/c/segultra292"` · `use segultra292`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra293
+
+`import "std/c/segultra293"` · `use segultra293`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra294
+
+`import "std/c/segultra294"` · `use segultra294`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra295
+
+`import "std/c/segultra295"` · `use segultra295`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra296
+
+`import "std/c/segultra296"` · `use segultra296`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra297
+
+`import "std/c/segultra297"` · `use segultra297`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra298
+
+`import "std/c/segultra298"` · `use segultra298`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra299
+
+`import "std/c/segultra299"` · `use segultra299`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra300
+
+`import "std/c/segultra300"` · `use segultra300`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra301
+
+`import "std/c/segultra301"` · `use segultra301`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra302
+
+`import "std/c/segultra302"` · `use segultra302`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra303
+
+`import "std/c/segultra303"` · `use segultra303`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra304
+
+`import "std/c/segultra304"` · `use segultra304`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra305
+
+`import "std/c/segultra305"` · `use segultra305`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra306
+
+`import "std/c/segultra306"` · `use segultra306`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra307
+
+`import "std/c/segultra307"` · `use segultra307`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra308
+
+`import "std/c/segultra308"` · `use segultra308`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra309
+
+`import "std/c/segultra309"` · `use segultra309`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra310
+
+`import "std/c/segultra310"` · `use segultra310`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra311
+
+`import "std/c/segultra311"` · `use segultra311`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra312
+
+`import "std/c/segultra312"` · `use segultra312`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra313
+
+`import "std/c/segultra313"` · `use segultra313`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra314
+
+`import "std/c/segultra314"` · `use segultra314`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra315
+
+`import "std/c/segultra315"` · `use segultra315`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra316
+
+`import "std/c/segultra316"` · `use segultra316`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra317
+
+`import "std/c/segultra317"` · `use segultra317`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra318
+
+`import "std/c/segultra318"` · `use segultra318`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra319
+
+`import "std/c/segultra319"` · `use segultra319`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra320
+
+`import "std/c/segultra320"` · `use segultra320`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra321
+
+`import "std/c/segultra321"` · `use segultra321`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra322
+
+`import "std/c/segultra322"` · `use segultra322`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra323
+
+`import "std/c/segultra323"` · `use segultra323`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra324
+
+`import "std/c/segultra324"` · `use segultra324`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra325
+
+`import "std/c/segultra325"` · `use segultra325`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra326
+
+`import "std/c/segultra326"` · `use segultra326`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra327
+
+`import "std/c/segultra327"` · `use segultra327`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra328
+
+`import "std/c/segultra328"` · `use segultra328`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra329
+
+`import "std/c/segultra329"` · `use segultra329`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra330
+
+`import "std/c/segultra330"` · `use segultra330`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra331
+
+`import "std/c/segultra331"` · `use segultra331`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra332
+
+`import "std/c/segultra332"` · `use segultra332`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra333
+
+`import "std/c/segultra333"` · `use segultra333`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra334
+
+`import "std/c/segultra334"` · `use segultra334`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra335
+
+`import "std/c/segultra335"` · `use segultra335`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra336
+
+`import "std/c/segultra336"` · `use segultra336`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra337
+
+`import "std/c/segultra337"` · `use segultra337`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra338
+
+`import "std/c/segultra338"` · `use segultra338`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra339
+
+`import "std/c/segultra339"` · `use segultra339`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra340
+
+`import "std/c/segultra340"` · `use segultra340`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra341
+
+`import "std/c/segultra341"` · `use segultra341`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra342
+
+`import "std/c/segultra342"` · `use segultra342`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra343
+
+`import "std/c/segultra343"` · `use segultra343`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra344
+
+`import "std/c/segultra344"` · `use segultra344`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra345
+
+`import "std/c/segultra345"` · `use segultra345`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra346
+
+`import "std/c/segultra346"` · `use segultra346`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra347
+
+`import "std/c/segultra347"` · `use segultra347`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra348
+
+`import "std/c/segultra348"` · `use segultra348`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra349
+
+`import "std/c/segultra349"` · `use segultra349`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra350
+
+`import "std/c/segultra350"` · `use segultra350`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra351
+
+`import "std/c/segultra351"` · `use segultra351`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra352
+
+`import "std/c/segultra352"` · `use segultra352`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra353
+
+`import "std/c/segultra353"` · `use segultra353`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra354
+
+`import "std/c/segultra354"` · `use segultra354`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra355
+
+`import "std/c/segultra355"` · `use segultra355`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra356
+
+`import "std/c/segultra356"` · `use segultra356`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra357
+
+`import "std/c/segultra357"` · `use segultra357`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra358
+
+`import "std/c/segultra358"` · `use segultra358`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra359
+
+`import "std/c/segultra359"` · `use segultra359`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra360
+
+`import "std/c/segultra360"` · `use segultra360`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra361
+
+`import "std/c/segultra361"` · `use segultra361`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra362
+
+`import "std/c/segultra362"` · `use segultra362`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra363
+
+`import "std/c/segultra363"` · `use segultra363`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra364
+
+`import "std/c/segultra364"` · `use segultra364`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra365
+
+`import "std/c/segultra365"` · `use segultra365`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra366
+
+`import "std/c/segultra366"` · `use segultra366`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra367
+
+`import "std/c/segultra367"` · `use segultra367`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra368
+
+`import "std/c/segultra368"` · `use segultra368`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra369
+
+`import "std/c/segultra369"` · `use segultra369`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra370
+
+`import "std/c/segultra370"` · `use segultra370`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra371
+
+`import "std/c/segultra371"` · `use segultra371`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra372
+
+`import "std/c/segultra372"` · `use segultra372`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra373
+
+`import "std/c/segultra373"` · `use segultra373`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra374
+
+`import "std/c/segultra374"` · `use segultra374`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra375
+
+`import "std/c/segultra375"` · `use segultra375`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra376
+
+`import "std/c/segultra376"` · `use segultra376`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra377
+
+`import "std/c/segultra377"` · `use segultra377`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra378
+
+`import "std/c/segultra378"` · `use segultra378`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra379
+
+`import "std/c/segultra379"` · `use segultra379`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra380
+
+`import "std/c/segultra380"` · `use segultra380`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra381
+
+`import "std/c/segultra381"` · `use segultra381`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra382
+
+`import "std/c/segultra382"` · `use segultra382`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra383
+
+`import "std/c/segultra383"` · `use segultra383`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra384
+
+`import "std/c/segultra384"` · `use segultra384`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra385
+
+`import "std/c/segultra385"` · `use segultra385`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra386
+
+`import "std/c/segultra386"` · `use segultra386`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra387
+
+`import "std/c/segultra387"` · `use segultra387`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra388
+
+`import "std/c/segultra388"` · `use segultra388`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra389
+
+`import "std/c/segultra389"` · `use segultra389`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra390
+
+`import "std/c/segultra390"` · `use segultra390`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra391
+
+`import "std/c/segultra391"` · `use segultra391`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra392
+
+`import "std/c/segultra392"` · `use segultra392`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra393
+
+`import "std/c/segultra393"` · `use segultra393`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra394
+
+`import "std/c/segultra394"` · `use segultra394`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra395
+
+`import "std/c/segultra395"` · `use segultra395`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra396
+
+`import "std/c/segultra396"` · `use segultra396`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra397
+
+`import "std/c/segultra397"` · `use segultra397`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra398
+
+`import "std/c/segultra398"` · `use segultra398`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra399
+
+`import "std/c/segultra399"` · `use segultra399`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra400
+
+`import "std/c/segultra400"` · `use segultra400`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra401
+
+`import "std/c/segultra401"` · `use segultra401`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra402
+
+`import "std/c/segultra402"` · `use segultra402`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra403
+
+`import "std/c/segultra403"` · `use segultra403`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra404
+
+`import "std/c/segultra404"` · `use segultra404`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra405
+
+`import "std/c/segultra405"` · `use segultra405`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra406
+
+`import "std/c/segultra406"` · `use segultra406`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra407
+
+`import "std/c/segultra407"` · `use segultra407`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra408
+
+`import "std/c/segultra408"` · `use segultra408`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra409
+
+`import "std/c/segultra409"` · `use segultra409`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra410
+
+`import "std/c/segultra410"` · `use segultra410`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra411
+
+`import "std/c/segultra411"` · `use segultra411`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra412
+
+`import "std/c/segultra412"` · `use segultra412`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra413
+
+`import "std/c/segultra413"` · `use segultra413`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra414
+
+`import "std/c/segultra414"` · `use segultra414`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra415
+
+`import "std/c/segultra415"` · `use segultra415`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra416
+
+`import "std/c/segultra416"` · `use segultra416`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra417
+
+`import "std/c/segultra417"` · `use segultra417`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra418
+
+`import "std/c/segultra418"` · `use segultra418`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra419
+
+`import "std/c/segultra419"` · `use segultra419`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra420
+
+`import "std/c/segultra420"` · `use segultra420`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra421
+
+`import "std/c/segultra421"` · `use segultra421`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra422
+
+`import "std/c/segultra422"` · `use segultra422`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra423
+
+`import "std/c/segultra423"` · `use segultra423`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra424
+
+`import "std/c/segultra424"` · `use segultra424`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra425
+
+`import "std/c/segultra425"` · `use segultra425`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra426
+
+`import "std/c/segultra426"` · `use segultra426`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra427
+
+`import "std/c/segultra427"` · `use segultra427`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra428
+
+`import "std/c/segultra428"` · `use segultra428`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra429
+
+`import "std/c/segultra429"` · `use segultra429`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra430
+
+`import "std/c/segultra430"` · `use segultra430`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra431
+
+`import "std/c/segultra431"` · `use segultra431`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra432
+
+`import "std/c/segultra432"` · `use segultra432`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra433
+
+`import "std/c/segultra433"` · `use segultra433`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra434
+
+`import "std/c/segultra434"` · `use segultra434`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra435
+
+`import "std/c/segultra435"` · `use segultra435`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra436
+
+`import "std/c/segultra436"` · `use segultra436`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra437
+
+`import "std/c/segultra437"` · `use segultra437`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra438
+
+`import "std/c/segultra438"` · `use segultra438`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra439
+
+`import "std/c/segultra439"` · `use segultra439`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra440
+
+`import "std/c/segultra440"` · `use segultra440`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra441
+
+`import "std/c/segultra441"` · `use segultra441`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra442
+
+`import "std/c/segultra442"` · `use segultra442`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra443
+
+`import "std/c/segultra443"` · `use segultra443`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra444
+
+`import "std/c/segultra444"` · `use segultra444`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra445
+
+`import "std/c/segultra445"` · `use segultra445`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra446
+
+`import "std/c/segultra446"` · `use segultra446`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra447
+
+`import "std/c/segultra447"` · `use segultra447`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra448
+
+`import "std/c/segultra448"` · `use segultra448`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra449
+
+`import "std/c/segultra449"` · `use segultra449`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra450
+
+`import "std/c/segultra450"` · `use segultra450`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra451
+
+`import "std/c/segultra451"` · `use segultra451`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra452
+
+`import "std/c/segultra452"` · `use segultra452`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra453
+
+`import "std/c/segultra453"` · `use segultra453`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra454
+
+`import "std/c/segultra454"` · `use segultra454`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra455
+
+`import "std/c/segultra455"` · `use segultra455`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra456
+
+`import "std/c/segultra456"` · `use segultra456`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra457
+
+`import "std/c/segultra457"` · `use segultra457`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra458
+
+`import "std/c/segultra458"` · `use segultra458`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra459
+
+`import "std/c/segultra459"` · `use segultra459`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra460
+
+`import "std/c/segultra460"` · `use segultra460`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra461
+
+`import "std/c/segultra461"` · `use segultra461`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra462
+
+`import "std/c/segultra462"` · `use segultra462`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra463
+
+`import "std/c/segultra463"` · `use segultra463`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra464
+
+`import "std/c/segultra464"` · `use segultra464`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra465
+
+`import "std/c/segultra465"` · `use segultra465`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra466
+
+`import "std/c/segultra466"` · `use segultra466`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra467
+
+`import "std/c/segultra467"` · `use segultra467`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra468
+
+`import "std/c/segultra468"` · `use segultra468`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra469
+
+`import "std/c/segultra469"` · `use segultra469`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra470
+
+`import "std/c/segultra470"` · `use segultra470`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra471
+
+`import "std/c/segultra471"` · `use segultra471`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra472
+
+`import "std/c/segultra472"` · `use segultra472`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra473
+
+`import "std/c/segultra473"` · `use segultra473`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra474
+
+`import "std/c/segultra474"` · `use segultra474`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra475
+
+`import "std/c/segultra475"` · `use segultra475`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra476
+
+`import "std/c/segultra476"` · `use segultra476`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra477
+
+`import "std/c/segultra477"` · `use segultra477`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra478
+
+`import "std/c/segultra478"` · `use segultra478`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra479
+
+`import "std/c/segultra479"` · `use segultra479`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra480
+
+`import "std/c/segultra480"` · `use segultra480`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra481
+
+`import "std/c/segultra481"` · `use segultra481`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra482
+
+`import "std/c/segultra482"` · `use segultra482`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra483
+
+`import "std/c/segultra483"` · `use segultra483`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra484
+
+`import "std/c/segultra484"` · `use segultra484`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra485
+
+`import "std/c/segultra485"` · `use segultra485`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra486
+
+`import "std/c/segultra486"` · `use segultra486`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra487
+
+`import "std/c/segultra487"` · `use segultra487`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra488
+
+`import "std/c/segultra488"` · `use segultra488`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra489
+
+`import "std/c/segultra489"` · `use segultra489`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra490
+
+`import "std/c/segultra490"` · `use segultra490`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra491
+
+`import "std/c/segultra491"` · `use segultra491`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra492
+
+`import "std/c/segultra492"` · `use segultra492`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra493
+
+`import "std/c/segultra493"` · `use segultra493`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra494
+
+`import "std/c/segultra494"` · `use segultra494`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra495
+
+`import "std/c/segultra495"` · `use segultra495`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra496
+
+`import "std/c/segultra496"` · `use segultra496`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra497
+
+`import "std/c/segultra497"` · `use segultra497`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra498
+
+`import "std/c/segultra498"` · `use segultra498`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra499
+
+`import "std/c/segultra499"` · `use segultra499`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`
+
+## std/c/segultra500
+
+`import "std/c/segultra500"` · `use segultra500`
+
+- `floodSize(mask list number, w number, h number, sx number, sy number) → number`
+- `countComponents4(mask list number, w number, h number) → number`
+- `countComponents8(mask list number, w number, h number) → number`
+- `dilate3(mask list number, w number, h number) → list number`
+- `erode3(mask list number, w number, h number) → list number`
+- `thresholdMask(grid list number, w number, h number, t number) → list number`
+- `thresholdDefault(grid list number, w number, h number) → list number`
+- `countComponents(mask list number, w number, h number) → number`

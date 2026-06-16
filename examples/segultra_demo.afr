@@ -1,0 +1,20 @@
+import "std/c/segultra001"
+use segultra001
+
+create w number = 6
+create h number = 4
+
+create grid list number = list of 0, 0, 0, 0, 0, 0,
+                           0, 1, 1, 0, 1, 0,
+                           0, 1, 0, 0, 1, 0,
+                           0, 0, 0, 0, 0, 0
+
+create mask = thresholdMask(grid, w, h, 0.5)
+say "components4={countComponents4(mask, w, h)} components8={countComponents8(mask, w, h)} components={countComponents(mask, w, h)}"
+
+create d = dilate3(mask, w, h)
+create e = erode3(d, w, h)
+say "after dilate+erode components={countComponents(e, w, h)}"
+
+say "floodSize at (1,1) = {floodSize(mask, w, h, 1, 1)}"
+

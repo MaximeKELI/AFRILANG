@@ -1,0 +1,27 @@
+module segultra249
+
+function floodSize(mask list number, w number, h number, sx number, sy number) returns number
+end
+
+function countComponents4(mask list number, w number, h number) returns number
+end
+
+function countComponents8(mask list number, w number, h number) returns number
+end
+
+function dilate3(mask list number, w number, h number) returns list number
+end
+
+function erode3(mask list number, w number, h number) returns list number
+end
+
+function thresholdMask(grid list number, w number, h number, t number) returns list number
+end
+
+function thresholdDefault(grid list number, w number, h number) returns list number
+end
+
+function countComponents(mask list number, w number, h number) returns number
+end
+
+end
