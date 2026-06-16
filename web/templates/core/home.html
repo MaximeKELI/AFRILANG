@@ -62,19 +62,19 @@ end</pre>
     <div class="row g-3 mb-5">
       <div class="col-6 col-md-3">
         <div class="afr-stat-card">
-          <div class="stat-value">{{ SITE_STATS.examples }}+</div>
+          <div class="stat-value" data-count="{{ SITE_STATS.examples }}" data-suffix="+">0+</div>
           <div class="stat-label">{{ ui.home.stat_examples }}</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="afr-stat-card">
-          <div class="stat-value">{{ SITE_STATS.stdlib_modules }}</div>
+          <div class="stat-value" data-count="{{ SITE_STATS.stdlib_modules }}">0</div>
           <div class="stat-label">{{ ui.home.stat_stdlib }}</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="afr-stat-card">
-          <div class="stat-value">{{ SITE_STATS.blessed_packages }}</div>
+          <div class="stat-value" data-count="{{ SITE_STATS.blessed_packages }}">0</div>
           <div class="stat-label">{{ ui.home.stat_packages }}</div>
         </div>
       </div>
