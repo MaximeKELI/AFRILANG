@@ -20,8 +20,9 @@ class Command(BaseCommand):
 
         seen = set()
         count = 0
-        for path in sorted(root.glob('*.afr')):
-            name = path.stem
+        for path in sorted(root.rglob('*.afr')):
+            rel = path.relative_to(root).with_suffix('')
+            name = str(rel).replace('\\', '/')
             text = path.read_text(encoding='utf-8', errors='replace')
             functions = FUNCTION_RE.findall(text)
             summary = ''

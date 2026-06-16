@@ -60,7 +60,7 @@ class CodeExample(models.Model):
 
 
 class StdlibModule(models.Model):
-    name = models.SlugField(max_length=128, unique=True)
+    name = models.CharField(max_length=256, unique=True)
     import_path = models.CharField(max_length=256)
     summary = models.CharField(max_length=512, blank=True)
     function_count = models.PositiveSmallIntegerField(default=0)

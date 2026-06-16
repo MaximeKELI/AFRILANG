@@ -8,6 +8,29 @@ from django.core.management.base import BaseCommand
 from core.models import Package, SiteMetric
 
 
+def _repo_version() -> str:
+    bin_path = Path(settings.AFRILANG_BIN)
+    if not bin_path.is_file():
+        return '1.0.0'
+    try:
+        proc = subprocess.run(
+            [str(bin_path), '--version'],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        out = (proc.stdout or proc.stderr or '').strip()
+        if not out:
+            return '1.0.0'
+        parts = out.split()
+        for part in reversed(parts):
+            if part and part[0].isdigit():
+                return part
+        return parts[-1]
+    except (subprocess.TimeoutExpired, OSError):
+        return '1.0.0'
+
+
 class Command(BaseCommand):
     help = 'Met à jour les statistiques du site depuis le dépôt'
 
