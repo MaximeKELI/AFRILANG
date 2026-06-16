@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**5210 modules** — `std/c/{nom}`
+**5710 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -69500,3 +69500,12503 @@
 - `clipVec(v list number, limit number) → list number`
 - `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
 - `defaultK(k number) → number`
+
+## std/c/dbultra001
+
+`import "std/c/dbultra001"` · `use dbultra001`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra002
+
+`import "std/c/dbultra002"` · `use dbultra002`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra003
+
+`import "std/c/dbultra003"` · `use dbultra003`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra004
+
+`import "std/c/dbultra004"` · `use dbultra004`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra005
+
+`import "std/c/dbultra005"` · `use dbultra005`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra006
+
+`import "std/c/dbultra006"` · `use dbultra006`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra007
+
+`import "std/c/dbultra007"` · `use dbultra007`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra008
+
+`import "std/c/dbultra008"` · `use dbultra008`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra009
+
+`import "std/c/dbultra009"` · `use dbultra009`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra010
+
+`import "std/c/dbultra010"` · `use dbultra010`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra011
+
+`import "std/c/dbultra011"` · `use dbultra011`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra012
+
+`import "std/c/dbultra012"` · `use dbultra012`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra013
+
+`import "std/c/dbultra013"` · `use dbultra013`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra014
+
+`import "std/c/dbultra014"` · `use dbultra014`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra015
+
+`import "std/c/dbultra015"` · `use dbultra015`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra016
+
+`import "std/c/dbultra016"` · `use dbultra016`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra017
+
+`import "std/c/dbultra017"` · `use dbultra017`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra018
+
+`import "std/c/dbultra018"` · `use dbultra018`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra019
+
+`import "std/c/dbultra019"` · `use dbultra019`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra020
+
+`import "std/c/dbultra020"` · `use dbultra020`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra021
+
+`import "std/c/dbultra021"` · `use dbultra021`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra022
+
+`import "std/c/dbultra022"` · `use dbultra022`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra023
+
+`import "std/c/dbultra023"` · `use dbultra023`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra024
+
+`import "std/c/dbultra024"` · `use dbultra024`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra025
+
+`import "std/c/dbultra025"` · `use dbultra025`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra026
+
+`import "std/c/dbultra026"` · `use dbultra026`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra027
+
+`import "std/c/dbultra027"` · `use dbultra027`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra028
+
+`import "std/c/dbultra028"` · `use dbultra028`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra029
+
+`import "std/c/dbultra029"` · `use dbultra029`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra030
+
+`import "std/c/dbultra030"` · `use dbultra030`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra031
+
+`import "std/c/dbultra031"` · `use dbultra031`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra032
+
+`import "std/c/dbultra032"` · `use dbultra032`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra033
+
+`import "std/c/dbultra033"` · `use dbultra033`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra034
+
+`import "std/c/dbultra034"` · `use dbultra034`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra035
+
+`import "std/c/dbultra035"` · `use dbultra035`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra036
+
+`import "std/c/dbultra036"` · `use dbultra036`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra037
+
+`import "std/c/dbultra037"` · `use dbultra037`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra038
+
+`import "std/c/dbultra038"` · `use dbultra038`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra039
+
+`import "std/c/dbultra039"` · `use dbultra039`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra040
+
+`import "std/c/dbultra040"` · `use dbultra040`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra041
+
+`import "std/c/dbultra041"` · `use dbultra041`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra042
+
+`import "std/c/dbultra042"` · `use dbultra042`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra043
+
+`import "std/c/dbultra043"` · `use dbultra043`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra044
+
+`import "std/c/dbultra044"` · `use dbultra044`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra045
+
+`import "std/c/dbultra045"` · `use dbultra045`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra046
+
+`import "std/c/dbultra046"` · `use dbultra046`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra047
+
+`import "std/c/dbultra047"` · `use dbultra047`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra048
+
+`import "std/c/dbultra048"` · `use dbultra048`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra049
+
+`import "std/c/dbultra049"` · `use dbultra049`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra050
+
+`import "std/c/dbultra050"` · `use dbultra050`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra051
+
+`import "std/c/dbultra051"` · `use dbultra051`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra052
+
+`import "std/c/dbultra052"` · `use dbultra052`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra053
+
+`import "std/c/dbultra053"` · `use dbultra053`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra054
+
+`import "std/c/dbultra054"` · `use dbultra054`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra055
+
+`import "std/c/dbultra055"` · `use dbultra055`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra056
+
+`import "std/c/dbultra056"` · `use dbultra056`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra057
+
+`import "std/c/dbultra057"` · `use dbultra057`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra058
+
+`import "std/c/dbultra058"` · `use dbultra058`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra059
+
+`import "std/c/dbultra059"` · `use dbultra059`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra060
+
+`import "std/c/dbultra060"` · `use dbultra060`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra061
+
+`import "std/c/dbultra061"` · `use dbultra061`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra062
+
+`import "std/c/dbultra062"` · `use dbultra062`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra063
+
+`import "std/c/dbultra063"` · `use dbultra063`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra064
+
+`import "std/c/dbultra064"` · `use dbultra064`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra065
+
+`import "std/c/dbultra065"` · `use dbultra065`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra066
+
+`import "std/c/dbultra066"` · `use dbultra066`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra067
+
+`import "std/c/dbultra067"` · `use dbultra067`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra068
+
+`import "std/c/dbultra068"` · `use dbultra068`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra069
+
+`import "std/c/dbultra069"` · `use dbultra069`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra070
+
+`import "std/c/dbultra070"` · `use dbultra070`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra071
+
+`import "std/c/dbultra071"` · `use dbultra071`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra072
+
+`import "std/c/dbultra072"` · `use dbultra072`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra073
+
+`import "std/c/dbultra073"` · `use dbultra073`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra074
+
+`import "std/c/dbultra074"` · `use dbultra074`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra075
+
+`import "std/c/dbultra075"` · `use dbultra075`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra076
+
+`import "std/c/dbultra076"` · `use dbultra076`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra077
+
+`import "std/c/dbultra077"` · `use dbultra077`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra078
+
+`import "std/c/dbultra078"` · `use dbultra078`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra079
+
+`import "std/c/dbultra079"` · `use dbultra079`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra080
+
+`import "std/c/dbultra080"` · `use dbultra080`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra081
+
+`import "std/c/dbultra081"` · `use dbultra081`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra082
+
+`import "std/c/dbultra082"` · `use dbultra082`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra083
+
+`import "std/c/dbultra083"` · `use dbultra083`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra084
+
+`import "std/c/dbultra084"` · `use dbultra084`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra085
+
+`import "std/c/dbultra085"` · `use dbultra085`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra086
+
+`import "std/c/dbultra086"` · `use dbultra086`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra087
+
+`import "std/c/dbultra087"` · `use dbultra087`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra088
+
+`import "std/c/dbultra088"` · `use dbultra088`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra089
+
+`import "std/c/dbultra089"` · `use dbultra089`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra090
+
+`import "std/c/dbultra090"` · `use dbultra090`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra091
+
+`import "std/c/dbultra091"` · `use dbultra091`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra092
+
+`import "std/c/dbultra092"` · `use dbultra092`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra093
+
+`import "std/c/dbultra093"` · `use dbultra093`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra094
+
+`import "std/c/dbultra094"` · `use dbultra094`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra095
+
+`import "std/c/dbultra095"` · `use dbultra095`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra096
+
+`import "std/c/dbultra096"` · `use dbultra096`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra097
+
+`import "std/c/dbultra097"` · `use dbultra097`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra098
+
+`import "std/c/dbultra098"` · `use dbultra098`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra099
+
+`import "std/c/dbultra099"` · `use dbultra099`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra100
+
+`import "std/c/dbultra100"` · `use dbultra100`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra101
+
+`import "std/c/dbultra101"` · `use dbultra101`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra102
+
+`import "std/c/dbultra102"` · `use dbultra102`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra103
+
+`import "std/c/dbultra103"` · `use dbultra103`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra104
+
+`import "std/c/dbultra104"` · `use dbultra104`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra105
+
+`import "std/c/dbultra105"` · `use dbultra105`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra106
+
+`import "std/c/dbultra106"` · `use dbultra106`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra107
+
+`import "std/c/dbultra107"` · `use dbultra107`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra108
+
+`import "std/c/dbultra108"` · `use dbultra108`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra109
+
+`import "std/c/dbultra109"` · `use dbultra109`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra110
+
+`import "std/c/dbultra110"` · `use dbultra110`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra111
+
+`import "std/c/dbultra111"` · `use dbultra111`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra112
+
+`import "std/c/dbultra112"` · `use dbultra112`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra113
+
+`import "std/c/dbultra113"` · `use dbultra113`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra114
+
+`import "std/c/dbultra114"` · `use dbultra114`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra115
+
+`import "std/c/dbultra115"` · `use dbultra115`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra116
+
+`import "std/c/dbultra116"` · `use dbultra116`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra117
+
+`import "std/c/dbultra117"` · `use dbultra117`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra118
+
+`import "std/c/dbultra118"` · `use dbultra118`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra119
+
+`import "std/c/dbultra119"` · `use dbultra119`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra120
+
+`import "std/c/dbultra120"` · `use dbultra120`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra121
+
+`import "std/c/dbultra121"` · `use dbultra121`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra122
+
+`import "std/c/dbultra122"` · `use dbultra122`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra123
+
+`import "std/c/dbultra123"` · `use dbultra123`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra124
+
+`import "std/c/dbultra124"` · `use dbultra124`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra125
+
+`import "std/c/dbultra125"` · `use dbultra125`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra126
+
+`import "std/c/dbultra126"` · `use dbultra126`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra127
+
+`import "std/c/dbultra127"` · `use dbultra127`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra128
+
+`import "std/c/dbultra128"` · `use dbultra128`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra129
+
+`import "std/c/dbultra129"` · `use dbultra129`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra130
+
+`import "std/c/dbultra130"` · `use dbultra130`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra131
+
+`import "std/c/dbultra131"` · `use dbultra131`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra132
+
+`import "std/c/dbultra132"` · `use dbultra132`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra133
+
+`import "std/c/dbultra133"` · `use dbultra133`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra134
+
+`import "std/c/dbultra134"` · `use dbultra134`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra135
+
+`import "std/c/dbultra135"` · `use dbultra135`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra136
+
+`import "std/c/dbultra136"` · `use dbultra136`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra137
+
+`import "std/c/dbultra137"` · `use dbultra137`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra138
+
+`import "std/c/dbultra138"` · `use dbultra138`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra139
+
+`import "std/c/dbultra139"` · `use dbultra139`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra140
+
+`import "std/c/dbultra140"` · `use dbultra140`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra141
+
+`import "std/c/dbultra141"` · `use dbultra141`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra142
+
+`import "std/c/dbultra142"` · `use dbultra142`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra143
+
+`import "std/c/dbultra143"` · `use dbultra143`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra144
+
+`import "std/c/dbultra144"` · `use dbultra144`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra145
+
+`import "std/c/dbultra145"` · `use dbultra145`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra146
+
+`import "std/c/dbultra146"` · `use dbultra146`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra147
+
+`import "std/c/dbultra147"` · `use dbultra147`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra148
+
+`import "std/c/dbultra148"` · `use dbultra148`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra149
+
+`import "std/c/dbultra149"` · `use dbultra149`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra150
+
+`import "std/c/dbultra150"` · `use dbultra150`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra151
+
+`import "std/c/dbultra151"` · `use dbultra151`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra152
+
+`import "std/c/dbultra152"` · `use dbultra152`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra153
+
+`import "std/c/dbultra153"` · `use dbultra153`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra154
+
+`import "std/c/dbultra154"` · `use dbultra154`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra155
+
+`import "std/c/dbultra155"` · `use dbultra155`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra156
+
+`import "std/c/dbultra156"` · `use dbultra156`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra157
+
+`import "std/c/dbultra157"` · `use dbultra157`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra158
+
+`import "std/c/dbultra158"` · `use dbultra158`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra159
+
+`import "std/c/dbultra159"` · `use dbultra159`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra160
+
+`import "std/c/dbultra160"` · `use dbultra160`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra161
+
+`import "std/c/dbultra161"` · `use dbultra161`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra162
+
+`import "std/c/dbultra162"` · `use dbultra162`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra163
+
+`import "std/c/dbultra163"` · `use dbultra163`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra164
+
+`import "std/c/dbultra164"` · `use dbultra164`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra165
+
+`import "std/c/dbultra165"` · `use dbultra165`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra166
+
+`import "std/c/dbultra166"` · `use dbultra166`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra167
+
+`import "std/c/dbultra167"` · `use dbultra167`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra168
+
+`import "std/c/dbultra168"` · `use dbultra168`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra169
+
+`import "std/c/dbultra169"` · `use dbultra169`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra170
+
+`import "std/c/dbultra170"` · `use dbultra170`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra171
+
+`import "std/c/dbultra171"` · `use dbultra171`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra172
+
+`import "std/c/dbultra172"` · `use dbultra172`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra173
+
+`import "std/c/dbultra173"` · `use dbultra173`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra174
+
+`import "std/c/dbultra174"` · `use dbultra174`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra175
+
+`import "std/c/dbultra175"` · `use dbultra175`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra176
+
+`import "std/c/dbultra176"` · `use dbultra176`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra177
+
+`import "std/c/dbultra177"` · `use dbultra177`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra178
+
+`import "std/c/dbultra178"` · `use dbultra178`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra179
+
+`import "std/c/dbultra179"` · `use dbultra179`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra180
+
+`import "std/c/dbultra180"` · `use dbultra180`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra181
+
+`import "std/c/dbultra181"` · `use dbultra181`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra182
+
+`import "std/c/dbultra182"` · `use dbultra182`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra183
+
+`import "std/c/dbultra183"` · `use dbultra183`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra184
+
+`import "std/c/dbultra184"` · `use dbultra184`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra185
+
+`import "std/c/dbultra185"` · `use dbultra185`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra186
+
+`import "std/c/dbultra186"` · `use dbultra186`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra187
+
+`import "std/c/dbultra187"` · `use dbultra187`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra188
+
+`import "std/c/dbultra188"` · `use dbultra188`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra189
+
+`import "std/c/dbultra189"` · `use dbultra189`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra190
+
+`import "std/c/dbultra190"` · `use dbultra190`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra191
+
+`import "std/c/dbultra191"` · `use dbultra191`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra192
+
+`import "std/c/dbultra192"` · `use dbultra192`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra193
+
+`import "std/c/dbultra193"` · `use dbultra193`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra194
+
+`import "std/c/dbultra194"` · `use dbultra194`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra195
+
+`import "std/c/dbultra195"` · `use dbultra195`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra196
+
+`import "std/c/dbultra196"` · `use dbultra196`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra197
+
+`import "std/c/dbultra197"` · `use dbultra197`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra198
+
+`import "std/c/dbultra198"` · `use dbultra198`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra199
+
+`import "std/c/dbultra199"` · `use dbultra199`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra200
+
+`import "std/c/dbultra200"` · `use dbultra200`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra201
+
+`import "std/c/dbultra201"` · `use dbultra201`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra202
+
+`import "std/c/dbultra202"` · `use dbultra202`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra203
+
+`import "std/c/dbultra203"` · `use dbultra203`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra204
+
+`import "std/c/dbultra204"` · `use dbultra204`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra205
+
+`import "std/c/dbultra205"` · `use dbultra205`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra206
+
+`import "std/c/dbultra206"` · `use dbultra206`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra207
+
+`import "std/c/dbultra207"` · `use dbultra207`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra208
+
+`import "std/c/dbultra208"` · `use dbultra208`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra209
+
+`import "std/c/dbultra209"` · `use dbultra209`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra210
+
+`import "std/c/dbultra210"` · `use dbultra210`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra211
+
+`import "std/c/dbultra211"` · `use dbultra211`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra212
+
+`import "std/c/dbultra212"` · `use dbultra212`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra213
+
+`import "std/c/dbultra213"` · `use dbultra213`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra214
+
+`import "std/c/dbultra214"` · `use dbultra214`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra215
+
+`import "std/c/dbultra215"` · `use dbultra215`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra216
+
+`import "std/c/dbultra216"` · `use dbultra216`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra217
+
+`import "std/c/dbultra217"` · `use dbultra217`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra218
+
+`import "std/c/dbultra218"` · `use dbultra218`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra219
+
+`import "std/c/dbultra219"` · `use dbultra219`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra220
+
+`import "std/c/dbultra220"` · `use dbultra220`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra221
+
+`import "std/c/dbultra221"` · `use dbultra221`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra222
+
+`import "std/c/dbultra222"` · `use dbultra222`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra223
+
+`import "std/c/dbultra223"` · `use dbultra223`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra224
+
+`import "std/c/dbultra224"` · `use dbultra224`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra225
+
+`import "std/c/dbultra225"` · `use dbultra225`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra226
+
+`import "std/c/dbultra226"` · `use dbultra226`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra227
+
+`import "std/c/dbultra227"` · `use dbultra227`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra228
+
+`import "std/c/dbultra228"` · `use dbultra228`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra229
+
+`import "std/c/dbultra229"` · `use dbultra229`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra230
+
+`import "std/c/dbultra230"` · `use dbultra230`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra231
+
+`import "std/c/dbultra231"` · `use dbultra231`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra232
+
+`import "std/c/dbultra232"` · `use dbultra232`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra233
+
+`import "std/c/dbultra233"` · `use dbultra233`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra234
+
+`import "std/c/dbultra234"` · `use dbultra234`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra235
+
+`import "std/c/dbultra235"` · `use dbultra235`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra236
+
+`import "std/c/dbultra236"` · `use dbultra236`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra237
+
+`import "std/c/dbultra237"` · `use dbultra237`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra238
+
+`import "std/c/dbultra238"` · `use dbultra238`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra239
+
+`import "std/c/dbultra239"` · `use dbultra239`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra240
+
+`import "std/c/dbultra240"` · `use dbultra240`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra241
+
+`import "std/c/dbultra241"` · `use dbultra241`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra242
+
+`import "std/c/dbultra242"` · `use dbultra242`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra243
+
+`import "std/c/dbultra243"` · `use dbultra243`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra244
+
+`import "std/c/dbultra244"` · `use dbultra244`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra245
+
+`import "std/c/dbultra245"` · `use dbultra245`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra246
+
+`import "std/c/dbultra246"` · `use dbultra246`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra247
+
+`import "std/c/dbultra247"` · `use dbultra247`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra248
+
+`import "std/c/dbultra248"` · `use dbultra248`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra249
+
+`import "std/c/dbultra249"` · `use dbultra249`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra250
+
+`import "std/c/dbultra250"` · `use dbultra250`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra251
+
+`import "std/c/dbultra251"` · `use dbultra251`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra252
+
+`import "std/c/dbultra252"` · `use dbultra252`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra253
+
+`import "std/c/dbultra253"` · `use dbultra253`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra254
+
+`import "std/c/dbultra254"` · `use dbultra254`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra255
+
+`import "std/c/dbultra255"` · `use dbultra255`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra256
+
+`import "std/c/dbultra256"` · `use dbultra256`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra257
+
+`import "std/c/dbultra257"` · `use dbultra257`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra258
+
+`import "std/c/dbultra258"` · `use dbultra258`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra259
+
+`import "std/c/dbultra259"` · `use dbultra259`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra260
+
+`import "std/c/dbultra260"` · `use dbultra260`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra261
+
+`import "std/c/dbultra261"` · `use dbultra261`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra262
+
+`import "std/c/dbultra262"` · `use dbultra262`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra263
+
+`import "std/c/dbultra263"` · `use dbultra263`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra264
+
+`import "std/c/dbultra264"` · `use dbultra264`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra265
+
+`import "std/c/dbultra265"` · `use dbultra265`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra266
+
+`import "std/c/dbultra266"` · `use dbultra266`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra267
+
+`import "std/c/dbultra267"` · `use dbultra267`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra268
+
+`import "std/c/dbultra268"` · `use dbultra268`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra269
+
+`import "std/c/dbultra269"` · `use dbultra269`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra270
+
+`import "std/c/dbultra270"` · `use dbultra270`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra271
+
+`import "std/c/dbultra271"` · `use dbultra271`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra272
+
+`import "std/c/dbultra272"` · `use dbultra272`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra273
+
+`import "std/c/dbultra273"` · `use dbultra273`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra274
+
+`import "std/c/dbultra274"` · `use dbultra274`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra275
+
+`import "std/c/dbultra275"` · `use dbultra275`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra276
+
+`import "std/c/dbultra276"` · `use dbultra276`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra277
+
+`import "std/c/dbultra277"` · `use dbultra277`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra278
+
+`import "std/c/dbultra278"` · `use dbultra278`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra279
+
+`import "std/c/dbultra279"` · `use dbultra279`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra280
+
+`import "std/c/dbultra280"` · `use dbultra280`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra281
+
+`import "std/c/dbultra281"` · `use dbultra281`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra282
+
+`import "std/c/dbultra282"` · `use dbultra282`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra283
+
+`import "std/c/dbultra283"` · `use dbultra283`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra284
+
+`import "std/c/dbultra284"` · `use dbultra284`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra285
+
+`import "std/c/dbultra285"` · `use dbultra285`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra286
+
+`import "std/c/dbultra286"` · `use dbultra286`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra287
+
+`import "std/c/dbultra287"` · `use dbultra287`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra288
+
+`import "std/c/dbultra288"` · `use dbultra288`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra289
+
+`import "std/c/dbultra289"` · `use dbultra289`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra290
+
+`import "std/c/dbultra290"` · `use dbultra290`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra291
+
+`import "std/c/dbultra291"` · `use dbultra291`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra292
+
+`import "std/c/dbultra292"` · `use dbultra292`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra293
+
+`import "std/c/dbultra293"` · `use dbultra293`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra294
+
+`import "std/c/dbultra294"` · `use dbultra294`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra295
+
+`import "std/c/dbultra295"` · `use dbultra295`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra296
+
+`import "std/c/dbultra296"` · `use dbultra296`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra297
+
+`import "std/c/dbultra297"` · `use dbultra297`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra298
+
+`import "std/c/dbultra298"` · `use dbultra298`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra299
+
+`import "std/c/dbultra299"` · `use dbultra299`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra300
+
+`import "std/c/dbultra300"` · `use dbultra300`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra301
+
+`import "std/c/dbultra301"` · `use dbultra301`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra302
+
+`import "std/c/dbultra302"` · `use dbultra302`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra303
+
+`import "std/c/dbultra303"` · `use dbultra303`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra304
+
+`import "std/c/dbultra304"` · `use dbultra304`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra305
+
+`import "std/c/dbultra305"` · `use dbultra305`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra306
+
+`import "std/c/dbultra306"` · `use dbultra306`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra307
+
+`import "std/c/dbultra307"` · `use dbultra307`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra308
+
+`import "std/c/dbultra308"` · `use dbultra308`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra309
+
+`import "std/c/dbultra309"` · `use dbultra309`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra310
+
+`import "std/c/dbultra310"` · `use dbultra310`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra311
+
+`import "std/c/dbultra311"` · `use dbultra311`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra312
+
+`import "std/c/dbultra312"` · `use dbultra312`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra313
+
+`import "std/c/dbultra313"` · `use dbultra313`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra314
+
+`import "std/c/dbultra314"` · `use dbultra314`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra315
+
+`import "std/c/dbultra315"` · `use dbultra315`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra316
+
+`import "std/c/dbultra316"` · `use dbultra316`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra317
+
+`import "std/c/dbultra317"` · `use dbultra317`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra318
+
+`import "std/c/dbultra318"` · `use dbultra318`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra319
+
+`import "std/c/dbultra319"` · `use dbultra319`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra320
+
+`import "std/c/dbultra320"` · `use dbultra320`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra321
+
+`import "std/c/dbultra321"` · `use dbultra321`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra322
+
+`import "std/c/dbultra322"` · `use dbultra322`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra323
+
+`import "std/c/dbultra323"` · `use dbultra323`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra324
+
+`import "std/c/dbultra324"` · `use dbultra324`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra325
+
+`import "std/c/dbultra325"` · `use dbultra325`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra326
+
+`import "std/c/dbultra326"` · `use dbultra326`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra327
+
+`import "std/c/dbultra327"` · `use dbultra327`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra328
+
+`import "std/c/dbultra328"` · `use dbultra328`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra329
+
+`import "std/c/dbultra329"` · `use dbultra329`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra330
+
+`import "std/c/dbultra330"` · `use dbultra330`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra331
+
+`import "std/c/dbultra331"` · `use dbultra331`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra332
+
+`import "std/c/dbultra332"` · `use dbultra332`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra333
+
+`import "std/c/dbultra333"` · `use dbultra333`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra334
+
+`import "std/c/dbultra334"` · `use dbultra334`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra335
+
+`import "std/c/dbultra335"` · `use dbultra335`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra336
+
+`import "std/c/dbultra336"` · `use dbultra336`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra337
+
+`import "std/c/dbultra337"` · `use dbultra337`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra338
+
+`import "std/c/dbultra338"` · `use dbultra338`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra339
+
+`import "std/c/dbultra339"` · `use dbultra339`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra340
+
+`import "std/c/dbultra340"` · `use dbultra340`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra341
+
+`import "std/c/dbultra341"` · `use dbultra341`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra342
+
+`import "std/c/dbultra342"` · `use dbultra342`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra343
+
+`import "std/c/dbultra343"` · `use dbultra343`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra344
+
+`import "std/c/dbultra344"` · `use dbultra344`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra345
+
+`import "std/c/dbultra345"` · `use dbultra345`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra346
+
+`import "std/c/dbultra346"` · `use dbultra346`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra347
+
+`import "std/c/dbultra347"` · `use dbultra347`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra348
+
+`import "std/c/dbultra348"` · `use dbultra348`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra349
+
+`import "std/c/dbultra349"` · `use dbultra349`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra350
+
+`import "std/c/dbultra350"` · `use dbultra350`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra351
+
+`import "std/c/dbultra351"` · `use dbultra351`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra352
+
+`import "std/c/dbultra352"` · `use dbultra352`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra353
+
+`import "std/c/dbultra353"` · `use dbultra353`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra354
+
+`import "std/c/dbultra354"` · `use dbultra354`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra355
+
+`import "std/c/dbultra355"` · `use dbultra355`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra356
+
+`import "std/c/dbultra356"` · `use dbultra356`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra357
+
+`import "std/c/dbultra357"` · `use dbultra357`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra358
+
+`import "std/c/dbultra358"` · `use dbultra358`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra359
+
+`import "std/c/dbultra359"` · `use dbultra359`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra360
+
+`import "std/c/dbultra360"` · `use dbultra360`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra361
+
+`import "std/c/dbultra361"` · `use dbultra361`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra362
+
+`import "std/c/dbultra362"` · `use dbultra362`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra363
+
+`import "std/c/dbultra363"` · `use dbultra363`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra364
+
+`import "std/c/dbultra364"` · `use dbultra364`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra365
+
+`import "std/c/dbultra365"` · `use dbultra365`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra366
+
+`import "std/c/dbultra366"` · `use dbultra366`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra367
+
+`import "std/c/dbultra367"` · `use dbultra367`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra368
+
+`import "std/c/dbultra368"` · `use dbultra368`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra369
+
+`import "std/c/dbultra369"` · `use dbultra369`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra370
+
+`import "std/c/dbultra370"` · `use dbultra370`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra371
+
+`import "std/c/dbultra371"` · `use dbultra371`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra372
+
+`import "std/c/dbultra372"` · `use dbultra372`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra373
+
+`import "std/c/dbultra373"` · `use dbultra373`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra374
+
+`import "std/c/dbultra374"` · `use dbultra374`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra375
+
+`import "std/c/dbultra375"` · `use dbultra375`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra376
+
+`import "std/c/dbultra376"` · `use dbultra376`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra377
+
+`import "std/c/dbultra377"` · `use dbultra377`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra378
+
+`import "std/c/dbultra378"` · `use dbultra378`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra379
+
+`import "std/c/dbultra379"` · `use dbultra379`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra380
+
+`import "std/c/dbultra380"` · `use dbultra380`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra381
+
+`import "std/c/dbultra381"` · `use dbultra381`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra382
+
+`import "std/c/dbultra382"` · `use dbultra382`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra383
+
+`import "std/c/dbultra383"` · `use dbultra383`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra384
+
+`import "std/c/dbultra384"` · `use dbultra384`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra385
+
+`import "std/c/dbultra385"` · `use dbultra385`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra386
+
+`import "std/c/dbultra386"` · `use dbultra386`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra387
+
+`import "std/c/dbultra387"` · `use dbultra387`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra388
+
+`import "std/c/dbultra388"` · `use dbultra388`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra389
+
+`import "std/c/dbultra389"` · `use dbultra389`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra390
+
+`import "std/c/dbultra390"` · `use dbultra390`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra391
+
+`import "std/c/dbultra391"` · `use dbultra391`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra392
+
+`import "std/c/dbultra392"` · `use dbultra392`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra393
+
+`import "std/c/dbultra393"` · `use dbultra393`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra394
+
+`import "std/c/dbultra394"` · `use dbultra394`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra395
+
+`import "std/c/dbultra395"` · `use dbultra395`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra396
+
+`import "std/c/dbultra396"` · `use dbultra396`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra397
+
+`import "std/c/dbultra397"` · `use dbultra397`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra398
+
+`import "std/c/dbultra398"` · `use dbultra398`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra399
+
+`import "std/c/dbultra399"` · `use dbultra399`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra400
+
+`import "std/c/dbultra400"` · `use dbultra400`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra401
+
+`import "std/c/dbultra401"` · `use dbultra401`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra402
+
+`import "std/c/dbultra402"` · `use dbultra402`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra403
+
+`import "std/c/dbultra403"` · `use dbultra403`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra404
+
+`import "std/c/dbultra404"` · `use dbultra404`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra405
+
+`import "std/c/dbultra405"` · `use dbultra405`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra406
+
+`import "std/c/dbultra406"` · `use dbultra406`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra407
+
+`import "std/c/dbultra407"` · `use dbultra407`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra408
+
+`import "std/c/dbultra408"` · `use dbultra408`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra409
+
+`import "std/c/dbultra409"` · `use dbultra409`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra410
+
+`import "std/c/dbultra410"` · `use dbultra410`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra411
+
+`import "std/c/dbultra411"` · `use dbultra411`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra412
+
+`import "std/c/dbultra412"` · `use dbultra412`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra413
+
+`import "std/c/dbultra413"` · `use dbultra413`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra414
+
+`import "std/c/dbultra414"` · `use dbultra414`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra415
+
+`import "std/c/dbultra415"` · `use dbultra415`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra416
+
+`import "std/c/dbultra416"` · `use dbultra416`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra417
+
+`import "std/c/dbultra417"` · `use dbultra417`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra418
+
+`import "std/c/dbultra418"` · `use dbultra418`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra419
+
+`import "std/c/dbultra419"` · `use dbultra419`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra420
+
+`import "std/c/dbultra420"` · `use dbultra420`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra421
+
+`import "std/c/dbultra421"` · `use dbultra421`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra422
+
+`import "std/c/dbultra422"` · `use dbultra422`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra423
+
+`import "std/c/dbultra423"` · `use dbultra423`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra424
+
+`import "std/c/dbultra424"` · `use dbultra424`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra425
+
+`import "std/c/dbultra425"` · `use dbultra425`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra426
+
+`import "std/c/dbultra426"` · `use dbultra426`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra427
+
+`import "std/c/dbultra427"` · `use dbultra427`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra428
+
+`import "std/c/dbultra428"` · `use dbultra428`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra429
+
+`import "std/c/dbultra429"` · `use dbultra429`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra430
+
+`import "std/c/dbultra430"` · `use dbultra430`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra431
+
+`import "std/c/dbultra431"` · `use dbultra431`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra432
+
+`import "std/c/dbultra432"` · `use dbultra432`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra433
+
+`import "std/c/dbultra433"` · `use dbultra433`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra434
+
+`import "std/c/dbultra434"` · `use dbultra434`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra435
+
+`import "std/c/dbultra435"` · `use dbultra435`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra436
+
+`import "std/c/dbultra436"` · `use dbultra436`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra437
+
+`import "std/c/dbultra437"` · `use dbultra437`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra438
+
+`import "std/c/dbultra438"` · `use dbultra438`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra439
+
+`import "std/c/dbultra439"` · `use dbultra439`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra440
+
+`import "std/c/dbultra440"` · `use dbultra440`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra441
+
+`import "std/c/dbultra441"` · `use dbultra441`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra442
+
+`import "std/c/dbultra442"` · `use dbultra442`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra443
+
+`import "std/c/dbultra443"` · `use dbultra443`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra444
+
+`import "std/c/dbultra444"` · `use dbultra444`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra445
+
+`import "std/c/dbultra445"` · `use dbultra445`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra446
+
+`import "std/c/dbultra446"` · `use dbultra446`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra447
+
+`import "std/c/dbultra447"` · `use dbultra447`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra448
+
+`import "std/c/dbultra448"` · `use dbultra448`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra449
+
+`import "std/c/dbultra449"` · `use dbultra449`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra450
+
+`import "std/c/dbultra450"` · `use dbultra450`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra451
+
+`import "std/c/dbultra451"` · `use dbultra451`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra452
+
+`import "std/c/dbultra452"` · `use dbultra452`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra453
+
+`import "std/c/dbultra453"` · `use dbultra453`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra454
+
+`import "std/c/dbultra454"` · `use dbultra454`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra455
+
+`import "std/c/dbultra455"` · `use dbultra455`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra456
+
+`import "std/c/dbultra456"` · `use dbultra456`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra457
+
+`import "std/c/dbultra457"` · `use dbultra457`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra458
+
+`import "std/c/dbultra458"` · `use dbultra458`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra459
+
+`import "std/c/dbultra459"` · `use dbultra459`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra460
+
+`import "std/c/dbultra460"` · `use dbultra460`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra461
+
+`import "std/c/dbultra461"` · `use dbultra461`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra462
+
+`import "std/c/dbultra462"` · `use dbultra462`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra463
+
+`import "std/c/dbultra463"` · `use dbultra463`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra464
+
+`import "std/c/dbultra464"` · `use dbultra464`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra465
+
+`import "std/c/dbultra465"` · `use dbultra465`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra466
+
+`import "std/c/dbultra466"` · `use dbultra466`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra467
+
+`import "std/c/dbultra467"` · `use dbultra467`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra468
+
+`import "std/c/dbultra468"` · `use dbultra468`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra469
+
+`import "std/c/dbultra469"` · `use dbultra469`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra470
+
+`import "std/c/dbultra470"` · `use dbultra470`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra471
+
+`import "std/c/dbultra471"` · `use dbultra471`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra472
+
+`import "std/c/dbultra472"` · `use dbultra472`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra473
+
+`import "std/c/dbultra473"` · `use dbultra473`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra474
+
+`import "std/c/dbultra474"` · `use dbultra474`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra475
+
+`import "std/c/dbultra475"` · `use dbultra475`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra476
+
+`import "std/c/dbultra476"` · `use dbultra476`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra477
+
+`import "std/c/dbultra477"` · `use dbultra477`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra478
+
+`import "std/c/dbultra478"` · `use dbultra478`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra479
+
+`import "std/c/dbultra479"` · `use dbultra479`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra480
+
+`import "std/c/dbultra480"` · `use dbultra480`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra481
+
+`import "std/c/dbultra481"` · `use dbultra481`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra482
+
+`import "std/c/dbultra482"` · `use dbultra482`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra483
+
+`import "std/c/dbultra483"` · `use dbultra483`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra484
+
+`import "std/c/dbultra484"` · `use dbultra484`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra485
+
+`import "std/c/dbultra485"` · `use dbultra485`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra486
+
+`import "std/c/dbultra486"` · `use dbultra486`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra487
+
+`import "std/c/dbultra487"` · `use dbultra487`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra488
+
+`import "std/c/dbultra488"` · `use dbultra488`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra489
+
+`import "std/c/dbultra489"` · `use dbultra489`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra490
+
+`import "std/c/dbultra490"` · `use dbultra490`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra491
+
+`import "std/c/dbultra491"` · `use dbultra491`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra492
+
+`import "std/c/dbultra492"` · `use dbultra492`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra493
+
+`import "std/c/dbultra493"` · `use dbultra493`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra494
+
+`import "std/c/dbultra494"` · `use dbultra494`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra495
+
+`import "std/c/dbultra495"` · `use dbultra495`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra496
+
+`import "std/c/dbultra496"` · `use dbultra496`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra497
+
+`import "std/c/dbultra497"` · `use dbultra497`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra498
+
+`import "std/c/dbultra498"` · `use dbultra498`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra499
+
+`import "std/c/dbultra499"` · `use dbultra499`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
+
+## std/c/dbultra500
+
+`import "std/c/dbultra500"` · `use dbultra500`
+
+- `execSql(path text, sql text) → bool`
+- `queryRows(path text, sql text) → text`
+- `selectAll(path text, table text) → text`
+- `insertRow(path text, table text, columns text, values text) → number`
+- `deleteWhere(path text, table text, whereClause text) → bool`
+- `rowCount(path text, table text) → number`
+- `tableExists(path text, table text) → bool`
+- `dropTable(path text, table text) → bool`
+- `createTable(path text, ddl text) → bool`
+- `listTables(path text) → text`
+- `escapeLiteral(value text) → text`
+- `scalarQuery(path text, sql text) → number`
+- `writeQueryCsv(outPath text, dbPath text, sql text) → bool`
+- `vacuumDb(path text) → bool`
+- `maxColumn(path text, table text, col text) → number`
+- `updateWhere(path text, table text, setClause text, whereClause text) → bool`
+- `clearTable(path text, table text) → bool`
+- `selectTop(path text, table text, limit number) → text`
+- `countLines(text text) → number`
+- `sumColumn(path text, table text, col text) → number`
