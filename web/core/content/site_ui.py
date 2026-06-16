@@ -6,7 +6,7 @@ UI = {
         'nav_docs': 'Documentation',
         'nav_ecosystem': 'Écosystème',
         'nav_benchmarks': 'Benchmarks',
-        'nav_showcase': 'Showcase',
+        'nav_showcase': 'Projets',
         'nav_packages': 'Paquets',
         'nav_playground': 'Playground',
         'nav_tutorial': 'Tutoriel',
