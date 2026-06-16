@@ -189,10 +189,6 @@ body.afr-body {
   line-height: 1.65;
 }
 
-.afr-hero-accent {
-  color: var(--afr-primary);
-}
-
 .code-panel {
   background: var(--afr-code-bg);
   border-radius: var(--afr-radius);
@@ -505,6 +501,12 @@ body.afr-body {
   border: 1px solid var(--afr-border);
   border-radius: var(--afr-radius);
   box-shadow: var(--afr-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.afr-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
 }
 
 .afr-card .card-header {
