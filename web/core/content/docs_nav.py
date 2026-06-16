@@ -88,8 +88,8 @@ NAV_DESC = {
         'en': 'FFI, built-in tests',
     },
     'stdlib': {
-        'fr': '463+ modules, I/O, HTTP, collections',
-        'en': '463+ modules, I/O, HTTP, collections',
+        'fr': '7900+ modules, SIG, data science, IA, SQLite',
+        'en': '7900+ modules, GIS, data science, AI, SQLite',
     },
     'package-manager': {
         'fr': 'afrilang.toml, pkg, semver',
