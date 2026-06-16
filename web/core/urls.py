@@ -7,6 +7,7 @@ urlpatterns = [
     path('language/', views.language, name='language'),
     path('explore/', views.explore, name='explore'),
     path('benchmarks/', views.benchmarks, name='benchmarks'),
+    path('showcase/', views.showcase, name='showcase'),
     path('download/', views.download, name='download'),
     path('download/bin/<slug:platform>/', views.download_binary, name='download_binary'),
     path('community/', views.community, name='community'),

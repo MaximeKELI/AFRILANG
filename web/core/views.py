@@ -11,6 +11,7 @@ from .content.docs_pages import get_doc_page_by_url_name
 from .content.docs_search import search_docs
 from .content.ecosystem_i18n import translate_ecosystem
 from .content.example_topics import grouped_examples
+from .content.showcase import get_projects, grouped_projects
 from .content.tutorial import get_lesson, get_lessons, total_steps
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import (
@@ -134,6 +135,16 @@ def benchmarks(request):
     return render(request, 'core/benchmarks.html', {
         'benchmarks': data,
         'summary': summary,
+    })
+
+
+def showcase(request):
+    lang = request.LANGUAGE_CODE
+    projects = get_projects(lang)
+    featured = [p for p in projects if p['featured']]
+    return render(request, 'core/showcase.html', {
+        'groups': grouped_projects(lang),
+        'featured': featured,
     })
 
 

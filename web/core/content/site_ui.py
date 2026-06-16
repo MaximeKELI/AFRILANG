@@ -6,6 +6,7 @@ UI = {
         'nav_docs': 'Documentation',
         'nav_ecosystem': 'Écosystème',
         'nav_benchmarks': 'Benchmarks',
+        'nav_showcase': 'Showcase',
         'nav_packages': 'Paquets',
         'nav_playground': 'Playground',
         'nav_tutorial': 'Tutoriel',
@@ -271,6 +272,17 @@ UI = {
                 'Les temps varient selon CPU, cache et charge système.'
             ),
         },
+        'showcase_page': {
+            'title': 'Showcase AFRILANG',
+            'label': 'Projets',
+            'h1': 'Projets & dépôts',
+            'lead': 'Compilateur, outils, site web, paquets et démos — l\'écosystème AFRILANG sur GitHub.',
+            'featured': 'Projets phares',
+            'try_btn': 'Playground',
+            'submit_title': 'Votre projet en AFRILANG ?',
+            'submit_lead': 'Publiez sur GitHub et ouvrez une issue pour apparaître dans cette galerie.',
+            'submit_btn': 'Proposer un projet',
+        },
         'docs_search_page': {
             'title': 'Recherche documentation',
             'h1': 'Rechercher dans la doc',
@@ -287,6 +299,7 @@ UI = {
         'nav_docs': 'Documentation',
         'nav_ecosystem': 'Ecosystem',
         'nav_benchmarks': 'Benchmarks',
+        'nav_showcase': 'Showcase',
         'nav_packages': 'Packages',
         'nav_playground': 'Playground',
         'nav_tutorial': 'Tutorial',
