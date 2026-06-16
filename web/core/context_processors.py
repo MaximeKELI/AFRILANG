@@ -26,6 +26,8 @@ def site_settings(request):
         'AFRILANG_BIN': settings.AFRILANG_BIN,
         'SITE_STATS': stats,
         'SITE_URL': getattr(settings, 'SITE_URL', 'http://127.0.0.1:8000'),
+        'PLAYGROUND_RATE_LIMIT': getattr(settings, 'PLAYGROUND_RATE_LIMIT', 30),
+        'PLAYGROUND_RATE_WINDOW': getattr(settings, 'PLAYGROUND_RATE_WINDOW', 3600),
     }
 
 
