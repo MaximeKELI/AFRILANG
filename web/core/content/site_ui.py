@@ -263,7 +263,9 @@ UI = {
             'title': 'Bibliothèques AFRILANG',
             'label': 'Stdlib',
             'h1': 'Toutes les bibliothèques',
-            'lead': '467+ modules stdlib avec descriptions, guides HTML et PDF explicatifs (5+ pages chacun).',
+            'lead': '7900+ modules stdlib avec descriptions, guides HTML et PDF explicatifs (5+ pages chacun).',
+            'ultra_title': 'Paquets ultra (×500)',
+            'ultra_lead': 'Familles générées : SIG, raster, segmentation, data science, visualisation, IA, bases de données, jeux.',
             'count_label': 'bibliothèques',
             'view_all': 'Voir tout',
             'guide': 'Guide',
@@ -431,8 +433,8 @@ UI = {
             ),
             'feat_stdlib_title': 'Massive stdlib',
             'feat_stdlib': (
-                'I/O, JSON, HTTP, collections, graphs, stats, crypto, finance, NLP… '
-                '460+ modules via <code>import "std/…"</code>.'
+                'I/O, JSON, HTTP, GIS, raster, data science, AI, SQLite, 2D/3D games… '
+                '7900+ modules via <code>import "std/…"</code>.'
             ),
             'feat_tools_title': 'Integrated toolchain',
             'feat_tools': (
@@ -612,7 +614,9 @@ UI = {
             'title': 'AFRILANG Libraries',
             'label': 'Stdlib',
             'h1': 'All libraries',
-            'lead': '467+ stdlib modules with descriptions, HTML guides and explanatory PDFs (5+ pages each).',
+            'lead': '7900+ stdlib modules with descriptions, HTML guides and explanatory PDFs (5+ pages each).',
+            'ultra_title': 'Ultra packs (×500)',
+            'ultra_lead': 'Generated families: GIS, raster, segmentation, data science, visualization, AI, databases, games.',
             'count_label': 'libraries',
             'view_all': 'View all',
             'guide': 'Guide',
