@@ -3,6 +3,9 @@ module game2d
 function configureGrid(cols number, rows number, cellSize number, padX number, padY number)
 end
 
+function configureViewport(viewCols number, viewRows number)
+end
+
 function gridWindowWidth() returns number
 end
 
@@ -13,6 +16,12 @@ function cellPx(col number) returns number
 end
 
 function cellPy(row number) returns number
+end
+
+function cellWorldX(col number) returns number
+end
+
+function cellWorldY(row number) returns number
 end
 
 function isBorderCell(col number, row number) returns bool
@@ -88,5 +97,50 @@ function updateHighScore(score number)
 end
 
 function moveIntervalForScore(score number, baseMs number, minMs number) returns number
+end
+
+function setCamera(x number, y number)
+end
+
+function cameraX() returns number
+end
+
+function cameraY() returns number
+end
+
+function followCamera(targetX number, targetY number, smooth number)
+end
+
+function loadSprite(name text, path text) returns bool
+end
+
+function hasSprite(name text) returns bool
+end
+
+function spriteWidth(name text) returns number
+end
+
+function spriteHeight(name text) returns number
+end
+
+function drawSprite(name text, worldX number, worldY number)
+end
+
+function drawSpriteScaled(name text, worldX number, worldY number, width number, height number)
+end
+
+function drawSpriteCell(name text, col number, row number)
+end
+
+function loadSound(name text, path text) returns bool
+end
+
+function playSound(name text) returns bool
+end
+
+function playSoundVolume(name text, volume number) returns bool
+end
+
+function shutdown()
 end
 end
