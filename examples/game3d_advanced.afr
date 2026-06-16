@@ -52,8 +52,8 @@ while isOpen() do
         drawSkybox(180)
     end
 
-    applySceneRotation()
     setSceneRotation(rot)
+    applySceneRotation()
 
     drawGrid(0, 22, 22)
     drawPlaneTextured(0, 22, "grass")
@@ -61,12 +61,7 @@ while isOpen() do
     setShaderVec3("lit", "uSunDir", 0.4, 1, 0.3)
     setShaderVec3("lit", "uSunColor", 1, 0.95, 0.85)
     setShaderVec3("lit", "uAmbient", 0.2, 0.22, 0.28)
-    if hasGltf("pyramid") then
-        drawModelShader("lit", "pyramid", -5, 0, 4, 2.2, rot * 0.6)
-    end
-    if hasShader("lit") is equal to false then
-        drawGltf("pyramid", -5, 0, 4, 2.2, rot * 0.6)
-    end
+    drawModelShader("lit", "pyramid", -5, 0, 4, 2.2, rot * 0.6)
 
     drawModelLit("crate", 6, 0.5, -4, 1.0, rot * 0.4, "grass")
     drawBody("crateA")
