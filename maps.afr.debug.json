@@ -1,0 +1,7 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/maps.afr",
+  "variables": [
+    {"name":"emptyMap","type":"map text to number","scope":"global"},
+    {"name":"scores","type":"map text to number","scope":"global"}
+  ]
+}

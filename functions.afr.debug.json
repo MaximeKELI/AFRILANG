@@ -1,0 +1,15 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/functions.afr",
+  "variables": [
+    {"name":"calc","type":"Calculator","scope":"global"},
+    {"name":"squared","type":"number","scope":"global"},
+    {"name":"message","type":"text","scope":"global"},
+    {"name":"result","type":"number","scope":"global"},
+    {"name":"a","type":"number","scope":"add","line":1},
+    {"name":"b","type":"number","scope":"add","line":1},
+    {"name":"name","type":"text","scope":"greet","line":5},
+    {"name":"n","type":"number","scope":"square","line":9},
+    {"name":"x","type":"number","scope":"compute","line":14},
+    {"name":"y","type":"number","scope":"compute","line":14}
+  ]
+}

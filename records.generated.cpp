@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
@@ -16,9 +17,9 @@ struct Point {
 
 int main() {
     #line 6 "/home/maxime/AFRILANG/examples/records.afr"
-    double px = 10;
+    double px = 10LL;
     #line 7 "/home/maxime/AFRILANG/examples/records.afr"
-    double py = 20;
+    double py = 20LL;
     #line 9 "/home/maxime/AFRILANG/examples/records.afr"
     std::cout << px << std::endl;
     #line 10 "/home/maxime/AFRILANG/examples/records.afr"

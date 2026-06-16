@@ -4,13 +4,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
 #include "str.hpp"
-
-namespace Math {
-} // namespace Math
 
 namespace Math {
     double add(double a, double b) {
@@ -30,8 +28,8 @@ using namespace Math;
 int main() {
     #line 11 "/home/maxime/AFRILANG/examples/modules.afr"
         #line 13 "/home/maxime/AFRILANG/examples/modules.afr"
-    std::cout << Math::add(3, 4) << std::endl;
+    std::cout << Math::add(3LL, 4LL) << std::endl;
     #line 14 "/home/maxime/AFRILANG/examples/modules.afr"
-    std::cout << Math::multiply(5, 6) << std::endl;
+    std::cout << Math::multiply(5LL, 6LL) << std::endl;
     return 0;
 }

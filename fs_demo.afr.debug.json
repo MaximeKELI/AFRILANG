@@ -1,0 +1,15 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/fs_demo.afr",
+  "variables": [
+    {"name":"dir","type":"text","scope":"global"},
+    {"name":"path","type":"text","scope":"listDir"},
+    {"name":"path","type":"text","scope":"makeDir"},
+    {"name":"path","type":"text","scope":"removeFile"},
+    {"name":"path","type":"text","scope":"fileSize"},
+    {"name":"path","type":"text","scope":"readFile"},
+    {"name":"path","type":"text","scope":"writeFile"},
+    {"name":"content","type":"text","scope":"writeFile"},
+    {"name":"path","type":"text","scope":"fileExists"},
+    {"name":"path","type":"text","scope":"readFileAsync"}
+  ]
+}

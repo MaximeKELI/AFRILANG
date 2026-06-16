@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
@@ -35,7 +36,7 @@ public:
 
 int main() {
     #line 16 "/home/maxime/AFRILANG/examples/fields.afr"
-    std::unique_ptr<Person> bob = std::make_unique<Person>("Bob", 25);
+    std::unique_ptr<Person> bob = std::make_unique<Person>("Bob", 25LL);
     #line 17 "/home/maxime/AFRILANG/examples/fields.afr"
     bob->greet();
     #line 18 "/home/maxime/AFRILANG/examples/fields.afr"

@@ -1,0 +1,12 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/args_path_demo.afr",
+  "variables": [
+    {"name":"index","type":"number","scope":"at"},
+    {"name":"left","type":"text","scope":"join"},
+    {"name":"right","type":"text","scope":"join"},
+    {"name":"path","type":"text","scope":"basename"},
+    {"name":"path","type":"text","scope":"dirname"},
+    {"name":"path","type":"text","scope":"extension"},
+    {"name":"path","type":"text","scope":"isAbsolute"}
+  ]
+}

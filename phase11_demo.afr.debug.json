@@ -1,0 +1,21 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/phase11_demo.afr",
+  "variables": [
+    {"name":"cfg","type":"AppConfig","scope":"global"},
+    {"name":"pets","type":"list Animal","scope":"global"},
+    {"name":"words","type":"list text","scope":"global"},
+    {"name":"box","type":"Box","scope":"global"},
+    {"name":"joined","type":"text","scope":"global"},
+    {"name":"expanded","type":"list number","scope":"global"},
+    {"name":"nums","type":"list number","scope":"global"},
+    {"name":"index","type":"number","scope":"at"},
+    {"name":"left","type":"text","scope":"join"},
+    {"name":"right","type":"text","scope":"join"},
+    {"name":"path","type":"text","scope":"basename"},
+    {"name":"path","type":"text","scope":"dirname"},
+    {"name":"path","type":"text","scope":"extension"},
+    {"name":"path","type":"text","scope":"isAbsolute"},
+    {"name":"v","type":"T","scope":"init","line":16},
+    {"name":"t","type":"text","scope":"init","line":29}
+  ]
+}

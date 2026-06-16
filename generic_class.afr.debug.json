@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/generic_class.afr",
+  "variables": [
+    {"name":"label","type":"Box","scope":"global"},
+    {"name":"numbers","type":"Box","scope":"global"},
+    {"name":"v","type":"T","scope":"init","line":4}
+  ]
+}

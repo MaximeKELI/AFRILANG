@@ -1,0 +1,6 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/educational.afr",
+  "variables": [
+    {"name":"x","type":"number","scope":"global"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/language_demo.afr",
+  "variables": [
+    {"name":"e","type":"Status","scope":"global"},
+    {"name":"x","type":"T","scope":"identity","line":15},
+    {"name":"a","type":"number","scope":"add","line":2},
+    {"name":"b","type":"number","scope":"add","line":2},
+    {"name":"x","type":"number","scope":"scale","line":6},
+    {"name":"x","type":"number","scope":"twice","line":10}
+  ]
+}

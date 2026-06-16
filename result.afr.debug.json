@@ -1,0 +1,9 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/result.afr",
+  "variables": [
+    {"name":"bad","type":"number or error","scope":"global"},
+    {"name":"ok","type":"number or error","scope":"global"},
+    {"name":"a","type":"number","scope":"divide","line":1},
+    {"name":"b","type":"number","scope":"divide","line":1}
+  ]
+}

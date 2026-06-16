@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/traits_demo.afr",
+  "variables": [
+    {"name":"k","type":"Kind","scope":"global"},
+    {"name":"speakers","type":"list Speakable","scope":"global"},
+    {"name":"pet","type":"Speakable","scope":"global"}
+  ]
+}

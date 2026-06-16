@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/fields.afr",
+  "variables": [
+    {"name":"bob","type":"Person","scope":"global"},
+    {"name":"aName","type":"text","scope":"init","line":5},
+    {"name":"aAge","type":"number","scope":"init","line":5}
+  ]
+}

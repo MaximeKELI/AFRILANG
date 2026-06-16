@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/advanced.afr",
+  "variables": [
+    {"name":"nickname","type":"text?","scope":"global"},
+    {"name":"e","type":"Status","scope":"global"},
+    {"name":"s","type":"Status","scope":"global"}
+  ]
+}

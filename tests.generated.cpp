@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
@@ -18,9 +19,9 @@ static int afr_tests_failed = 0;
 
 void afr_test_addition_works() {
     #line 6 "/home/maxime/AFRILANG/examples/tests.afr"
-    auto r = afr_add(2, 3);
+    auto r = afr_add(2LL, 3LL);
     #line 7 "/home/maxime/AFRILANG/examples/tests.afr"
-    if (!((r == 5))) {
+    if (!((r == 5LL))) {
         std::cerr << "ASSERT FAILED" << std::endl;
         ++afr_tests_failed;
         return;

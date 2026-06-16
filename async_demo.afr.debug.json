@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/async_demo.afr",
+  "variables": [
+    {"name":"ms","type":"number","scope":"waitAndReply","line":5},
+    {"name":"msg","type":"","scope":"runDemo","line":12},
+    {"name":"ms","type":"number","scope":"sleep"}
+  ]
+}

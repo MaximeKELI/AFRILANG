@@ -1,0 +1,10 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/tier5_demo.afr",
+  "variables": [
+    {"name":"g","type":"Greeter","scope":"global"},
+    {"name":"score","type":"number","scope":"global"},
+    {"name":"seq","type":"generator int","scope":"global"},
+    {"name":"n","type":"int","scope":"range","line":29},
+    {"name":"i","type":"int","scope":"range","line":30}
+  ]
+}

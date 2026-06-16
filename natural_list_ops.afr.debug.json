@@ -1,0 +1,14 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/natural_list_ops.afr",
+  "variables": [
+    {"name":"expanded","type":"list number","scope":"global"},
+    {"name":"joined","type":"text","scope":"global"},
+    {"name":"longWords","type":"list text","scope":"global"},
+    {"name":"upper","type":"list text","scope":"global"},
+    {"name":"words","type":"list text","scope":"global"},
+    {"name":"bigOnes","type":"list number","scope":"global"},
+    {"name":"total","type":"number","scope":"global"},
+    {"name":"doubled","type":"list number","scope":"global"},
+    {"name":"nums","type":"list number","scope":"global"}
+  ]
+}

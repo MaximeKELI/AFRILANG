@@ -1,0 +1,12 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/lambdas.afr",
+  "variables": [
+    {"name":"pipeline","type":"function number to number","scope":"global"},
+    {"name":"greet","type":"function text to text","scope":"global"},
+    {"name":"addFive","type":"function number to number","scope":"global"},
+    {"name":"runTwice","type":"function function number to number, number to number","scope":"global"},
+    {"name":"doubleIt","type":"function number to number","scope":"global"},
+    {"name":"fn","type":"function number to number","scope":"apply","line":12},
+    {"name":"value","type":"number","scope":"apply","line":12}
+  ]
+}

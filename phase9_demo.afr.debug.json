@@ -1,0 +1,29 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/phase9_demo.afr",
+  "variables": [
+    {"name":"parts","type":"list text","scope":"global"},
+    {"name":"nowTs","type":"number","scope":"global"},
+    {"name":"value","type":"number","scope":"global"},
+    {"name":"version","type":"number","scope":"global"},
+    {"name":"name","type":"text","scope":"global"},
+    {"name":"text","type":"text","scope":"trim"},
+    {"name":"text","type":"text","scope":"contains"},
+    {"name":"needle","type":"text","scope":"contains"},
+    {"name":"text","type":"text","scope":"replace"},
+    {"name":"from","type":"text","scope":"replace"},
+    {"name":"to","type":"text","scope":"replace"},
+    {"name":"text","type":"text","scope":"split"},
+    {"name":"sep","type":"text","scope":"split"},
+    {"name":"parts","type":"list text","scope":"join"},
+    {"name":"sep","type":"text","scope":"join"},
+    {"name":"message","type":"text","scope":"info"},
+    {"name":"message","type":"text","scope":"warn"},
+    {"name":"message","type":"text","scope":"error"},
+    {"name":"value","type":"number","scope":"abs"},
+    {"name":"value","type":"number","scope":"floor"},
+    {"name":"value","type":"number","scope":"ceil"},
+    {"name":"base","type":"number","scope":"pow"},
+    {"name":"exp","type":"number","scope":"pow"},
+    {"name":"seconds","type":"number","scope":"formatTimestamp"}
+  ]
+}

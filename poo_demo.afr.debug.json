@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/poo_demo.afr",
+  "variables": [
+    {"name":"whiskers","type":"Cat","scope":"global"},
+    {"name":"rex","type":"Dog","scope":"global"},
+    {"name":"aName","type":"text","scope":"init","line":10}
+  ]
+}

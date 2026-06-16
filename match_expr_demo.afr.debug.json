@@ -1,0 +1,10 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/match_expr_demo.afr",
+  "variables": [
+    {"name":"code","type":"number","scope":"global"},
+    {"name":"okLabel","type":"text","scope":"global"},
+    {"name":"e","type":"Status","scope":"global"},
+    {"name":"errLabel","type":"text","scope":"global"},
+    {"name":"s","type":"Status","scope":"global"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/lists.afr",
+  "variables": [
+    {"name":"flags","type":"list bool","scope":"global"},
+    {"name":"names","type":"list text","scope":"global"},
+    {"name":"nums2","type":"list number","scope":"global"},
+    {"name":"bracket","type":"list number","scope":"global"},
+    {"name":"nums","type":"list number","scope":"global"}
+  ]
+}
