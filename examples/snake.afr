@@ -21,6 +21,12 @@ create H = 28
 create VIEW_W = 22
 create VIEW_H = 16
 
+create SAVE_PATH = "snake_save.txt"
+
+create difficulty number = 1
+create volume number = 110
+create showDebug bool = no
+
 function placeFood(xs list number, ys list number, snakeLen number, w number, h number) returns list number
     create fx number = 1
     create fy number = 1
@@ -32,6 +38,28 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
         end
     end
     return list of fx, fy
+end
+
+function resetGame(xs list number, ys list number, w number, h number) returns list number
+    create snakeLen number = 3
+    create dirX number = 1
+    create dirY number = 0
+    create score number = 0
+
+    create startX number = w / 2
+    create startY number = h / 2
+    set xs at 0 = startX
+    set xs at 1 = startX - 1
+    set xs at 2 = startX - 2
+    set ys at 0 = startY
+    set ys at 1 = startY
+    set ys at 2 = startY
+
+    resetTimer("move")
+    create food0 = placeFood(xs, ys, snakeLen, w, h)
+    create fx number = food0 at 0
+    create fy number = food0 at 1
+    return list of snakeLen, dirX, dirY, score, fx, fy
 end
 
 function drawWallsLayer(w number, h number)
@@ -108,20 +136,15 @@ create fy number = 1
 configureGrid(W, H, 28, 32, 88)
 configureViewport(VIEW_W, VIEW_H)
 
-create startX number = W / 2
-create startY number = H / 2
-set xs at 0 = startX
-set xs at 1 = startX - 1
-set xs at 2 = startX - 2
-set ys at 0 = startY
-set ys at 1 = startY
-set ys at 2 = startY
-resetTimer("move")
-create food0 = placeFood(xs, ys, snakeLen, W, H)
-set fx = food0 at 0
-set fy = food0 at 1
+create initPack = resetGame(xs, ys, W, H)
+set snakeLen = initPack at 0
+set dirX = initPack at 1
+set dirY = initPack at 2
+set score = initPack at 3
+set fx = initPack at 4
+set fy = initPack at 5
 
-loadHighScore("snake_save.txt")
+loadHighScore(SAVE_PATH)
 setState("menu")
 
 openWindow("AFRILANG Snake", gridWindowWidth(), gridWindowHeight())
@@ -141,43 +164,73 @@ while isOpen() do
         closeWindow()
     end
 
-    if isState("menu") then
-        if wasKeyPressed("Space") then
-            setState("play")
+    if wasKeyPressed("F1") then
+        if showDebug then
+            set showDebug = no
+        else
+            set showDebug = yes
         end
     end
 
     if isState("play") then
-        if wasKeyPressed("Space") then
+        if wasKeyPressed("P") then
             setState("pause")
         end
     end
-
     if isState("pause") then
-        if wasKeyPressed("Space") then
+        if wasKeyPressed("P") then
             setState("play")
         end
+    end
+
+    if isState("menu") then
+        if wasKeyPressed("Space") then setState("play") end
+        if wasKeyPressed("Enter") then setState("play") end
+
+        if drawButton("Jouer", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 - 40, 240, 54) then
+            setState("play")
+        end
+        if drawButton("Difficulte: {difficulty}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 26, 240, 44) then
+            set difficulty = difficulty + 1
+            if difficulty is greater than 3 then set difficulty = 1 end
+        end
+        if drawButton("Volume: {volume}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 78, 240, 44) then
+            set volume = volume + 20
+            if volume is greater than 128 then set volume = 40 end
+        end
+    end
+
+    if isState("play") then
+        if wasKeyPressed("Space") then setState("pause") end
+    end
+
+    if isState("pause") then
+        if wasKeyPressed("Space") then setState("play") end
     end
 
     if isState("gameover") then
         if wasKeyPressed("R") then
-            set startX = W / 2
-            set startY = H / 2
-            set xs at 0 = startX
-            set xs at 1 = startX - 1
-            set xs at 2 = startX - 2
-            set ys at 0 = startY
-            set ys at 1 = startY
-            set ys at 2 = startY
-            set snakeLen = 3
-            set dirX = 1
-            set dirY = 0
-            set score = 0
-            resetTimer("move")
-            create food1 = placeFood(xs, ys, snakeLen, W, H)
-            set fx = food1 at 0
-            set fy = food1 at 1
+            create pack2 = resetGame(xs, ys, W, H)
+            set snakeLen = pack2 at 0
+            set dirX = pack2 at 1
+            set dirY = pack2 at 2
+            set score = pack2 at 3
+            set fx = pack2 at 4
+            set fy = pack2 at 5
             setState("play")
+        end
+        if drawButton("Rejouer (R)", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 36, 240, 52) then
+            create pack3 = resetGame(xs, ys, W, H)
+            set snakeLen = pack3 at 0
+            set dirX = pack3 at 1
+            set dirY = pack3 at 2
+            set score = pack3 at 3
+            set fx = pack3 at 4
+            set fy = pack3 at 5
+            setState("play")
+        end
+        if drawButton("Menu", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 94, 240, 44) then
+            setState("menu")
         end
     end
 
@@ -189,6 +242,8 @@ while isOpen() do
 
     create level number = levelFromXp(xpForScore(score))
     create moveMs number = speedMsForLevel(level)
+    if difficulty is equal to 2 then set moveMs = moveMs * 0.82 end
+    if difficulty is equal to 3 then set moveMs = moveMs * 0.68 end
 
     if isState("play") then
         if everyMs("move", deltaMs(), moveMs) then
@@ -207,8 +262,8 @@ while isOpen() do
                             set grow = yes
                             set score = score + 1
                             updateHighScore(score)
-                            saveHighScore("snake_save.txt")
-                            playSoundVolume("eat", 110)
+                            saveHighScore(SAVE_PATH)
+                            playSoundVolume("eat", volume)
                         end
                     end
 
@@ -254,7 +309,9 @@ while isOpen() do
     drawSnake(xs, ys, snakeLen)
 
     if isState("menu") then
-        drawCenteredText("ESPACE pour jouer", gridWindowHeight() / 2 - 24, 36, 120, 220, 255)
+        drawCenteredText("AFRILANG SNAKE", gridWindowHeight() / 2 - 140, 46, 245, 245, 250)
+        drawCenteredText("Espace / Entrer pour jouer", gridWindowHeight() / 2 - 86, 22, 150, 175, 210)
+        drawCenteredText("F1 debug  ·  P pause", gridWindowHeight() / 2 - 56, 18, 120, 130, 155)
     end
     if isState("pause") then
         drawCenteredText("PAUSE", gridWindowHeight() / 2 - 24, 40, 255, 220, 90)
@@ -264,8 +321,11 @@ while isOpen() do
         drawCenteredText("R pour rejouer", gridWindowHeight() / 2 + 8, 24, 220, 220, 235)
     end
 
-    create fpsY number = gridWindowHeight() - 28
-    drawFps(gridWindowWidth() - 72, fpsY)
+    if showDebug then
+        create fpsY number = gridWindowHeight() - 28
+        drawFps(gridWindowWidth() - 72, fpsY)
+        drawHud("Etat {getState()}  ·  len {snakeLen}  ·  move {moveMs}", 32, gridWindowHeight() - 28, 16, 160, 255, 160)
+    end
 
     showFrame()
 end
