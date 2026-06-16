@@ -500,16 +500,6 @@ inline bool hasGltf(const std::string& name) {
     return context().models.count(name) > 0;
 }
 
-inline void drawGltf(const std::string& name, double x, double y, double z,
-                     double scale, double rotY) {
-    drawModelColored(name, x, y, z, scale, rotY, 200, 220, 255);
-}
-
-inline void drawGltfLit(const std::string& name, double x, double y, double z,
-                        double scale, double rotY, const std::string& textureName) {
-    drawModelLit(name, x, y, z, scale, rotY, textureName);
-}
-
 inline bool rayAabbHit(double ox, double oy, double oz,
                        double dx, double dy, double dz,
                        double cx, double cy, double cz,

@@ -5,6 +5,10 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
+#ifndef GL_GLEXT_PROTOTYPES
+#define GL_GLEXT_PROTOTYPES
+#endif
+#include <GL/glext.h>
 
 #include <algorithm>
 #include <cmath>
