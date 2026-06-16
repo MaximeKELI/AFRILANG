@@ -37,24 +37,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         root = Path(settings.AFRILANG_ROOT)
         examples = len(list((root / 'examples').glob('*.afr'))) if (root / 'examples').is_dir() else 0
-        stdlib = len(list((root / 'stdlib').glob('*.afr'))) if (root / 'stdlib').is_dir() else 0
+        stdlib = len(list((root / 'stdlib').rglob('*.afr'))) if (root / 'stdlib').is_dir() else 0
         blessed = Package.objects.filter(blessed=True).count()
 
-        compiler_version = '1.0.0'
-        bin_path = Path(settings.AFRILANG_BIN)
-        if bin_path.is_file():
-            try:
-                proc = subprocess.run(
-                    [str(bin_path), '--version'],
-                    capture_output=True,
-                    text=True,
-                    timeout=5,
-                )
-                out = (proc.stdout or proc.stderr or '').strip()
-                if out:
-                    compiler_version = out.split()[-1] if out.split() else out
-            except (subprocess.TimeoutExpired, OSError):
-                pass
+        compiler_version = _repo_version()
 
         stats = {
             'version': '1.0',
