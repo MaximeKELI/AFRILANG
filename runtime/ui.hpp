@@ -214,10 +214,6 @@ inline void drawRect(double x, double y, double w, double h, double r, double g,
     SDL_RenderDrawRect(ctx.renderer, &rect);
 }
 
-inline void drawText(const std::string& text, double x, double y, double fontSize) {
-    drawTextImpl(text, x, y, fontSize, 240.0, 240.0, 245.0);
-}
-
 inline void drawTextImpl(const std::string& text, double x, double y, double fontSize,
                          double r, double g, double b) {
     UiContext& ctx = context();
@@ -274,6 +270,10 @@ inline void drawTextImpl(const std::string& text, double x, double y, double fon
         start = end + 1;
         lineIdx += 1;
     }
+}
+
+inline void drawText(const std::string& text, double x, double y, double fontSize) {
+    drawTextImpl(text, x, y, fontSize, 240.0, 240.0, 245.0);
 }
 
 inline void drawTextColor(const std::string& text, double x, double y, double fontSize,
@@ -339,6 +339,7 @@ inline SDL_Scancode scancodeFromName(const std::string& key) {
     if (key == "D" || key == "d") return SDL_SCANCODE_D;
     if (key == "Space" || key == " ") return SDL_SCANCODE_SPACE;
     if (key == "Escape" || key == "Esc") return SDL_SCANCODE_ESCAPE;
+    if (key == "R" || key == "r") return SDL_SCANCODE_R;
     return SDL_SCANCODE_UNKNOWN;
 }
 
