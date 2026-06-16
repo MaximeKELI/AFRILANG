@@ -399,7 +399,7 @@ UI = {
             'title': 'Standard library',
             'label': 'Stdlib',
             'h1': 'Stdlib browser',
-            'lead': 'Browse all <strong>{{ count }}</strong> standard library modules.',
+            'lead': 'Browse all AFRILANG standard library modules.',
             'search': 'Search modules…',
             'filter': 'Filter',
             'empty': 'No modules — run python manage.py sync_stdlib',

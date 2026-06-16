@@ -21,7 +21,7 @@
     <article class="afr-feature-card h-100 {% if pkg.blessed %}border-warning border-opacity-50{% endif %}">
       <div class="d-flex align-items-center gap-2 mb-2">
         {% if pkg.blessed %}<span class="text-warning" title="certified">★</span>{% endif %}
-        <h2 class="h5 fw-bold mb-0">{{ pkg.name }}</h2>
+        <h2 class="h5 fw-bold mb-0"><a href="{% url 'package_detail' pkg.name %}" class="text-decoration-none text-reset">{{ pkg.name }}</a></h2>
         <span class="badge text-bg-light border ms-auto">v{{ pkg.version }}</span>
       </div>
       <p class="small text-secondary-custom">{{ pkg.description }}</p>

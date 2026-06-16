@@ -140,6 +140,8 @@
           <a href="{% url 'docs_getting_started' %}">{{ docs_nav.1.title }}</a>
           <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
           <a href="{% url 'docs_stdlib' %}">{{ docs_nav.6.title }}</a>
+          <a href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
+          <a href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
           <a href="{% url 'playground' %}">Playground</a>
         </div>
         <div class="col-6 col-lg-2">
@@ -157,6 +159,7 @@
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_versions }}</h6>
+          <a href="{% url 'releases' %}">{% if current_lang == 'en' %}Changelog{% else %}Changelog{% endif %}</a>
           <span class="small text-secondary-custom d-block">{{ ui.footer_lang }} {{ SITE_STATS.version }}</span>
           <span class="small text-secondary-custom d-block">{{ ui.footer_compiler }} {{ SITE_STATS.compiler_version }}</span>
         </div>
