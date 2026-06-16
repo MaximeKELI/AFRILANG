@@ -1,0 +1,126 @@
+/* AFRILANG playground embed (iframe widget) */
+html.afr-embed-body,
+body.afr-embed-body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--afr-bg);
+}
+
+.afr-embed-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.afr-embed-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--afr-border);
+  border-radius: var(--afr-radius);
+  background: var(--afr-surface);
+}
+
+.afr-embed-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--afr-text);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.afr-embed-brand:hover {
+  color: var(--afr-primary);
+}
+
+.afr-embed-select {
+  max-width: 160px;
+  font-size: 0.82rem;
+}
+
+.afr-embed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.afr-embed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .afr-embed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.afr-embed-editor {
+  border: 1px solid var(--afr-border);
+  border-radius: var(--afr-radius);
+  overflow: hidden;
+  background: var(--afr-surface);
+}
+
+.afr-embed-output {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--afr-border);
+  border-radius: var(--afr-radius);
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.afr-embed-output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.65rem;
+  background: var(--afr-bg-subtle);
+  border-bottom: 1px solid var(--afr-border);
+}
+
+.afr-embed-output .playground-output {
+  flex: 1;
+  min-height: 180px;
+  border-radius: 0;
+  padding: 0.75rem;
+  font-size: 0.82rem;
+}
+
+.afr-embed-body .playground-cm-wrap .CodeMirror {
+  min-height: 220px;
+  height: 220px;
+}
+
+.afr-embed-preview {
+  border: 1px solid var(--afr-border);
+  border-radius: var(--afr-radius);
+  overflow: hidden;
+  background: var(--afr-bg-muted);
+}
+
+.afr-embed-preview iframe {
+  display: block;
+  width: 100%;
+  border: none;
+  min-height: 420px;
+}
+
+.embed-code-output {
+  font-size: 0.8rem;
+  max-height: 200px;
+  overflow: auto;
+}

@@ -15,6 +15,7 @@
 
   function initCodeMirror() {
     if (!textarea || typeof CodeMirror === 'undefined') return null;
+    const embed = cfg.embedMode;
     cm = CodeMirror.fromTextArea(textarea, {
       mode: 'afrilang',
       theme: isDark() ? 'dracula' : 'default',
@@ -196,9 +197,23 @@
     sessionStorage.removeItem('afr_tutorial_code');
     setSource(tutorialCode);
     cm?.focus();
+  } else if (cfg.initialCode) {
+    setSource(cfg.initialCode);
+    cm?.focus();
   } else {
-    const initial = cfg.initialSlug || new URLSearchParams(window.location.search).get('example');
-    if (initial && EXAMPLES[initial]) loadExample(initial);
-    else if (select?.value) loadExample(select.value);
+    const params = new URLSearchParams(window.location.search);
+    const codeParam = params.get('code');
+    if (codeParam) {
+      try {
+        setSource(decodeURIComponent(codeParam));
+      } catch (_) {
+        setSource(codeParam);
+      }
+      cm?.focus();
+    } else {
+      const initial = cfg.initialSlug || params.get('example');
+      if (initial && EXAMPLES[initial]) loadExample(initial);
+      else if (select?.value) loadExample(select.value);
+    }
   }
 })();

@@ -26,6 +26,7 @@
 </head>
 <body class="afr-body afr-embed-body">
   {{ examples_map|json_script:"examples-data" }}
+  {% if initial_code %}{{ initial_code|json_script:"initial-code-data" }}{% endif %}
 
   <div class="afr-embed-shell">
     <header class="afr-embed-header">
@@ -73,7 +74,10 @@
   window.AFR_PLAYGROUND = {
     examples: JSON.parse(document.getElementById('examples-data')?.textContent || '{}'),
     initialSlug: {% if initial_slug %}"{{ initial_slug|escapejs }}"{% else %}null{% endif %},
-    initialCode: {% if initial_code %}{{ initial_code|escapejs|safe }}{% else %}null{% endif %},
+    initialCode: (function () {
+      var el = document.getElementById('initial-code-data');
+      return el ? JSON.parse(el.textContent) : null;
+    })(),
     embedMode: true,
     urls: {
       run: '{% url "api_run" %}',
