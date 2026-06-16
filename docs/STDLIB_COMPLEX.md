@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**4710 modules** — `std/c/{nom}`
+**5210 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -54500,3 +54500,15003 @@
 - `outlierCount(v list number, threshold number) → number`
 - `log1p(v list number) → list number`
 - `trainSplitAt(n number, ratio number) → number`
+
+## std/c/iaultra001
+
+`import "std/c/iaultra001"` · `use iaultra001`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra002
+
+`import "std/c/iaultra002"` · `use iaultra002`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra003
+
+`import "std/c/iaultra003"` · `use iaultra003`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra004
+
+`import "std/c/iaultra004"` · `use iaultra004`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra005
+
+`import "std/c/iaultra005"` · `use iaultra005`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra006
+
+`import "std/c/iaultra006"` · `use iaultra006`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra007
+
+`import "std/c/iaultra007"` · `use iaultra007`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra008
+
+`import "std/c/iaultra008"` · `use iaultra008`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra009
+
+`import "std/c/iaultra009"` · `use iaultra009`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra010
+
+`import "std/c/iaultra010"` · `use iaultra010`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra011
+
+`import "std/c/iaultra011"` · `use iaultra011`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra012
+
+`import "std/c/iaultra012"` · `use iaultra012`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra013
+
+`import "std/c/iaultra013"` · `use iaultra013`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra014
+
+`import "std/c/iaultra014"` · `use iaultra014`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra015
+
+`import "std/c/iaultra015"` · `use iaultra015`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra016
+
+`import "std/c/iaultra016"` · `use iaultra016`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra017
+
+`import "std/c/iaultra017"` · `use iaultra017`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra018
+
+`import "std/c/iaultra018"` · `use iaultra018`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra019
+
+`import "std/c/iaultra019"` · `use iaultra019`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra020
+
+`import "std/c/iaultra020"` · `use iaultra020`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra021
+
+`import "std/c/iaultra021"` · `use iaultra021`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra022
+
+`import "std/c/iaultra022"` · `use iaultra022`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra023
+
+`import "std/c/iaultra023"` · `use iaultra023`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra024
+
+`import "std/c/iaultra024"` · `use iaultra024`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra025
+
+`import "std/c/iaultra025"` · `use iaultra025`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra026
+
+`import "std/c/iaultra026"` · `use iaultra026`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra027
+
+`import "std/c/iaultra027"` · `use iaultra027`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra028
+
+`import "std/c/iaultra028"` · `use iaultra028`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra029
+
+`import "std/c/iaultra029"` · `use iaultra029`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra030
+
+`import "std/c/iaultra030"` · `use iaultra030`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra031
+
+`import "std/c/iaultra031"` · `use iaultra031`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra032
+
+`import "std/c/iaultra032"` · `use iaultra032`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra033
+
+`import "std/c/iaultra033"` · `use iaultra033`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra034
+
+`import "std/c/iaultra034"` · `use iaultra034`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra035
+
+`import "std/c/iaultra035"` · `use iaultra035`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra036
+
+`import "std/c/iaultra036"` · `use iaultra036`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra037
+
+`import "std/c/iaultra037"` · `use iaultra037`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra038
+
+`import "std/c/iaultra038"` · `use iaultra038`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra039
+
+`import "std/c/iaultra039"` · `use iaultra039`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra040
+
+`import "std/c/iaultra040"` · `use iaultra040`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra041
+
+`import "std/c/iaultra041"` · `use iaultra041`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra042
+
+`import "std/c/iaultra042"` · `use iaultra042`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra043
+
+`import "std/c/iaultra043"` · `use iaultra043`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra044
+
+`import "std/c/iaultra044"` · `use iaultra044`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra045
+
+`import "std/c/iaultra045"` · `use iaultra045`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra046
+
+`import "std/c/iaultra046"` · `use iaultra046`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra047
+
+`import "std/c/iaultra047"` · `use iaultra047`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra048
+
+`import "std/c/iaultra048"` · `use iaultra048`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra049
+
+`import "std/c/iaultra049"` · `use iaultra049`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra050
+
+`import "std/c/iaultra050"` · `use iaultra050`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra051
+
+`import "std/c/iaultra051"` · `use iaultra051`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra052
+
+`import "std/c/iaultra052"` · `use iaultra052`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra053
+
+`import "std/c/iaultra053"` · `use iaultra053`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra054
+
+`import "std/c/iaultra054"` · `use iaultra054`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra055
+
+`import "std/c/iaultra055"` · `use iaultra055`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra056
+
+`import "std/c/iaultra056"` · `use iaultra056`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra057
+
+`import "std/c/iaultra057"` · `use iaultra057`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra058
+
+`import "std/c/iaultra058"` · `use iaultra058`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra059
+
+`import "std/c/iaultra059"` · `use iaultra059`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra060
+
+`import "std/c/iaultra060"` · `use iaultra060`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra061
+
+`import "std/c/iaultra061"` · `use iaultra061`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra062
+
+`import "std/c/iaultra062"` · `use iaultra062`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra063
+
+`import "std/c/iaultra063"` · `use iaultra063`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra064
+
+`import "std/c/iaultra064"` · `use iaultra064`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra065
+
+`import "std/c/iaultra065"` · `use iaultra065`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra066
+
+`import "std/c/iaultra066"` · `use iaultra066`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra067
+
+`import "std/c/iaultra067"` · `use iaultra067`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra068
+
+`import "std/c/iaultra068"` · `use iaultra068`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra069
+
+`import "std/c/iaultra069"` · `use iaultra069`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra070
+
+`import "std/c/iaultra070"` · `use iaultra070`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra071
+
+`import "std/c/iaultra071"` · `use iaultra071`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra072
+
+`import "std/c/iaultra072"` · `use iaultra072`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra073
+
+`import "std/c/iaultra073"` · `use iaultra073`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra074
+
+`import "std/c/iaultra074"` · `use iaultra074`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra075
+
+`import "std/c/iaultra075"` · `use iaultra075`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra076
+
+`import "std/c/iaultra076"` · `use iaultra076`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra077
+
+`import "std/c/iaultra077"` · `use iaultra077`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra078
+
+`import "std/c/iaultra078"` · `use iaultra078`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra079
+
+`import "std/c/iaultra079"` · `use iaultra079`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra080
+
+`import "std/c/iaultra080"` · `use iaultra080`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra081
+
+`import "std/c/iaultra081"` · `use iaultra081`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra082
+
+`import "std/c/iaultra082"` · `use iaultra082`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra083
+
+`import "std/c/iaultra083"` · `use iaultra083`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra084
+
+`import "std/c/iaultra084"` · `use iaultra084`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra085
+
+`import "std/c/iaultra085"` · `use iaultra085`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra086
+
+`import "std/c/iaultra086"` · `use iaultra086`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra087
+
+`import "std/c/iaultra087"` · `use iaultra087`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra088
+
+`import "std/c/iaultra088"` · `use iaultra088`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra089
+
+`import "std/c/iaultra089"` · `use iaultra089`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra090
+
+`import "std/c/iaultra090"` · `use iaultra090`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra091
+
+`import "std/c/iaultra091"` · `use iaultra091`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra092
+
+`import "std/c/iaultra092"` · `use iaultra092`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra093
+
+`import "std/c/iaultra093"` · `use iaultra093`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra094
+
+`import "std/c/iaultra094"` · `use iaultra094`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra095
+
+`import "std/c/iaultra095"` · `use iaultra095`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra096
+
+`import "std/c/iaultra096"` · `use iaultra096`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra097
+
+`import "std/c/iaultra097"` · `use iaultra097`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra098
+
+`import "std/c/iaultra098"` · `use iaultra098`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra099
+
+`import "std/c/iaultra099"` · `use iaultra099`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra100
+
+`import "std/c/iaultra100"` · `use iaultra100`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra101
+
+`import "std/c/iaultra101"` · `use iaultra101`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra102
+
+`import "std/c/iaultra102"` · `use iaultra102`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra103
+
+`import "std/c/iaultra103"` · `use iaultra103`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra104
+
+`import "std/c/iaultra104"` · `use iaultra104`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra105
+
+`import "std/c/iaultra105"` · `use iaultra105`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra106
+
+`import "std/c/iaultra106"` · `use iaultra106`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra107
+
+`import "std/c/iaultra107"` · `use iaultra107`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra108
+
+`import "std/c/iaultra108"` · `use iaultra108`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra109
+
+`import "std/c/iaultra109"` · `use iaultra109`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra110
+
+`import "std/c/iaultra110"` · `use iaultra110`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra111
+
+`import "std/c/iaultra111"` · `use iaultra111`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra112
+
+`import "std/c/iaultra112"` · `use iaultra112`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra113
+
+`import "std/c/iaultra113"` · `use iaultra113`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra114
+
+`import "std/c/iaultra114"` · `use iaultra114`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra115
+
+`import "std/c/iaultra115"` · `use iaultra115`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra116
+
+`import "std/c/iaultra116"` · `use iaultra116`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra117
+
+`import "std/c/iaultra117"` · `use iaultra117`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra118
+
+`import "std/c/iaultra118"` · `use iaultra118`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra119
+
+`import "std/c/iaultra119"` · `use iaultra119`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra120
+
+`import "std/c/iaultra120"` · `use iaultra120`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra121
+
+`import "std/c/iaultra121"` · `use iaultra121`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra122
+
+`import "std/c/iaultra122"` · `use iaultra122`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra123
+
+`import "std/c/iaultra123"` · `use iaultra123`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra124
+
+`import "std/c/iaultra124"` · `use iaultra124`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra125
+
+`import "std/c/iaultra125"` · `use iaultra125`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra126
+
+`import "std/c/iaultra126"` · `use iaultra126`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra127
+
+`import "std/c/iaultra127"` · `use iaultra127`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra128
+
+`import "std/c/iaultra128"` · `use iaultra128`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra129
+
+`import "std/c/iaultra129"` · `use iaultra129`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra130
+
+`import "std/c/iaultra130"` · `use iaultra130`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra131
+
+`import "std/c/iaultra131"` · `use iaultra131`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra132
+
+`import "std/c/iaultra132"` · `use iaultra132`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra133
+
+`import "std/c/iaultra133"` · `use iaultra133`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra134
+
+`import "std/c/iaultra134"` · `use iaultra134`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra135
+
+`import "std/c/iaultra135"` · `use iaultra135`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra136
+
+`import "std/c/iaultra136"` · `use iaultra136`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra137
+
+`import "std/c/iaultra137"` · `use iaultra137`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra138
+
+`import "std/c/iaultra138"` · `use iaultra138`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra139
+
+`import "std/c/iaultra139"` · `use iaultra139`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra140
+
+`import "std/c/iaultra140"` · `use iaultra140`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra141
+
+`import "std/c/iaultra141"` · `use iaultra141`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra142
+
+`import "std/c/iaultra142"` · `use iaultra142`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra143
+
+`import "std/c/iaultra143"` · `use iaultra143`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra144
+
+`import "std/c/iaultra144"` · `use iaultra144`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra145
+
+`import "std/c/iaultra145"` · `use iaultra145`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra146
+
+`import "std/c/iaultra146"` · `use iaultra146`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra147
+
+`import "std/c/iaultra147"` · `use iaultra147`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra148
+
+`import "std/c/iaultra148"` · `use iaultra148`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra149
+
+`import "std/c/iaultra149"` · `use iaultra149`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra150
+
+`import "std/c/iaultra150"` · `use iaultra150`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra151
+
+`import "std/c/iaultra151"` · `use iaultra151`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra152
+
+`import "std/c/iaultra152"` · `use iaultra152`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra153
+
+`import "std/c/iaultra153"` · `use iaultra153`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra154
+
+`import "std/c/iaultra154"` · `use iaultra154`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra155
+
+`import "std/c/iaultra155"` · `use iaultra155`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra156
+
+`import "std/c/iaultra156"` · `use iaultra156`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra157
+
+`import "std/c/iaultra157"` · `use iaultra157`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra158
+
+`import "std/c/iaultra158"` · `use iaultra158`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra159
+
+`import "std/c/iaultra159"` · `use iaultra159`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra160
+
+`import "std/c/iaultra160"` · `use iaultra160`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra161
+
+`import "std/c/iaultra161"` · `use iaultra161`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra162
+
+`import "std/c/iaultra162"` · `use iaultra162`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra163
+
+`import "std/c/iaultra163"` · `use iaultra163`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra164
+
+`import "std/c/iaultra164"` · `use iaultra164`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra165
+
+`import "std/c/iaultra165"` · `use iaultra165`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra166
+
+`import "std/c/iaultra166"` · `use iaultra166`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra167
+
+`import "std/c/iaultra167"` · `use iaultra167`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra168
+
+`import "std/c/iaultra168"` · `use iaultra168`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra169
+
+`import "std/c/iaultra169"` · `use iaultra169`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra170
+
+`import "std/c/iaultra170"` · `use iaultra170`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra171
+
+`import "std/c/iaultra171"` · `use iaultra171`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra172
+
+`import "std/c/iaultra172"` · `use iaultra172`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra173
+
+`import "std/c/iaultra173"` · `use iaultra173`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra174
+
+`import "std/c/iaultra174"` · `use iaultra174`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra175
+
+`import "std/c/iaultra175"` · `use iaultra175`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra176
+
+`import "std/c/iaultra176"` · `use iaultra176`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra177
+
+`import "std/c/iaultra177"` · `use iaultra177`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra178
+
+`import "std/c/iaultra178"` · `use iaultra178`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra179
+
+`import "std/c/iaultra179"` · `use iaultra179`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra180
+
+`import "std/c/iaultra180"` · `use iaultra180`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra181
+
+`import "std/c/iaultra181"` · `use iaultra181`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra182
+
+`import "std/c/iaultra182"` · `use iaultra182`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra183
+
+`import "std/c/iaultra183"` · `use iaultra183`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra184
+
+`import "std/c/iaultra184"` · `use iaultra184`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra185
+
+`import "std/c/iaultra185"` · `use iaultra185`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra186
+
+`import "std/c/iaultra186"` · `use iaultra186`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra187
+
+`import "std/c/iaultra187"` · `use iaultra187`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra188
+
+`import "std/c/iaultra188"` · `use iaultra188`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra189
+
+`import "std/c/iaultra189"` · `use iaultra189`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra190
+
+`import "std/c/iaultra190"` · `use iaultra190`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra191
+
+`import "std/c/iaultra191"` · `use iaultra191`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra192
+
+`import "std/c/iaultra192"` · `use iaultra192`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra193
+
+`import "std/c/iaultra193"` · `use iaultra193`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra194
+
+`import "std/c/iaultra194"` · `use iaultra194`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra195
+
+`import "std/c/iaultra195"` · `use iaultra195`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra196
+
+`import "std/c/iaultra196"` · `use iaultra196`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra197
+
+`import "std/c/iaultra197"` · `use iaultra197`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra198
+
+`import "std/c/iaultra198"` · `use iaultra198`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra199
+
+`import "std/c/iaultra199"` · `use iaultra199`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra200
+
+`import "std/c/iaultra200"` · `use iaultra200`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra201
+
+`import "std/c/iaultra201"` · `use iaultra201`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra202
+
+`import "std/c/iaultra202"` · `use iaultra202`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra203
+
+`import "std/c/iaultra203"` · `use iaultra203`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra204
+
+`import "std/c/iaultra204"` · `use iaultra204`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra205
+
+`import "std/c/iaultra205"` · `use iaultra205`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra206
+
+`import "std/c/iaultra206"` · `use iaultra206`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra207
+
+`import "std/c/iaultra207"` · `use iaultra207`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra208
+
+`import "std/c/iaultra208"` · `use iaultra208`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra209
+
+`import "std/c/iaultra209"` · `use iaultra209`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra210
+
+`import "std/c/iaultra210"` · `use iaultra210`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra211
+
+`import "std/c/iaultra211"` · `use iaultra211`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra212
+
+`import "std/c/iaultra212"` · `use iaultra212`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra213
+
+`import "std/c/iaultra213"` · `use iaultra213`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra214
+
+`import "std/c/iaultra214"` · `use iaultra214`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra215
+
+`import "std/c/iaultra215"` · `use iaultra215`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra216
+
+`import "std/c/iaultra216"` · `use iaultra216`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra217
+
+`import "std/c/iaultra217"` · `use iaultra217`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra218
+
+`import "std/c/iaultra218"` · `use iaultra218`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra219
+
+`import "std/c/iaultra219"` · `use iaultra219`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra220
+
+`import "std/c/iaultra220"` · `use iaultra220`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra221
+
+`import "std/c/iaultra221"` · `use iaultra221`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra222
+
+`import "std/c/iaultra222"` · `use iaultra222`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra223
+
+`import "std/c/iaultra223"` · `use iaultra223`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra224
+
+`import "std/c/iaultra224"` · `use iaultra224`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra225
+
+`import "std/c/iaultra225"` · `use iaultra225`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra226
+
+`import "std/c/iaultra226"` · `use iaultra226`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra227
+
+`import "std/c/iaultra227"` · `use iaultra227`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra228
+
+`import "std/c/iaultra228"` · `use iaultra228`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra229
+
+`import "std/c/iaultra229"` · `use iaultra229`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra230
+
+`import "std/c/iaultra230"` · `use iaultra230`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra231
+
+`import "std/c/iaultra231"` · `use iaultra231`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra232
+
+`import "std/c/iaultra232"` · `use iaultra232`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra233
+
+`import "std/c/iaultra233"` · `use iaultra233`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra234
+
+`import "std/c/iaultra234"` · `use iaultra234`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra235
+
+`import "std/c/iaultra235"` · `use iaultra235`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra236
+
+`import "std/c/iaultra236"` · `use iaultra236`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra237
+
+`import "std/c/iaultra237"` · `use iaultra237`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra238
+
+`import "std/c/iaultra238"` · `use iaultra238`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra239
+
+`import "std/c/iaultra239"` · `use iaultra239`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra240
+
+`import "std/c/iaultra240"` · `use iaultra240`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra241
+
+`import "std/c/iaultra241"` · `use iaultra241`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra242
+
+`import "std/c/iaultra242"` · `use iaultra242`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra243
+
+`import "std/c/iaultra243"` · `use iaultra243`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra244
+
+`import "std/c/iaultra244"` · `use iaultra244`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra245
+
+`import "std/c/iaultra245"` · `use iaultra245`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra246
+
+`import "std/c/iaultra246"` · `use iaultra246`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra247
+
+`import "std/c/iaultra247"` · `use iaultra247`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra248
+
+`import "std/c/iaultra248"` · `use iaultra248`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra249
+
+`import "std/c/iaultra249"` · `use iaultra249`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra250
+
+`import "std/c/iaultra250"` · `use iaultra250`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra251
+
+`import "std/c/iaultra251"` · `use iaultra251`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra252
+
+`import "std/c/iaultra252"` · `use iaultra252`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra253
+
+`import "std/c/iaultra253"` · `use iaultra253`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra254
+
+`import "std/c/iaultra254"` · `use iaultra254`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra255
+
+`import "std/c/iaultra255"` · `use iaultra255`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra256
+
+`import "std/c/iaultra256"` · `use iaultra256`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra257
+
+`import "std/c/iaultra257"` · `use iaultra257`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra258
+
+`import "std/c/iaultra258"` · `use iaultra258`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra259
+
+`import "std/c/iaultra259"` · `use iaultra259`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra260
+
+`import "std/c/iaultra260"` · `use iaultra260`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra261
+
+`import "std/c/iaultra261"` · `use iaultra261`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra262
+
+`import "std/c/iaultra262"` · `use iaultra262`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra263
+
+`import "std/c/iaultra263"` · `use iaultra263`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra264
+
+`import "std/c/iaultra264"` · `use iaultra264`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra265
+
+`import "std/c/iaultra265"` · `use iaultra265`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra266
+
+`import "std/c/iaultra266"` · `use iaultra266`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra267
+
+`import "std/c/iaultra267"` · `use iaultra267`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra268
+
+`import "std/c/iaultra268"` · `use iaultra268`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra269
+
+`import "std/c/iaultra269"` · `use iaultra269`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra270
+
+`import "std/c/iaultra270"` · `use iaultra270`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra271
+
+`import "std/c/iaultra271"` · `use iaultra271`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra272
+
+`import "std/c/iaultra272"` · `use iaultra272`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra273
+
+`import "std/c/iaultra273"` · `use iaultra273`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra274
+
+`import "std/c/iaultra274"` · `use iaultra274`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra275
+
+`import "std/c/iaultra275"` · `use iaultra275`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra276
+
+`import "std/c/iaultra276"` · `use iaultra276`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra277
+
+`import "std/c/iaultra277"` · `use iaultra277`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra278
+
+`import "std/c/iaultra278"` · `use iaultra278`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra279
+
+`import "std/c/iaultra279"` · `use iaultra279`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra280
+
+`import "std/c/iaultra280"` · `use iaultra280`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra281
+
+`import "std/c/iaultra281"` · `use iaultra281`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra282
+
+`import "std/c/iaultra282"` · `use iaultra282`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra283
+
+`import "std/c/iaultra283"` · `use iaultra283`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra284
+
+`import "std/c/iaultra284"` · `use iaultra284`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra285
+
+`import "std/c/iaultra285"` · `use iaultra285`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra286
+
+`import "std/c/iaultra286"` · `use iaultra286`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra287
+
+`import "std/c/iaultra287"` · `use iaultra287`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra288
+
+`import "std/c/iaultra288"` · `use iaultra288`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra289
+
+`import "std/c/iaultra289"` · `use iaultra289`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra290
+
+`import "std/c/iaultra290"` · `use iaultra290`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra291
+
+`import "std/c/iaultra291"` · `use iaultra291`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra292
+
+`import "std/c/iaultra292"` · `use iaultra292`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra293
+
+`import "std/c/iaultra293"` · `use iaultra293`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra294
+
+`import "std/c/iaultra294"` · `use iaultra294`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra295
+
+`import "std/c/iaultra295"` · `use iaultra295`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra296
+
+`import "std/c/iaultra296"` · `use iaultra296`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra297
+
+`import "std/c/iaultra297"` · `use iaultra297`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra298
+
+`import "std/c/iaultra298"` · `use iaultra298`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra299
+
+`import "std/c/iaultra299"` · `use iaultra299`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra300
+
+`import "std/c/iaultra300"` · `use iaultra300`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra301
+
+`import "std/c/iaultra301"` · `use iaultra301`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra302
+
+`import "std/c/iaultra302"` · `use iaultra302`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra303
+
+`import "std/c/iaultra303"` · `use iaultra303`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra304
+
+`import "std/c/iaultra304"` · `use iaultra304`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra305
+
+`import "std/c/iaultra305"` · `use iaultra305`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra306
+
+`import "std/c/iaultra306"` · `use iaultra306`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra307
+
+`import "std/c/iaultra307"` · `use iaultra307`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra308
+
+`import "std/c/iaultra308"` · `use iaultra308`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra309
+
+`import "std/c/iaultra309"` · `use iaultra309`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra310
+
+`import "std/c/iaultra310"` · `use iaultra310`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra311
+
+`import "std/c/iaultra311"` · `use iaultra311`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra312
+
+`import "std/c/iaultra312"` · `use iaultra312`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra313
+
+`import "std/c/iaultra313"` · `use iaultra313`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra314
+
+`import "std/c/iaultra314"` · `use iaultra314`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra315
+
+`import "std/c/iaultra315"` · `use iaultra315`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra316
+
+`import "std/c/iaultra316"` · `use iaultra316`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra317
+
+`import "std/c/iaultra317"` · `use iaultra317`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra318
+
+`import "std/c/iaultra318"` · `use iaultra318`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra319
+
+`import "std/c/iaultra319"` · `use iaultra319`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra320
+
+`import "std/c/iaultra320"` · `use iaultra320`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra321
+
+`import "std/c/iaultra321"` · `use iaultra321`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra322
+
+`import "std/c/iaultra322"` · `use iaultra322`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra323
+
+`import "std/c/iaultra323"` · `use iaultra323`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra324
+
+`import "std/c/iaultra324"` · `use iaultra324`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra325
+
+`import "std/c/iaultra325"` · `use iaultra325`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra326
+
+`import "std/c/iaultra326"` · `use iaultra326`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra327
+
+`import "std/c/iaultra327"` · `use iaultra327`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra328
+
+`import "std/c/iaultra328"` · `use iaultra328`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra329
+
+`import "std/c/iaultra329"` · `use iaultra329`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra330
+
+`import "std/c/iaultra330"` · `use iaultra330`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra331
+
+`import "std/c/iaultra331"` · `use iaultra331`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra332
+
+`import "std/c/iaultra332"` · `use iaultra332`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra333
+
+`import "std/c/iaultra333"` · `use iaultra333`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra334
+
+`import "std/c/iaultra334"` · `use iaultra334`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra335
+
+`import "std/c/iaultra335"` · `use iaultra335`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra336
+
+`import "std/c/iaultra336"` · `use iaultra336`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra337
+
+`import "std/c/iaultra337"` · `use iaultra337`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra338
+
+`import "std/c/iaultra338"` · `use iaultra338`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra339
+
+`import "std/c/iaultra339"` · `use iaultra339`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra340
+
+`import "std/c/iaultra340"` · `use iaultra340`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra341
+
+`import "std/c/iaultra341"` · `use iaultra341`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra342
+
+`import "std/c/iaultra342"` · `use iaultra342`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra343
+
+`import "std/c/iaultra343"` · `use iaultra343`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra344
+
+`import "std/c/iaultra344"` · `use iaultra344`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra345
+
+`import "std/c/iaultra345"` · `use iaultra345`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra346
+
+`import "std/c/iaultra346"` · `use iaultra346`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra347
+
+`import "std/c/iaultra347"` · `use iaultra347`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra348
+
+`import "std/c/iaultra348"` · `use iaultra348`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra349
+
+`import "std/c/iaultra349"` · `use iaultra349`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra350
+
+`import "std/c/iaultra350"` · `use iaultra350`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra351
+
+`import "std/c/iaultra351"` · `use iaultra351`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra352
+
+`import "std/c/iaultra352"` · `use iaultra352`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra353
+
+`import "std/c/iaultra353"` · `use iaultra353`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra354
+
+`import "std/c/iaultra354"` · `use iaultra354`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra355
+
+`import "std/c/iaultra355"` · `use iaultra355`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra356
+
+`import "std/c/iaultra356"` · `use iaultra356`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra357
+
+`import "std/c/iaultra357"` · `use iaultra357`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra358
+
+`import "std/c/iaultra358"` · `use iaultra358`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra359
+
+`import "std/c/iaultra359"` · `use iaultra359`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra360
+
+`import "std/c/iaultra360"` · `use iaultra360`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra361
+
+`import "std/c/iaultra361"` · `use iaultra361`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra362
+
+`import "std/c/iaultra362"` · `use iaultra362`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra363
+
+`import "std/c/iaultra363"` · `use iaultra363`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra364
+
+`import "std/c/iaultra364"` · `use iaultra364`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra365
+
+`import "std/c/iaultra365"` · `use iaultra365`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra366
+
+`import "std/c/iaultra366"` · `use iaultra366`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra367
+
+`import "std/c/iaultra367"` · `use iaultra367`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra368
+
+`import "std/c/iaultra368"` · `use iaultra368`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra369
+
+`import "std/c/iaultra369"` · `use iaultra369`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra370
+
+`import "std/c/iaultra370"` · `use iaultra370`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra371
+
+`import "std/c/iaultra371"` · `use iaultra371`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra372
+
+`import "std/c/iaultra372"` · `use iaultra372`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra373
+
+`import "std/c/iaultra373"` · `use iaultra373`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra374
+
+`import "std/c/iaultra374"` · `use iaultra374`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra375
+
+`import "std/c/iaultra375"` · `use iaultra375`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra376
+
+`import "std/c/iaultra376"` · `use iaultra376`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra377
+
+`import "std/c/iaultra377"` · `use iaultra377`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra378
+
+`import "std/c/iaultra378"` · `use iaultra378`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra379
+
+`import "std/c/iaultra379"` · `use iaultra379`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra380
+
+`import "std/c/iaultra380"` · `use iaultra380`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra381
+
+`import "std/c/iaultra381"` · `use iaultra381`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra382
+
+`import "std/c/iaultra382"` · `use iaultra382`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra383
+
+`import "std/c/iaultra383"` · `use iaultra383`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra384
+
+`import "std/c/iaultra384"` · `use iaultra384`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra385
+
+`import "std/c/iaultra385"` · `use iaultra385`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra386
+
+`import "std/c/iaultra386"` · `use iaultra386`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra387
+
+`import "std/c/iaultra387"` · `use iaultra387`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra388
+
+`import "std/c/iaultra388"` · `use iaultra388`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra389
+
+`import "std/c/iaultra389"` · `use iaultra389`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra390
+
+`import "std/c/iaultra390"` · `use iaultra390`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra391
+
+`import "std/c/iaultra391"` · `use iaultra391`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra392
+
+`import "std/c/iaultra392"` · `use iaultra392`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra393
+
+`import "std/c/iaultra393"` · `use iaultra393`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra394
+
+`import "std/c/iaultra394"` · `use iaultra394`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra395
+
+`import "std/c/iaultra395"` · `use iaultra395`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra396
+
+`import "std/c/iaultra396"` · `use iaultra396`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra397
+
+`import "std/c/iaultra397"` · `use iaultra397`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra398
+
+`import "std/c/iaultra398"` · `use iaultra398`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra399
+
+`import "std/c/iaultra399"` · `use iaultra399`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra400
+
+`import "std/c/iaultra400"` · `use iaultra400`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra401
+
+`import "std/c/iaultra401"` · `use iaultra401`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra402
+
+`import "std/c/iaultra402"` · `use iaultra402`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra403
+
+`import "std/c/iaultra403"` · `use iaultra403`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra404
+
+`import "std/c/iaultra404"` · `use iaultra404`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra405
+
+`import "std/c/iaultra405"` · `use iaultra405`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra406
+
+`import "std/c/iaultra406"` · `use iaultra406`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra407
+
+`import "std/c/iaultra407"` · `use iaultra407`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra408
+
+`import "std/c/iaultra408"` · `use iaultra408`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra409
+
+`import "std/c/iaultra409"` · `use iaultra409`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra410
+
+`import "std/c/iaultra410"` · `use iaultra410`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra411
+
+`import "std/c/iaultra411"` · `use iaultra411`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra412
+
+`import "std/c/iaultra412"` · `use iaultra412`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra413
+
+`import "std/c/iaultra413"` · `use iaultra413`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra414
+
+`import "std/c/iaultra414"` · `use iaultra414`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra415
+
+`import "std/c/iaultra415"` · `use iaultra415`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra416
+
+`import "std/c/iaultra416"` · `use iaultra416`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra417
+
+`import "std/c/iaultra417"` · `use iaultra417`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra418
+
+`import "std/c/iaultra418"` · `use iaultra418`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra419
+
+`import "std/c/iaultra419"` · `use iaultra419`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra420
+
+`import "std/c/iaultra420"` · `use iaultra420`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra421
+
+`import "std/c/iaultra421"` · `use iaultra421`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra422
+
+`import "std/c/iaultra422"` · `use iaultra422`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra423
+
+`import "std/c/iaultra423"` · `use iaultra423`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra424
+
+`import "std/c/iaultra424"` · `use iaultra424`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra425
+
+`import "std/c/iaultra425"` · `use iaultra425`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra426
+
+`import "std/c/iaultra426"` · `use iaultra426`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra427
+
+`import "std/c/iaultra427"` · `use iaultra427`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra428
+
+`import "std/c/iaultra428"` · `use iaultra428`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra429
+
+`import "std/c/iaultra429"` · `use iaultra429`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra430
+
+`import "std/c/iaultra430"` · `use iaultra430`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra431
+
+`import "std/c/iaultra431"` · `use iaultra431`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra432
+
+`import "std/c/iaultra432"` · `use iaultra432`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra433
+
+`import "std/c/iaultra433"` · `use iaultra433`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra434
+
+`import "std/c/iaultra434"` · `use iaultra434`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra435
+
+`import "std/c/iaultra435"` · `use iaultra435`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra436
+
+`import "std/c/iaultra436"` · `use iaultra436`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra437
+
+`import "std/c/iaultra437"` · `use iaultra437`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra438
+
+`import "std/c/iaultra438"` · `use iaultra438`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra439
+
+`import "std/c/iaultra439"` · `use iaultra439`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra440
+
+`import "std/c/iaultra440"` · `use iaultra440`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra441
+
+`import "std/c/iaultra441"` · `use iaultra441`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra442
+
+`import "std/c/iaultra442"` · `use iaultra442`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra443
+
+`import "std/c/iaultra443"` · `use iaultra443`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra444
+
+`import "std/c/iaultra444"` · `use iaultra444`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra445
+
+`import "std/c/iaultra445"` · `use iaultra445`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra446
+
+`import "std/c/iaultra446"` · `use iaultra446`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra447
+
+`import "std/c/iaultra447"` · `use iaultra447`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra448
+
+`import "std/c/iaultra448"` · `use iaultra448`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra449
+
+`import "std/c/iaultra449"` · `use iaultra449`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra450
+
+`import "std/c/iaultra450"` · `use iaultra450`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra451
+
+`import "std/c/iaultra451"` · `use iaultra451`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra452
+
+`import "std/c/iaultra452"` · `use iaultra452`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra453
+
+`import "std/c/iaultra453"` · `use iaultra453`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra454
+
+`import "std/c/iaultra454"` · `use iaultra454`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra455
+
+`import "std/c/iaultra455"` · `use iaultra455`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra456
+
+`import "std/c/iaultra456"` · `use iaultra456`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra457
+
+`import "std/c/iaultra457"` · `use iaultra457`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra458
+
+`import "std/c/iaultra458"` · `use iaultra458`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra459
+
+`import "std/c/iaultra459"` · `use iaultra459`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra460
+
+`import "std/c/iaultra460"` · `use iaultra460`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra461
+
+`import "std/c/iaultra461"` · `use iaultra461`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra462
+
+`import "std/c/iaultra462"` · `use iaultra462`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra463
+
+`import "std/c/iaultra463"` · `use iaultra463`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra464
+
+`import "std/c/iaultra464"` · `use iaultra464`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra465
+
+`import "std/c/iaultra465"` · `use iaultra465`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra466
+
+`import "std/c/iaultra466"` · `use iaultra466`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra467
+
+`import "std/c/iaultra467"` · `use iaultra467`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra468
+
+`import "std/c/iaultra468"` · `use iaultra468`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra469
+
+`import "std/c/iaultra469"` · `use iaultra469`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra470
+
+`import "std/c/iaultra470"` · `use iaultra470`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra471
+
+`import "std/c/iaultra471"` · `use iaultra471`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra472
+
+`import "std/c/iaultra472"` · `use iaultra472`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra473
+
+`import "std/c/iaultra473"` · `use iaultra473`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra474
+
+`import "std/c/iaultra474"` · `use iaultra474`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra475
+
+`import "std/c/iaultra475"` · `use iaultra475`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra476
+
+`import "std/c/iaultra476"` · `use iaultra476`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra477
+
+`import "std/c/iaultra477"` · `use iaultra477`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra478
+
+`import "std/c/iaultra478"` · `use iaultra478`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra479
+
+`import "std/c/iaultra479"` · `use iaultra479`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra480
+
+`import "std/c/iaultra480"` · `use iaultra480`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra481
+
+`import "std/c/iaultra481"` · `use iaultra481`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra482
+
+`import "std/c/iaultra482"` · `use iaultra482`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra483
+
+`import "std/c/iaultra483"` · `use iaultra483`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra484
+
+`import "std/c/iaultra484"` · `use iaultra484`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra485
+
+`import "std/c/iaultra485"` · `use iaultra485`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra486
+
+`import "std/c/iaultra486"` · `use iaultra486`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra487
+
+`import "std/c/iaultra487"` · `use iaultra487`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra488
+
+`import "std/c/iaultra488"` · `use iaultra488`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra489
+
+`import "std/c/iaultra489"` · `use iaultra489`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra490
+
+`import "std/c/iaultra490"` · `use iaultra490`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra491
+
+`import "std/c/iaultra491"` · `use iaultra491`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra492
+
+`import "std/c/iaultra492"` · `use iaultra492`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra493
+
+`import "std/c/iaultra493"` · `use iaultra493`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra494
+
+`import "std/c/iaultra494"` · `use iaultra494`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra495
+
+`import "std/c/iaultra495"` · `use iaultra495`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra496
+
+`import "std/c/iaultra496"` · `use iaultra496`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra497
+
+`import "std/c/iaultra497"` · `use iaultra497`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra498
+
+`import "std/c/iaultra498"` · `use iaultra498`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra499
+
+`import "std/c/iaultra499"` · `use iaultra499`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`
+
+## std/c/iaultra500
+
+`import "std/c/iaultra500"` · `use iaultra500`
+
+- `sigmoid(x number) → number`
+- `relu(x number) → number`
+- `leakyRelu(x number) → number`
+- `tanh(x number) → number`
+- `softmax(logits list number) → list number`
+- `argmax(v list number) → number`
+- `dot(a list number, b list number) → number`
+- `linearPredict(weights list number, features list number, bias number) → number`
+- `cosineSim(a list number, b list number) → number`
+- `entropy(probs list number) → number`
+- `crossEntropy(probs list number, target number) → number`
+- `oneHot(idx number, size number) → list number`
+- `l2norm(v list number) → number`
+- `normalizeVec(v list number) → list number`
+- `mseLists(pred list number, actual list number) → number`
+- `accuracy(ytrue list number, ypred list number) → number`
+- `precisionScore(ytrue list number, ypred list number) → number`
+- `recallScore(ytrue list number, ypred list number) → number`
+- `f1Score(ytrue list number, ypred list number) → number`
+- `sgdStep(weights list number, features list number, target number, lr number) → list number`
+- `nearestIdx(query list number, matrix list number, dims number) → number`
+- `assignClusters(points list number, centroids list number, dims number) → list number`
+- `clipVec(v list number, limit number) → list number`
+- `perceptronStep(weights list number, bias number, features list number, label number, lr number) → list number`
+- `defaultK(k number) → number`

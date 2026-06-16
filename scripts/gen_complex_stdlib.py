@@ -425,6 +425,103 @@ def add_ultra_datasci_modules(count: int) -> None:
              'return static_cast<double>((int)(N*r));}'),
         ])
 
+def add_ultra_ia_modules(count: int) -> None:
+    """Add 500 AI / machine-learning complex modules in std/c/."""
+    for i in range(1, count + 1):
+        name = f"iaultra{i:03d}"
+        lr_def = 0.01 + (i % 19) * 0.005
+        leak = 0.01 + (i % 11) * 0.02
+        clip = 1.0 + (i % 15) * 0.5
+        k_def = 2 + (i % 8)
+
+        cx(name, [
+            ('sigmoid', 'number', [('x', 'number')],
+             'return 1.0/(1.0+std::exp(-x));'),
+            ('relu', 'number', [('x', 'number')],
+             'return x>0?x:0;'),
+            ('leakyRelu', 'number', [('x', 'number')],
+             '{double a=' + f'{leak:.6f}' + ';return x>0?x:a*x;}'),
+            ('tanh', 'number', [('x', 'number')],
+             'return std::tanh(x);'),
+            ('softmax', 'list number', [('logits', 'list number')],
+             '{double mx=*std::max_element(logits.begin(),logits.end());std::vector<double> e,s;double sum=0;'
+             'for(double x:logits){double v=std::exp(x-mx);e.push_back(v);sum+=v;}'
+             'for(double v:e)s.push_back(sum<1e-12?0:v/sum);return s;}'),
+            ('argmax', 'number', [('v', 'list number')],
+             'return v.empty()?0:static_cast<double>(std::max_element(v.begin(),v.end())-v.begin());'),
+            ('dot', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());double s=0;'
+             'for(std::size_t k=0;k<n;++k)s+=a[k]*b[k];return s;}'),
+            ('linearPredict', 'number',
+             [('weights', 'list number'), ('features', 'list number'), ('bias', 'number')],
+             '{double s=bias;std::size_t n=std::min(weights.size(),features.size());'
+             'for(std::size_t k=0;k<n;++k)s+=weights[k]*features[k];return s;}'),
+            ('cosineSim', 'number', [('a', 'list number'), ('b', 'list number')],
+             '{std::size_t n=std::min(a.size(),b.size());double dot=0,na=0,nb=0;'
+             'for(std::size_t k=0;k<n;++k){dot+=a[k]*b[k];na+=a[k]*a[k];nb+=b[k]*b[k];}'
+             'return(na*nb)<1e-12?0:dot/(std::sqrt(na)*std::sqrt(nb));}'),
+            ('entropy', 'number', [('probs', 'list number')],
+             '{double h=0;for(double p:probs)if(p>0)h-=p*std::log(p);return h;}'),
+            ('crossEntropy', 'number', [('probs', 'list number'), ('target', 'number')],
+             '{int t=(int)target;return(t<0||t>=(int)probs.size())?1e18:-std::log(probs[(std::size_t)t]+1e-12);}'),
+            ('oneHot', 'list number', [('idx', 'number'), ('size', 'number')],
+             '{int n=(int)size,ii=(int)idx;std::vector<double> o((std::size_t)std::max(0,n),0);'
+             'if(ii>=0&&ii<n)o[(std::size_t)ii]=1;return o;}'),
+            ('l2norm', 'number', [('v', 'list number')],
+             '{double s=0;for(double x:v)s+=x*x;return std::sqrt(s);}'),
+            ('normalizeVec', 'list number', [('v', 'list number')],
+             '{double n=0;for(double x:v)n+=x*x;n=std::sqrt(n);std::vector<double> r;'
+             'if(n<1e-12)return v;for(double x:v)r.push_back(x/n);return r;}'),
+            ('mseLists', 'number', [('pred', 'list number'), ('actual', 'list number')],
+             '{std::size_t n=std::min(pred.size(),actual.size());if(n==0)return 0;double s=0;'
+             'for(std::size_t k=0;k<n;++k){double d=pred[k]-actual[k];s+=d*d;}return s/n;}'),
+            ('accuracy', 'number', [('ytrue', 'list number'), ('ypred', 'list number')],
+             '{std::size_t n=std::min(ytrue.size(),ypred.size());if(n==0)return 0;int ok=0;'
+             'for(std::size_t k=0;k<n;++k)if(ytrue[k]==ypred[k])++ok;return (double)ok/(double)n;}'),
+            ('precisionScore', 'number', [('ytrue', 'list number'), ('ypred', 'list number')],
+             '{int tp=0,fp=0;std::size_t n=std::min(ytrue.size(),ypred.size());'
+             'for(std::size_t k=0;k<n;++k){if(ypred[k]>=0.5){if(ytrue[k]>=0.5)++tp;else++fp;}}'
+             'return(tp+fp)==0?0:(double)tp/(tp+fp);}'),
+            ('recallScore', 'number', [('ytrue', 'list number'), ('ypred', 'list number')],
+             '{int tp=0,fn=0;std::size_t n=std::min(ytrue.size(),ypred.size());'
+             'for(std::size_t k=0;k<n;++k){if(ytrue[k]>=0.5){if(ypred[k]>=0.5)++tp;else++fn;}}'
+             'return(tp+fn)==0?0:(double)tp/(tp+fn);}'),
+            ('f1Score', 'number', [('ytrue', 'list number'), ('ypred', 'list number')],
+             '{double p=precisionScore(ytrue,ypred),r=recallScore(ytrue,ypred);'
+             'return(p+r)<1e-12?0:2*p*r/(p+r);}'),
+            ('sgdStep', 'list number',
+             [('weights', 'list number'), ('features', 'list number'), ('target', 'number'), ('lr', 'number')],
+             '{if(weights.size()!=features.size())return weights;auto w=weights;double rate=lr;'
+             'if(rate<=0)rate=' + f'{lr_def:.6f}' + ';double pred=0;'
+             'for(std::size_t k=0;k<w.size();++k)pred+=w[k]*features[k];double err=pred-target;'
+             'for(std::size_t k=0;k<w.size();++k)w[k]-=rate*err*features[k];return w;}'),
+            ('nearestIdx', 'number',
+             [('query', 'list number'), ('matrix', 'list number'), ('dims', 'number')],
+             '{int D=(int)dims;if(D<=0||matrix.size()<(std::size_t)D)return 0;'
+             'int n=(int)(matrix.size()/D);int best=0;double bd=1e18;'
+             'for(int i=0;i<n;++i){double dist=0;for(int d=0;d<D;++d){double diff=query[(std::size_t)d]-matrix[(std::size_t)(i*D+d)];dist+=diff*diff;}'
+             'if(dist<bd){bd=dist;best=i;}}return (double)best;}'),
+            ('assignClusters', 'list number',
+             [('points', 'list number'), ('centroids', 'list number'), ('dims', 'number')],
+             '{int D=(int)dims,K=(int)(centroids.size()/std::max(1,D)),n=(int)(points.size()/std::max(1,D));'
+             'if(D<=0||K<=0)return std::vector<double>{};std::vector<double> labels;'
+             'for(int p=0;p<n;++p){int best=0;double bd=1e18;for(int c=0;c<K;++c){double dist=0;'
+             'for(int d=0;d<D;++d){double diff=points[(std::size_t)(p*D+d)]-centroids[(std::size_t)(c*D+d)];dist+=diff*diff;}'
+             'if(dist<bd){bd=dist;best=c;}}labels.push_back((double)best);}return labels;}'),
+            ('clipVec', 'list number', [('v', 'list number'), ('limit', 'number')],
+             '{double lim=limit;if(lim<=0)lim=' + f'{clip:.6f}' + ';std::vector<double> out;'
+             'for(double x:v)out.push_back(x<-lim?-lim:(x>lim?lim:x));return out;}'),
+            ('perceptronStep', 'list number',
+             [('weights', 'list number'), ('bias', 'number'), ('features', 'list number'),
+              ('label', 'number'), ('lr', 'number')],
+             '{auto w=weights;double b=bias,rate=lr;if(rate<=0)rate=' + f'{lr_def:.6f}' + ';'
+             'double s=b;for(std::size_t k=0;k<w.size()&&k<features.size();++k)s+=w[k]*features[k];'
+             'double pred=s>=0?1:0,err=label-pred;for(std::size_t k=0;k<w.size()&&k<features.size();++k)w[k]+=rate*err*features[k];'
+             'b+=rate*err;std::vector<double> out;out.push_back(b);for(double x:w)out.push_back(x);return out;}'),
+            ('defaultK', 'number', [('k', 'number')],
+             '{double kk=k;if(kk<=0)kk=' + str(k_def) + ';return kk;}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -4241,6 +4338,9 @@ add_ultra_viz_modules(500)
 
 # Add 500 ultra complex data-science modules in std/c/
 add_ultra_datasci_modules(500)
+
+# Add 500 ultra complex AI / ML modules in std/c/
+add_ultra_ia_modules(500)
 
 
 def main() -> None:

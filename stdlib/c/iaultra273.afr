@@ -1,0 +1,78 @@
+module iaultra273
+
+function sigmoid(x number) returns number
+end
+
+function relu(x number) returns number
+end
+
+function leakyRelu(x number) returns number
+end
+
+function tanh(x number) returns number
+end
+
+function softmax(logits list number) returns list number
+end
+
+function argmax(v list number) returns number
+end
+
+function dot(a list number, b list number) returns number
+end
+
+function linearPredict(weights list number, features list number, bias number) returns number
+end
+
+function cosineSim(a list number, b list number) returns number
+end
+
+function entropy(probs list number) returns number
+end
+
+function crossEntropy(probs list number, target number) returns number
+end
+
+function oneHot(idx number, size number) returns list number
+end
+
+function l2norm(v list number) returns number
+end
+
+function normalizeVec(v list number) returns list number
+end
+
+function mseLists(pred list number, actual list number) returns number
+end
+
+function accuracy(ytrue list number, ypred list number) returns number
+end
+
+function precisionScore(ytrue list number, ypred list number) returns number
+end
+
+function recallScore(ytrue list number, ypred list number) returns number
+end
+
+function f1Score(ytrue list number, ypred list number) returns number
+end
+
+function sgdStep(weights list number, features list number, target number, lr number) returns list number
+end
+
+function nearestIdx(query list number, matrix list number, dims number) returns number
+end
+
+function assignClusters(points list number, centroids list number, dims number) returns list number
+end
+
+function clipVec(v list number, limit number) returns list number
+end
+
+function perceptronStep(weights list number, bias number, features list number, label number, lr number) returns list number
+end
+
+function defaultK(k number) returns number
+end
+
+end
