@@ -29,13 +29,13 @@ struct NetState {
     double lastRemoteMs = 0;
 };
 
-inline NetState& state() {
+inline NetState& netState() {
     static NetState s;
     return s;
 }
 
 inline void closeSocket() {
-    NetState& s = state();
+    NetState& s = netState();
     if (s.sock >= 0) {
         close(s.sock);
         s.sock = -1;
@@ -52,8 +52,8 @@ inline bool setNonBlocking(int fd) {
 
 inline bool hostGame(double port) {
     closeSocket();
-    NetState& s = state();
-    s.sock = socket(AF_INET, SOCK_DGRAM, 0);
+    NetState& s = netState();
+    s.sock = ::socket(AF_INET, SOCK_DGRAM, 0);
     if (s.sock < 0) return false;
 
     int yes = 1;
@@ -76,8 +76,8 @@ inline bool hostGame(double port) {
 
 inline bool joinGame(const std::string& host, double port) {
     closeSocket();
-    NetState& s = state();
-    s.sock = socket(AF_INET, SOCK_DGRAM, 0);
+    NetState& s = netState();
+    s.sock = ::socket(AF_INET, SOCK_DGRAM, 0);
     if (s.sock < 0) return false;
     setNonBlocking(s.sock);
     s.hosting = false;
@@ -88,7 +88,7 @@ inline bool joinGame(const std::string& host, double port) {
 }
 
 inline void sendPose(double x, double y, double z, double rotY) {
-    NetState& s = state();
+    NetState& s = netState();
     if (s.sock < 0) return;
     s.localX = x;
     s.localY = y;
@@ -115,7 +115,7 @@ inline void sendPose(double x, double y, double z, double rotY) {
 }
 
 inline void pollNet(double nowMs) {
-    NetState& s = state();
+    NetState& s = netState();
     if (s.sock < 0) return;
 
     char buf[256];
@@ -140,13 +140,13 @@ inline void pollNet(double nowMs) {
 }
 
 inline bool hasRemotePlayer() {
-    return state().hasRemote;
+    return netState().hasRemote;
 }
 
-inline double remoteX() { return state().remoteX; }
-inline double remoteY() { return state().remoteY; }
-inline double remoteZ() { return state().remoteZ; }
-inline double remoteRotY() { return state().remoteRotY; }
+inline double remoteX() { return netState().remoteX; }
+inline double remoteY() { return netState().remoteY; }
+inline double remoteZ() { return netState().remoteZ; }
+inline double remoteRotY() { return netState().remoteRotY; }
 
 inline void shutdownNet() {
     closeSocket();
