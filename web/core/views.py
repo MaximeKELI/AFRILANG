@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from django.conf import settings
-from django.http import Http404, HttpResponse, JsonResponse
+from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
 
@@ -12,6 +12,7 @@ from .content.docs_search import search_docs
 from .content.ecosystem_i18n import translate_ecosystem
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
+from .services.downloads import get_download_context, resolve_binary
 
 
 def _doc_view(request, url_name):
@@ -78,7 +79,18 @@ def docs_tooling(request):
 
 
 def download(request):
-    return render(request, 'core/download.html')
+    ctx = get_download_context()
+    return render(request, 'core/download.html', ctx)
+
+
+@require_GET
+def download_binary(request, platform):
+    path = resolve_binary(platform)
+    if not path:
+        raise Http404('Binary not available for this platform')
+    response = FileResponse(path.open('rb'), as_attachment=True, filename='afrilang')
+    response['X-Content-Type-Options'] = 'nosniff'
+    return response
 
 
 def community(request):

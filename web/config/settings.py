@@ -34,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'core.middleware.security_headers.SecurityHeadersMiddleware',
+    'core.middleware.playground_rate_limit.PlaygroundRateLimitMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -136,3 +137,12 @@ BOOTSTRAP5 = {
 }
 
 PLAYGROUND_TIMEOUT = int(os.environ.get('PLAYGROUND_TIMEOUT', '30'))
+PLAYGROUND_RATE_LIMIT = int(os.environ.get('PLAYGROUND_RATE_LIMIT', '30'))
+PLAYGROUND_RATE_WINDOW = int(os.environ.get('PLAYGROUND_RATE_WINDOW', '3600'))
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'afrilang-web',
+    }
+}
