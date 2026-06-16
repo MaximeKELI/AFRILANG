@@ -1,0 +1,12 @@
+module gisultra311
+
+function ndviRaster(nir list number, red list number) returns list number
+end
+
+function rasterWindowMean(grid list number, w number, h number, x number, y number, r number) returns number
+end
+
+function hillshadeRaster(slopeDeg list number, aspectDeg list number) returns list number
+end
+
+end

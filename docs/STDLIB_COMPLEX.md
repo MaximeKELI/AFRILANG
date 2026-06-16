@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**1710 modules** — `std/c/{nom}`
+**2210 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -15500,3 +15500,4003 @@
 - `rayAabbHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, hx number, hy number, hz number) → list number`
 - `steerArrive(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
 - `avoidSphereForce(px number, py number, pz number, cx number, cy number, cz number, radius number) → list number`
+
+## std/c/gisultra001
+
+`import "std/c/gisultra001"` · `use gisultra001`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra002
+
+`import "std/c/gisultra002"` · `use gisultra002`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra003
+
+`import "std/c/gisultra003"` · `use gisultra003`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra004
+
+`import "std/c/gisultra004"` · `use gisultra004`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra005
+
+`import "std/c/gisultra005"` · `use gisultra005`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra006
+
+`import "std/c/gisultra006"` · `use gisultra006`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra007
+
+`import "std/c/gisultra007"` · `use gisultra007`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra008
+
+`import "std/c/gisultra008"` · `use gisultra008`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra009
+
+`import "std/c/gisultra009"` · `use gisultra009`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra010
+
+`import "std/c/gisultra010"` · `use gisultra010`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra011
+
+`import "std/c/gisultra011"` · `use gisultra011`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra012
+
+`import "std/c/gisultra012"` · `use gisultra012`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra013
+
+`import "std/c/gisultra013"` · `use gisultra013`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra014
+
+`import "std/c/gisultra014"` · `use gisultra014`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra015
+
+`import "std/c/gisultra015"` · `use gisultra015`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra016
+
+`import "std/c/gisultra016"` · `use gisultra016`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra017
+
+`import "std/c/gisultra017"` · `use gisultra017`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra018
+
+`import "std/c/gisultra018"` · `use gisultra018`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra019
+
+`import "std/c/gisultra019"` · `use gisultra019`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra020
+
+`import "std/c/gisultra020"` · `use gisultra020`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra021
+
+`import "std/c/gisultra021"` · `use gisultra021`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra022
+
+`import "std/c/gisultra022"` · `use gisultra022`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra023
+
+`import "std/c/gisultra023"` · `use gisultra023`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra024
+
+`import "std/c/gisultra024"` · `use gisultra024`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra025
+
+`import "std/c/gisultra025"` · `use gisultra025`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra026
+
+`import "std/c/gisultra026"` · `use gisultra026`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra027
+
+`import "std/c/gisultra027"` · `use gisultra027`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra028
+
+`import "std/c/gisultra028"` · `use gisultra028`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra029
+
+`import "std/c/gisultra029"` · `use gisultra029`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra030
+
+`import "std/c/gisultra030"` · `use gisultra030`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra031
+
+`import "std/c/gisultra031"` · `use gisultra031`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra032
+
+`import "std/c/gisultra032"` · `use gisultra032`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra033
+
+`import "std/c/gisultra033"` · `use gisultra033`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra034
+
+`import "std/c/gisultra034"` · `use gisultra034`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra035
+
+`import "std/c/gisultra035"` · `use gisultra035`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra036
+
+`import "std/c/gisultra036"` · `use gisultra036`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra037
+
+`import "std/c/gisultra037"` · `use gisultra037`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra038
+
+`import "std/c/gisultra038"` · `use gisultra038`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra039
+
+`import "std/c/gisultra039"` · `use gisultra039`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra040
+
+`import "std/c/gisultra040"` · `use gisultra040`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra041
+
+`import "std/c/gisultra041"` · `use gisultra041`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra042
+
+`import "std/c/gisultra042"` · `use gisultra042`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra043
+
+`import "std/c/gisultra043"` · `use gisultra043`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra044
+
+`import "std/c/gisultra044"` · `use gisultra044`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra045
+
+`import "std/c/gisultra045"` · `use gisultra045`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra046
+
+`import "std/c/gisultra046"` · `use gisultra046`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra047
+
+`import "std/c/gisultra047"` · `use gisultra047`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra048
+
+`import "std/c/gisultra048"` · `use gisultra048`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra049
+
+`import "std/c/gisultra049"` · `use gisultra049`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra050
+
+`import "std/c/gisultra050"` · `use gisultra050`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra051
+
+`import "std/c/gisultra051"` · `use gisultra051`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra052
+
+`import "std/c/gisultra052"` · `use gisultra052`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra053
+
+`import "std/c/gisultra053"` · `use gisultra053`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra054
+
+`import "std/c/gisultra054"` · `use gisultra054`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra055
+
+`import "std/c/gisultra055"` · `use gisultra055`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra056
+
+`import "std/c/gisultra056"` · `use gisultra056`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra057
+
+`import "std/c/gisultra057"` · `use gisultra057`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra058
+
+`import "std/c/gisultra058"` · `use gisultra058`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra059
+
+`import "std/c/gisultra059"` · `use gisultra059`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra060
+
+`import "std/c/gisultra060"` · `use gisultra060`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra061
+
+`import "std/c/gisultra061"` · `use gisultra061`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra062
+
+`import "std/c/gisultra062"` · `use gisultra062`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra063
+
+`import "std/c/gisultra063"` · `use gisultra063`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra064
+
+`import "std/c/gisultra064"` · `use gisultra064`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra065
+
+`import "std/c/gisultra065"` · `use gisultra065`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra066
+
+`import "std/c/gisultra066"` · `use gisultra066`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra067
+
+`import "std/c/gisultra067"` · `use gisultra067`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra068
+
+`import "std/c/gisultra068"` · `use gisultra068`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra069
+
+`import "std/c/gisultra069"` · `use gisultra069`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra070
+
+`import "std/c/gisultra070"` · `use gisultra070`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra071
+
+`import "std/c/gisultra071"` · `use gisultra071`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra072
+
+`import "std/c/gisultra072"` · `use gisultra072`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra073
+
+`import "std/c/gisultra073"` · `use gisultra073`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra074
+
+`import "std/c/gisultra074"` · `use gisultra074`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra075
+
+`import "std/c/gisultra075"` · `use gisultra075`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra076
+
+`import "std/c/gisultra076"` · `use gisultra076`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra077
+
+`import "std/c/gisultra077"` · `use gisultra077`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra078
+
+`import "std/c/gisultra078"` · `use gisultra078`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra079
+
+`import "std/c/gisultra079"` · `use gisultra079`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra080
+
+`import "std/c/gisultra080"` · `use gisultra080`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra081
+
+`import "std/c/gisultra081"` · `use gisultra081`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra082
+
+`import "std/c/gisultra082"` · `use gisultra082`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra083
+
+`import "std/c/gisultra083"` · `use gisultra083`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra084
+
+`import "std/c/gisultra084"` · `use gisultra084`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra085
+
+`import "std/c/gisultra085"` · `use gisultra085`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra086
+
+`import "std/c/gisultra086"` · `use gisultra086`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra087
+
+`import "std/c/gisultra087"` · `use gisultra087`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra088
+
+`import "std/c/gisultra088"` · `use gisultra088`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra089
+
+`import "std/c/gisultra089"` · `use gisultra089`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra090
+
+`import "std/c/gisultra090"` · `use gisultra090`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra091
+
+`import "std/c/gisultra091"` · `use gisultra091`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra092
+
+`import "std/c/gisultra092"` · `use gisultra092`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra093
+
+`import "std/c/gisultra093"` · `use gisultra093`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra094
+
+`import "std/c/gisultra094"` · `use gisultra094`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra095
+
+`import "std/c/gisultra095"` · `use gisultra095`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra096
+
+`import "std/c/gisultra096"` · `use gisultra096`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra097
+
+`import "std/c/gisultra097"` · `use gisultra097`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra098
+
+`import "std/c/gisultra098"` · `use gisultra098`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra099
+
+`import "std/c/gisultra099"` · `use gisultra099`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra100
+
+`import "std/c/gisultra100"` · `use gisultra100`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra101
+
+`import "std/c/gisultra101"` · `use gisultra101`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra102
+
+`import "std/c/gisultra102"` · `use gisultra102`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra103
+
+`import "std/c/gisultra103"` · `use gisultra103`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra104
+
+`import "std/c/gisultra104"` · `use gisultra104`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra105
+
+`import "std/c/gisultra105"` · `use gisultra105`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra106
+
+`import "std/c/gisultra106"` · `use gisultra106`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra107
+
+`import "std/c/gisultra107"` · `use gisultra107`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra108
+
+`import "std/c/gisultra108"` · `use gisultra108`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra109
+
+`import "std/c/gisultra109"` · `use gisultra109`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra110
+
+`import "std/c/gisultra110"` · `use gisultra110`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra111
+
+`import "std/c/gisultra111"` · `use gisultra111`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra112
+
+`import "std/c/gisultra112"` · `use gisultra112`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra113
+
+`import "std/c/gisultra113"` · `use gisultra113`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra114
+
+`import "std/c/gisultra114"` · `use gisultra114`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra115
+
+`import "std/c/gisultra115"` · `use gisultra115`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra116
+
+`import "std/c/gisultra116"` · `use gisultra116`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra117
+
+`import "std/c/gisultra117"` · `use gisultra117`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra118
+
+`import "std/c/gisultra118"` · `use gisultra118`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra119
+
+`import "std/c/gisultra119"` · `use gisultra119`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra120
+
+`import "std/c/gisultra120"` · `use gisultra120`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra121
+
+`import "std/c/gisultra121"` · `use gisultra121`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra122
+
+`import "std/c/gisultra122"` · `use gisultra122`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra123
+
+`import "std/c/gisultra123"` · `use gisultra123`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra124
+
+`import "std/c/gisultra124"` · `use gisultra124`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra125
+
+`import "std/c/gisultra125"` · `use gisultra125`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra126
+
+`import "std/c/gisultra126"` · `use gisultra126`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra127
+
+`import "std/c/gisultra127"` · `use gisultra127`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra128
+
+`import "std/c/gisultra128"` · `use gisultra128`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra129
+
+`import "std/c/gisultra129"` · `use gisultra129`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra130
+
+`import "std/c/gisultra130"` · `use gisultra130`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra131
+
+`import "std/c/gisultra131"` · `use gisultra131`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra132
+
+`import "std/c/gisultra132"` · `use gisultra132`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra133
+
+`import "std/c/gisultra133"` · `use gisultra133`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra134
+
+`import "std/c/gisultra134"` · `use gisultra134`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra135
+
+`import "std/c/gisultra135"` · `use gisultra135`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra136
+
+`import "std/c/gisultra136"` · `use gisultra136`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra137
+
+`import "std/c/gisultra137"` · `use gisultra137`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra138
+
+`import "std/c/gisultra138"` · `use gisultra138`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra139
+
+`import "std/c/gisultra139"` · `use gisultra139`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra140
+
+`import "std/c/gisultra140"` · `use gisultra140`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra141
+
+`import "std/c/gisultra141"` · `use gisultra141`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra142
+
+`import "std/c/gisultra142"` · `use gisultra142`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra143
+
+`import "std/c/gisultra143"` · `use gisultra143`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra144
+
+`import "std/c/gisultra144"` · `use gisultra144`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra145
+
+`import "std/c/gisultra145"` · `use gisultra145`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra146
+
+`import "std/c/gisultra146"` · `use gisultra146`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra147
+
+`import "std/c/gisultra147"` · `use gisultra147`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra148
+
+`import "std/c/gisultra148"` · `use gisultra148`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra149
+
+`import "std/c/gisultra149"` · `use gisultra149`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra150
+
+`import "std/c/gisultra150"` · `use gisultra150`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra151
+
+`import "std/c/gisultra151"` · `use gisultra151`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra152
+
+`import "std/c/gisultra152"` · `use gisultra152`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra153
+
+`import "std/c/gisultra153"` · `use gisultra153`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra154
+
+`import "std/c/gisultra154"` · `use gisultra154`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra155
+
+`import "std/c/gisultra155"` · `use gisultra155`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra156
+
+`import "std/c/gisultra156"` · `use gisultra156`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra157
+
+`import "std/c/gisultra157"` · `use gisultra157`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra158
+
+`import "std/c/gisultra158"` · `use gisultra158`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra159
+
+`import "std/c/gisultra159"` · `use gisultra159`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra160
+
+`import "std/c/gisultra160"` · `use gisultra160`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra161
+
+`import "std/c/gisultra161"` · `use gisultra161`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra162
+
+`import "std/c/gisultra162"` · `use gisultra162`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra163
+
+`import "std/c/gisultra163"` · `use gisultra163`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra164
+
+`import "std/c/gisultra164"` · `use gisultra164`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra165
+
+`import "std/c/gisultra165"` · `use gisultra165`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra166
+
+`import "std/c/gisultra166"` · `use gisultra166`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra167
+
+`import "std/c/gisultra167"` · `use gisultra167`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra168
+
+`import "std/c/gisultra168"` · `use gisultra168`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra169
+
+`import "std/c/gisultra169"` · `use gisultra169`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra170
+
+`import "std/c/gisultra170"` · `use gisultra170`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra171
+
+`import "std/c/gisultra171"` · `use gisultra171`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra172
+
+`import "std/c/gisultra172"` · `use gisultra172`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra173
+
+`import "std/c/gisultra173"` · `use gisultra173`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra174
+
+`import "std/c/gisultra174"` · `use gisultra174`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra175
+
+`import "std/c/gisultra175"` · `use gisultra175`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra176
+
+`import "std/c/gisultra176"` · `use gisultra176`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra177
+
+`import "std/c/gisultra177"` · `use gisultra177`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra178
+
+`import "std/c/gisultra178"` · `use gisultra178`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra179
+
+`import "std/c/gisultra179"` · `use gisultra179`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra180
+
+`import "std/c/gisultra180"` · `use gisultra180`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra181
+
+`import "std/c/gisultra181"` · `use gisultra181`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra182
+
+`import "std/c/gisultra182"` · `use gisultra182`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra183
+
+`import "std/c/gisultra183"` · `use gisultra183`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra184
+
+`import "std/c/gisultra184"` · `use gisultra184`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra185
+
+`import "std/c/gisultra185"` · `use gisultra185`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra186
+
+`import "std/c/gisultra186"` · `use gisultra186`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra187
+
+`import "std/c/gisultra187"` · `use gisultra187`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra188
+
+`import "std/c/gisultra188"` · `use gisultra188`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra189
+
+`import "std/c/gisultra189"` · `use gisultra189`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra190
+
+`import "std/c/gisultra190"` · `use gisultra190`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra191
+
+`import "std/c/gisultra191"` · `use gisultra191`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra192
+
+`import "std/c/gisultra192"` · `use gisultra192`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra193
+
+`import "std/c/gisultra193"` · `use gisultra193`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra194
+
+`import "std/c/gisultra194"` · `use gisultra194`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra195
+
+`import "std/c/gisultra195"` · `use gisultra195`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra196
+
+`import "std/c/gisultra196"` · `use gisultra196`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra197
+
+`import "std/c/gisultra197"` · `use gisultra197`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra198
+
+`import "std/c/gisultra198"` · `use gisultra198`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra199
+
+`import "std/c/gisultra199"` · `use gisultra199`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra200
+
+`import "std/c/gisultra200"` · `use gisultra200`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra201
+
+`import "std/c/gisultra201"` · `use gisultra201`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra202
+
+`import "std/c/gisultra202"` · `use gisultra202`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra203
+
+`import "std/c/gisultra203"` · `use gisultra203`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra204
+
+`import "std/c/gisultra204"` · `use gisultra204`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra205
+
+`import "std/c/gisultra205"` · `use gisultra205`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra206
+
+`import "std/c/gisultra206"` · `use gisultra206`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra207
+
+`import "std/c/gisultra207"` · `use gisultra207`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra208
+
+`import "std/c/gisultra208"` · `use gisultra208`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra209
+
+`import "std/c/gisultra209"` · `use gisultra209`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra210
+
+`import "std/c/gisultra210"` · `use gisultra210`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra211
+
+`import "std/c/gisultra211"` · `use gisultra211`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra212
+
+`import "std/c/gisultra212"` · `use gisultra212`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra213
+
+`import "std/c/gisultra213"` · `use gisultra213`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra214
+
+`import "std/c/gisultra214"` · `use gisultra214`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra215
+
+`import "std/c/gisultra215"` · `use gisultra215`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra216
+
+`import "std/c/gisultra216"` · `use gisultra216`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra217
+
+`import "std/c/gisultra217"` · `use gisultra217`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra218
+
+`import "std/c/gisultra218"` · `use gisultra218`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra219
+
+`import "std/c/gisultra219"` · `use gisultra219`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra220
+
+`import "std/c/gisultra220"` · `use gisultra220`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra221
+
+`import "std/c/gisultra221"` · `use gisultra221`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra222
+
+`import "std/c/gisultra222"` · `use gisultra222`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra223
+
+`import "std/c/gisultra223"` · `use gisultra223`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra224
+
+`import "std/c/gisultra224"` · `use gisultra224`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra225
+
+`import "std/c/gisultra225"` · `use gisultra225`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra226
+
+`import "std/c/gisultra226"` · `use gisultra226`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra227
+
+`import "std/c/gisultra227"` · `use gisultra227`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra228
+
+`import "std/c/gisultra228"` · `use gisultra228`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra229
+
+`import "std/c/gisultra229"` · `use gisultra229`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra230
+
+`import "std/c/gisultra230"` · `use gisultra230`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra231
+
+`import "std/c/gisultra231"` · `use gisultra231`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra232
+
+`import "std/c/gisultra232"` · `use gisultra232`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra233
+
+`import "std/c/gisultra233"` · `use gisultra233`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra234
+
+`import "std/c/gisultra234"` · `use gisultra234`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra235
+
+`import "std/c/gisultra235"` · `use gisultra235`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra236
+
+`import "std/c/gisultra236"` · `use gisultra236`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra237
+
+`import "std/c/gisultra237"` · `use gisultra237`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra238
+
+`import "std/c/gisultra238"` · `use gisultra238`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra239
+
+`import "std/c/gisultra239"` · `use gisultra239`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra240
+
+`import "std/c/gisultra240"` · `use gisultra240`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra241
+
+`import "std/c/gisultra241"` · `use gisultra241`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra242
+
+`import "std/c/gisultra242"` · `use gisultra242`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra243
+
+`import "std/c/gisultra243"` · `use gisultra243`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra244
+
+`import "std/c/gisultra244"` · `use gisultra244`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra245
+
+`import "std/c/gisultra245"` · `use gisultra245`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra246
+
+`import "std/c/gisultra246"` · `use gisultra246`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra247
+
+`import "std/c/gisultra247"` · `use gisultra247`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra248
+
+`import "std/c/gisultra248"` · `use gisultra248`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra249
+
+`import "std/c/gisultra249"` · `use gisultra249`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra250
+
+`import "std/c/gisultra250"` · `use gisultra250`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra251
+
+`import "std/c/gisultra251"` · `use gisultra251`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra252
+
+`import "std/c/gisultra252"` · `use gisultra252`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra253
+
+`import "std/c/gisultra253"` · `use gisultra253`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra254
+
+`import "std/c/gisultra254"` · `use gisultra254`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra255
+
+`import "std/c/gisultra255"` · `use gisultra255`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra256
+
+`import "std/c/gisultra256"` · `use gisultra256`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra257
+
+`import "std/c/gisultra257"` · `use gisultra257`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra258
+
+`import "std/c/gisultra258"` · `use gisultra258`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra259
+
+`import "std/c/gisultra259"` · `use gisultra259`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra260
+
+`import "std/c/gisultra260"` · `use gisultra260`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra261
+
+`import "std/c/gisultra261"` · `use gisultra261`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra262
+
+`import "std/c/gisultra262"` · `use gisultra262`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra263
+
+`import "std/c/gisultra263"` · `use gisultra263`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra264
+
+`import "std/c/gisultra264"` · `use gisultra264`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra265
+
+`import "std/c/gisultra265"` · `use gisultra265`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra266
+
+`import "std/c/gisultra266"` · `use gisultra266`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra267
+
+`import "std/c/gisultra267"` · `use gisultra267`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra268
+
+`import "std/c/gisultra268"` · `use gisultra268`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra269
+
+`import "std/c/gisultra269"` · `use gisultra269`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra270
+
+`import "std/c/gisultra270"` · `use gisultra270`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra271
+
+`import "std/c/gisultra271"` · `use gisultra271`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra272
+
+`import "std/c/gisultra272"` · `use gisultra272`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra273
+
+`import "std/c/gisultra273"` · `use gisultra273`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra274
+
+`import "std/c/gisultra274"` · `use gisultra274`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra275
+
+`import "std/c/gisultra275"` · `use gisultra275`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra276
+
+`import "std/c/gisultra276"` · `use gisultra276`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra277
+
+`import "std/c/gisultra277"` · `use gisultra277`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra278
+
+`import "std/c/gisultra278"` · `use gisultra278`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra279
+
+`import "std/c/gisultra279"` · `use gisultra279`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra280
+
+`import "std/c/gisultra280"` · `use gisultra280`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra281
+
+`import "std/c/gisultra281"` · `use gisultra281`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra282
+
+`import "std/c/gisultra282"` · `use gisultra282`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra283
+
+`import "std/c/gisultra283"` · `use gisultra283`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra284
+
+`import "std/c/gisultra284"` · `use gisultra284`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra285
+
+`import "std/c/gisultra285"` · `use gisultra285`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra286
+
+`import "std/c/gisultra286"` · `use gisultra286`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra287
+
+`import "std/c/gisultra287"` · `use gisultra287`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra288
+
+`import "std/c/gisultra288"` · `use gisultra288`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra289
+
+`import "std/c/gisultra289"` · `use gisultra289`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra290
+
+`import "std/c/gisultra290"` · `use gisultra290`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra291
+
+`import "std/c/gisultra291"` · `use gisultra291`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra292
+
+`import "std/c/gisultra292"` · `use gisultra292`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra293
+
+`import "std/c/gisultra293"` · `use gisultra293`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra294
+
+`import "std/c/gisultra294"` · `use gisultra294`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra295
+
+`import "std/c/gisultra295"` · `use gisultra295`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra296
+
+`import "std/c/gisultra296"` · `use gisultra296`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra297
+
+`import "std/c/gisultra297"` · `use gisultra297`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra298
+
+`import "std/c/gisultra298"` · `use gisultra298`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra299
+
+`import "std/c/gisultra299"` · `use gisultra299`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra300
+
+`import "std/c/gisultra300"` · `use gisultra300`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra301
+
+`import "std/c/gisultra301"` · `use gisultra301`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra302
+
+`import "std/c/gisultra302"` · `use gisultra302`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra303
+
+`import "std/c/gisultra303"` · `use gisultra303`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra304
+
+`import "std/c/gisultra304"` · `use gisultra304`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra305
+
+`import "std/c/gisultra305"` · `use gisultra305`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra306
+
+`import "std/c/gisultra306"` · `use gisultra306`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra307
+
+`import "std/c/gisultra307"` · `use gisultra307`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra308
+
+`import "std/c/gisultra308"` · `use gisultra308`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra309
+
+`import "std/c/gisultra309"` · `use gisultra309`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra310
+
+`import "std/c/gisultra310"` · `use gisultra310`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra311
+
+`import "std/c/gisultra311"` · `use gisultra311`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra312
+
+`import "std/c/gisultra312"` · `use gisultra312`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra313
+
+`import "std/c/gisultra313"` · `use gisultra313`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra314
+
+`import "std/c/gisultra314"` · `use gisultra314`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra315
+
+`import "std/c/gisultra315"` · `use gisultra315`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra316
+
+`import "std/c/gisultra316"` · `use gisultra316`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra317
+
+`import "std/c/gisultra317"` · `use gisultra317`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra318
+
+`import "std/c/gisultra318"` · `use gisultra318`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra319
+
+`import "std/c/gisultra319"` · `use gisultra319`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra320
+
+`import "std/c/gisultra320"` · `use gisultra320`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra321
+
+`import "std/c/gisultra321"` · `use gisultra321`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra322
+
+`import "std/c/gisultra322"` · `use gisultra322`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra323
+
+`import "std/c/gisultra323"` · `use gisultra323`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra324
+
+`import "std/c/gisultra324"` · `use gisultra324`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra325
+
+`import "std/c/gisultra325"` · `use gisultra325`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra326
+
+`import "std/c/gisultra326"` · `use gisultra326`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra327
+
+`import "std/c/gisultra327"` · `use gisultra327`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra328
+
+`import "std/c/gisultra328"` · `use gisultra328`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra329
+
+`import "std/c/gisultra329"` · `use gisultra329`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra330
+
+`import "std/c/gisultra330"` · `use gisultra330`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra331
+
+`import "std/c/gisultra331"` · `use gisultra331`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra332
+
+`import "std/c/gisultra332"` · `use gisultra332`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra333
+
+`import "std/c/gisultra333"` · `use gisultra333`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra334
+
+`import "std/c/gisultra334"` · `use gisultra334`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra335
+
+`import "std/c/gisultra335"` · `use gisultra335`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra336
+
+`import "std/c/gisultra336"` · `use gisultra336`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra337
+
+`import "std/c/gisultra337"` · `use gisultra337`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra338
+
+`import "std/c/gisultra338"` · `use gisultra338`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra339
+
+`import "std/c/gisultra339"` · `use gisultra339`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra340
+
+`import "std/c/gisultra340"` · `use gisultra340`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra341
+
+`import "std/c/gisultra341"` · `use gisultra341`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra342
+
+`import "std/c/gisultra342"` · `use gisultra342`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra343
+
+`import "std/c/gisultra343"` · `use gisultra343`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra344
+
+`import "std/c/gisultra344"` · `use gisultra344`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra345
+
+`import "std/c/gisultra345"` · `use gisultra345`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra346
+
+`import "std/c/gisultra346"` · `use gisultra346`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra347
+
+`import "std/c/gisultra347"` · `use gisultra347`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra348
+
+`import "std/c/gisultra348"` · `use gisultra348`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra349
+
+`import "std/c/gisultra349"` · `use gisultra349`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra350
+
+`import "std/c/gisultra350"` · `use gisultra350`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra351
+
+`import "std/c/gisultra351"` · `use gisultra351`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra352
+
+`import "std/c/gisultra352"` · `use gisultra352`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra353
+
+`import "std/c/gisultra353"` · `use gisultra353`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra354
+
+`import "std/c/gisultra354"` · `use gisultra354`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra355
+
+`import "std/c/gisultra355"` · `use gisultra355`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra356
+
+`import "std/c/gisultra356"` · `use gisultra356`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra357
+
+`import "std/c/gisultra357"` · `use gisultra357`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra358
+
+`import "std/c/gisultra358"` · `use gisultra358`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra359
+
+`import "std/c/gisultra359"` · `use gisultra359`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra360
+
+`import "std/c/gisultra360"` · `use gisultra360`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra361
+
+`import "std/c/gisultra361"` · `use gisultra361`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra362
+
+`import "std/c/gisultra362"` · `use gisultra362`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra363
+
+`import "std/c/gisultra363"` · `use gisultra363`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra364
+
+`import "std/c/gisultra364"` · `use gisultra364`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra365
+
+`import "std/c/gisultra365"` · `use gisultra365`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra366
+
+`import "std/c/gisultra366"` · `use gisultra366`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra367
+
+`import "std/c/gisultra367"` · `use gisultra367`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra368
+
+`import "std/c/gisultra368"` · `use gisultra368`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra369
+
+`import "std/c/gisultra369"` · `use gisultra369`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra370
+
+`import "std/c/gisultra370"` · `use gisultra370`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra371
+
+`import "std/c/gisultra371"` · `use gisultra371`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra372
+
+`import "std/c/gisultra372"` · `use gisultra372`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra373
+
+`import "std/c/gisultra373"` · `use gisultra373`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra374
+
+`import "std/c/gisultra374"` · `use gisultra374`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra375
+
+`import "std/c/gisultra375"` · `use gisultra375`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra376
+
+`import "std/c/gisultra376"` · `use gisultra376`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra377
+
+`import "std/c/gisultra377"` · `use gisultra377`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra378
+
+`import "std/c/gisultra378"` · `use gisultra378`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra379
+
+`import "std/c/gisultra379"` · `use gisultra379`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra380
+
+`import "std/c/gisultra380"` · `use gisultra380`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra381
+
+`import "std/c/gisultra381"` · `use gisultra381`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra382
+
+`import "std/c/gisultra382"` · `use gisultra382`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra383
+
+`import "std/c/gisultra383"` · `use gisultra383`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra384
+
+`import "std/c/gisultra384"` · `use gisultra384`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra385
+
+`import "std/c/gisultra385"` · `use gisultra385`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra386
+
+`import "std/c/gisultra386"` · `use gisultra386`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra387
+
+`import "std/c/gisultra387"` · `use gisultra387`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra388
+
+`import "std/c/gisultra388"` · `use gisultra388`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra389
+
+`import "std/c/gisultra389"` · `use gisultra389`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra390
+
+`import "std/c/gisultra390"` · `use gisultra390`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra391
+
+`import "std/c/gisultra391"` · `use gisultra391`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra392
+
+`import "std/c/gisultra392"` · `use gisultra392`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra393
+
+`import "std/c/gisultra393"` · `use gisultra393`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra394
+
+`import "std/c/gisultra394"` · `use gisultra394`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra395
+
+`import "std/c/gisultra395"` · `use gisultra395`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra396
+
+`import "std/c/gisultra396"` · `use gisultra396`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra397
+
+`import "std/c/gisultra397"` · `use gisultra397`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra398
+
+`import "std/c/gisultra398"` · `use gisultra398`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra399
+
+`import "std/c/gisultra399"` · `use gisultra399`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra400
+
+`import "std/c/gisultra400"` · `use gisultra400`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra401
+
+`import "std/c/gisultra401"` · `use gisultra401`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra402
+
+`import "std/c/gisultra402"` · `use gisultra402`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra403
+
+`import "std/c/gisultra403"` · `use gisultra403`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra404
+
+`import "std/c/gisultra404"` · `use gisultra404`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra405
+
+`import "std/c/gisultra405"` · `use gisultra405`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra406
+
+`import "std/c/gisultra406"` · `use gisultra406`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra407
+
+`import "std/c/gisultra407"` · `use gisultra407`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra408
+
+`import "std/c/gisultra408"` · `use gisultra408`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra409
+
+`import "std/c/gisultra409"` · `use gisultra409`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra410
+
+`import "std/c/gisultra410"` · `use gisultra410`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra411
+
+`import "std/c/gisultra411"` · `use gisultra411`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra412
+
+`import "std/c/gisultra412"` · `use gisultra412`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra413
+
+`import "std/c/gisultra413"` · `use gisultra413`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra414
+
+`import "std/c/gisultra414"` · `use gisultra414`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra415
+
+`import "std/c/gisultra415"` · `use gisultra415`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra416
+
+`import "std/c/gisultra416"` · `use gisultra416`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra417
+
+`import "std/c/gisultra417"` · `use gisultra417`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra418
+
+`import "std/c/gisultra418"` · `use gisultra418`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra419
+
+`import "std/c/gisultra419"` · `use gisultra419`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra420
+
+`import "std/c/gisultra420"` · `use gisultra420`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra421
+
+`import "std/c/gisultra421"` · `use gisultra421`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra422
+
+`import "std/c/gisultra422"` · `use gisultra422`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra423
+
+`import "std/c/gisultra423"` · `use gisultra423`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra424
+
+`import "std/c/gisultra424"` · `use gisultra424`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra425
+
+`import "std/c/gisultra425"` · `use gisultra425`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra426
+
+`import "std/c/gisultra426"` · `use gisultra426`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra427
+
+`import "std/c/gisultra427"` · `use gisultra427`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra428
+
+`import "std/c/gisultra428"` · `use gisultra428`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra429
+
+`import "std/c/gisultra429"` · `use gisultra429`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra430
+
+`import "std/c/gisultra430"` · `use gisultra430`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra431
+
+`import "std/c/gisultra431"` · `use gisultra431`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra432
+
+`import "std/c/gisultra432"` · `use gisultra432`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra433
+
+`import "std/c/gisultra433"` · `use gisultra433`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra434
+
+`import "std/c/gisultra434"` · `use gisultra434`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra435
+
+`import "std/c/gisultra435"` · `use gisultra435`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra436
+
+`import "std/c/gisultra436"` · `use gisultra436`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra437
+
+`import "std/c/gisultra437"` · `use gisultra437`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra438
+
+`import "std/c/gisultra438"` · `use gisultra438`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra439
+
+`import "std/c/gisultra439"` · `use gisultra439`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra440
+
+`import "std/c/gisultra440"` · `use gisultra440`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra441
+
+`import "std/c/gisultra441"` · `use gisultra441`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra442
+
+`import "std/c/gisultra442"` · `use gisultra442`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra443
+
+`import "std/c/gisultra443"` · `use gisultra443`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra444
+
+`import "std/c/gisultra444"` · `use gisultra444`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra445
+
+`import "std/c/gisultra445"` · `use gisultra445`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra446
+
+`import "std/c/gisultra446"` · `use gisultra446`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra447
+
+`import "std/c/gisultra447"` · `use gisultra447`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra448
+
+`import "std/c/gisultra448"` · `use gisultra448`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra449
+
+`import "std/c/gisultra449"` · `use gisultra449`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra450
+
+`import "std/c/gisultra450"` · `use gisultra450`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra451
+
+`import "std/c/gisultra451"` · `use gisultra451`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra452
+
+`import "std/c/gisultra452"` · `use gisultra452`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra453
+
+`import "std/c/gisultra453"` · `use gisultra453`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra454
+
+`import "std/c/gisultra454"` · `use gisultra454`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra455
+
+`import "std/c/gisultra455"` · `use gisultra455`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra456
+
+`import "std/c/gisultra456"` · `use gisultra456`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra457
+
+`import "std/c/gisultra457"` · `use gisultra457`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra458
+
+`import "std/c/gisultra458"` · `use gisultra458`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra459
+
+`import "std/c/gisultra459"` · `use gisultra459`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra460
+
+`import "std/c/gisultra460"` · `use gisultra460`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra461
+
+`import "std/c/gisultra461"` · `use gisultra461`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra462
+
+`import "std/c/gisultra462"` · `use gisultra462`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra463
+
+`import "std/c/gisultra463"` · `use gisultra463`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra464
+
+`import "std/c/gisultra464"` · `use gisultra464`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra465
+
+`import "std/c/gisultra465"` · `use gisultra465`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra466
+
+`import "std/c/gisultra466"` · `use gisultra466`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra467
+
+`import "std/c/gisultra467"` · `use gisultra467`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra468
+
+`import "std/c/gisultra468"` · `use gisultra468`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra469
+
+`import "std/c/gisultra469"` · `use gisultra469`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra470
+
+`import "std/c/gisultra470"` · `use gisultra470`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra471
+
+`import "std/c/gisultra471"` · `use gisultra471`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra472
+
+`import "std/c/gisultra472"` · `use gisultra472`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra473
+
+`import "std/c/gisultra473"` · `use gisultra473`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra474
+
+`import "std/c/gisultra474"` · `use gisultra474`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra475
+
+`import "std/c/gisultra475"` · `use gisultra475`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra476
+
+`import "std/c/gisultra476"` · `use gisultra476`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra477
+
+`import "std/c/gisultra477"` · `use gisultra477`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra478
+
+`import "std/c/gisultra478"` · `use gisultra478`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra479
+
+`import "std/c/gisultra479"` · `use gisultra479`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra480
+
+`import "std/c/gisultra480"` · `use gisultra480`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra481
+
+`import "std/c/gisultra481"` · `use gisultra481`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra482
+
+`import "std/c/gisultra482"` · `use gisultra482`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra483
+
+`import "std/c/gisultra483"` · `use gisultra483`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra484
+
+`import "std/c/gisultra484"` · `use gisultra484`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra485
+
+`import "std/c/gisultra485"` · `use gisultra485`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra486
+
+`import "std/c/gisultra486"` · `use gisultra486`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra487
+
+`import "std/c/gisultra487"` · `use gisultra487`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra488
+
+`import "std/c/gisultra488"` · `use gisultra488`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra489
+
+`import "std/c/gisultra489"` · `use gisultra489`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra490
+
+`import "std/c/gisultra490"` · `use gisultra490`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra491
+
+`import "std/c/gisultra491"` · `use gisultra491`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra492
+
+`import "std/c/gisultra492"` · `use gisultra492`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra493
+
+`import "std/c/gisultra493"` · `use gisultra493`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra494
+
+`import "std/c/gisultra494"` · `use gisultra494`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra495
+
+`import "std/c/gisultra495"` · `use gisultra495`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra496
+
+`import "std/c/gisultra496"` · `use gisultra496`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra497
+
+`import "std/c/gisultra497"` · `use gisultra497`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra498
+
+`import "std/c/gisultra498"` · `use gisultra498`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra499
+
+`import "std/c/gisultra499"` · `use gisultra499`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`
+
+## std/c/gisultra500
+
+`import "std/c/gisultra500"` · `use gisultra500`
+
+- `ndviRaster(nir list number, red list number) → list number`
+- `rasterWindowMean(grid list number, w number, h number, x number, y number, r number) → number`
+- `hillshadeRaster(slopeDeg list number, aspectDeg list number) → list number`

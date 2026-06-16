@@ -63383,6 +63383,10506 @@ const StdlibFuncSpec kMFuncs_1709[] = {
     {nullptr, nullptr, 0, nullptr}
 };
 
+const StdlibParamSpec kMParams_1710[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1710[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1710[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1710[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1710[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1711[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1711[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1711[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1711[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1711[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1712[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1712[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1712[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1712[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1712[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1713[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1713[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1713[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1713[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1713[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1714[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1714[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1714[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1714[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1714[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1715[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1715[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1715[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1715[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1715[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1716[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1716[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1716[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1716[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1716[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1717[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1717[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1717[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1717[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1717[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1718[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1718[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1718[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1718[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1718[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1719[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1719[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1719[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1719[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1719[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1720[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1720[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1720[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1720[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1720[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1721[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1721[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1721[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1721[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1721[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1722[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1722[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1722[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1722[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1722[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1723[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1723[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1723[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1723[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1723[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1724[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1724[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1724[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1724[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1724[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1725[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1725[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1725[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1725[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1725[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1726[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1726[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1726[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1726[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1726[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1727[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1727[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1727[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1727[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1727[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1728[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1728[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1728[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1728[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1728[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1729[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1729[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1729[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1729[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1729[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1730[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1730[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1730[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1730[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1730[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1731[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1731[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1731[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1731[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1731[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1732[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1732[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1732[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1732[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1732[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1733[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1733[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1733[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1733[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1733[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1734[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1734[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1734[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1734[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1734[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1735[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1735[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1735[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1735[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1735[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1736[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1736[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1736[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1736[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1736[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1737[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1737[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1737[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1737[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1737[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1738[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1738[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1738[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1738[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1738[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1739[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1739[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1739[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1739[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1739[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1740[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1740[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1740[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1740[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1740[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1741[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1741[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1741[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1741[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1741[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1742[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1742[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1742[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1742[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1742[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1743[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1743[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1743[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1743[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1743[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1744[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1744[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1744[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1744[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1744[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1745[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1745[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1745[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1745[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1745[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1746[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1746[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1746[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1746[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1746[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1747[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1747[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1747[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1747[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1747[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1748[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1748[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1748[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1748[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1748[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1749[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1749[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1749[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1749[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1749[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1750[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1750[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1750[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1750[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1750[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1751[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1751[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1751[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1751[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1751[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1752[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1752[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1752[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1752[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1752[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1753[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1753[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1753[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1753[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1753[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1754[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1754[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1754[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1754[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1754[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1755[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1755[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1755[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1755[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1755[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1756[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1756[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1756[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1756[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1756[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1757[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1757[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1757[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1757[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1757[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1758[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1758[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1758[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1758[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1758[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1759[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1759[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1759[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1759[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1759[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1760[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1760[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1760[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1760[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1760[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1761[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1761[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1761[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1761[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1761[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1762[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1762[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1762[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1762[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1762[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1763[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1763[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1763[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1763[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1763[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1764[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1764[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1764[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1764[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1764[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1765[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1765[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1765[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1765[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1765[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1766[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1766[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1766[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1766[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1766[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1767[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1767[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1767[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1767[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1767[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1768[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1768[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1768[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1768[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1768[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1769[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1769[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1769[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1769[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1769[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1770[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1770[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1770[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1770[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1770[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1771[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1771[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1771[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1771[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1771[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1772[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1772[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1772[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1772[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1772[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1773[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1773[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1773[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1773[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1773[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1774[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1774[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1774[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1774[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1774[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1775[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1775[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1775[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1775[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1775[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1776[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1776[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1776[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1776[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1776[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1777[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1777[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1777[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1777[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1777[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1778[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1778[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1778[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1778[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1778[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1779[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1779[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1779[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1779[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1779[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1780[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1780[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1780[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1780[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1780[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1781[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1781[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1781[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1781[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1781[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1782[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1782[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1782[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1782[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1782[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1783[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1783[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1783[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1783[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1783[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1784[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1784[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1784[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1784[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1784[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1785[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1785[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1785[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1785[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1785[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1786[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1786[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1786[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1786[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1786[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1787[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1787[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1787[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1787[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1787[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1788[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1788[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1788[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1788[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1788[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1789[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1789[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1789[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1789[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1789[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1790[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1790[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1790[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1790[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1790[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1791[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1791[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1791[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1791[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1791[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1792[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1792[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1792[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1792[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1792[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1793[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1793[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1793[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1793[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1793[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1794[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1794[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1794[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1794[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1794[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1795[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1795[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1795[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1795[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1795[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1796[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1796[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1796[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1796[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1796[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1797[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1797[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1797[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1797[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1797[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1798[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1798[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1798[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1798[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1798[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1799[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1799[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1799[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1799[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1799[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1800[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1800[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1800[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1800[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1800[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1801[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1801[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1801[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1801[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1801[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1802[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1802[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1802[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1802[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1802[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1803[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1803[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1803[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1803[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1803[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1804[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1804[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1804[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1804[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1804[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1805[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1805[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1805[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1805[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1805[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1806[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1806[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1806[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1806[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1806[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1807[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1807[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1807[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1807[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1807[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1808[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1808[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1808[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1808[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1808[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1809[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1809[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1809[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1809[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1809[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1810[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1810[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1810[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1810[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1810[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1811[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1811[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1811[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1811[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1811[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1812[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1812[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1812[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1812[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1812[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1813[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1813[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1813[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1813[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1813[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1814[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1814[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1814[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1814[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1814[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1815[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1815[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1815[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1815[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1815[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1816[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1816[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1816[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1816[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1816[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1817[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1817[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1817[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1817[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1817[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1818[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1818[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1818[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1818[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1818[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1819[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1819[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1819[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1819[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1819[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1820[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1820[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1820[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1820[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1820[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1821[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1821[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1821[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1821[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1821[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1822[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1822[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1822[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1822[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1822[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1823[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1823[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1823[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1823[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1823[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1824[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1824[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1824[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1824[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1824[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1825[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1825[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1825[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1825[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1825[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1826[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1826[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1826[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1826[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1826[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1827[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1827[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1827[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1827[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1827[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1828[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1828[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1828[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1828[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1828[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1829[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1829[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1829[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1829[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1829[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1830[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1830[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1830[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1830[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1830[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1831[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1831[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1831[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1831[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1831[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1832[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1832[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1832[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1832[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1832[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1833[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1833[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1833[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1833[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1833[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1834[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1834[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1834[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1834[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1834[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1835[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1835[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1835[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1835[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1835[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1836[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1836[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1836[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1836[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1836[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1837[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1837[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1837[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1837[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1837[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1838[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1838[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1838[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1838[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1838[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1839[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1839[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1839[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1839[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1839[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1840[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1840[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1840[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1840[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1840[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1841[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1841[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1841[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1841[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1841[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1842[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1842[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1842[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1842[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1842[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1843[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1843[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1843[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1843[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1843[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1844[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1844[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1844[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1844[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1844[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1845[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1845[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1845[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1845[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1845[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1846[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1846[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1846[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1846[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1846[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1847[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1847[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1847[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1847[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1847[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1848[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1848[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1848[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1848[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1848[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1849[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1849[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1849[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1849[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1849[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1850[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1850[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1850[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1850[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1850[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1851[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1851[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1851[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1851[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1851[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1852[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1852[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1852[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1852[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1852[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1853[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1853[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1853[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1853[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1853[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1854[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1854[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1854[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1854[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1854[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1855[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1855[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1855[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1855[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1855[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1856[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1856[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1856[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1856[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1856[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1857[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1857[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1857[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1857[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1857[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1858[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1858[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1858[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1858[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1858[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1859[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1859[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1859[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1859[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1859[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1860[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1860[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1860[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1860[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1860[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1861[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1861[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1861[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1861[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1861[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1862[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1862[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1862[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1862[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1862[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1863[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1863[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1863[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1863[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1863[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1864[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1864[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1864[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1864[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1864[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1865[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1865[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1865[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1865[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1865[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1866[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1866[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1866[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1866[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1866[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1867[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1867[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1867[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1867[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1867[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1868[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1868[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1868[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1868[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1868[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1869[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1869[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1869[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1869[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1869[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1870[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1870[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1870[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1870[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1870[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1871[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1871[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1871[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1871[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1871[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1872[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1872[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1872[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1872[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1872[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1873[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1873[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1873[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1873[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1873[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1874[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1874[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1874[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1874[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1874[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1875[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1875[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1875[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1875[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1875[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1876[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1876[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1876[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1876[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1876[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1877[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1877[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1877[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1877[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1877[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1878[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1878[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1878[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1878[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1878[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1879[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1879[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1879[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1879[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1879[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1880[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1880[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1880[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1880[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1880[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1881[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1881[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1881[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1881[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1881[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1882[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1882[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1882[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1882[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1882[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1883[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1883[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1883[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1883[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1883[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1884[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1884[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1884[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1884[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1884[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1885[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1885[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1885[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1885[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1885[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1886[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1886[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1886[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1886[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1886[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1887[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1887[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1887[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1887[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1887[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1888[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1888[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1888[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1888[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1888[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1889[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1889[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1889[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1889[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1889[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1890[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1890[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1890[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1890[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1890[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1891[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1891[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1891[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1891[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1891[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1892[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1892[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1892[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1892[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1892[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1893[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1893[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1893[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1893[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1893[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1894[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1894[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1894[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1894[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1894[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1895[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1895[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1895[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1895[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1895[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1896[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1896[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1896[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1896[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1896[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1897[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1897[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1897[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1897[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1897[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1898[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1898[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1898[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1898[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1898[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1899[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1899[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1899[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1899[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1899[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1900[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1900[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1900[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1900[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1900[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1901[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1901[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1901[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1901[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1901[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1902[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1902[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1902[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1902[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1902[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1903[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1903[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1903[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1903[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1903[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1904[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1904[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1904[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1904[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1904[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1905[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1905[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1905[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1905[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1905[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1906[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1906[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1906[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1906[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1906[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1907[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1907[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1907[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1907[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1907[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1908[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1908[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1908[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1908[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1908[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1909[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1909[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1909[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1909[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1909[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1910[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1910[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1910[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1910[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1910[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1911[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1911[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1911[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1911[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1911[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1912[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1912[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1912[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1912[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1912[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1913[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1913[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1913[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1913[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1913[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1914[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1914[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1914[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1914[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1914[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1915[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1915[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1915[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1915[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1915[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1916[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1916[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1916[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1916[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1916[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1917[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1917[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1917[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1917[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1917[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1918[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1918[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1918[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1918[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1918[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1919[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1919[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1919[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1919[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1919[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1920[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1920[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1920[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1920[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1920[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1921[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1921[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1921[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1921[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1921[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1922[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1922[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1922[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1922[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1922[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1923[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1923[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1923[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1923[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1923[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1924[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1924[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1924[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1924[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1924[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1925[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1925[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1925[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1925[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1925[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1926[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1926[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1926[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1926[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1926[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1927[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1927[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1927[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1927[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1927[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1928[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1928[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1928[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1928[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1928[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1929[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1929[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1929[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1929[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1929[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1930[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1930[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1930[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1930[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1930[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1931[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1931[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1931[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1931[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1931[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1932[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1932[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1932[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1932[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1932[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1933[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1933[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1933[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1933[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1933[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1934[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1934[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1934[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1934[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1934[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1935[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1935[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1935[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1935[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1935[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1936[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1936[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1936[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1936[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1936[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1937[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1937[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1937[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1937[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1937[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1938[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1938[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1938[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1938[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1938[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1939[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1939[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1939[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1939[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1939[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1940[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1940[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1940[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1940[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1940[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1941[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1941[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1941[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1941[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1941[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1942[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1942[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1942[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1942[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1942[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1943[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1943[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1943[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1943[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1943[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1944[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1944[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1944[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1944[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1944[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1945[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1945[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1945[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1945[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1945[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1946[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1946[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1946[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1946[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1946[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1947[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1947[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1947[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1947[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1947[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1948[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1948[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1948[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1948[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1948[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1949[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1949[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1949[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1949[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1949[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1950[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1950[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1950[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1950[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1950[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1951[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1951[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1951[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1951[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1951[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1952[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1952[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1952[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1952[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1952[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1953[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1953[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1953[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1953[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1953[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1954[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1954[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1954[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1954[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1954[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1955[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1955[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1955[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1955[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1955[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1956[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1956[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1956[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1956[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1956[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1957[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1957[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1957[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1957[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1957[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1958[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1958[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1958[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1958[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1958[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1959[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1959[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1959[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1959[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1959[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1960[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1960[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1960[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1960[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1960[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1961[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1961[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1961[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1961[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1961[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1962[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1962[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1962[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1962[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1962[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1963[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1963[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1963[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1963[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1963[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1964[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1964[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1964[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1964[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1964[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1965[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1965[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1965[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1965[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1965[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1966[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1966[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1966[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1966[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1966[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1967[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1967[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1967[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1967[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1967[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1968[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1968[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1968[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1968[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1968[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1969[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1969[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1969[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1969[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1969[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1970[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1970[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1970[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1970[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1970[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1971[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1971[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1971[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1971[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1971[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1972[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1972[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1972[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1972[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1972[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1973[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1973[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1973[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1973[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1973[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1974[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1974[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1974[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1974[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1974[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1975[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1975[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1975[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1975[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1975[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1976[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1976[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1976[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1976[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1976[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1977[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1977[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1977[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1977[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1977[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1978[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1978[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1978[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1978[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1978[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1979[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1979[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1979[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1979[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1979[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1980[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1980[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1980[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1980[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1980[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1981[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1981[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1981[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1981[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1981[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1982[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1982[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1982[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1982[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1982[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1983[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1983[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1983[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1983[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1983[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1984[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1984[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1984[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1984[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1984[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1985[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1985[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1985[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1985[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1985[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1986[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1986[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1986[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1986[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1986[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1987[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1987[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1987[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1987[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1987[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1988[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1988[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1988[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1988[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1988[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1989[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1989[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1989[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1989[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1989[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1990[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1990[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1990[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1990[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1990[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1991[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1991[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1991[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1991[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1991[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1992[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1992[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1992[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1992[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1992[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1993[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1993[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1993[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1993[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1993[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1994[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1994[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1994[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1994[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1994[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1995[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1995[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1995[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1995[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1995[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1996[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1996[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1996[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1996[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1996[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1997[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1997[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1997[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1997[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1997[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1998[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1998[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1998[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1998[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1998[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_1999[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_1999[] = {
+    {"ndviRaster", "list number", 2, &kMParams_1999[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_1999[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_1999[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2000[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2000[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2000[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2000[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2000[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2001[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2001[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2001[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2001[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2001[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2002[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2002[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2002[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2002[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2002[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2003[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2003[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2003[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2003[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2003[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2004[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2004[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2004[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2004[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2004[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2005[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2005[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2005[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2005[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2005[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2006[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2006[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2006[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2006[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2006[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2007[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2007[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2007[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2007[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2007[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2008[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2008[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2008[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2008[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2008[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2009[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2009[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2009[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2009[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2009[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2010[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2010[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2010[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2010[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2010[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2011[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2011[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2011[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2011[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2011[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2012[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2012[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2012[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2012[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2012[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2013[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2013[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2013[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2013[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2013[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2014[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2014[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2014[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2014[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2014[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2015[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2015[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2015[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2015[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2015[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2016[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2016[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2016[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2016[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2016[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2017[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2017[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2017[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2017[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2017[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2018[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2018[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2018[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2018[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2018[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2019[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2019[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2019[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2019[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2019[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2020[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2020[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2020[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2020[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2020[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2021[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2021[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2021[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2021[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2021[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2022[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2022[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2022[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2022[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2022[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2023[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2023[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2023[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2023[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2023[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2024[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2024[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2024[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2024[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2024[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2025[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2025[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2025[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2025[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2025[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2026[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2026[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2026[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2026[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2026[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2027[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2027[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2027[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2027[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2027[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2028[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2028[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2028[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2028[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2028[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2029[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2029[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2029[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2029[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2029[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2030[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2030[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2030[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2030[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2030[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2031[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2031[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2031[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2031[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2031[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2032[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2032[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2032[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2032[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2032[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2033[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2033[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2033[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2033[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2033[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2034[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2034[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2034[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2034[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2034[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2035[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2035[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2035[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2035[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2035[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2036[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2036[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2036[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2036[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2036[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2037[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2037[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2037[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2037[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2037[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2038[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2038[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2038[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2038[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2038[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2039[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2039[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2039[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2039[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2039[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2040[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2040[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2040[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2040[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2040[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2041[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2041[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2041[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2041[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2041[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2042[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2042[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2042[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2042[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2042[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2043[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2043[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2043[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2043[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2043[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2044[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2044[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2044[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2044[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2044[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2045[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2045[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2045[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2045[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2045[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2046[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2046[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2046[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2046[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2046[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2047[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2047[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2047[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2047[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2047[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2048[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2048[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2048[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2048[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2048[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2049[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2049[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2049[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2049[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2049[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2050[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2050[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2050[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2050[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2050[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2051[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2051[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2051[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2051[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2051[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2052[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2052[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2052[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2052[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2052[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2053[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2053[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2053[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2053[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2053[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2054[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2054[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2054[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2054[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2054[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2055[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2055[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2055[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2055[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2055[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2056[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2056[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2056[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2056[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2056[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2057[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2057[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2057[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2057[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2057[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2058[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2058[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2058[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2058[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2058[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2059[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2059[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2059[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2059[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2059[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2060[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2060[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2060[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2060[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2060[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2061[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2061[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2061[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2061[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2061[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2062[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2062[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2062[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2062[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2062[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2063[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2063[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2063[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2063[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2063[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2064[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2064[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2064[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2064[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2064[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2065[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2065[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2065[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2065[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2065[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2066[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2066[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2066[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2066[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2066[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2067[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2067[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2067[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2067[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2067[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2068[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2068[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2068[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2068[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2068[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2069[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2069[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2069[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2069[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2069[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2070[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2070[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2070[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2070[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2070[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2071[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2071[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2071[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2071[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2071[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2072[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2072[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2072[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2072[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2072[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2073[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2073[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2073[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2073[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2073[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2074[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2074[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2074[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2074[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2074[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2075[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2075[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2075[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2075[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2075[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2076[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2076[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2076[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2076[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2076[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2077[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2077[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2077[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2077[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2077[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2078[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2078[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2078[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2078[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2078[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2079[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2079[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2079[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2079[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2079[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2080[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2080[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2080[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2080[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2080[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2081[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2081[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2081[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2081[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2081[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2082[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2082[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2082[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2082[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2082[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2083[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2083[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2083[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2083[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2083[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2084[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2084[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2084[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2084[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2084[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2085[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2085[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2085[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2085[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2085[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2086[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2086[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2086[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2086[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2086[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2087[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2087[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2087[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2087[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2087[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2088[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2088[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2088[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2088[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2088[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2089[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2089[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2089[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2089[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2089[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2090[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2090[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2090[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2090[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2090[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2091[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2091[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2091[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2091[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2091[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2092[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2092[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2092[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2092[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2092[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2093[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2093[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2093[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2093[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2093[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2094[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2094[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2094[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2094[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2094[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2095[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2095[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2095[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2095[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2095[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2096[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2096[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2096[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2096[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2096[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2097[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2097[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2097[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2097[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2097[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2098[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2098[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2098[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2098[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2098[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2099[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2099[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2099[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2099[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2099[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2100[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2100[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2100[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2100[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2100[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2101[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2101[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2101[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2101[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2101[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2102[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2102[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2102[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2102[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2102[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2103[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2103[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2103[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2103[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2103[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2104[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2104[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2104[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2104[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2104[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2105[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2105[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2105[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2105[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2105[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2106[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2106[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2106[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2106[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2106[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2107[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2107[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2107[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2107[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2107[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2108[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2108[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2108[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2108[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2108[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2109[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2109[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2109[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2109[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2109[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2110[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2110[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2110[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2110[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2110[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2111[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2111[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2111[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2111[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2111[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2112[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2112[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2112[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2112[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2112[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2113[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2113[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2113[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2113[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2113[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2114[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2114[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2114[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2114[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2114[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2115[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2115[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2115[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2115[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2115[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2116[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2116[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2116[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2116[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2116[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2117[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2117[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2117[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2117[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2117[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2118[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2118[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2118[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2118[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2118[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2119[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2119[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2119[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2119[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2119[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2120[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2120[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2120[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2120[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2120[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2121[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2121[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2121[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2121[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2121[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2122[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2122[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2122[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2122[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2122[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2123[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2123[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2123[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2123[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2123[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2124[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2124[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2124[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2124[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2124[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2125[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2125[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2125[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2125[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2125[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2126[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2126[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2126[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2126[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2126[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2127[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2127[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2127[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2127[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2127[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2128[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2128[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2128[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2128[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2128[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2129[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2129[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2129[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2129[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2129[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2130[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2130[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2130[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2130[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2130[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2131[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2131[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2131[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2131[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2131[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2132[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2132[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2132[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2132[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2132[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2133[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2133[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2133[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2133[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2133[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2134[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2134[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2134[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2134[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2134[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2135[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2135[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2135[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2135[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2135[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2136[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2136[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2136[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2136[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2136[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2137[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2137[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2137[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2137[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2137[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2138[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2138[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2138[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2138[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2138[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2139[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2139[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2139[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2139[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2139[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2140[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2140[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2140[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2140[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2140[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2141[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2141[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2141[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2141[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2141[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2142[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2142[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2142[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2142[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2142[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2143[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2143[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2143[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2143[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2143[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2144[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2144[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2144[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2144[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2144[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2145[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2145[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2145[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2145[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2145[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2146[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2146[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2146[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2146[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2146[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2147[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2147[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2147[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2147[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2147[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2148[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2148[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2148[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2148[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2148[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2149[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2149[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2149[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2149[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2149[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2150[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2150[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2150[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2150[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2150[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2151[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2151[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2151[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2151[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2151[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2152[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2152[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2152[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2152[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2152[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2153[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2153[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2153[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2153[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2153[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2154[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2154[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2154[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2154[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2154[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2155[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2155[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2155[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2155[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2155[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2156[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2156[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2156[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2156[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2156[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2157[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2157[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2157[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2157[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2157[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2158[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2158[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2158[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2158[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2158[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2159[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2159[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2159[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2159[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2159[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2160[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2160[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2160[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2160[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2160[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2161[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2161[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2161[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2161[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2161[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2162[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2162[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2162[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2162[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2162[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2163[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2163[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2163[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2163[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2163[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2164[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2164[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2164[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2164[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2164[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2165[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2165[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2165[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2165[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2165[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2166[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2166[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2166[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2166[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2166[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2167[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2167[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2167[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2167[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2167[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2168[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2168[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2168[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2168[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2168[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2169[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2169[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2169[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2169[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2169[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2170[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2170[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2170[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2170[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2170[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2171[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2171[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2171[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2171[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2171[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2172[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2172[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2172[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2172[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2172[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2173[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2173[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2173[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2173[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2173[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2174[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2174[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2174[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2174[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2174[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2175[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2175[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2175[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2175[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2175[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2176[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2176[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2176[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2176[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2176[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2177[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2177[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2177[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2177[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2177[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2178[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2178[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2178[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2178[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2178[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2179[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2179[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2179[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2179[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2179[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2180[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2180[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2180[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2180[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2180[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2181[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2181[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2181[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2181[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2181[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2182[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2182[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2182[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2182[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2182[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2183[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2183[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2183[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2183[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2183[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2184[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2184[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2184[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2184[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2184[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2185[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2185[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2185[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2185[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2185[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2186[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2186[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2186[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2186[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2186[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2187[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2187[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2187[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2187[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2187[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2188[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2188[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2188[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2188[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2188[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2189[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2189[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2189[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2189[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2189[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2190[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2190[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2190[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2190[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2190[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2191[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2191[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2191[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2191[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2191[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2192[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2192[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2192[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2192[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2192[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2193[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2193[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2193[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2193[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2193[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2194[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2194[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2194[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2194[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2194[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2195[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2195[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2195[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2195[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2195[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2196[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2196[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2196[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2196[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2196[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2197[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2197[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2197[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2197[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2197[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2198[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2198[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2198[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2198[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2198[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2199[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2199[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2199[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2199[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2199[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2200[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2200[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2200[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2200[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2200[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2201[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2201[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2201[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2201[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2201[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2202[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2202[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2202[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2202[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2202[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2203[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2203[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2203[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2203[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2203[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2204[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2204[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2204[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2204[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2204[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2205[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2205[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2205[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2205[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2205[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2206[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2206[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2206[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2206[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2206[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2207[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2207[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2207[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2207[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2207[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2208[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2208[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2208[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2208[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2208[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kMParams_2209[] = {
+    {"nir", "list number"},
+    {"red", "list number"},
+    {"grid", "list number"},
+    {"w", "number"},
+    {"h", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"r", "number"},
+    {"slopeDeg", "list number"},
+    {"aspectDeg", "list number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kMFuncs_2209[] = {
+    {"ndviRaster", "list number", 2, &kMParams_2209[0]},
+    {"rasterWindowMean", "number", 6, &kMParams_2209[2]},
+    {"hillshadeRaster", "list number", 2, &kMParams_2209[8]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
 const StdlibModuleSpec kComplexModules[] = {
     {"graphbfs", "graphbfs", kMFuncs_0, 7, "cx/complex_libs.hpp", false},
     {"graphdfs", "graphdfs", kMFuncs_1, 7, "cx/complex_libs.hpp", false},
@@ -65094,10 +75594,510 @@ const StdlibModuleSpec kComplexModules[] = {
     {"gameultra3dpro498", "gameultra3dpro498", kMFuncs_1707, 4, "cx/complex_libs.hpp", false},
     {"gameultra3dpro499", "gameultra3dpro499", kMFuncs_1708, 4, "cx/complex_libs.hpp", false},
     {"gameultra3dpro500", "gameultra3dpro500", kMFuncs_1709, 4, "cx/complex_libs.hpp", false},
+    {"gisultra001", "gisultra001", kMFuncs_1710, 3, "cx/complex_libs.hpp", false},
+    {"gisultra002", "gisultra002", kMFuncs_1711, 3, "cx/complex_libs.hpp", false},
+    {"gisultra003", "gisultra003", kMFuncs_1712, 3, "cx/complex_libs.hpp", false},
+    {"gisultra004", "gisultra004", kMFuncs_1713, 3, "cx/complex_libs.hpp", false},
+    {"gisultra005", "gisultra005", kMFuncs_1714, 3, "cx/complex_libs.hpp", false},
+    {"gisultra006", "gisultra006", kMFuncs_1715, 3, "cx/complex_libs.hpp", false},
+    {"gisultra007", "gisultra007", kMFuncs_1716, 3, "cx/complex_libs.hpp", false},
+    {"gisultra008", "gisultra008", kMFuncs_1717, 3, "cx/complex_libs.hpp", false},
+    {"gisultra009", "gisultra009", kMFuncs_1718, 3, "cx/complex_libs.hpp", false},
+    {"gisultra010", "gisultra010", kMFuncs_1719, 3, "cx/complex_libs.hpp", false},
+    {"gisultra011", "gisultra011", kMFuncs_1720, 3, "cx/complex_libs.hpp", false},
+    {"gisultra012", "gisultra012", kMFuncs_1721, 3, "cx/complex_libs.hpp", false},
+    {"gisultra013", "gisultra013", kMFuncs_1722, 3, "cx/complex_libs.hpp", false},
+    {"gisultra014", "gisultra014", kMFuncs_1723, 3, "cx/complex_libs.hpp", false},
+    {"gisultra015", "gisultra015", kMFuncs_1724, 3, "cx/complex_libs.hpp", false},
+    {"gisultra016", "gisultra016", kMFuncs_1725, 3, "cx/complex_libs.hpp", false},
+    {"gisultra017", "gisultra017", kMFuncs_1726, 3, "cx/complex_libs.hpp", false},
+    {"gisultra018", "gisultra018", kMFuncs_1727, 3, "cx/complex_libs.hpp", false},
+    {"gisultra019", "gisultra019", kMFuncs_1728, 3, "cx/complex_libs.hpp", false},
+    {"gisultra020", "gisultra020", kMFuncs_1729, 3, "cx/complex_libs.hpp", false},
+    {"gisultra021", "gisultra021", kMFuncs_1730, 3, "cx/complex_libs.hpp", false},
+    {"gisultra022", "gisultra022", kMFuncs_1731, 3, "cx/complex_libs.hpp", false},
+    {"gisultra023", "gisultra023", kMFuncs_1732, 3, "cx/complex_libs.hpp", false},
+    {"gisultra024", "gisultra024", kMFuncs_1733, 3, "cx/complex_libs.hpp", false},
+    {"gisultra025", "gisultra025", kMFuncs_1734, 3, "cx/complex_libs.hpp", false},
+    {"gisultra026", "gisultra026", kMFuncs_1735, 3, "cx/complex_libs.hpp", false},
+    {"gisultra027", "gisultra027", kMFuncs_1736, 3, "cx/complex_libs.hpp", false},
+    {"gisultra028", "gisultra028", kMFuncs_1737, 3, "cx/complex_libs.hpp", false},
+    {"gisultra029", "gisultra029", kMFuncs_1738, 3, "cx/complex_libs.hpp", false},
+    {"gisultra030", "gisultra030", kMFuncs_1739, 3, "cx/complex_libs.hpp", false},
+    {"gisultra031", "gisultra031", kMFuncs_1740, 3, "cx/complex_libs.hpp", false},
+    {"gisultra032", "gisultra032", kMFuncs_1741, 3, "cx/complex_libs.hpp", false},
+    {"gisultra033", "gisultra033", kMFuncs_1742, 3, "cx/complex_libs.hpp", false},
+    {"gisultra034", "gisultra034", kMFuncs_1743, 3, "cx/complex_libs.hpp", false},
+    {"gisultra035", "gisultra035", kMFuncs_1744, 3, "cx/complex_libs.hpp", false},
+    {"gisultra036", "gisultra036", kMFuncs_1745, 3, "cx/complex_libs.hpp", false},
+    {"gisultra037", "gisultra037", kMFuncs_1746, 3, "cx/complex_libs.hpp", false},
+    {"gisultra038", "gisultra038", kMFuncs_1747, 3, "cx/complex_libs.hpp", false},
+    {"gisultra039", "gisultra039", kMFuncs_1748, 3, "cx/complex_libs.hpp", false},
+    {"gisultra040", "gisultra040", kMFuncs_1749, 3, "cx/complex_libs.hpp", false},
+    {"gisultra041", "gisultra041", kMFuncs_1750, 3, "cx/complex_libs.hpp", false},
+    {"gisultra042", "gisultra042", kMFuncs_1751, 3, "cx/complex_libs.hpp", false},
+    {"gisultra043", "gisultra043", kMFuncs_1752, 3, "cx/complex_libs.hpp", false},
+    {"gisultra044", "gisultra044", kMFuncs_1753, 3, "cx/complex_libs.hpp", false},
+    {"gisultra045", "gisultra045", kMFuncs_1754, 3, "cx/complex_libs.hpp", false},
+    {"gisultra046", "gisultra046", kMFuncs_1755, 3, "cx/complex_libs.hpp", false},
+    {"gisultra047", "gisultra047", kMFuncs_1756, 3, "cx/complex_libs.hpp", false},
+    {"gisultra048", "gisultra048", kMFuncs_1757, 3, "cx/complex_libs.hpp", false},
+    {"gisultra049", "gisultra049", kMFuncs_1758, 3, "cx/complex_libs.hpp", false},
+    {"gisultra050", "gisultra050", kMFuncs_1759, 3, "cx/complex_libs.hpp", false},
+    {"gisultra051", "gisultra051", kMFuncs_1760, 3, "cx/complex_libs.hpp", false},
+    {"gisultra052", "gisultra052", kMFuncs_1761, 3, "cx/complex_libs.hpp", false},
+    {"gisultra053", "gisultra053", kMFuncs_1762, 3, "cx/complex_libs.hpp", false},
+    {"gisultra054", "gisultra054", kMFuncs_1763, 3, "cx/complex_libs.hpp", false},
+    {"gisultra055", "gisultra055", kMFuncs_1764, 3, "cx/complex_libs.hpp", false},
+    {"gisultra056", "gisultra056", kMFuncs_1765, 3, "cx/complex_libs.hpp", false},
+    {"gisultra057", "gisultra057", kMFuncs_1766, 3, "cx/complex_libs.hpp", false},
+    {"gisultra058", "gisultra058", kMFuncs_1767, 3, "cx/complex_libs.hpp", false},
+    {"gisultra059", "gisultra059", kMFuncs_1768, 3, "cx/complex_libs.hpp", false},
+    {"gisultra060", "gisultra060", kMFuncs_1769, 3, "cx/complex_libs.hpp", false},
+    {"gisultra061", "gisultra061", kMFuncs_1770, 3, "cx/complex_libs.hpp", false},
+    {"gisultra062", "gisultra062", kMFuncs_1771, 3, "cx/complex_libs.hpp", false},
+    {"gisultra063", "gisultra063", kMFuncs_1772, 3, "cx/complex_libs.hpp", false},
+    {"gisultra064", "gisultra064", kMFuncs_1773, 3, "cx/complex_libs.hpp", false},
+    {"gisultra065", "gisultra065", kMFuncs_1774, 3, "cx/complex_libs.hpp", false},
+    {"gisultra066", "gisultra066", kMFuncs_1775, 3, "cx/complex_libs.hpp", false},
+    {"gisultra067", "gisultra067", kMFuncs_1776, 3, "cx/complex_libs.hpp", false},
+    {"gisultra068", "gisultra068", kMFuncs_1777, 3, "cx/complex_libs.hpp", false},
+    {"gisultra069", "gisultra069", kMFuncs_1778, 3, "cx/complex_libs.hpp", false},
+    {"gisultra070", "gisultra070", kMFuncs_1779, 3, "cx/complex_libs.hpp", false},
+    {"gisultra071", "gisultra071", kMFuncs_1780, 3, "cx/complex_libs.hpp", false},
+    {"gisultra072", "gisultra072", kMFuncs_1781, 3, "cx/complex_libs.hpp", false},
+    {"gisultra073", "gisultra073", kMFuncs_1782, 3, "cx/complex_libs.hpp", false},
+    {"gisultra074", "gisultra074", kMFuncs_1783, 3, "cx/complex_libs.hpp", false},
+    {"gisultra075", "gisultra075", kMFuncs_1784, 3, "cx/complex_libs.hpp", false},
+    {"gisultra076", "gisultra076", kMFuncs_1785, 3, "cx/complex_libs.hpp", false},
+    {"gisultra077", "gisultra077", kMFuncs_1786, 3, "cx/complex_libs.hpp", false},
+    {"gisultra078", "gisultra078", kMFuncs_1787, 3, "cx/complex_libs.hpp", false},
+    {"gisultra079", "gisultra079", kMFuncs_1788, 3, "cx/complex_libs.hpp", false},
+    {"gisultra080", "gisultra080", kMFuncs_1789, 3, "cx/complex_libs.hpp", false},
+    {"gisultra081", "gisultra081", kMFuncs_1790, 3, "cx/complex_libs.hpp", false},
+    {"gisultra082", "gisultra082", kMFuncs_1791, 3, "cx/complex_libs.hpp", false},
+    {"gisultra083", "gisultra083", kMFuncs_1792, 3, "cx/complex_libs.hpp", false},
+    {"gisultra084", "gisultra084", kMFuncs_1793, 3, "cx/complex_libs.hpp", false},
+    {"gisultra085", "gisultra085", kMFuncs_1794, 3, "cx/complex_libs.hpp", false},
+    {"gisultra086", "gisultra086", kMFuncs_1795, 3, "cx/complex_libs.hpp", false},
+    {"gisultra087", "gisultra087", kMFuncs_1796, 3, "cx/complex_libs.hpp", false},
+    {"gisultra088", "gisultra088", kMFuncs_1797, 3, "cx/complex_libs.hpp", false},
+    {"gisultra089", "gisultra089", kMFuncs_1798, 3, "cx/complex_libs.hpp", false},
+    {"gisultra090", "gisultra090", kMFuncs_1799, 3, "cx/complex_libs.hpp", false},
+    {"gisultra091", "gisultra091", kMFuncs_1800, 3, "cx/complex_libs.hpp", false},
+    {"gisultra092", "gisultra092", kMFuncs_1801, 3, "cx/complex_libs.hpp", false},
+    {"gisultra093", "gisultra093", kMFuncs_1802, 3, "cx/complex_libs.hpp", false},
+    {"gisultra094", "gisultra094", kMFuncs_1803, 3, "cx/complex_libs.hpp", false},
+    {"gisultra095", "gisultra095", kMFuncs_1804, 3, "cx/complex_libs.hpp", false},
+    {"gisultra096", "gisultra096", kMFuncs_1805, 3, "cx/complex_libs.hpp", false},
+    {"gisultra097", "gisultra097", kMFuncs_1806, 3, "cx/complex_libs.hpp", false},
+    {"gisultra098", "gisultra098", kMFuncs_1807, 3, "cx/complex_libs.hpp", false},
+    {"gisultra099", "gisultra099", kMFuncs_1808, 3, "cx/complex_libs.hpp", false},
+    {"gisultra100", "gisultra100", kMFuncs_1809, 3, "cx/complex_libs.hpp", false},
+    {"gisultra101", "gisultra101", kMFuncs_1810, 3, "cx/complex_libs.hpp", false},
+    {"gisultra102", "gisultra102", kMFuncs_1811, 3, "cx/complex_libs.hpp", false},
+    {"gisultra103", "gisultra103", kMFuncs_1812, 3, "cx/complex_libs.hpp", false},
+    {"gisultra104", "gisultra104", kMFuncs_1813, 3, "cx/complex_libs.hpp", false},
+    {"gisultra105", "gisultra105", kMFuncs_1814, 3, "cx/complex_libs.hpp", false},
+    {"gisultra106", "gisultra106", kMFuncs_1815, 3, "cx/complex_libs.hpp", false},
+    {"gisultra107", "gisultra107", kMFuncs_1816, 3, "cx/complex_libs.hpp", false},
+    {"gisultra108", "gisultra108", kMFuncs_1817, 3, "cx/complex_libs.hpp", false},
+    {"gisultra109", "gisultra109", kMFuncs_1818, 3, "cx/complex_libs.hpp", false},
+    {"gisultra110", "gisultra110", kMFuncs_1819, 3, "cx/complex_libs.hpp", false},
+    {"gisultra111", "gisultra111", kMFuncs_1820, 3, "cx/complex_libs.hpp", false},
+    {"gisultra112", "gisultra112", kMFuncs_1821, 3, "cx/complex_libs.hpp", false},
+    {"gisultra113", "gisultra113", kMFuncs_1822, 3, "cx/complex_libs.hpp", false},
+    {"gisultra114", "gisultra114", kMFuncs_1823, 3, "cx/complex_libs.hpp", false},
+    {"gisultra115", "gisultra115", kMFuncs_1824, 3, "cx/complex_libs.hpp", false},
+    {"gisultra116", "gisultra116", kMFuncs_1825, 3, "cx/complex_libs.hpp", false},
+    {"gisultra117", "gisultra117", kMFuncs_1826, 3, "cx/complex_libs.hpp", false},
+    {"gisultra118", "gisultra118", kMFuncs_1827, 3, "cx/complex_libs.hpp", false},
+    {"gisultra119", "gisultra119", kMFuncs_1828, 3, "cx/complex_libs.hpp", false},
+    {"gisultra120", "gisultra120", kMFuncs_1829, 3, "cx/complex_libs.hpp", false},
+    {"gisultra121", "gisultra121", kMFuncs_1830, 3, "cx/complex_libs.hpp", false},
+    {"gisultra122", "gisultra122", kMFuncs_1831, 3, "cx/complex_libs.hpp", false},
+    {"gisultra123", "gisultra123", kMFuncs_1832, 3, "cx/complex_libs.hpp", false},
+    {"gisultra124", "gisultra124", kMFuncs_1833, 3, "cx/complex_libs.hpp", false},
+    {"gisultra125", "gisultra125", kMFuncs_1834, 3, "cx/complex_libs.hpp", false},
+    {"gisultra126", "gisultra126", kMFuncs_1835, 3, "cx/complex_libs.hpp", false},
+    {"gisultra127", "gisultra127", kMFuncs_1836, 3, "cx/complex_libs.hpp", false},
+    {"gisultra128", "gisultra128", kMFuncs_1837, 3, "cx/complex_libs.hpp", false},
+    {"gisultra129", "gisultra129", kMFuncs_1838, 3, "cx/complex_libs.hpp", false},
+    {"gisultra130", "gisultra130", kMFuncs_1839, 3, "cx/complex_libs.hpp", false},
+    {"gisultra131", "gisultra131", kMFuncs_1840, 3, "cx/complex_libs.hpp", false},
+    {"gisultra132", "gisultra132", kMFuncs_1841, 3, "cx/complex_libs.hpp", false},
+    {"gisultra133", "gisultra133", kMFuncs_1842, 3, "cx/complex_libs.hpp", false},
+    {"gisultra134", "gisultra134", kMFuncs_1843, 3, "cx/complex_libs.hpp", false},
+    {"gisultra135", "gisultra135", kMFuncs_1844, 3, "cx/complex_libs.hpp", false},
+    {"gisultra136", "gisultra136", kMFuncs_1845, 3, "cx/complex_libs.hpp", false},
+    {"gisultra137", "gisultra137", kMFuncs_1846, 3, "cx/complex_libs.hpp", false},
+    {"gisultra138", "gisultra138", kMFuncs_1847, 3, "cx/complex_libs.hpp", false},
+    {"gisultra139", "gisultra139", kMFuncs_1848, 3, "cx/complex_libs.hpp", false},
+    {"gisultra140", "gisultra140", kMFuncs_1849, 3, "cx/complex_libs.hpp", false},
+    {"gisultra141", "gisultra141", kMFuncs_1850, 3, "cx/complex_libs.hpp", false},
+    {"gisultra142", "gisultra142", kMFuncs_1851, 3, "cx/complex_libs.hpp", false},
+    {"gisultra143", "gisultra143", kMFuncs_1852, 3, "cx/complex_libs.hpp", false},
+    {"gisultra144", "gisultra144", kMFuncs_1853, 3, "cx/complex_libs.hpp", false},
+    {"gisultra145", "gisultra145", kMFuncs_1854, 3, "cx/complex_libs.hpp", false},
+    {"gisultra146", "gisultra146", kMFuncs_1855, 3, "cx/complex_libs.hpp", false},
+    {"gisultra147", "gisultra147", kMFuncs_1856, 3, "cx/complex_libs.hpp", false},
+    {"gisultra148", "gisultra148", kMFuncs_1857, 3, "cx/complex_libs.hpp", false},
+    {"gisultra149", "gisultra149", kMFuncs_1858, 3, "cx/complex_libs.hpp", false},
+    {"gisultra150", "gisultra150", kMFuncs_1859, 3, "cx/complex_libs.hpp", false},
+    {"gisultra151", "gisultra151", kMFuncs_1860, 3, "cx/complex_libs.hpp", false},
+    {"gisultra152", "gisultra152", kMFuncs_1861, 3, "cx/complex_libs.hpp", false},
+    {"gisultra153", "gisultra153", kMFuncs_1862, 3, "cx/complex_libs.hpp", false},
+    {"gisultra154", "gisultra154", kMFuncs_1863, 3, "cx/complex_libs.hpp", false},
+    {"gisultra155", "gisultra155", kMFuncs_1864, 3, "cx/complex_libs.hpp", false},
+    {"gisultra156", "gisultra156", kMFuncs_1865, 3, "cx/complex_libs.hpp", false},
+    {"gisultra157", "gisultra157", kMFuncs_1866, 3, "cx/complex_libs.hpp", false},
+    {"gisultra158", "gisultra158", kMFuncs_1867, 3, "cx/complex_libs.hpp", false},
+    {"gisultra159", "gisultra159", kMFuncs_1868, 3, "cx/complex_libs.hpp", false},
+    {"gisultra160", "gisultra160", kMFuncs_1869, 3, "cx/complex_libs.hpp", false},
+    {"gisultra161", "gisultra161", kMFuncs_1870, 3, "cx/complex_libs.hpp", false},
+    {"gisultra162", "gisultra162", kMFuncs_1871, 3, "cx/complex_libs.hpp", false},
+    {"gisultra163", "gisultra163", kMFuncs_1872, 3, "cx/complex_libs.hpp", false},
+    {"gisultra164", "gisultra164", kMFuncs_1873, 3, "cx/complex_libs.hpp", false},
+    {"gisultra165", "gisultra165", kMFuncs_1874, 3, "cx/complex_libs.hpp", false},
+    {"gisultra166", "gisultra166", kMFuncs_1875, 3, "cx/complex_libs.hpp", false},
+    {"gisultra167", "gisultra167", kMFuncs_1876, 3, "cx/complex_libs.hpp", false},
+    {"gisultra168", "gisultra168", kMFuncs_1877, 3, "cx/complex_libs.hpp", false},
+    {"gisultra169", "gisultra169", kMFuncs_1878, 3, "cx/complex_libs.hpp", false},
+    {"gisultra170", "gisultra170", kMFuncs_1879, 3, "cx/complex_libs.hpp", false},
+    {"gisultra171", "gisultra171", kMFuncs_1880, 3, "cx/complex_libs.hpp", false},
+    {"gisultra172", "gisultra172", kMFuncs_1881, 3, "cx/complex_libs.hpp", false},
+    {"gisultra173", "gisultra173", kMFuncs_1882, 3, "cx/complex_libs.hpp", false},
+    {"gisultra174", "gisultra174", kMFuncs_1883, 3, "cx/complex_libs.hpp", false},
+    {"gisultra175", "gisultra175", kMFuncs_1884, 3, "cx/complex_libs.hpp", false},
+    {"gisultra176", "gisultra176", kMFuncs_1885, 3, "cx/complex_libs.hpp", false},
+    {"gisultra177", "gisultra177", kMFuncs_1886, 3, "cx/complex_libs.hpp", false},
+    {"gisultra178", "gisultra178", kMFuncs_1887, 3, "cx/complex_libs.hpp", false},
+    {"gisultra179", "gisultra179", kMFuncs_1888, 3, "cx/complex_libs.hpp", false},
+    {"gisultra180", "gisultra180", kMFuncs_1889, 3, "cx/complex_libs.hpp", false},
+    {"gisultra181", "gisultra181", kMFuncs_1890, 3, "cx/complex_libs.hpp", false},
+    {"gisultra182", "gisultra182", kMFuncs_1891, 3, "cx/complex_libs.hpp", false},
+    {"gisultra183", "gisultra183", kMFuncs_1892, 3, "cx/complex_libs.hpp", false},
+    {"gisultra184", "gisultra184", kMFuncs_1893, 3, "cx/complex_libs.hpp", false},
+    {"gisultra185", "gisultra185", kMFuncs_1894, 3, "cx/complex_libs.hpp", false},
+    {"gisultra186", "gisultra186", kMFuncs_1895, 3, "cx/complex_libs.hpp", false},
+    {"gisultra187", "gisultra187", kMFuncs_1896, 3, "cx/complex_libs.hpp", false},
+    {"gisultra188", "gisultra188", kMFuncs_1897, 3, "cx/complex_libs.hpp", false},
+    {"gisultra189", "gisultra189", kMFuncs_1898, 3, "cx/complex_libs.hpp", false},
+    {"gisultra190", "gisultra190", kMFuncs_1899, 3, "cx/complex_libs.hpp", false},
+    {"gisultra191", "gisultra191", kMFuncs_1900, 3, "cx/complex_libs.hpp", false},
+    {"gisultra192", "gisultra192", kMFuncs_1901, 3, "cx/complex_libs.hpp", false},
+    {"gisultra193", "gisultra193", kMFuncs_1902, 3, "cx/complex_libs.hpp", false},
+    {"gisultra194", "gisultra194", kMFuncs_1903, 3, "cx/complex_libs.hpp", false},
+    {"gisultra195", "gisultra195", kMFuncs_1904, 3, "cx/complex_libs.hpp", false},
+    {"gisultra196", "gisultra196", kMFuncs_1905, 3, "cx/complex_libs.hpp", false},
+    {"gisultra197", "gisultra197", kMFuncs_1906, 3, "cx/complex_libs.hpp", false},
+    {"gisultra198", "gisultra198", kMFuncs_1907, 3, "cx/complex_libs.hpp", false},
+    {"gisultra199", "gisultra199", kMFuncs_1908, 3, "cx/complex_libs.hpp", false},
+    {"gisultra200", "gisultra200", kMFuncs_1909, 3, "cx/complex_libs.hpp", false},
+    {"gisultra201", "gisultra201", kMFuncs_1910, 3, "cx/complex_libs.hpp", false},
+    {"gisultra202", "gisultra202", kMFuncs_1911, 3, "cx/complex_libs.hpp", false},
+    {"gisultra203", "gisultra203", kMFuncs_1912, 3, "cx/complex_libs.hpp", false},
+    {"gisultra204", "gisultra204", kMFuncs_1913, 3, "cx/complex_libs.hpp", false},
+    {"gisultra205", "gisultra205", kMFuncs_1914, 3, "cx/complex_libs.hpp", false},
+    {"gisultra206", "gisultra206", kMFuncs_1915, 3, "cx/complex_libs.hpp", false},
+    {"gisultra207", "gisultra207", kMFuncs_1916, 3, "cx/complex_libs.hpp", false},
+    {"gisultra208", "gisultra208", kMFuncs_1917, 3, "cx/complex_libs.hpp", false},
+    {"gisultra209", "gisultra209", kMFuncs_1918, 3, "cx/complex_libs.hpp", false},
+    {"gisultra210", "gisultra210", kMFuncs_1919, 3, "cx/complex_libs.hpp", false},
+    {"gisultra211", "gisultra211", kMFuncs_1920, 3, "cx/complex_libs.hpp", false},
+    {"gisultra212", "gisultra212", kMFuncs_1921, 3, "cx/complex_libs.hpp", false},
+    {"gisultra213", "gisultra213", kMFuncs_1922, 3, "cx/complex_libs.hpp", false},
+    {"gisultra214", "gisultra214", kMFuncs_1923, 3, "cx/complex_libs.hpp", false},
+    {"gisultra215", "gisultra215", kMFuncs_1924, 3, "cx/complex_libs.hpp", false},
+    {"gisultra216", "gisultra216", kMFuncs_1925, 3, "cx/complex_libs.hpp", false},
+    {"gisultra217", "gisultra217", kMFuncs_1926, 3, "cx/complex_libs.hpp", false},
+    {"gisultra218", "gisultra218", kMFuncs_1927, 3, "cx/complex_libs.hpp", false},
+    {"gisultra219", "gisultra219", kMFuncs_1928, 3, "cx/complex_libs.hpp", false},
+    {"gisultra220", "gisultra220", kMFuncs_1929, 3, "cx/complex_libs.hpp", false},
+    {"gisultra221", "gisultra221", kMFuncs_1930, 3, "cx/complex_libs.hpp", false},
+    {"gisultra222", "gisultra222", kMFuncs_1931, 3, "cx/complex_libs.hpp", false},
+    {"gisultra223", "gisultra223", kMFuncs_1932, 3, "cx/complex_libs.hpp", false},
+    {"gisultra224", "gisultra224", kMFuncs_1933, 3, "cx/complex_libs.hpp", false},
+    {"gisultra225", "gisultra225", kMFuncs_1934, 3, "cx/complex_libs.hpp", false},
+    {"gisultra226", "gisultra226", kMFuncs_1935, 3, "cx/complex_libs.hpp", false},
+    {"gisultra227", "gisultra227", kMFuncs_1936, 3, "cx/complex_libs.hpp", false},
+    {"gisultra228", "gisultra228", kMFuncs_1937, 3, "cx/complex_libs.hpp", false},
+    {"gisultra229", "gisultra229", kMFuncs_1938, 3, "cx/complex_libs.hpp", false},
+    {"gisultra230", "gisultra230", kMFuncs_1939, 3, "cx/complex_libs.hpp", false},
+    {"gisultra231", "gisultra231", kMFuncs_1940, 3, "cx/complex_libs.hpp", false},
+    {"gisultra232", "gisultra232", kMFuncs_1941, 3, "cx/complex_libs.hpp", false},
+    {"gisultra233", "gisultra233", kMFuncs_1942, 3, "cx/complex_libs.hpp", false},
+    {"gisultra234", "gisultra234", kMFuncs_1943, 3, "cx/complex_libs.hpp", false},
+    {"gisultra235", "gisultra235", kMFuncs_1944, 3, "cx/complex_libs.hpp", false},
+    {"gisultra236", "gisultra236", kMFuncs_1945, 3, "cx/complex_libs.hpp", false},
+    {"gisultra237", "gisultra237", kMFuncs_1946, 3, "cx/complex_libs.hpp", false},
+    {"gisultra238", "gisultra238", kMFuncs_1947, 3, "cx/complex_libs.hpp", false},
+    {"gisultra239", "gisultra239", kMFuncs_1948, 3, "cx/complex_libs.hpp", false},
+    {"gisultra240", "gisultra240", kMFuncs_1949, 3, "cx/complex_libs.hpp", false},
+    {"gisultra241", "gisultra241", kMFuncs_1950, 3, "cx/complex_libs.hpp", false},
+    {"gisultra242", "gisultra242", kMFuncs_1951, 3, "cx/complex_libs.hpp", false},
+    {"gisultra243", "gisultra243", kMFuncs_1952, 3, "cx/complex_libs.hpp", false},
+    {"gisultra244", "gisultra244", kMFuncs_1953, 3, "cx/complex_libs.hpp", false},
+    {"gisultra245", "gisultra245", kMFuncs_1954, 3, "cx/complex_libs.hpp", false},
+    {"gisultra246", "gisultra246", kMFuncs_1955, 3, "cx/complex_libs.hpp", false},
+    {"gisultra247", "gisultra247", kMFuncs_1956, 3, "cx/complex_libs.hpp", false},
+    {"gisultra248", "gisultra248", kMFuncs_1957, 3, "cx/complex_libs.hpp", false},
+    {"gisultra249", "gisultra249", kMFuncs_1958, 3, "cx/complex_libs.hpp", false},
+    {"gisultra250", "gisultra250", kMFuncs_1959, 3, "cx/complex_libs.hpp", false},
+    {"gisultra251", "gisultra251", kMFuncs_1960, 3, "cx/complex_libs.hpp", false},
+    {"gisultra252", "gisultra252", kMFuncs_1961, 3, "cx/complex_libs.hpp", false},
+    {"gisultra253", "gisultra253", kMFuncs_1962, 3, "cx/complex_libs.hpp", false},
+    {"gisultra254", "gisultra254", kMFuncs_1963, 3, "cx/complex_libs.hpp", false},
+    {"gisultra255", "gisultra255", kMFuncs_1964, 3, "cx/complex_libs.hpp", false},
+    {"gisultra256", "gisultra256", kMFuncs_1965, 3, "cx/complex_libs.hpp", false},
+    {"gisultra257", "gisultra257", kMFuncs_1966, 3, "cx/complex_libs.hpp", false},
+    {"gisultra258", "gisultra258", kMFuncs_1967, 3, "cx/complex_libs.hpp", false},
+    {"gisultra259", "gisultra259", kMFuncs_1968, 3, "cx/complex_libs.hpp", false},
+    {"gisultra260", "gisultra260", kMFuncs_1969, 3, "cx/complex_libs.hpp", false},
+    {"gisultra261", "gisultra261", kMFuncs_1970, 3, "cx/complex_libs.hpp", false},
+    {"gisultra262", "gisultra262", kMFuncs_1971, 3, "cx/complex_libs.hpp", false},
+    {"gisultra263", "gisultra263", kMFuncs_1972, 3, "cx/complex_libs.hpp", false},
+    {"gisultra264", "gisultra264", kMFuncs_1973, 3, "cx/complex_libs.hpp", false},
+    {"gisultra265", "gisultra265", kMFuncs_1974, 3, "cx/complex_libs.hpp", false},
+    {"gisultra266", "gisultra266", kMFuncs_1975, 3, "cx/complex_libs.hpp", false},
+    {"gisultra267", "gisultra267", kMFuncs_1976, 3, "cx/complex_libs.hpp", false},
+    {"gisultra268", "gisultra268", kMFuncs_1977, 3, "cx/complex_libs.hpp", false},
+    {"gisultra269", "gisultra269", kMFuncs_1978, 3, "cx/complex_libs.hpp", false},
+    {"gisultra270", "gisultra270", kMFuncs_1979, 3, "cx/complex_libs.hpp", false},
+    {"gisultra271", "gisultra271", kMFuncs_1980, 3, "cx/complex_libs.hpp", false},
+    {"gisultra272", "gisultra272", kMFuncs_1981, 3, "cx/complex_libs.hpp", false},
+    {"gisultra273", "gisultra273", kMFuncs_1982, 3, "cx/complex_libs.hpp", false},
+    {"gisultra274", "gisultra274", kMFuncs_1983, 3, "cx/complex_libs.hpp", false},
+    {"gisultra275", "gisultra275", kMFuncs_1984, 3, "cx/complex_libs.hpp", false},
+    {"gisultra276", "gisultra276", kMFuncs_1985, 3, "cx/complex_libs.hpp", false},
+    {"gisultra277", "gisultra277", kMFuncs_1986, 3, "cx/complex_libs.hpp", false},
+    {"gisultra278", "gisultra278", kMFuncs_1987, 3, "cx/complex_libs.hpp", false},
+    {"gisultra279", "gisultra279", kMFuncs_1988, 3, "cx/complex_libs.hpp", false},
+    {"gisultra280", "gisultra280", kMFuncs_1989, 3, "cx/complex_libs.hpp", false},
+    {"gisultra281", "gisultra281", kMFuncs_1990, 3, "cx/complex_libs.hpp", false},
+    {"gisultra282", "gisultra282", kMFuncs_1991, 3, "cx/complex_libs.hpp", false},
+    {"gisultra283", "gisultra283", kMFuncs_1992, 3, "cx/complex_libs.hpp", false},
+    {"gisultra284", "gisultra284", kMFuncs_1993, 3, "cx/complex_libs.hpp", false},
+    {"gisultra285", "gisultra285", kMFuncs_1994, 3, "cx/complex_libs.hpp", false},
+    {"gisultra286", "gisultra286", kMFuncs_1995, 3, "cx/complex_libs.hpp", false},
+    {"gisultra287", "gisultra287", kMFuncs_1996, 3, "cx/complex_libs.hpp", false},
+    {"gisultra288", "gisultra288", kMFuncs_1997, 3, "cx/complex_libs.hpp", false},
+    {"gisultra289", "gisultra289", kMFuncs_1998, 3, "cx/complex_libs.hpp", false},
+    {"gisultra290", "gisultra290", kMFuncs_1999, 3, "cx/complex_libs.hpp", false},
+    {"gisultra291", "gisultra291", kMFuncs_2000, 3, "cx/complex_libs.hpp", false},
+    {"gisultra292", "gisultra292", kMFuncs_2001, 3, "cx/complex_libs.hpp", false},
+    {"gisultra293", "gisultra293", kMFuncs_2002, 3, "cx/complex_libs.hpp", false},
+    {"gisultra294", "gisultra294", kMFuncs_2003, 3, "cx/complex_libs.hpp", false},
+    {"gisultra295", "gisultra295", kMFuncs_2004, 3, "cx/complex_libs.hpp", false},
+    {"gisultra296", "gisultra296", kMFuncs_2005, 3, "cx/complex_libs.hpp", false},
+    {"gisultra297", "gisultra297", kMFuncs_2006, 3, "cx/complex_libs.hpp", false},
+    {"gisultra298", "gisultra298", kMFuncs_2007, 3, "cx/complex_libs.hpp", false},
+    {"gisultra299", "gisultra299", kMFuncs_2008, 3, "cx/complex_libs.hpp", false},
+    {"gisultra300", "gisultra300", kMFuncs_2009, 3, "cx/complex_libs.hpp", false},
+    {"gisultra301", "gisultra301", kMFuncs_2010, 3, "cx/complex_libs.hpp", false},
+    {"gisultra302", "gisultra302", kMFuncs_2011, 3, "cx/complex_libs.hpp", false},
+    {"gisultra303", "gisultra303", kMFuncs_2012, 3, "cx/complex_libs.hpp", false},
+    {"gisultra304", "gisultra304", kMFuncs_2013, 3, "cx/complex_libs.hpp", false},
+    {"gisultra305", "gisultra305", kMFuncs_2014, 3, "cx/complex_libs.hpp", false},
+    {"gisultra306", "gisultra306", kMFuncs_2015, 3, "cx/complex_libs.hpp", false},
+    {"gisultra307", "gisultra307", kMFuncs_2016, 3, "cx/complex_libs.hpp", false},
+    {"gisultra308", "gisultra308", kMFuncs_2017, 3, "cx/complex_libs.hpp", false},
+    {"gisultra309", "gisultra309", kMFuncs_2018, 3, "cx/complex_libs.hpp", false},
+    {"gisultra310", "gisultra310", kMFuncs_2019, 3, "cx/complex_libs.hpp", false},
+    {"gisultra311", "gisultra311", kMFuncs_2020, 3, "cx/complex_libs.hpp", false},
+    {"gisultra312", "gisultra312", kMFuncs_2021, 3, "cx/complex_libs.hpp", false},
+    {"gisultra313", "gisultra313", kMFuncs_2022, 3, "cx/complex_libs.hpp", false},
+    {"gisultra314", "gisultra314", kMFuncs_2023, 3, "cx/complex_libs.hpp", false},
+    {"gisultra315", "gisultra315", kMFuncs_2024, 3, "cx/complex_libs.hpp", false},
+    {"gisultra316", "gisultra316", kMFuncs_2025, 3, "cx/complex_libs.hpp", false},
+    {"gisultra317", "gisultra317", kMFuncs_2026, 3, "cx/complex_libs.hpp", false},
+    {"gisultra318", "gisultra318", kMFuncs_2027, 3, "cx/complex_libs.hpp", false},
+    {"gisultra319", "gisultra319", kMFuncs_2028, 3, "cx/complex_libs.hpp", false},
+    {"gisultra320", "gisultra320", kMFuncs_2029, 3, "cx/complex_libs.hpp", false},
+    {"gisultra321", "gisultra321", kMFuncs_2030, 3, "cx/complex_libs.hpp", false},
+    {"gisultra322", "gisultra322", kMFuncs_2031, 3, "cx/complex_libs.hpp", false},
+    {"gisultra323", "gisultra323", kMFuncs_2032, 3, "cx/complex_libs.hpp", false},
+    {"gisultra324", "gisultra324", kMFuncs_2033, 3, "cx/complex_libs.hpp", false},
+    {"gisultra325", "gisultra325", kMFuncs_2034, 3, "cx/complex_libs.hpp", false},
+    {"gisultra326", "gisultra326", kMFuncs_2035, 3, "cx/complex_libs.hpp", false},
+    {"gisultra327", "gisultra327", kMFuncs_2036, 3, "cx/complex_libs.hpp", false},
+    {"gisultra328", "gisultra328", kMFuncs_2037, 3, "cx/complex_libs.hpp", false},
+    {"gisultra329", "gisultra329", kMFuncs_2038, 3, "cx/complex_libs.hpp", false},
+    {"gisultra330", "gisultra330", kMFuncs_2039, 3, "cx/complex_libs.hpp", false},
+    {"gisultra331", "gisultra331", kMFuncs_2040, 3, "cx/complex_libs.hpp", false},
+    {"gisultra332", "gisultra332", kMFuncs_2041, 3, "cx/complex_libs.hpp", false},
+    {"gisultra333", "gisultra333", kMFuncs_2042, 3, "cx/complex_libs.hpp", false},
+    {"gisultra334", "gisultra334", kMFuncs_2043, 3, "cx/complex_libs.hpp", false},
+    {"gisultra335", "gisultra335", kMFuncs_2044, 3, "cx/complex_libs.hpp", false},
+    {"gisultra336", "gisultra336", kMFuncs_2045, 3, "cx/complex_libs.hpp", false},
+    {"gisultra337", "gisultra337", kMFuncs_2046, 3, "cx/complex_libs.hpp", false},
+    {"gisultra338", "gisultra338", kMFuncs_2047, 3, "cx/complex_libs.hpp", false},
+    {"gisultra339", "gisultra339", kMFuncs_2048, 3, "cx/complex_libs.hpp", false},
+    {"gisultra340", "gisultra340", kMFuncs_2049, 3, "cx/complex_libs.hpp", false},
+    {"gisultra341", "gisultra341", kMFuncs_2050, 3, "cx/complex_libs.hpp", false},
+    {"gisultra342", "gisultra342", kMFuncs_2051, 3, "cx/complex_libs.hpp", false},
+    {"gisultra343", "gisultra343", kMFuncs_2052, 3, "cx/complex_libs.hpp", false},
+    {"gisultra344", "gisultra344", kMFuncs_2053, 3, "cx/complex_libs.hpp", false},
+    {"gisultra345", "gisultra345", kMFuncs_2054, 3, "cx/complex_libs.hpp", false},
+    {"gisultra346", "gisultra346", kMFuncs_2055, 3, "cx/complex_libs.hpp", false},
+    {"gisultra347", "gisultra347", kMFuncs_2056, 3, "cx/complex_libs.hpp", false},
+    {"gisultra348", "gisultra348", kMFuncs_2057, 3, "cx/complex_libs.hpp", false},
+    {"gisultra349", "gisultra349", kMFuncs_2058, 3, "cx/complex_libs.hpp", false},
+    {"gisultra350", "gisultra350", kMFuncs_2059, 3, "cx/complex_libs.hpp", false},
+    {"gisultra351", "gisultra351", kMFuncs_2060, 3, "cx/complex_libs.hpp", false},
+    {"gisultra352", "gisultra352", kMFuncs_2061, 3, "cx/complex_libs.hpp", false},
+    {"gisultra353", "gisultra353", kMFuncs_2062, 3, "cx/complex_libs.hpp", false},
+    {"gisultra354", "gisultra354", kMFuncs_2063, 3, "cx/complex_libs.hpp", false},
+    {"gisultra355", "gisultra355", kMFuncs_2064, 3, "cx/complex_libs.hpp", false},
+    {"gisultra356", "gisultra356", kMFuncs_2065, 3, "cx/complex_libs.hpp", false},
+    {"gisultra357", "gisultra357", kMFuncs_2066, 3, "cx/complex_libs.hpp", false},
+    {"gisultra358", "gisultra358", kMFuncs_2067, 3, "cx/complex_libs.hpp", false},
+    {"gisultra359", "gisultra359", kMFuncs_2068, 3, "cx/complex_libs.hpp", false},
+    {"gisultra360", "gisultra360", kMFuncs_2069, 3, "cx/complex_libs.hpp", false},
+    {"gisultra361", "gisultra361", kMFuncs_2070, 3, "cx/complex_libs.hpp", false},
+    {"gisultra362", "gisultra362", kMFuncs_2071, 3, "cx/complex_libs.hpp", false},
+    {"gisultra363", "gisultra363", kMFuncs_2072, 3, "cx/complex_libs.hpp", false},
+    {"gisultra364", "gisultra364", kMFuncs_2073, 3, "cx/complex_libs.hpp", false},
+    {"gisultra365", "gisultra365", kMFuncs_2074, 3, "cx/complex_libs.hpp", false},
+    {"gisultra366", "gisultra366", kMFuncs_2075, 3, "cx/complex_libs.hpp", false},
+    {"gisultra367", "gisultra367", kMFuncs_2076, 3, "cx/complex_libs.hpp", false},
+    {"gisultra368", "gisultra368", kMFuncs_2077, 3, "cx/complex_libs.hpp", false},
+    {"gisultra369", "gisultra369", kMFuncs_2078, 3, "cx/complex_libs.hpp", false},
+    {"gisultra370", "gisultra370", kMFuncs_2079, 3, "cx/complex_libs.hpp", false},
+    {"gisultra371", "gisultra371", kMFuncs_2080, 3, "cx/complex_libs.hpp", false},
+    {"gisultra372", "gisultra372", kMFuncs_2081, 3, "cx/complex_libs.hpp", false},
+    {"gisultra373", "gisultra373", kMFuncs_2082, 3, "cx/complex_libs.hpp", false},
+    {"gisultra374", "gisultra374", kMFuncs_2083, 3, "cx/complex_libs.hpp", false},
+    {"gisultra375", "gisultra375", kMFuncs_2084, 3, "cx/complex_libs.hpp", false},
+    {"gisultra376", "gisultra376", kMFuncs_2085, 3, "cx/complex_libs.hpp", false},
+    {"gisultra377", "gisultra377", kMFuncs_2086, 3, "cx/complex_libs.hpp", false},
+    {"gisultra378", "gisultra378", kMFuncs_2087, 3, "cx/complex_libs.hpp", false},
+    {"gisultra379", "gisultra379", kMFuncs_2088, 3, "cx/complex_libs.hpp", false},
+    {"gisultra380", "gisultra380", kMFuncs_2089, 3, "cx/complex_libs.hpp", false},
+    {"gisultra381", "gisultra381", kMFuncs_2090, 3, "cx/complex_libs.hpp", false},
+    {"gisultra382", "gisultra382", kMFuncs_2091, 3, "cx/complex_libs.hpp", false},
+    {"gisultra383", "gisultra383", kMFuncs_2092, 3, "cx/complex_libs.hpp", false},
+    {"gisultra384", "gisultra384", kMFuncs_2093, 3, "cx/complex_libs.hpp", false},
+    {"gisultra385", "gisultra385", kMFuncs_2094, 3, "cx/complex_libs.hpp", false},
+    {"gisultra386", "gisultra386", kMFuncs_2095, 3, "cx/complex_libs.hpp", false},
+    {"gisultra387", "gisultra387", kMFuncs_2096, 3, "cx/complex_libs.hpp", false},
+    {"gisultra388", "gisultra388", kMFuncs_2097, 3, "cx/complex_libs.hpp", false},
+    {"gisultra389", "gisultra389", kMFuncs_2098, 3, "cx/complex_libs.hpp", false},
+    {"gisultra390", "gisultra390", kMFuncs_2099, 3, "cx/complex_libs.hpp", false},
+    {"gisultra391", "gisultra391", kMFuncs_2100, 3, "cx/complex_libs.hpp", false},
+    {"gisultra392", "gisultra392", kMFuncs_2101, 3, "cx/complex_libs.hpp", false},
+    {"gisultra393", "gisultra393", kMFuncs_2102, 3, "cx/complex_libs.hpp", false},
+    {"gisultra394", "gisultra394", kMFuncs_2103, 3, "cx/complex_libs.hpp", false},
+    {"gisultra395", "gisultra395", kMFuncs_2104, 3, "cx/complex_libs.hpp", false},
+    {"gisultra396", "gisultra396", kMFuncs_2105, 3, "cx/complex_libs.hpp", false},
+    {"gisultra397", "gisultra397", kMFuncs_2106, 3, "cx/complex_libs.hpp", false},
+    {"gisultra398", "gisultra398", kMFuncs_2107, 3, "cx/complex_libs.hpp", false},
+    {"gisultra399", "gisultra399", kMFuncs_2108, 3, "cx/complex_libs.hpp", false},
+    {"gisultra400", "gisultra400", kMFuncs_2109, 3, "cx/complex_libs.hpp", false},
+    {"gisultra401", "gisultra401", kMFuncs_2110, 3, "cx/complex_libs.hpp", false},
+    {"gisultra402", "gisultra402", kMFuncs_2111, 3, "cx/complex_libs.hpp", false},
+    {"gisultra403", "gisultra403", kMFuncs_2112, 3, "cx/complex_libs.hpp", false},
+    {"gisultra404", "gisultra404", kMFuncs_2113, 3, "cx/complex_libs.hpp", false},
+    {"gisultra405", "gisultra405", kMFuncs_2114, 3, "cx/complex_libs.hpp", false},
+    {"gisultra406", "gisultra406", kMFuncs_2115, 3, "cx/complex_libs.hpp", false},
+    {"gisultra407", "gisultra407", kMFuncs_2116, 3, "cx/complex_libs.hpp", false},
+    {"gisultra408", "gisultra408", kMFuncs_2117, 3, "cx/complex_libs.hpp", false},
+    {"gisultra409", "gisultra409", kMFuncs_2118, 3, "cx/complex_libs.hpp", false},
+    {"gisultra410", "gisultra410", kMFuncs_2119, 3, "cx/complex_libs.hpp", false},
+    {"gisultra411", "gisultra411", kMFuncs_2120, 3, "cx/complex_libs.hpp", false},
+    {"gisultra412", "gisultra412", kMFuncs_2121, 3, "cx/complex_libs.hpp", false},
+    {"gisultra413", "gisultra413", kMFuncs_2122, 3, "cx/complex_libs.hpp", false},
+    {"gisultra414", "gisultra414", kMFuncs_2123, 3, "cx/complex_libs.hpp", false},
+    {"gisultra415", "gisultra415", kMFuncs_2124, 3, "cx/complex_libs.hpp", false},
+    {"gisultra416", "gisultra416", kMFuncs_2125, 3, "cx/complex_libs.hpp", false},
+    {"gisultra417", "gisultra417", kMFuncs_2126, 3, "cx/complex_libs.hpp", false},
+    {"gisultra418", "gisultra418", kMFuncs_2127, 3, "cx/complex_libs.hpp", false},
+    {"gisultra419", "gisultra419", kMFuncs_2128, 3, "cx/complex_libs.hpp", false},
+    {"gisultra420", "gisultra420", kMFuncs_2129, 3, "cx/complex_libs.hpp", false},
+    {"gisultra421", "gisultra421", kMFuncs_2130, 3, "cx/complex_libs.hpp", false},
+    {"gisultra422", "gisultra422", kMFuncs_2131, 3, "cx/complex_libs.hpp", false},
+    {"gisultra423", "gisultra423", kMFuncs_2132, 3, "cx/complex_libs.hpp", false},
+    {"gisultra424", "gisultra424", kMFuncs_2133, 3, "cx/complex_libs.hpp", false},
+    {"gisultra425", "gisultra425", kMFuncs_2134, 3, "cx/complex_libs.hpp", false},
+    {"gisultra426", "gisultra426", kMFuncs_2135, 3, "cx/complex_libs.hpp", false},
+    {"gisultra427", "gisultra427", kMFuncs_2136, 3, "cx/complex_libs.hpp", false},
+    {"gisultra428", "gisultra428", kMFuncs_2137, 3, "cx/complex_libs.hpp", false},
+    {"gisultra429", "gisultra429", kMFuncs_2138, 3, "cx/complex_libs.hpp", false},
+    {"gisultra430", "gisultra430", kMFuncs_2139, 3, "cx/complex_libs.hpp", false},
+    {"gisultra431", "gisultra431", kMFuncs_2140, 3, "cx/complex_libs.hpp", false},
+    {"gisultra432", "gisultra432", kMFuncs_2141, 3, "cx/complex_libs.hpp", false},
+    {"gisultra433", "gisultra433", kMFuncs_2142, 3, "cx/complex_libs.hpp", false},
+    {"gisultra434", "gisultra434", kMFuncs_2143, 3, "cx/complex_libs.hpp", false},
+    {"gisultra435", "gisultra435", kMFuncs_2144, 3, "cx/complex_libs.hpp", false},
+    {"gisultra436", "gisultra436", kMFuncs_2145, 3, "cx/complex_libs.hpp", false},
+    {"gisultra437", "gisultra437", kMFuncs_2146, 3, "cx/complex_libs.hpp", false},
+    {"gisultra438", "gisultra438", kMFuncs_2147, 3, "cx/complex_libs.hpp", false},
+    {"gisultra439", "gisultra439", kMFuncs_2148, 3, "cx/complex_libs.hpp", false},
+    {"gisultra440", "gisultra440", kMFuncs_2149, 3, "cx/complex_libs.hpp", false},
+    {"gisultra441", "gisultra441", kMFuncs_2150, 3, "cx/complex_libs.hpp", false},
+    {"gisultra442", "gisultra442", kMFuncs_2151, 3, "cx/complex_libs.hpp", false},
+    {"gisultra443", "gisultra443", kMFuncs_2152, 3, "cx/complex_libs.hpp", false},
+    {"gisultra444", "gisultra444", kMFuncs_2153, 3, "cx/complex_libs.hpp", false},
+    {"gisultra445", "gisultra445", kMFuncs_2154, 3, "cx/complex_libs.hpp", false},
+    {"gisultra446", "gisultra446", kMFuncs_2155, 3, "cx/complex_libs.hpp", false},
+    {"gisultra447", "gisultra447", kMFuncs_2156, 3, "cx/complex_libs.hpp", false},
+    {"gisultra448", "gisultra448", kMFuncs_2157, 3, "cx/complex_libs.hpp", false},
+    {"gisultra449", "gisultra449", kMFuncs_2158, 3, "cx/complex_libs.hpp", false},
+    {"gisultra450", "gisultra450", kMFuncs_2159, 3, "cx/complex_libs.hpp", false},
+    {"gisultra451", "gisultra451", kMFuncs_2160, 3, "cx/complex_libs.hpp", false},
+    {"gisultra452", "gisultra452", kMFuncs_2161, 3, "cx/complex_libs.hpp", false},
+    {"gisultra453", "gisultra453", kMFuncs_2162, 3, "cx/complex_libs.hpp", false},
+    {"gisultra454", "gisultra454", kMFuncs_2163, 3, "cx/complex_libs.hpp", false},
+    {"gisultra455", "gisultra455", kMFuncs_2164, 3, "cx/complex_libs.hpp", false},
+    {"gisultra456", "gisultra456", kMFuncs_2165, 3, "cx/complex_libs.hpp", false},
+    {"gisultra457", "gisultra457", kMFuncs_2166, 3, "cx/complex_libs.hpp", false},
+    {"gisultra458", "gisultra458", kMFuncs_2167, 3, "cx/complex_libs.hpp", false},
+    {"gisultra459", "gisultra459", kMFuncs_2168, 3, "cx/complex_libs.hpp", false},
+    {"gisultra460", "gisultra460", kMFuncs_2169, 3, "cx/complex_libs.hpp", false},
+    {"gisultra461", "gisultra461", kMFuncs_2170, 3, "cx/complex_libs.hpp", false},
+    {"gisultra462", "gisultra462", kMFuncs_2171, 3, "cx/complex_libs.hpp", false},
+    {"gisultra463", "gisultra463", kMFuncs_2172, 3, "cx/complex_libs.hpp", false},
+    {"gisultra464", "gisultra464", kMFuncs_2173, 3, "cx/complex_libs.hpp", false},
+    {"gisultra465", "gisultra465", kMFuncs_2174, 3, "cx/complex_libs.hpp", false},
+    {"gisultra466", "gisultra466", kMFuncs_2175, 3, "cx/complex_libs.hpp", false},
+    {"gisultra467", "gisultra467", kMFuncs_2176, 3, "cx/complex_libs.hpp", false},
+    {"gisultra468", "gisultra468", kMFuncs_2177, 3, "cx/complex_libs.hpp", false},
+    {"gisultra469", "gisultra469", kMFuncs_2178, 3, "cx/complex_libs.hpp", false},
+    {"gisultra470", "gisultra470", kMFuncs_2179, 3, "cx/complex_libs.hpp", false},
+    {"gisultra471", "gisultra471", kMFuncs_2180, 3, "cx/complex_libs.hpp", false},
+    {"gisultra472", "gisultra472", kMFuncs_2181, 3, "cx/complex_libs.hpp", false},
+    {"gisultra473", "gisultra473", kMFuncs_2182, 3, "cx/complex_libs.hpp", false},
+    {"gisultra474", "gisultra474", kMFuncs_2183, 3, "cx/complex_libs.hpp", false},
+    {"gisultra475", "gisultra475", kMFuncs_2184, 3, "cx/complex_libs.hpp", false},
+    {"gisultra476", "gisultra476", kMFuncs_2185, 3, "cx/complex_libs.hpp", false},
+    {"gisultra477", "gisultra477", kMFuncs_2186, 3, "cx/complex_libs.hpp", false},
+    {"gisultra478", "gisultra478", kMFuncs_2187, 3, "cx/complex_libs.hpp", false},
+    {"gisultra479", "gisultra479", kMFuncs_2188, 3, "cx/complex_libs.hpp", false},
+    {"gisultra480", "gisultra480", kMFuncs_2189, 3, "cx/complex_libs.hpp", false},
+    {"gisultra481", "gisultra481", kMFuncs_2190, 3, "cx/complex_libs.hpp", false},
+    {"gisultra482", "gisultra482", kMFuncs_2191, 3, "cx/complex_libs.hpp", false},
+    {"gisultra483", "gisultra483", kMFuncs_2192, 3, "cx/complex_libs.hpp", false},
+    {"gisultra484", "gisultra484", kMFuncs_2193, 3, "cx/complex_libs.hpp", false},
+    {"gisultra485", "gisultra485", kMFuncs_2194, 3, "cx/complex_libs.hpp", false},
+    {"gisultra486", "gisultra486", kMFuncs_2195, 3, "cx/complex_libs.hpp", false},
+    {"gisultra487", "gisultra487", kMFuncs_2196, 3, "cx/complex_libs.hpp", false},
+    {"gisultra488", "gisultra488", kMFuncs_2197, 3, "cx/complex_libs.hpp", false},
+    {"gisultra489", "gisultra489", kMFuncs_2198, 3, "cx/complex_libs.hpp", false},
+    {"gisultra490", "gisultra490", kMFuncs_2199, 3, "cx/complex_libs.hpp", false},
+    {"gisultra491", "gisultra491", kMFuncs_2200, 3, "cx/complex_libs.hpp", false},
+    {"gisultra492", "gisultra492", kMFuncs_2201, 3, "cx/complex_libs.hpp", false},
+    {"gisultra493", "gisultra493", kMFuncs_2202, 3, "cx/complex_libs.hpp", false},
+    {"gisultra494", "gisultra494", kMFuncs_2203, 3, "cx/complex_libs.hpp", false},
+    {"gisultra495", "gisultra495", kMFuncs_2204, 3, "cx/complex_libs.hpp", false},
+    {"gisultra496", "gisultra496", kMFuncs_2205, 3, "cx/complex_libs.hpp", false},
+    {"gisultra497", "gisultra497", kMFuncs_2206, 3, "cx/complex_libs.hpp", false},
+    {"gisultra498", "gisultra498", kMFuncs_2207, 3, "cx/complex_libs.hpp", false},
+    {"gisultra499", "gisultra499", kMFuncs_2208, 3, "cx/complex_libs.hpp", false},
+    {"gisultra500", "gisultra500", kMFuncs_2209, 3, "cx/complex_libs.hpp", false},
     {nullptr, nullptr, nullptr, 0, nullptr, false}
 };
 
-const std::size_t kComplexModuleCount = 1710;
+const std::size_t kComplexModuleCount = 2210;
 
 } // namespace
 
