@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ ui.playground_page.title }}{% endblock %}
 
 {% block content %}
@@ -13,23 +14,26 @@
 <div class="row g-4 playground-grid">
   <div class="col-lg-6">
     <div class="afr-card h-100">
-      <div class="card-header d-flex align-items-center gap-2">
+      <div class="card-header d-flex align-items-center gap-2 flex-wrap">
         <label for="examples" class="mb-0 small text-secondary-custom">{{ ui.playground_page.example }}</label>
         <select id="examples" class="form-select form-select-sm" style="max-width:220px" aria-label="{{ ui.playground_page.example }}">
           {% for ex in examples %}
-          <option value="{{ ex.slug }}">{{ ex.title }}</option>
+          <option value="{{ ex.slug }}" {% if initial_slug == ex.slug %}selected{% endif %}>{{ ex.title }}</option>
           {% empty %}
           <option value="hello">Hello</option>
           {% endfor %}
         </select>
+        <span class="small text-secondary-custom ms-auto">{{ ui.playground_page.shortcut_run }}</span>
       </div>
       <div class="card-body d-flex flex-column p-0">
         <label for="editor" class="visually-hidden">AFRILANG source</label>
         <textarea id="editor" class="form-control font-monospace flex-grow-1 playground-editor border-0" spellcheck="false" aria-label="AFRILANG source code">say "Hello from AFRILANG!"</textarea>
         <div class="d-flex flex-wrap gap-2 p-3 border-top">
           <button type="button" class="btn btn-afr-primary" id="run">▶ {{ ui.playground_page.run }}</button>
+          <button type="button" class="btn btn-afr-outline btn-sm" id="check">{{ ui.playground_page.check }}</button>
           <button type="button" class="btn btn-afr-outline btn-sm" id="runWasm">{{ ui.playground_page.wasm }}</button>
           <button type="button" class="btn btn-afr-outline btn-sm" id="fmt">{{ ui.playground_page.format }}</button>
+          <button type="button" class="btn btn-afr-outline btn-sm" id="share">{{ ui.playground_page.share }}</button>
           <span id="status" class="small text-secondary-custom ms-auto align-self-center" role="status" aria-live="polite"></span>
         </div>
       </div>
@@ -37,7 +41,10 @@
   </div>
   <div class="col-lg-6">
     <div class="afr-card h-100">
-      <div class="card-header small text-secondary-custom">{{ ui.playground_page.output }}</div>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="small text-secondary-custom">{{ ui.playground_page.output }}</span>
+        <button type="button" class="btn btn-afr-outline btn-sm" id="copyOutput">{{ ui.playground_page.copy_output }}</button>
+      </div>
       <pre id="output" class="card-body code-block mb-0 overflow-auto flex-grow-1" style="min-height:300px;background:var(--afr-code-bg);color:var(--afr-code-text);border-radius:0 0 var(--afr-radius) var(--afr-radius)" role="log" aria-live="polite">{{ ui.playground_page.output_hint }}</pre>
     </div>
   </div>
@@ -46,59 +53,23 @@
 <p class="small text-secondary-custom mt-3">
   {{ ui.playground_page.help }}
   <a href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Basic syntax{% else %}Syntaxe de base{% endif %}</a> ·
-  <a href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a>
+  <a href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a> ·
+  <a href="{% url 'examples' %}">{% if current_lang == 'en' %}All examples{% else %}Tous les exemples{% endif %}</a>
 </p>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-const EXAMPLES = JSON.parse(document.getElementById('examples-data')?.textContent || '{}');
-
-function loadExample(slug) {
-  const editor = document.getElementById('editor');
-  const keys = Object.keys(EXAMPLES);
-  editor.value = EXAMPLES[slug] || EXAMPLES[keys[0]] || 'say "Hello"';
-}
-
-document.getElementById('examples')?.addEventListener('change', (e) => loadExample(e.target.value));
-if (document.getElementById('examples')?.value) loadExample(document.getElementById('examples').value);
-
-function csrfToken() {
-  return document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '';
-}
-
-async function runCode(url, label) {
-  const output = document.getElementById('output');
-  const status = document.getElementById('status');
-  status.textContent = label;
-  output.style.color = '';
-  try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken() },
-      body: JSON.stringify({ source: document.getElementById('editor').value }),
-    });
-    const data = await res.json();
-    output.textContent = data.output || '(no output)';
-    status.textContent = data.ok ? '✓ OK' : '✗ ' + data.exitCode;
-    if (!data.ok) output.style.color = '#f87171';
-  } catch (e) {
-    output.textContent = String(e);
-    status.textContent = 'Error';
-    output.style.color = '#f87171';
-  }
-}
-
-document.getElementById('run')?.addEventListener('click', () => runCode('{% url "api_run" %}', '…'));
-document.getElementById('runWasm')?.addEventListener('click', () => runCode('{% url "api_run_wasm" %}', 'WASM…'));
-document.getElementById('fmt')?.addEventListener('click', async () => {
-  const res = await fetch('{% url "api_fmt" %}', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken() },
-    body: JSON.stringify({ source: document.getElementById('editor').value }),
-  });
-  const data = await res.json();
-  if (data.ok && data.source) document.getElementById('editor').value = data.source;
-});
+window.AFR_PLAYGROUND = {
+  examples: JSON.parse(document.getElementById('examples-data')?.textContent || '{}'),
+  initialSlug: {{ initial_slug|default:"''"|safe }},
+  urls: {
+    run: '{% url "api_run" %}',
+    wasm: '{% url "api_run_wasm" %}',
+    fmt: '{% url "api_fmt" %}',
+    check: '{% url "api_check" %}',
+  },
+};
 </script>
+<script src="{% static 'js/playground.js' %}"></script>
 {% endblock %}

@@ -29,6 +29,15 @@
   -d '{"source": "say \"Hello\""}'</pre>
   </div>
 
+  <h2 class="h4 fw-bold mt-5">POST /api/check/</h2>
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}Static check without compilation.{% else %}Vérification statique sans compilation.{% endif %}</p>
+  <div class="code-panel mb-4">
+    <pre>curl -X POST {{ request.scheme }}://{{ request.get_host }}/api/check/ \\
+  -H "Content-Type: application/json" \\
+  -d '{"source": "say \"Hello\""}'</pre>
+  </div>
+  <p class="text-secondary-custom small">Response: <code>{"ok": true, "output": "...", "errors": 0}</code></p>
+
   <h2 class="h4 fw-bold mt-5">GET /api/packages/</h2>
   <p class="text-secondary-custom">{{ ui.api_page.pkg_desc }}</p>
   <div class="code-panel mb-4">
