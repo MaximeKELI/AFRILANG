@@ -1,0 +1,9 @@
+module giskit042
+
+function gsdFromAltitude(altM number, focalMm number, pixelUm number) returns number
+end
+
+function groundWidth(pixels number, gsd number) returns number
+end
+
+end

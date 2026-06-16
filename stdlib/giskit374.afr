@@ -1,0 +1,9 @@
+module giskit374
+
+function normalizeLon(lon number) returns number
+end
+
+function clampLat(lat number) returns number
+end
+
+end

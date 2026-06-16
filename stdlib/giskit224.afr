@@ -1,0 +1,9 @@
+module giskit224
+
+function haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) returns number
+end
+
+function haversineM(lat1 number, lon1 number, lat2 number, lon2 number) returns number
+end
+
+end

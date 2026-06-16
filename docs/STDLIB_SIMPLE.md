@@ -1,6 +1,6 @@
 # Bibliothèques simples AFRILANG
 
-**1651 modules** importables via `import "std/nom"` puis `use nom`.
+**2151 modules** importables via `import "std/nom"` puis `use nom`.
 
 ## std/absnum
 
@@ -11727,3 +11727,3503 @@
 
 - `normalize3z(x number, y number, z number) → number`
 - `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/giskit001
+
+`import "std/giskit001"` · `use giskit001`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit002
+
+`import "std/giskit002"` · `use giskit002`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit003
+
+`import "std/giskit003"` · `use giskit003`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit004
+
+`import "std/giskit004"` · `use giskit004`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit005
+
+`import "std/giskit005"` · `use giskit005`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit006
+
+`import "std/giskit006"` · `use giskit006`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit007
+
+`import "std/giskit007"` · `use giskit007`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit008
+
+`import "std/giskit008"` · `use giskit008`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit009
+
+`import "std/giskit009"` · `use giskit009`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit010
+
+`import "std/giskit010"` · `use giskit010`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit011
+
+`import "std/giskit011"` · `use giskit011`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit012
+
+`import "std/giskit012"` · `use giskit012`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit013
+
+`import "std/giskit013"` · `use giskit013`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit014
+
+`import "std/giskit014"` · `use giskit014`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit015
+
+`import "std/giskit015"` · `use giskit015`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit016
+
+`import "std/giskit016"` · `use giskit016`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit017
+
+`import "std/giskit017"` · `use giskit017`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit018
+
+`import "std/giskit018"` · `use giskit018`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit019
+
+`import "std/giskit019"` · `use giskit019`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit020
+
+`import "std/giskit020"` · `use giskit020`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit021
+
+`import "std/giskit021"` · `use giskit021`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit022
+
+`import "std/giskit022"` · `use giskit022`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit023
+
+`import "std/giskit023"` · `use giskit023`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit024
+
+`import "std/giskit024"` · `use giskit024`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit025
+
+`import "std/giskit025"` · `use giskit025`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit026
+
+`import "std/giskit026"` · `use giskit026`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit027
+
+`import "std/giskit027"` · `use giskit027`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit028
+
+`import "std/giskit028"` · `use giskit028`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit029
+
+`import "std/giskit029"` · `use giskit029`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit030
+
+`import "std/giskit030"` · `use giskit030`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit031
+
+`import "std/giskit031"` · `use giskit031`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit032
+
+`import "std/giskit032"` · `use giskit032`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit033
+
+`import "std/giskit033"` · `use giskit033`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit034
+
+`import "std/giskit034"` · `use giskit034`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit035
+
+`import "std/giskit035"` · `use giskit035`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit036
+
+`import "std/giskit036"` · `use giskit036`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit037
+
+`import "std/giskit037"` · `use giskit037`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit038
+
+`import "std/giskit038"` · `use giskit038`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit039
+
+`import "std/giskit039"` · `use giskit039`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit040
+
+`import "std/giskit040"` · `use giskit040`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit041
+
+`import "std/giskit041"` · `use giskit041`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit042
+
+`import "std/giskit042"` · `use giskit042`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit043
+
+`import "std/giskit043"` · `use giskit043`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit044
+
+`import "std/giskit044"` · `use giskit044`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit045
+
+`import "std/giskit045"` · `use giskit045`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit046
+
+`import "std/giskit046"` · `use giskit046`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit047
+
+`import "std/giskit047"` · `use giskit047`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit048
+
+`import "std/giskit048"` · `use giskit048`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit049
+
+`import "std/giskit049"` · `use giskit049`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit050
+
+`import "std/giskit050"` · `use giskit050`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit051
+
+`import "std/giskit051"` · `use giskit051`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit052
+
+`import "std/giskit052"` · `use giskit052`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit053
+
+`import "std/giskit053"` · `use giskit053`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit054
+
+`import "std/giskit054"` · `use giskit054`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit055
+
+`import "std/giskit055"` · `use giskit055`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit056
+
+`import "std/giskit056"` · `use giskit056`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit057
+
+`import "std/giskit057"` · `use giskit057`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit058
+
+`import "std/giskit058"` · `use giskit058`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit059
+
+`import "std/giskit059"` · `use giskit059`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit060
+
+`import "std/giskit060"` · `use giskit060`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit061
+
+`import "std/giskit061"` · `use giskit061`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit062
+
+`import "std/giskit062"` · `use giskit062`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit063
+
+`import "std/giskit063"` · `use giskit063`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit064
+
+`import "std/giskit064"` · `use giskit064`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit065
+
+`import "std/giskit065"` · `use giskit065`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit066
+
+`import "std/giskit066"` · `use giskit066`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit067
+
+`import "std/giskit067"` · `use giskit067`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit068
+
+`import "std/giskit068"` · `use giskit068`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit069
+
+`import "std/giskit069"` · `use giskit069`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit070
+
+`import "std/giskit070"` · `use giskit070`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit071
+
+`import "std/giskit071"` · `use giskit071`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit072
+
+`import "std/giskit072"` · `use giskit072`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit073
+
+`import "std/giskit073"` · `use giskit073`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit074
+
+`import "std/giskit074"` · `use giskit074`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit075
+
+`import "std/giskit075"` · `use giskit075`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit076
+
+`import "std/giskit076"` · `use giskit076`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit077
+
+`import "std/giskit077"` · `use giskit077`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit078
+
+`import "std/giskit078"` · `use giskit078`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit079
+
+`import "std/giskit079"` · `use giskit079`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit080
+
+`import "std/giskit080"` · `use giskit080`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit081
+
+`import "std/giskit081"` · `use giskit081`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit082
+
+`import "std/giskit082"` · `use giskit082`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit083
+
+`import "std/giskit083"` · `use giskit083`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit084
+
+`import "std/giskit084"` · `use giskit084`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit085
+
+`import "std/giskit085"` · `use giskit085`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit086
+
+`import "std/giskit086"` · `use giskit086`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit087
+
+`import "std/giskit087"` · `use giskit087`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit088
+
+`import "std/giskit088"` · `use giskit088`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit089
+
+`import "std/giskit089"` · `use giskit089`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit090
+
+`import "std/giskit090"` · `use giskit090`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit091
+
+`import "std/giskit091"` · `use giskit091`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit092
+
+`import "std/giskit092"` · `use giskit092`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit093
+
+`import "std/giskit093"` · `use giskit093`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit094
+
+`import "std/giskit094"` · `use giskit094`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit095
+
+`import "std/giskit095"` · `use giskit095`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit096
+
+`import "std/giskit096"` · `use giskit096`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit097
+
+`import "std/giskit097"` · `use giskit097`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit098
+
+`import "std/giskit098"` · `use giskit098`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit099
+
+`import "std/giskit099"` · `use giskit099`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit100
+
+`import "std/giskit100"` · `use giskit100`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit101
+
+`import "std/giskit101"` · `use giskit101`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit102
+
+`import "std/giskit102"` · `use giskit102`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit103
+
+`import "std/giskit103"` · `use giskit103`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit104
+
+`import "std/giskit104"` · `use giskit104`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit105
+
+`import "std/giskit105"` · `use giskit105`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit106
+
+`import "std/giskit106"` · `use giskit106`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit107
+
+`import "std/giskit107"` · `use giskit107`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit108
+
+`import "std/giskit108"` · `use giskit108`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit109
+
+`import "std/giskit109"` · `use giskit109`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit110
+
+`import "std/giskit110"` · `use giskit110`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit111
+
+`import "std/giskit111"` · `use giskit111`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit112
+
+`import "std/giskit112"` · `use giskit112`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit113
+
+`import "std/giskit113"` · `use giskit113`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit114
+
+`import "std/giskit114"` · `use giskit114`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit115
+
+`import "std/giskit115"` · `use giskit115`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit116
+
+`import "std/giskit116"` · `use giskit116`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit117
+
+`import "std/giskit117"` · `use giskit117`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit118
+
+`import "std/giskit118"` · `use giskit118`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit119
+
+`import "std/giskit119"` · `use giskit119`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit120
+
+`import "std/giskit120"` · `use giskit120`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit121
+
+`import "std/giskit121"` · `use giskit121`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit122
+
+`import "std/giskit122"` · `use giskit122`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit123
+
+`import "std/giskit123"` · `use giskit123`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit124
+
+`import "std/giskit124"` · `use giskit124`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit125
+
+`import "std/giskit125"` · `use giskit125`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit126
+
+`import "std/giskit126"` · `use giskit126`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit127
+
+`import "std/giskit127"` · `use giskit127`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit128
+
+`import "std/giskit128"` · `use giskit128`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit129
+
+`import "std/giskit129"` · `use giskit129`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit130
+
+`import "std/giskit130"` · `use giskit130`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit131
+
+`import "std/giskit131"` · `use giskit131`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit132
+
+`import "std/giskit132"` · `use giskit132`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit133
+
+`import "std/giskit133"` · `use giskit133`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit134
+
+`import "std/giskit134"` · `use giskit134`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit135
+
+`import "std/giskit135"` · `use giskit135`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit136
+
+`import "std/giskit136"` · `use giskit136`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit137
+
+`import "std/giskit137"` · `use giskit137`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit138
+
+`import "std/giskit138"` · `use giskit138`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit139
+
+`import "std/giskit139"` · `use giskit139`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit140
+
+`import "std/giskit140"` · `use giskit140`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit141
+
+`import "std/giskit141"` · `use giskit141`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit142
+
+`import "std/giskit142"` · `use giskit142`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit143
+
+`import "std/giskit143"` · `use giskit143`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit144
+
+`import "std/giskit144"` · `use giskit144`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit145
+
+`import "std/giskit145"` · `use giskit145`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit146
+
+`import "std/giskit146"` · `use giskit146`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit147
+
+`import "std/giskit147"` · `use giskit147`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit148
+
+`import "std/giskit148"` · `use giskit148`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit149
+
+`import "std/giskit149"` · `use giskit149`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit150
+
+`import "std/giskit150"` · `use giskit150`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit151
+
+`import "std/giskit151"` · `use giskit151`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit152
+
+`import "std/giskit152"` · `use giskit152`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit153
+
+`import "std/giskit153"` · `use giskit153`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit154
+
+`import "std/giskit154"` · `use giskit154`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit155
+
+`import "std/giskit155"` · `use giskit155`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit156
+
+`import "std/giskit156"` · `use giskit156`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit157
+
+`import "std/giskit157"` · `use giskit157`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit158
+
+`import "std/giskit158"` · `use giskit158`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit159
+
+`import "std/giskit159"` · `use giskit159`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit160
+
+`import "std/giskit160"` · `use giskit160`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit161
+
+`import "std/giskit161"` · `use giskit161`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit162
+
+`import "std/giskit162"` · `use giskit162`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit163
+
+`import "std/giskit163"` · `use giskit163`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit164
+
+`import "std/giskit164"` · `use giskit164`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit165
+
+`import "std/giskit165"` · `use giskit165`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit166
+
+`import "std/giskit166"` · `use giskit166`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit167
+
+`import "std/giskit167"` · `use giskit167`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit168
+
+`import "std/giskit168"` · `use giskit168`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit169
+
+`import "std/giskit169"` · `use giskit169`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit170
+
+`import "std/giskit170"` · `use giskit170`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit171
+
+`import "std/giskit171"` · `use giskit171`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit172
+
+`import "std/giskit172"` · `use giskit172`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit173
+
+`import "std/giskit173"` · `use giskit173`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit174
+
+`import "std/giskit174"` · `use giskit174`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit175
+
+`import "std/giskit175"` · `use giskit175`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit176
+
+`import "std/giskit176"` · `use giskit176`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit177
+
+`import "std/giskit177"` · `use giskit177`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit178
+
+`import "std/giskit178"` · `use giskit178`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit179
+
+`import "std/giskit179"` · `use giskit179`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit180
+
+`import "std/giskit180"` · `use giskit180`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit181
+
+`import "std/giskit181"` · `use giskit181`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit182
+
+`import "std/giskit182"` · `use giskit182`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit183
+
+`import "std/giskit183"` · `use giskit183`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit184
+
+`import "std/giskit184"` · `use giskit184`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit185
+
+`import "std/giskit185"` · `use giskit185`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit186
+
+`import "std/giskit186"` · `use giskit186`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit187
+
+`import "std/giskit187"` · `use giskit187`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit188
+
+`import "std/giskit188"` · `use giskit188`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit189
+
+`import "std/giskit189"` · `use giskit189`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit190
+
+`import "std/giskit190"` · `use giskit190`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit191
+
+`import "std/giskit191"` · `use giskit191`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit192
+
+`import "std/giskit192"` · `use giskit192`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit193
+
+`import "std/giskit193"` · `use giskit193`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit194
+
+`import "std/giskit194"` · `use giskit194`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit195
+
+`import "std/giskit195"` · `use giskit195`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit196
+
+`import "std/giskit196"` · `use giskit196`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit197
+
+`import "std/giskit197"` · `use giskit197`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit198
+
+`import "std/giskit198"` · `use giskit198`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit199
+
+`import "std/giskit199"` · `use giskit199`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit200
+
+`import "std/giskit200"` · `use giskit200`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit201
+
+`import "std/giskit201"` · `use giskit201`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit202
+
+`import "std/giskit202"` · `use giskit202`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit203
+
+`import "std/giskit203"` · `use giskit203`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit204
+
+`import "std/giskit204"` · `use giskit204`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit205
+
+`import "std/giskit205"` · `use giskit205`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit206
+
+`import "std/giskit206"` · `use giskit206`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit207
+
+`import "std/giskit207"` · `use giskit207`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit208
+
+`import "std/giskit208"` · `use giskit208`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit209
+
+`import "std/giskit209"` · `use giskit209`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit210
+
+`import "std/giskit210"` · `use giskit210`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit211
+
+`import "std/giskit211"` · `use giskit211`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit212
+
+`import "std/giskit212"` · `use giskit212`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit213
+
+`import "std/giskit213"` · `use giskit213`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit214
+
+`import "std/giskit214"` · `use giskit214`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit215
+
+`import "std/giskit215"` · `use giskit215`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit216
+
+`import "std/giskit216"` · `use giskit216`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit217
+
+`import "std/giskit217"` · `use giskit217`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit218
+
+`import "std/giskit218"` · `use giskit218`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit219
+
+`import "std/giskit219"` · `use giskit219`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit220
+
+`import "std/giskit220"` · `use giskit220`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit221
+
+`import "std/giskit221"` · `use giskit221`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit222
+
+`import "std/giskit222"` · `use giskit222`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit223
+
+`import "std/giskit223"` · `use giskit223`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit224
+
+`import "std/giskit224"` · `use giskit224`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit225
+
+`import "std/giskit225"` · `use giskit225`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit226
+
+`import "std/giskit226"` · `use giskit226`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit227
+
+`import "std/giskit227"` · `use giskit227`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit228
+
+`import "std/giskit228"` · `use giskit228`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit229
+
+`import "std/giskit229"` · `use giskit229`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit230
+
+`import "std/giskit230"` · `use giskit230`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit231
+
+`import "std/giskit231"` · `use giskit231`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit232
+
+`import "std/giskit232"` · `use giskit232`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit233
+
+`import "std/giskit233"` · `use giskit233`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit234
+
+`import "std/giskit234"` · `use giskit234`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit235
+
+`import "std/giskit235"` · `use giskit235`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit236
+
+`import "std/giskit236"` · `use giskit236`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit237
+
+`import "std/giskit237"` · `use giskit237`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit238
+
+`import "std/giskit238"` · `use giskit238`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit239
+
+`import "std/giskit239"` · `use giskit239`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit240
+
+`import "std/giskit240"` · `use giskit240`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit241
+
+`import "std/giskit241"` · `use giskit241`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit242
+
+`import "std/giskit242"` · `use giskit242`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit243
+
+`import "std/giskit243"` · `use giskit243`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit244
+
+`import "std/giskit244"` · `use giskit244`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit245
+
+`import "std/giskit245"` · `use giskit245`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit246
+
+`import "std/giskit246"` · `use giskit246`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit247
+
+`import "std/giskit247"` · `use giskit247`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit248
+
+`import "std/giskit248"` · `use giskit248`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit249
+
+`import "std/giskit249"` · `use giskit249`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit250
+
+`import "std/giskit250"` · `use giskit250`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit251
+
+`import "std/giskit251"` · `use giskit251`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit252
+
+`import "std/giskit252"` · `use giskit252`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit253
+
+`import "std/giskit253"` · `use giskit253`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit254
+
+`import "std/giskit254"` · `use giskit254`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit255
+
+`import "std/giskit255"` · `use giskit255`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit256
+
+`import "std/giskit256"` · `use giskit256`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit257
+
+`import "std/giskit257"` · `use giskit257`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit258
+
+`import "std/giskit258"` · `use giskit258`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit259
+
+`import "std/giskit259"` · `use giskit259`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit260
+
+`import "std/giskit260"` · `use giskit260`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit261
+
+`import "std/giskit261"` · `use giskit261`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit262
+
+`import "std/giskit262"` · `use giskit262`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit263
+
+`import "std/giskit263"` · `use giskit263`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit264
+
+`import "std/giskit264"` · `use giskit264`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit265
+
+`import "std/giskit265"` · `use giskit265`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit266
+
+`import "std/giskit266"` · `use giskit266`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit267
+
+`import "std/giskit267"` · `use giskit267`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit268
+
+`import "std/giskit268"` · `use giskit268`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit269
+
+`import "std/giskit269"` · `use giskit269`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit270
+
+`import "std/giskit270"` · `use giskit270`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit271
+
+`import "std/giskit271"` · `use giskit271`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit272
+
+`import "std/giskit272"` · `use giskit272`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit273
+
+`import "std/giskit273"` · `use giskit273`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit274
+
+`import "std/giskit274"` · `use giskit274`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit275
+
+`import "std/giskit275"` · `use giskit275`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit276
+
+`import "std/giskit276"` · `use giskit276`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit277
+
+`import "std/giskit277"` · `use giskit277`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit278
+
+`import "std/giskit278"` · `use giskit278`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit279
+
+`import "std/giskit279"` · `use giskit279`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit280
+
+`import "std/giskit280"` · `use giskit280`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit281
+
+`import "std/giskit281"` · `use giskit281`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit282
+
+`import "std/giskit282"` · `use giskit282`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit283
+
+`import "std/giskit283"` · `use giskit283`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit284
+
+`import "std/giskit284"` · `use giskit284`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit285
+
+`import "std/giskit285"` · `use giskit285`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit286
+
+`import "std/giskit286"` · `use giskit286`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit287
+
+`import "std/giskit287"` · `use giskit287`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit288
+
+`import "std/giskit288"` · `use giskit288`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit289
+
+`import "std/giskit289"` · `use giskit289`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit290
+
+`import "std/giskit290"` · `use giskit290`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit291
+
+`import "std/giskit291"` · `use giskit291`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit292
+
+`import "std/giskit292"` · `use giskit292`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit293
+
+`import "std/giskit293"` · `use giskit293`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit294
+
+`import "std/giskit294"` · `use giskit294`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit295
+
+`import "std/giskit295"` · `use giskit295`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit296
+
+`import "std/giskit296"` · `use giskit296`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit297
+
+`import "std/giskit297"` · `use giskit297`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit298
+
+`import "std/giskit298"` · `use giskit298`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit299
+
+`import "std/giskit299"` · `use giskit299`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit300
+
+`import "std/giskit300"` · `use giskit300`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit301
+
+`import "std/giskit301"` · `use giskit301`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit302
+
+`import "std/giskit302"` · `use giskit302`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit303
+
+`import "std/giskit303"` · `use giskit303`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit304
+
+`import "std/giskit304"` · `use giskit304`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit305
+
+`import "std/giskit305"` · `use giskit305`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit306
+
+`import "std/giskit306"` · `use giskit306`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit307
+
+`import "std/giskit307"` · `use giskit307`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit308
+
+`import "std/giskit308"` · `use giskit308`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit309
+
+`import "std/giskit309"` · `use giskit309`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit310
+
+`import "std/giskit310"` · `use giskit310`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit311
+
+`import "std/giskit311"` · `use giskit311`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit312
+
+`import "std/giskit312"` · `use giskit312`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit313
+
+`import "std/giskit313"` · `use giskit313`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit314
+
+`import "std/giskit314"` · `use giskit314`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit315
+
+`import "std/giskit315"` · `use giskit315`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit316
+
+`import "std/giskit316"` · `use giskit316`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit317
+
+`import "std/giskit317"` · `use giskit317`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit318
+
+`import "std/giskit318"` · `use giskit318`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit319
+
+`import "std/giskit319"` · `use giskit319`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit320
+
+`import "std/giskit320"` · `use giskit320`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit321
+
+`import "std/giskit321"` · `use giskit321`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit322
+
+`import "std/giskit322"` · `use giskit322`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit323
+
+`import "std/giskit323"` · `use giskit323`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit324
+
+`import "std/giskit324"` · `use giskit324`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit325
+
+`import "std/giskit325"` · `use giskit325`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit326
+
+`import "std/giskit326"` · `use giskit326`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit327
+
+`import "std/giskit327"` · `use giskit327`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit328
+
+`import "std/giskit328"` · `use giskit328`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit329
+
+`import "std/giskit329"` · `use giskit329`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit330
+
+`import "std/giskit330"` · `use giskit330`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit331
+
+`import "std/giskit331"` · `use giskit331`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit332
+
+`import "std/giskit332"` · `use giskit332`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit333
+
+`import "std/giskit333"` · `use giskit333`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit334
+
+`import "std/giskit334"` · `use giskit334`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit335
+
+`import "std/giskit335"` · `use giskit335`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit336
+
+`import "std/giskit336"` · `use giskit336`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit337
+
+`import "std/giskit337"` · `use giskit337`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit338
+
+`import "std/giskit338"` · `use giskit338`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit339
+
+`import "std/giskit339"` · `use giskit339`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit340
+
+`import "std/giskit340"` · `use giskit340`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit341
+
+`import "std/giskit341"` · `use giskit341`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit342
+
+`import "std/giskit342"` · `use giskit342`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit343
+
+`import "std/giskit343"` · `use giskit343`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit344
+
+`import "std/giskit344"` · `use giskit344`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit345
+
+`import "std/giskit345"` · `use giskit345`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit346
+
+`import "std/giskit346"` · `use giskit346`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit347
+
+`import "std/giskit347"` · `use giskit347`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit348
+
+`import "std/giskit348"` · `use giskit348`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit349
+
+`import "std/giskit349"` · `use giskit349`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit350
+
+`import "std/giskit350"` · `use giskit350`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit351
+
+`import "std/giskit351"` · `use giskit351`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit352
+
+`import "std/giskit352"` · `use giskit352`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit353
+
+`import "std/giskit353"` · `use giskit353`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit354
+
+`import "std/giskit354"` · `use giskit354`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit355
+
+`import "std/giskit355"` · `use giskit355`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit356
+
+`import "std/giskit356"` · `use giskit356`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit357
+
+`import "std/giskit357"` · `use giskit357`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit358
+
+`import "std/giskit358"` · `use giskit358`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit359
+
+`import "std/giskit359"` · `use giskit359`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit360
+
+`import "std/giskit360"` · `use giskit360`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit361
+
+`import "std/giskit361"` · `use giskit361`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit362
+
+`import "std/giskit362"` · `use giskit362`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit363
+
+`import "std/giskit363"` · `use giskit363`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit364
+
+`import "std/giskit364"` · `use giskit364`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit365
+
+`import "std/giskit365"` · `use giskit365`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit366
+
+`import "std/giskit366"` · `use giskit366`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit367
+
+`import "std/giskit367"` · `use giskit367`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit368
+
+`import "std/giskit368"` · `use giskit368`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit369
+
+`import "std/giskit369"` · `use giskit369`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit370
+
+`import "std/giskit370"` · `use giskit370`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit371
+
+`import "std/giskit371"` · `use giskit371`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit372
+
+`import "std/giskit372"` · `use giskit372`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit373
+
+`import "std/giskit373"` · `use giskit373`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit374
+
+`import "std/giskit374"` · `use giskit374`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit375
+
+`import "std/giskit375"` · `use giskit375`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit376
+
+`import "std/giskit376"` · `use giskit376`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit377
+
+`import "std/giskit377"` · `use giskit377`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit378
+
+`import "std/giskit378"` · `use giskit378`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit379
+
+`import "std/giskit379"` · `use giskit379`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit380
+
+`import "std/giskit380"` · `use giskit380`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit381
+
+`import "std/giskit381"` · `use giskit381`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit382
+
+`import "std/giskit382"` · `use giskit382`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit383
+
+`import "std/giskit383"` · `use giskit383`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit384
+
+`import "std/giskit384"` · `use giskit384`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit385
+
+`import "std/giskit385"` · `use giskit385`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit386
+
+`import "std/giskit386"` · `use giskit386`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit387
+
+`import "std/giskit387"` · `use giskit387`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit388
+
+`import "std/giskit388"` · `use giskit388`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit389
+
+`import "std/giskit389"` · `use giskit389`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit390
+
+`import "std/giskit390"` · `use giskit390`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit391
+
+`import "std/giskit391"` · `use giskit391`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit392
+
+`import "std/giskit392"` · `use giskit392`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit393
+
+`import "std/giskit393"` · `use giskit393`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit394
+
+`import "std/giskit394"` · `use giskit394`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit395
+
+`import "std/giskit395"` · `use giskit395`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit396
+
+`import "std/giskit396"` · `use giskit396`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit397
+
+`import "std/giskit397"` · `use giskit397`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit398
+
+`import "std/giskit398"` · `use giskit398`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit399
+
+`import "std/giskit399"` · `use giskit399`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit400
+
+`import "std/giskit400"` · `use giskit400`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit401
+
+`import "std/giskit401"` · `use giskit401`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit402
+
+`import "std/giskit402"` · `use giskit402`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit403
+
+`import "std/giskit403"` · `use giskit403`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit404
+
+`import "std/giskit404"` · `use giskit404`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit405
+
+`import "std/giskit405"` · `use giskit405`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit406
+
+`import "std/giskit406"` · `use giskit406`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit407
+
+`import "std/giskit407"` · `use giskit407`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit408
+
+`import "std/giskit408"` · `use giskit408`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit409
+
+`import "std/giskit409"` · `use giskit409`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit410
+
+`import "std/giskit410"` · `use giskit410`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit411
+
+`import "std/giskit411"` · `use giskit411`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit412
+
+`import "std/giskit412"` · `use giskit412`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit413
+
+`import "std/giskit413"` · `use giskit413`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit414
+
+`import "std/giskit414"` · `use giskit414`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit415
+
+`import "std/giskit415"` · `use giskit415`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit416
+
+`import "std/giskit416"` · `use giskit416`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit417
+
+`import "std/giskit417"` · `use giskit417`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit418
+
+`import "std/giskit418"` · `use giskit418`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit419
+
+`import "std/giskit419"` · `use giskit419`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit420
+
+`import "std/giskit420"` · `use giskit420`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit421
+
+`import "std/giskit421"` · `use giskit421`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit422
+
+`import "std/giskit422"` · `use giskit422`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit423
+
+`import "std/giskit423"` · `use giskit423`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit424
+
+`import "std/giskit424"` · `use giskit424`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit425
+
+`import "std/giskit425"` · `use giskit425`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit426
+
+`import "std/giskit426"` · `use giskit426`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit427
+
+`import "std/giskit427"` · `use giskit427`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit428
+
+`import "std/giskit428"` · `use giskit428`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit429
+
+`import "std/giskit429"` · `use giskit429`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit430
+
+`import "std/giskit430"` · `use giskit430`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit431
+
+`import "std/giskit431"` · `use giskit431`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit432
+
+`import "std/giskit432"` · `use giskit432`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit433
+
+`import "std/giskit433"` · `use giskit433`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit434
+
+`import "std/giskit434"` · `use giskit434`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit435
+
+`import "std/giskit435"` · `use giskit435`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit436
+
+`import "std/giskit436"` · `use giskit436`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit437
+
+`import "std/giskit437"` · `use giskit437`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit438
+
+`import "std/giskit438"` · `use giskit438`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit439
+
+`import "std/giskit439"` · `use giskit439`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit440
+
+`import "std/giskit440"` · `use giskit440`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit441
+
+`import "std/giskit441"` · `use giskit441`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit442
+
+`import "std/giskit442"` · `use giskit442`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit443
+
+`import "std/giskit443"` · `use giskit443`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit444
+
+`import "std/giskit444"` · `use giskit444`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit445
+
+`import "std/giskit445"` · `use giskit445`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit446
+
+`import "std/giskit446"` · `use giskit446`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit447
+
+`import "std/giskit447"` · `use giskit447`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit448
+
+`import "std/giskit448"` · `use giskit448`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit449
+
+`import "std/giskit449"` · `use giskit449`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit450
+
+`import "std/giskit450"` · `use giskit450`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit451
+
+`import "std/giskit451"` · `use giskit451`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit452
+
+`import "std/giskit452"` · `use giskit452`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit453
+
+`import "std/giskit453"` · `use giskit453`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit454
+
+`import "std/giskit454"` · `use giskit454`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit455
+
+`import "std/giskit455"` · `use giskit455`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit456
+
+`import "std/giskit456"` · `use giskit456`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit457
+
+`import "std/giskit457"` · `use giskit457`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit458
+
+`import "std/giskit458"` · `use giskit458`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit459
+
+`import "std/giskit459"` · `use giskit459`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit460
+
+`import "std/giskit460"` · `use giskit460`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit461
+
+`import "std/giskit461"` · `use giskit461`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit462
+
+`import "std/giskit462"` · `use giskit462`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit463
+
+`import "std/giskit463"` · `use giskit463`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit464
+
+`import "std/giskit464"` · `use giskit464`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit465
+
+`import "std/giskit465"` · `use giskit465`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit466
+
+`import "std/giskit466"` · `use giskit466`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit467
+
+`import "std/giskit467"` · `use giskit467`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit468
+
+`import "std/giskit468"` · `use giskit468`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit469
+
+`import "std/giskit469"` · `use giskit469`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit470
+
+`import "std/giskit470"` · `use giskit470`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit471
+
+`import "std/giskit471"` · `use giskit471`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit472
+
+`import "std/giskit472"` · `use giskit472`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit473
+
+`import "std/giskit473"` · `use giskit473`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit474
+
+`import "std/giskit474"` · `use giskit474`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit475
+
+`import "std/giskit475"` · `use giskit475`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit476
+
+`import "std/giskit476"` · `use giskit476`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit477
+
+`import "std/giskit477"` · `use giskit477`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit478
+
+`import "std/giskit478"` · `use giskit478`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit479
+
+`import "std/giskit479"` · `use giskit479`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit480
+
+`import "std/giskit480"` · `use giskit480`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit481
+
+`import "std/giskit481"` · `use giskit481`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit482
+
+`import "std/giskit482"` · `use giskit482`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit483
+
+`import "std/giskit483"` · `use giskit483`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit484
+
+`import "std/giskit484"` · `use giskit484`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`
+
+## std/giskit485
+
+`import "std/giskit485"` · `use giskit485`
+
+- `mToKm(m number) → number`
+- `kmToM(km number) → number`
+
+## std/giskit486
+
+`import "std/giskit486"` · `use giskit486`
+
+- `normalizeLon(lon number) → number`
+- `clampLat(lat number) → number`
+
+## std/giskit487
+
+`import "std/giskit487"` · `use giskit487`
+
+- `pixelIndex(row number, col number, width number) → number`
+- `geoToPixelX(x number, originX number, resX number) → number`
+
+## std/giskit488
+
+`import "std/giskit488"` · `use giskit488`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit489
+
+`import "std/giskit489"` · `use giskit489`
+
+- `ndvi(nir number, red number) → number`
+- `brightness(r number, g number, b number) → number`
+
+## std/giskit490
+
+`import "std/giskit490"` · `use giskit490`
+
+- `gsdFromAltitude(altM number, focalMm number, pixelUm number) → number`
+- `groundWidth(pixels number, gsd number) → number`
+
+## std/giskit491
+
+`import "std/giskit491"` · `use giskit491`
+
+- `tileRow(lat number, z number) → number`
+- `tileCol(lon number, z number) → number`
+
+## std/giskit492
+
+`import "std/giskit492"` · `use giskit492`
+
+- `utmZone(lon number) → number`
+- `isNorthernHemisphere(lat number) → bool`
+
+## std/giskit493
+
+`import "std/giskit493"` · `use giskit493`
+
+- `planarDist(x1 number, y1 number, x2 number, y2 number) → number`
+- `planarDist2(x1 number, y1 number, x2 number, y2 number) → number`
+
+## std/giskit494
+
+`import "std/giskit494"` · `use giskit494`
+
+- `percentSlope(rise number, run number) → number`
+- `degreeSlope(rise number, run number) → number`
+
+## std/giskit495
+
+`import "std/giskit495"` · `use giskit495`
+
+- `tileOriginX(tileCol number, tileSize number) → number`
+- `tileOriginY(tileRow number, tileSize number) → number`
+
+## std/giskit496
+
+`import "std/giskit496"` · `use giskit496`
+
+- `haversineKm(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `haversineM(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+
+## std/giskit497
+
+`import "std/giskit497"` · `use giskit497`
+
+- `bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) → number`
+- `azimuthDiff(a number, b number) → number`
+
+## std/giskit498
+
+`import "std/giskit498"` · `use giskit498`
+
+- `bboxWidth(minX number, minY number, maxX number, maxY number) → number`
+- `bboxArea(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit499
+
+`import "std/giskit499"` · `use giskit499`
+
+- `bboxCenterX(minX number, minY number, maxX number, maxY number) → number`
+- `bboxCenterY(minX number, minY number, maxX number, maxY number) → number`
+
+## std/giskit500
+
+`import "std/giskit500"` · `use giskit500`
+
+- `pointInBbox(x number, y number, minX number, minY number, maxX number, maxY number) → bool`
+- `degToRad(deg number) → number`

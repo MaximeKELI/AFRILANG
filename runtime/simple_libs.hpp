@@ -8432,3 +8432,2503 @@ namespace afrilang::runtime::game3dkit500 {
 inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
 inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
 } // namespace
+
+namespace afrilang::runtime::giskit001 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit002 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit003 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit004 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit005 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit006 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit007 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit008 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5300+g*0.6460+b*0.2)/(1.3760); }
+} // namespace
+
+namespace afrilang::runtime::giskit009 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5400+g*0.6580+b*0.2)/(1.3980); }
+} // namespace
+
+namespace afrilang::runtime::giskit010 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit011 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit012 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit013 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit014 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit015 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 4.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 4.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit016 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit017 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit018 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit019 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit020 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit021 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit022 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit023 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit024 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5200+g*0.6820+b*0.2)/(1.4020); }
+} // namespace
+
+namespace afrilang::runtime::giskit025 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5300+g*0.6940+b*0.2)/(1.4240); }
+} // namespace
+
+namespace afrilang::runtime::giskit026 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit027 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit028 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit029 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit030 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit031 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 1.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 1.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit032 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit033 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit034 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit035 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit036 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit037 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit038 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit039 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit040 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5100+g*0.5620+b*0.2)/(1.2720); }
+} // namespace
+
+namespace afrilang::runtime::giskit041 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5200+g*0.5740+b*0.2)/(1.2940); }
+} // namespace
+
+namespace afrilang::runtime::giskit042 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit043 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit044 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit045 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit046 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit047 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 5.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 5.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit048 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit049 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit050 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit051 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit052 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit053 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit054 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit055 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit056 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5000+g*0.5980+b*0.2)/(1.2980); }
+} // namespace
+
+namespace afrilang::runtime::giskit057 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5100+g*0.6100+b*0.2)/(1.3200); }
+} // namespace
+
+namespace afrilang::runtime::giskit058 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit059 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit060 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit061 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit062 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit063 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 1.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 1.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit064 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit065 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit066 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit067 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit068 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit069 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit070 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit071 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit072 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4900+g*0.6340+b*0.2)/(1.3240); }
+} // namespace
+
+namespace afrilang::runtime::giskit073 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5000+g*0.6460+b*0.2)/(1.3460); }
+} // namespace
+
+namespace afrilang::runtime::giskit074 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit075 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit076 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit077 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit078 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit079 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 5.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 5.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit080 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit081 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit082 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit083 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit084 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit085 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit086 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit087 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit088 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4800+g*0.6700+b*0.2)/(1.3500); }
+} // namespace
+
+namespace afrilang::runtime::giskit089 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4900+g*0.6820+b*0.2)/(1.3720); }
+} // namespace
+
+namespace afrilang::runtime::giskit090 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit091 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit092 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit093 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit094 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit095 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 2.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 2.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit096 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit097 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit098 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit099 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit100 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit101 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit102 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit103 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit104 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4700+g*0.5500+b*0.2)/(1.2200); }
+} // namespace
+
+namespace afrilang::runtime::giskit105 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4800+g*0.5620+b*0.2)/(1.2420); }
+} // namespace
+
+namespace afrilang::runtime::giskit106 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit107 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit108 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit109 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit110 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit111 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 6.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 6.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit112 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit113 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit114 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit115 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit116 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit117 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit118 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit119 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit120 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4600+g*0.5860+b*0.2)/(1.2460); }
+} // namespace
+
+namespace afrilang::runtime::giskit121 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4700+g*0.5980+b*0.2)/(1.2680); }
+} // namespace
+
+namespace afrilang::runtime::giskit122 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit123 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit124 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit125 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit126 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit127 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 3.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 3.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit128 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit129 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit130 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit131 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit132 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit133 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit134 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit135 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit136 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4500+g*0.6220+b*0.2)/(1.2720); }
+} // namespace
+
+namespace afrilang::runtime::giskit137 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4600+g*0.6340+b*0.2)/(1.2940); }
+} // namespace
+
+namespace afrilang::runtime::giskit138 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit139 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit140 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit141 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit142 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit143 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 7.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 7.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit144 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit145 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit146 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit147 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit148 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit149 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit150 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit151 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit152 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6100+g*0.6580+b*0.2)/(1.4680); }
+} // namespace
+
+namespace afrilang::runtime::giskit153 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4500+g*0.6700+b*0.2)/(1.3200); }
+} // namespace
+
+namespace afrilang::runtime::giskit154 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit155 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit156 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit157 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit158 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit159 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 4.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 4.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit160 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit161 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit162 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit163 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit164 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit165 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit166 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit167 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit168 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6000+g*0.6940+b*0.2)/(1.4940); }
+} // namespace
+
+namespace afrilang::runtime::giskit169 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6100+g*0.5500+b*0.2)/(1.3600); }
+} // namespace
+
+namespace afrilang::runtime::giskit170 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit171 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit172 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit173 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit174 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit175 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 0.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 0.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit176 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit177 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit178 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit179 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit180 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit181 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit182 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit183 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit184 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5900+g*0.5740+b*0.2)/(1.3640); }
+} // namespace
+
+namespace afrilang::runtime::giskit185 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6000+g*0.5860+b*0.2)/(1.3860); }
+} // namespace
+
+namespace afrilang::runtime::giskit186 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit187 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit188 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit189 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit190 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit191 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 4.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 4.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit192 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit193 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit194 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit195 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit196 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit197 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit198 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit199 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit200 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5800+g*0.6100+b*0.2)/(1.3900); }
+} // namespace
+
+namespace afrilang::runtime::giskit201 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5900+g*0.6220+b*0.2)/(1.4120); }
+} // namespace
+
+namespace afrilang::runtime::giskit202 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit203 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit204 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit205 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit206 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit207 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 1.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 1.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit208 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit209 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit210 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit211 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit212 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit213 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit214 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit215 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit216 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5700+g*0.6460+b*0.2)/(1.4160); }
+} // namespace
+
+namespace afrilang::runtime::giskit217 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5800+g*0.6580+b*0.2)/(1.4380); }
+} // namespace
+
+namespace afrilang::runtime::giskit218 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit219 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit220 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit221 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit222 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit223 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 5.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 5.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit224 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit225 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit226 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit227 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit228 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit229 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit230 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit231 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit232 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5600+g*0.6820+b*0.2)/(1.4420); }
+} // namespace
+
+namespace afrilang::runtime::giskit233 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5700+g*0.6940+b*0.2)/(1.4640); }
+} // namespace
+
+namespace afrilang::runtime::giskit234 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit235 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit236 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit237 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit238 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit239 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 2.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 2.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit240 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit241 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit242 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit243 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit244 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit245 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit246 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit247 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit248 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5500+g*0.5620+b*0.2)/(1.3120); }
+} // namespace
+
+namespace afrilang::runtime::giskit249 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5600+g*0.5740+b*0.2)/(1.3340); }
+} // namespace
+
+namespace afrilang::runtime::giskit250 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit251 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit252 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit253 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit254 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit255 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 6.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 6.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit256 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit257 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit258 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit259 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit260 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit261 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit262 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit263 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit264 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5400+g*0.5980+b*0.2)/(1.3380); }
+} // namespace
+
+namespace afrilang::runtime::giskit265 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5500+g*0.6100+b*0.2)/(1.3600); }
+} // namespace
+
+namespace afrilang::runtime::giskit266 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit267 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit268 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit269 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit270 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit271 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 3.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 3.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit272 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit273 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit274 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit275 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit276 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit277 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit278 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit279 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit280 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5300+g*0.6340+b*0.2)/(1.3640); }
+} // namespace
+
+namespace afrilang::runtime::giskit281 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5400+g*0.6460+b*0.2)/(1.3860); }
+} // namespace
+
+namespace afrilang::runtime::giskit282 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit283 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit284 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit285 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit286 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit287 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 7.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 7.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit288 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit289 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit290 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit291 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit292 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit293 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit294 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit295 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit296 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5200+g*0.6700+b*0.2)/(1.3900); }
+} // namespace
+
+namespace afrilang::runtime::giskit297 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5300+g*0.6820+b*0.2)/(1.4120); }
+} // namespace
+
+namespace afrilang::runtime::giskit298 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit299 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit300 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit301 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit302 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit303 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 3.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 3.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit304 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit305 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit306 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit307 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit308 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit309 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit310 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit311 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit312 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5100+g*0.5500+b*0.2)/(1.2600); }
+} // namespace
+
+namespace afrilang::runtime::giskit313 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5200+g*0.5620+b*0.2)/(1.2820); }
+} // namespace
+
+namespace afrilang::runtime::giskit314 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit315 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit316 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit317 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit318 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit319 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 0.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit320 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit321 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit322 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit323 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit324 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit325 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit326 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit327 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit328 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5000+g*0.5860+b*0.2)/(1.2860); }
+} // namespace
+
+namespace afrilang::runtime::giskit329 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5100+g*0.5980+b*0.2)/(1.3080); }
+} // namespace
+
+namespace afrilang::runtime::giskit330 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit331 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit332 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit333 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit334 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit335 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 4.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 4.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit336 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit337 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit338 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit339 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit340 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit341 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit342 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit343 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit344 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4900+g*0.6220+b*0.2)/(1.3120); }
+} // namespace
+
+namespace afrilang::runtime::giskit345 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5000+g*0.6340+b*0.2)/(1.3340); }
+} // namespace
+
+namespace afrilang::runtime::giskit346 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit347 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit348 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit349 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit350 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit351 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 1.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 1.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit352 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit353 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit354 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit355 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit356 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit357 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit358 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit359 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit360 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4800+g*0.6580+b*0.2)/(1.3380); }
+} // namespace
+
+namespace afrilang::runtime::giskit361 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4900+g*0.6700+b*0.2)/(1.3600); }
+} // namespace
+
+namespace afrilang::runtime::giskit362 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit363 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit364 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit365 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit366 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit367 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 5.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 5.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit368 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit369 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit370 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit371 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit372 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit373 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit374 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit375 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit376 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4700+g*0.6940+b*0.2)/(1.3640); }
+} // namespace
+
+namespace afrilang::runtime::giskit377 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4800+g*0.5500+b*0.2)/(1.2300); }
+} // namespace
+
+namespace afrilang::runtime::giskit378 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit379 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit380 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit381 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit382 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit383 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 2.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 2.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit384 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit385 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit386 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit387 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit388 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit389 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit390 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit391 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit392 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4600+g*0.5740+b*0.2)/(1.2340); }
+} // namespace
+
+namespace afrilang::runtime::giskit393 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4700+g*0.5860+b*0.2)/(1.2560); }
+} // namespace
+
+namespace afrilang::runtime::giskit394 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit395 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit396 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit397 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit398 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit399 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 6.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 6.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit400 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit401 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit402 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit403 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit404 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit405 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit406 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit407 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit408 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4500+g*0.6100+b*0.2)/(1.2600); }
+} // namespace
+
+namespace afrilang::runtime::giskit409 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4600+g*0.6220+b*0.2)/(1.2820); }
+} // namespace
+
+namespace afrilang::runtime::giskit410 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit411 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit412 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit413 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit414 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit415 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 2.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 2.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit416 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit417 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit418 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit419 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit420 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit421 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit422 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit423 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit424 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6100+g*0.6460+b*0.2)/(1.4560); }
+} // namespace
+
+namespace afrilang::runtime::giskit425 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.4500+g*0.6580+b*0.2)/(1.3080); }
+} // namespace
+
+namespace afrilang::runtime::giskit426 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit427 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit428 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit429 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit430 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit431 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 6.750000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 6.750000; }
+} // namespace
+
+namespace afrilang::runtime::giskit432 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit433 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit434 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit435 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit436 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit437 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit438 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit439 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit440 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6000+g*0.6820+b*0.2)/(1.4820); }
+} // namespace
+
+namespace afrilang::runtime::giskit441 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6100+g*0.6940+b*0.2)/(1.5040); }
+} // namespace
+
+namespace afrilang::runtime::giskit442 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit443 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit444 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit445 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit446 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit447 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 3.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 3.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit448 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit449 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit450 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit451 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit452 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit453 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit454 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit455 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit456 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5900+g*0.5620+b*0.2)/(1.3520); }
+} // namespace
+
+namespace afrilang::runtime::giskit457 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.6000+g*0.5740+b*0.2)/(1.3740); }
+} // namespace
+
+namespace afrilang::runtime::giskit458 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit459 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit460 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit461 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit462 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit463 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 7.500000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 7.500000; }
+} // namespace
+
+namespace afrilang::runtime::giskit464 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit465 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit466 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit467 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit468 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit469 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit470 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit471 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit472 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5800+g*0.5980+b*0.2)/(1.3780); }
+} // namespace
+
+namespace afrilang::runtime::giskit473 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5900+g*0.6100+b*0.2)/(1.4000); }
+} // namespace
+
+namespace afrilang::runtime::giskit474 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit475 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit476 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit477 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit478 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit479 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 4.250000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 4.250000; }
+} // namespace
+
+namespace afrilang::runtime::giskit480 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit481 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit482 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit483 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit484 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit485 {
+inline double mToKm(double m) { return m / 1000.0; }
+inline double kmToM(double km) { return km * 1000.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit486 {
+inline double normalizeLon(double lon) { return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0; }
+inline double clampLat(double lat) { return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat); }
+} // namespace
+
+namespace afrilang::runtime::giskit487 {
+inline double pixelIndex(double row, double col, double width) { return row * width + col; }
+inline double geoToPixelX(double x, double originX, double resX) { return resX == 0 ? 0 : (x - originX) / resX; }
+} // namespace
+
+namespace afrilang::runtime::giskit488 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5700+g*0.6340+b*0.2)/(1.4040); }
+} // namespace
+
+namespace afrilang::runtime::giskit489 {
+inline double ndvi(double nir, double red) { double d=nir+red; return d==0?0:(nir-red)/d; }
+inline double brightness(double r, double g, double b) { return (r*0.5800+g*0.6460+b*0.2)/(1.4260); }
+} // namespace
+
+namespace afrilang::runtime::giskit490 {
+inline double gsdFromAltitude(double altM, double focalMm, double pixelUm) { return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0); }
+inline double groundWidth(double pixels, double gsd) { return pixels * gsd; }
+} // namespace
+
+namespace afrilang::runtime::giskit491 {
+inline double tileRow(double lat, double z) { { double n = std::pow(2.0, z); double latR = lat * 3.141592653589793 / 180.0; return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / 3.141592653589793) / 2.0 * n); } }
+inline double tileCol(double lon, double z) { { double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); } }
+} // namespace
+
+namespace afrilang::runtime::giskit492 {
+inline double utmZone(double lon) { return std::floor((lon + 180.0) / 6.0) + 1.0; }
+inline bool isNorthernHemisphere(double lat) { return lat >= 0.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit493 {
+inline double planarDist(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy); }
+inline double planarDist2(double x1, double y1, double x2, double y2) { double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy; }
+} // namespace
+
+namespace afrilang::runtime::giskit494 {
+inline double percentSlope(double rise, double run) { return run == 0 ? 0 : (rise / run) * 100.0; }
+inline double degreeSlope(double rise, double run) { return run == 0 ? 0 : std::atan(rise / run) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::giskit495 {
+inline double tileOriginX(double tileCol, double tileSize) { return tileCol * tileSize * 1.000000; }
+inline double tileOriginY(double tileRow, double tileSize) { return tileRow * tileSize * 1.000000; }
+} // namespace
+
+namespace afrilang::runtime::giskit496 {
+inline double haversineKm(double lat1, double lon1, double lat2, double lon2) { { double R=6371.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+inline double haversineM(double lat1, double lon1, double lat2, double lon2) { { double R=6371000.0; auto rad=[](double d){return d*3.141592653589793/180.0;}; double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))*std::sin(dLon/2)*std::sin(dLon/2); return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }} }
+} // namespace
+
+namespace afrilang::runtime::giskit497 {
+inline double bearingDeg(double lat1, double lon1, double lat2, double lon2) { { auto rad=[](double d){return d*3.141592653589793/180.0;}; double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); return std::fmod(std::atan2(y,x)*180.0/3.141592653589793+360.0,360.0); } }
+inline double azimuthDiff(double a, double b) { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; }
+} // namespace
+
+namespace afrilang::runtime::giskit498 {
+inline double bboxWidth(double minX, double minY, double maxX, double maxY) { return maxX - minX; }
+inline double bboxArea(double minX, double minY, double maxX, double maxY) { return std::fabs(maxX - minX) * std::fabs(maxY - minY); }
+} // namespace
+
+namespace afrilang::runtime::giskit499 {
+inline double bboxCenterX(double minX, double minY, double maxX, double maxY) { return (minX + maxX) / 2.0; }
+inline double bboxCenterY(double minX, double minY, double maxX, double maxY) { return (minY + maxY) / 2.0; }
+} // namespace
+
+namespace afrilang::runtime::giskit500 {
+inline bool pointInBbox(double x, double y, double minX, double minY, double maxX, double maxY) { return x >= minX && x <= maxX && y >= minY && y <= maxY; }
+inline double degToRad(double deg) { return deg * 3.141592653589793 / 180.0; }
+} // namespace

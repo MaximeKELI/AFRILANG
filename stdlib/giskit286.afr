@@ -1,0 +1,9 @@
+module giskit286
+
+function percentSlope(rise number, run number) returns number
+end
+
+function degreeSlope(rise number, run number) returns number
+end
+
+end

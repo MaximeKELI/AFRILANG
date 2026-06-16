@@ -1,0 +1,9 @@
+module giskit137
+
+function ndvi(nir number, red number) returns number
+end
+
+function brightness(r number, g number, b number) returns number
+end
+
+end

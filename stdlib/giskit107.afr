@@ -1,0 +1,9 @@
+module giskit107
+
+function tileRow(lat number, z number) returns number
+end
+
+function tileCol(lon number, z number) returns number
+end
+
+end

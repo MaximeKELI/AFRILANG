@@ -28063,6 +28063,7639 @@ const StdlibFuncSpec kFuncs_1650[] = {
     {nullptr, nullptr, 0, nullptr}
 };
 
+const StdlibParamSpec kParams_1651[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1651[] = {
+    {"bearingDeg", "number", 4, &kParams_1651[0]},
+    {"azimuthDiff", "number", 2, &kParams_1651[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1652[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1652[] = {
+    {"bboxWidth", "number", 4, &kParams_1652[0]},
+    {"bboxArea", "number", 4, &kParams_1652[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1653[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1653[] = {
+    {"bboxCenterX", "number", 4, &kParams_1653[0]},
+    {"bboxCenterY", "number", 4, &kParams_1653[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1654[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1654[] = {
+    {"pointInBbox", "bool", 6, &kParams_1654[0]},
+    {"degToRad", "number", 1, &kParams_1654[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1655[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1655[] = {
+    {"mToKm", "number", 1, &kParams_1655[0]},
+    {"kmToM", "number", 1, &kParams_1655[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1656[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1656[] = {
+    {"normalizeLon", "number", 1, &kParams_1656[0]},
+    {"clampLat", "number", 1, &kParams_1656[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1657[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1657[] = {
+    {"pixelIndex", "number", 3, &kParams_1657[0]},
+    {"geoToPixelX", "number", 3, &kParams_1657[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1658[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1658[] = {
+    {"ndvi", "number", 2, &kParams_1658[0]},
+    {"brightness", "number", 3, &kParams_1658[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1659[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1659[] = {
+    {"ndvi", "number", 2, &kParams_1659[0]},
+    {"brightness", "number", 3, &kParams_1659[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1660[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1660[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1660[0]},
+    {"groundWidth", "number", 2, &kParams_1660[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1661[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1661[] = {
+    {"tileRow", "number", 2, &kParams_1661[0]},
+    {"tileCol", "number", 2, &kParams_1661[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1662[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1662[] = {
+    {"utmZone", "number", 1, &kParams_1662[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1662[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1663[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1663[] = {
+    {"planarDist", "number", 4, &kParams_1663[0]},
+    {"planarDist2", "number", 4, &kParams_1663[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1664[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1664[] = {
+    {"percentSlope", "number", 2, &kParams_1664[0]},
+    {"degreeSlope", "number", 2, &kParams_1664[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1665[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1665[] = {
+    {"tileOriginX", "number", 2, &kParams_1665[0]},
+    {"tileOriginY", "number", 2, &kParams_1665[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1666[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1666[] = {
+    {"haversineKm", "number", 4, &kParams_1666[0]},
+    {"haversineM", "number", 4, &kParams_1666[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1667[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1667[] = {
+    {"bearingDeg", "number", 4, &kParams_1667[0]},
+    {"azimuthDiff", "number", 2, &kParams_1667[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1668[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1668[] = {
+    {"bboxWidth", "number", 4, &kParams_1668[0]},
+    {"bboxArea", "number", 4, &kParams_1668[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1669[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1669[] = {
+    {"bboxCenterX", "number", 4, &kParams_1669[0]},
+    {"bboxCenterY", "number", 4, &kParams_1669[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1670[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1670[] = {
+    {"pointInBbox", "bool", 6, &kParams_1670[0]},
+    {"degToRad", "number", 1, &kParams_1670[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1671[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1671[] = {
+    {"mToKm", "number", 1, &kParams_1671[0]},
+    {"kmToM", "number", 1, &kParams_1671[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1672[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1672[] = {
+    {"normalizeLon", "number", 1, &kParams_1672[0]},
+    {"clampLat", "number", 1, &kParams_1672[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1673[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1673[] = {
+    {"pixelIndex", "number", 3, &kParams_1673[0]},
+    {"geoToPixelX", "number", 3, &kParams_1673[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1674[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1674[] = {
+    {"ndvi", "number", 2, &kParams_1674[0]},
+    {"brightness", "number", 3, &kParams_1674[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1675[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1675[] = {
+    {"ndvi", "number", 2, &kParams_1675[0]},
+    {"brightness", "number", 3, &kParams_1675[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1676[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1676[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1676[0]},
+    {"groundWidth", "number", 2, &kParams_1676[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1677[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1677[] = {
+    {"tileRow", "number", 2, &kParams_1677[0]},
+    {"tileCol", "number", 2, &kParams_1677[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1678[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1678[] = {
+    {"utmZone", "number", 1, &kParams_1678[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1678[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1679[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1679[] = {
+    {"planarDist", "number", 4, &kParams_1679[0]},
+    {"planarDist2", "number", 4, &kParams_1679[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1680[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1680[] = {
+    {"percentSlope", "number", 2, &kParams_1680[0]},
+    {"degreeSlope", "number", 2, &kParams_1680[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1681[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1681[] = {
+    {"tileOriginX", "number", 2, &kParams_1681[0]},
+    {"tileOriginY", "number", 2, &kParams_1681[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1682[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1682[] = {
+    {"haversineKm", "number", 4, &kParams_1682[0]},
+    {"haversineM", "number", 4, &kParams_1682[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1683[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1683[] = {
+    {"bearingDeg", "number", 4, &kParams_1683[0]},
+    {"azimuthDiff", "number", 2, &kParams_1683[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1684[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1684[] = {
+    {"bboxWidth", "number", 4, &kParams_1684[0]},
+    {"bboxArea", "number", 4, &kParams_1684[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1685[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1685[] = {
+    {"bboxCenterX", "number", 4, &kParams_1685[0]},
+    {"bboxCenterY", "number", 4, &kParams_1685[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1686[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1686[] = {
+    {"pointInBbox", "bool", 6, &kParams_1686[0]},
+    {"degToRad", "number", 1, &kParams_1686[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1687[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1687[] = {
+    {"mToKm", "number", 1, &kParams_1687[0]},
+    {"kmToM", "number", 1, &kParams_1687[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1688[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1688[] = {
+    {"normalizeLon", "number", 1, &kParams_1688[0]},
+    {"clampLat", "number", 1, &kParams_1688[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1689[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1689[] = {
+    {"pixelIndex", "number", 3, &kParams_1689[0]},
+    {"geoToPixelX", "number", 3, &kParams_1689[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1690[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1690[] = {
+    {"ndvi", "number", 2, &kParams_1690[0]},
+    {"brightness", "number", 3, &kParams_1690[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1691[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1691[] = {
+    {"ndvi", "number", 2, &kParams_1691[0]},
+    {"brightness", "number", 3, &kParams_1691[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1692[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1692[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1692[0]},
+    {"groundWidth", "number", 2, &kParams_1692[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1693[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1693[] = {
+    {"tileRow", "number", 2, &kParams_1693[0]},
+    {"tileCol", "number", 2, &kParams_1693[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1694[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1694[] = {
+    {"utmZone", "number", 1, &kParams_1694[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1694[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1695[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1695[] = {
+    {"planarDist", "number", 4, &kParams_1695[0]},
+    {"planarDist2", "number", 4, &kParams_1695[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1696[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1696[] = {
+    {"percentSlope", "number", 2, &kParams_1696[0]},
+    {"degreeSlope", "number", 2, &kParams_1696[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1697[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1697[] = {
+    {"tileOriginX", "number", 2, &kParams_1697[0]},
+    {"tileOriginY", "number", 2, &kParams_1697[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1698[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1698[] = {
+    {"haversineKm", "number", 4, &kParams_1698[0]},
+    {"haversineM", "number", 4, &kParams_1698[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1699[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1699[] = {
+    {"bearingDeg", "number", 4, &kParams_1699[0]},
+    {"azimuthDiff", "number", 2, &kParams_1699[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1700[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1700[] = {
+    {"bboxWidth", "number", 4, &kParams_1700[0]},
+    {"bboxArea", "number", 4, &kParams_1700[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1701[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1701[] = {
+    {"bboxCenterX", "number", 4, &kParams_1701[0]},
+    {"bboxCenterY", "number", 4, &kParams_1701[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1702[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1702[] = {
+    {"pointInBbox", "bool", 6, &kParams_1702[0]},
+    {"degToRad", "number", 1, &kParams_1702[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1703[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1703[] = {
+    {"mToKm", "number", 1, &kParams_1703[0]},
+    {"kmToM", "number", 1, &kParams_1703[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1704[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1704[] = {
+    {"normalizeLon", "number", 1, &kParams_1704[0]},
+    {"clampLat", "number", 1, &kParams_1704[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1705[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1705[] = {
+    {"pixelIndex", "number", 3, &kParams_1705[0]},
+    {"geoToPixelX", "number", 3, &kParams_1705[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1706[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1706[] = {
+    {"ndvi", "number", 2, &kParams_1706[0]},
+    {"brightness", "number", 3, &kParams_1706[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1707[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1707[] = {
+    {"ndvi", "number", 2, &kParams_1707[0]},
+    {"brightness", "number", 3, &kParams_1707[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1708[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1708[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1708[0]},
+    {"groundWidth", "number", 2, &kParams_1708[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1709[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1709[] = {
+    {"tileRow", "number", 2, &kParams_1709[0]},
+    {"tileCol", "number", 2, &kParams_1709[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1710[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1710[] = {
+    {"utmZone", "number", 1, &kParams_1710[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1710[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1711[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1711[] = {
+    {"planarDist", "number", 4, &kParams_1711[0]},
+    {"planarDist2", "number", 4, &kParams_1711[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1712[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1712[] = {
+    {"percentSlope", "number", 2, &kParams_1712[0]},
+    {"degreeSlope", "number", 2, &kParams_1712[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1713[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1713[] = {
+    {"tileOriginX", "number", 2, &kParams_1713[0]},
+    {"tileOriginY", "number", 2, &kParams_1713[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1714[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1714[] = {
+    {"haversineKm", "number", 4, &kParams_1714[0]},
+    {"haversineM", "number", 4, &kParams_1714[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1715[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1715[] = {
+    {"bearingDeg", "number", 4, &kParams_1715[0]},
+    {"azimuthDiff", "number", 2, &kParams_1715[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1716[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1716[] = {
+    {"bboxWidth", "number", 4, &kParams_1716[0]},
+    {"bboxArea", "number", 4, &kParams_1716[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1717[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1717[] = {
+    {"bboxCenterX", "number", 4, &kParams_1717[0]},
+    {"bboxCenterY", "number", 4, &kParams_1717[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1718[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1718[] = {
+    {"pointInBbox", "bool", 6, &kParams_1718[0]},
+    {"degToRad", "number", 1, &kParams_1718[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1719[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1719[] = {
+    {"mToKm", "number", 1, &kParams_1719[0]},
+    {"kmToM", "number", 1, &kParams_1719[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1720[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1720[] = {
+    {"normalizeLon", "number", 1, &kParams_1720[0]},
+    {"clampLat", "number", 1, &kParams_1720[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1721[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1721[] = {
+    {"pixelIndex", "number", 3, &kParams_1721[0]},
+    {"geoToPixelX", "number", 3, &kParams_1721[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1722[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1722[] = {
+    {"ndvi", "number", 2, &kParams_1722[0]},
+    {"brightness", "number", 3, &kParams_1722[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1723[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1723[] = {
+    {"ndvi", "number", 2, &kParams_1723[0]},
+    {"brightness", "number", 3, &kParams_1723[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1724[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1724[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1724[0]},
+    {"groundWidth", "number", 2, &kParams_1724[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1725[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1725[] = {
+    {"tileRow", "number", 2, &kParams_1725[0]},
+    {"tileCol", "number", 2, &kParams_1725[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1726[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1726[] = {
+    {"utmZone", "number", 1, &kParams_1726[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1726[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1727[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1727[] = {
+    {"planarDist", "number", 4, &kParams_1727[0]},
+    {"planarDist2", "number", 4, &kParams_1727[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1728[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1728[] = {
+    {"percentSlope", "number", 2, &kParams_1728[0]},
+    {"degreeSlope", "number", 2, &kParams_1728[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1729[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1729[] = {
+    {"tileOriginX", "number", 2, &kParams_1729[0]},
+    {"tileOriginY", "number", 2, &kParams_1729[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1730[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1730[] = {
+    {"haversineKm", "number", 4, &kParams_1730[0]},
+    {"haversineM", "number", 4, &kParams_1730[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1731[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1731[] = {
+    {"bearingDeg", "number", 4, &kParams_1731[0]},
+    {"azimuthDiff", "number", 2, &kParams_1731[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1732[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1732[] = {
+    {"bboxWidth", "number", 4, &kParams_1732[0]},
+    {"bboxArea", "number", 4, &kParams_1732[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1733[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1733[] = {
+    {"bboxCenterX", "number", 4, &kParams_1733[0]},
+    {"bboxCenterY", "number", 4, &kParams_1733[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1734[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1734[] = {
+    {"pointInBbox", "bool", 6, &kParams_1734[0]},
+    {"degToRad", "number", 1, &kParams_1734[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1735[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1735[] = {
+    {"mToKm", "number", 1, &kParams_1735[0]},
+    {"kmToM", "number", 1, &kParams_1735[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1736[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1736[] = {
+    {"normalizeLon", "number", 1, &kParams_1736[0]},
+    {"clampLat", "number", 1, &kParams_1736[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1737[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1737[] = {
+    {"pixelIndex", "number", 3, &kParams_1737[0]},
+    {"geoToPixelX", "number", 3, &kParams_1737[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1738[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1738[] = {
+    {"ndvi", "number", 2, &kParams_1738[0]},
+    {"brightness", "number", 3, &kParams_1738[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1739[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1739[] = {
+    {"ndvi", "number", 2, &kParams_1739[0]},
+    {"brightness", "number", 3, &kParams_1739[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1740[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1740[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1740[0]},
+    {"groundWidth", "number", 2, &kParams_1740[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1741[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1741[] = {
+    {"tileRow", "number", 2, &kParams_1741[0]},
+    {"tileCol", "number", 2, &kParams_1741[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1742[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1742[] = {
+    {"utmZone", "number", 1, &kParams_1742[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1742[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1743[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1743[] = {
+    {"planarDist", "number", 4, &kParams_1743[0]},
+    {"planarDist2", "number", 4, &kParams_1743[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1744[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1744[] = {
+    {"percentSlope", "number", 2, &kParams_1744[0]},
+    {"degreeSlope", "number", 2, &kParams_1744[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1745[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1745[] = {
+    {"tileOriginX", "number", 2, &kParams_1745[0]},
+    {"tileOriginY", "number", 2, &kParams_1745[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1746[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1746[] = {
+    {"haversineKm", "number", 4, &kParams_1746[0]},
+    {"haversineM", "number", 4, &kParams_1746[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1747[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1747[] = {
+    {"bearingDeg", "number", 4, &kParams_1747[0]},
+    {"azimuthDiff", "number", 2, &kParams_1747[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1748[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1748[] = {
+    {"bboxWidth", "number", 4, &kParams_1748[0]},
+    {"bboxArea", "number", 4, &kParams_1748[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1749[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1749[] = {
+    {"bboxCenterX", "number", 4, &kParams_1749[0]},
+    {"bboxCenterY", "number", 4, &kParams_1749[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1750[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1750[] = {
+    {"pointInBbox", "bool", 6, &kParams_1750[0]},
+    {"degToRad", "number", 1, &kParams_1750[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1751[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1751[] = {
+    {"mToKm", "number", 1, &kParams_1751[0]},
+    {"kmToM", "number", 1, &kParams_1751[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1752[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1752[] = {
+    {"normalizeLon", "number", 1, &kParams_1752[0]},
+    {"clampLat", "number", 1, &kParams_1752[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1753[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1753[] = {
+    {"pixelIndex", "number", 3, &kParams_1753[0]},
+    {"geoToPixelX", "number", 3, &kParams_1753[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1754[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1754[] = {
+    {"ndvi", "number", 2, &kParams_1754[0]},
+    {"brightness", "number", 3, &kParams_1754[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1755[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1755[] = {
+    {"ndvi", "number", 2, &kParams_1755[0]},
+    {"brightness", "number", 3, &kParams_1755[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1756[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1756[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1756[0]},
+    {"groundWidth", "number", 2, &kParams_1756[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1757[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1757[] = {
+    {"tileRow", "number", 2, &kParams_1757[0]},
+    {"tileCol", "number", 2, &kParams_1757[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1758[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1758[] = {
+    {"utmZone", "number", 1, &kParams_1758[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1758[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1759[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1759[] = {
+    {"planarDist", "number", 4, &kParams_1759[0]},
+    {"planarDist2", "number", 4, &kParams_1759[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1760[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1760[] = {
+    {"percentSlope", "number", 2, &kParams_1760[0]},
+    {"degreeSlope", "number", 2, &kParams_1760[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1761[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1761[] = {
+    {"tileOriginX", "number", 2, &kParams_1761[0]},
+    {"tileOriginY", "number", 2, &kParams_1761[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1762[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1762[] = {
+    {"haversineKm", "number", 4, &kParams_1762[0]},
+    {"haversineM", "number", 4, &kParams_1762[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1763[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1763[] = {
+    {"bearingDeg", "number", 4, &kParams_1763[0]},
+    {"azimuthDiff", "number", 2, &kParams_1763[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1764[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1764[] = {
+    {"bboxWidth", "number", 4, &kParams_1764[0]},
+    {"bboxArea", "number", 4, &kParams_1764[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1765[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1765[] = {
+    {"bboxCenterX", "number", 4, &kParams_1765[0]},
+    {"bboxCenterY", "number", 4, &kParams_1765[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1766[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1766[] = {
+    {"pointInBbox", "bool", 6, &kParams_1766[0]},
+    {"degToRad", "number", 1, &kParams_1766[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1767[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1767[] = {
+    {"mToKm", "number", 1, &kParams_1767[0]},
+    {"kmToM", "number", 1, &kParams_1767[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1768[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1768[] = {
+    {"normalizeLon", "number", 1, &kParams_1768[0]},
+    {"clampLat", "number", 1, &kParams_1768[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1769[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1769[] = {
+    {"pixelIndex", "number", 3, &kParams_1769[0]},
+    {"geoToPixelX", "number", 3, &kParams_1769[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1770[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1770[] = {
+    {"ndvi", "number", 2, &kParams_1770[0]},
+    {"brightness", "number", 3, &kParams_1770[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1771[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1771[] = {
+    {"ndvi", "number", 2, &kParams_1771[0]},
+    {"brightness", "number", 3, &kParams_1771[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1772[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1772[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1772[0]},
+    {"groundWidth", "number", 2, &kParams_1772[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1773[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1773[] = {
+    {"tileRow", "number", 2, &kParams_1773[0]},
+    {"tileCol", "number", 2, &kParams_1773[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1774[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1774[] = {
+    {"utmZone", "number", 1, &kParams_1774[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1774[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1775[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1775[] = {
+    {"planarDist", "number", 4, &kParams_1775[0]},
+    {"planarDist2", "number", 4, &kParams_1775[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1776[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1776[] = {
+    {"percentSlope", "number", 2, &kParams_1776[0]},
+    {"degreeSlope", "number", 2, &kParams_1776[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1777[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1777[] = {
+    {"tileOriginX", "number", 2, &kParams_1777[0]},
+    {"tileOriginY", "number", 2, &kParams_1777[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1778[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1778[] = {
+    {"haversineKm", "number", 4, &kParams_1778[0]},
+    {"haversineM", "number", 4, &kParams_1778[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1779[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1779[] = {
+    {"bearingDeg", "number", 4, &kParams_1779[0]},
+    {"azimuthDiff", "number", 2, &kParams_1779[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1780[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1780[] = {
+    {"bboxWidth", "number", 4, &kParams_1780[0]},
+    {"bboxArea", "number", 4, &kParams_1780[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1781[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1781[] = {
+    {"bboxCenterX", "number", 4, &kParams_1781[0]},
+    {"bboxCenterY", "number", 4, &kParams_1781[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1782[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1782[] = {
+    {"pointInBbox", "bool", 6, &kParams_1782[0]},
+    {"degToRad", "number", 1, &kParams_1782[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1783[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1783[] = {
+    {"mToKm", "number", 1, &kParams_1783[0]},
+    {"kmToM", "number", 1, &kParams_1783[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1784[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1784[] = {
+    {"normalizeLon", "number", 1, &kParams_1784[0]},
+    {"clampLat", "number", 1, &kParams_1784[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1785[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1785[] = {
+    {"pixelIndex", "number", 3, &kParams_1785[0]},
+    {"geoToPixelX", "number", 3, &kParams_1785[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1786[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1786[] = {
+    {"ndvi", "number", 2, &kParams_1786[0]},
+    {"brightness", "number", 3, &kParams_1786[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1787[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1787[] = {
+    {"ndvi", "number", 2, &kParams_1787[0]},
+    {"brightness", "number", 3, &kParams_1787[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1788[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1788[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1788[0]},
+    {"groundWidth", "number", 2, &kParams_1788[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1789[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1789[] = {
+    {"tileRow", "number", 2, &kParams_1789[0]},
+    {"tileCol", "number", 2, &kParams_1789[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1790[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1790[] = {
+    {"utmZone", "number", 1, &kParams_1790[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1790[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1791[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1791[] = {
+    {"planarDist", "number", 4, &kParams_1791[0]},
+    {"planarDist2", "number", 4, &kParams_1791[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1792[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1792[] = {
+    {"percentSlope", "number", 2, &kParams_1792[0]},
+    {"degreeSlope", "number", 2, &kParams_1792[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1793[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1793[] = {
+    {"tileOriginX", "number", 2, &kParams_1793[0]},
+    {"tileOriginY", "number", 2, &kParams_1793[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1794[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1794[] = {
+    {"haversineKm", "number", 4, &kParams_1794[0]},
+    {"haversineM", "number", 4, &kParams_1794[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1795[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1795[] = {
+    {"bearingDeg", "number", 4, &kParams_1795[0]},
+    {"azimuthDiff", "number", 2, &kParams_1795[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1796[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1796[] = {
+    {"bboxWidth", "number", 4, &kParams_1796[0]},
+    {"bboxArea", "number", 4, &kParams_1796[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1797[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1797[] = {
+    {"bboxCenterX", "number", 4, &kParams_1797[0]},
+    {"bboxCenterY", "number", 4, &kParams_1797[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1798[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1798[] = {
+    {"pointInBbox", "bool", 6, &kParams_1798[0]},
+    {"degToRad", "number", 1, &kParams_1798[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1799[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1799[] = {
+    {"mToKm", "number", 1, &kParams_1799[0]},
+    {"kmToM", "number", 1, &kParams_1799[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1800[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1800[] = {
+    {"normalizeLon", "number", 1, &kParams_1800[0]},
+    {"clampLat", "number", 1, &kParams_1800[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1801[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1801[] = {
+    {"pixelIndex", "number", 3, &kParams_1801[0]},
+    {"geoToPixelX", "number", 3, &kParams_1801[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1802[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1802[] = {
+    {"ndvi", "number", 2, &kParams_1802[0]},
+    {"brightness", "number", 3, &kParams_1802[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1803[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1803[] = {
+    {"ndvi", "number", 2, &kParams_1803[0]},
+    {"brightness", "number", 3, &kParams_1803[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1804[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1804[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1804[0]},
+    {"groundWidth", "number", 2, &kParams_1804[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1805[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1805[] = {
+    {"tileRow", "number", 2, &kParams_1805[0]},
+    {"tileCol", "number", 2, &kParams_1805[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1806[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1806[] = {
+    {"utmZone", "number", 1, &kParams_1806[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1806[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1807[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1807[] = {
+    {"planarDist", "number", 4, &kParams_1807[0]},
+    {"planarDist2", "number", 4, &kParams_1807[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1808[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1808[] = {
+    {"percentSlope", "number", 2, &kParams_1808[0]},
+    {"degreeSlope", "number", 2, &kParams_1808[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1809[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1809[] = {
+    {"tileOriginX", "number", 2, &kParams_1809[0]},
+    {"tileOriginY", "number", 2, &kParams_1809[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1810[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1810[] = {
+    {"haversineKm", "number", 4, &kParams_1810[0]},
+    {"haversineM", "number", 4, &kParams_1810[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1811[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1811[] = {
+    {"bearingDeg", "number", 4, &kParams_1811[0]},
+    {"azimuthDiff", "number", 2, &kParams_1811[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1812[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1812[] = {
+    {"bboxWidth", "number", 4, &kParams_1812[0]},
+    {"bboxArea", "number", 4, &kParams_1812[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1813[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1813[] = {
+    {"bboxCenterX", "number", 4, &kParams_1813[0]},
+    {"bboxCenterY", "number", 4, &kParams_1813[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1814[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1814[] = {
+    {"pointInBbox", "bool", 6, &kParams_1814[0]},
+    {"degToRad", "number", 1, &kParams_1814[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1815[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1815[] = {
+    {"mToKm", "number", 1, &kParams_1815[0]},
+    {"kmToM", "number", 1, &kParams_1815[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1816[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1816[] = {
+    {"normalizeLon", "number", 1, &kParams_1816[0]},
+    {"clampLat", "number", 1, &kParams_1816[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1817[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1817[] = {
+    {"pixelIndex", "number", 3, &kParams_1817[0]},
+    {"geoToPixelX", "number", 3, &kParams_1817[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1818[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1818[] = {
+    {"ndvi", "number", 2, &kParams_1818[0]},
+    {"brightness", "number", 3, &kParams_1818[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1819[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1819[] = {
+    {"ndvi", "number", 2, &kParams_1819[0]},
+    {"brightness", "number", 3, &kParams_1819[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1820[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1820[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1820[0]},
+    {"groundWidth", "number", 2, &kParams_1820[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1821[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1821[] = {
+    {"tileRow", "number", 2, &kParams_1821[0]},
+    {"tileCol", "number", 2, &kParams_1821[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1822[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1822[] = {
+    {"utmZone", "number", 1, &kParams_1822[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1822[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1823[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1823[] = {
+    {"planarDist", "number", 4, &kParams_1823[0]},
+    {"planarDist2", "number", 4, &kParams_1823[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1824[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1824[] = {
+    {"percentSlope", "number", 2, &kParams_1824[0]},
+    {"degreeSlope", "number", 2, &kParams_1824[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1825[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1825[] = {
+    {"tileOriginX", "number", 2, &kParams_1825[0]},
+    {"tileOriginY", "number", 2, &kParams_1825[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1826[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1826[] = {
+    {"haversineKm", "number", 4, &kParams_1826[0]},
+    {"haversineM", "number", 4, &kParams_1826[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1827[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1827[] = {
+    {"bearingDeg", "number", 4, &kParams_1827[0]},
+    {"azimuthDiff", "number", 2, &kParams_1827[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1828[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1828[] = {
+    {"bboxWidth", "number", 4, &kParams_1828[0]},
+    {"bboxArea", "number", 4, &kParams_1828[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1829[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1829[] = {
+    {"bboxCenterX", "number", 4, &kParams_1829[0]},
+    {"bboxCenterY", "number", 4, &kParams_1829[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1830[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1830[] = {
+    {"pointInBbox", "bool", 6, &kParams_1830[0]},
+    {"degToRad", "number", 1, &kParams_1830[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1831[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1831[] = {
+    {"mToKm", "number", 1, &kParams_1831[0]},
+    {"kmToM", "number", 1, &kParams_1831[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1832[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1832[] = {
+    {"normalizeLon", "number", 1, &kParams_1832[0]},
+    {"clampLat", "number", 1, &kParams_1832[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1833[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1833[] = {
+    {"pixelIndex", "number", 3, &kParams_1833[0]},
+    {"geoToPixelX", "number", 3, &kParams_1833[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1834[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1834[] = {
+    {"ndvi", "number", 2, &kParams_1834[0]},
+    {"brightness", "number", 3, &kParams_1834[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1835[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1835[] = {
+    {"ndvi", "number", 2, &kParams_1835[0]},
+    {"brightness", "number", 3, &kParams_1835[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1836[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1836[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1836[0]},
+    {"groundWidth", "number", 2, &kParams_1836[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1837[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1837[] = {
+    {"tileRow", "number", 2, &kParams_1837[0]},
+    {"tileCol", "number", 2, &kParams_1837[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1838[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1838[] = {
+    {"utmZone", "number", 1, &kParams_1838[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1838[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1839[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1839[] = {
+    {"planarDist", "number", 4, &kParams_1839[0]},
+    {"planarDist2", "number", 4, &kParams_1839[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1840[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1840[] = {
+    {"percentSlope", "number", 2, &kParams_1840[0]},
+    {"degreeSlope", "number", 2, &kParams_1840[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1841[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1841[] = {
+    {"tileOriginX", "number", 2, &kParams_1841[0]},
+    {"tileOriginY", "number", 2, &kParams_1841[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1842[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1842[] = {
+    {"haversineKm", "number", 4, &kParams_1842[0]},
+    {"haversineM", "number", 4, &kParams_1842[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1843[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1843[] = {
+    {"bearingDeg", "number", 4, &kParams_1843[0]},
+    {"azimuthDiff", "number", 2, &kParams_1843[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1844[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1844[] = {
+    {"bboxWidth", "number", 4, &kParams_1844[0]},
+    {"bboxArea", "number", 4, &kParams_1844[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1845[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1845[] = {
+    {"bboxCenterX", "number", 4, &kParams_1845[0]},
+    {"bboxCenterY", "number", 4, &kParams_1845[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1846[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1846[] = {
+    {"pointInBbox", "bool", 6, &kParams_1846[0]},
+    {"degToRad", "number", 1, &kParams_1846[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1847[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1847[] = {
+    {"mToKm", "number", 1, &kParams_1847[0]},
+    {"kmToM", "number", 1, &kParams_1847[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1848[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1848[] = {
+    {"normalizeLon", "number", 1, &kParams_1848[0]},
+    {"clampLat", "number", 1, &kParams_1848[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1849[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1849[] = {
+    {"pixelIndex", "number", 3, &kParams_1849[0]},
+    {"geoToPixelX", "number", 3, &kParams_1849[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1850[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1850[] = {
+    {"ndvi", "number", 2, &kParams_1850[0]},
+    {"brightness", "number", 3, &kParams_1850[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1851[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1851[] = {
+    {"ndvi", "number", 2, &kParams_1851[0]},
+    {"brightness", "number", 3, &kParams_1851[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1852[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1852[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1852[0]},
+    {"groundWidth", "number", 2, &kParams_1852[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1853[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1853[] = {
+    {"tileRow", "number", 2, &kParams_1853[0]},
+    {"tileCol", "number", 2, &kParams_1853[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1854[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1854[] = {
+    {"utmZone", "number", 1, &kParams_1854[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1854[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1855[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1855[] = {
+    {"planarDist", "number", 4, &kParams_1855[0]},
+    {"planarDist2", "number", 4, &kParams_1855[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1856[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1856[] = {
+    {"percentSlope", "number", 2, &kParams_1856[0]},
+    {"degreeSlope", "number", 2, &kParams_1856[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1857[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1857[] = {
+    {"tileOriginX", "number", 2, &kParams_1857[0]},
+    {"tileOriginY", "number", 2, &kParams_1857[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1858[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1858[] = {
+    {"haversineKm", "number", 4, &kParams_1858[0]},
+    {"haversineM", "number", 4, &kParams_1858[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1859[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1859[] = {
+    {"bearingDeg", "number", 4, &kParams_1859[0]},
+    {"azimuthDiff", "number", 2, &kParams_1859[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1860[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1860[] = {
+    {"bboxWidth", "number", 4, &kParams_1860[0]},
+    {"bboxArea", "number", 4, &kParams_1860[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1861[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1861[] = {
+    {"bboxCenterX", "number", 4, &kParams_1861[0]},
+    {"bboxCenterY", "number", 4, &kParams_1861[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1862[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1862[] = {
+    {"pointInBbox", "bool", 6, &kParams_1862[0]},
+    {"degToRad", "number", 1, &kParams_1862[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1863[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1863[] = {
+    {"mToKm", "number", 1, &kParams_1863[0]},
+    {"kmToM", "number", 1, &kParams_1863[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1864[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1864[] = {
+    {"normalizeLon", "number", 1, &kParams_1864[0]},
+    {"clampLat", "number", 1, &kParams_1864[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1865[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1865[] = {
+    {"pixelIndex", "number", 3, &kParams_1865[0]},
+    {"geoToPixelX", "number", 3, &kParams_1865[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1866[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1866[] = {
+    {"ndvi", "number", 2, &kParams_1866[0]},
+    {"brightness", "number", 3, &kParams_1866[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1867[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1867[] = {
+    {"ndvi", "number", 2, &kParams_1867[0]},
+    {"brightness", "number", 3, &kParams_1867[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1868[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1868[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1868[0]},
+    {"groundWidth", "number", 2, &kParams_1868[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1869[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1869[] = {
+    {"tileRow", "number", 2, &kParams_1869[0]},
+    {"tileCol", "number", 2, &kParams_1869[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1870[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1870[] = {
+    {"utmZone", "number", 1, &kParams_1870[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1870[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1871[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1871[] = {
+    {"planarDist", "number", 4, &kParams_1871[0]},
+    {"planarDist2", "number", 4, &kParams_1871[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1872[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1872[] = {
+    {"percentSlope", "number", 2, &kParams_1872[0]},
+    {"degreeSlope", "number", 2, &kParams_1872[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1873[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1873[] = {
+    {"tileOriginX", "number", 2, &kParams_1873[0]},
+    {"tileOriginY", "number", 2, &kParams_1873[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1874[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1874[] = {
+    {"haversineKm", "number", 4, &kParams_1874[0]},
+    {"haversineM", "number", 4, &kParams_1874[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1875[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1875[] = {
+    {"bearingDeg", "number", 4, &kParams_1875[0]},
+    {"azimuthDiff", "number", 2, &kParams_1875[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1876[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1876[] = {
+    {"bboxWidth", "number", 4, &kParams_1876[0]},
+    {"bboxArea", "number", 4, &kParams_1876[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1877[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1877[] = {
+    {"bboxCenterX", "number", 4, &kParams_1877[0]},
+    {"bboxCenterY", "number", 4, &kParams_1877[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1878[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1878[] = {
+    {"pointInBbox", "bool", 6, &kParams_1878[0]},
+    {"degToRad", "number", 1, &kParams_1878[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1879[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1879[] = {
+    {"mToKm", "number", 1, &kParams_1879[0]},
+    {"kmToM", "number", 1, &kParams_1879[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1880[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1880[] = {
+    {"normalizeLon", "number", 1, &kParams_1880[0]},
+    {"clampLat", "number", 1, &kParams_1880[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1881[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1881[] = {
+    {"pixelIndex", "number", 3, &kParams_1881[0]},
+    {"geoToPixelX", "number", 3, &kParams_1881[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1882[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1882[] = {
+    {"ndvi", "number", 2, &kParams_1882[0]},
+    {"brightness", "number", 3, &kParams_1882[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1883[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1883[] = {
+    {"ndvi", "number", 2, &kParams_1883[0]},
+    {"brightness", "number", 3, &kParams_1883[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1884[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1884[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1884[0]},
+    {"groundWidth", "number", 2, &kParams_1884[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1885[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1885[] = {
+    {"tileRow", "number", 2, &kParams_1885[0]},
+    {"tileCol", "number", 2, &kParams_1885[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1886[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1886[] = {
+    {"utmZone", "number", 1, &kParams_1886[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1886[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1887[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1887[] = {
+    {"planarDist", "number", 4, &kParams_1887[0]},
+    {"planarDist2", "number", 4, &kParams_1887[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1888[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1888[] = {
+    {"percentSlope", "number", 2, &kParams_1888[0]},
+    {"degreeSlope", "number", 2, &kParams_1888[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1889[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1889[] = {
+    {"tileOriginX", "number", 2, &kParams_1889[0]},
+    {"tileOriginY", "number", 2, &kParams_1889[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1890[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1890[] = {
+    {"haversineKm", "number", 4, &kParams_1890[0]},
+    {"haversineM", "number", 4, &kParams_1890[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1891[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1891[] = {
+    {"bearingDeg", "number", 4, &kParams_1891[0]},
+    {"azimuthDiff", "number", 2, &kParams_1891[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1892[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1892[] = {
+    {"bboxWidth", "number", 4, &kParams_1892[0]},
+    {"bboxArea", "number", 4, &kParams_1892[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1893[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1893[] = {
+    {"bboxCenterX", "number", 4, &kParams_1893[0]},
+    {"bboxCenterY", "number", 4, &kParams_1893[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1894[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1894[] = {
+    {"pointInBbox", "bool", 6, &kParams_1894[0]},
+    {"degToRad", "number", 1, &kParams_1894[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1895[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1895[] = {
+    {"mToKm", "number", 1, &kParams_1895[0]},
+    {"kmToM", "number", 1, &kParams_1895[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1896[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1896[] = {
+    {"normalizeLon", "number", 1, &kParams_1896[0]},
+    {"clampLat", "number", 1, &kParams_1896[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1897[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1897[] = {
+    {"pixelIndex", "number", 3, &kParams_1897[0]},
+    {"geoToPixelX", "number", 3, &kParams_1897[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1898[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1898[] = {
+    {"ndvi", "number", 2, &kParams_1898[0]},
+    {"brightness", "number", 3, &kParams_1898[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1899[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1899[] = {
+    {"ndvi", "number", 2, &kParams_1899[0]},
+    {"brightness", "number", 3, &kParams_1899[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1900[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1900[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1900[0]},
+    {"groundWidth", "number", 2, &kParams_1900[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1901[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1901[] = {
+    {"tileRow", "number", 2, &kParams_1901[0]},
+    {"tileCol", "number", 2, &kParams_1901[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1902[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1902[] = {
+    {"utmZone", "number", 1, &kParams_1902[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1902[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1903[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1903[] = {
+    {"planarDist", "number", 4, &kParams_1903[0]},
+    {"planarDist2", "number", 4, &kParams_1903[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1904[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1904[] = {
+    {"percentSlope", "number", 2, &kParams_1904[0]},
+    {"degreeSlope", "number", 2, &kParams_1904[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1905[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1905[] = {
+    {"tileOriginX", "number", 2, &kParams_1905[0]},
+    {"tileOriginY", "number", 2, &kParams_1905[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1906[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1906[] = {
+    {"haversineKm", "number", 4, &kParams_1906[0]},
+    {"haversineM", "number", 4, &kParams_1906[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1907[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1907[] = {
+    {"bearingDeg", "number", 4, &kParams_1907[0]},
+    {"azimuthDiff", "number", 2, &kParams_1907[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1908[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1908[] = {
+    {"bboxWidth", "number", 4, &kParams_1908[0]},
+    {"bboxArea", "number", 4, &kParams_1908[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1909[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1909[] = {
+    {"bboxCenterX", "number", 4, &kParams_1909[0]},
+    {"bboxCenterY", "number", 4, &kParams_1909[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1910[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1910[] = {
+    {"pointInBbox", "bool", 6, &kParams_1910[0]},
+    {"degToRad", "number", 1, &kParams_1910[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1911[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1911[] = {
+    {"mToKm", "number", 1, &kParams_1911[0]},
+    {"kmToM", "number", 1, &kParams_1911[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1912[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1912[] = {
+    {"normalizeLon", "number", 1, &kParams_1912[0]},
+    {"clampLat", "number", 1, &kParams_1912[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1913[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1913[] = {
+    {"pixelIndex", "number", 3, &kParams_1913[0]},
+    {"geoToPixelX", "number", 3, &kParams_1913[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1914[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1914[] = {
+    {"ndvi", "number", 2, &kParams_1914[0]},
+    {"brightness", "number", 3, &kParams_1914[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1915[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1915[] = {
+    {"ndvi", "number", 2, &kParams_1915[0]},
+    {"brightness", "number", 3, &kParams_1915[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1916[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1916[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1916[0]},
+    {"groundWidth", "number", 2, &kParams_1916[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1917[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1917[] = {
+    {"tileRow", "number", 2, &kParams_1917[0]},
+    {"tileCol", "number", 2, &kParams_1917[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1918[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1918[] = {
+    {"utmZone", "number", 1, &kParams_1918[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1918[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1919[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1919[] = {
+    {"planarDist", "number", 4, &kParams_1919[0]},
+    {"planarDist2", "number", 4, &kParams_1919[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1920[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1920[] = {
+    {"percentSlope", "number", 2, &kParams_1920[0]},
+    {"degreeSlope", "number", 2, &kParams_1920[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1921[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1921[] = {
+    {"tileOriginX", "number", 2, &kParams_1921[0]},
+    {"tileOriginY", "number", 2, &kParams_1921[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1922[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1922[] = {
+    {"haversineKm", "number", 4, &kParams_1922[0]},
+    {"haversineM", "number", 4, &kParams_1922[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1923[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1923[] = {
+    {"bearingDeg", "number", 4, &kParams_1923[0]},
+    {"azimuthDiff", "number", 2, &kParams_1923[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1924[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1924[] = {
+    {"bboxWidth", "number", 4, &kParams_1924[0]},
+    {"bboxArea", "number", 4, &kParams_1924[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1925[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1925[] = {
+    {"bboxCenterX", "number", 4, &kParams_1925[0]},
+    {"bboxCenterY", "number", 4, &kParams_1925[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1926[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1926[] = {
+    {"pointInBbox", "bool", 6, &kParams_1926[0]},
+    {"degToRad", "number", 1, &kParams_1926[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1927[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1927[] = {
+    {"mToKm", "number", 1, &kParams_1927[0]},
+    {"kmToM", "number", 1, &kParams_1927[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1928[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1928[] = {
+    {"normalizeLon", "number", 1, &kParams_1928[0]},
+    {"clampLat", "number", 1, &kParams_1928[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1929[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1929[] = {
+    {"pixelIndex", "number", 3, &kParams_1929[0]},
+    {"geoToPixelX", "number", 3, &kParams_1929[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1930[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1930[] = {
+    {"ndvi", "number", 2, &kParams_1930[0]},
+    {"brightness", "number", 3, &kParams_1930[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1931[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1931[] = {
+    {"ndvi", "number", 2, &kParams_1931[0]},
+    {"brightness", "number", 3, &kParams_1931[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1932[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1932[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1932[0]},
+    {"groundWidth", "number", 2, &kParams_1932[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1933[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1933[] = {
+    {"tileRow", "number", 2, &kParams_1933[0]},
+    {"tileCol", "number", 2, &kParams_1933[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1934[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1934[] = {
+    {"utmZone", "number", 1, &kParams_1934[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1934[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1935[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1935[] = {
+    {"planarDist", "number", 4, &kParams_1935[0]},
+    {"planarDist2", "number", 4, &kParams_1935[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1936[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1936[] = {
+    {"percentSlope", "number", 2, &kParams_1936[0]},
+    {"degreeSlope", "number", 2, &kParams_1936[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1937[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1937[] = {
+    {"tileOriginX", "number", 2, &kParams_1937[0]},
+    {"tileOriginY", "number", 2, &kParams_1937[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1938[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1938[] = {
+    {"haversineKm", "number", 4, &kParams_1938[0]},
+    {"haversineM", "number", 4, &kParams_1938[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1939[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1939[] = {
+    {"bearingDeg", "number", 4, &kParams_1939[0]},
+    {"azimuthDiff", "number", 2, &kParams_1939[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1940[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1940[] = {
+    {"bboxWidth", "number", 4, &kParams_1940[0]},
+    {"bboxArea", "number", 4, &kParams_1940[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1941[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1941[] = {
+    {"bboxCenterX", "number", 4, &kParams_1941[0]},
+    {"bboxCenterY", "number", 4, &kParams_1941[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1942[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1942[] = {
+    {"pointInBbox", "bool", 6, &kParams_1942[0]},
+    {"degToRad", "number", 1, &kParams_1942[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1943[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1943[] = {
+    {"mToKm", "number", 1, &kParams_1943[0]},
+    {"kmToM", "number", 1, &kParams_1943[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1944[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1944[] = {
+    {"normalizeLon", "number", 1, &kParams_1944[0]},
+    {"clampLat", "number", 1, &kParams_1944[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1945[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1945[] = {
+    {"pixelIndex", "number", 3, &kParams_1945[0]},
+    {"geoToPixelX", "number", 3, &kParams_1945[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1946[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1946[] = {
+    {"ndvi", "number", 2, &kParams_1946[0]},
+    {"brightness", "number", 3, &kParams_1946[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1947[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1947[] = {
+    {"ndvi", "number", 2, &kParams_1947[0]},
+    {"brightness", "number", 3, &kParams_1947[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1948[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1948[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1948[0]},
+    {"groundWidth", "number", 2, &kParams_1948[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1949[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1949[] = {
+    {"tileRow", "number", 2, &kParams_1949[0]},
+    {"tileCol", "number", 2, &kParams_1949[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1950[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1950[] = {
+    {"utmZone", "number", 1, &kParams_1950[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1950[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1951[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1951[] = {
+    {"planarDist", "number", 4, &kParams_1951[0]},
+    {"planarDist2", "number", 4, &kParams_1951[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1952[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1952[] = {
+    {"percentSlope", "number", 2, &kParams_1952[0]},
+    {"degreeSlope", "number", 2, &kParams_1952[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1953[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1953[] = {
+    {"tileOriginX", "number", 2, &kParams_1953[0]},
+    {"tileOriginY", "number", 2, &kParams_1953[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1954[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1954[] = {
+    {"haversineKm", "number", 4, &kParams_1954[0]},
+    {"haversineM", "number", 4, &kParams_1954[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1955[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1955[] = {
+    {"bearingDeg", "number", 4, &kParams_1955[0]},
+    {"azimuthDiff", "number", 2, &kParams_1955[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1956[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1956[] = {
+    {"bboxWidth", "number", 4, &kParams_1956[0]},
+    {"bboxArea", "number", 4, &kParams_1956[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1957[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1957[] = {
+    {"bboxCenterX", "number", 4, &kParams_1957[0]},
+    {"bboxCenterY", "number", 4, &kParams_1957[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1958[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1958[] = {
+    {"pointInBbox", "bool", 6, &kParams_1958[0]},
+    {"degToRad", "number", 1, &kParams_1958[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1959[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1959[] = {
+    {"mToKm", "number", 1, &kParams_1959[0]},
+    {"kmToM", "number", 1, &kParams_1959[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1960[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1960[] = {
+    {"normalizeLon", "number", 1, &kParams_1960[0]},
+    {"clampLat", "number", 1, &kParams_1960[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1961[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1961[] = {
+    {"pixelIndex", "number", 3, &kParams_1961[0]},
+    {"geoToPixelX", "number", 3, &kParams_1961[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1962[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1962[] = {
+    {"ndvi", "number", 2, &kParams_1962[0]},
+    {"brightness", "number", 3, &kParams_1962[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1963[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1963[] = {
+    {"ndvi", "number", 2, &kParams_1963[0]},
+    {"brightness", "number", 3, &kParams_1963[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1964[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1964[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1964[0]},
+    {"groundWidth", "number", 2, &kParams_1964[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1965[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1965[] = {
+    {"tileRow", "number", 2, &kParams_1965[0]},
+    {"tileCol", "number", 2, &kParams_1965[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1966[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1966[] = {
+    {"utmZone", "number", 1, &kParams_1966[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1966[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1967[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1967[] = {
+    {"planarDist", "number", 4, &kParams_1967[0]},
+    {"planarDist2", "number", 4, &kParams_1967[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1968[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1968[] = {
+    {"percentSlope", "number", 2, &kParams_1968[0]},
+    {"degreeSlope", "number", 2, &kParams_1968[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1969[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1969[] = {
+    {"tileOriginX", "number", 2, &kParams_1969[0]},
+    {"tileOriginY", "number", 2, &kParams_1969[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1970[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1970[] = {
+    {"haversineKm", "number", 4, &kParams_1970[0]},
+    {"haversineM", "number", 4, &kParams_1970[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1971[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1971[] = {
+    {"bearingDeg", "number", 4, &kParams_1971[0]},
+    {"azimuthDiff", "number", 2, &kParams_1971[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1972[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1972[] = {
+    {"bboxWidth", "number", 4, &kParams_1972[0]},
+    {"bboxArea", "number", 4, &kParams_1972[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1973[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1973[] = {
+    {"bboxCenterX", "number", 4, &kParams_1973[0]},
+    {"bboxCenterY", "number", 4, &kParams_1973[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1974[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1974[] = {
+    {"pointInBbox", "bool", 6, &kParams_1974[0]},
+    {"degToRad", "number", 1, &kParams_1974[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1975[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1975[] = {
+    {"mToKm", "number", 1, &kParams_1975[0]},
+    {"kmToM", "number", 1, &kParams_1975[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1976[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1976[] = {
+    {"normalizeLon", "number", 1, &kParams_1976[0]},
+    {"clampLat", "number", 1, &kParams_1976[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1977[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1977[] = {
+    {"pixelIndex", "number", 3, &kParams_1977[0]},
+    {"geoToPixelX", "number", 3, &kParams_1977[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1978[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1978[] = {
+    {"ndvi", "number", 2, &kParams_1978[0]},
+    {"brightness", "number", 3, &kParams_1978[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1979[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1979[] = {
+    {"ndvi", "number", 2, &kParams_1979[0]},
+    {"brightness", "number", 3, &kParams_1979[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1980[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1980[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1980[0]},
+    {"groundWidth", "number", 2, &kParams_1980[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1981[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1981[] = {
+    {"tileRow", "number", 2, &kParams_1981[0]},
+    {"tileCol", "number", 2, &kParams_1981[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1982[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1982[] = {
+    {"utmZone", "number", 1, &kParams_1982[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1982[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1983[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1983[] = {
+    {"planarDist", "number", 4, &kParams_1983[0]},
+    {"planarDist2", "number", 4, &kParams_1983[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1984[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1984[] = {
+    {"percentSlope", "number", 2, &kParams_1984[0]},
+    {"degreeSlope", "number", 2, &kParams_1984[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1985[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1985[] = {
+    {"tileOriginX", "number", 2, &kParams_1985[0]},
+    {"tileOriginY", "number", 2, &kParams_1985[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1986[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1986[] = {
+    {"haversineKm", "number", 4, &kParams_1986[0]},
+    {"haversineM", "number", 4, &kParams_1986[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1987[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1987[] = {
+    {"bearingDeg", "number", 4, &kParams_1987[0]},
+    {"azimuthDiff", "number", 2, &kParams_1987[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1988[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1988[] = {
+    {"bboxWidth", "number", 4, &kParams_1988[0]},
+    {"bboxArea", "number", 4, &kParams_1988[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1989[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1989[] = {
+    {"bboxCenterX", "number", 4, &kParams_1989[0]},
+    {"bboxCenterY", "number", 4, &kParams_1989[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1990[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1990[] = {
+    {"pointInBbox", "bool", 6, &kParams_1990[0]},
+    {"degToRad", "number", 1, &kParams_1990[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1991[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1991[] = {
+    {"mToKm", "number", 1, &kParams_1991[0]},
+    {"kmToM", "number", 1, &kParams_1991[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1992[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1992[] = {
+    {"normalizeLon", "number", 1, &kParams_1992[0]},
+    {"clampLat", "number", 1, &kParams_1992[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1993[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1993[] = {
+    {"pixelIndex", "number", 3, &kParams_1993[0]},
+    {"geoToPixelX", "number", 3, &kParams_1993[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1994[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1994[] = {
+    {"ndvi", "number", 2, &kParams_1994[0]},
+    {"brightness", "number", 3, &kParams_1994[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1995[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1995[] = {
+    {"ndvi", "number", 2, &kParams_1995[0]},
+    {"brightness", "number", 3, &kParams_1995[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1996[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1996[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_1996[0]},
+    {"groundWidth", "number", 2, &kParams_1996[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1997[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1997[] = {
+    {"tileRow", "number", 2, &kParams_1997[0]},
+    {"tileCol", "number", 2, &kParams_1997[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1998[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1998[] = {
+    {"utmZone", "number", 1, &kParams_1998[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_1998[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1999[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1999[] = {
+    {"planarDist", "number", 4, &kParams_1999[0]},
+    {"planarDist2", "number", 4, &kParams_1999[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2000[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2000[] = {
+    {"percentSlope", "number", 2, &kParams_2000[0]},
+    {"degreeSlope", "number", 2, &kParams_2000[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2001[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2001[] = {
+    {"tileOriginX", "number", 2, &kParams_2001[0]},
+    {"tileOriginY", "number", 2, &kParams_2001[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2002[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2002[] = {
+    {"haversineKm", "number", 4, &kParams_2002[0]},
+    {"haversineM", "number", 4, &kParams_2002[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2003[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2003[] = {
+    {"bearingDeg", "number", 4, &kParams_2003[0]},
+    {"azimuthDiff", "number", 2, &kParams_2003[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2004[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2004[] = {
+    {"bboxWidth", "number", 4, &kParams_2004[0]},
+    {"bboxArea", "number", 4, &kParams_2004[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2005[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2005[] = {
+    {"bboxCenterX", "number", 4, &kParams_2005[0]},
+    {"bboxCenterY", "number", 4, &kParams_2005[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2006[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2006[] = {
+    {"pointInBbox", "bool", 6, &kParams_2006[0]},
+    {"degToRad", "number", 1, &kParams_2006[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2007[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2007[] = {
+    {"mToKm", "number", 1, &kParams_2007[0]},
+    {"kmToM", "number", 1, &kParams_2007[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2008[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2008[] = {
+    {"normalizeLon", "number", 1, &kParams_2008[0]},
+    {"clampLat", "number", 1, &kParams_2008[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2009[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2009[] = {
+    {"pixelIndex", "number", 3, &kParams_2009[0]},
+    {"geoToPixelX", "number", 3, &kParams_2009[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2010[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2010[] = {
+    {"ndvi", "number", 2, &kParams_2010[0]},
+    {"brightness", "number", 3, &kParams_2010[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2011[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2011[] = {
+    {"ndvi", "number", 2, &kParams_2011[0]},
+    {"brightness", "number", 3, &kParams_2011[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2012[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2012[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2012[0]},
+    {"groundWidth", "number", 2, &kParams_2012[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2013[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2013[] = {
+    {"tileRow", "number", 2, &kParams_2013[0]},
+    {"tileCol", "number", 2, &kParams_2013[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2014[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2014[] = {
+    {"utmZone", "number", 1, &kParams_2014[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2014[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2015[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2015[] = {
+    {"planarDist", "number", 4, &kParams_2015[0]},
+    {"planarDist2", "number", 4, &kParams_2015[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2016[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2016[] = {
+    {"percentSlope", "number", 2, &kParams_2016[0]},
+    {"degreeSlope", "number", 2, &kParams_2016[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2017[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2017[] = {
+    {"tileOriginX", "number", 2, &kParams_2017[0]},
+    {"tileOriginY", "number", 2, &kParams_2017[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2018[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2018[] = {
+    {"haversineKm", "number", 4, &kParams_2018[0]},
+    {"haversineM", "number", 4, &kParams_2018[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2019[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2019[] = {
+    {"bearingDeg", "number", 4, &kParams_2019[0]},
+    {"azimuthDiff", "number", 2, &kParams_2019[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2020[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2020[] = {
+    {"bboxWidth", "number", 4, &kParams_2020[0]},
+    {"bboxArea", "number", 4, &kParams_2020[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2021[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2021[] = {
+    {"bboxCenterX", "number", 4, &kParams_2021[0]},
+    {"bboxCenterY", "number", 4, &kParams_2021[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2022[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2022[] = {
+    {"pointInBbox", "bool", 6, &kParams_2022[0]},
+    {"degToRad", "number", 1, &kParams_2022[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2023[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2023[] = {
+    {"mToKm", "number", 1, &kParams_2023[0]},
+    {"kmToM", "number", 1, &kParams_2023[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2024[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2024[] = {
+    {"normalizeLon", "number", 1, &kParams_2024[0]},
+    {"clampLat", "number", 1, &kParams_2024[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2025[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2025[] = {
+    {"pixelIndex", "number", 3, &kParams_2025[0]},
+    {"geoToPixelX", "number", 3, &kParams_2025[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2026[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2026[] = {
+    {"ndvi", "number", 2, &kParams_2026[0]},
+    {"brightness", "number", 3, &kParams_2026[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2027[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2027[] = {
+    {"ndvi", "number", 2, &kParams_2027[0]},
+    {"brightness", "number", 3, &kParams_2027[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2028[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2028[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2028[0]},
+    {"groundWidth", "number", 2, &kParams_2028[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2029[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2029[] = {
+    {"tileRow", "number", 2, &kParams_2029[0]},
+    {"tileCol", "number", 2, &kParams_2029[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2030[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2030[] = {
+    {"utmZone", "number", 1, &kParams_2030[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2030[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2031[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2031[] = {
+    {"planarDist", "number", 4, &kParams_2031[0]},
+    {"planarDist2", "number", 4, &kParams_2031[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2032[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2032[] = {
+    {"percentSlope", "number", 2, &kParams_2032[0]},
+    {"degreeSlope", "number", 2, &kParams_2032[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2033[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2033[] = {
+    {"tileOriginX", "number", 2, &kParams_2033[0]},
+    {"tileOriginY", "number", 2, &kParams_2033[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2034[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2034[] = {
+    {"haversineKm", "number", 4, &kParams_2034[0]},
+    {"haversineM", "number", 4, &kParams_2034[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2035[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2035[] = {
+    {"bearingDeg", "number", 4, &kParams_2035[0]},
+    {"azimuthDiff", "number", 2, &kParams_2035[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2036[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2036[] = {
+    {"bboxWidth", "number", 4, &kParams_2036[0]},
+    {"bboxArea", "number", 4, &kParams_2036[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2037[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2037[] = {
+    {"bboxCenterX", "number", 4, &kParams_2037[0]},
+    {"bboxCenterY", "number", 4, &kParams_2037[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2038[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2038[] = {
+    {"pointInBbox", "bool", 6, &kParams_2038[0]},
+    {"degToRad", "number", 1, &kParams_2038[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2039[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2039[] = {
+    {"mToKm", "number", 1, &kParams_2039[0]},
+    {"kmToM", "number", 1, &kParams_2039[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2040[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2040[] = {
+    {"normalizeLon", "number", 1, &kParams_2040[0]},
+    {"clampLat", "number", 1, &kParams_2040[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2041[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2041[] = {
+    {"pixelIndex", "number", 3, &kParams_2041[0]},
+    {"geoToPixelX", "number", 3, &kParams_2041[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2042[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2042[] = {
+    {"ndvi", "number", 2, &kParams_2042[0]},
+    {"brightness", "number", 3, &kParams_2042[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2043[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2043[] = {
+    {"ndvi", "number", 2, &kParams_2043[0]},
+    {"brightness", "number", 3, &kParams_2043[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2044[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2044[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2044[0]},
+    {"groundWidth", "number", 2, &kParams_2044[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2045[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2045[] = {
+    {"tileRow", "number", 2, &kParams_2045[0]},
+    {"tileCol", "number", 2, &kParams_2045[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2046[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2046[] = {
+    {"utmZone", "number", 1, &kParams_2046[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2046[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2047[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2047[] = {
+    {"planarDist", "number", 4, &kParams_2047[0]},
+    {"planarDist2", "number", 4, &kParams_2047[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2048[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2048[] = {
+    {"percentSlope", "number", 2, &kParams_2048[0]},
+    {"degreeSlope", "number", 2, &kParams_2048[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2049[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2049[] = {
+    {"tileOriginX", "number", 2, &kParams_2049[0]},
+    {"tileOriginY", "number", 2, &kParams_2049[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2050[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2050[] = {
+    {"haversineKm", "number", 4, &kParams_2050[0]},
+    {"haversineM", "number", 4, &kParams_2050[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2051[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2051[] = {
+    {"bearingDeg", "number", 4, &kParams_2051[0]},
+    {"azimuthDiff", "number", 2, &kParams_2051[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2052[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2052[] = {
+    {"bboxWidth", "number", 4, &kParams_2052[0]},
+    {"bboxArea", "number", 4, &kParams_2052[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2053[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2053[] = {
+    {"bboxCenterX", "number", 4, &kParams_2053[0]},
+    {"bboxCenterY", "number", 4, &kParams_2053[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2054[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2054[] = {
+    {"pointInBbox", "bool", 6, &kParams_2054[0]},
+    {"degToRad", "number", 1, &kParams_2054[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2055[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2055[] = {
+    {"mToKm", "number", 1, &kParams_2055[0]},
+    {"kmToM", "number", 1, &kParams_2055[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2056[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2056[] = {
+    {"normalizeLon", "number", 1, &kParams_2056[0]},
+    {"clampLat", "number", 1, &kParams_2056[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2057[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2057[] = {
+    {"pixelIndex", "number", 3, &kParams_2057[0]},
+    {"geoToPixelX", "number", 3, &kParams_2057[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2058[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2058[] = {
+    {"ndvi", "number", 2, &kParams_2058[0]},
+    {"brightness", "number", 3, &kParams_2058[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2059[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2059[] = {
+    {"ndvi", "number", 2, &kParams_2059[0]},
+    {"brightness", "number", 3, &kParams_2059[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2060[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2060[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2060[0]},
+    {"groundWidth", "number", 2, &kParams_2060[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2061[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2061[] = {
+    {"tileRow", "number", 2, &kParams_2061[0]},
+    {"tileCol", "number", 2, &kParams_2061[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2062[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2062[] = {
+    {"utmZone", "number", 1, &kParams_2062[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2062[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2063[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2063[] = {
+    {"planarDist", "number", 4, &kParams_2063[0]},
+    {"planarDist2", "number", 4, &kParams_2063[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2064[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2064[] = {
+    {"percentSlope", "number", 2, &kParams_2064[0]},
+    {"degreeSlope", "number", 2, &kParams_2064[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2065[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2065[] = {
+    {"tileOriginX", "number", 2, &kParams_2065[0]},
+    {"tileOriginY", "number", 2, &kParams_2065[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2066[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2066[] = {
+    {"haversineKm", "number", 4, &kParams_2066[0]},
+    {"haversineM", "number", 4, &kParams_2066[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2067[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2067[] = {
+    {"bearingDeg", "number", 4, &kParams_2067[0]},
+    {"azimuthDiff", "number", 2, &kParams_2067[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2068[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2068[] = {
+    {"bboxWidth", "number", 4, &kParams_2068[0]},
+    {"bboxArea", "number", 4, &kParams_2068[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2069[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2069[] = {
+    {"bboxCenterX", "number", 4, &kParams_2069[0]},
+    {"bboxCenterY", "number", 4, &kParams_2069[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2070[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2070[] = {
+    {"pointInBbox", "bool", 6, &kParams_2070[0]},
+    {"degToRad", "number", 1, &kParams_2070[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2071[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2071[] = {
+    {"mToKm", "number", 1, &kParams_2071[0]},
+    {"kmToM", "number", 1, &kParams_2071[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2072[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2072[] = {
+    {"normalizeLon", "number", 1, &kParams_2072[0]},
+    {"clampLat", "number", 1, &kParams_2072[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2073[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2073[] = {
+    {"pixelIndex", "number", 3, &kParams_2073[0]},
+    {"geoToPixelX", "number", 3, &kParams_2073[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2074[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2074[] = {
+    {"ndvi", "number", 2, &kParams_2074[0]},
+    {"brightness", "number", 3, &kParams_2074[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2075[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2075[] = {
+    {"ndvi", "number", 2, &kParams_2075[0]},
+    {"brightness", "number", 3, &kParams_2075[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2076[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2076[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2076[0]},
+    {"groundWidth", "number", 2, &kParams_2076[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2077[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2077[] = {
+    {"tileRow", "number", 2, &kParams_2077[0]},
+    {"tileCol", "number", 2, &kParams_2077[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2078[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2078[] = {
+    {"utmZone", "number", 1, &kParams_2078[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2078[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2079[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2079[] = {
+    {"planarDist", "number", 4, &kParams_2079[0]},
+    {"planarDist2", "number", 4, &kParams_2079[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2080[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2080[] = {
+    {"percentSlope", "number", 2, &kParams_2080[0]},
+    {"degreeSlope", "number", 2, &kParams_2080[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2081[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2081[] = {
+    {"tileOriginX", "number", 2, &kParams_2081[0]},
+    {"tileOriginY", "number", 2, &kParams_2081[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2082[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2082[] = {
+    {"haversineKm", "number", 4, &kParams_2082[0]},
+    {"haversineM", "number", 4, &kParams_2082[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2083[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2083[] = {
+    {"bearingDeg", "number", 4, &kParams_2083[0]},
+    {"azimuthDiff", "number", 2, &kParams_2083[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2084[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2084[] = {
+    {"bboxWidth", "number", 4, &kParams_2084[0]},
+    {"bboxArea", "number", 4, &kParams_2084[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2085[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2085[] = {
+    {"bboxCenterX", "number", 4, &kParams_2085[0]},
+    {"bboxCenterY", "number", 4, &kParams_2085[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2086[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2086[] = {
+    {"pointInBbox", "bool", 6, &kParams_2086[0]},
+    {"degToRad", "number", 1, &kParams_2086[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2087[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2087[] = {
+    {"mToKm", "number", 1, &kParams_2087[0]},
+    {"kmToM", "number", 1, &kParams_2087[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2088[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2088[] = {
+    {"normalizeLon", "number", 1, &kParams_2088[0]},
+    {"clampLat", "number", 1, &kParams_2088[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2089[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2089[] = {
+    {"pixelIndex", "number", 3, &kParams_2089[0]},
+    {"geoToPixelX", "number", 3, &kParams_2089[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2090[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2090[] = {
+    {"ndvi", "number", 2, &kParams_2090[0]},
+    {"brightness", "number", 3, &kParams_2090[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2091[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2091[] = {
+    {"ndvi", "number", 2, &kParams_2091[0]},
+    {"brightness", "number", 3, &kParams_2091[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2092[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2092[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2092[0]},
+    {"groundWidth", "number", 2, &kParams_2092[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2093[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2093[] = {
+    {"tileRow", "number", 2, &kParams_2093[0]},
+    {"tileCol", "number", 2, &kParams_2093[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2094[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2094[] = {
+    {"utmZone", "number", 1, &kParams_2094[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2094[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2095[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2095[] = {
+    {"planarDist", "number", 4, &kParams_2095[0]},
+    {"planarDist2", "number", 4, &kParams_2095[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2096[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2096[] = {
+    {"percentSlope", "number", 2, &kParams_2096[0]},
+    {"degreeSlope", "number", 2, &kParams_2096[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2097[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2097[] = {
+    {"tileOriginX", "number", 2, &kParams_2097[0]},
+    {"tileOriginY", "number", 2, &kParams_2097[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2098[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2098[] = {
+    {"haversineKm", "number", 4, &kParams_2098[0]},
+    {"haversineM", "number", 4, &kParams_2098[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2099[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2099[] = {
+    {"bearingDeg", "number", 4, &kParams_2099[0]},
+    {"azimuthDiff", "number", 2, &kParams_2099[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2100[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2100[] = {
+    {"bboxWidth", "number", 4, &kParams_2100[0]},
+    {"bboxArea", "number", 4, &kParams_2100[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2101[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2101[] = {
+    {"bboxCenterX", "number", 4, &kParams_2101[0]},
+    {"bboxCenterY", "number", 4, &kParams_2101[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2102[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2102[] = {
+    {"pointInBbox", "bool", 6, &kParams_2102[0]},
+    {"degToRad", "number", 1, &kParams_2102[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2103[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2103[] = {
+    {"mToKm", "number", 1, &kParams_2103[0]},
+    {"kmToM", "number", 1, &kParams_2103[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2104[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2104[] = {
+    {"normalizeLon", "number", 1, &kParams_2104[0]},
+    {"clampLat", "number", 1, &kParams_2104[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2105[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2105[] = {
+    {"pixelIndex", "number", 3, &kParams_2105[0]},
+    {"geoToPixelX", "number", 3, &kParams_2105[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2106[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2106[] = {
+    {"ndvi", "number", 2, &kParams_2106[0]},
+    {"brightness", "number", 3, &kParams_2106[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2107[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2107[] = {
+    {"ndvi", "number", 2, &kParams_2107[0]},
+    {"brightness", "number", 3, &kParams_2107[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2108[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2108[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2108[0]},
+    {"groundWidth", "number", 2, &kParams_2108[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2109[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2109[] = {
+    {"tileRow", "number", 2, &kParams_2109[0]},
+    {"tileCol", "number", 2, &kParams_2109[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2110[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2110[] = {
+    {"utmZone", "number", 1, &kParams_2110[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2110[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2111[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2111[] = {
+    {"planarDist", "number", 4, &kParams_2111[0]},
+    {"planarDist2", "number", 4, &kParams_2111[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2112[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2112[] = {
+    {"percentSlope", "number", 2, &kParams_2112[0]},
+    {"degreeSlope", "number", 2, &kParams_2112[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2113[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2113[] = {
+    {"tileOriginX", "number", 2, &kParams_2113[0]},
+    {"tileOriginY", "number", 2, &kParams_2113[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2114[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2114[] = {
+    {"haversineKm", "number", 4, &kParams_2114[0]},
+    {"haversineM", "number", 4, &kParams_2114[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2115[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2115[] = {
+    {"bearingDeg", "number", 4, &kParams_2115[0]},
+    {"azimuthDiff", "number", 2, &kParams_2115[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2116[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2116[] = {
+    {"bboxWidth", "number", 4, &kParams_2116[0]},
+    {"bboxArea", "number", 4, &kParams_2116[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2117[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2117[] = {
+    {"bboxCenterX", "number", 4, &kParams_2117[0]},
+    {"bboxCenterY", "number", 4, &kParams_2117[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2118[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2118[] = {
+    {"pointInBbox", "bool", 6, &kParams_2118[0]},
+    {"degToRad", "number", 1, &kParams_2118[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2119[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2119[] = {
+    {"mToKm", "number", 1, &kParams_2119[0]},
+    {"kmToM", "number", 1, &kParams_2119[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2120[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2120[] = {
+    {"normalizeLon", "number", 1, &kParams_2120[0]},
+    {"clampLat", "number", 1, &kParams_2120[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2121[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2121[] = {
+    {"pixelIndex", "number", 3, &kParams_2121[0]},
+    {"geoToPixelX", "number", 3, &kParams_2121[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2122[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2122[] = {
+    {"ndvi", "number", 2, &kParams_2122[0]},
+    {"brightness", "number", 3, &kParams_2122[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2123[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2123[] = {
+    {"ndvi", "number", 2, &kParams_2123[0]},
+    {"brightness", "number", 3, &kParams_2123[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2124[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2124[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2124[0]},
+    {"groundWidth", "number", 2, &kParams_2124[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2125[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2125[] = {
+    {"tileRow", "number", 2, &kParams_2125[0]},
+    {"tileCol", "number", 2, &kParams_2125[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2126[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2126[] = {
+    {"utmZone", "number", 1, &kParams_2126[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2126[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2127[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2127[] = {
+    {"planarDist", "number", 4, &kParams_2127[0]},
+    {"planarDist2", "number", 4, &kParams_2127[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2128[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2128[] = {
+    {"percentSlope", "number", 2, &kParams_2128[0]},
+    {"degreeSlope", "number", 2, &kParams_2128[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2129[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2129[] = {
+    {"tileOriginX", "number", 2, &kParams_2129[0]},
+    {"tileOriginY", "number", 2, &kParams_2129[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2130[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2130[] = {
+    {"haversineKm", "number", 4, &kParams_2130[0]},
+    {"haversineM", "number", 4, &kParams_2130[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2131[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2131[] = {
+    {"bearingDeg", "number", 4, &kParams_2131[0]},
+    {"azimuthDiff", "number", 2, &kParams_2131[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2132[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2132[] = {
+    {"bboxWidth", "number", 4, &kParams_2132[0]},
+    {"bboxArea", "number", 4, &kParams_2132[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2133[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2133[] = {
+    {"bboxCenterX", "number", 4, &kParams_2133[0]},
+    {"bboxCenterY", "number", 4, &kParams_2133[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2134[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2134[] = {
+    {"pointInBbox", "bool", 6, &kParams_2134[0]},
+    {"degToRad", "number", 1, &kParams_2134[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2135[] = {
+    {"m", "number"},
+    {"km", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2135[] = {
+    {"mToKm", "number", 1, &kParams_2135[0]},
+    {"kmToM", "number", 1, &kParams_2135[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2136[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2136[] = {
+    {"normalizeLon", "number", 1, &kParams_2136[0]},
+    {"clampLat", "number", 1, &kParams_2136[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2137[] = {
+    {"row", "number"},
+    {"col", "number"},
+    {"width", "number"},
+    {"x", "number"},
+    {"originX", "number"},
+    {"resX", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2137[] = {
+    {"pixelIndex", "number", 3, &kParams_2137[0]},
+    {"geoToPixelX", "number", 3, &kParams_2137[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2138[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2138[] = {
+    {"ndvi", "number", 2, &kParams_2138[0]},
+    {"brightness", "number", 3, &kParams_2138[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2139[] = {
+    {"nir", "number"},
+    {"red", "number"},
+    {"r", "number"},
+    {"g", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2139[] = {
+    {"ndvi", "number", 2, &kParams_2139[0]},
+    {"brightness", "number", 3, &kParams_2139[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2140[] = {
+    {"altM", "number"},
+    {"focalMm", "number"},
+    {"pixelUm", "number"},
+    {"pixels", "number"},
+    {"gsd", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2140[] = {
+    {"gsdFromAltitude", "number", 3, &kParams_2140[0]},
+    {"groundWidth", "number", 2, &kParams_2140[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2141[] = {
+    {"lat", "number"},
+    {"z", "number"},
+    {"lon", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2141[] = {
+    {"tileRow", "number", 2, &kParams_2141[0]},
+    {"tileCol", "number", 2, &kParams_2141[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2142[] = {
+    {"lon", "number"},
+    {"lat", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2142[] = {
+    {"utmZone", "number", 1, &kParams_2142[0]},
+    {"isNorthernHemisphere", "bool", 1, &kParams_2142[1]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2143[] = {
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"x2", "number"},
+    {"y2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2143[] = {
+    {"planarDist", "number", 4, &kParams_2143[0]},
+    {"planarDist2", "number", 4, &kParams_2143[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2144[] = {
+    {"rise", "number"},
+    {"run", "number"},
+    {"rise", "number"},
+    {"run", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2144[] = {
+    {"percentSlope", "number", 2, &kParams_2144[0]},
+    {"degreeSlope", "number", 2, &kParams_2144[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2145[] = {
+    {"tileCol", "number"},
+    {"tileSize", "number"},
+    {"tileRow", "number"},
+    {"tileSize", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2145[] = {
+    {"tileOriginX", "number", 2, &kParams_2145[0]},
+    {"tileOriginY", "number", 2, &kParams_2145[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2146[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2146[] = {
+    {"haversineKm", "number", 4, &kParams_2146[0]},
+    {"haversineM", "number", 4, &kParams_2146[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2147[] = {
+    {"lat1", "number"},
+    {"lon1", "number"},
+    {"lat2", "number"},
+    {"lon2", "number"},
+    {"a", "number"},
+    {"b", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2147[] = {
+    {"bearingDeg", "number", 4, &kParams_2147[0]},
+    {"azimuthDiff", "number", 2, &kParams_2147[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2148[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2148[] = {
+    {"bboxWidth", "number", 4, &kParams_2148[0]},
+    {"bboxArea", "number", 4, &kParams_2148[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2149[] = {
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2149[] = {
+    {"bboxCenterX", "number", 4, &kParams_2149[0]},
+    {"bboxCenterY", "number", 4, &kParams_2149[4]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_2150[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"minX", "number"},
+    {"minY", "number"},
+    {"maxX", "number"},
+    {"maxY", "number"},
+    {"deg", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_2150[] = {
+    {"pointInBbox", "bool", 6, &kParams_2150[0]},
+    {"degToRad", "number", 1, &kParams_2150[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
 const StdlibModuleSpec kSimpleModules[] = {
     {"absnum", "absnum", kFuncs_0, 2, "simple/absnum.hpp", false},
     {"sqrtlib", "sqrtlib", kFuncs_1, 2, "simple/sqrtlib.hpp", false},
@@ -29715,10 +37348,510 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"game3dkit498", "game3dkit498", kFuncs_1648, 3, "simple/game3dkit498.hpp", false},
     {"game3dkit499", "game3dkit499", kFuncs_1649, 3, "simple/game3dkit499.hpp", false},
     {"game3dkit500", "game3dkit500", kFuncs_1650, 2, "simple/game3dkit500.hpp", false},
+    {"giskit001", "giskit001", kFuncs_1651, 2, "simple/giskit001.hpp", false},
+    {"giskit002", "giskit002", kFuncs_1652, 2, "simple/giskit002.hpp", false},
+    {"giskit003", "giskit003", kFuncs_1653, 2, "simple/giskit003.hpp", false},
+    {"giskit004", "giskit004", kFuncs_1654, 2, "simple/giskit004.hpp", false},
+    {"giskit005", "giskit005", kFuncs_1655, 2, "simple/giskit005.hpp", false},
+    {"giskit006", "giskit006", kFuncs_1656, 2, "simple/giskit006.hpp", false},
+    {"giskit007", "giskit007", kFuncs_1657, 2, "simple/giskit007.hpp", false},
+    {"giskit008", "giskit008", kFuncs_1658, 2, "simple/giskit008.hpp", false},
+    {"giskit009", "giskit009", kFuncs_1659, 2, "simple/giskit009.hpp", false},
+    {"giskit010", "giskit010", kFuncs_1660, 2, "simple/giskit010.hpp", false},
+    {"giskit011", "giskit011", kFuncs_1661, 2, "simple/giskit011.hpp", false},
+    {"giskit012", "giskit012", kFuncs_1662, 2, "simple/giskit012.hpp", false},
+    {"giskit013", "giskit013", kFuncs_1663, 2, "simple/giskit013.hpp", false},
+    {"giskit014", "giskit014", kFuncs_1664, 2, "simple/giskit014.hpp", false},
+    {"giskit015", "giskit015", kFuncs_1665, 2, "simple/giskit015.hpp", false},
+    {"giskit016", "giskit016", kFuncs_1666, 2, "simple/giskit016.hpp", false},
+    {"giskit017", "giskit017", kFuncs_1667, 2, "simple/giskit017.hpp", false},
+    {"giskit018", "giskit018", kFuncs_1668, 2, "simple/giskit018.hpp", false},
+    {"giskit019", "giskit019", kFuncs_1669, 2, "simple/giskit019.hpp", false},
+    {"giskit020", "giskit020", kFuncs_1670, 2, "simple/giskit020.hpp", false},
+    {"giskit021", "giskit021", kFuncs_1671, 2, "simple/giskit021.hpp", false},
+    {"giskit022", "giskit022", kFuncs_1672, 2, "simple/giskit022.hpp", false},
+    {"giskit023", "giskit023", kFuncs_1673, 2, "simple/giskit023.hpp", false},
+    {"giskit024", "giskit024", kFuncs_1674, 2, "simple/giskit024.hpp", false},
+    {"giskit025", "giskit025", kFuncs_1675, 2, "simple/giskit025.hpp", false},
+    {"giskit026", "giskit026", kFuncs_1676, 2, "simple/giskit026.hpp", false},
+    {"giskit027", "giskit027", kFuncs_1677, 2, "simple/giskit027.hpp", false},
+    {"giskit028", "giskit028", kFuncs_1678, 2, "simple/giskit028.hpp", false},
+    {"giskit029", "giskit029", kFuncs_1679, 2, "simple/giskit029.hpp", false},
+    {"giskit030", "giskit030", kFuncs_1680, 2, "simple/giskit030.hpp", false},
+    {"giskit031", "giskit031", kFuncs_1681, 2, "simple/giskit031.hpp", false},
+    {"giskit032", "giskit032", kFuncs_1682, 2, "simple/giskit032.hpp", false},
+    {"giskit033", "giskit033", kFuncs_1683, 2, "simple/giskit033.hpp", false},
+    {"giskit034", "giskit034", kFuncs_1684, 2, "simple/giskit034.hpp", false},
+    {"giskit035", "giskit035", kFuncs_1685, 2, "simple/giskit035.hpp", false},
+    {"giskit036", "giskit036", kFuncs_1686, 2, "simple/giskit036.hpp", false},
+    {"giskit037", "giskit037", kFuncs_1687, 2, "simple/giskit037.hpp", false},
+    {"giskit038", "giskit038", kFuncs_1688, 2, "simple/giskit038.hpp", false},
+    {"giskit039", "giskit039", kFuncs_1689, 2, "simple/giskit039.hpp", false},
+    {"giskit040", "giskit040", kFuncs_1690, 2, "simple/giskit040.hpp", false},
+    {"giskit041", "giskit041", kFuncs_1691, 2, "simple/giskit041.hpp", false},
+    {"giskit042", "giskit042", kFuncs_1692, 2, "simple/giskit042.hpp", false},
+    {"giskit043", "giskit043", kFuncs_1693, 2, "simple/giskit043.hpp", false},
+    {"giskit044", "giskit044", kFuncs_1694, 2, "simple/giskit044.hpp", false},
+    {"giskit045", "giskit045", kFuncs_1695, 2, "simple/giskit045.hpp", false},
+    {"giskit046", "giskit046", kFuncs_1696, 2, "simple/giskit046.hpp", false},
+    {"giskit047", "giskit047", kFuncs_1697, 2, "simple/giskit047.hpp", false},
+    {"giskit048", "giskit048", kFuncs_1698, 2, "simple/giskit048.hpp", false},
+    {"giskit049", "giskit049", kFuncs_1699, 2, "simple/giskit049.hpp", false},
+    {"giskit050", "giskit050", kFuncs_1700, 2, "simple/giskit050.hpp", false},
+    {"giskit051", "giskit051", kFuncs_1701, 2, "simple/giskit051.hpp", false},
+    {"giskit052", "giskit052", kFuncs_1702, 2, "simple/giskit052.hpp", false},
+    {"giskit053", "giskit053", kFuncs_1703, 2, "simple/giskit053.hpp", false},
+    {"giskit054", "giskit054", kFuncs_1704, 2, "simple/giskit054.hpp", false},
+    {"giskit055", "giskit055", kFuncs_1705, 2, "simple/giskit055.hpp", false},
+    {"giskit056", "giskit056", kFuncs_1706, 2, "simple/giskit056.hpp", false},
+    {"giskit057", "giskit057", kFuncs_1707, 2, "simple/giskit057.hpp", false},
+    {"giskit058", "giskit058", kFuncs_1708, 2, "simple/giskit058.hpp", false},
+    {"giskit059", "giskit059", kFuncs_1709, 2, "simple/giskit059.hpp", false},
+    {"giskit060", "giskit060", kFuncs_1710, 2, "simple/giskit060.hpp", false},
+    {"giskit061", "giskit061", kFuncs_1711, 2, "simple/giskit061.hpp", false},
+    {"giskit062", "giskit062", kFuncs_1712, 2, "simple/giskit062.hpp", false},
+    {"giskit063", "giskit063", kFuncs_1713, 2, "simple/giskit063.hpp", false},
+    {"giskit064", "giskit064", kFuncs_1714, 2, "simple/giskit064.hpp", false},
+    {"giskit065", "giskit065", kFuncs_1715, 2, "simple/giskit065.hpp", false},
+    {"giskit066", "giskit066", kFuncs_1716, 2, "simple/giskit066.hpp", false},
+    {"giskit067", "giskit067", kFuncs_1717, 2, "simple/giskit067.hpp", false},
+    {"giskit068", "giskit068", kFuncs_1718, 2, "simple/giskit068.hpp", false},
+    {"giskit069", "giskit069", kFuncs_1719, 2, "simple/giskit069.hpp", false},
+    {"giskit070", "giskit070", kFuncs_1720, 2, "simple/giskit070.hpp", false},
+    {"giskit071", "giskit071", kFuncs_1721, 2, "simple/giskit071.hpp", false},
+    {"giskit072", "giskit072", kFuncs_1722, 2, "simple/giskit072.hpp", false},
+    {"giskit073", "giskit073", kFuncs_1723, 2, "simple/giskit073.hpp", false},
+    {"giskit074", "giskit074", kFuncs_1724, 2, "simple/giskit074.hpp", false},
+    {"giskit075", "giskit075", kFuncs_1725, 2, "simple/giskit075.hpp", false},
+    {"giskit076", "giskit076", kFuncs_1726, 2, "simple/giskit076.hpp", false},
+    {"giskit077", "giskit077", kFuncs_1727, 2, "simple/giskit077.hpp", false},
+    {"giskit078", "giskit078", kFuncs_1728, 2, "simple/giskit078.hpp", false},
+    {"giskit079", "giskit079", kFuncs_1729, 2, "simple/giskit079.hpp", false},
+    {"giskit080", "giskit080", kFuncs_1730, 2, "simple/giskit080.hpp", false},
+    {"giskit081", "giskit081", kFuncs_1731, 2, "simple/giskit081.hpp", false},
+    {"giskit082", "giskit082", kFuncs_1732, 2, "simple/giskit082.hpp", false},
+    {"giskit083", "giskit083", kFuncs_1733, 2, "simple/giskit083.hpp", false},
+    {"giskit084", "giskit084", kFuncs_1734, 2, "simple/giskit084.hpp", false},
+    {"giskit085", "giskit085", kFuncs_1735, 2, "simple/giskit085.hpp", false},
+    {"giskit086", "giskit086", kFuncs_1736, 2, "simple/giskit086.hpp", false},
+    {"giskit087", "giskit087", kFuncs_1737, 2, "simple/giskit087.hpp", false},
+    {"giskit088", "giskit088", kFuncs_1738, 2, "simple/giskit088.hpp", false},
+    {"giskit089", "giskit089", kFuncs_1739, 2, "simple/giskit089.hpp", false},
+    {"giskit090", "giskit090", kFuncs_1740, 2, "simple/giskit090.hpp", false},
+    {"giskit091", "giskit091", kFuncs_1741, 2, "simple/giskit091.hpp", false},
+    {"giskit092", "giskit092", kFuncs_1742, 2, "simple/giskit092.hpp", false},
+    {"giskit093", "giskit093", kFuncs_1743, 2, "simple/giskit093.hpp", false},
+    {"giskit094", "giskit094", kFuncs_1744, 2, "simple/giskit094.hpp", false},
+    {"giskit095", "giskit095", kFuncs_1745, 2, "simple/giskit095.hpp", false},
+    {"giskit096", "giskit096", kFuncs_1746, 2, "simple/giskit096.hpp", false},
+    {"giskit097", "giskit097", kFuncs_1747, 2, "simple/giskit097.hpp", false},
+    {"giskit098", "giskit098", kFuncs_1748, 2, "simple/giskit098.hpp", false},
+    {"giskit099", "giskit099", kFuncs_1749, 2, "simple/giskit099.hpp", false},
+    {"giskit100", "giskit100", kFuncs_1750, 2, "simple/giskit100.hpp", false},
+    {"giskit101", "giskit101", kFuncs_1751, 2, "simple/giskit101.hpp", false},
+    {"giskit102", "giskit102", kFuncs_1752, 2, "simple/giskit102.hpp", false},
+    {"giskit103", "giskit103", kFuncs_1753, 2, "simple/giskit103.hpp", false},
+    {"giskit104", "giskit104", kFuncs_1754, 2, "simple/giskit104.hpp", false},
+    {"giskit105", "giskit105", kFuncs_1755, 2, "simple/giskit105.hpp", false},
+    {"giskit106", "giskit106", kFuncs_1756, 2, "simple/giskit106.hpp", false},
+    {"giskit107", "giskit107", kFuncs_1757, 2, "simple/giskit107.hpp", false},
+    {"giskit108", "giskit108", kFuncs_1758, 2, "simple/giskit108.hpp", false},
+    {"giskit109", "giskit109", kFuncs_1759, 2, "simple/giskit109.hpp", false},
+    {"giskit110", "giskit110", kFuncs_1760, 2, "simple/giskit110.hpp", false},
+    {"giskit111", "giskit111", kFuncs_1761, 2, "simple/giskit111.hpp", false},
+    {"giskit112", "giskit112", kFuncs_1762, 2, "simple/giskit112.hpp", false},
+    {"giskit113", "giskit113", kFuncs_1763, 2, "simple/giskit113.hpp", false},
+    {"giskit114", "giskit114", kFuncs_1764, 2, "simple/giskit114.hpp", false},
+    {"giskit115", "giskit115", kFuncs_1765, 2, "simple/giskit115.hpp", false},
+    {"giskit116", "giskit116", kFuncs_1766, 2, "simple/giskit116.hpp", false},
+    {"giskit117", "giskit117", kFuncs_1767, 2, "simple/giskit117.hpp", false},
+    {"giskit118", "giskit118", kFuncs_1768, 2, "simple/giskit118.hpp", false},
+    {"giskit119", "giskit119", kFuncs_1769, 2, "simple/giskit119.hpp", false},
+    {"giskit120", "giskit120", kFuncs_1770, 2, "simple/giskit120.hpp", false},
+    {"giskit121", "giskit121", kFuncs_1771, 2, "simple/giskit121.hpp", false},
+    {"giskit122", "giskit122", kFuncs_1772, 2, "simple/giskit122.hpp", false},
+    {"giskit123", "giskit123", kFuncs_1773, 2, "simple/giskit123.hpp", false},
+    {"giskit124", "giskit124", kFuncs_1774, 2, "simple/giskit124.hpp", false},
+    {"giskit125", "giskit125", kFuncs_1775, 2, "simple/giskit125.hpp", false},
+    {"giskit126", "giskit126", kFuncs_1776, 2, "simple/giskit126.hpp", false},
+    {"giskit127", "giskit127", kFuncs_1777, 2, "simple/giskit127.hpp", false},
+    {"giskit128", "giskit128", kFuncs_1778, 2, "simple/giskit128.hpp", false},
+    {"giskit129", "giskit129", kFuncs_1779, 2, "simple/giskit129.hpp", false},
+    {"giskit130", "giskit130", kFuncs_1780, 2, "simple/giskit130.hpp", false},
+    {"giskit131", "giskit131", kFuncs_1781, 2, "simple/giskit131.hpp", false},
+    {"giskit132", "giskit132", kFuncs_1782, 2, "simple/giskit132.hpp", false},
+    {"giskit133", "giskit133", kFuncs_1783, 2, "simple/giskit133.hpp", false},
+    {"giskit134", "giskit134", kFuncs_1784, 2, "simple/giskit134.hpp", false},
+    {"giskit135", "giskit135", kFuncs_1785, 2, "simple/giskit135.hpp", false},
+    {"giskit136", "giskit136", kFuncs_1786, 2, "simple/giskit136.hpp", false},
+    {"giskit137", "giskit137", kFuncs_1787, 2, "simple/giskit137.hpp", false},
+    {"giskit138", "giskit138", kFuncs_1788, 2, "simple/giskit138.hpp", false},
+    {"giskit139", "giskit139", kFuncs_1789, 2, "simple/giskit139.hpp", false},
+    {"giskit140", "giskit140", kFuncs_1790, 2, "simple/giskit140.hpp", false},
+    {"giskit141", "giskit141", kFuncs_1791, 2, "simple/giskit141.hpp", false},
+    {"giskit142", "giskit142", kFuncs_1792, 2, "simple/giskit142.hpp", false},
+    {"giskit143", "giskit143", kFuncs_1793, 2, "simple/giskit143.hpp", false},
+    {"giskit144", "giskit144", kFuncs_1794, 2, "simple/giskit144.hpp", false},
+    {"giskit145", "giskit145", kFuncs_1795, 2, "simple/giskit145.hpp", false},
+    {"giskit146", "giskit146", kFuncs_1796, 2, "simple/giskit146.hpp", false},
+    {"giskit147", "giskit147", kFuncs_1797, 2, "simple/giskit147.hpp", false},
+    {"giskit148", "giskit148", kFuncs_1798, 2, "simple/giskit148.hpp", false},
+    {"giskit149", "giskit149", kFuncs_1799, 2, "simple/giskit149.hpp", false},
+    {"giskit150", "giskit150", kFuncs_1800, 2, "simple/giskit150.hpp", false},
+    {"giskit151", "giskit151", kFuncs_1801, 2, "simple/giskit151.hpp", false},
+    {"giskit152", "giskit152", kFuncs_1802, 2, "simple/giskit152.hpp", false},
+    {"giskit153", "giskit153", kFuncs_1803, 2, "simple/giskit153.hpp", false},
+    {"giskit154", "giskit154", kFuncs_1804, 2, "simple/giskit154.hpp", false},
+    {"giskit155", "giskit155", kFuncs_1805, 2, "simple/giskit155.hpp", false},
+    {"giskit156", "giskit156", kFuncs_1806, 2, "simple/giskit156.hpp", false},
+    {"giskit157", "giskit157", kFuncs_1807, 2, "simple/giskit157.hpp", false},
+    {"giskit158", "giskit158", kFuncs_1808, 2, "simple/giskit158.hpp", false},
+    {"giskit159", "giskit159", kFuncs_1809, 2, "simple/giskit159.hpp", false},
+    {"giskit160", "giskit160", kFuncs_1810, 2, "simple/giskit160.hpp", false},
+    {"giskit161", "giskit161", kFuncs_1811, 2, "simple/giskit161.hpp", false},
+    {"giskit162", "giskit162", kFuncs_1812, 2, "simple/giskit162.hpp", false},
+    {"giskit163", "giskit163", kFuncs_1813, 2, "simple/giskit163.hpp", false},
+    {"giskit164", "giskit164", kFuncs_1814, 2, "simple/giskit164.hpp", false},
+    {"giskit165", "giskit165", kFuncs_1815, 2, "simple/giskit165.hpp", false},
+    {"giskit166", "giskit166", kFuncs_1816, 2, "simple/giskit166.hpp", false},
+    {"giskit167", "giskit167", kFuncs_1817, 2, "simple/giskit167.hpp", false},
+    {"giskit168", "giskit168", kFuncs_1818, 2, "simple/giskit168.hpp", false},
+    {"giskit169", "giskit169", kFuncs_1819, 2, "simple/giskit169.hpp", false},
+    {"giskit170", "giskit170", kFuncs_1820, 2, "simple/giskit170.hpp", false},
+    {"giskit171", "giskit171", kFuncs_1821, 2, "simple/giskit171.hpp", false},
+    {"giskit172", "giskit172", kFuncs_1822, 2, "simple/giskit172.hpp", false},
+    {"giskit173", "giskit173", kFuncs_1823, 2, "simple/giskit173.hpp", false},
+    {"giskit174", "giskit174", kFuncs_1824, 2, "simple/giskit174.hpp", false},
+    {"giskit175", "giskit175", kFuncs_1825, 2, "simple/giskit175.hpp", false},
+    {"giskit176", "giskit176", kFuncs_1826, 2, "simple/giskit176.hpp", false},
+    {"giskit177", "giskit177", kFuncs_1827, 2, "simple/giskit177.hpp", false},
+    {"giskit178", "giskit178", kFuncs_1828, 2, "simple/giskit178.hpp", false},
+    {"giskit179", "giskit179", kFuncs_1829, 2, "simple/giskit179.hpp", false},
+    {"giskit180", "giskit180", kFuncs_1830, 2, "simple/giskit180.hpp", false},
+    {"giskit181", "giskit181", kFuncs_1831, 2, "simple/giskit181.hpp", false},
+    {"giskit182", "giskit182", kFuncs_1832, 2, "simple/giskit182.hpp", false},
+    {"giskit183", "giskit183", kFuncs_1833, 2, "simple/giskit183.hpp", false},
+    {"giskit184", "giskit184", kFuncs_1834, 2, "simple/giskit184.hpp", false},
+    {"giskit185", "giskit185", kFuncs_1835, 2, "simple/giskit185.hpp", false},
+    {"giskit186", "giskit186", kFuncs_1836, 2, "simple/giskit186.hpp", false},
+    {"giskit187", "giskit187", kFuncs_1837, 2, "simple/giskit187.hpp", false},
+    {"giskit188", "giskit188", kFuncs_1838, 2, "simple/giskit188.hpp", false},
+    {"giskit189", "giskit189", kFuncs_1839, 2, "simple/giskit189.hpp", false},
+    {"giskit190", "giskit190", kFuncs_1840, 2, "simple/giskit190.hpp", false},
+    {"giskit191", "giskit191", kFuncs_1841, 2, "simple/giskit191.hpp", false},
+    {"giskit192", "giskit192", kFuncs_1842, 2, "simple/giskit192.hpp", false},
+    {"giskit193", "giskit193", kFuncs_1843, 2, "simple/giskit193.hpp", false},
+    {"giskit194", "giskit194", kFuncs_1844, 2, "simple/giskit194.hpp", false},
+    {"giskit195", "giskit195", kFuncs_1845, 2, "simple/giskit195.hpp", false},
+    {"giskit196", "giskit196", kFuncs_1846, 2, "simple/giskit196.hpp", false},
+    {"giskit197", "giskit197", kFuncs_1847, 2, "simple/giskit197.hpp", false},
+    {"giskit198", "giskit198", kFuncs_1848, 2, "simple/giskit198.hpp", false},
+    {"giskit199", "giskit199", kFuncs_1849, 2, "simple/giskit199.hpp", false},
+    {"giskit200", "giskit200", kFuncs_1850, 2, "simple/giskit200.hpp", false},
+    {"giskit201", "giskit201", kFuncs_1851, 2, "simple/giskit201.hpp", false},
+    {"giskit202", "giskit202", kFuncs_1852, 2, "simple/giskit202.hpp", false},
+    {"giskit203", "giskit203", kFuncs_1853, 2, "simple/giskit203.hpp", false},
+    {"giskit204", "giskit204", kFuncs_1854, 2, "simple/giskit204.hpp", false},
+    {"giskit205", "giskit205", kFuncs_1855, 2, "simple/giskit205.hpp", false},
+    {"giskit206", "giskit206", kFuncs_1856, 2, "simple/giskit206.hpp", false},
+    {"giskit207", "giskit207", kFuncs_1857, 2, "simple/giskit207.hpp", false},
+    {"giskit208", "giskit208", kFuncs_1858, 2, "simple/giskit208.hpp", false},
+    {"giskit209", "giskit209", kFuncs_1859, 2, "simple/giskit209.hpp", false},
+    {"giskit210", "giskit210", kFuncs_1860, 2, "simple/giskit210.hpp", false},
+    {"giskit211", "giskit211", kFuncs_1861, 2, "simple/giskit211.hpp", false},
+    {"giskit212", "giskit212", kFuncs_1862, 2, "simple/giskit212.hpp", false},
+    {"giskit213", "giskit213", kFuncs_1863, 2, "simple/giskit213.hpp", false},
+    {"giskit214", "giskit214", kFuncs_1864, 2, "simple/giskit214.hpp", false},
+    {"giskit215", "giskit215", kFuncs_1865, 2, "simple/giskit215.hpp", false},
+    {"giskit216", "giskit216", kFuncs_1866, 2, "simple/giskit216.hpp", false},
+    {"giskit217", "giskit217", kFuncs_1867, 2, "simple/giskit217.hpp", false},
+    {"giskit218", "giskit218", kFuncs_1868, 2, "simple/giskit218.hpp", false},
+    {"giskit219", "giskit219", kFuncs_1869, 2, "simple/giskit219.hpp", false},
+    {"giskit220", "giskit220", kFuncs_1870, 2, "simple/giskit220.hpp", false},
+    {"giskit221", "giskit221", kFuncs_1871, 2, "simple/giskit221.hpp", false},
+    {"giskit222", "giskit222", kFuncs_1872, 2, "simple/giskit222.hpp", false},
+    {"giskit223", "giskit223", kFuncs_1873, 2, "simple/giskit223.hpp", false},
+    {"giskit224", "giskit224", kFuncs_1874, 2, "simple/giskit224.hpp", false},
+    {"giskit225", "giskit225", kFuncs_1875, 2, "simple/giskit225.hpp", false},
+    {"giskit226", "giskit226", kFuncs_1876, 2, "simple/giskit226.hpp", false},
+    {"giskit227", "giskit227", kFuncs_1877, 2, "simple/giskit227.hpp", false},
+    {"giskit228", "giskit228", kFuncs_1878, 2, "simple/giskit228.hpp", false},
+    {"giskit229", "giskit229", kFuncs_1879, 2, "simple/giskit229.hpp", false},
+    {"giskit230", "giskit230", kFuncs_1880, 2, "simple/giskit230.hpp", false},
+    {"giskit231", "giskit231", kFuncs_1881, 2, "simple/giskit231.hpp", false},
+    {"giskit232", "giskit232", kFuncs_1882, 2, "simple/giskit232.hpp", false},
+    {"giskit233", "giskit233", kFuncs_1883, 2, "simple/giskit233.hpp", false},
+    {"giskit234", "giskit234", kFuncs_1884, 2, "simple/giskit234.hpp", false},
+    {"giskit235", "giskit235", kFuncs_1885, 2, "simple/giskit235.hpp", false},
+    {"giskit236", "giskit236", kFuncs_1886, 2, "simple/giskit236.hpp", false},
+    {"giskit237", "giskit237", kFuncs_1887, 2, "simple/giskit237.hpp", false},
+    {"giskit238", "giskit238", kFuncs_1888, 2, "simple/giskit238.hpp", false},
+    {"giskit239", "giskit239", kFuncs_1889, 2, "simple/giskit239.hpp", false},
+    {"giskit240", "giskit240", kFuncs_1890, 2, "simple/giskit240.hpp", false},
+    {"giskit241", "giskit241", kFuncs_1891, 2, "simple/giskit241.hpp", false},
+    {"giskit242", "giskit242", kFuncs_1892, 2, "simple/giskit242.hpp", false},
+    {"giskit243", "giskit243", kFuncs_1893, 2, "simple/giskit243.hpp", false},
+    {"giskit244", "giskit244", kFuncs_1894, 2, "simple/giskit244.hpp", false},
+    {"giskit245", "giskit245", kFuncs_1895, 2, "simple/giskit245.hpp", false},
+    {"giskit246", "giskit246", kFuncs_1896, 2, "simple/giskit246.hpp", false},
+    {"giskit247", "giskit247", kFuncs_1897, 2, "simple/giskit247.hpp", false},
+    {"giskit248", "giskit248", kFuncs_1898, 2, "simple/giskit248.hpp", false},
+    {"giskit249", "giskit249", kFuncs_1899, 2, "simple/giskit249.hpp", false},
+    {"giskit250", "giskit250", kFuncs_1900, 2, "simple/giskit250.hpp", false},
+    {"giskit251", "giskit251", kFuncs_1901, 2, "simple/giskit251.hpp", false},
+    {"giskit252", "giskit252", kFuncs_1902, 2, "simple/giskit252.hpp", false},
+    {"giskit253", "giskit253", kFuncs_1903, 2, "simple/giskit253.hpp", false},
+    {"giskit254", "giskit254", kFuncs_1904, 2, "simple/giskit254.hpp", false},
+    {"giskit255", "giskit255", kFuncs_1905, 2, "simple/giskit255.hpp", false},
+    {"giskit256", "giskit256", kFuncs_1906, 2, "simple/giskit256.hpp", false},
+    {"giskit257", "giskit257", kFuncs_1907, 2, "simple/giskit257.hpp", false},
+    {"giskit258", "giskit258", kFuncs_1908, 2, "simple/giskit258.hpp", false},
+    {"giskit259", "giskit259", kFuncs_1909, 2, "simple/giskit259.hpp", false},
+    {"giskit260", "giskit260", kFuncs_1910, 2, "simple/giskit260.hpp", false},
+    {"giskit261", "giskit261", kFuncs_1911, 2, "simple/giskit261.hpp", false},
+    {"giskit262", "giskit262", kFuncs_1912, 2, "simple/giskit262.hpp", false},
+    {"giskit263", "giskit263", kFuncs_1913, 2, "simple/giskit263.hpp", false},
+    {"giskit264", "giskit264", kFuncs_1914, 2, "simple/giskit264.hpp", false},
+    {"giskit265", "giskit265", kFuncs_1915, 2, "simple/giskit265.hpp", false},
+    {"giskit266", "giskit266", kFuncs_1916, 2, "simple/giskit266.hpp", false},
+    {"giskit267", "giskit267", kFuncs_1917, 2, "simple/giskit267.hpp", false},
+    {"giskit268", "giskit268", kFuncs_1918, 2, "simple/giskit268.hpp", false},
+    {"giskit269", "giskit269", kFuncs_1919, 2, "simple/giskit269.hpp", false},
+    {"giskit270", "giskit270", kFuncs_1920, 2, "simple/giskit270.hpp", false},
+    {"giskit271", "giskit271", kFuncs_1921, 2, "simple/giskit271.hpp", false},
+    {"giskit272", "giskit272", kFuncs_1922, 2, "simple/giskit272.hpp", false},
+    {"giskit273", "giskit273", kFuncs_1923, 2, "simple/giskit273.hpp", false},
+    {"giskit274", "giskit274", kFuncs_1924, 2, "simple/giskit274.hpp", false},
+    {"giskit275", "giskit275", kFuncs_1925, 2, "simple/giskit275.hpp", false},
+    {"giskit276", "giskit276", kFuncs_1926, 2, "simple/giskit276.hpp", false},
+    {"giskit277", "giskit277", kFuncs_1927, 2, "simple/giskit277.hpp", false},
+    {"giskit278", "giskit278", kFuncs_1928, 2, "simple/giskit278.hpp", false},
+    {"giskit279", "giskit279", kFuncs_1929, 2, "simple/giskit279.hpp", false},
+    {"giskit280", "giskit280", kFuncs_1930, 2, "simple/giskit280.hpp", false},
+    {"giskit281", "giskit281", kFuncs_1931, 2, "simple/giskit281.hpp", false},
+    {"giskit282", "giskit282", kFuncs_1932, 2, "simple/giskit282.hpp", false},
+    {"giskit283", "giskit283", kFuncs_1933, 2, "simple/giskit283.hpp", false},
+    {"giskit284", "giskit284", kFuncs_1934, 2, "simple/giskit284.hpp", false},
+    {"giskit285", "giskit285", kFuncs_1935, 2, "simple/giskit285.hpp", false},
+    {"giskit286", "giskit286", kFuncs_1936, 2, "simple/giskit286.hpp", false},
+    {"giskit287", "giskit287", kFuncs_1937, 2, "simple/giskit287.hpp", false},
+    {"giskit288", "giskit288", kFuncs_1938, 2, "simple/giskit288.hpp", false},
+    {"giskit289", "giskit289", kFuncs_1939, 2, "simple/giskit289.hpp", false},
+    {"giskit290", "giskit290", kFuncs_1940, 2, "simple/giskit290.hpp", false},
+    {"giskit291", "giskit291", kFuncs_1941, 2, "simple/giskit291.hpp", false},
+    {"giskit292", "giskit292", kFuncs_1942, 2, "simple/giskit292.hpp", false},
+    {"giskit293", "giskit293", kFuncs_1943, 2, "simple/giskit293.hpp", false},
+    {"giskit294", "giskit294", kFuncs_1944, 2, "simple/giskit294.hpp", false},
+    {"giskit295", "giskit295", kFuncs_1945, 2, "simple/giskit295.hpp", false},
+    {"giskit296", "giskit296", kFuncs_1946, 2, "simple/giskit296.hpp", false},
+    {"giskit297", "giskit297", kFuncs_1947, 2, "simple/giskit297.hpp", false},
+    {"giskit298", "giskit298", kFuncs_1948, 2, "simple/giskit298.hpp", false},
+    {"giskit299", "giskit299", kFuncs_1949, 2, "simple/giskit299.hpp", false},
+    {"giskit300", "giskit300", kFuncs_1950, 2, "simple/giskit300.hpp", false},
+    {"giskit301", "giskit301", kFuncs_1951, 2, "simple/giskit301.hpp", false},
+    {"giskit302", "giskit302", kFuncs_1952, 2, "simple/giskit302.hpp", false},
+    {"giskit303", "giskit303", kFuncs_1953, 2, "simple/giskit303.hpp", false},
+    {"giskit304", "giskit304", kFuncs_1954, 2, "simple/giskit304.hpp", false},
+    {"giskit305", "giskit305", kFuncs_1955, 2, "simple/giskit305.hpp", false},
+    {"giskit306", "giskit306", kFuncs_1956, 2, "simple/giskit306.hpp", false},
+    {"giskit307", "giskit307", kFuncs_1957, 2, "simple/giskit307.hpp", false},
+    {"giskit308", "giskit308", kFuncs_1958, 2, "simple/giskit308.hpp", false},
+    {"giskit309", "giskit309", kFuncs_1959, 2, "simple/giskit309.hpp", false},
+    {"giskit310", "giskit310", kFuncs_1960, 2, "simple/giskit310.hpp", false},
+    {"giskit311", "giskit311", kFuncs_1961, 2, "simple/giskit311.hpp", false},
+    {"giskit312", "giskit312", kFuncs_1962, 2, "simple/giskit312.hpp", false},
+    {"giskit313", "giskit313", kFuncs_1963, 2, "simple/giskit313.hpp", false},
+    {"giskit314", "giskit314", kFuncs_1964, 2, "simple/giskit314.hpp", false},
+    {"giskit315", "giskit315", kFuncs_1965, 2, "simple/giskit315.hpp", false},
+    {"giskit316", "giskit316", kFuncs_1966, 2, "simple/giskit316.hpp", false},
+    {"giskit317", "giskit317", kFuncs_1967, 2, "simple/giskit317.hpp", false},
+    {"giskit318", "giskit318", kFuncs_1968, 2, "simple/giskit318.hpp", false},
+    {"giskit319", "giskit319", kFuncs_1969, 2, "simple/giskit319.hpp", false},
+    {"giskit320", "giskit320", kFuncs_1970, 2, "simple/giskit320.hpp", false},
+    {"giskit321", "giskit321", kFuncs_1971, 2, "simple/giskit321.hpp", false},
+    {"giskit322", "giskit322", kFuncs_1972, 2, "simple/giskit322.hpp", false},
+    {"giskit323", "giskit323", kFuncs_1973, 2, "simple/giskit323.hpp", false},
+    {"giskit324", "giskit324", kFuncs_1974, 2, "simple/giskit324.hpp", false},
+    {"giskit325", "giskit325", kFuncs_1975, 2, "simple/giskit325.hpp", false},
+    {"giskit326", "giskit326", kFuncs_1976, 2, "simple/giskit326.hpp", false},
+    {"giskit327", "giskit327", kFuncs_1977, 2, "simple/giskit327.hpp", false},
+    {"giskit328", "giskit328", kFuncs_1978, 2, "simple/giskit328.hpp", false},
+    {"giskit329", "giskit329", kFuncs_1979, 2, "simple/giskit329.hpp", false},
+    {"giskit330", "giskit330", kFuncs_1980, 2, "simple/giskit330.hpp", false},
+    {"giskit331", "giskit331", kFuncs_1981, 2, "simple/giskit331.hpp", false},
+    {"giskit332", "giskit332", kFuncs_1982, 2, "simple/giskit332.hpp", false},
+    {"giskit333", "giskit333", kFuncs_1983, 2, "simple/giskit333.hpp", false},
+    {"giskit334", "giskit334", kFuncs_1984, 2, "simple/giskit334.hpp", false},
+    {"giskit335", "giskit335", kFuncs_1985, 2, "simple/giskit335.hpp", false},
+    {"giskit336", "giskit336", kFuncs_1986, 2, "simple/giskit336.hpp", false},
+    {"giskit337", "giskit337", kFuncs_1987, 2, "simple/giskit337.hpp", false},
+    {"giskit338", "giskit338", kFuncs_1988, 2, "simple/giskit338.hpp", false},
+    {"giskit339", "giskit339", kFuncs_1989, 2, "simple/giskit339.hpp", false},
+    {"giskit340", "giskit340", kFuncs_1990, 2, "simple/giskit340.hpp", false},
+    {"giskit341", "giskit341", kFuncs_1991, 2, "simple/giskit341.hpp", false},
+    {"giskit342", "giskit342", kFuncs_1992, 2, "simple/giskit342.hpp", false},
+    {"giskit343", "giskit343", kFuncs_1993, 2, "simple/giskit343.hpp", false},
+    {"giskit344", "giskit344", kFuncs_1994, 2, "simple/giskit344.hpp", false},
+    {"giskit345", "giskit345", kFuncs_1995, 2, "simple/giskit345.hpp", false},
+    {"giskit346", "giskit346", kFuncs_1996, 2, "simple/giskit346.hpp", false},
+    {"giskit347", "giskit347", kFuncs_1997, 2, "simple/giskit347.hpp", false},
+    {"giskit348", "giskit348", kFuncs_1998, 2, "simple/giskit348.hpp", false},
+    {"giskit349", "giskit349", kFuncs_1999, 2, "simple/giskit349.hpp", false},
+    {"giskit350", "giskit350", kFuncs_2000, 2, "simple/giskit350.hpp", false},
+    {"giskit351", "giskit351", kFuncs_2001, 2, "simple/giskit351.hpp", false},
+    {"giskit352", "giskit352", kFuncs_2002, 2, "simple/giskit352.hpp", false},
+    {"giskit353", "giskit353", kFuncs_2003, 2, "simple/giskit353.hpp", false},
+    {"giskit354", "giskit354", kFuncs_2004, 2, "simple/giskit354.hpp", false},
+    {"giskit355", "giskit355", kFuncs_2005, 2, "simple/giskit355.hpp", false},
+    {"giskit356", "giskit356", kFuncs_2006, 2, "simple/giskit356.hpp", false},
+    {"giskit357", "giskit357", kFuncs_2007, 2, "simple/giskit357.hpp", false},
+    {"giskit358", "giskit358", kFuncs_2008, 2, "simple/giskit358.hpp", false},
+    {"giskit359", "giskit359", kFuncs_2009, 2, "simple/giskit359.hpp", false},
+    {"giskit360", "giskit360", kFuncs_2010, 2, "simple/giskit360.hpp", false},
+    {"giskit361", "giskit361", kFuncs_2011, 2, "simple/giskit361.hpp", false},
+    {"giskit362", "giskit362", kFuncs_2012, 2, "simple/giskit362.hpp", false},
+    {"giskit363", "giskit363", kFuncs_2013, 2, "simple/giskit363.hpp", false},
+    {"giskit364", "giskit364", kFuncs_2014, 2, "simple/giskit364.hpp", false},
+    {"giskit365", "giskit365", kFuncs_2015, 2, "simple/giskit365.hpp", false},
+    {"giskit366", "giskit366", kFuncs_2016, 2, "simple/giskit366.hpp", false},
+    {"giskit367", "giskit367", kFuncs_2017, 2, "simple/giskit367.hpp", false},
+    {"giskit368", "giskit368", kFuncs_2018, 2, "simple/giskit368.hpp", false},
+    {"giskit369", "giskit369", kFuncs_2019, 2, "simple/giskit369.hpp", false},
+    {"giskit370", "giskit370", kFuncs_2020, 2, "simple/giskit370.hpp", false},
+    {"giskit371", "giskit371", kFuncs_2021, 2, "simple/giskit371.hpp", false},
+    {"giskit372", "giskit372", kFuncs_2022, 2, "simple/giskit372.hpp", false},
+    {"giskit373", "giskit373", kFuncs_2023, 2, "simple/giskit373.hpp", false},
+    {"giskit374", "giskit374", kFuncs_2024, 2, "simple/giskit374.hpp", false},
+    {"giskit375", "giskit375", kFuncs_2025, 2, "simple/giskit375.hpp", false},
+    {"giskit376", "giskit376", kFuncs_2026, 2, "simple/giskit376.hpp", false},
+    {"giskit377", "giskit377", kFuncs_2027, 2, "simple/giskit377.hpp", false},
+    {"giskit378", "giskit378", kFuncs_2028, 2, "simple/giskit378.hpp", false},
+    {"giskit379", "giskit379", kFuncs_2029, 2, "simple/giskit379.hpp", false},
+    {"giskit380", "giskit380", kFuncs_2030, 2, "simple/giskit380.hpp", false},
+    {"giskit381", "giskit381", kFuncs_2031, 2, "simple/giskit381.hpp", false},
+    {"giskit382", "giskit382", kFuncs_2032, 2, "simple/giskit382.hpp", false},
+    {"giskit383", "giskit383", kFuncs_2033, 2, "simple/giskit383.hpp", false},
+    {"giskit384", "giskit384", kFuncs_2034, 2, "simple/giskit384.hpp", false},
+    {"giskit385", "giskit385", kFuncs_2035, 2, "simple/giskit385.hpp", false},
+    {"giskit386", "giskit386", kFuncs_2036, 2, "simple/giskit386.hpp", false},
+    {"giskit387", "giskit387", kFuncs_2037, 2, "simple/giskit387.hpp", false},
+    {"giskit388", "giskit388", kFuncs_2038, 2, "simple/giskit388.hpp", false},
+    {"giskit389", "giskit389", kFuncs_2039, 2, "simple/giskit389.hpp", false},
+    {"giskit390", "giskit390", kFuncs_2040, 2, "simple/giskit390.hpp", false},
+    {"giskit391", "giskit391", kFuncs_2041, 2, "simple/giskit391.hpp", false},
+    {"giskit392", "giskit392", kFuncs_2042, 2, "simple/giskit392.hpp", false},
+    {"giskit393", "giskit393", kFuncs_2043, 2, "simple/giskit393.hpp", false},
+    {"giskit394", "giskit394", kFuncs_2044, 2, "simple/giskit394.hpp", false},
+    {"giskit395", "giskit395", kFuncs_2045, 2, "simple/giskit395.hpp", false},
+    {"giskit396", "giskit396", kFuncs_2046, 2, "simple/giskit396.hpp", false},
+    {"giskit397", "giskit397", kFuncs_2047, 2, "simple/giskit397.hpp", false},
+    {"giskit398", "giskit398", kFuncs_2048, 2, "simple/giskit398.hpp", false},
+    {"giskit399", "giskit399", kFuncs_2049, 2, "simple/giskit399.hpp", false},
+    {"giskit400", "giskit400", kFuncs_2050, 2, "simple/giskit400.hpp", false},
+    {"giskit401", "giskit401", kFuncs_2051, 2, "simple/giskit401.hpp", false},
+    {"giskit402", "giskit402", kFuncs_2052, 2, "simple/giskit402.hpp", false},
+    {"giskit403", "giskit403", kFuncs_2053, 2, "simple/giskit403.hpp", false},
+    {"giskit404", "giskit404", kFuncs_2054, 2, "simple/giskit404.hpp", false},
+    {"giskit405", "giskit405", kFuncs_2055, 2, "simple/giskit405.hpp", false},
+    {"giskit406", "giskit406", kFuncs_2056, 2, "simple/giskit406.hpp", false},
+    {"giskit407", "giskit407", kFuncs_2057, 2, "simple/giskit407.hpp", false},
+    {"giskit408", "giskit408", kFuncs_2058, 2, "simple/giskit408.hpp", false},
+    {"giskit409", "giskit409", kFuncs_2059, 2, "simple/giskit409.hpp", false},
+    {"giskit410", "giskit410", kFuncs_2060, 2, "simple/giskit410.hpp", false},
+    {"giskit411", "giskit411", kFuncs_2061, 2, "simple/giskit411.hpp", false},
+    {"giskit412", "giskit412", kFuncs_2062, 2, "simple/giskit412.hpp", false},
+    {"giskit413", "giskit413", kFuncs_2063, 2, "simple/giskit413.hpp", false},
+    {"giskit414", "giskit414", kFuncs_2064, 2, "simple/giskit414.hpp", false},
+    {"giskit415", "giskit415", kFuncs_2065, 2, "simple/giskit415.hpp", false},
+    {"giskit416", "giskit416", kFuncs_2066, 2, "simple/giskit416.hpp", false},
+    {"giskit417", "giskit417", kFuncs_2067, 2, "simple/giskit417.hpp", false},
+    {"giskit418", "giskit418", kFuncs_2068, 2, "simple/giskit418.hpp", false},
+    {"giskit419", "giskit419", kFuncs_2069, 2, "simple/giskit419.hpp", false},
+    {"giskit420", "giskit420", kFuncs_2070, 2, "simple/giskit420.hpp", false},
+    {"giskit421", "giskit421", kFuncs_2071, 2, "simple/giskit421.hpp", false},
+    {"giskit422", "giskit422", kFuncs_2072, 2, "simple/giskit422.hpp", false},
+    {"giskit423", "giskit423", kFuncs_2073, 2, "simple/giskit423.hpp", false},
+    {"giskit424", "giskit424", kFuncs_2074, 2, "simple/giskit424.hpp", false},
+    {"giskit425", "giskit425", kFuncs_2075, 2, "simple/giskit425.hpp", false},
+    {"giskit426", "giskit426", kFuncs_2076, 2, "simple/giskit426.hpp", false},
+    {"giskit427", "giskit427", kFuncs_2077, 2, "simple/giskit427.hpp", false},
+    {"giskit428", "giskit428", kFuncs_2078, 2, "simple/giskit428.hpp", false},
+    {"giskit429", "giskit429", kFuncs_2079, 2, "simple/giskit429.hpp", false},
+    {"giskit430", "giskit430", kFuncs_2080, 2, "simple/giskit430.hpp", false},
+    {"giskit431", "giskit431", kFuncs_2081, 2, "simple/giskit431.hpp", false},
+    {"giskit432", "giskit432", kFuncs_2082, 2, "simple/giskit432.hpp", false},
+    {"giskit433", "giskit433", kFuncs_2083, 2, "simple/giskit433.hpp", false},
+    {"giskit434", "giskit434", kFuncs_2084, 2, "simple/giskit434.hpp", false},
+    {"giskit435", "giskit435", kFuncs_2085, 2, "simple/giskit435.hpp", false},
+    {"giskit436", "giskit436", kFuncs_2086, 2, "simple/giskit436.hpp", false},
+    {"giskit437", "giskit437", kFuncs_2087, 2, "simple/giskit437.hpp", false},
+    {"giskit438", "giskit438", kFuncs_2088, 2, "simple/giskit438.hpp", false},
+    {"giskit439", "giskit439", kFuncs_2089, 2, "simple/giskit439.hpp", false},
+    {"giskit440", "giskit440", kFuncs_2090, 2, "simple/giskit440.hpp", false},
+    {"giskit441", "giskit441", kFuncs_2091, 2, "simple/giskit441.hpp", false},
+    {"giskit442", "giskit442", kFuncs_2092, 2, "simple/giskit442.hpp", false},
+    {"giskit443", "giskit443", kFuncs_2093, 2, "simple/giskit443.hpp", false},
+    {"giskit444", "giskit444", kFuncs_2094, 2, "simple/giskit444.hpp", false},
+    {"giskit445", "giskit445", kFuncs_2095, 2, "simple/giskit445.hpp", false},
+    {"giskit446", "giskit446", kFuncs_2096, 2, "simple/giskit446.hpp", false},
+    {"giskit447", "giskit447", kFuncs_2097, 2, "simple/giskit447.hpp", false},
+    {"giskit448", "giskit448", kFuncs_2098, 2, "simple/giskit448.hpp", false},
+    {"giskit449", "giskit449", kFuncs_2099, 2, "simple/giskit449.hpp", false},
+    {"giskit450", "giskit450", kFuncs_2100, 2, "simple/giskit450.hpp", false},
+    {"giskit451", "giskit451", kFuncs_2101, 2, "simple/giskit451.hpp", false},
+    {"giskit452", "giskit452", kFuncs_2102, 2, "simple/giskit452.hpp", false},
+    {"giskit453", "giskit453", kFuncs_2103, 2, "simple/giskit453.hpp", false},
+    {"giskit454", "giskit454", kFuncs_2104, 2, "simple/giskit454.hpp", false},
+    {"giskit455", "giskit455", kFuncs_2105, 2, "simple/giskit455.hpp", false},
+    {"giskit456", "giskit456", kFuncs_2106, 2, "simple/giskit456.hpp", false},
+    {"giskit457", "giskit457", kFuncs_2107, 2, "simple/giskit457.hpp", false},
+    {"giskit458", "giskit458", kFuncs_2108, 2, "simple/giskit458.hpp", false},
+    {"giskit459", "giskit459", kFuncs_2109, 2, "simple/giskit459.hpp", false},
+    {"giskit460", "giskit460", kFuncs_2110, 2, "simple/giskit460.hpp", false},
+    {"giskit461", "giskit461", kFuncs_2111, 2, "simple/giskit461.hpp", false},
+    {"giskit462", "giskit462", kFuncs_2112, 2, "simple/giskit462.hpp", false},
+    {"giskit463", "giskit463", kFuncs_2113, 2, "simple/giskit463.hpp", false},
+    {"giskit464", "giskit464", kFuncs_2114, 2, "simple/giskit464.hpp", false},
+    {"giskit465", "giskit465", kFuncs_2115, 2, "simple/giskit465.hpp", false},
+    {"giskit466", "giskit466", kFuncs_2116, 2, "simple/giskit466.hpp", false},
+    {"giskit467", "giskit467", kFuncs_2117, 2, "simple/giskit467.hpp", false},
+    {"giskit468", "giskit468", kFuncs_2118, 2, "simple/giskit468.hpp", false},
+    {"giskit469", "giskit469", kFuncs_2119, 2, "simple/giskit469.hpp", false},
+    {"giskit470", "giskit470", kFuncs_2120, 2, "simple/giskit470.hpp", false},
+    {"giskit471", "giskit471", kFuncs_2121, 2, "simple/giskit471.hpp", false},
+    {"giskit472", "giskit472", kFuncs_2122, 2, "simple/giskit472.hpp", false},
+    {"giskit473", "giskit473", kFuncs_2123, 2, "simple/giskit473.hpp", false},
+    {"giskit474", "giskit474", kFuncs_2124, 2, "simple/giskit474.hpp", false},
+    {"giskit475", "giskit475", kFuncs_2125, 2, "simple/giskit475.hpp", false},
+    {"giskit476", "giskit476", kFuncs_2126, 2, "simple/giskit476.hpp", false},
+    {"giskit477", "giskit477", kFuncs_2127, 2, "simple/giskit477.hpp", false},
+    {"giskit478", "giskit478", kFuncs_2128, 2, "simple/giskit478.hpp", false},
+    {"giskit479", "giskit479", kFuncs_2129, 2, "simple/giskit479.hpp", false},
+    {"giskit480", "giskit480", kFuncs_2130, 2, "simple/giskit480.hpp", false},
+    {"giskit481", "giskit481", kFuncs_2131, 2, "simple/giskit481.hpp", false},
+    {"giskit482", "giskit482", kFuncs_2132, 2, "simple/giskit482.hpp", false},
+    {"giskit483", "giskit483", kFuncs_2133, 2, "simple/giskit483.hpp", false},
+    {"giskit484", "giskit484", kFuncs_2134, 2, "simple/giskit484.hpp", false},
+    {"giskit485", "giskit485", kFuncs_2135, 2, "simple/giskit485.hpp", false},
+    {"giskit486", "giskit486", kFuncs_2136, 2, "simple/giskit486.hpp", false},
+    {"giskit487", "giskit487", kFuncs_2137, 2, "simple/giskit487.hpp", false},
+    {"giskit488", "giskit488", kFuncs_2138, 2, "simple/giskit488.hpp", false},
+    {"giskit489", "giskit489", kFuncs_2139, 2, "simple/giskit489.hpp", false},
+    {"giskit490", "giskit490", kFuncs_2140, 2, "simple/giskit490.hpp", false},
+    {"giskit491", "giskit491", kFuncs_2141, 2, "simple/giskit491.hpp", false},
+    {"giskit492", "giskit492", kFuncs_2142, 2, "simple/giskit492.hpp", false},
+    {"giskit493", "giskit493", kFuncs_2143, 2, "simple/giskit493.hpp", false},
+    {"giskit494", "giskit494", kFuncs_2144, 2, "simple/giskit494.hpp", false},
+    {"giskit495", "giskit495", kFuncs_2145, 2, "simple/giskit495.hpp", false},
+    {"giskit496", "giskit496", kFuncs_2146, 2, "simple/giskit496.hpp", false},
+    {"giskit497", "giskit497", kFuncs_2147, 2, "simple/giskit497.hpp", false},
+    {"giskit498", "giskit498", kFuncs_2148, 2, "simple/giskit498.hpp", false},
+    {"giskit499", "giskit499", kFuncs_2149, 2, "simple/giskit499.hpp", false},
+    {"giskit500", "giskit500", kFuncs_2150, 2, "simple/giskit500.hpp", false},
     {nullptr, nullptr, nullptr, 0, nullptr, false}
 };
 
-const std::size_t kSimpleModuleCount = 1651;
+const std::size_t kSimpleModuleCount = 2151;
 
 } // namespace
 

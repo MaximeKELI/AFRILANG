@@ -1,0 +1,9 @@
+module giskit002
+
+function bboxWidth(minX number, minY number, maxX number, maxY number) returns number
+end
+
+function bboxArea(minX number, minY number, maxX number, maxY number) returns number
+end
+
+end

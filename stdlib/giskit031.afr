@@ -1,0 +1,9 @@
+module giskit031
+
+function tileOriginX(tileCol number, tileSize number) returns number
+end
+
+function tileOriginY(tileRow number, tileSize number) returns number
+end
+
+end
