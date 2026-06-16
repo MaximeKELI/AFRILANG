@@ -132,6 +132,24 @@ end
 function drawSpriteCell(name text, col number, row number)
 end
 
+function loadSpriteSheet(name text, path text, frameW number, frameH number) returns bool
+end
+
+function hasSpriteSheet(name text) returns bool
+end
+
+function sheetCols(name text) returns number
+end
+
+function sheetRows(name text) returns number
+end
+
+function drawSpriteFrame(name text, frame number, worldX number, worldY number, width number, height number)
+end
+
+function drawSpriteFrameCell(name text, frame number, col number, row number)
+end
+
 function loadSound(name text, path text) returns bool
 end
 
@@ -139,6 +157,18 @@ function playSound(name text) returns bool
 end
 
 function playSoundVolume(name text, volume number) returns bool
+end
+
+function loadMusic(name text, path text) returns bool
+end
+
+function playMusic(name text, loops number) returns bool
+end
+
+function stopMusic()
+end
+
+function setMusicVolume(volume number)
 end
 
 function shutdown()
