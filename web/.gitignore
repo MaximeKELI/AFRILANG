@@ -4,5 +4,6 @@ __pycache__/
 .env
 db.sqlite3
 staticfiles/
+tmp/
 node_modules/
 *.egg-info/
