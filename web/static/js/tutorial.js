@@ -58,15 +58,24 @@
     window.location.href = url;
   }
 
-  document.getElementById('mark-complete')?.addEventListener('click', function () {
-    markStep(parseInt(this.getAttribute('data-step'), 10));
-    this.textContent = document.documentElement.lang === 'en' ? '✓ Done' : '✓ Terminé';
-    this.disabled = true;
+  document.getElementById('try-playground')?.addEventListener('click', function () {
+    var pre = document.getElementById('lesson-code');
+    tryPlayground(pre ? pre.textContent : '', this.getAttribute('data-slug'));
   });
 
-  document.getElementById('try-playground')?.addEventListener('click', function () {
-    tryPlayground(this.getAttribute('data-code'), this.getAttribute('data-slug'));
-  });
+  var markBtn = document.getElementById('mark-complete');
+  if (markBtn) {
+    var stepNum = parseInt(markBtn.getAttribute('data-step'), 10);
+    if (loadDone().includes(stepNum)) {
+      markBtn.textContent = document.documentElement.lang === 'en' ? '✓ Done' : '✓ Terminé';
+      markBtn.disabled = true;
+    }
+    markBtn.addEventListener('click', function () {
+      markStep(stepNum);
+      this.textContent = document.documentElement.lang === 'en' ? '✓ Done' : '✓ Terminé';
+      this.disabled = true;
+    });
+  }
 
   document.getElementById('copy-lesson-code')?.addEventListener('click', function () {
     var pre = document.getElementById('lesson-code');
