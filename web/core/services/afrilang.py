@@ -96,5 +96,31 @@ def format_source(source: str) -> dict:
         return {'ok': True, 'source': formatted}
 
 
+def check_source(source: str) -> dict:
+    bin_path = _bin()
+    cwd = _repo_root()
+
+    with tempfile.TemporaryDirectory(prefix='afrilang_check_') as tmp:
+        src_file = Path(tmp) / 'check.afr'
+        src_file.write_text(source, encoding='utf-8')
+        try:
+            proc = subprocess.run(
+                [str(bin_path), 'check', str(src_file)],
+                cwd=cwd,
+                capture_output=True,
+                text=True,
+                timeout=15,
+            )
+        except subprocess.TimeoutExpired:
+            return {'ok': False, 'output': 'Check timeout', 'errors': 1}
+
+        output = (proc.stdout or '') + (proc.stderr or '')
+        return {
+            'ok': proc.returncode == 0,
+            'output': output.strip() or '(no output)',
+            'errors': 0 if proc.returncode == 0 else 1,
+        }
+
+
 def source_hash(source: str) -> str:
     return hashlib.sha256(source.encode('utf-8')).hexdigest()

@@ -1,14 +1,17 @@
 import json
+from pathlib import Path
 
-from django.http import HttpResponse, JsonResponse
+from django.conf import settings
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
 
 from .content.docs_nav import docs_context
 from .content.docs_pages import get_doc_page_by_url_name
+from .content.docs_search import search_docs
 from .content.ecosystem_i18n import translate_ecosystem
-from .models import Capability, CodeExample, Package, PlaygroundRun
-from .services.afrilang import AfrilangError, format_source, run_source, source_hash
+from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
+from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
 
 
 def _doc_view(request, url_name):
@@ -94,12 +97,59 @@ def packages_list(request):
     return render(request, 'core/packages.html', {'packages': qs, 'query': q})
 
 
+def package_detail(request, name):
+    pkg = get_object_or_404(Package, name=name)
+    source = ''
+    pkg_path = Path(settings.AFRILANG_ROOT) / 'packages' / name / f'{name}.afr'
+    if pkg_path.is_file():
+        source = pkg_path.read_text(encoding='utf-8', errors='replace')
+    return render(request, 'core/package_detail.html', {'pkg': pkg, 'source': source})
+
+
+def examples_gallery(request):
+    q = request.GET.get('q', '').strip()
+    qs = CodeExample.objects.all()
+    if q:
+        qs = qs.filter(title__icontains=q) | qs.filter(description__icontains=q) | qs.filter(slug__icontains=q)
+    return render(request, 'core/examples.html', {'examples': qs, 'query': q})
+
+
+def stdlib_browse(request):
+    q = request.GET.get('q', '').strip()
+    qs = StdlibModule.objects.all()
+    if q:
+        qs = qs.filter(name__icontains=q) | qs.filter(summary__icontains=q) | qs.filter(import_path__icontains=q)
+    return render(request, 'core/stdlib.html', {'modules': qs, 'query': q})
+
+
+def stdlib_detail(request, name):
+    mod = get_object_or_404(StdlibModule, name=name)
+    path = Path(settings.AFRILANG_ROOT) / 'stdlib' / f'{name}.afr'
+    if not path.is_file():
+        raise Http404('Module source not found')
+    source = path.read_text(encoding='utf-8', errors='replace')
+    return render(request, 'core/stdlib_detail.html', {'mod': mod, 'source': source})
+
+
+def releases(request):
+    items = Release.objects.all()
+    return render(request, 'core/releases.html', {'releases': items})
+
+
+def docs_search_view(request):
+    q = request.GET.get('q', '').strip()
+    results = search_docs(q, request.LANGUAGE_CODE) if q else []
+    return render(request, 'core/docs_search.html', {'query': q, 'results': results})
+
+
 def playground(request):
     examples = CodeExample.objects.all()
     examples_map = {ex.slug: ex.source for ex in examples}
+    initial_slug = request.GET.get('example', '').strip()
     return render(request, 'core/playground.html', {
         'examples': examples,
         'examples_map': examples_map,
+        'initial_slug': initial_slug,
     })
 
 
@@ -173,6 +223,25 @@ def api_fmt(request):
         result = format_source(source)
     except AfrilangError as e:
         return JsonResponse({'ok': False, 'output': str(e)}, status=503)
+
+    return JsonResponse(result)
+
+
+@require_POST
+def api_check(request):
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
+
+    source = body.get('source', '')
+    if not source.strip():
+        return JsonResponse({'ok': False, 'output': 'Empty source', 'errors': 1}, status=400)
+
+    try:
+        result = check_source(source)
+    except AfrilangError as e:
+        return JsonResponse({'ok': False, 'output': str(e), 'errors': 1}, status=503)
 
     return JsonResponse(result)
 

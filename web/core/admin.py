@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Capability, CodeExample, Package, PlaygroundRun
+from .models import Capability, CodeExample, Package, PlaygroundRun, Release, SiteMetric, StdlibModule
 
 
 @admin.register(Package)
@@ -19,7 +19,25 @@ class CapabilityAdmin(admin.ModelAdmin):
 @admin.register(CodeExample)
 class CodeExampleAdmin(admin.ModelAdmin):
     list_display = ('slug', 'title', 'featured', 'sort_order')
+    search_fields = ('slug', 'title', 'description')
     prepopulated_fields = {'slug': ('title',)}
+
+
+@admin.register(StdlibModule)
+class StdlibModuleAdmin(admin.ModelAdmin):
+    list_display = ('name', 'import_path', 'function_count', 'updated_at')
+    search_fields = ('name', 'summary', 'import_path')
+
+
+@admin.register(Release)
+class ReleaseAdmin(admin.ModelAdmin):
+    list_display = ('version', 'released_at', 'sort_order')
+    search_fields = ('version', 'body')
+
+
+@admin.register(SiteMetric)
+class SiteMetricAdmin(admin.ModelAdmin):
+    list_display = ('key',)
 
 
 @admin.register(PlaygroundRun)

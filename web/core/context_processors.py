@@ -1,17 +1,30 @@
 from django.conf import settings
 
 
+def _default_stats():
+    return {
+        'version': '1.0',
+        'compiler_version': '1.0.0',
+        'examples': 60,
+        'blessed_packages': 10,
+        'stdlib_modules': 463,
+        'cli_commands': 15,
+    }
+
+
 def site_settings(request):
+    stats = _default_stats()
+    try:
+        from .models import SiteMetric
+        row = SiteMetric.objects.filter(key='site_stats').first()
+        if row and isinstance(row.value, dict):
+            stats.update(row.value)
+    except Exception:
+        pass
+
     return {
         'AFRILANG_BIN': settings.AFRILANG_BIN,
-        'SITE_STATS': {
-            'version': '1.0',
-            'compiler_version': '1.0.0',
-            'examples': 60,
-            'blessed_packages': 10,
-            'stdlib_modules': 463,
-            'cli_commands': 15,
-        },
+        'SITE_STATS': stats,
         'SITE_URL': getattr(settings, 'SITE_URL', 'http://127.0.0.1:8000'),
     }
 

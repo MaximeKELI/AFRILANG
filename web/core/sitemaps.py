@@ -12,7 +12,8 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         views = [
             'home', 'language', 'explore', 'packages', 'playground',
-            'download', 'community', 'api_reference',
+            'download', 'community', 'api_reference', 'examples',
+            'stdlib', 'releases', 'docs_search',
         ]
         docs = [url_name for _, url_name in NAV_META]
         return views + docs

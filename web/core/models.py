@@ -47,6 +47,7 @@ class Capability(models.Model):
 class CodeExample(models.Model):
     slug = models.SlugField(max_length=64, unique=True)
     title = models.CharField(max_length=128)
+    description = models.TextField(blank=True)
     source = models.TextField()
     sort_order = models.PositiveSmallIntegerField(default=0)
     featured = models.BooleanField(default=False)
@@ -56,6 +57,46 @@ class CodeExample(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class StdlibModule(models.Model):
+    name = models.SlugField(max_length=128, unique=True)
+    import_path = models.CharField(max_length=256)
+    summary = models.CharField(max_length=512, blank=True)
+    function_count = models.PositiveSmallIntegerField(default=0)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Stdlib module'
+
+    def __str__(self):
+        return self.import_path
+
+
+class Release(models.Model):
+    version = models.CharField(max_length=64, unique=True)
+    title = models.CharField(max_length=256, blank=True)
+    body = models.TextField()
+    released_at = models.DateField(null=True, blank=True)
+    sort_order = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-sort_order', '-released_at']
+
+    def __str__(self):
+        return self.version
+
+
+class SiteMetric(models.Model):
+    key = models.CharField(max_length=64, unique=True)
+    value = models.JSONField(default=dict)
+
+    class Meta:
+        verbose_name = 'Site metric'
+
+    def __str__(self):
+        return self.key
 
 
 class PlaygroundRun(models.Model):
