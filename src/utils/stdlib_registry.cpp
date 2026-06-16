@@ -422,10 +422,14 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("configureGrid",
         {{"cols", "number"}, {"rows", "number"}, {"cellSize", "number"},
          {"padX", "number"}, {"padY", "number"}}, ""));
+    fns.push_back(makeStubFunction("configureViewport",
+        {{"viewCols", "number"}, {"viewRows", "number"}}, ""));
     fns.push_back(makeStubFunction("gridWindowWidth", {}, "number"));
     fns.push_back(makeStubFunction("gridWindowHeight", {}, "number"));
     fns.push_back(makeStubFunction("cellPx", {{"col", "number"}}, "number"));
     fns.push_back(makeStubFunction("cellPy", {{"row", "number"}}, "number"));
+    fns.push_back(makeStubFunction("cellWorldX", {{"col", "number"}}, "number"));
+    fns.push_back(makeStubFunction("cellWorldY", {{"row", "number"}}, "number"));
     fns.push_back(makeStubFunction("isBorderCell", {{"col", "number"}, {"row", "number"}}, "bool"));
     fns.push_back(makeStubFunction("fillCell",
         {{"col", "number"}, {"row", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
@@ -463,6 +467,27 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("updateHighScore", {{"score", "number"}}, ""));
     fns.push_back(makeStubFunction("moveIntervalForScore",
         {{"score", "number"}, {"baseMs", "number"}, {"minMs", "number"}}, "number"));
+    fns.push_back(makeStubFunction("setCamera", {{"x", "number"}, {"y", "number"}}, ""));
+    fns.push_back(makeStubFunction("cameraX", {}, "number"));
+    fns.push_back(makeStubFunction("cameraY", {}, "number"));
+    fns.push_back(makeStubFunction("followCamera",
+        {{"targetX", "number"}, {"targetY", "number"}, {"smooth", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadSprite", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasSprite", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("spriteWidth", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("spriteHeight", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("drawSprite",
+        {{"name", "text"}, {"worldX", "number"}, {"worldY", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawSpriteScaled",
+        {{"name", "text"}, {"worldX", "number"}, {"worldY", "number"},
+         {"width", "number"}, {"height", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawSpriteCell",
+        {{"name", "text"}, {"col", "number"}, {"row", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadSound", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("playSound", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("playSoundVolume",
+        {{"name", "text"}, {"volume", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("shutdown", {}, ""));
     injectModule(program, "game2d", std::move(fns));
 }
 
