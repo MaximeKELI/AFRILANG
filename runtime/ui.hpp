@@ -59,15 +59,37 @@ inline void openWindow(const std::string& title, double width, double height) {
 
     const int w = static_cast<int>(width);
     const int h = static_cast<int>(height);
-    ctx.window = SDL_CreateWindow(
-        title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
-    if (!ctx.window) return;
 
-    ctx.renderer = SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_ACCELERATED);
-    if (!ctx.renderer) {
-        ctx.renderer = SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_SOFTWARE);
+    // Prefer a renderer that actually exists on the machine.
+    // Some environments show a window but fail to create a renderer (leading to a black screen).
+    SDL_SetHint(SDL_HINT_RENDER_DRIVER, "software");
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+
+    if (SDL_CreateWindowAndRenderer(w, h, SDL_WINDOW_SHOWN, &ctx.window, &ctx.renderer) != 0) {
+        ctx.window = SDL_CreateWindow(
+            title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
+        if (ctx.window) {
+            ctx.renderer = SDL_CreateRenderer(ctx.window, -1, SDL_RENDERER_SOFTWARE);
+            if (!ctx.renderer) {
+                ctx.renderer = SDL_CreateRenderer(ctx.window, -1, 0);
+            }
+        }
     }
-    ctx.open = ctx.renderer != nullptr;
+
+    if (ctx.window) SDL_SetWindowTitle(ctx.window, title.c_str());
+    if (!ctx.window || !ctx.renderer) {
+        // Hard fail: keep ctx.open false to avoid running a draw loop that can't draw anything.
+        if (ctx.renderer) SDL_DestroyRenderer(ctx.renderer);
+        if (ctx.window) SDL_DestroyWindow(ctx.window);
+        ctx.renderer = nullptr;
+        ctx.window = nullptr;
+        ctx.open = false;
+        TTF_Quit();
+        SDL_Quit();
+        return;
+    }
+
+    ctx.open = true;
 }
 
 inline void closeWindow() {
