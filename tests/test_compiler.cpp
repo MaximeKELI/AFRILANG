@@ -238,11 +238,11 @@ static void testCompileFromSourceImports() {
         if (fn->name == "sum2") hasSum2 = true;
     }
     expect(hasSum2, "compileFromSource merges imported sum2");
-    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/full_demo.afr");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "examples/full_demo.afr");
     analyzer.analyze();
 
-    const std::string absPath = std::filesystem::absolute("../examples/full_demo.afr").string();
-    afrilang::Compiler absCompiler(absPath, "..");
+    const std::string absPath = std::filesystem::absolute("examples/full_demo.afr").string();
+    afrilang::Compiler absCompiler(absPath, ".");
     auto absProgram = absCompiler.compileFromSource(src);
     hasSum2 = false;
     for (const auto& fn : absProgram->functions) {
