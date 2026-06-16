@@ -1485,17 +1485,6 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
         return std::make_unique<StringLiteralNode>(raw);
     }
 
-    auto isIdent = [](const std::string& text) {
-        if (text.empty()) return false;
-        if (!std::isalpha(static_cast<unsigned char>(text[0])) && text[0] != '_') {
-            return false;
-        }
-        for (char c : text) {
-            if (!std::isalnum(static_cast<unsigned char>(c)) && c != '_') return false;
-        }
-        return true;
-    };
-
     std::vector<std::unique_ptr<ExpressionNode>> parts;
     std::size_t i = 0;
     while (i < raw.size()) {
