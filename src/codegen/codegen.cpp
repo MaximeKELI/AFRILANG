@@ -3138,6 +3138,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     }
     if (semantic_.usesGame3d && !wasmBuild) {
         args.push_back("-lSDL2");
+        args.push_back("-lSDL2_image");
         args.push_back("-lGL");
         args.push_back("-lGLU");
     }

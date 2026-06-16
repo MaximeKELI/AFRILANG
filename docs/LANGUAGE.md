@@ -461,6 +461,37 @@ Jeux 3D avec OpenGL (SDL2 + GL) :
 
 Contrôles : **WASD** déplacer, **QE** monter/descendre, **flèches** regarder, **Échap** quitter.
 
+**Textures 3D** : `loadTexture3d`, `drawPlaneTextured`, `drawCubeTextured`
+
+**Modèles OBJ** : `loadModel`, `drawModel`, `drawModelColored`
+
+**Physique simple** : `createBody`, `setBodyVelocity`, `stepPhysics(delta, gravity)`, `bodyX/Y/Z`, `applyImpulse`
+
+```bash
+./build/afrilang examples/game3d_physics.afr -o game3d_physics --run
+```
+
+Espace = lancer une bille supplémentaire.
+
+### 3D avancé (éclairage, brouillard, particules)
+
+| Fonction | Description |
+|----------|-------------|
+| `enableLighting`, `setAmbientLight`, `setSunLight`, `applyLighting` | Éclairage directionnel |
+| `setFog`, `applyFog` | Brouillard atmosphérique |
+| `drawModelLit` | Modèle OBJ avec normales et lumière |
+| `createBoxBody`, `drawBox`, `drawBody` | Physique et rendu de boîtes |
+| `stepPhysicsEx` | Gravité + vent + frottement |
+| `setWind`, `setBodyFriction`, `setBodyRestitution` | Paramètres physiques |
+| `emitBurst`, `updateParticles`, `drawParticles` | Système de particules |
+| `followBody` | Caméra qui suit un corps |
+
+```bash
+./build/afrilang examples/game3d_complex.afr -o game3d_complex --run
+```
+
+**C** bascule caméra libre / suivi du héros.
+
 Exemple minimal :
 
 ```afr

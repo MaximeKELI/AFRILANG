@@ -65,4 +65,112 @@ end
 
 function drawSphere(x number, y number, z number, radius number, r number, g number, b number)
 end
+
+function loadTexture3d(name text, path text) returns bool
+end
+
+function hasTexture3d(name text) returns bool
+end
+
+function drawPlaneTextured(y number, halfSize number, textureName text)
+end
+
+function drawCubeTextured(x number, y number, z number, size number, textureName text)
+end
+
+function loadModel(name text, path text) returns bool
+end
+
+function hasModel(name text) returns bool
+end
+
+function drawModel(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
+function drawModelColored(name text, x number, y number, z number, scale number, rotY number, r number, g number, b number)
+end
+
+function drawModelLit(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
+function createBody(name text, x number, y number, z number, radius number)
+end
+
+function createBoxBody(name text, x number, y number, z number, hx number, hy number, hz number)
+end
+
+function hasBody(name text) returns bool
+end
+
+function setBodyVelocity(name text, vx number, vy number, vz number)
+end
+
+function setBodyPosition(name text, x number, y number, z number)
+end
+
+function setBodyFriction(name text, friction number)
+end
+
+function setBodyRestitution(name text, restitution number)
+end
+
+function bodyX(name text) returns number
+end
+
+function bodyY(name text) returns number
+end
+
+function bodyZ(name text) returns number
+end
+
+function applyImpulse(name text, ix number, iy number, iz number)
+end
+
+function stepPhysics(deltaMs number, gravity number)
+end
+
+function stepPhysicsEx(deltaMs number, gravity number)
+end
+
+function removeBody(name text)
+end
+
+function drawBox(x number, y number, z number, sx number, sy number, sz number, r number, g number, b number)
+end
+
+function drawBody(name text)
+end
+
+function enableLighting(on bool)
+end
+
+function setAmbientLight(r number, g number, b number)
+end
+
+function setSunLight(dx number, dy number, dz number, r number, g number, b number)
+end
+
+function applyLighting()
+end
+
+function setFog(enabled bool, r number, g number, b number, startDist number, endDist number)
+end
+
+function applyFog()
+end
+
+function setWind(x number, y number, z number)
+end
+
+function followBody(name text, height number, distance number, smooth number)
+end
+
+function emitBurst(x number, y number, z number, count number, speed number)
+end
+
+function updateParticles(deltaMs number)
+end
+
+function drawParticles()
+end
 end

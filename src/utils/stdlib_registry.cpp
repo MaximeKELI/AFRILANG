@@ -526,6 +526,63 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("drawSphere",
         {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"radius", "number"},
          {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadTexture3d", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasTexture3d", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("drawPlaneTextured",
+        {{"y", "number"}, {"halfSize", "number"}, {"textureName", "text"}}, ""));
+    fns.push_back(makeStubFunction("drawCubeTextured",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"size", "number"}, {"textureName", "text"}}, ""));
+    fns.push_back(makeStubFunction("loadModel", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasModel", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("drawModel",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"}, {"scale", "number"},
+         {"rotY", "number"}, {"textureName", "text"}}, ""));
+    fns.push_back(makeStubFunction("drawModelColored",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"}, {"scale", "number"},
+         {"rotY", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("createBody",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"}, {"radius", "number"}}, ""));
+    fns.push_back(makeStubFunction("hasBody", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("setBodyVelocity",
+        {{"name", "text"}, {"vx", "number"}, {"vy", "number"}, {"vz", "number"}}, ""));
+    fns.push_back(makeStubFunction("setBodyPosition",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"}}, ""));
+    fns.push_back(makeStubFunction("bodyX", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("bodyY", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("bodyZ", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("applyImpulse",
+        {{"name", "text"}, {"ix", "number"}, {"iy", "number"}, {"iz", "number"}}, ""));
+    fns.push_back(makeStubFunction("stepPhysics", {{"deltaMs", "number"}, {"gravity", "number"}}, ""));
+    fns.push_back(makeStubFunction("stepPhysicsEx", {{"deltaMs", "number"}, {"gravity", "number"}}, ""));
+    fns.push_back(makeStubFunction("removeBody", {{"name", "text"}}, ""));
+    fns.push_back(makeStubFunction("drawModelLit",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"}, {"scale", "number"},
+         {"rotY", "number"}, {"textureName", "text"}}, ""));
+    fns.push_back(makeStubFunction("createBoxBody",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"hx", "number"}, {"hy", "number"}, {"hz", "number"}}, ""));
+    fns.push_back(makeStubFunction("setBodyFriction", {{"name", "text"}, {"friction", "number"}}, ""));
+    fns.push_back(makeStubFunction("setBodyRestitution", {{"name", "text"}, {"restitution", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawBox",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"sx", "number"}, {"sy", "number"}, {"sz", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawBody", {{"name", "text"}}, ""));
+    fns.push_back(makeStubFunction("enableLighting", {{"on", "bool"}}, ""));
+    fns.push_back(makeStubFunction("setAmbientLight", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("setSunLight",
+        {{"dx", "number"}, {"dy", "number"}, {"dz", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("applyLighting", {}, ""));
+    fns.push_back(makeStubFunction("setFog",
+        {{"enabled", "bool"}, {"r", "number"}, {"g", "number"}, {"b", "number"},
+         {"startDist", "number"}, {"endDist", "number"}}, ""));
+    fns.push_back(makeStubFunction("applyFog", {}, ""));
+    fns.push_back(makeStubFunction("setWind", {{"x", "number"}, {"y", "number"}, {"z", "number"}}, ""));
+    fns.push_back(makeStubFunction("followBody",
+        {{"name", "text"}, {"height", "number"}, {"distance", "number"}, {"smooth", "number"}}, ""));
+    fns.push_back(makeStubFunction("emitBurst",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"count", "number"}, {"speed", "number"}}, ""));
+    fns.push_back(makeStubFunction("updateParticles", {{"deltaMs", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawParticles", {}, ""));
     injectModule(program, "game3d", std::move(fns));
 }
 
