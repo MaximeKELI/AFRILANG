@@ -854,7 +854,7 @@ def _extend_tooling(pages):
     ])
 
 
-def _extend_overview():
+def _extend_overview(pages):
     fr = pages['overview']['fr']['blocks']
     en = pages['overview']['en']['blocks']
     fr.extend([
