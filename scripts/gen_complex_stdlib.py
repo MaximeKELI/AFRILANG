@@ -258,9 +258,9 @@ def add_ultra_data_modules(count: int) -> None:
             ('diff1', 'list number', [('v', 'list number')],
              '{std::vector<double> out;if(v.size()<2)return out;for(std::size_t i=1;i<v.size();++i)out.push_back(v[i]-v[i-1]);return out;}'),
             ('rollingMean', 'list number', [('v', 'list number'), ('window', 'number')],
-             f'{{std::vector<double> out;int W=(int)window;if(W<1)W={win};if(v.empty())return out;'
+             '{std::vector<double> out;int W=(int)window;if(W<1)W=' + str(win) + ';if(v.empty())return out;'
              'for(std::size_t i=0;i<v.size();++i){int a=(int)i-W+1;if(a<0)a=0;double s=0;int c=0;'
-             'for(int j=a;j<=(int)i;++j){s+=v[(std::size_t)j];++c;}out.push_back(c==0?0:s/c);}return out;}}'),
+             'for(int j=a;j<=(int)i;++j){s+=v[(std::size_t)j];++c;}out.push_back(c==0?0:s/c);}return out;}'),
             ('percentile', 'number', [('v', 'list number'), ('p', 'number')],
              '{if(v.empty())return 0;std::vector<double> s=v;std::sort(s.begin(),s.end());'
              'double pp=p;if(pp<0)pp=0;if(pp>1)pp=1;'
@@ -289,39 +289,40 @@ def add_ultra_viz_modules(count: int) -> None:
         cx(name, [
             ('writeLineChart', 'bool',
              [('path', 'text'), ('ys', 'list number'), ('width', 'number'), ('height', 'number')],
-             f'{{if(ys.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd={w};if(Hd<=0)Hd={h};'
-             'double ymin=ys[0],ymax=ys[0];for(double v:ys){{ymin=std::min(ymin,v);ymax=std::max(ymax,v);}}'
+             '{if(ys.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd=' + str(w) + ';if(Hd<=0)Hd=' + str(h) + ';'
+             'double ymin=ys[0],ymax=ys[0];for(double v:ys){ymin=std::min(ymin,v);ymax=std::max(ymax,v);}'
              'if(std::fabs(ymax-ymin)<1e-12)ymax=ymin+1;std::ostringstream ss;'
              'ss<<"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\""<<Wd<<"\\" height=\\""<<Hd<<"\\">\\n";'
              'ss<<"<rect width=\\"100%\\" height=\\"100%\\" fill=\\"#0f172a\\"/>\\n";'
              'double m=40;double pw=Wd-2*m,ph=Hd-2*m;ss<<"<polyline fill=\\"none\\" stroke=\\"#38bdf8\\" stroke-width=\\"2\\" points=\\"";'
-             'for(std::size_t i=0;i<ys.size();++i){{double x=m+pw*((ys.size()==1)?0.5:((double)i/(double)(ys.size()-1)));'
-             'double y=m+ph*(1.0-(ys[i]-ymin)/(ymax-ymin));ss<<x<<","<<y<<" ";}}'
-             'ss<<"\\"/>\\n</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}}'),
+             'for(std::size_t i=0;i<ys.size();++i){double x=m+pw*((ys.size()==1)?0.5:((double)i/(double)(ys.size()-1)));'
+             'double y=m+ph*(1.0-(ys[i]-ymin)/(ymax-ymin));ss<<x<<","<<y<<" ";}'
+             'ss<<"\\"/>\\n</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}'),
 
             ('writeBarChart', 'bool',
              [('path', 'text'), ('ys', 'list number'), ('width', 'number'), ('height', 'number')],
-             f'{{if(ys.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd={w};if(Hd<=0)Hd={h};'
+             '{if(ys.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd=' + str(w) + ';if(Hd<=0)Hd=' + str(h) + ';'
              'double ymax=0;for(double v:ys)ymax=std::max(ymax,v);if(ymax<1e-12)ymax=1;std::ostringstream ss;'
              'ss<<"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\""<<Wd<<"\\" height=\\""<<Hd<<"\\">\\n";'
              'ss<<"<rect width=\\"100%\\" height=\\"100%\\" fill=\\"#0f172a\\"/>\\n";'
              'double m=40,pw=Wd-2*m,ph=Hd-2*m,bw=pw/(double)ys.size();'
-             f'for(std::size_t i=0;i<ys.size();++i){{double bh=ph*(ys[i]/ymax);double x=m+i*bw+4;double y=m+ph-bh;'
-             f'ss<<"<rect x=\\""<<x<<"\\" y=\\""<<y<<"\\" width=\\""<<(bw-8)<<"\\" height=\\""<<bh<<"\\" fill=\\"rgb({stroke},{fill},220)\\"/>\\n";}}'
-             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}}'),
+             'for(std::size_t i=0;i<ys.size();++i){double bh=ph*(ys[i]/ymax);double x=m+i*bw+4;double y=m+ph-bh;'
+             'ss<<"<rect x=\\""<<x<<"\\" y=\\""<<y<<"\\" width=\\""<<(bw-8)<<"\\" height=\\""<<bh'
+             '<<"\\" fill=\\"rgb(' + str(stroke) + ',' + str(fill) + ',220)\\"/>\\n";}'
+             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}'),
 
             ('writeScatter', 'bool',
              [('path', 'text'), ('xs', 'list number'), ('ys', 'list number'), ('width', 'number'), ('height', 'number')],
-             f'{{std::size_t n=std::min(xs.size(),ys.size());if(n==0)return false;double Wd=width,Hd=height;if(Wd<=0)Wd={w};if(Hd<=0)Hd={h};'
+             '{std::size_t n=std::min(xs.size(),ys.size());if(n==0)return false;double Wd=width,Hd=height;if(Wd<=0)Wd=' + str(w) + ';if(Hd<=0)Hd=' + str(h) + ';'
              'double xmin=xs[0],xmax=xs[0],ymin=ys[0],ymax=ys[0];'
-             'for(std::size_t i=0;i<n;++i){{xmin=std::min(xmin,xs[i]);xmax=std::max(xmax,xs[i]);ymin=std::min(ymin,ys[i]);ymax=std::max(ymax,ys[i]);}}'
+             'for(std::size_t i=0;i<n;++i){xmin=std::min(xmin,xs[i]);xmax=std::max(xmax,xs[i]);ymin=std::min(ymin,ys[i]);ymax=std::max(ymax,ys[i]);}'
              'if(std::fabs(xmax-xmin)<1e-12)xmax=xmin+1;if(std::fabs(ymax-ymin)<1e-12)ymax=ymin+1;std::ostringstream ss;'
              'ss<<"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\""<<Wd<<"\\" height=\\""<<Hd<<"\\">\\n";'
              'ss<<"<rect width=\\"100%\\" height=\\"100%\\" fill=\\"#0f172a\\"/>\\n";'
              'double m=40,pw=Wd-2*m,ph=Hd-2*m;'
-             'for(std::size_t i=0;i<n;++i){{double x=m+pw*((xs[i]-xmin)/(xmax-xmin));double y=m+ph*(1.0-(ys[i]-ymin)/(ymax-ymin));'
-             'ss<<"<circle cx=\\""<<x<<"\\" cy=\\""<<y<<"\\" r=\\"3\\" fill=\\"#f472b6\\"/>\\n";}}'
-             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}}'),
+             'for(std::size_t i=0;i<n;++i){double x=m+pw*((xs[i]-xmin)/(xmax-xmin));double y=m+ph*(1.0-(ys[i]-ymin)/(ymax-ymin));'
+             'ss<<"<circle cx=\\""<<x<<"\\" cy=\\""<<y<<"\\" r=\\"3\\" fill=\\"#f472b6\\"/>\\n";}'
+             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}'),
 
             ('writeCsv', 'bool',
              [('path', 'text'), ('ys', 'list number')],
@@ -331,16 +332,16 @@ def add_ultra_viz_modules(count: int) -> None:
             ('writeHeatmap', 'bool',
              [('path', 'text'), ('grid', 'list number'), ('w', 'number'), ('h', 'number'),
               ('width', 'number'), ('height', 'number')],
-             f'{{int W=(int)w,H=(int)h;if(W<=0||H<=0||grid.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd={w};if(Hd<=0)Hd={h};'
-             'double vmin=grid[0],vmax=grid[0];for(double v:grid){{vmin=std::min(vmin,v);vmax=std::max(vmax,v);}}'
+             '{int W=(int)w,H=(int)h;if(W<=0||H<=0||grid.empty())return false;double Wd=width,Hd=height;if(Wd<=0)Wd=' + str(w) + ';if(Hd<=0)Hd=' + str(h) + ';'
+             'double vmin=grid[0],vmax=grid[0];for(double v:grid){vmin=std::min(vmin,v);vmax=std::max(vmax,v);}'
              'if(std::fabs(vmax-vmin)<1e-12)vmax=vmin+1;std::ostringstream ss;'
              'ss<<"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\""<<Wd<<"\\" height=\\""<<Hd<<"\\">\\n";'
              'double cw=Wd/(double)W,ch=Hd/(double)H;'
-             'for(int y=0;y<H;++y){{for(int x=0;x<W;++x){{std::size_t k=(std::size_t)(y*W+x);double v=k<grid.size()?grid[k]:0;'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){std::size_t k=(std::size_t)(y*W+x);double v=k<grid.size()?grid[k]:0;'
              'double t=(v-vmin)/(vmax-vmin);int r=(int)(30+t*200),g=(int)(40+t*180),b=(int)(80+t*120);'
              'ss<<"<rect x=\\""<<(x*cw)<<"\\" y=\\""<<(y*ch)<<"\\" width=\\""<<cw<<"\\" height=\\""<<ch'
-             f'<<"\\" fill=\\"rgb("<<r<<","<<g<<","<<b<<")\\"/>\\n";}}}}'
-             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}}'),
+             '<<"\\" fill=\\"rgb("<<r<<","<<g<<","<<b<<")\\"/>\\n";}}'
+             'ss<<"</svg>";return afrilang::runtime::io::writeFile(path,ss.str());}'),
         ])
 
 def add_ultra_game_modules(count: int) -> None:
