@@ -1,0 +1,8 @@
+import "std/game"
+use game
+
+create s number = 5
+create xp number = xpForScore(s)
+create lvl number = levelFromXp(xp)
+create ms number = speedMsForLevel(lvl)
+

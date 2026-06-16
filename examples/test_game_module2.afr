@@ -1,0 +1,6 @@
+import "std/game"
+use game
+
+create a number = game.xpForScore(3)
+create b number = xpForScore(3)
+
