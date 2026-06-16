@@ -107,10 +107,13 @@ async function runAfrilangCommand(context, subcommand, filePath) {
 
 function parseCheckErrors(stderr) {
   const diags = [];
-  const withFile = /Erreur dans .+:(\d+):(\d+)\n\s+([^\n]+)/g;
-  const withLine = /Erreur ligne (\d+), colonne (\d+)\n\s+([^\n]+)/g;
+  const patterns = [
+    /Erreur dans .+:(\d+):(\d+)\n\s+([^\n]+)/g,
+    /Erreur \[E\d+\] ligne (\d+), colonne (\d+)\n\s+([^\n]+)/g,
+    /Erreur ligne (\d+), colonne (\d+)\n\s+([^\n]+)/g,
+  ];
 
-  for (const re of [withFile, withLine]) {
+  for (const re of patterns) {
     let match;
     while ((match = re.exec(stderr)) !== null) {
       const line = Math.max(0, parseInt(match[1], 10) - 1);
@@ -265,6 +268,10 @@ function registerRestartCommand(context) {
       await client.stop();
       client = undefined;
     }
+    // Orphelins après recompilation (ancien binaire marqué "deleted" sous Linux)
+    try {
+      await execAsync('pkill -f "[a]frilang lsp" || true');
+    } catch (_) { /* ignore */ }
     await startLanguageClient(context);
     await checkWorkspaceFiles(context);
     vscode.window.showInformationMessage('Serveur AFRILANG redémarré.');
