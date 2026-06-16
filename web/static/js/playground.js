@@ -83,15 +83,18 @@
   async function runCode(url, label) {
     if (!output || !status) return;
     status.textContent = label;
+    status.classList.add('running');
     output.style.color = '';
     try {
       const data = await postJson(url, { source: getSource() });
       output.textContent = data.output || '(no output)';
       status.textContent = data.ok ? '✓ OK' : '✗ ' + (data.exitCode ?? '?');
+      status.classList.remove('running');
       if (!data.ok) output.style.color = '#f87171';
     } catch (e) {
       output.textContent = String(e);
       status.textContent = 'Error';
+      status.classList.remove('running');
       output.style.color = '#f87171';
     }
   }

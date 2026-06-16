@@ -761,6 +761,14 @@ main.afr-main-full {
   100% { background-position: 200% 0; }
 }
 
+#status.running {
+  animation: afr-pulse 1s ease infinite;
+}
+
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 body.afr-body:not(.afr-loaded) main {
   opacity: 0;
 }
@@ -819,15 +827,6 @@ body.afr-body.afr-loaded main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: afr-shimmer 4s linear infinite;
-}
-
-.afr-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.afr-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
 }
 
 .compare-card {
