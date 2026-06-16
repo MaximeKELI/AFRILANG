@@ -283,6 +283,34 @@ def playground(request):
     })
 
 
+def playground_embed(request):
+    examples = CodeExample.objects.all()
+    examples_map = {ex.slug: ex.source for ex in examples}
+    initial_slug = request.GET.get('example', '').strip()
+    initial_code = request.GET.get('code', '')
+    show_examples = request.GET.get('examples') == '1'
+    return render(request, 'core/playground_embed.html', {
+        'examples': examples,
+        'examples_map': examples_map,
+        'initial_slug': initial_slug,
+        'initial_code': initial_code,
+        'show_examples': show_examples,
+    })
+
+
+def playground_embed_docs(request):
+    from django.urls import reverse
+
+    examples = CodeExample.objects.all()
+    initial_slug = request.GET.get('example', 'hello').strip()
+    embed_base_url = request.build_absolute_uri(reverse('playground_embed'))
+    return render(request, 'core/playground_embed_docs.html', {
+        'examples': examples,
+        'initial_slug': initial_slug,
+        'embed_base_url': embed_base_url,
+    })
+
+
 def robots_txt(request):
     lines = [
         'User-agent: *',

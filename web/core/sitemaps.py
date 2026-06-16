@@ -12,6 +12,7 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         views = [
             'home', 'language', 'explore', 'packages', 'playground', 'tutorial', 'benchmarks', 'showcase',
+            'playground_embed_docs',
             'download', 'community', 'api_reference', 'examples',
             'stdlib', 'releases', 'docs_search',
         ]

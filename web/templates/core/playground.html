@@ -57,7 +57,8 @@
   {{ ui.playground_page.wasm_hint }}
   <a href="{% url 'docs_syntax' %}">{% if current_lang == 'en' %}Basic syntax{% else %}Syntaxe de base{% endif %}</a> ·
   <a href="{% url 'docs_getting_started' %}">{% if current_lang == 'en' %}Getting started{% else %}Premiers pas{% endif %}</a> ·
-  <a href="{% url 'examples' %}">{% if current_lang == 'en' %}All examples{% else %}Tous les exemples{% endif %}</a>
+  <a href="{% url 'examples' %}">{% if current_lang == 'en' %}All examples{% else %}Tous les exemples{% endif %}</a> ·
+  <a href="{% url 'playground_embed_docs' %}">{{ ui.playground_page.embed_link }}</a>
 </p>
 {% endblock %}
 

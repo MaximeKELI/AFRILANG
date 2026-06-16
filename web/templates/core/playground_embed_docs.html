@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ ui.playground_embed_page.title }}{% endblock %}
+{% block meta %}{{ ui.playground_embed_page.lead }}{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <div class="section-label">{{ ui.playground_embed_page.label }}</div>
+  <h1 class="h2 fw-bold mb-2">{{ ui.playground_embed_page.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.playground_embed_page.lead }}</p>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="afr-card">
+      <div class="card-header fw-semibold">{{ ui.playground_embed_page.builder }}</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label small" for="embed-example">{{ ui.playground_embed_page.example }}</label>
+          <select id="embed-example" class="form-select form-select-sm">
+            {% for ex in examples %}
+            <option value="{{ ex.slug }}" {% if initial_slug == ex.slug %}selected{% endif %}>{{ ex.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small" for="embed-height">{{ ui.playground_embed_page.height }}</label>
+          <input type="number" id="embed-height" class="form-control form-control-sm" value="480" min="320" max="900" step="20">
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="embed-examples" checked>
+          <label class="form-check-label small" for="embed-examples">{{ ui.playground_embed_page.show_examples }}</label>
+        </div>
+        <button type="button" class="btn btn-afr-primary btn-sm" id="copy-embed-code">{{ ui.playground_embed_page.copy }}</button>
+      </div>
+    </div>
+
+    <div class="afr-card mt-3">
+      <div class="card-header fw-semibold">{{ ui.playground_embed_page.code_title }}</div>
+      <div class="card-body p-0">
+        <pre id="embed-code" class="embed-code-output code-block mb-0 p-3"></pre>
+      </div>
+    </div>
+
+    <div class="docs-callout mt-3">
+      <strong>{{ ui.playground_embed_page.params_title }}</strong>
+      <ul class="small text-secondary-custom mb-0 mt-2 ps-3">
+        <li><code>?example=hello</code> — {{ ui.playground_embed_page.param_example }}</li>
+        <li><code>?examples=1</code> — {{ ui.playground_embed_page.param_examples }}</li>
+        <li><code>?code=…</code> — {{ ui.playground_embed_page.param_code }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <h2 class="h6 fw-bold mb-2">{{ ui.playground_embed_page.preview }}</h2>
+    <div class="afr-embed-preview mb-3">
+      <iframe id="embed-preview" title="AFRILANG Playground" loading="lazy"></iframe>
+    </div>
+    <p class="small text-secondary-custom mb-0">
+      <a href="{% url 'playground_embed' %}?example=hello" target="_blank" rel="noopener noreferrer">{{ ui.playground_embed_page.open_widget }} →</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.AFR_EMBED_DOCS = {
+  baseUrl: '{{ embed_base_url|escapejs }}',
+  copied: '{% if current_lang == "en" %}Copied!{% else %}Copié !{% endif %}',
+  copyLabel: '{{ ui.playground_embed_page.copy|escapejs }}',
+};
+</script>
+<script src="{% static 'js/embed-docs.js' %}"></script>
+{% endblock %}

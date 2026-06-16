@@ -33,7 +33,7 @@
         },
       },
     });
-    cm.setSize('100%', '380px');
+    cm.setSize('100%', embed ? '220px' : '380px');
     window.AFR_CM = {
       setTheme: (theme) => cm.setOption('theme', theme),
     };
