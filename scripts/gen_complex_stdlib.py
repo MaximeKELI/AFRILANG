@@ -112,6 +112,84 @@ def add_ultra_game_modules(count: int) -> None:
              'out.push_back(path.back());return out;}'),
         ])
 
+def add_ultra_game3d_modules(count: int) -> None:
+    """Add lots of 3D game-oriented complex modules (AI steering, boids, ray tests)."""
+    for i in range(1, count + 1):
+        name = f"gameultra3d{i:03d}"
+        # Slight variations per module (defaults baked into functions)
+        sepW = 1.1 + (i % 13) * 0.07
+        cohW = 0.6 + (i % 11) * 0.05
+        aliW = 0.9 + (i % 9) * 0.06
+        jitter = 0.02 + (i % 17) * 0.003
+
+        cx(name, [
+            # Integrate positions with velocities.
+            # pos/vel are flattened xyz arrays (length >= 3*n).
+            ('integratePos', 'list number',
+             [('pos', 'list number'), ('vel', 'list number'), ('n', 'number'), ('dt', 'number')],
+             '{int N=static_cast<int>(n);double DT=dt;std::vector<double> out;'
+             'if(N<=0)return out;out.resize((std::size_t)N*3);'
+             'for(int i=0;i<N;++i){std::size_t k=(std::size_t)i*3;'
+             'double px=k<pos.size()?pos[k]:0,py=k+1<pos.size()?pos[k+1]:0,pz=k+2<pos.size()?pos[k+2]:0;'
+             'double vx=k<vel.size()?vel[k]:0,vy=k+1<vel.size()?vel[k+1]:0,vz=k+2<vel.size()?vel[k+2]:0;'
+             'out[k]=px+vx*DT;out[k+1]=py+vy*DT;out[k+2]=pz+vz*DT;}return out;}'),
+
+            # Classic "seek" steering: desired velocity towards target with maxSpeed.
+            ('steerSeek', 'list number',
+             [('px', 'number'), ('py', 'number'), ('pz', 'number'),
+              ('tx', 'number'), ('ty', 'number'), ('tz', 'number'),
+              ('maxSpeed', 'number')],
+             '{double dx=tx-px,dy=ty-py,dz=tz-pz;double l=std::sqrt(dx*dx+dy*dy+dz*dz);'
+             'std::vector<double> v(3,0);if(l<1e-9)return v;double s=maxSpeed<=0?0:maxSpeed/l;'
+             'v[0]=dx*s;v[1]=dy*s;v[2]=dz*s;return v;}'),
+
+            # Boids velocity update (separation + cohesion + alignment) in O(n^2).
+            # Returns newVel (flattened xyz, length 3*n).
+            ('boidsVelStep', 'list number',
+             [('pos', 'list number'), ('vel', 'list number'), ('n', 'number'),
+              ('dt', 'number'), ('neighborDist', 'number'), ('sepDist', 'number'),
+              ('maxSpeed', 'number')],
+             '{int N=static_cast<int>(n);double DT=dt;double nd=neighborDist;double sd=sepDist;'
+             'if(N<=0)return std::vector<double>{};'
+             'double nd2=nd*nd,sd2=sd*sd;'
+             'std::vector<double> out((std::size_t)N*3,0);'
+             'for(int i=0;i<N;++i){std::size_t ik=(std::size_t)i*3;'
+             'double ix=ik<pos.size()?pos[ik]:0,iy=ik+1<pos.size()?pos[ik+1]:0,iz=ik+2<pos.size()?pos[ik+2]:0;'
+             'double vx=ik<vel.size()?vel[ik]:0,vy=ik+1<vel.size()?vel[ik+1]:0,vz=ik+2<vel.size()?vel[ik+2]:0;'
+             'double sepX=0,sepY=0,sepZ=0,cohX=0,cohY=0,cohZ=0,aliX=0,aliY=0,aliZ=0;'
+             'int cnt=0;'
+             'for(int j=0;j<N;++j){if(j==i)continue;std::size_t jk=(std::size_t)j*3;'
+             'double jx=jk<pos.size()?pos[jk]:0,jy=jk+1<pos.size()?pos[jk+1]:0,jz=jk+2<pos.size()?pos[jk+2]:0;'
+             'double dx=jx-ix,dy=jy-iy,dz=jz-iz;double d2=dx*dx+dy*dy+dz*dz;'
+             'if(d2>0 && d2<=nd2){++cnt;cohX+=jx;cohY+=jy;cohZ+=jz;'
+             'double jvx=jk<vel.size()?vel[jk]:0,jvy=jk+1<vel.size()?vel[jk+1]:0,jvz=jk+2<vel.size()?vel[jk+2]:0;'
+             'aliX+=jvx;aliY+=jvy;aliZ+=jvz;'
+             'if(d2<=sd2){double inv=1.0/std::max(1e-9,std::sqrt(d2));sepX-=dx*inv;sepY-=dy*inv;sepZ-=dz*inv;}}}'
+             'if(cnt>0){double inv=1.0/cnt;cohX=(cohX*inv-ix);cohY=(cohY*inv-iy);cohZ=(cohZ*inv-iz);'
+             'aliX=(aliX*inv-vx);aliY=(aliY*inv-vy);aliZ=(aliZ*inv-vz);} '
+             f'double ax=sepX*{sepW:.6f}+cohX*{cohW:.6f}+aliX*{aliW:.6f};'
+             f'double ay=sepY*{sepW:.6f}+cohY*{cohW:.6f}+aliY*{aliW:.6f};'
+             f'double az=sepZ*{sepW:.6f}+cohZ*{cohW:.6f}+aliZ*{aliW:.6f};'
+             f'vx+=ax*DT;vy+=ay*DT;vz+=az*DT;vx+=std::sin((double)i*12.9898)*{jitter:.6f}*DT;'
+             f'vz+=std::cos((double)i*78.233)*{jitter:.6f}*DT;'
+             'double sp=std::sqrt(vx*vx+vy*vy+vz*vz);'
+             'double ms=maxSpeed; if(ms>0 && sp>ms){double s=ms/sp;vx*=s;vy*=s;vz*=s;}'
+             'out[ik]=vx;out[ik+1]=vy;out[ik+2]=vz;}'
+             'return out;}'),
+
+            # Ray vs sphere (returns [hit(0/1), t] ; t=-1 if no hit)
+            ('raySphereHit', 'list number',
+             [('ox', 'number'), ('oy', 'number'), ('oz', 'number'),
+              ('dx', 'number'), ('dy', 'number'), ('dz', 'number'),
+              ('cx', 'number'), ('cy', 'number'), ('cz', 'number'), ('r', 'number')],
+             '{std::vector<double> out(2,0);double lx=cx-ox,ly=cy-oy,lz=cz-oz;'
+             'double tca=lx*dx+ly*dy+lz*dz;if(tca<0){out[1]=-1;return out;}'
+             'double d2=(lx*lx+ly*ly+lz*lz)-tca*tca;double rr=r*r;'
+             'if(d2>rr){out[1]=-1;return out;}double thc=std::sqrt(std::max(0.0,rr-d2));'
+             'double t0=tca-thc,t1=tca+thc;double t=t0>0?t0:t1;'
+             'if(t<=0){out[1]=-1;return out;}out[0]=1;out[1]=t;return out;}'),
+        ])
+
 
 cx('graphbfs', [
     ('bfsDistances', 'list number', [('adj', 'list number'), ('n', 'number'), ('start', 'number')],
@@ -3646,6 +3724,9 @@ assert len(MODULES) >= 200, f"Need 200+ modules, got {len(MODULES)}"
 
 # Add 500 ultra complex game modules in std/c/
 add_ultra_game_modules(500)
+
+# Add 500 ultra complex 3D game modules in std/c/
+add_ultra_game3d_modules(500)
 
 
 def main() -> None:
