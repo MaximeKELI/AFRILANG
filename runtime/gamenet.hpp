@@ -63,7 +63,7 @@ inline bool hostGame(double port) {
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = htons(static_cast<uint16_t>(static_cast<int>(port)));
-    if (bind(s.sock, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) != 0) {
+    if (::bind(s.sock, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) != 0) {
         closeSocket();
         return false;
     }

@@ -28,6 +28,7 @@ setBodyRestitution("crateB", 0.7)
 
 create rot number = 0
 create picked text = ""
+playGltfAnim("pyramid", 0, true)
 
 while isOpen() do
     beginFrame()
@@ -40,7 +41,6 @@ while isOpen() do
     set rot = rot + dt * 0.02
     stepPhysicsEx(dt, -18)
     updateGltfAnims(dt)
-    playGltfAnim("pyramid", 0, true)
 
     if wasMouseClicked() then
         set picked = pickBodyName(mouseX(), mouseY())
