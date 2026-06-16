@@ -192,6 +192,48 @@ end
 function drawSkyGradient(topR number, topG number, topB number, botR number, botG number, botB number)
 end
 
+function loadSkyboxFace(face text, path text) returns bool
+end
+
+function hasSkybox() returns bool
+end
+
+function drawSkybox(halfSize number)
+end
+
+function loadShader(name text, vertPath text, fragPath text) returns bool
+end
+
+function hasShader(name text) returns bool
+end
+
+function useShader(name text)
+end
+
+function stopShader()
+end
+
+function setShaderFloat(shaderName text, uniform text, value number)
+end
+
+function setShaderVec3(shaderName text, uniform text, x number, y number, z number)
+end
+
+function drawModelShader(shaderName text, modelName text, x number, y number, z number, scale number, rotY number)
+end
+
+function loadGltf(name text, path text) returns bool
+end
+
+function hasGltf(name text) returns bool
+end
+
+function drawGltf(name text, x number, y number, z number, scale number, rotY number)
+end
+
+function drawGltfLit(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
 function pickBody(screenX number, screenY number) returns number
 end
 

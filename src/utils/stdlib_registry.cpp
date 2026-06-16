@@ -628,6 +628,30 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("drawSkyGradient",
         {{"topR", "number"}, {"topG", "number"}, {"topB", "number"},
          {"botR", "number"}, {"botG", "number"}, {"botB", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadSkyboxFace", {{"face", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasSkybox", {}, "bool"));
+    fns.push_back(makeStubFunction("drawSkybox", {{"halfSize", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadShader",
+        {{"name", "text"}, {"vertPath", "text"}, {"fragPath", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasShader", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("useShader", {{"name", "text"}}, ""));
+    fns.push_back(makeStubFunction("stopShader", {}, ""));
+    fns.push_back(makeStubFunction("setShaderFloat",
+        {{"shaderName", "text"}, {"uniform", "text"}, {"value", "number"}}, ""));
+    fns.push_back(makeStubFunction("setShaderVec3",
+        {{"shaderName", "text"}, {"uniform", "text"},
+         {"x", "number"}, {"y", "number"}, {"z", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawModelShader",
+        {{"shaderName", "text"}, {"modelName", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"scale", "number"}, {"rotY", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadGltf", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("hasGltf", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("drawGltf",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"scale", "number"}, {"rotY", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawGltfLit",
+        {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"scale", "number"}, {"rotY", "number"}, {"textureName", "text"}}, ""));
     fns.push_back(makeStubFunction("pickBody", {{"screenX", "number"}, {"screenY", "number"}}, "number"));
     fns.push_back(makeStubFunction("pickBodyName", {{"screenX", "number"}, {"screenY", "number"}}, "text"));
     injectModule(program, "game3d", std::move(fns));
