@@ -385,7 +385,9 @@ static void testParseAssertCallComparison() {
         "    return no\n"
         "end\n"
         "test \"assert call compare\"\n"
-        "    assert occupied(list of 5, list of 5, 1, 9, 9) is equal to false\n"
+        "    create xs list number = list of 5\n"
+        "    create ys list number = list of 5\n"
+        "    assert occupied(xs, ys, 1, 9, 9) is equal to false\n"
         "end\n";
     afrilang::Lexer lexer(src);
     afrilang::Parser parser(lexer.tokenize());

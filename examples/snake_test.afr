@@ -13,7 +13,9 @@ test "snakeOccupies detects head"
 end
 
 test "snakeOccupies ignores empty cell"
-    assert snakeOccupies(list of 5, list of 5, 1, 9, 9) is equal to false
+    create xs list number = list of 5
+    create ys list number = list of 5
+    assert snakeOccupies(xs, ys, 1, 9, 9) is equal to false
 end
 
 test "isWallCell detects borders"
@@ -42,7 +44,9 @@ test "placeFood avoids snake body"
 end
 
 test "tail cell not counted in short body check"
-    assert snakeOccupies(list of 4, 5, 3, list of 5, 5, 5, 2, 3, 5) is equal to false
+    create xs list number = list of 4, 5, 3
+    create ys list number = list of 5, 5, 5
+    assert snakeOccupies(xs, ys, 2, 3, 5) is equal to false
 end
 
 test "moveMsForDifficulty scales speed"
