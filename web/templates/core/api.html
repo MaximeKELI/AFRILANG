@@ -18,6 +18,19 @@
   </div>
   <p class="text-secondary-custom small">Response: <code>{"ok": true, "output": "...", "exitCode": 0}</code></p>
 
+  <h2 class="h4 fw-bold mt-5">POST /api/compile/js/</h2>
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}Transpile AFRILANG to JavaScript for in-browser execution.{% else %}Transpile AFRILANG vers JavaScript pour exécution dans le navigateur.{% endif %}</p>
+  <div class="code-panel mb-4">
+    <pre>curl -X POST {{ request.scheme }}://{{ request.get_host }}/api/compile/js/ \\
+  -H "Content-Type: application/json" \\
+  -d '{"source": "say \"Hello\""}'</pre>
+  </div>
+  <p class="text-secondary-custom small">Response: <code>{"ok": true, "js": "console.log(...)"}</code></p>
+
+  <h2 class="h4 fw-bold mt-5">POST /api/build/wasm/</h2>
+  <p class="text-secondary-custom">{% if current_lang == 'en' %}Build a browser-loadable WASM module (Emscripten required on server).{% else %}Compile un module WASM chargeable dans le navigateur (Emscripten requis sur le serveur).{% endif %}</p>
+  <p class="text-secondary-custom small">{% if current_lang == 'en' %}Then load <code>GET /api/wasm/&lt;id&gt;/module.js</code> and <code>module.wasm</code>.{% else %}Puis chargez <code>GET /api/wasm/&lt;id&gt;/module.js</code> et <code>module.wasm</code>.{% endif %}</p>
+
   <h2 class="h4 fw-bold mt-5">POST /api/run/wasm/</h2>
   <p class="text-secondary-custom">{% if current_lang == 'en' %}WASM32 target compilation.{% else %}Compilation cible WASM32.{% endif %}</p>
 
