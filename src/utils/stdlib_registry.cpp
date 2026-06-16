@@ -401,10 +401,16 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("isOpen", {}, "bool"));
     fns.push_back(makeStubFunction("beginFrame", {}, ""));
     fns.push_back(makeStubFunction("clearBackground", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("fillRect", {{"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawRect", {{"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
     fns.push_back(makeStubFunction("drawText", {{"text", "text"}, {"x", "number"}, {"y", "number"}, {"size", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawTextColor", {{"text", "text"}, {"x", "number"}, {"y", "number"}, {"size", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
     fns.push_back(makeStubFunction("drawButton", {{"label", "text"}, {"x", "number"}, {"y", "number"}, {"width", "number"}, {"height", "number"}}, "bool"));
     fns.push_back(makeStubFunction("isKeyDown", {{"key", "text"}}, "bool"));
     fns.push_back(makeStubFunction("wasKeyPressed", {{"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("deltaMs", {}, "number"));
+    fns.push_back(makeStubFunction("windowWidth", {}, "number"));
+    fns.push_back(makeStubFunction("windowHeight", {}, "number"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
 }

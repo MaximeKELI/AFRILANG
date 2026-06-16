@@ -403,6 +403,35 @@ end
 | `show frame` | Présente l'image à l'écran |
 | `close window` | Ferme la fenêtre |
 
+### Jeux 2D (module `std/ui`)
+
+Primitives pour créer de vrais jeux (rectangles colorés, timing, clavier) :
+
+| Fonction | Description |
+|----------|-------------|
+| `fillRect(x, y, w, h, r, g, b)` | Rectangle plein (RGB 0–255) |
+| `drawRect(x, y, w, h, r, g, b)` | Contour de rectangle |
+| `drawTextColor(text, x, y, size, r, g, b)` | Texte coloré |
+| `deltaMs()` | Millisecondes depuis la dernière frame |
+| `windowWidth()` / `windowHeight()` | Taille de la fenêtre |
+| `isKeyDown(key)` / `wasKeyPressed(key)` | Clavier (WASD, flèches, Space, Escape) |
+
+Exemple minimal :
+
+```afr
+import "std/ui"
+use ui
+
+openWindow("Jeu", 640, 480)
+while isOpen() do
+    beginFrame()
+    clearBackground(18, 18, 24)
+    fillRect(100, 100, 48, 48, 90, 200, 120)
+    drawTextColor("Score: 0", 20, 20, 24, 240, 240, 245)
+    showFrame()
+end
+```
+
 Module stdlib équivalent : `import "std/ui"` puis `use ui` (`openWindow`, `drawButton`, etc.).
 
 Compilation : `-lSDL2 -lSDL2_ttf` (SDL2 + SDL2_ttf requis).
