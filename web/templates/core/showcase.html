@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.showcase_page.title }}{% endblock %}
+{% block meta %}{{ ui.showcase_page.lead }}{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <div class="section-label">{{ ui.showcase_page.label }}</div>
+  <h1 class="h2 fw-bold mb-2">{{ ui.showcase_page.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.showcase_page.lead }}</p>
+</div>
+
+{% if featured %}
+<section class="mb-5">
+  <h2 class="h5 fw-bold mb-3">{{ ui.showcase_page.featured }}</h2>
+  <div class="row g-3">
+    {% for project in featured %}
+    <div class="col-md-6 col-lg-4">
+      {% include 'includes/showcase_card.html' with project=project featured=True %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% for group in groups %}
+<section class="mb-5 afr-reveal">
+  <h2 class="h5 fw-bold mb-3">
+    {{ group.label }}
+    <span class="badge text-bg-light border">{{ group.projects|length }}</span>
+  </h2>
+  <div class="row g-3">
+    {% for project in group.projects %}
+    {% if not project.featured %}
+    <div class="col-md-6 col-lg-4">
+      {% include 'includes/showcase_card.html' with project=project %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<div class="docs-callout mt-4">
+  <strong>{{ ui.showcase_page.submit_title }}</strong>
+  <p class="small text-secondary-custom mb-3 mt-2">{{ ui.showcase_page.submit_lead }}</p>
+  <a href="https://github.com/MaximeKELI/AFRILANG/issues/new" class="btn btn-afr-primary btn-sm" target="_blank" rel="noopener noreferrer">
+    {{ ui.showcase_page.submit_btn }} →
+  </a>
+</div>
+{% endblock %}
