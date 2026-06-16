@@ -146,22 +146,37 @@ inline void drawText(const std::string& text, double x, double y, double fontSiz
     if (!font) return;
 
     SDL_Color color{240, 240, 245, 255};
-    SDL_Surface* surface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
-    if (!surface) return;
+    // SDL_ttf ne gère pas les sauts de ligne dans un seul rendu.
+    // On rend donc ligne par ligne pour supporter les textes multi-lignes (ex: Snake, logs, etc.).
+    const int lineH = std::max(10, TTF_FontHeight(font) + 2);
+    int lineIdx = 0;
+    std::size_t start = 0;
+    while (start <= text.size()) {
+        std::size_t end = text.find('\n', start);
+        if (end == std::string::npos) end = text.size();
+        const std::string line = text.substr(start, end - start);
 
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(ctx.renderer, surface);
-    SDL_FreeSurface(surface);
-    if (!texture) return;
+        SDL_Surface* surface = TTF_RenderUTF8_Blended(font, line.c_str(), color);
+        if (surface) {
+            SDL_Texture* texture = SDL_CreateTextureFromSurface(ctx.renderer, surface);
+            SDL_FreeSurface(surface);
+            if (texture) {
+                SDL_Rect dest{
+                    static_cast<int>(x),
+                    static_cast<int>(y) + lineIdx * lineH,
+                    0,
+                    0
+                };
+                SDL_QueryTexture(texture, nullptr, nullptr, &dest.w, &dest.h);
+                SDL_RenderCopy(ctx.renderer, texture, nullptr, &dest);
+                SDL_DestroyTexture(texture);
+            }
+        }
 
-    SDL_Rect dest{
-        static_cast<int>(x),
-        static_cast<int>(y),
-        0,
-        0
-    };
-    SDL_QueryTexture(texture, nullptr, nullptr, &dest.w, &dest.h);
-    SDL_RenderCopy(ctx.renderer, texture, nullptr, &dest);
-    SDL_DestroyTexture(texture);
+        if (end >= text.size()) break;
+        start = end + 1;
+        lineIdx += 1;
+    }
 }
 
 inline bool drawButton(const std::string& label, double x, double y, double w, double h) {
