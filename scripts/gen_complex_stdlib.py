@@ -36,6 +36,17 @@ def add_ultra_gis_modules(count: int) -> None:
         sunAz = (i % 360) * 1.0
         sunAlt = 35.0 + (i % 41) * 0.5
 
+        hill_body = (
+            '{std::size_t n=std::min(slopeDeg.size(), aspectDeg.size());'
+            'std::vector<double> out;out.resize(n);'
+            'double az=' + f'{sunAz:.6f}' + '*3.141592653589793/180.0;'
+            'double alt=' + f'{sunAlt:.6f}' + '*3.141592653589793/180.0;'
+            'for(std::size_t i=0;i<n;++i){double s=slopeDeg[i]*3.141592653589793/180.0;'
+            'double a=aspectDeg[i]*3.141592653589793/180.0;'
+            'double v=std::cos(s)*std::sin(alt)+std::sin(s)*std::cos(alt)*std::cos(az-a);'
+            'v = v*' + f'{k:.6f}' + '; out[i]=v<0?0:(v>1?1:v);}return out;}'
+        )
+
         cx(name, [
             # Compute NDVI pixelwise: (nir - red) / (nir + red). Returns list with same length as inputs.
             ('ndviRaster', 'list number',
@@ -59,14 +70,7 @@ def add_ultra_gis_modules(count: int) -> None:
             # Returns list length = min(slope.size, aspect.size).
             ('hillshadeRaster', 'list number',
              [('slopeDeg', 'list number'), ('aspectDeg', 'list number')],
-             f'{{std::size_t n=std::min(slopeDeg.size(), aspectDeg.size());'
-             'std::vector<double> out;out.resize(n);'
-             f'double az={sunAz:.6f}*3.141592653589793/180.0;'
-             f'double alt={sunAlt:.6f}*3.141592653589793/180.0;'
-             'for(std::size_t i=0;i<n;++i){double s=slopeDeg[i]*3.141592653589793/180.0;'
-             'double a=aspectDeg[i]*3.141592653589793/180.0;'
-             f'double v=std::cos(s)*std::sin(alt)+std::sin(s)*std::cos(alt)*std::cos(az-a);'
-             f'v = v*{k:.6f}; out[i]=v<0?0:(v>1?1:v);}return out;}}'),
+             hill_body),
         ])
 
 def add_ultra_game_modules(count: int) -> None:
