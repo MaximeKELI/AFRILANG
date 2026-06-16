@@ -5,4 +5,5 @@ end
 
 function timestampPrefix(msg text) returns text
 end
+
 end

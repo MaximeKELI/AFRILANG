@@ -219,6 +219,11 @@ inline double normalizeAngle(double d) { { double r = std::fmod(d, 360.0); retur
 inline double angleDiff(double a, double b) { { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; } }
 } // namespace
 
+namespace afrilang::runtime::hex {
+inline std::string toHex(double n) { { std::ostringstream os; os << std::hex << static_cast<long long>(n); return os.str(); } }
+inline double fromHex(std::string s) { { return static_cast<double>(std::stoll(s, nullptr, 16)); } }
+} // namespace
+
 namespace afrilang::runtime::binary {
 inline std::string toBinary(double n) { { std::string r; long long v = static_cast<long long>(n); if (v == 0) return "0"; while (v) { r = char('0' + v % 2) + r; v /= 2; } return r; } }
 inline double fromBinary(std::string s) { return static_cast<double>(std::stoll(s, nullptr, 2)); }
@@ -547,11 +552,6 @@ inline bool isRedirect(double code) { return code >= 300 && code < 400; }
 namespace afrilang::runtime::game {
 inline double scoreBonus(double score, double level) { return score + level * 100; }
 inline double levelFromXp(double xp) { return std::floor(xp / 1000.0) + 1; }
-inline double xpForScore(double score) { return score * 15.0; }
-inline double speedMsForLevel(double level) {
-    const double ms = 140.0 - (level - 1.0) * 8.0;
-    return ms < 55.0 ? 55.0 : ms;
-}
 } // namespace
 
 namespace afrilang::runtime::music {
@@ -762,4 +762,2504 @@ inline bool passed(double score, double min) { return score >= min; }
 namespace afrilang::runtime::quiz {
 inline double scorePercent(double correct, double total) { return total == 0 ? 0 : (correct / total) * 100.0; }
 inline bool isPerfect(double correct, double total) { return total > 0 && correct == total; }
+} // namespace
+
+namespace afrilang::runtime::gamekit001 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 0.031416) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit002 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit003 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit004 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 0.125664) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit005 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit006 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 0.188495) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit007 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit008 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit009 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 0.282743) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit010 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit011 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.345575) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit012 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit013 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit014 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.439823) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit015 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit016 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.502654) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit017 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit018 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit019 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.596902) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit020 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit021 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.659734) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit022 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit023 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.491000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit024 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.753982) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit025 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit026 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 0.816813) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit027 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit028 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.576000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit029 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 0.911061) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit030 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit031 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 0.973893) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit032 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit033 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.661000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit034 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 1.068141) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit035 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit036 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 1.130972) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit037 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit038 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.117000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit039 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 1.225220) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit040 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit041 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 1.288052) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit042 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit043 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.202000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit044 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 1.382300) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit045 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit046 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 1.445131) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit047 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit048 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.287000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit049 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 1.539379) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit050 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit051 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 1.602211) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit052 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit053 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.372000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit054 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 1.696459) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit055 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit056 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 1.759290) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit057 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit058 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.457000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit059 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.474000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 1.853538) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit060 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit061 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 1.916370) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit062 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit063 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.542000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit064 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.559000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 2.010618) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit065 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit066 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 2.073449) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit067 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit068 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.627000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit069 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.644000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 2.167697) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit070 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit071 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 2.230529) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit072 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit073 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.712000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit074 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.100000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 2.324777) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit075 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit076 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 2.387608) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit077 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit078 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit079 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.185000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 2.481856) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit080 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit081 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 2.544688) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit082 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit083 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit084 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.270000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 2.638936) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit085 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit086 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 2.701767) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit087 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit088 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit089 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.355000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 2.796015) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit090 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit091 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 2.858847) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit092 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit093 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit094 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.440000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 2.953095) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit095 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit096 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 3.015926) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit097 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit098 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit099 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.525000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 0.062832) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit100 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit101 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 0.125664) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit102 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit103 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit104 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.610000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 0.219911) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit105 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit106 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.282743) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit107 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit108 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit109 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.695000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.376991) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit110 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit111 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.439823) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit112 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit113 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit114 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.534070) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit115 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit116 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.596902) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit117 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit118 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit119 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.691150) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit120 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit121 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 0.753982) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit122 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit123 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit124 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 0.848229) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit125 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit126 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 0.911061) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit127 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit128 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit129 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 1.005309) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit130 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit131 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 1.068141) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit132 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit133 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.474000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit134 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.491000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 1.162388) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit135 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit136 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 1.225220) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit137 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit138 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.559000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit139 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.576000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 1.319468) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit140 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit141 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 1.382300) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit142 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit143 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.644000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit144 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.661000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 1.476547) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit145 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit146 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 1.539379) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit147 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit148 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.100000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit149 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.117000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 1.633627) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit150 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit151 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 1.696459) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit152 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit153 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.185000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit154 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.202000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 1.790706) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit155 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit156 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 1.853538) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit157 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit158 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.270000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit159 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.287000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 1.947786) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit160 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit161 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 2.010618) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit162 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit163 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.355000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit164 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.372000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 2.104865) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit165 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit166 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 2.167697) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit167 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit168 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.440000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit169 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.457000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 2.261945) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit170 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit171 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 2.324777) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit172 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit173 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.525000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit174 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.542000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 2.419024) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit175 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit176 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 2.481856) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit177 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit178 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.610000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit179 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.627000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 2.576104) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit180 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit181 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 2.638936) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit182 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit183 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.695000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit184 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.712000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 2.733183) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit185 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit186 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 2.796015) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit187 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit188 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit189 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 2.890263) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit190 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit191 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 2.953095) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit192 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit193 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit194 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 0.000000) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit195 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit196 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 0.062832) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit197 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit198 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit199 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 0.157079) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit200 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit201 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.219911) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit202 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit203 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit204 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.314159) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit205 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit206 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.376991) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit207 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit208 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.491000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit209 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.471238) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit210 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit211 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.534070) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit212 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit213 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.576000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit214 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.628318) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit215 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit216 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 0.691150) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit217 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit218 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.661000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit219 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 0.785397) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit220 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit221 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 0.848229) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit222 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit223 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.117000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit224 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 0.942477) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit225 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit226 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 1.005309) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit227 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit228 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.202000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit229 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 1.099556) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit230 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit231 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 1.162388) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit232 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit233 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.287000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit234 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 1.256636) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit235 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit236 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 1.319468) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit237 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit238 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.372000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit239 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 1.413715) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit240 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit241 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 1.476547) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit242 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit243 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.457000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit244 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.474000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 1.570795) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit245 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit246 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 1.633627) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit247 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit248 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.542000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit249 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.559000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 1.727874) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit250 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit251 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 1.790706) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit252 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit253 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.627000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit254 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.644000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 1.884954) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit255 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit256 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 1.947786) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit257 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit258 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.712000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit259 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.100000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 2.042033) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit260 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit261 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 2.104865) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit262 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit263 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit264 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.185000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 2.199113) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit265 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit266 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 2.261945) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit267 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit268 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit269 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.270000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 2.356192) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit270 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit271 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 2.419024) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit272 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit273 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit274 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.355000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 2.513272) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit275 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit276 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 2.576104) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit277 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit278 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit279 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.440000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 2.670351) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit280 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit281 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 2.733183) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit282 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit283 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit284 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.525000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 2.827431) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit285 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit286 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 2.890263) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit287 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit288 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit289 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.610000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 2.984510) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit290 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit291 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 0.000000) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit292 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit293 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit294 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.695000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 0.094248) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit295 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit296 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.157079) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit297 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit298 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit299 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.251327) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit300 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit301 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.314159) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit302 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit303 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit304 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.408407) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit305 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit306 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.471238) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit307 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit308 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit309 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.565486) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit310 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit311 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 0.628318) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit312 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit313 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit314 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 0.722566) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit315 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit316 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 0.785397) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit317 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit318 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.474000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit319 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.491000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 0.879645) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit320 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit321 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 0.942477) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit322 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit323 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.559000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit324 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.576000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 1.036725) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit325 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit326 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 1.099556) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit327 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit328 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.644000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit329 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.661000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 1.193804) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit330 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit331 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 1.256636) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit332 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit333 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.100000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit334 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.117000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 1.350884) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit335 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit336 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 1.413715) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit337 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit338 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.185000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit339 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.202000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 1.507963) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit340 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit341 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 1.570795) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit342 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit343 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.270000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit344 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.287000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 1.665043) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit345 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit346 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 1.727874) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit347 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit348 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.355000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit349 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.372000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 1.822122) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit350 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit351 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 1.884954) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit352 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit353 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.440000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit354 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.457000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 1.979202) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit355 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit356 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 2.042033) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit357 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit358 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.525000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit359 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.542000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 2.136281) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit360 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit361 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 2.199113) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit362 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit363 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.610000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit364 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.627000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 2.293361) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit365 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit366 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 2.356192) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit367 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit368 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.695000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit369 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.712000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 2.450440) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit370 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit371 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 2.513272) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit372 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit373 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit374 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 2.607520) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit375 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit376 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 2.670351) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit377 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit378 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit379 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 2.764599) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit380 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit381 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 2.827431) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit382 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit383 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit384 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 2.921679) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit385 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit386 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 2.984510) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit387 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit388 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit389 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 0.031416) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit390 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit391 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.094248) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit392 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit393 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.491000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit394 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.188495) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit395 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit396 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.251327) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit397 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit398 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.576000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit399 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.345575) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit400 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit401 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.408407) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit402 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit403 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.661000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit404 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.502654) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit405 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit406 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 0.565486) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit407 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit408 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.117000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit409 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 0.659734) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit410 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit411 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 0.722566) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit412 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit413 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.202000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit414 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 0.816813) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit415 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit416 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 0.879645) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit417 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit418 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.287000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit419 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 0.973893) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit420 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit421 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 1.036725) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit422 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit423 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.372000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit424 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 1.130972) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit425 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit426 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.380000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 1.193804) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit427 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit428 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.457000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit429 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.474000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 1.288052) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit430 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit431 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.930000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 1.350884) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit432 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit433 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.542000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit434 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.559000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 1.445131) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit435 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit436 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.480000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 1.507963) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit437 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit438 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.627000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit439 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.644000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 1.602211) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit440 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit441 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.940000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 1.665043) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit442 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit443 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.712000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit444 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.100000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.270000 + 1.759290) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit445 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit446 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.490000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 1.822122) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit447 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit448 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.168000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit449 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.185000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.820000 + 1.916370) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit450 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit451 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.040000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 1.979202) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit452 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit453 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.253000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit454 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.270000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.370000 + 2.073449) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit455 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit456 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.500000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 2.136281) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit457 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit458 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.338000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit459 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.355000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.830000 + 2.230529) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit460 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit461 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.050000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 2.293361) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit462 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit463 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.423000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit464 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.440000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.380000 + 2.387608) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit465 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit466 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.600000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.600000 + 2.450440) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit467 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit468 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.508000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit469 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.525000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.930000 + 2.544688) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit470 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit471 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.150000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.150000 + 2.607520) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit472 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit473 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.593000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit474 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.610000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.480000 + 2.701767) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit475 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit476 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.610000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.610000 + 2.764599) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit477 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit478 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.678000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit479 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.695000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.940000 + 2.858847) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit480 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit481 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.160000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.160000 + 2.921679) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit482 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.270000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit483 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.134000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit484 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.151000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.490000 + 3.015926) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit485 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit486 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.710000; }
+inline double shake(double time, double amp) { return std::sin(time * 1.710000 + 0.031416) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit487 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 1.820000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit488 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.219000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit489 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.236000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 2.040000 + 0.125664) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit490 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit491 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.260000; }
+inline double shake(double time, double amp) { return std::sin(time * 2.260000 + 0.188495) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit492 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 2.370000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit493 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.304000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit494 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.321000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 0.500000 + 0.282743) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit495 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+} // namespace
+
+namespace afrilang::runtime::gamekit496 {
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.720000; }
+inline double shake(double time, double amp) { return std::sin(time * 0.720000 + 0.345575) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit497 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double falloff(double dist, double radius) { if (radius <= 0) return 0; double d = std::fabs(dist) / radius; if (d >= 1) return 0; double t = 1.0 - d; return t * t * 0.830000; }
+} // namespace
+
+namespace afrilang::runtime::gamekit498 {
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
+inline double spring(double x, double v, double target, double dt) { double w = 0.389000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+} // namespace
+
+namespace afrilang::runtime::gamekit499 {
+inline double spring(double x, double v, double target, double dt) { double w = 0.406000; double a = (target - x) * w; v = v + a * dt; return x + v * dt; }
+inline double shake(double time, double amp) { return std::sin(time * 1.050000 + 0.439823) * amp; }
+} // namespace
+
+namespace afrilang::runtime::gamekit500 {
+inline double easeIn(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t; }
+inline double easeOut(double t) { t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u; }
 } // namespace

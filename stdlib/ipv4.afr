@@ -5,4 +5,5 @@ end
 
 function countDots(s text) returns number
 end
+
 end

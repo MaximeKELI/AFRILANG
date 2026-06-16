@@ -5,4 +5,5 @@ end
 
 function cosDeg(deg number) returns number
 end
+
 end

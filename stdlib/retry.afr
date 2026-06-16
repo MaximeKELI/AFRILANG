@@ -5,4 +5,5 @@ end
 
 function shouldRetry(attempt number, max number) returns bool
 end
+
 end

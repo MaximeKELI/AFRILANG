@@ -1,0 +1,9 @@
+module gamekit387
+
+function easeIn(t number) returns number
+end
+
+function falloff(dist number, radius number) returns number
+end
+
+end

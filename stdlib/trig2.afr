@@ -5,4 +5,5 @@ end
 
 function cotDeg(deg number) returns number
 end
+
 end

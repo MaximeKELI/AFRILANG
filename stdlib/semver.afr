@@ -5,4 +5,5 @@ end
 
 function bumpMajor(s text) returns text
 end
+
 end

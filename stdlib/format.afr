@@ -5,4 +5,5 @@ end
 
 function formatPercent(n number) returns text
 end
+
 end

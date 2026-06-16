@@ -5,4 +5,5 @@ end
 
 function absDiff(a number, b number) returns number
 end
+
 end

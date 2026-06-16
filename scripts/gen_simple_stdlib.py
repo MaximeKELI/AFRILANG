@@ -615,6 +615,55 @@ MODULES: list[tuple] = [
     ]),
 ]
 
+def gen_gamekit_modules(count: int) -> list[tuple]:
+    """Generate many tiny, game-oriented *simple* stdlib modules.
+
+    Goal: produce lots of reusable helpers without increasing language/runtime complexity.
+    Each module stays minimal (2-3 functions) and pure (no IO).
+    """
+    mods: list[tuple] = []
+    for i in range(1, count + 1):
+        name = f"gamekit{i:03d}"
+        # deterministic but varied constants per module
+        k = 0.1 + (i % 37) * 0.017
+        k2 = 0.5 + (i % 19) * 0.11
+        phase = (i % 97) * 0.0314159
+        funcs = [
+            # 0..1 easing / smoothing helpers
+            ("easeIn", "number", [("t", "number")],
+             "t = t < 0 ? 0 : (t > 1 ? 1 : t); return t * t;"),
+            ("easeOut", "number", [("t", "number")],
+             "t = t < 0 ? 0 : (t > 1 ? 1 : t); double u = 1.0 - t; return 1.0 - u * u;"),
+            # small gameplay-ish helpers (damage falloff, camera spring, recoil)
+            ("falloff", "number", [("dist", "number"), ("radius", "number")],
+             f"if (radius <= 0) return 0; double d = std::fabs(dist) / radius; "
+             f"if (d >= 1) return 0; double t = 1.0 - d; return t * t * {k2:.6f};"),
+            ("spring", "number", [("x", "number"), ("v", "number"), ("target", "number"), ("dt", "number")],
+             f"double w = {k:.6f}; double a = (target - x) * w; v = v + a * dt; "
+             f"return x + v * dt;"),
+            ("shake", "number", [("time", "number"), ("amp", "number")],
+             f"return std::sin(time * {k2:.6f} + {phase:.6f}) * amp;"),
+        ]
+        # Keep only 2 functions for most modules to limit compile time,
+        # but rotate which helpers are included so each module stays distinct.
+        pick = i % 5
+        if pick == 0:
+            use = [funcs[0], funcs[1]]
+        elif pick == 1:
+            use = [funcs[2], funcs[4]]
+        elif pick == 2:
+            use = [funcs[0], funcs[2]]
+        elif pick == 3:
+            use = [funcs[1], funcs[3]]
+        else:
+            use = [funcs[3], funcs[4]]
+        mods.append((name, name, use))
+    return mods
+
+
+# Add 500 new simple game modules: std/gamekit001 .. std/gamekit500
+MODULES.extend(gen_gamekit_modules(500))
+
 assert len(MODULES) >= 100, f"Need >=100 modules, got {len(MODULES)}"
 
 

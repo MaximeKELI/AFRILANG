@@ -5,4 +5,5 @@ end
 
 function freqA4(ignored number) returns number
 end
+
 end

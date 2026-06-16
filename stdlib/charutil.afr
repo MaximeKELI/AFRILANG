@@ -5,4 +5,5 @@ end
 
 function fromCharCode(n number) returns text
 end
+
 end

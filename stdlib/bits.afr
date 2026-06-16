@@ -5,4 +5,5 @@ end
 
 function bitOr(a number, b number) returns number
 end
+
 end

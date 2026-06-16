@@ -5,4 +5,5 @@ end
 
 function invertRgb(packed number) returns number
 end
+
 end

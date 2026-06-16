@@ -5,4 +5,5 @@ end
 
 function isRedirect(code number) returns bool
 end
+
 end

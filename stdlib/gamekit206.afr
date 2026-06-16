@@ -1,0 +1,9 @@
+module gamekit206
+
+function falloff(dist number, radius number) returns number
+end
+
+function shake(time number, amp number) returns number
+end
+
+end

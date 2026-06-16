@@ -5,4 +5,5 @@ end
 
 function cmpText(a text, b text) returns number
 end
+
 end

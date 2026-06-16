@@ -5,4 +5,5 @@ end
 
 function markup(cost number, price number) returns number
 end
+
 end

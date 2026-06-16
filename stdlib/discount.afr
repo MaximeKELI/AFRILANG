@@ -5,4 +5,5 @@ end
 
 function discountAmount(price number, rate number) returns number
 end
+
 end

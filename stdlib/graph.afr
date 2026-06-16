@@ -5,4 +5,5 @@ end
 
 function selfLoop(a number, b number) returns bool
 end
+
 end

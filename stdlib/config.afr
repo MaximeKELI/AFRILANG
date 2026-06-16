@@ -5,4 +5,5 @@ end
 
 function boolToText(b bool) returns text
 end
+
 end

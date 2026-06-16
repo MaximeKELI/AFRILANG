@@ -5,4 +5,5 @@ end
 
 function isEmpty(s text) returns bool
 end
+
 end

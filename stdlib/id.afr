@@ -5,4 +5,5 @@ end
 
 function shortHash(s text) returns text
 end
+
 end
