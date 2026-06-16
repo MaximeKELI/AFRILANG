@@ -1,0 +1,41 @@
+import "std/game3d"
+use game3d
+
+openWindow("AFRILANG 3D", 960, 600)
+setCamera(0, 6, 18, 0, -14)
+
+create rot number = 0
+
+while isOpen() do
+    beginFrame()
+
+    if wasKeyPressed("Escape") then
+        shutdown()
+    end
+
+    create dt number = deltaMs()
+    create move number = dt * 0.012
+    create turn number = dt * 0.04
+    updateFlyCamera(move, turn)
+
+    set rot = rot + dt * 0.05
+    setSceneRotation(rot)
+
+    clear(14, 16, 24)
+    applyCamera()
+    applySceneRotation()
+
+    drawGrid(0, 24, 24)
+    drawPlane(0, 24, 34, 38, 48)
+    drawAxis(3)
+
+    drawCube(0, 1, 0, 2, 100, 210, 255)
+    drawCube(5, 0.75, -4, 1.5, 255, 120, 80)
+    drawCube(-4, 0.5, 3, 1.2, 120, 230, 130)
+    drawCube(3, 2.5, 5, 1, 220, 100, 220)
+
+    drawSphere(-6, 1.2, -2, 1.2, 255, 220, 90)
+    drawSphere(7, 1.5, 2, 1.5, 90, 180, 255)
+
+    showFrame()
+end

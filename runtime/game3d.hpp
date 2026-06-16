@@ -200,13 +200,6 @@ inline void setCamera(double x, double y, double z, double yaw, double pitch) {
     ctx.camPitch = pitch;
 }
 
-inline void cameraPos(double& x, double& y, double& z) {
-    const Game3dContext& ctx = context();
-    x = ctx.camX;
-    y = ctx.camY;
-    z = ctx.camZ;
-}
-
 inline void applyCamera() {
     Game3dContext& ctx = context();
     const double aspect = ctx.windowH > 0

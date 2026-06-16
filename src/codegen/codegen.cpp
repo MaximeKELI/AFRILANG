@@ -3085,7 +3085,7 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
             args.push_back("-pthread");
         }
     }
-    if (semantic_.usesUi && !wasmBuild) {
+    if ((semantic_.usesUi || semantic_.usesGame3d) && !wasmBuild) {
         args.push_back("-I/usr/include/SDL2");
         args.push_back("-D_REENTRANT");
     }

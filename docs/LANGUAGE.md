@@ -442,6 +442,25 @@ Bibliothèque de jeu haut niveau (grille, timers, entrées, collisions) — bât
 
 `import "std/game2d"` puis `use game2d`. Voir aussi `std/game` (score, niveau, XP).
 
+### Moteur 3D (`std/game3d`)
+
+Jeux 3D avec OpenGL (SDL2 + GL) :
+
+| Fonction | Description |
+|----------|-------------|
+| `openWindow` / `isOpen` / `beginFrame` / `showFrame` | Boucle 3D |
+| `clear(r, g, b)` | Efface l’écran et le tampon de profondeur |
+| `setCamera(x, y, z, yaw, pitch)` + `applyCamera()` | Caméra perspective |
+| `updateFlyCamera(moveSpeed, turnSpeed)` | Vol libre WASD + QE + flèches |
+| `drawCube`, `drawSphere`, `drawPlane`, `drawGrid`, `drawAxis` | Primitives 3D |
+| `setSceneRotation` / `applySceneRotation` | Rotation du monde |
+
+```bash
+./build/afrilang examples/game3d_demo.afr -o game3d_demo --run
+```
+
+Contrôles : **WASD** déplacer, **QE** monter/descendre, **flèches** regarder, **Échap** quitter.
+
 Exemple minimal :
 
 ```afr
