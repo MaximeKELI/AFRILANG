@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.releases_page.title }}{% endblock %}
+
+{% block content %}
+<div class="mb-5">
+  <div class="section-label">{{ ui.releases_page.label }}</div>
+  <h1 class="h2 fw-bold mb-1">{{ ui.releases_page.h1 }}</h1>
+  <p class="text-secondary-custom mb-0">{{ ui.releases_page.lead }}</p>
+</div>
+
+{% for rel in releases %}
+<article class="afr-card mb-4">
+  <div class="card-header d-flex flex-wrap align-items-center gap-2">
+    <h2 class="h5 fw-bold mb-0">{{ rel.version }}</h2>
+    {% if rel.released_at %}
+    <span class="badge text-bg-light border ms-auto">{{ rel.released_at }}</span>
+    {% endif %}
+  </div>
+  <div class="card-body docs-content release-body">
+    {% for line in rel.body.splitlines %}
+      {% if line.startswith('### ') %}
+        <h3 class="h6 fw-bold mt-3">{{ line|slice:"4:" }}</h3>
+      {% elif line.startswith('- ') %}
+        <p class="mb-1 small">• {{ line|slice:"2:" }}</p>
+      {% elif line.strip %}
+        <p class="small text-secondary-custom mb-1">{{ line }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
+{% empty %}
+<div class="docs-callout">{{ ui.releases_page.empty }}</div>
+{% endfor %}
+{% endblock %}

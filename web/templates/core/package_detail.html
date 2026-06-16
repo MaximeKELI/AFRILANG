@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}{{ pkg.name }} — {{ ui.packages_page.title }}{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb small">
+    <li class="breadcrumb-item"><a href="{% url 'packages' %}">{{ ui.packages_page.h1 }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ pkg.name }}</li>
+  </ol>
+</nav>
+
+<div class="mb-4">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    {% if pkg.blessed %}<span class="text-warning fs-4" title="certified">★</span>{% endif %}
+    <h1 class="h2 fw-bold mb-0">{{ pkg.name }}</h1>
+    <span class="badge text-bg-light border ms-2">v{{ pkg.version }}</span>
+  </div>
+  <p class="text-secondary-custom">{{ pkg.description }}</p>
+  <code class="d-block mb-2">afrilang pkg add {{ pkg.name }}</code>
+  {% if pkg.sha256 %}
+  <p class="small font-monospace text-secondary-custom mb-0">sha256: {{ pkg.sha256 }}</p>
+  {% endif %}
+</div>
+
+{% if source %}
+<div class="afr-card">
+  <div class="card-header small text-secondary-custom">{{ pkg.name }}.afr</div>
+  <pre class="card-body code-block mb-0 overflow-auto" style="max-height:480px">{{ source }}</pre>
+</div>
+{% endif %}
+{% endblock %}

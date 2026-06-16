@@ -1,0 +1,29 @@
+{% extends 'docs/base_docs.html' %}
+{% block title %}{{ ui.docs_search_page.title }}{% endblock %}
+
+{% block docs_content %}
+<div class="mb-4">
+  <h1 class="h2 fw-bold mb-3">{{ ui.docs_search_page.h1 }}</h1>
+  <form method="get" class="d-flex gap-2" role="search">
+    <label for="doc-q" class="visually-hidden">{{ ui.docs_search_page.search }}</label>
+    <input id="doc-q" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.docs_search_page.search }}" autofocus>
+    <button type="submit" class="btn btn-afr-primary">{{ ui.docs_search_page.filter }}</button>
+  </form>
+</div>
+
+{% if query and query|length < 2 %}
+<p class="text-secondary-custom">{{ ui.docs_search_page.min_chars }}</p>
+{% elif query %}
+<p class="small text-secondary-custom mb-3">{{ results|length }} {{ ui.docs_search_page.results_label }}</p>
+{% for hit in results %}
+<article class="afr-feature-card mb-3">
+  <h2 class="h5 fw-bold mb-1"><a href="{% url hit.url_name %}">{{ hit.title }}</a></h2>
+  <p class="small text-secondary-custom mb-0">…{{ hit.snippet }}…</p>
+</article>
+{% empty %}
+<p class="text-secondary-custom">{{ ui.docs_search_page.empty }}</p>
+{% endfor %}
+{% else %}
+<p class="text-secondary-custom">{{ ui.docs_search_page.hint }}</p>
+{% endif %}
+{% endblock %}
