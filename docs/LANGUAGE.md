@@ -521,6 +521,26 @@ Espace = lancer une bille supplémentaire.
 
 **C** bascule caméra libre / suivi du héros.
 
+### 3D expert (skybox, GLSL, glTF, physique box-box)
+
+| Fonction | Description |
+|----------|-------------|
+| `loadSkyboxFace(face, path)` | Face du ciel : `px`, `nx`, `py`, `ny`, `pz`, `nz` |
+| `hasSkybox()` / `drawSkybox(halfSize)` | Cube ciel texturé centré sur la caméra |
+| `loadShader(name, vert, frag)` | Programme GLSL 1.20 |
+| `useShader` / `stopShader` | Active / désactive le shader |
+| `setShaderFloat` / `setShaderVec3` | Uniformes shader |
+| `drawModelShader(shader, model, x,y,z, scale, rotY)` | Modèle OBJ avec shader |
+| `loadGltf(name, path)` | Chargeur glTF 2.0 minimal (`.gltf` + buffer embarqué ou `.bin`) |
+| `drawGltf` / `drawGltfLit` | Rendu modèle glTF |
+| `stepPhysicsEx` | Collisions sphère-sphère, box-box et sphère-box |
+
+```bash
+./build/afrilang examples/game3d_advanced.afr -o game3d_advanced --run
+```
+
+Clic souris : `pickBodyName` sur les corps physiques.
+
 Exemple minimal :
 
 ```afr
