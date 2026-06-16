@@ -1,0 +1,30 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/rasterultra_demo.afr",
+  "variables": [
+    {"name":"red","type":"list number","scope":"global"},
+    {"name":"edges","type":"list number","scope":"global"},
+    {"name":"ndm","type":"list number","scope":"global"},
+    {"name":"blurred","type":"list number","scope":"global"},
+    {"name":"grid","type":"list number","scope":"global"},
+    {"name":"nir","type":"list number","scope":"global"},
+    {"name":"mask","type":"list number","scope":"global"},
+    {"name":"h","type":"number","scope":"global"},
+    {"name":"w","type":"number","scope":"global"},
+    {"name":"grid","type":"list number","scope":"boxBlur3"},
+    {"name":"w","type":"number","scope":"boxBlur3"},
+    {"name":"h","type":"number","scope":"boxBlur3"},
+    {"name":"grid","type":"list number","scope":"sobelMag"},
+    {"name":"w","type":"number","scope":"sobelMag"},
+    {"name":"h","type":"number","scope":"sobelMag"},
+    {"name":"grid","type":"list number","scope":"threshold01"},
+    {"name":"w","type":"number","scope":"threshold01"},
+    {"name":"h","type":"number","scope":"threshold01"},
+    {"name":"t","type":"number","scope":"threshold01"},
+    {"name":"nir","type":"list number","scope":"ndviMask"},
+    {"name":"red","type":"list number","scope":"ndviMask"},
+    {"name":"thr","type":"number","scope":"ndviMask"},
+    {"name":"prev","type":"list number","scope":"smoothRaster"},
+    {"name":"cur","type":"list number","scope":"smoothRaster"},
+    {"name":"alpha","type":"number","scope":"smoothRaster"}
+  ]
+}

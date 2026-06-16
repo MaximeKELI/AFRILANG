@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DAFRILANG_TESTING=1
 
-CXX_INCLUDES = -I/home/maxime/AFRILANG/include
+CXX_INCLUDES = -I/home/maxime/AFRILANG/include -I/usr/include/SDL2 -I/usr/include/harfbuzz -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include
 
-CXX_FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
+CXX_FLAGS = -std=c++17 -D_REENTRANT -Wall -Wextra -Wpedantic
 

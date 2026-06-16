@@ -5,7 +5,7 @@ def _default_stats():
     return {
         'version': '1.0',
         'compiler_version': '1.0.0',
-        'examples': 60,
+        'examples': 89,
         'blessed_packages': 10,
         'stdlib_modules': 7971,
         'cli_commands': 15,

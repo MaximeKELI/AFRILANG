@@ -5,3 +5,9 @@ while i is less than 3 do
     say "hello wasm"
     set i = i + 1
 end
+
+create total int = 0
+for n from 1 to 3 do
+    set total = total + n
+end
+say total

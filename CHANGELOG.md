@@ -30,9 +30,9 @@
 - **Default parameters**, **for from/to/step**, **const**, **maps**, **exceptions**, **interpolation**
 
 ### Standard library
-- **151 bibliothèques simples** — maths, texte, conversions (`import "std/nom"`)
+- **2151 bibliothèques simples** — maths, texte, SIG giskit, kits jeu (`import "std/nom"`)
 - **102 bibliothèques moyennes** — stats, listes, dates, URL, finance (`import "std/m/nom"`)
-- **210 bibliothèques complexes** — graphes, ML, crypto, simulation (`import "std/c/nom"`)
+- **5710 bibliothèques complexes** — graphes, ML, SIG ultra, data science, jeux (`import "std/c/nom"`)
 - `std/ui` — openWindow, drawText, drawButton, showFrame (SDL2)
 - `std/async` — sleep(ms) via scheduler (timers)
 - `std/http` — httpGetAsync, httpPostAsync (thread pool)

@@ -438,6 +438,20 @@ static void testStringInterpolationCall() {
            "interpolation calls highScore()");
 }
 
+static void testJsonStringLiteralParse() {
+    const std::string src =
+        "import \"std/json\"\n"
+        "use json\n"
+        "create doc json = parse(\"{\\\"value\\\": 42}\")\n";
+    afrilang::Compiler compiler("examples/json_literal_test.afr",
+                                afrilang::detectAfrilangRoot());
+    auto program = compiler.compileFromSource(src);
+    expect(program != nullptr, "parse JSON string literal in source");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(),
+                                         "examples/json_literal_test.afr");
+    analyzer.analyze();
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -475,7 +489,7 @@ int main() {
     testCompileSnake();
     testSnakeLogicUnitTests();
     testStringInterpolationCall();
-
+    testJsonStringLiteralParse();
     std::cout << "\n";
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";

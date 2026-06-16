@@ -90,6 +90,10 @@ output = "build/mon_app"
 
 ### Bibliothèque standard
 
+**7971 modules** en trois tiers : **2151 simple** (`import "std/nom"`), **102 medium** (`import "std/m/nom"`), **5710 complex** (`import "std/c/nom"`). Voir `docs/STDLIB_*.md`, `docs/STDLIB_GEN.md` et le site `/stdlib/`.
+
+Modules cœur (runtime C++ dédié) :
+
 ```afr
 import "std/io"
 import "std/json"
@@ -110,6 +114,10 @@ say readFile("/tmp/test.txt")
 | `std/json` | `parse`, `stringify`, `getString`, `getNumber`, `makeObject` |
 | `std/fs` | `listDir`, `makeDir`, `removeFile`, `fileSize` |
 | `std/http` | `httpGet` (via `curl`, HTTPS supporté) |
+| `std/game2d` | moteur 2D (Snake, sprites, sons) |
+| `std/game3d` | moteur 3D OpenGL, physique, glTF |
+| `std/async` | `sleep`, coroutines |
+| Packs ultra | giskit, segultra, dataultra, datasci, iaultra, dbultra, … |
 
 ### Messages d'erreur enrichis
 

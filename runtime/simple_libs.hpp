@@ -219,11 +219,6 @@ inline double normalizeAngle(double d) { { double r = std::fmod(d, 360.0); retur
 inline double angleDiff(double a, double b) { { double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d; } }
 } // namespace
 
-namespace afrilang::runtime::hex {
-inline std::string toHex(double n) { { std::ostringstream os; os << std::hex << static_cast<long long>(n); return os.str(); } }
-inline double fromHex(std::string s) { { return static_cast<double>(std::stoll(s, nullptr, 16)); } }
-} // namespace
-
 namespace afrilang::runtime::binary {
 inline std::string toBinary(double n) { { std::string r; long long v = static_cast<long long>(n); if (v == 0) return "0"; while (v) { r = char('0' + v % 2) + r; v /= 2; } return r; } }
 inline double fromBinary(std::string s) { return static_cast<double>(std::stoll(s, nullptr, 2)); }
@@ -254,11 +249,6 @@ inline std::string slugify(std::string s) { { std::string r; for (char c : s) { 
 inline std::string deslugify(std::string s) { { std::string r; for (char c : s) r += (c == '-') ? ' ' : c; return r; } }
 } // namespace
 
-namespace afrilang::runtime::email {
-inline bool isEmail(std::string s) { return s.find('@') != std::string::npos && s.find('.') != std::string::npos; }
-inline std::string domainOf(std::string s) { { auto p = s.find('@'); return p == std::string::npos ? "" : s.substr(p + 1); } }
-} // namespace
-
 namespace afrilang::runtime::phone {
 inline bool isPhone(std::string s) { { int d = 0; for (char c : s) if (std::isdigit(static_cast<unsigned char>(c))) ++d; return d >= 8; } }
 inline std::string digitsOnly(std::string s) { { std::string r; for (char c : s) if (std::isdigit(static_cast<unsigned char>(c))) r += c; return r; } }
@@ -267,11 +257,6 @@ inline std::string digitsOnly(std::string s) { { std::string r; for (char c : s)
 namespace afrilang::runtime::ipv4 {
 inline bool isIpv4(std::string s) { { int dots = 0; for (char c : s) if (c == '.') ++dots; return dots == 3; } }
 inline double countDots(std::string s) { { int d = 0; for (char c : s) if (c == '.') ++d; return d; } }
-} // namespace
-
-namespace afrilang::runtime::html {
-inline std::string escapeHtml(std::string s) { { std::string r; for (char c : s) { if (c == '<') r += "&lt;"; else if (c == '>') r += "&gt;"; else if (c == '&') r += "&amp;"; else r += c; } return r; } }
-inline std::string unescapeHtml(std::string s) { return s; }
 } // namespace
 
 namespace afrilang::runtime::point {

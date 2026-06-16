@@ -1493,9 +1493,30 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
     }
 
     std::vector<std::unique_ptr<ExpressionNode>> parts;
+    std::string textBuf;
+
+    auto flushText = [&]() {
+        if (!textBuf.empty()) {
+            parts.push_back(std::make_unique<StringLiteralNode>(textBuf));
+            textBuf.clear();
+        }
+    };
+
     std::size_t i = 0;
     while (i < raw.size()) {
         if (raw[i] == '{') {
+            if (i + 1 < raw.size() && raw[i + 1] == '{') {
+                textBuf += '{';
+                i += 2;
+                continue;
+            }
+            // JSON / literal object: `{` followed by `"` is not interpolation.
+            if (i + 1 < raw.size() && raw[i + 1] == '"') {
+                textBuf += '{';
+                ++i;
+                continue;
+            }
+            flushText();
             const std::size_t close = raw.find('}', i);
             if (close == std::string::npos) {
                 error("Accolade '}' manquante dans la chaîne interpolée");
@@ -1505,19 +1526,18 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
                 Lexer subLexer(exprSource);
                 Parser subParser(subLexer.tokenize());
                 parts.push_back(subParser.parseExpression());
-                i = close + 1;
-                continue;
             }
+            i = close + 1;
+            continue;
         }
-
-        const std::size_t next = raw.find('{', i);
-        const std::size_t end = (next == std::string::npos) ? raw.size() : next;
-        const std::string text = raw.substr(i, end - i);
-        if (!text.empty()) {
-            parts.push_back(std::make_unique<StringLiteralNode>(text));
+        if (raw[i] == '}' && i + 1 < raw.size() && raw[i + 1] == '}') {
+            textBuf += '}';
+            i += 2;
+            continue;
         }
-        i = end;
+        textBuf += raw[i++];
     }
+    flushText();
 
     if (parts.empty()) {
         return std::make_unique<StringLiteralNode>("");

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
 #include <unordered_map>
 #include <stdexcept>
 #include <functional>
@@ -13,26 +14,20 @@
 #include "str.hpp"
 
 namespace io {
-} // namespace io
-
-namespace json {
-} // namespace json
-
-namespace io {
     std::string readFile(std::string path) {
-        return afrilang::runtime::io::readFile(path);
+        return ::afrilang::runtime::io::readFile(path);
     }
 
     void writeFile(std::string path, std::string content) {
-        afrilang::runtime::io::writeFile(path, content);
+        ::afrilang::runtime::io::writeFile(path, content);
     }
 
     bool fileExists(std::string path) {
-        return afrilang::runtime::io::fileExists(path);
+        return ::afrilang::runtime::io::fileExists(path);
     }
 
     std::string readLine() {
-        return afrilang::runtime::io::readLine();
+        return ::afrilang::runtime::io::readLine();
     }
 
     afrilang::runtime::async::Task<std::string> readFileAsync(std::string path) {
@@ -42,24 +37,28 @@ namespace io {
 } // namespace io
 
 namespace json {
-    std::string parse(std::string text) {
-        return afrilang::runtime::json::parse(text);
+    afrilang::runtime::json::Value parse(std::string text) {
+        return afrilang::runtime::json::parseValue(text);
     }
 
-    std::string stringify(std::string value) {
-        return afrilang::runtime::json::normalize(value);
+    std::string stringify(afrilang::runtime::json::Value value) {
+        return afrilang::runtime::json::stringifyValue(value);
     }
 
-    std::string getString(std::string text, std::string key) {
-        return afrilang::runtime::json::getString(text, key);
+    std::string getString(afrilang::runtime::json::Value value, std::string key) {
+        return afrilang::runtime::json::getStringFrom(value, key);
     }
 
-    double getNumber(std::string text, std::string key) {
-        return afrilang::runtime::json::getNumber(text, key);
+    double getNumber(afrilang::runtime::json::Value value, std::string key) {
+        return afrilang::runtime::json::getNumberFrom(value, key);
     }
 
-    std::string makeObject(std::string key, std::string value) {
-        return afrilang::runtime::json::makeObject(key, value);
+    std::int64_t getInt(afrilang::runtime::json::Value value, std::string key) {
+        return afrilang::runtime::json::getIntFrom(value, key);
+    }
+
+    afrilang::runtime::json::Value makeObject(std::string key, std::string value) {
+        return afrilang::runtime::json::makeObjectValue(key, value);
     }
 
 } // namespace json
@@ -72,26 +71,28 @@ int main() {
         #line 4 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
                 #line 5 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
                 #line 7 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::string content = json::makeObject("lang", "AFRILANG");
+        afrilang::runtime::json::Value doc = json::makeObject("lang", "AFRILANG");
         #line 8 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::cout << content << std::endl;
+        std::cout << json::getString(doc, "lang") << std::endl;
         #line 10 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::string parsed = json::parse(content);
+        afrilang::runtime::json::Value roundtrip = json::parse(json::stringify(doc));
         #line 11 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::cout << json::getString(parsed, "lang") << std::endl;
+        std::cout << json::getString(roundtrip, "lang") << std::endl;
         #line 13 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        bool ok = io::fileExists("/tmp/afrilang_test.txt");
+        afrilang::runtime::json::Value numDoc = json::parse("{\"value\": 42}");
+        #line 14 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+        std::cout << json::getNumber(numDoc, "value") << std::endl;
         #line 16 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+        bool ok = io::fileExists("/tmp/afrilang_test.txt");
+        #line 19 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
         if ((ok == false)) {
-            #line 15 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+            #line 18 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
             io::writeFile("/tmp/afrilang_test.txt", "Hello from stdlib io");
         }
-        #line 18 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::string fileContent = io::readFile("/tmp/afrilang_test.txt");
-        #line 19 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::cout << fileContent << std::endl;
         #line 21 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
-        std::cout << json::getNumber("{\"value\": 42}", "value") << std::endl;
+        std::string fileContent = io::readFile("/tmp/afrilang_test.txt");
+        #line 22 "/home/maxime/AFRILANG/examples/stdlib_demo.afr"
+        std::cout << fileContent << std::endl;
         co_return;
     }());
     return 0;

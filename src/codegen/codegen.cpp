@@ -2864,8 +2864,9 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         return;
     }
 
-    if (stdlibCatalogIsSimpleModule(moduleName)) {
-        const std::string rt = "afrilang::runtime::" + moduleName + "::" + func.name;
+    if (stdlibCatalogIsSimpleModule(moduleName) &&
+        moduleName != "hex" && moduleName != "html" && moduleName != "email") {
+        const std::string rt = "::afrilang::runtime::" + moduleName + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {
@@ -2887,7 +2888,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     }
 
     if (mediumCatalogIsMediumModule(moduleName)) {
-        const std::string rt = "afrilang::runtime::med::" + moduleName + "::" + func.name;
+        const std::string rt = "::afrilang::runtime::med::" + moduleName + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {
@@ -2909,7 +2910,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     }
 
     if (complexCatalogIsComplexModule(moduleName)) {
-        const std::string rt = "afrilang::runtime::cx::" + moduleName + "::" + func.name;
+        const std::string rt = "::afrilang::runtime::cx::" + moduleName + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {
@@ -2957,7 +2958,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         }
     }
 
-    const std::string rt = "afrilang::runtime::" + runtimeModuleName(moduleName) +
+    const std::string rt = "::afrilang::runtime::" + runtimeModuleName(moduleName) +
                            "::" + func.name;
 
     if (func.name == "writeFile") {
@@ -3074,10 +3075,21 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     args.push_back(compilerForTarget(crossTarget_));
     const bool wasmBuild = isWasmTarget(crossTarget_);
     const bool usesCoroutines = semantic_.usesAsync || semantic_.usesGenerators;
+    bool usesComplexCatalog = false;
+    for (const auto& module : program_.modules) {
+        if (complexCatalogIsComplexModule(module->name)) {
+            usesComplexCatalog = true;
+            break;
+        }
+    }
     args.push_back("-std=" + (usesCoroutines && !wasmBuild ? std::string("c++20") : std::string("c++17")));
-    args.push_back("-O2");
+    args.push_back(usesComplexCatalog && !wasmBuild ? "-O0" : "-O2");
     args.push_back("-Wall");
     args.push_back("-Wextra");
+    if (usesComplexCatalog && !wasmBuild) {
+        args.push_back("-Wno-unused-parameter");
+        args.push_back("-Wno-unused-variable");
+    }
     if (!wasmBuild) {
         args.push_back("-fstack-protector-strong");
         args.push_back("-D_FORTIFY_SOURCE=2");

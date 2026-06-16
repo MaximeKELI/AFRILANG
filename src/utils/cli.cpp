@@ -380,7 +380,25 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "tier7_demo.afr",
         "tier8_demo.afr",
         "tier9_demo.afr",
-        "tier10_demo.afr"
+        "tier10_demo.afr",
+        "giskit_demo.afr",
+        "segultra_demo.afr",
+        "datasci_demo.afr",
+        "dbultra_demo.afr",
+        "snake_test.afr",
+        "game3d_demo.afr",
+        "test_game2dkit.afr",
+    };
+
+    const std::vector<std::string> stdlibSamples = {
+        "examples/giskit_demo.afr",
+        "examples/segultra_demo.afr",
+        "examples/dataultra_demo.afr",
+        "examples/rasterultra_demo.afr",
+        "examples/gisultra_demo.afr",
+        "examples/iaultra_demo.afr",
+        "examples/vizultra_demo.afr",
+        "examples/test_gameultra.afr",
     };
 
     const int totalExamples = static_cast<int>(examples.size());
@@ -409,12 +427,34 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         }
     }
 
+    std::cout << "\n[stdlib samples]\n";
+    for (const auto& rel : stdlibSamples) {
+        const std::string path = (root / rel).string();
+        const std::string label = fs::path(rel).filename().string();
+        std::cout << "  " << label << " ... ";
+        std::cout.flush();
+        try {
+            auto result = compileFile(path, opts);
+            if (result.success) {
+                std::cout << "OK\n";
+                ++passed;
+            } else {
+                std::cout << "FAIL\n";
+                ++failures;
+            }
+        } catch (const CompileError&) {
+            std::cout << "FAIL\n";
+            ++failures;
+        }
+    }
+
+    const int totalTests = totalExamples + static_cast<int>(stdlibSamples.size());
     std::cout << "\n";
     if (coverage) {
-        const int pct = totalExamples > 0 ? (passed * 100) / totalExamples : 0;
-        std::cout << "Couverture exemples: " << passed << "/" << totalExamples
+        const int pct = totalTests > 0 ? (passed * 100) / totalTests : 0;
+        std::cout << "Couverture exemples: " << passed << "/" << totalTests
                   << " (" << pct << "%)\n";
-        if (coverage && passed == totalExamples) {
+        if (coverage && passed == totalTests) {
             std::cout << "Artefacts gcov dans le répertoire courant (si g++ --coverage actif).\n";
         }
     }

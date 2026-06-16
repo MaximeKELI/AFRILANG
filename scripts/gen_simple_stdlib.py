@@ -1034,6 +1034,9 @@ MODULES.extend(gen_giskit_modules(500))
 
 assert len(MODULES) >= 100, f"Need >=100 modules, got {len(MODULES)}"
 
+# Modules with dedicated runtime/*.hpp — skip duplicate simple_libs namespace generation.
+LEGACY_RUNTIME_MODULES = frozenset({"hex", "html", "email"})
+
 
 def cpp_type(t: str) -> str:
     return {"number": "double", "text": "std::string", "bool": "bool"}.get(t, "auto")
@@ -1054,6 +1057,8 @@ def gen_runtime() -> str:
         "",
     ]
     for import_name, use_name, funcs in MODULES:
+        if use_name in LEGACY_RUNTIME_MODULES:
+            continue
         parts.append(f"namespace afrilang::runtime::{use_name} {{")
         for fname, ret, params, body in funcs:
             args = ", ".join(f"{cpp_type(pt)} {pn}" for pn, pt in params)

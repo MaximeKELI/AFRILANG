@@ -1,0 +1,30 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/simple_libs_demo.afr",
+  "variables": [
+    {"name":"score","type":"number","scope":"global"},
+    {"name":"angle","type":"number","scope":"global"},
+    {"name":"code","type":"text","scope":"global"},
+    {"name":"label","type":"text","scope":"global"},
+    {"name":"greeting","type":"text","scope":"global"},
+    {"name":"tempF","type":"number","scope":"global"},
+    {"name":"c","type":"number","scope":"cToF"},
+    {"name":"f","type":"number","scope":"fToC"},
+    {"name":"s","type":"text","scope":"toUpper"},
+    {"name":"s","type":"text","scope":"toLower"},
+    {"name":"deg","type":"number","scope":"sinDeg"},
+    {"name":"deg","type":"number","scope":"cosDeg"},
+    {"name":"data","type":"text","scope":"encode"},
+    {"name":"data","type":"text","scope":"decode"},
+    {"name":"n","type":"number","scope":"toHex"},
+    {"name":"s","type":"text","scope":"fromHex"},
+    {"name":"name","type":"text","scope":"greetFr"},
+    {"name":"name","type":"text","scope":"greetEn"},
+    {"name":"correct","type":"number","scope":"scorePercent"},
+    {"name":"total","type":"number","scope":"scorePercent"},
+    {"name":"correct","type":"number","scope":"isPerfect"},
+    {"name":"total","type":"number","scope":"isPerfect"},
+    {"name":"n","type":"number","scope":"formatNumber"},
+    {"name":"decimals","type":"number","scope":"formatNumber"},
+    {"name":"n","type":"number","scope":"formatPercent"}
+  ]
+}

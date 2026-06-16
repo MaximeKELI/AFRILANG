@@ -558,6 +558,33 @@ src/utils/debug.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug.cpp.s
 .PHONY : src/utils/debug.cpp.s
 
+src/utils/debug_meta.o: src/utils/debug_meta.cpp.o
+.PHONY : src/utils/debug_meta.o
+
+# target to build an object file
+src/utils/debug_meta.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug_meta.cpp.o
+.PHONY : src/utils/debug_meta.cpp.o
+
+src/utils/debug_meta.i: src/utils/debug_meta.cpp.i
+.PHONY : src/utils/debug_meta.i
+
+# target to preprocess a source file
+src/utils/debug_meta.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug_meta.cpp.i
+.PHONY : src/utils/debug_meta.cpp.i
+
+src/utils/debug_meta.s: src/utils/debug_meta.cpp.s
+.PHONY : src/utils/debug_meta.s
+
+# target to generate assembly for a file
+src/utils/debug_meta.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/debug_meta.cpp.s
+.PHONY : src/utils/debug_meta.cpp.s
+
 src/utils/diagnostics.o: src/utils/diagnostics.cpp.o
 .PHONY : src/utils/diagnostics.o
 
@@ -666,6 +693,33 @@ src/utils/formatter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/formatter.cpp.s
 .PHONY : src/utils/formatter.cpp.s
 
+src/utils/hash.o: src/utils/hash.cpp.o
+.PHONY : src/utils/hash.o
+
+# target to build an object file
+src/utils/hash.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/hash.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.o
+.PHONY : src/utils/hash.cpp.o
+
+src/utils/hash.i: src/utils/hash.cpp.i
+.PHONY : src/utils/hash.i
+
+# target to preprocess a source file
+src/utils/hash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/hash.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.i
+.PHONY : src/utils/hash.cpp.i
+
+src/utils/hash.s: src/utils/hash.cpp.s
+.PHONY : src/utils/hash.s
+
+# target to generate assembly for a file
+src/utils/hash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/hash.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/hash.cpp.s
+.PHONY : src/utils/hash.cpp.s
+
 src/utils/i18n.o: src/utils/i18n.cpp.o
 .PHONY : src/utils/i18n.o
 
@@ -692,6 +746,33 @@ src/utils/i18n.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/i18n.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/i18n.cpp.s
 .PHONY : src/utils/i18n.cpp.s
+
+src/utils/js_codegen.o: src/utils/js_codegen.cpp.o
+.PHONY : src/utils/js_codegen.o
+
+# target to build an object file
+src/utils/js_codegen.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/js_codegen.cpp.o
+.PHONY : src/utils/js_codegen.cpp.o
+
+src/utils/js_codegen.i: src/utils/js_codegen.cpp.i
+.PHONY : src/utils/js_codegen.i
+
+# target to preprocess a source file
+src/utils/js_codegen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/js_codegen.cpp.i
+.PHONY : src/utils/js_codegen.cpp.i
+
+src/utils/js_codegen.s: src/utils/js_codegen.cpp.s
+.PHONY : src/utils/js_codegen.s
+
+# target to generate assembly for a file
+src/utils/js_codegen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/utils/js_codegen.cpp.s
+.PHONY : src/utils/js_codegen.cpp.s
 
 src/utils/medium_catalog.o: src/utils/medium_catalog.cpp.o
 .PHONY : src/utils/medium_catalog.o
@@ -1015,6 +1096,9 @@ help:
 	@echo "... src/utils/debug.o"
 	@echo "... src/utils/debug.i"
 	@echo "... src/utils/debug.s"
+	@echo "... src/utils/debug_meta.o"
+	@echo "... src/utils/debug_meta.i"
+	@echo "... src/utils/debug_meta.s"
 	@echo "... src/utils/diagnostics.o"
 	@echo "... src/utils/diagnostics.i"
 	@echo "... src/utils/diagnostics.s"
@@ -1027,9 +1111,15 @@ help:
 	@echo "... src/utils/formatter.o"
 	@echo "... src/utils/formatter.i"
 	@echo "... src/utils/formatter.s"
+	@echo "... src/utils/hash.o"
+	@echo "... src/utils/hash.i"
+	@echo "... src/utils/hash.s"
 	@echo "... src/utils/i18n.o"
 	@echo "... src/utils/i18n.i"
 	@echo "... src/utils/i18n.s"
+	@echo "... src/utils/js_codegen.o"
+	@echo "... src/utils/js_codegen.i"
+	@echo "... src/utils/js_codegen.s"
 	@echo "... src/utils/medium_catalog.o"
 	@echo "... src/utils/medium_catalog.i"
 	@echo "... src/utils/medium_catalog.s"

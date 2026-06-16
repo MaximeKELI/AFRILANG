@@ -197,6 +197,8 @@ create name = "World"
 say "Hello {name}!"
 ```
 
+Literal braces: `{{` and `}}`. JSON literals (`"{\"key\": 1}"`) are supported — a `{` followed by `"` is not treated as interpolation.
+
 ## Modules
 
 Import with `import "std/io"` and `use io`.
@@ -221,7 +223,7 @@ say Math.add(5, 6)    -- accès qualifié sans ambiguïté
 - **`private function` / `private class`** — invisible via `use` (accessible dans le module)
 - **`Module.fn(...)`** — appel qualifié sans `use`
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, plus **151 simple** (`std/nom`), **102 medium** (`std/m/nom`), **210 complex** (`std/c/nom`) — see `docs/STDLIB_*.md`.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, game2d, game3d, plus **2151 simple** (`std/nom`), **102 medium** (`std/m/nom`), **5710 complex** (`std/c/nom`) — see `docs/STDLIB_*.md`.
 
 ## Syntaxe bilingue (français / anglais)
 
@@ -582,7 +584,7 @@ Compilation : `-lSDL2 -lSDL2_ttf` (SDL2 + SDL2_ttf requis).
 
 Import with `import "std/io"` and `use io`.
 
-Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, plus **151 simple** (`std/nom`), **102 medium** (`std/m/nom`), **210 complex** (`std/c/nom`) — see `docs/STDLIB_*.md`.
+Available stdlib modules: io, json, fs, http, str, log, math, time, re, collections, args, path, async, ui, game2d, game3d, plus **2151 simple** (`std/nom`), **102 medium** (`std/m/nom`), **5710 complex** (`std/c/nom`) — see `docs/STDLIB_*.md`.
 
 ### std/args
 

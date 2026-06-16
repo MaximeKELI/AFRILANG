@@ -14,96 +14,96 @@
 
 namespace nlplevenshtein {
     double distance(std::string a, std::string b) {
-        return afrilang::runtime::cx::nlplevenshtein::distance(a, b);
+        return ::afrilang::runtime::cx::nlplevenshtein::distance(a, b);
     }
 
     double similarity(std::string a, std::string b) {
-        return afrilang::runtime::cx::nlplevenshtein::similarity(a, b);
+        return ::afrilang::runtime::cx::nlplevenshtein::similarity(a, b);
     }
 
     double ratio(std::string a, std::string b) {
-        return afrilang::runtime::cx::nlplevenshtein::ratio(a, b);
+        return ::afrilang::runtime::cx::nlplevenshtein::ratio(a, b);
     }
 
     bool isClose(std::string a, std::string b, double maxDist) {
-        return afrilang::runtime::cx::nlplevenshtein::isClose(a, b, maxDist);
+        return ::afrilang::runtime::cx::nlplevenshtein::isClose(a, b, maxDist);
     }
 
     double normalizedDist(std::string a, std::string b) {
-        return afrilang::runtime::cx::nlplevenshtein::normalizedDist(a, b);
+        return ::afrilang::runtime::cx::nlplevenshtein::normalizedDist(a, b);
     }
 
     double longestCommon(std::string a, std::string b) {
-        return afrilang::runtime::cx::nlplevenshtein::longestCommon(a, b);
+        return ::afrilang::runtime::cx::nlplevenshtein::longestCommon(a, b);
     }
 
 } // namespace nlplevenshtein
 
 namespace statcorrel {
     double pearson(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::statcorrel::pearson(a, b);
+        return ::afrilang::runtime::cx::statcorrel::pearson(a, b);
     }
 
     double covariance(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::statcorrel::covariance(a, b);
+        return ::afrilang::runtime::cx::statcorrel::covariance(a, b);
     }
 
     double crossCorr(std::vector<double> a, std::vector<double> b, double lag) {
-        return afrilang::runtime::cx::statcorrel::crossCorr(a, b, lag);
+        return ::afrilang::runtime::cx::statcorrel::crossCorr(a, b, lag);
     }
 
     double autocorr1(std::vector<double> v) {
-        return afrilang::runtime::cx::statcorrel::autocorr1(v);
+        return ::afrilang::runtime::cx::statcorrel::autocorr1(v);
     }
 
     double partialCorr(std::vector<double> a, std::vector<double> b, std::vector<double> c) {
-        return afrilang::runtime::cx::statcorrel::partialCorr(a, b, c);
+        return ::afrilang::runtime::cx::statcorrel::partialCorr(a, b, c);
     }
 
     std::vector<double> corrMatrix2(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::statcorrel::corrMatrix2(a, b);
+        return ::afrilang::runtime::cx::statcorrel::corrMatrix2(a, b);
     }
 
     double rankCorr(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::statcorrel::rankCorr(a, b);
+        return ::afrilang::runtime::cx::statcorrel::rankCorr(a, b);
     }
 
 } // namespace statcorrel
 
 namespace mlcosine {
     double cosineSim(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::mlcosine::cosineSim(a, b);
+        return ::afrilang::runtime::cx::mlcosine::cosineSim(a, b);
     }
 
     double cosineDist(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::mlcosine::cosineDist(a, b);
+        return ::afrilang::runtime::cx::mlcosine::cosineDist(a, b);
     }
 
     std::vector<double> normalize(std::vector<double> v) {
-        return afrilang::runtime::cx::mlcosine::normalize(v);
+        return ::afrilang::runtime::cx::mlcosine::normalize(v);
     }
 
     double angularDist(std::vector<double> a, std::vector<double> b) {
-        return afrilang::runtime::cx::mlcosine::angularDist(a, b);
+        return ::afrilang::runtime::cx::mlcosine::angularDist(a, b);
     }
 
     std::vector<double> batchCosine(std::vector<double> query, std::vector<double> matrix, double dims) {
-        return afrilang::runtime::cx::mlcosine::batchCosine(query, matrix, dims);
+        return ::afrilang::runtime::cx::mlcosine::batchCosine(query, matrix, dims);
     }
 
     double mostSimilar(std::vector<double> query, std::vector<double> matrix, double dims) {
-        return afrilang::runtime::cx::mlcosine::mostSimilar(query, matrix, dims);
+        return ::afrilang::runtime::cx::mlcosine::mostSimilar(query, matrix, dims);
     }
 
 } // namespace mlcosine
 
 namespace format {
     std::string formatNumber(double n, double decimals) {
-        return afrilang::runtime::format::formatNumber(n, decimals);
+        return ::afrilang::runtime::format::formatNumber(n, decimals);
     }
 
     std::string formatPercent(double n) {
-        return afrilang::runtime::format::formatPercent(n);
+        return ::afrilang::runtime::format::formatPercent(n);
     }
 
 } // namespace format
