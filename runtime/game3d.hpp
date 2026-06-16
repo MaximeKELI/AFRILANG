@@ -1263,6 +1263,16 @@ inline void drawModelLit(const std::string& name, double x, double y, double z,
     if (textured) unbindTexture3d();
 }
 
+inline void drawGltf(const std::string& name, double x, double y, double z,
+                     double scale, double rotY) {
+    drawModelColored(name, x, y, z, scale, rotY, 200, 220, 255);
+}
+
+inline void drawGltfLit(const std::string& name, double x, double y, double z,
+                        double scale, double rotY, const std::string& textureName) {
+    drawModelLit(name, x, y, z, scale, rotY, textureName);
+}
+
 inline bool rayFromScreen(double sx, double sy,
                           double& ox, double& oy, double& oz,
                           double& dx, double& dy, double& dz) {
