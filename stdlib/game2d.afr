@@ -1,0 +1,92 @@
+module game2d
+
+function configureGrid(cols number, rows number, cellSize number, padX number, padY number)
+end
+
+function gridWindowWidth() returns number
+end
+
+function gridWindowHeight() returns number
+end
+
+function cellPx(col number) returns number
+end
+
+function cellPy(row number) returns number
+end
+
+function isBorderCell(col number, row number) returns bool
+end
+
+function fillCell(col number, row number, r number, g number, b number)
+end
+
+function drawCell(col number, row number, r number, g number, b number)
+end
+
+function fillBoard(r number, g number, b number)
+end
+
+function drawWalls(r number, g number, b number)
+end
+
+function drawGridLines(r number, g number, b number)
+end
+
+function fillCircleSolid(x number, y number, radius number, r number, g number, b number)
+end
+
+function everyMs(name text, delta number, interval number) returns bool
+end
+
+function resetTimer(name text)
+end
+
+function animTimeMs() returns number
+end
+
+function pulse01(period number) returns number
+end
+
+function updateDirection(curDx number, curDy number)
+end
+
+function inputDirX() returns number
+end
+
+function inputDirY() returns number
+end
+
+function gridHas(xs list number, ys list number, count number, gx number, gy number) returns bool
+end
+
+function rgb(r number, g number, b number) returns number
+end
+
+function redOf(packed number) returns number
+end
+
+function greenOf(packed number) returns number
+end
+
+function blueOf(packed number) returns number
+end
+
+function fillCellRgb(col number, row number, packed number)
+end
+
+function drawCenteredText(text text, y number, size number, r number, g number, b number)
+end
+
+function drawHud(text text, x number, y number, size number, r number, g number, b number)
+end
+
+function highScore() returns number
+end
+
+function updateHighScore(score number)
+end
+
+function moveIntervalForScore(score number, baseMs number, minMs number) returns number
+end
+end
