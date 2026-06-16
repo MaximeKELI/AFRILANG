@@ -663,8 +663,72 @@ def gen_gamekit_modules(count: int) -> list[tuple]:
     return mods
 
 
+# 2D-focused kits (pure math helpers for games)
+def gen_game2dkit_modules(count: int) -> list[tuple]:
+    """Generate many tiny 2D game helper modules (simple stdlib).
+
+    These are intentionally pure (no SDL/UI deps): geometry, collision, camera smoothing.
+    """
+    mods: list[tuple] = []
+    for i in range(1, count + 1):
+        name = f"game2dkit{i:03d}"
+        # constants vary per-module to keep things distinct
+        s = 0.04 + (i % 29) * 0.006
+        damp = 0.72 + (i % 11) * 0.02
+        grid = 8 + (i % 9) * 4
+        funcs = [
+            # AABB intersection (rect-rect)
+            ("aabbHit", "bool",
+             [("ax", "number"), ("ay", "number"), ("aw", "number"), ("ah", "number"),
+              ("bx", "number"), ("by", "number"), ("bw", "number"), ("bh", "number")],
+             "return (ax < bx + bw) && (ax + aw > bx) && (ay < by + bh) && (ay + ah > by);"),
+            # Point in rect
+            ("pointInRect", "bool",
+             [("px", "number"), ("py", "number"),
+              ("rx", "number"), ("ry", "number"), ("rw", "number"), ("rh", "number")],
+             "return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh;"),
+            # Distance squared 2D (avoid sqrt)
+            ("dist2", "number", [("x0", "number"), ("y0", "number"), ("x1", "number"), ("y1", "number")],
+             "double dx = x1 - x0; double dy = y1 - y0; return dx * dx + dy * dy;"),
+            # Approach/smooth towards target with per-frame max delta
+            ("approach", "number", [("cur", "number"), ("target", "number"), ("maxDelta", "number")],
+             "double d = target - cur; if (d > maxDelta) return cur + maxDelta; "
+             "if (d < -maxDelta) return cur - maxDelta; return target;"),
+            # Critically-damped-ish camera follow (scalar)
+            ("follow", "number", [("cam", "number"), ("target", "number"), ("dt", "number")],
+             f"double t = dt * {s:.6f}; if (t > 1.0) t = 1.0; return cam + (target - cam) * t;"),
+            # Screen shake oscillation (scalar)
+            ("shake", "number", [("time", "number"), ("amp", "number")],
+             f"return std::sin(time * {damp:.6f}) * amp;"),
+            # Grid snap
+            ("snapGrid", "number", [("v", "number")],
+             f"double g = {grid}.0; return std::floor(v / g + 0.5) * g;"),
+            # Wrap in [0, size)
+            ("wrap", "number", [("v", "number"), ("size", "number")],
+             "return size <= 0 ? 0 : std::fmod(std::fmod(v, size) + size, size);"),
+        ]
+        pick = i % 6
+        if pick == 0:
+            use = [funcs[0], funcs[1]]
+        elif pick == 1:
+            use = [funcs[0], funcs[2]]
+        elif pick == 2:
+            use = [funcs[3], funcs[4]]
+        elif pick == 3:
+            use = [funcs[2], funcs[7]]
+        elif pick == 4:
+            use = [funcs[5], funcs[4]]
+        else:
+            use = [funcs[6], funcs[1]]
+        mods.append((name, name, use))
+    return mods
+
+
 # Add 500 new simple game modules: std/gamekit001 .. std/gamekit500
 MODULES.extend(gen_gamekit_modules(500))
+#
+# Add 500 new simple 2D game modules: std/game2dkit001 .. std/game2dkit500
+MODULES.extend(gen_game2dkit_modules(500))
 
 assert len(MODULES) >= 100, f"Need >=100 modules, got {len(MODULES)}"
 
