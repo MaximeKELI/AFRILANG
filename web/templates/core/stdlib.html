@@ -17,16 +17,23 @@
 </div>
 
 <div class="d-flex flex-wrap gap-2 mb-3">
-  <a href="{% url 'stdlib' %}" class="btn btn-sm {% if not category %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.all }}</a>
+  <a href="{% url 'stdlib' %}" class="btn btn-sm {% if not category and not overview %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.all }}</a>
+  <a href="{% url 'stdlib' %}?overview=1" class="btn btn-sm {% if overview %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.overview }}</a>
   {% for cat in categories %}
   <a href="{% url 'stdlib' %}?category={{ cat.id }}" class="btn btn-sm {% if category == cat.id %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ cat.label }}</a>
   {% endfor %}
   <a href="{% url 'libraries' %}" class="btn btn-sm btn-afr-outline ms-auto">{{ ui.nav_libraries }}</a>
 </div>
 
-<p class="small text-secondary-custom mb-3">{{ modules|length }} {{ ui.stdlib_page.count_label }}</p>
+<p class="small text-secondary-custom mb-3">
+  <strong>{{ total_count }}</strong> {{ ui.stdlib_page.count_label }}
+  {% if page_obj.paginator.num_pages > 1 %}
+  · {{ ui.stdlib_page.page }} {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}
+  · {{ ui.stdlib_page.showing }} {{ page_obj.start_index }}–{{ page_obj.end_index }}
+  {% endif %}
+</p>
 
-{% if grouped and not query %}
+{% if grouped %}
   {% for g in grouped %}
   <section class="mb-4">
     <h2 class="h6 fw-bold text-uppercase text-secondary-custom mb-2" style="font-size:0.75rem;letter-spacing:0.05em">{{ g.label }} ({{ g.count }})</h2>
@@ -37,11 +44,12 @@
       </div>
       {% endfor %}
       {% if g.count > 6 %}
-      <div class="col-12"><a href="{% url 'stdlib' %}?category={{ g.id }}" class="small">{{ ui.stdlib_page.view_category }} →</a></div>
+      <div class="col-12"><a href="{% url 'stdlib' %}?category={{ g.id }}" class="small">{{ ui.stdlib_page.view_category }} ({{ g.count }}) →</a></div>
       {% endif %}
     </div>
   </section>
   {% endfor %}
+  <p class="mb-4"><a href="{% url 'stdlib' %}" class="btn btn-afr-primary">{{ ui.stdlib_page.view_all_list }}</a></p>
 {% else %}
 <div class="row g-2">
   {% for mod in modules %}
@@ -54,5 +62,17 @@
   </div>
   {% endfor %}
 </div>
+
+{% if page_obj.paginator.num_pages > 1 %}
+<nav class="mt-4 d-flex flex-wrap gap-2 align-items-center" aria-label="Pagination">
+  {% if page_obj.has_previous %}
+  <a class="btn btn-sm btn-afr-outline" href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if query %}&q={{ query|urlencode }}{% endif %}">← {{ ui.stdlib_page.prev }}</a>
+  {% endif %}
+  <span class="small text-secondary-custom">{{ ui.stdlib_page.page }} {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}
+  <a class="btn btn-sm btn-afr-outline" href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if query %}&q={{ query|urlencode }}{% endif %}">{{ ui.stdlib_page.next }} →</a>
+  {% endif %}
+</nav>
+{% endif %}
 {% endif %}
 {% endblock %}

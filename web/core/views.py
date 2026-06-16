@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from django.conf import settings
+from django.core.paginator import Paginator
 from django.http import FileResponse, Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
@@ -203,28 +204,41 @@ def examples_gallery(request):
 def stdlib_browse(request):
     q = request.GET.get('q', '').strip()
     cat = request.GET.get('category', '').strip()
-    qs = StdlibModule.objects.all()
+    overview = request.GET.get('overview', '').strip() in ('1', 'true', 'yes')
+    page_num = request.GET.get('page', '1')
+
+    qs = StdlibModule.objects.all().order_by('name')
     if cat:
         qs = qs.filter(category=cat)
     if q:
         qs = qs.filter(name__icontains=q) | qs.filter(summary__icontains=q) | qs.filter(
             description_fr__icontains=q,
         ) | qs.filter(import_path__icontains=q)
+
+    total_count = qs.count()
     lang = request.LANGUAGE_CODE
     categories = get_categories(lang)
+
+    use_grouped = overview and not q and not cat
     grouped = []
-    for c in categories:
-        mods = StdlibModule.objects.filter(category=c['id'])
-        if cat and c['id'] != cat:
-            continue
-        if mods.exists():
-            grouped.append({**c, 'count': mods.count(), 'modules': mods[:6] if not q else []})
+    if use_grouped:
+        for c in categories:
+            mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
+            if mods.exists():
+                grouped.append({**c, 'count': mods.count(), 'modules': mods[:6]})
+
+    paginator = Paginator(qs, 60)
+    page_obj = paginator.get_page(page_num)
+
     return render(request, 'core/stdlib.html', {
-        'modules': qs,
+        'modules': page_obj.object_list,
+        'page_obj': page_obj,
+        'total_count': total_count,
         'query': q,
         'category': cat,
         'categories': categories,
-        'grouped': grouped if not q else None,
+        'grouped': grouped if use_grouped else None,
+        'overview': use_grouped,
     })
 
 
