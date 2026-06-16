@@ -1,0 +1,22 @@
+import "std/c/dbultra001"
+use dbultra001
+
+import "std/sql"
+use sql
+
+create db text = "dbultra_demo.db"
+create ddl text = "create table if not exists products (id integer primary key, name text, price real)"
+
+create ok bool = createTable(db, ddl)
+say "create={ok} exists={tableExists(db, \"products\")}"
+
+create id number = insertRow(db, "products", "name|price", "mango|3.5")
+create id2 number = insertRow(db, "products", "name|price", "banana|1.2")
+say "ids={id} {id2} rows={rowCount(db, \"products\")}"
+
+create rows text = selectTop(db, "products", 0)
+say "top={rows}"
+say "sum={sumColumn(db, \"products\", \"price\")} max={maxColumn(db, \"products\", \"price\")}"
+
+create csvOk bool = writeQueryCsv("dbultra_export.csv", db, "select name,price from products;")
+say "csv={csvOk} lines={countLines(rows)}"

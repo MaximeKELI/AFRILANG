@@ -522,6 +522,73 @@ def add_ultra_ia_modules(count: int) -> None:
              '{double kk=k;if(kk<=0)kk=' + str(k_def) + ';return kk;}'),
         ])
 
+def add_ultra_db_modules(count: int) -> None:
+    """Add 500 database / SQLite complex modules in std/c/."""
+    for i in range(1, count + 1):
+        name = f"dbultra{i:03d}"
+        lim = 10 + (i % 40)
+
+        cx(name, [
+            ('execSql', 'bool', [('path', 'text'), ('sql', 'text')],
+             'return afrilang::runtime::sql::exec(path,sql);'),
+            ('queryRows', 'text', [('path', 'text'), ('sql', 'text')],
+             'return afrilang::runtime::sql::query(path,sql);'),
+            ('selectAll', 'text', [('path', 'text'), ('table', 'text')],
+             'return afrilang::runtime::orm::findAll(path,table);'),
+            ('insertRow', 'number',
+             [('path', 'text'), ('table', 'text'), ('columns', 'text'), ('values', 'text')],
+             'return static_cast<double>(afrilang::runtime::orm::insert(path,table,columns,values));'),
+            ('deleteWhere', 'bool',
+             [('path', 'text'), ('table', 'text'), ('whereClause', 'text')],
+             'return afrilang::runtime::orm::deleteRows(path,table,whereClause);'),
+            ('rowCount', 'number', [('path', 'text'), ('table', 'text')],
+             '{std::string sql="SELECT COUNT(*) FROM "+table+";";'
+             'std::string r=afrilang::runtime::sql::query(path,sql);'
+             'return r.empty()?0:std::atof(r.c_str());}'),
+            ('tableExists', 'bool', [('path', 'text'), ('table', 'text')],
+             '{std::string sql="SELECT COUNT(*) FROM sqlite_master WHERE type=\'table\' AND name=\'"+table+"\';";'
+             'std::string r=afrilang::runtime::sql::query(path,sql);'
+             'return !r.empty()&&std::atof(r.c_str())>0.5;}'),
+            ('dropTable', 'bool', [('path', 'text'), ('table', 'text')],
+             'return afrilang::runtime::sql::exec(path,"DROP TABLE IF EXISTS "+table+";");'),
+            ('createTable', 'bool', [('path', 'text'), ('ddl', 'text')],
+             'return afrilang::runtime::sql::exec(path,ddl);'),
+            ('listTables', 'text', [('path', 'text')],
+             'return afrilang::runtime::sql::query(path,'
+             '"SELECT name FROM sqlite_master WHERE type=\'table\' ORDER BY name;");'),
+            ('escapeLiteral', 'text', [('value', 'text')],
+             'return afrilang::runtime::orm::quoteSqlLiteral(value);'),
+            ('scalarQuery', 'number', [('path', 'text'), ('sql', 'text')],
+             '{std::string r=afrilang::runtime::sql::query(path,sql);'
+             'if(r.empty())return 0;std::size_t p=r.find(\'|\');'
+             'std::string cell=p==std::string::npos?r:r.substr(0,p);return std::atof(cell.c_str());}'),
+            ('writeQueryCsv', 'bool', [('outPath', 'text'), ('dbPath', 'text'), ('sql', 'text')],
+             '{std::string data=afrilang::runtime::sql::query(dbPath,sql);std::string csv;'
+             'for(char c:data)csv+=(c==\'|\')?\',\':c;return afrilang::runtime::io::writeFile(outPath,csv);}'),
+            ('vacuumDb', 'bool', [('path', 'text')],
+             'return afrilang::runtime::sql::exec(path,"VACUUM;");'),
+            ('maxColumn', 'number', [('path', 'text'), ('table', 'text'), ('col', 'text')],
+             '{std::string sql="SELECT MAX("+col+") FROM "+table+";";'
+             'std::string r=afrilang::runtime::sql::query(path,sql);'
+             'return r.empty()?0:std::atof(r.c_str());}'),
+            ('updateWhere', 'bool',
+             [('path', 'text'), ('table', 'text'), ('setClause', 'text'), ('whereClause', 'text')],
+             'return afrilang::runtime::sql::exec(path,'
+             '"UPDATE "+table+" SET "+setClause+" WHERE "+whereClause+";");'),
+            ('clearTable', 'bool', [('path', 'text'), ('table', 'text')],
+             'return afrilang::runtime::sql::exec(path,"DELETE FROM "+table+";");'),
+            ('selectTop', 'text', [('path', 'text'), ('table', 'text'), ('limit', 'number')],
+             '{int lim=(int)limit;if(lim<=0)lim=' + str(lim) + ';'
+             'return afrilang::runtime::sql::query(path,'
+             '"SELECT * FROM "+table+" LIMIT "+std::to_string(lim)+";");}'),
+            ('countLines', 'number', [('text', 'text')],
+             '{if(text.empty())return 0;int c=1;for(char ch:text)if(ch==\'\\n\')++c;return static_cast<double>(c);}'),
+            ('sumColumn', 'number', [('path', 'text'), ('table', 'text'), ('col', 'text')],
+             '{std::string sql="SELECT SUM("+col+") FROM "+table+";";'
+             'std::string r=afrilang::runtime::sql::query(path,sql);'
+             'return r.empty()?0:std::atof(r.c_str());}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -4342,13 +4409,16 @@ add_ultra_datasci_modules(500)
 # Add 500 ultra complex AI / ML modules in std/c/
 add_ultra_ia_modules(500)
 
+# Add 500 ultra complex database / SQLite modules in std/c/
+add_ultra_db_modules(500)
+
 
 def main() -> None:
     runtime_path = os.path.join(ROOT, "runtime", "complex_libs.hpp")
     runtime_src = gen_runtime(MODULES, "cx")
     runtime_src = runtime_src.replace(
         "#include <vector>",
-        "#include <vector>\n#include <functional>\n#include \"io.hpp\"",
+        "#include <vector>\n#include <functional>\n#include \"io.hpp\"\n#include \"sql.hpp\"\n#include \"orm.hpp\"",
     )
     with open(runtime_path, "w", encoding="utf-8") as f:
         f.write(runtime_src)
