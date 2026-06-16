@@ -417,6 +417,7 @@ Primitives pour créer de vrais jeux (rectangles colorés, timing, clavier) :
 | `isKeyDown(key)` / `wasKeyPressed(key)` | Clavier (WASD, flèches, Space, Escape) |
 | `mouseX()` / `mouseY()` | Souris (position) |
 | `isMouseDown()` / `wasMousePressed()` / `wasMouseClicked()` | Souris (bouton gauche) |
+| `fps()` | Images par seconde (moyenne glissante) |
 
 ### Moteur 2D (`std/game2d`)
 
@@ -446,7 +447,25 @@ Bibliothèque de jeu haut niveau (grille, timers, entrées, collisions) — bât
 
 **Caméra** : `setCamera`, `followCamera(x, y, smooth)`, `configureViewport(cols, rows)` pour cartes plus grandes que l’écran
 
-`import "std/game2d"` puis `use game2d`. Voir aussi `std/game` (score, niveau, XP).
+**Triggers** : `defineTrigger(name, x, y, w, h)`, `pointInTrigger(name, wx, wy)`, `mouseInTrigger(name)`
+
+**Sauvegarde** : `saveValue(path, key, value)`, `loadValue(path, key, default)`, `loadHighScore(path)`, `saveHighScore(path)`
+
+**Debug** : `drawFps(x, y)` affiche le FPS à l’écran
+
+`import "std/game2d"` puis `use game2d`. Voir aussi `std/game` (score, niveau, XP) et `std/gamestate` (états menu/jeu/pause).
+
+### États de jeu (`std/gamestate`)
+
+Machine à états simple pour menus, pause et game over :
+
+| Fonction | Description |
+|----------|-------------|
+| `setState(name)` | Change l’état courant |
+| `getState()` / `isState(name)` | Lecture de l’état |
+| `stateTimeMs()` | Temps passé dans l’état courant |
+| `wasStateChanged()` | `yes` une frame après un changement |
+| `tickState(deltaMs)` | À appeler chaque frame dans la boucle |
 
 ### Moteur 3D (`std/game3d`)
 
@@ -461,6 +480,9 @@ Jeux 3D avec OpenGL (SDL2 + GL) :
 | `drawCube`, `drawSphere`, `drawPlane`, `drawGrid`, `drawAxis` | Primitives 3D |
 | `setSceneRotation` / `applySceneRotation` | Rotation du monde |
 | `pickBody(screenX, screenY)` | Picking simple (raycast) → index du corps touché, ou -1 |
+| `pickBodyName(screenX, screenY)` | Nom du corps touché, ou texte vide |
+| `mouseX()` / `mouseY()` / `isMouseDown()` | Souris en 3D |
+| `drawSkyGradient(topR,G,B, botR,G,B)` | Ciel dégradé plein écran |
 
 ```bash
 ./build/afrilang examples/game3d_demo.afr -o game3d_demo --run

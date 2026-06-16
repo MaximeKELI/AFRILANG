@@ -86,10 +86,7 @@ while isOpen() do
 
     fillBoard(30, 34, 48)
     drawWalls(70, 75, 95)
-
-    create gx2 number = cellWorldX(goalX)
-    create gy2 number = cellWorldY(goalY)
-    ui.fillRect(gx2, gy2, CELL, CELL, 60, 200, 120)
+    fillCell(goalX, goalY, 60, 200, 120)
 
     create cx number = cellWorldX(px) + 6
     create cy number = cellWorldY(py) + 6
