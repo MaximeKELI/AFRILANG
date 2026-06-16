@@ -405,4 +405,4 @@ def api_wasm_asset(request, session_id, filename):
     if not path:
         raise Http404
     content_type = 'application/javascript' if filename.endswith('.js') else 'application/wasm'
-    return FileResponse(open(path, 'rb'), content_type=content_type)
+    return FileResponse(path.open('rb'), content_type=content_type)

@@ -210,7 +210,6 @@ UI = {
             'output_hint': 'Cliquez sur Run pour exécuter votre code.',
             'help': 'Consultez la syntaxe de base ou les premiers pas.',
             'shortcut_run': 'Ctrl+Entrée pour exécuter',
-            'run_browser': 'Navigateur',
             'wasm_hint': 'Exécution instantanée dans le navigateur — sans charge serveur pour les programmes simples.',
         },
         'examples_page': {

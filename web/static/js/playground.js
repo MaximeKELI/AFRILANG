@@ -136,11 +136,56 @@
     });
   }
 
+  async function runBrowser() {
+    if (!output || !status || !window.AfrilangCompilerClient) return;
+    status.textContent = 'Browser…';
+    status.classList.add('running');
+    output.style.color = '';
+    try {
+      const result = await window.AfrilangCompilerClient.runInstant(getSource());
+      output.textContent = result.output || '(no output)';
+      status.textContent = result.clientSide ? '✓ Browser (WASM)' : '✓ Browser (JS)';
+      status.classList.remove('running');
+    } catch (e) {
+      output.textContent = String(e.message || e);
+      status.textContent = 'Error';
+      status.classList.remove('running');
+      output.style.color = '#f87171';
+    }
+  }
+
+  async function runWasmBrowser() {
+    if (!output || !status || !window.runWasmInBrowser) return;
+    status.textContent = 'WASM build…';
+    status.classList.add('running');
+    output.style.color = '';
+    output.textContent = '';
+    try {
+      const data = await postJson(cfg.urls.buildWasm, { source: getSource() });
+      if (!data.ok || !data.id) {
+        output.textContent = data.output || 'WASM build failed';
+        status.textContent = '✗ WASM';
+        status.classList.remove('running');
+        output.style.color = '#f87171';
+        return;
+      }
+      status.textContent = 'WASM run…';
+      await window.runWasmInBrowser(data.id, output, status, cfg);
+      status.classList.remove('running');
+    } catch (e) {
+      output.textContent = String(e);
+      status.textContent = 'Error';
+      status.classList.remove('running');
+      output.style.color = '#f87171';
+    }
+  }
+
   initCodeMirror();
 
   select?.addEventListener('change', (e) => loadExample(e.target.value));
   document.getElementById('run')?.addEventListener('click', () => runCode(cfg.urls.run, '…'));
-  document.getElementById('runWasm')?.addEventListener('click', () => runCode(cfg.urls.wasm, 'WASM…'));
+  document.getElementById('runBrowser')?.addEventListener('click', runBrowser);
+  document.getElementById('runWasm')?.addEventListener('click', runWasmBrowser);
   document.getElementById('fmt')?.addEventListener('click', formatCode);
   document.getElementById('check')?.addEventListener('click', checkCode);
   document.getElementById('share')?.addEventListener('click', shareLink);

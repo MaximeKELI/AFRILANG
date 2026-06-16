@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUT_DIR="$ROOT/site/compiler"
+OUT_DIR="$ROOT/web/static/compiler"
 mkdir -p "$OUT_DIR"
 
 if ! command -v em++ >/dev/null 2>&1; then

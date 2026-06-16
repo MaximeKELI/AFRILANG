@@ -74,7 +74,7 @@ window.AFR_PLAYGROUND = {
     run: '{% url "api_run" %}',
     compileJs: '{% url "api_compile_js" %}',
     buildWasm: '{% url "api_build_wasm" %}',
-    wasmBase: '{% url "api_wasm_asset" "SESSION" "module.js" %}'.replace('SESSION/', ''),
+    wasmBase: '/api/wasm/',
     compilerJs: '{% static "compiler/afrilang-compiler.js" %}',
     fmt: '{% url "api_fmt" %}',
     check: '{% url "api_check" %}',
