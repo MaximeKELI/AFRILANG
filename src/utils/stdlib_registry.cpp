@@ -491,10 +491,24 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
          {"width", "number"}, {"height", "number"}}, ""));
     fns.push_back(makeStubFunction("drawSpriteCell",
         {{"name", "text"}, {"col", "number"}, {"row", "number"}}, ""));
+    fns.push_back(makeStubFunction("loadSpriteSheet",
+        {{"name", "text"}, {"path", "text"}, {"frameW", "number"}, {"frameH", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("hasSpriteSheet", {{"name", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("sheetCols", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("sheetRows", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("drawSpriteFrame",
+        {{"name", "text"}, {"frame", "number"}, {"worldX", "number"}, {"worldY", "number"},
+         {"width", "number"}, {"height", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawSpriteFrameCell",
+        {{"name", "text"}, {"frame", "number"}, {"col", "number"}, {"row", "number"}}, ""));
     fns.push_back(makeStubFunction("loadSound", {{"name", "text"}, {"path", "text"}}, "bool"));
     fns.push_back(makeStubFunction("playSound", {{"name", "text"}}, "bool"));
     fns.push_back(makeStubFunction("playSoundVolume",
         {{"name", "text"}, {"volume", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("loadMusic", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("playMusic", {{"name", "text"}, {"loops", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("stopMusic", {}, ""));
+    fns.push_back(makeStubFunction("setMusicVolume", {{"volume", "number"}}, ""));
     fns.push_back(makeStubFunction("shutdown", {}, ""));
     injectModule(program, "game2d", std::move(fns));
 }
