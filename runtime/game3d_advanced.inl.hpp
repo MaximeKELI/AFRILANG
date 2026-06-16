@@ -380,37 +380,66 @@ inline bool loadGltf(const std::string& name, const std::string& path) {
     const std::vector<std::uint8_t> buffer = loadGltfBuffer(bufferUri, baseDir);
     if (buffer.empty()) return false;
 
-    const std::size_t accKey = jsonFindKey(json, "accessors");
-    if (accKey == std::string::npos) return false;
-    const int accBufferView = jsonReadIntAfter(json, jsonFindKey(json, "bufferView", accKey));
-    const int accByteOffset = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", accKey));
-    const int accComponentType = jsonReadIntAfter(json, jsonFindKey(json, "componentType", accKey));
-    const int accCount = jsonReadIntAfter(json, jsonFindKey(json, "count", accKey));
-    const std::size_t accTypePos = jsonFindKey(json, "type", accKey);
-    const std::string accType = jsonReadStringAfter(json, accTypePos);
+    const std::size_t meshKey = jsonFindKey(json, "meshes");
+    const std::size_t posKey = meshKey == std::string::npos ? std::string::npos
+                                                             : jsonFindKey(json, "POSITION", meshKey);
+    int posAccessor = posKey == std::string::npos ? 0 : jsonReadIntAfter(json, posKey);
 
-    const std::size_t bvKey = jsonFindKey(json, "bufferViews");
-    if (bvKey == std::string::npos) return false;
-    std::size_t search = bvKey;
-    int viewIndex = 0;
-    int byteOffset = 0;
-    int byteLength = 0;
-    while (true) {
-        const std::size_t item = json.find('{', search);
-        if (item == std::string::npos) break;
-        if (viewIndex == accBufferView) {
-            byteOffset = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", item));
-            byteLength = jsonReadIntAfter(json, jsonFindKey(json, "byteLength", item));
-            break;
+    auto readAccessor = [&](int accessorIndex, int& bufferView, int& byteOffset,
+                          int& componentType, int& count, std::string& type) -> bool {
+        const std::size_t accKey = jsonFindKey(json, "accessors");
+        if (accKey == std::string::npos) return false;
+        std::size_t search = accKey;
+        int idx = 0;
+        while (idx <= accessorIndex) {
+            const std::size_t item = json.find('{', search);
+            if (item == std::string::npos) return false;
+            if (idx == accessorIndex) {
+                bufferView = jsonReadIntAfter(json, jsonFindKey(json, "bufferView", item));
+                byteOffset = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", item));
+                componentType = jsonReadIntAfter(json, jsonFindKey(json, "componentType", item));
+                count = jsonReadIntAfter(json, jsonFindKey(json, "count", item));
+                type = jsonReadStringAfter(json, jsonFindKey(json, "type", item));
+                return true;
+            }
+            ++idx;
+            search = item + 1;
         }
-        ++viewIndex;
-        search = item + 1;
+        return false;
+    };
+
+    int accBufferView = 0, accByteOffset = 0, accComponentType = 0, accCount = 0;
+    std::string accType;
+    if (!readAccessor(posAccessor, accBufferView, accByteOffset, accComponentType, accCount, accType)) {
+        return false;
     }
+
+    auto readBufferView = [&](int viewIndex, int& byteOffset, int& byteLength) -> bool {
+        const std::size_t bvKey = jsonFindKey(json, "bufferViews");
+        if (bvKey == std::string::npos) return false;
+        std::size_t search = bvKey;
+        int idx = 0;
+        while (idx <= viewIndex) {
+            const std::size_t item = json.find('{', search);
+            if (item == std::string::npos) return false;
+            if (idx == viewIndex) {
+                byteOffset = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", item));
+                byteLength = jsonReadIntAfter(json, jsonFindKey(json, "byteLength", item));
+                return true;
+            }
+            ++idx;
+            search = item + 1;
+        }
+        return false;
+    };
+
+    int byteOffset = 0, byteLength = 0;
+    if (!readBufferView(accBufferView, byteOffset, byteLength)) return false;
 
     const int compSize = gltfComponentSize(accComponentType);
     const int typeCount = gltfTypeCount(accType);
     if (compSize <= 0 || typeCount <= 0 || accCount <= 0) return false;
-    if (accComponentType != 5126) return false;
+    if (accComponentType != 5126 || typeCount != 3) return false;
 
     const std::size_t start = static_cast<std::size_t>(byteOffset + accByteOffset);
     const std::size_t bytesNeeded = static_cast<std::size_t>(accCount * typeCount * compSize);
@@ -418,72 +447,48 @@ inline bool loadGltf(const std::string& name, const std::string& path) {
 
     ObjModel model;
     const float* floats = reinterpret_cast<const float*>(buffer.data() + start);
-    if (typeCount == 3) {
-        for (int i = 0; i < accCount; ++i) {
-            ObjVertex v;
-            v.x = floats[i * 3 + 0];
-            v.y = floats[i * 3 + 1];
-            v.z = floats[i * 3 + 2];
-            model.triangles.push_back(v);
-        }
-    } else {
-        return false;
+    std::vector<ObjVertex> vertices(static_cast<std::size_t>(accCount));
+    for (int i = 0; i < accCount; ++i) {
+        vertices[static_cast<std::size_t>(i)].x = floats[i * 3 + 0];
+        vertices[static_cast<std::size_t>(i)].y = floats[i * 3 + 1];
+        vertices[static_cast<std::size_t>(i)].z = floats[i * 3 + 2];
     }
 
-  const std::size_t meshKey = jsonFindKey(json, "meshes");
+    int idxAccessor = -1;
     if (meshKey != std::string::npos) {
         const std::size_t idxKey = jsonFindKey(json, "indices", meshKey);
-        if (idxKey != std::string::npos) {
-            const int idxAccessor = jsonReadIntAfter(json, idxKey);
-            std::size_t accSearch = accKey;
-            int accIdx = 0;
-            while (accIdx <= idxAccessor) {
-                const std::size_t nextAcc = jsonFindKey(json, "bufferView", accSearch + 1);
-                if (nextAcc == std::string::npos) break;
-                if (accIdx == idxAccessor) {
-                    const int iBufferView = jsonReadIntAfter(json, nextAcc);
-                    const int iByteOffset = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", nextAcc));
-                    const int iComponentType = jsonReadIntAfter(json, jsonFindKey(json, "componentType", nextAcc));
-                    const int iCount = jsonReadIntAfter(json, jsonFindKey(json, "count", nextAcc));
-                    std::size_t bvSearch = bvKey;
-                    int bvIdx = 0;
-                    int iByteOffsetView = 0;
-                    while (bvIdx <= iBufferView) {
-                        const std::size_t item = json.find('{', bvSearch);
-                        if (item == std::string::npos) break;
-                        if (bvIdx == iBufferView) {
-                            iByteOffsetView = jsonReadIntAfter(json, jsonFindKey(json, "byteOffset", item));
-                            break;
-                        }
-                        ++bvIdx;
-                        bvSearch = item + 1;
-                    }
-                    const std::size_t iStart = static_cast<std::size_t>(iByteOffsetView + iByteOffset);
-                    ObjModel indexed;
-                    if (iComponentType == 5123) {
-                        const std::uint16_t* idx = reinterpret_cast<const std::uint16_t*>(buffer.data() + iStart);
-                        for (int t = 0; t + 2 < iCount; t += 3) {
-                            indexed.triangles.push_back(model.triangles[idx[t + 0]]);
-                            indexed.triangles.push_back(model.triangles[idx[t + 1]]);
-                            indexed.triangles.push_back(model.triangles[idx[t + 2]]);
-                        }
-                    } else if (iComponentType == 5125) {
-                        const std::uint32_t* idx = reinterpret_cast<const std::uint32_t*>(buffer.data() + iStart);
-                        for (int t = 0; t + 2 < iCount; t += 3) {
-                            indexed.triangles.push_back(model.triangles[idx[t + 0]]);
-                            indexed.triangles.push_back(model.triangles[idx[t + 1]]);
-                            indexed.triangles.push_back(model.triangles[idx[t + 2]]);
-                        }
-                    }
-                    if (!indexed.triangles.empty()) model = std::move(indexed);
-                    break;
-                }
-                accSearch = nextAcc;
-                ++accIdx;
-            }
-        }
+        if (idxKey != std::string::npos) idxAccessor = jsonReadIntAfter(json, idxKey);
     }
 
+    if (idxAccessor >= 0) {
+        int iBufferView = 0, iByteOffset = 0, iComponentType = 0, iCount = 0;
+        std::string iType;
+        if (readAccessor(idxAccessor, iBufferView, iByteOffset, iComponentType, iCount, iType)) {
+            int iByteOffsetView = 0, iByteLength = 0;
+            if (readBufferView(iBufferView, iByteOffsetView, iByteLength)) {
+                const std::size_t iStart = static_cast<std::size_t>(iByteOffsetView + iByteOffset);
+                if (iComponentType == 5123) {
+                    const std::uint16_t* idx = reinterpret_cast<const std::uint16_t*>(buffer.data() + iStart);
+                    for (int t = 0; t + 2 < iCount; t += 3) {
+                        model.triangles.push_back(vertices[idx[t + 0]]);
+                        model.triangles.push_back(vertices[idx[t + 1]]);
+                        model.triangles.push_back(vertices[idx[t + 2]]);
+                    }
+                } else if (iComponentType == 5125) {
+                    const std::uint32_t* idx = reinterpret_cast<const std::uint32_t*>(buffer.data() + iStart);
+                    for (int t = 0; t + 2 < iCount; t += 3) {
+                        model.triangles.push_back(vertices[idx[t + 0]]);
+                        model.triangles.push_back(vertices[idx[t + 1]]);
+                        model.triangles.push_back(vertices[idx[t + 2]]);
+                    }
+                }
+            }
+        }
+    } else {
+        for (const ObjVertex& v : vertices) model.triangles.push_back(v);
+    }
+
+    if (model.triangles.empty()) return false;
     for (std::size_t i = 0; i + 2 < model.triangles.size(); i += 3) {
         computeTriangleNormal(model.triangles[i], model.triangles[i + 1], model.triangles[i + 2]);
     }
