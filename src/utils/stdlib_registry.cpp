@@ -654,6 +654,38 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("drawGltfLit",
         {{"name", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
          {"scale", "number"}, {"rotY", "number"}, {"textureName", "text"}}, ""));
+    fns.push_back(makeStubFunction("loadGlb", {{"name", "text"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("gltfAnimCount", {{"modelName", "text"}}, "number"));
+    fns.push_back(makeStubFunction("playGltfAnim",
+        {{"modelName", "text"}, {"animIndex", "number"}, {"loop", "bool"}}, ""));
+    fns.push_back(makeStubFunction("stopGltfAnim", {{"modelName", "text"}}, ""));
+    fns.push_back(makeStubFunction("updateGltfAnims", {{"deltaMs", "number"}}, ""));
+    fns.push_back(makeStubFunction("gltfAnimRotY", {{"modelName", "text"}}, "number"));
+    fns.push_back(makeStubFunction("setEditMode", {{"on", "bool"}}, ""));
+    fns.push_back(makeStubFunction("isEditMode", {}, "bool"));
+    fns.push_back(makeStubFunction("clearLevel", {}, ""));
+    fns.push_back(makeStubFunction("addLevelGltf",
+        {{"asset", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"scale", "number"}, {"rotY", "number"}}, ""));
+    fns.push_back(makeStubFunction("addLevelModel",
+        {{"asset", "text"}, {"x", "number"}, {"y", "number"}, {"z", "number"},
+         {"scale", "number"}, {"rotY", "number"}}, ""));
+    fns.push_back(makeStubFunction("levelCount", {}, "number"));
+    fns.push_back(makeStubFunction("levelType", {{"index", "number"}}, "text"));
+    fns.push_back(makeStubFunction("levelAsset", {{"index", "number"}}, "text"));
+    fns.push_back(makeStubFunction("levelX", {{"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("levelY", {{"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("levelZ", {{"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("levelScale", {{"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("levelRotY", {{"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("saveLevel", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("loadLevel", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("drawLevel", {}, ""));
+    fns.push_back(makeStubFunction("pickGround", {{"screenX", "number"}, {"screenY", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("pickGroundX", {}, "number"));
+    fns.push_back(makeStubFunction("pickGroundY", {}, "number"));
+    fns.push_back(makeStubFunction("pickGroundZ", {}, "number"));
+    fns.push_back(makeStubFunction("pickGroundHit", {}, "bool"));
     fns.push_back(makeStubFunction("pickBody", {{"screenX", "number"}, {"screenY", "number"}}, "number"));
     fns.push_back(makeStubFunction("pickBodyName", {{"screenX", "number"}, {"screenY", "number"}}, "text"));
     injectModule(program, "game3d", std::move(fns));
@@ -668,6 +700,21 @@ void StdlibRegistry::injectGamestateModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("wasStateChanged", {}, "bool"));
     fns.push_back(makeStubFunction("tickState", {{"deltaMs", "number"}}, ""));
     injectModule(program, "gamestate", std::move(fns));
+}
+
+void StdlibRegistry::injectGamenetModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("hostGame", {{"port", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("joinGame", {{"host", "text"}, {"port", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("sendPose", {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"rotY", "number"}}, ""));
+    fns.push_back(makeStubFunction("pollNet", {{"nowMs", "number"}}, ""));
+    fns.push_back(makeStubFunction("hasRemotePlayer", {}, "bool"));
+    fns.push_back(makeStubFunction("remoteX", {}, "number"));
+    fns.push_back(makeStubFunction("remoteY", {}, "number"));
+    fns.push_back(makeStubFunction("remoteZ", {}, "number"));
+    fns.push_back(makeStubFunction("remoteRotY", {}, "number"));
+    fns.push_back(makeStubFunction("shutdownNet", {}, ""));
+    injectModule(program, "gamenet", std::move(fns));
 }
 
 void StdlibRegistry::injectCryptoModule(ProgramNode& program) {

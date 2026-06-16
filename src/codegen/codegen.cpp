@@ -566,6 +566,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (semantic_.usedModules.count("game2d") > 0) out << "#include \"game2d.hpp\"\n";
     if (semantic_.usesGame3d) out << "#include \"game3d.hpp\"\n";
     if (semantic_.usedModules.count("gamestate") > 0) out << "#include \"gamestate.hpp\"\n";
+    if (semantic_.usedModules.count("gamenet") > 0) out << "#include \"gamenet.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
@@ -2839,7 +2840,7 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     }
 
     if (moduleName == "ui" || moduleName == "game2d" || moduleName == "game3d" ||
-        moduleName == "gamestate") {
+        moduleName == "gamestate" || moduleName == "gamenet") {
         const std::string ns = moduleName;
         const std::string rt = "afrilang::runtime::" + ns + "::" + func.name;
         if (func.returnTypeName.empty()) {
