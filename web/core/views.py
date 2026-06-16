@@ -78,6 +78,38 @@ def docs_tooling(request):
     return _doc_view(request, 'docs_tooling')
 
 
+def docs_functional(request):
+    return _doc_view(request, 'docs_functional')
+
+
+def docs_pattern(request):
+    return _doc_view(request, 'docs_pattern')
+
+
+def docs_modules(request):
+    return _doc_view(request, 'docs_modules')
+
+
+def docs_exceptions(request):
+    return _doc_view(request, 'docs_exceptions')
+
+
+def docs_async(request):
+    return _doc_view(request, 'docs_async')
+
+
+def docs_gui(request):
+    return _doc_view(request, 'docs_gui')
+
+
+def docs_pkg(request):
+    return _doc_view(request, 'docs_pkg')
+
+
+def docs_spec(request):
+    return _doc_view(request, 'docs_spec')
+
+
 def download(request):
     ctx = get_download_context()
     return render(request, 'core/download.html', ctx)
