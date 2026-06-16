@@ -150,11 +150,11 @@ end</pre>
   <p class="small text-secondary-custom mt-3">
     {% if current_lang == 'en' %}
     <a href="{% url 'examples' %}">59 examples</a> ·
-    <a href="{% url 'stdlib' %}">463+ stdlib modules</a> ·
+    <a href="{% url 'stdlib' %}">{{ SITE_STATS.stdlib_modules }}+ stdlib modules</a> ·
     <a href="{% url 'docs_search' %}">Search docs</a>
     {% else %}
     <a href="{% url 'examples' %}">59 exemples</a> ·
-    <a href="{% url 'stdlib' %}">463+ modules stdlib</a> ·
+    <a href="{% url 'stdlib' %}">{{ SITE_STATS.stdlib_modules }}+ modules stdlib</a> ·
     <a href="{% url 'docs_search' %}">Rechercher</a>
     {% endif %}
   </p>
