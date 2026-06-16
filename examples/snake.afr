@@ -26,8 +26,10 @@ end
 function contains(xs list number, ys list number, x number, y number) returns bool
     create i number = 0
     while i is less than length of xs do
-        if (xs at i) is equal to x and (ys at i) is equal to y then
-            return yes
+        if (xs at i) is equal to x then
+            if (ys at i) is equal to y then
+                return yes
+            end
         end
         set i = i + 1
     end
@@ -88,11 +90,39 @@ function render(xs list number, ys list number, fx number, fy number, score numb
             if y is equal to 0 or y is equal to (H - 1) or x is equal to 0 or x is equal to (W - 1) then
                 set row = row + "#"
             else
-                if x is equal to fx and y is equal to fy then
+                if x is equal to fx then
+                    if y is equal to fy then
                     set row = row + "*"
+                    else
+                        if x is equal to (xs at 0) then
+                            if y is equal to (ys at 0) then
+                                set row = row + "@"
+                            else
+                                if contains(xs, ys, x, y) then
+                                    set row = row + "o"
+                                else
+                                    set row = row + " "
+                                end
+                            end
+                        else
+                            if contains(xs, ys, x, y) then
+                                set row = row + "o"
+                            else
+                                set row = row + " "
+                            end
+                        end
+                    end
                 else
-                    if x is equal to (xs at 0) and y is equal to (ys at 0) then
-                        set row = row + "@"
+                    if x is equal to (xs at 0) then
+                        if y is equal to (ys at 0) then
+                            set row = row + "@"
+                        else
+                            if contains(xs, ys, x, y) then
+                                set row = row + "o"
+                            else
+                                set row = row + " "
+                            end
+                        end
                     else
                         if contains(xs, ys, x, y) then
                             set row = row + "o"
@@ -184,9 +214,11 @@ while step is less than MAX_STEPS do
     end
 
     create grow bool = no
-    if newX is equal to fx and newY is equal to fy then
-        set grow = yes
-        set score = score + 1
+    if newX is equal to fx then
+        if newY is equal to fy then
+            set grow = yes
+            set score = score + 1
+        end
     end
 
     if grow then
