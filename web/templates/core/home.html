@@ -27,6 +27,7 @@
         </p>
         <div class="d-flex flex-wrap gap-2 mt-4">
           <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">{{ ui.home.btn_start }}</a>
+          <a href="{% url 'tutorial' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.btn_tutorial }}</a>
           <a href="{% url 'download' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_download }}</a>
           <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.btn_try }}</a>
         </div>
@@ -220,6 +221,7 @@ rex.speak()</pre>
     <div class="d-flex flex-wrap justify-content-center gap-2">
       <a href="{% url 'download' %}" class="btn btn-afr-primary btn-lg">{{ ui.nav_download }}</a>
       <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_guide }}</a>
+      <a href="{% url 'tutorial' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_tutorial }}</a>
       <a href="{% url 'language' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_lang }}</a>
       <a href="{% url 'examples' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_examples }}</a>
       <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_play }}</a>

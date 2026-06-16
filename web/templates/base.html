@@ -105,6 +105,9 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' %}active{% endif %}" href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' %}active{% endif %}" href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">{{ ui.nav_playground }}</a>
           </li>
           <li class="nav-item">
@@ -153,6 +156,7 @@
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_learn }}</h6>
           <a href="{% url 'docs_getting_started' %}">{{ docs_nav.1.title }}</a>
+          <a href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a>
           <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
           <a href="{% url 'docs_stdlib' %}">{{ docs_nav.6.title }}</a>
           <a href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
