@@ -15,13 +15,16 @@ struct ExecResult {
 };
 
 struct ProcessConfig {
-    int timeoutSeconds = 5;
-    std::size_t maxOutputBytes = 1024 * 1024;
-    std::size_t maxMemoryMb = 256;
-    std::size_t maxCpuSeconds = 5;
-    bool applyResourceLimits = true;
-    bool newSession = true;
-    bool limitProcessCount = false;
+  // 0 = no wall-clock timeout (interactive GUI programs).
+  int timeoutSeconds = 5;
+  std::size_t maxOutputBytes = 1024 * 1024;
+  std::size_t maxMemoryMb = 256;
+  std::size_t maxCpuSeconds = 5;
+  bool applyResourceLimits = true;
+  bool newSession = true;
+  bool limitProcessCount = false;
+  // Keep DISPLAY/Wayland sockets open (required for SDL windows).
+  bool interactiveGui = false;
 };
 
 ExecResult execWithTimeout(const std::string& executable,

@@ -73,6 +73,7 @@ std::string readOutputCapped(const std::string& path, std::size_t maxBytes, bool
 ExecResult waitAndCollect(pid_t pid, int timeoutSeconds, const std::string& outPath,
                           std::size_t maxOutputBytes) {
     ExecResult result;
+    const bool noTimeout = timeoutSeconds <= 0;
     const auto deadline = std::chrono::steady_clock::now() +
                           std::chrono::seconds(timeoutSeconds);
     int status = 0;
@@ -82,7 +83,7 @@ ExecResult waitAndCollect(pid_t pid, int timeoutSeconds, const std::string& outP
             result.exitCode = WIFEXITED(status) ? WEXITSTATUS(status) : 1;
             break;
         }
-        if (std::chrono::steady_clock::now() >= deadline) {
+        if (!noTimeout && std::chrono::steady_clock::now() >= deadline) {
             kill(-pid, SIGKILL);
             waitpid(pid, &status, 0);
             result.timedOut = true;
@@ -103,7 +104,7 @@ pid_t spawnProcess(const std::string& executable,
     const pid_t pid = fork();
     if (pid != 0) return pid;
 
-    if (config.newSession) {
+    if (config.newSession && !config.interactiveGui) {
         setsid();
     }
     applyChildLimits(config);
@@ -114,7 +115,9 @@ pid_t spawnProcess(const std::string& executable,
         dup2(fd, STDERR_FILENO);
         close(fd);
     }
-    closeAllFdsExcept(STDOUT_FILENO, STDERR_FILENO);
+    if (!config.interactiveGui) {
+        closeAllFdsExcept(STDOUT_FILENO, STDERR_FILENO);
+    }
 
     std::vector<char*> argv;
     argv.push_back(const_cast<char*>(executable.c_str()));
