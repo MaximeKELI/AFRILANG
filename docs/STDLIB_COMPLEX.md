@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**710 modules** — `std/c/{nom}`
+**1210 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -6500,3 +6500,4503 @@
 - `astarGridPath(grid list number, w number, h number, sx number, sy number, gx number, gy number, blockedAbove number) → list number`
 - `floodCount(grid list number, w number, h number, sx number, sy number, blockedAbove number) → number`
 - `simplifyGridPath(path list number, w number) → list number`
+
+## std/c/gameultra3d001
+
+`import "std/c/gameultra3d001"` · `use gameultra3d001`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d002
+
+`import "std/c/gameultra3d002"` · `use gameultra3d002`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d003
+
+`import "std/c/gameultra3d003"` · `use gameultra3d003`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d004
+
+`import "std/c/gameultra3d004"` · `use gameultra3d004`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d005
+
+`import "std/c/gameultra3d005"` · `use gameultra3d005`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d006
+
+`import "std/c/gameultra3d006"` · `use gameultra3d006`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d007
+
+`import "std/c/gameultra3d007"` · `use gameultra3d007`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d008
+
+`import "std/c/gameultra3d008"` · `use gameultra3d008`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d009
+
+`import "std/c/gameultra3d009"` · `use gameultra3d009`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d010
+
+`import "std/c/gameultra3d010"` · `use gameultra3d010`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d011
+
+`import "std/c/gameultra3d011"` · `use gameultra3d011`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d012
+
+`import "std/c/gameultra3d012"` · `use gameultra3d012`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d013
+
+`import "std/c/gameultra3d013"` · `use gameultra3d013`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d014
+
+`import "std/c/gameultra3d014"` · `use gameultra3d014`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d015
+
+`import "std/c/gameultra3d015"` · `use gameultra3d015`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d016
+
+`import "std/c/gameultra3d016"` · `use gameultra3d016`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d017
+
+`import "std/c/gameultra3d017"` · `use gameultra3d017`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d018
+
+`import "std/c/gameultra3d018"` · `use gameultra3d018`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d019
+
+`import "std/c/gameultra3d019"` · `use gameultra3d019`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d020
+
+`import "std/c/gameultra3d020"` · `use gameultra3d020`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d021
+
+`import "std/c/gameultra3d021"` · `use gameultra3d021`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d022
+
+`import "std/c/gameultra3d022"` · `use gameultra3d022`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d023
+
+`import "std/c/gameultra3d023"` · `use gameultra3d023`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d024
+
+`import "std/c/gameultra3d024"` · `use gameultra3d024`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d025
+
+`import "std/c/gameultra3d025"` · `use gameultra3d025`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d026
+
+`import "std/c/gameultra3d026"` · `use gameultra3d026`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d027
+
+`import "std/c/gameultra3d027"` · `use gameultra3d027`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d028
+
+`import "std/c/gameultra3d028"` · `use gameultra3d028`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d029
+
+`import "std/c/gameultra3d029"` · `use gameultra3d029`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d030
+
+`import "std/c/gameultra3d030"` · `use gameultra3d030`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d031
+
+`import "std/c/gameultra3d031"` · `use gameultra3d031`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d032
+
+`import "std/c/gameultra3d032"` · `use gameultra3d032`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d033
+
+`import "std/c/gameultra3d033"` · `use gameultra3d033`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d034
+
+`import "std/c/gameultra3d034"` · `use gameultra3d034`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d035
+
+`import "std/c/gameultra3d035"` · `use gameultra3d035`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d036
+
+`import "std/c/gameultra3d036"` · `use gameultra3d036`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d037
+
+`import "std/c/gameultra3d037"` · `use gameultra3d037`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d038
+
+`import "std/c/gameultra3d038"` · `use gameultra3d038`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d039
+
+`import "std/c/gameultra3d039"` · `use gameultra3d039`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d040
+
+`import "std/c/gameultra3d040"` · `use gameultra3d040`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d041
+
+`import "std/c/gameultra3d041"` · `use gameultra3d041`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d042
+
+`import "std/c/gameultra3d042"` · `use gameultra3d042`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d043
+
+`import "std/c/gameultra3d043"` · `use gameultra3d043`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d044
+
+`import "std/c/gameultra3d044"` · `use gameultra3d044`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d045
+
+`import "std/c/gameultra3d045"` · `use gameultra3d045`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d046
+
+`import "std/c/gameultra3d046"` · `use gameultra3d046`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d047
+
+`import "std/c/gameultra3d047"` · `use gameultra3d047`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d048
+
+`import "std/c/gameultra3d048"` · `use gameultra3d048`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d049
+
+`import "std/c/gameultra3d049"` · `use gameultra3d049`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d050
+
+`import "std/c/gameultra3d050"` · `use gameultra3d050`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d051
+
+`import "std/c/gameultra3d051"` · `use gameultra3d051`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d052
+
+`import "std/c/gameultra3d052"` · `use gameultra3d052`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d053
+
+`import "std/c/gameultra3d053"` · `use gameultra3d053`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d054
+
+`import "std/c/gameultra3d054"` · `use gameultra3d054`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d055
+
+`import "std/c/gameultra3d055"` · `use gameultra3d055`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d056
+
+`import "std/c/gameultra3d056"` · `use gameultra3d056`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d057
+
+`import "std/c/gameultra3d057"` · `use gameultra3d057`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d058
+
+`import "std/c/gameultra3d058"` · `use gameultra3d058`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d059
+
+`import "std/c/gameultra3d059"` · `use gameultra3d059`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d060
+
+`import "std/c/gameultra3d060"` · `use gameultra3d060`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d061
+
+`import "std/c/gameultra3d061"` · `use gameultra3d061`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d062
+
+`import "std/c/gameultra3d062"` · `use gameultra3d062`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d063
+
+`import "std/c/gameultra3d063"` · `use gameultra3d063`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d064
+
+`import "std/c/gameultra3d064"` · `use gameultra3d064`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d065
+
+`import "std/c/gameultra3d065"` · `use gameultra3d065`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d066
+
+`import "std/c/gameultra3d066"` · `use gameultra3d066`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d067
+
+`import "std/c/gameultra3d067"` · `use gameultra3d067`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d068
+
+`import "std/c/gameultra3d068"` · `use gameultra3d068`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d069
+
+`import "std/c/gameultra3d069"` · `use gameultra3d069`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d070
+
+`import "std/c/gameultra3d070"` · `use gameultra3d070`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d071
+
+`import "std/c/gameultra3d071"` · `use gameultra3d071`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d072
+
+`import "std/c/gameultra3d072"` · `use gameultra3d072`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d073
+
+`import "std/c/gameultra3d073"` · `use gameultra3d073`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d074
+
+`import "std/c/gameultra3d074"` · `use gameultra3d074`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d075
+
+`import "std/c/gameultra3d075"` · `use gameultra3d075`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d076
+
+`import "std/c/gameultra3d076"` · `use gameultra3d076`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d077
+
+`import "std/c/gameultra3d077"` · `use gameultra3d077`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d078
+
+`import "std/c/gameultra3d078"` · `use gameultra3d078`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d079
+
+`import "std/c/gameultra3d079"` · `use gameultra3d079`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d080
+
+`import "std/c/gameultra3d080"` · `use gameultra3d080`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d081
+
+`import "std/c/gameultra3d081"` · `use gameultra3d081`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d082
+
+`import "std/c/gameultra3d082"` · `use gameultra3d082`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d083
+
+`import "std/c/gameultra3d083"` · `use gameultra3d083`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d084
+
+`import "std/c/gameultra3d084"` · `use gameultra3d084`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d085
+
+`import "std/c/gameultra3d085"` · `use gameultra3d085`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d086
+
+`import "std/c/gameultra3d086"` · `use gameultra3d086`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d087
+
+`import "std/c/gameultra3d087"` · `use gameultra3d087`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d088
+
+`import "std/c/gameultra3d088"` · `use gameultra3d088`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d089
+
+`import "std/c/gameultra3d089"` · `use gameultra3d089`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d090
+
+`import "std/c/gameultra3d090"` · `use gameultra3d090`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d091
+
+`import "std/c/gameultra3d091"` · `use gameultra3d091`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d092
+
+`import "std/c/gameultra3d092"` · `use gameultra3d092`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d093
+
+`import "std/c/gameultra3d093"` · `use gameultra3d093`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d094
+
+`import "std/c/gameultra3d094"` · `use gameultra3d094`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d095
+
+`import "std/c/gameultra3d095"` · `use gameultra3d095`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d096
+
+`import "std/c/gameultra3d096"` · `use gameultra3d096`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d097
+
+`import "std/c/gameultra3d097"` · `use gameultra3d097`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d098
+
+`import "std/c/gameultra3d098"` · `use gameultra3d098`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d099
+
+`import "std/c/gameultra3d099"` · `use gameultra3d099`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d100
+
+`import "std/c/gameultra3d100"` · `use gameultra3d100`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d101
+
+`import "std/c/gameultra3d101"` · `use gameultra3d101`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d102
+
+`import "std/c/gameultra3d102"` · `use gameultra3d102`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d103
+
+`import "std/c/gameultra3d103"` · `use gameultra3d103`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d104
+
+`import "std/c/gameultra3d104"` · `use gameultra3d104`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d105
+
+`import "std/c/gameultra3d105"` · `use gameultra3d105`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d106
+
+`import "std/c/gameultra3d106"` · `use gameultra3d106`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d107
+
+`import "std/c/gameultra3d107"` · `use gameultra3d107`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d108
+
+`import "std/c/gameultra3d108"` · `use gameultra3d108`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d109
+
+`import "std/c/gameultra3d109"` · `use gameultra3d109`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d110
+
+`import "std/c/gameultra3d110"` · `use gameultra3d110`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d111
+
+`import "std/c/gameultra3d111"` · `use gameultra3d111`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d112
+
+`import "std/c/gameultra3d112"` · `use gameultra3d112`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d113
+
+`import "std/c/gameultra3d113"` · `use gameultra3d113`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d114
+
+`import "std/c/gameultra3d114"` · `use gameultra3d114`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d115
+
+`import "std/c/gameultra3d115"` · `use gameultra3d115`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d116
+
+`import "std/c/gameultra3d116"` · `use gameultra3d116`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d117
+
+`import "std/c/gameultra3d117"` · `use gameultra3d117`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d118
+
+`import "std/c/gameultra3d118"` · `use gameultra3d118`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d119
+
+`import "std/c/gameultra3d119"` · `use gameultra3d119`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d120
+
+`import "std/c/gameultra3d120"` · `use gameultra3d120`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d121
+
+`import "std/c/gameultra3d121"` · `use gameultra3d121`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d122
+
+`import "std/c/gameultra3d122"` · `use gameultra3d122`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d123
+
+`import "std/c/gameultra3d123"` · `use gameultra3d123`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d124
+
+`import "std/c/gameultra3d124"` · `use gameultra3d124`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d125
+
+`import "std/c/gameultra3d125"` · `use gameultra3d125`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d126
+
+`import "std/c/gameultra3d126"` · `use gameultra3d126`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d127
+
+`import "std/c/gameultra3d127"` · `use gameultra3d127`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d128
+
+`import "std/c/gameultra3d128"` · `use gameultra3d128`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d129
+
+`import "std/c/gameultra3d129"` · `use gameultra3d129`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d130
+
+`import "std/c/gameultra3d130"` · `use gameultra3d130`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d131
+
+`import "std/c/gameultra3d131"` · `use gameultra3d131`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d132
+
+`import "std/c/gameultra3d132"` · `use gameultra3d132`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d133
+
+`import "std/c/gameultra3d133"` · `use gameultra3d133`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d134
+
+`import "std/c/gameultra3d134"` · `use gameultra3d134`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d135
+
+`import "std/c/gameultra3d135"` · `use gameultra3d135`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d136
+
+`import "std/c/gameultra3d136"` · `use gameultra3d136`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d137
+
+`import "std/c/gameultra3d137"` · `use gameultra3d137`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d138
+
+`import "std/c/gameultra3d138"` · `use gameultra3d138`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d139
+
+`import "std/c/gameultra3d139"` · `use gameultra3d139`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d140
+
+`import "std/c/gameultra3d140"` · `use gameultra3d140`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d141
+
+`import "std/c/gameultra3d141"` · `use gameultra3d141`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d142
+
+`import "std/c/gameultra3d142"` · `use gameultra3d142`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d143
+
+`import "std/c/gameultra3d143"` · `use gameultra3d143`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d144
+
+`import "std/c/gameultra3d144"` · `use gameultra3d144`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d145
+
+`import "std/c/gameultra3d145"` · `use gameultra3d145`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d146
+
+`import "std/c/gameultra3d146"` · `use gameultra3d146`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d147
+
+`import "std/c/gameultra3d147"` · `use gameultra3d147`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d148
+
+`import "std/c/gameultra3d148"` · `use gameultra3d148`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d149
+
+`import "std/c/gameultra3d149"` · `use gameultra3d149`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d150
+
+`import "std/c/gameultra3d150"` · `use gameultra3d150`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d151
+
+`import "std/c/gameultra3d151"` · `use gameultra3d151`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d152
+
+`import "std/c/gameultra3d152"` · `use gameultra3d152`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d153
+
+`import "std/c/gameultra3d153"` · `use gameultra3d153`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d154
+
+`import "std/c/gameultra3d154"` · `use gameultra3d154`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d155
+
+`import "std/c/gameultra3d155"` · `use gameultra3d155`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d156
+
+`import "std/c/gameultra3d156"` · `use gameultra3d156`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d157
+
+`import "std/c/gameultra3d157"` · `use gameultra3d157`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d158
+
+`import "std/c/gameultra3d158"` · `use gameultra3d158`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d159
+
+`import "std/c/gameultra3d159"` · `use gameultra3d159`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d160
+
+`import "std/c/gameultra3d160"` · `use gameultra3d160`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d161
+
+`import "std/c/gameultra3d161"` · `use gameultra3d161`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d162
+
+`import "std/c/gameultra3d162"` · `use gameultra3d162`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d163
+
+`import "std/c/gameultra3d163"` · `use gameultra3d163`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d164
+
+`import "std/c/gameultra3d164"` · `use gameultra3d164`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d165
+
+`import "std/c/gameultra3d165"` · `use gameultra3d165`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d166
+
+`import "std/c/gameultra3d166"` · `use gameultra3d166`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d167
+
+`import "std/c/gameultra3d167"` · `use gameultra3d167`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d168
+
+`import "std/c/gameultra3d168"` · `use gameultra3d168`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d169
+
+`import "std/c/gameultra3d169"` · `use gameultra3d169`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d170
+
+`import "std/c/gameultra3d170"` · `use gameultra3d170`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d171
+
+`import "std/c/gameultra3d171"` · `use gameultra3d171`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d172
+
+`import "std/c/gameultra3d172"` · `use gameultra3d172`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d173
+
+`import "std/c/gameultra3d173"` · `use gameultra3d173`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d174
+
+`import "std/c/gameultra3d174"` · `use gameultra3d174`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d175
+
+`import "std/c/gameultra3d175"` · `use gameultra3d175`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d176
+
+`import "std/c/gameultra3d176"` · `use gameultra3d176`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d177
+
+`import "std/c/gameultra3d177"` · `use gameultra3d177`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d178
+
+`import "std/c/gameultra3d178"` · `use gameultra3d178`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d179
+
+`import "std/c/gameultra3d179"` · `use gameultra3d179`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d180
+
+`import "std/c/gameultra3d180"` · `use gameultra3d180`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d181
+
+`import "std/c/gameultra3d181"` · `use gameultra3d181`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d182
+
+`import "std/c/gameultra3d182"` · `use gameultra3d182`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d183
+
+`import "std/c/gameultra3d183"` · `use gameultra3d183`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d184
+
+`import "std/c/gameultra3d184"` · `use gameultra3d184`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d185
+
+`import "std/c/gameultra3d185"` · `use gameultra3d185`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d186
+
+`import "std/c/gameultra3d186"` · `use gameultra3d186`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d187
+
+`import "std/c/gameultra3d187"` · `use gameultra3d187`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d188
+
+`import "std/c/gameultra3d188"` · `use gameultra3d188`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d189
+
+`import "std/c/gameultra3d189"` · `use gameultra3d189`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d190
+
+`import "std/c/gameultra3d190"` · `use gameultra3d190`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d191
+
+`import "std/c/gameultra3d191"` · `use gameultra3d191`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d192
+
+`import "std/c/gameultra3d192"` · `use gameultra3d192`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d193
+
+`import "std/c/gameultra3d193"` · `use gameultra3d193`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d194
+
+`import "std/c/gameultra3d194"` · `use gameultra3d194`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d195
+
+`import "std/c/gameultra3d195"` · `use gameultra3d195`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d196
+
+`import "std/c/gameultra3d196"` · `use gameultra3d196`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d197
+
+`import "std/c/gameultra3d197"` · `use gameultra3d197`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d198
+
+`import "std/c/gameultra3d198"` · `use gameultra3d198`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d199
+
+`import "std/c/gameultra3d199"` · `use gameultra3d199`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d200
+
+`import "std/c/gameultra3d200"` · `use gameultra3d200`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d201
+
+`import "std/c/gameultra3d201"` · `use gameultra3d201`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d202
+
+`import "std/c/gameultra3d202"` · `use gameultra3d202`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d203
+
+`import "std/c/gameultra3d203"` · `use gameultra3d203`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d204
+
+`import "std/c/gameultra3d204"` · `use gameultra3d204`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d205
+
+`import "std/c/gameultra3d205"` · `use gameultra3d205`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d206
+
+`import "std/c/gameultra3d206"` · `use gameultra3d206`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d207
+
+`import "std/c/gameultra3d207"` · `use gameultra3d207`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d208
+
+`import "std/c/gameultra3d208"` · `use gameultra3d208`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d209
+
+`import "std/c/gameultra3d209"` · `use gameultra3d209`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d210
+
+`import "std/c/gameultra3d210"` · `use gameultra3d210`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d211
+
+`import "std/c/gameultra3d211"` · `use gameultra3d211`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d212
+
+`import "std/c/gameultra3d212"` · `use gameultra3d212`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d213
+
+`import "std/c/gameultra3d213"` · `use gameultra3d213`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d214
+
+`import "std/c/gameultra3d214"` · `use gameultra3d214`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d215
+
+`import "std/c/gameultra3d215"` · `use gameultra3d215`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d216
+
+`import "std/c/gameultra3d216"` · `use gameultra3d216`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d217
+
+`import "std/c/gameultra3d217"` · `use gameultra3d217`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d218
+
+`import "std/c/gameultra3d218"` · `use gameultra3d218`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d219
+
+`import "std/c/gameultra3d219"` · `use gameultra3d219`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d220
+
+`import "std/c/gameultra3d220"` · `use gameultra3d220`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d221
+
+`import "std/c/gameultra3d221"` · `use gameultra3d221`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d222
+
+`import "std/c/gameultra3d222"` · `use gameultra3d222`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d223
+
+`import "std/c/gameultra3d223"` · `use gameultra3d223`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d224
+
+`import "std/c/gameultra3d224"` · `use gameultra3d224`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d225
+
+`import "std/c/gameultra3d225"` · `use gameultra3d225`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d226
+
+`import "std/c/gameultra3d226"` · `use gameultra3d226`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d227
+
+`import "std/c/gameultra3d227"` · `use gameultra3d227`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d228
+
+`import "std/c/gameultra3d228"` · `use gameultra3d228`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d229
+
+`import "std/c/gameultra3d229"` · `use gameultra3d229`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d230
+
+`import "std/c/gameultra3d230"` · `use gameultra3d230`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d231
+
+`import "std/c/gameultra3d231"` · `use gameultra3d231`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d232
+
+`import "std/c/gameultra3d232"` · `use gameultra3d232`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d233
+
+`import "std/c/gameultra3d233"` · `use gameultra3d233`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d234
+
+`import "std/c/gameultra3d234"` · `use gameultra3d234`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d235
+
+`import "std/c/gameultra3d235"` · `use gameultra3d235`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d236
+
+`import "std/c/gameultra3d236"` · `use gameultra3d236`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d237
+
+`import "std/c/gameultra3d237"` · `use gameultra3d237`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d238
+
+`import "std/c/gameultra3d238"` · `use gameultra3d238`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d239
+
+`import "std/c/gameultra3d239"` · `use gameultra3d239`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d240
+
+`import "std/c/gameultra3d240"` · `use gameultra3d240`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d241
+
+`import "std/c/gameultra3d241"` · `use gameultra3d241`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d242
+
+`import "std/c/gameultra3d242"` · `use gameultra3d242`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d243
+
+`import "std/c/gameultra3d243"` · `use gameultra3d243`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d244
+
+`import "std/c/gameultra3d244"` · `use gameultra3d244`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d245
+
+`import "std/c/gameultra3d245"` · `use gameultra3d245`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d246
+
+`import "std/c/gameultra3d246"` · `use gameultra3d246`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d247
+
+`import "std/c/gameultra3d247"` · `use gameultra3d247`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d248
+
+`import "std/c/gameultra3d248"` · `use gameultra3d248`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d249
+
+`import "std/c/gameultra3d249"` · `use gameultra3d249`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d250
+
+`import "std/c/gameultra3d250"` · `use gameultra3d250`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d251
+
+`import "std/c/gameultra3d251"` · `use gameultra3d251`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d252
+
+`import "std/c/gameultra3d252"` · `use gameultra3d252`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d253
+
+`import "std/c/gameultra3d253"` · `use gameultra3d253`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d254
+
+`import "std/c/gameultra3d254"` · `use gameultra3d254`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d255
+
+`import "std/c/gameultra3d255"` · `use gameultra3d255`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d256
+
+`import "std/c/gameultra3d256"` · `use gameultra3d256`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d257
+
+`import "std/c/gameultra3d257"` · `use gameultra3d257`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d258
+
+`import "std/c/gameultra3d258"` · `use gameultra3d258`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d259
+
+`import "std/c/gameultra3d259"` · `use gameultra3d259`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d260
+
+`import "std/c/gameultra3d260"` · `use gameultra3d260`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d261
+
+`import "std/c/gameultra3d261"` · `use gameultra3d261`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d262
+
+`import "std/c/gameultra3d262"` · `use gameultra3d262`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d263
+
+`import "std/c/gameultra3d263"` · `use gameultra3d263`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d264
+
+`import "std/c/gameultra3d264"` · `use gameultra3d264`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d265
+
+`import "std/c/gameultra3d265"` · `use gameultra3d265`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d266
+
+`import "std/c/gameultra3d266"` · `use gameultra3d266`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d267
+
+`import "std/c/gameultra3d267"` · `use gameultra3d267`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d268
+
+`import "std/c/gameultra3d268"` · `use gameultra3d268`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d269
+
+`import "std/c/gameultra3d269"` · `use gameultra3d269`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d270
+
+`import "std/c/gameultra3d270"` · `use gameultra3d270`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d271
+
+`import "std/c/gameultra3d271"` · `use gameultra3d271`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d272
+
+`import "std/c/gameultra3d272"` · `use gameultra3d272`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d273
+
+`import "std/c/gameultra3d273"` · `use gameultra3d273`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d274
+
+`import "std/c/gameultra3d274"` · `use gameultra3d274`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d275
+
+`import "std/c/gameultra3d275"` · `use gameultra3d275`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d276
+
+`import "std/c/gameultra3d276"` · `use gameultra3d276`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d277
+
+`import "std/c/gameultra3d277"` · `use gameultra3d277`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d278
+
+`import "std/c/gameultra3d278"` · `use gameultra3d278`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d279
+
+`import "std/c/gameultra3d279"` · `use gameultra3d279`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d280
+
+`import "std/c/gameultra3d280"` · `use gameultra3d280`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d281
+
+`import "std/c/gameultra3d281"` · `use gameultra3d281`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d282
+
+`import "std/c/gameultra3d282"` · `use gameultra3d282`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d283
+
+`import "std/c/gameultra3d283"` · `use gameultra3d283`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d284
+
+`import "std/c/gameultra3d284"` · `use gameultra3d284`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d285
+
+`import "std/c/gameultra3d285"` · `use gameultra3d285`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d286
+
+`import "std/c/gameultra3d286"` · `use gameultra3d286`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d287
+
+`import "std/c/gameultra3d287"` · `use gameultra3d287`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d288
+
+`import "std/c/gameultra3d288"` · `use gameultra3d288`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d289
+
+`import "std/c/gameultra3d289"` · `use gameultra3d289`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d290
+
+`import "std/c/gameultra3d290"` · `use gameultra3d290`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d291
+
+`import "std/c/gameultra3d291"` · `use gameultra3d291`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d292
+
+`import "std/c/gameultra3d292"` · `use gameultra3d292`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d293
+
+`import "std/c/gameultra3d293"` · `use gameultra3d293`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d294
+
+`import "std/c/gameultra3d294"` · `use gameultra3d294`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d295
+
+`import "std/c/gameultra3d295"` · `use gameultra3d295`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d296
+
+`import "std/c/gameultra3d296"` · `use gameultra3d296`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d297
+
+`import "std/c/gameultra3d297"` · `use gameultra3d297`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d298
+
+`import "std/c/gameultra3d298"` · `use gameultra3d298`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d299
+
+`import "std/c/gameultra3d299"` · `use gameultra3d299`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d300
+
+`import "std/c/gameultra3d300"` · `use gameultra3d300`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d301
+
+`import "std/c/gameultra3d301"` · `use gameultra3d301`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d302
+
+`import "std/c/gameultra3d302"` · `use gameultra3d302`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d303
+
+`import "std/c/gameultra3d303"` · `use gameultra3d303`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d304
+
+`import "std/c/gameultra3d304"` · `use gameultra3d304`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d305
+
+`import "std/c/gameultra3d305"` · `use gameultra3d305`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d306
+
+`import "std/c/gameultra3d306"` · `use gameultra3d306`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d307
+
+`import "std/c/gameultra3d307"` · `use gameultra3d307`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d308
+
+`import "std/c/gameultra3d308"` · `use gameultra3d308`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d309
+
+`import "std/c/gameultra3d309"` · `use gameultra3d309`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d310
+
+`import "std/c/gameultra3d310"` · `use gameultra3d310`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d311
+
+`import "std/c/gameultra3d311"` · `use gameultra3d311`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d312
+
+`import "std/c/gameultra3d312"` · `use gameultra3d312`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d313
+
+`import "std/c/gameultra3d313"` · `use gameultra3d313`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d314
+
+`import "std/c/gameultra3d314"` · `use gameultra3d314`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d315
+
+`import "std/c/gameultra3d315"` · `use gameultra3d315`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d316
+
+`import "std/c/gameultra3d316"` · `use gameultra3d316`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d317
+
+`import "std/c/gameultra3d317"` · `use gameultra3d317`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d318
+
+`import "std/c/gameultra3d318"` · `use gameultra3d318`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d319
+
+`import "std/c/gameultra3d319"` · `use gameultra3d319`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d320
+
+`import "std/c/gameultra3d320"` · `use gameultra3d320`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d321
+
+`import "std/c/gameultra3d321"` · `use gameultra3d321`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d322
+
+`import "std/c/gameultra3d322"` · `use gameultra3d322`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d323
+
+`import "std/c/gameultra3d323"` · `use gameultra3d323`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d324
+
+`import "std/c/gameultra3d324"` · `use gameultra3d324`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d325
+
+`import "std/c/gameultra3d325"` · `use gameultra3d325`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d326
+
+`import "std/c/gameultra3d326"` · `use gameultra3d326`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d327
+
+`import "std/c/gameultra3d327"` · `use gameultra3d327`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d328
+
+`import "std/c/gameultra3d328"` · `use gameultra3d328`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d329
+
+`import "std/c/gameultra3d329"` · `use gameultra3d329`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d330
+
+`import "std/c/gameultra3d330"` · `use gameultra3d330`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d331
+
+`import "std/c/gameultra3d331"` · `use gameultra3d331`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d332
+
+`import "std/c/gameultra3d332"` · `use gameultra3d332`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d333
+
+`import "std/c/gameultra3d333"` · `use gameultra3d333`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d334
+
+`import "std/c/gameultra3d334"` · `use gameultra3d334`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d335
+
+`import "std/c/gameultra3d335"` · `use gameultra3d335`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d336
+
+`import "std/c/gameultra3d336"` · `use gameultra3d336`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d337
+
+`import "std/c/gameultra3d337"` · `use gameultra3d337`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d338
+
+`import "std/c/gameultra3d338"` · `use gameultra3d338`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d339
+
+`import "std/c/gameultra3d339"` · `use gameultra3d339`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d340
+
+`import "std/c/gameultra3d340"` · `use gameultra3d340`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d341
+
+`import "std/c/gameultra3d341"` · `use gameultra3d341`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d342
+
+`import "std/c/gameultra3d342"` · `use gameultra3d342`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d343
+
+`import "std/c/gameultra3d343"` · `use gameultra3d343`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d344
+
+`import "std/c/gameultra3d344"` · `use gameultra3d344`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d345
+
+`import "std/c/gameultra3d345"` · `use gameultra3d345`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d346
+
+`import "std/c/gameultra3d346"` · `use gameultra3d346`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d347
+
+`import "std/c/gameultra3d347"` · `use gameultra3d347`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d348
+
+`import "std/c/gameultra3d348"` · `use gameultra3d348`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d349
+
+`import "std/c/gameultra3d349"` · `use gameultra3d349`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d350
+
+`import "std/c/gameultra3d350"` · `use gameultra3d350`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d351
+
+`import "std/c/gameultra3d351"` · `use gameultra3d351`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d352
+
+`import "std/c/gameultra3d352"` · `use gameultra3d352`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d353
+
+`import "std/c/gameultra3d353"` · `use gameultra3d353`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d354
+
+`import "std/c/gameultra3d354"` · `use gameultra3d354`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d355
+
+`import "std/c/gameultra3d355"` · `use gameultra3d355`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d356
+
+`import "std/c/gameultra3d356"` · `use gameultra3d356`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d357
+
+`import "std/c/gameultra3d357"` · `use gameultra3d357`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d358
+
+`import "std/c/gameultra3d358"` · `use gameultra3d358`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d359
+
+`import "std/c/gameultra3d359"` · `use gameultra3d359`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d360
+
+`import "std/c/gameultra3d360"` · `use gameultra3d360`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d361
+
+`import "std/c/gameultra3d361"` · `use gameultra3d361`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d362
+
+`import "std/c/gameultra3d362"` · `use gameultra3d362`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d363
+
+`import "std/c/gameultra3d363"` · `use gameultra3d363`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d364
+
+`import "std/c/gameultra3d364"` · `use gameultra3d364`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d365
+
+`import "std/c/gameultra3d365"` · `use gameultra3d365`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d366
+
+`import "std/c/gameultra3d366"` · `use gameultra3d366`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d367
+
+`import "std/c/gameultra3d367"` · `use gameultra3d367`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d368
+
+`import "std/c/gameultra3d368"` · `use gameultra3d368`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d369
+
+`import "std/c/gameultra3d369"` · `use gameultra3d369`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d370
+
+`import "std/c/gameultra3d370"` · `use gameultra3d370`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d371
+
+`import "std/c/gameultra3d371"` · `use gameultra3d371`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d372
+
+`import "std/c/gameultra3d372"` · `use gameultra3d372`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d373
+
+`import "std/c/gameultra3d373"` · `use gameultra3d373`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d374
+
+`import "std/c/gameultra3d374"` · `use gameultra3d374`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d375
+
+`import "std/c/gameultra3d375"` · `use gameultra3d375`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d376
+
+`import "std/c/gameultra3d376"` · `use gameultra3d376`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d377
+
+`import "std/c/gameultra3d377"` · `use gameultra3d377`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d378
+
+`import "std/c/gameultra3d378"` · `use gameultra3d378`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d379
+
+`import "std/c/gameultra3d379"` · `use gameultra3d379`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d380
+
+`import "std/c/gameultra3d380"` · `use gameultra3d380`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d381
+
+`import "std/c/gameultra3d381"` · `use gameultra3d381`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d382
+
+`import "std/c/gameultra3d382"` · `use gameultra3d382`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d383
+
+`import "std/c/gameultra3d383"` · `use gameultra3d383`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d384
+
+`import "std/c/gameultra3d384"` · `use gameultra3d384`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d385
+
+`import "std/c/gameultra3d385"` · `use gameultra3d385`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d386
+
+`import "std/c/gameultra3d386"` · `use gameultra3d386`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d387
+
+`import "std/c/gameultra3d387"` · `use gameultra3d387`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d388
+
+`import "std/c/gameultra3d388"` · `use gameultra3d388`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d389
+
+`import "std/c/gameultra3d389"` · `use gameultra3d389`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d390
+
+`import "std/c/gameultra3d390"` · `use gameultra3d390`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d391
+
+`import "std/c/gameultra3d391"` · `use gameultra3d391`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d392
+
+`import "std/c/gameultra3d392"` · `use gameultra3d392`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d393
+
+`import "std/c/gameultra3d393"` · `use gameultra3d393`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d394
+
+`import "std/c/gameultra3d394"` · `use gameultra3d394`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d395
+
+`import "std/c/gameultra3d395"` · `use gameultra3d395`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d396
+
+`import "std/c/gameultra3d396"` · `use gameultra3d396`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d397
+
+`import "std/c/gameultra3d397"` · `use gameultra3d397`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d398
+
+`import "std/c/gameultra3d398"` · `use gameultra3d398`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d399
+
+`import "std/c/gameultra3d399"` · `use gameultra3d399`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d400
+
+`import "std/c/gameultra3d400"` · `use gameultra3d400`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d401
+
+`import "std/c/gameultra3d401"` · `use gameultra3d401`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d402
+
+`import "std/c/gameultra3d402"` · `use gameultra3d402`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d403
+
+`import "std/c/gameultra3d403"` · `use gameultra3d403`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d404
+
+`import "std/c/gameultra3d404"` · `use gameultra3d404`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d405
+
+`import "std/c/gameultra3d405"` · `use gameultra3d405`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d406
+
+`import "std/c/gameultra3d406"` · `use gameultra3d406`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d407
+
+`import "std/c/gameultra3d407"` · `use gameultra3d407`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d408
+
+`import "std/c/gameultra3d408"` · `use gameultra3d408`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d409
+
+`import "std/c/gameultra3d409"` · `use gameultra3d409`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d410
+
+`import "std/c/gameultra3d410"` · `use gameultra3d410`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d411
+
+`import "std/c/gameultra3d411"` · `use gameultra3d411`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d412
+
+`import "std/c/gameultra3d412"` · `use gameultra3d412`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d413
+
+`import "std/c/gameultra3d413"` · `use gameultra3d413`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d414
+
+`import "std/c/gameultra3d414"` · `use gameultra3d414`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d415
+
+`import "std/c/gameultra3d415"` · `use gameultra3d415`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d416
+
+`import "std/c/gameultra3d416"` · `use gameultra3d416`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d417
+
+`import "std/c/gameultra3d417"` · `use gameultra3d417`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d418
+
+`import "std/c/gameultra3d418"` · `use gameultra3d418`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d419
+
+`import "std/c/gameultra3d419"` · `use gameultra3d419`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d420
+
+`import "std/c/gameultra3d420"` · `use gameultra3d420`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d421
+
+`import "std/c/gameultra3d421"` · `use gameultra3d421`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d422
+
+`import "std/c/gameultra3d422"` · `use gameultra3d422`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d423
+
+`import "std/c/gameultra3d423"` · `use gameultra3d423`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d424
+
+`import "std/c/gameultra3d424"` · `use gameultra3d424`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d425
+
+`import "std/c/gameultra3d425"` · `use gameultra3d425`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d426
+
+`import "std/c/gameultra3d426"` · `use gameultra3d426`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d427
+
+`import "std/c/gameultra3d427"` · `use gameultra3d427`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d428
+
+`import "std/c/gameultra3d428"` · `use gameultra3d428`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d429
+
+`import "std/c/gameultra3d429"` · `use gameultra3d429`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d430
+
+`import "std/c/gameultra3d430"` · `use gameultra3d430`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d431
+
+`import "std/c/gameultra3d431"` · `use gameultra3d431`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d432
+
+`import "std/c/gameultra3d432"` · `use gameultra3d432`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d433
+
+`import "std/c/gameultra3d433"` · `use gameultra3d433`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d434
+
+`import "std/c/gameultra3d434"` · `use gameultra3d434`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d435
+
+`import "std/c/gameultra3d435"` · `use gameultra3d435`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d436
+
+`import "std/c/gameultra3d436"` · `use gameultra3d436`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d437
+
+`import "std/c/gameultra3d437"` · `use gameultra3d437`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d438
+
+`import "std/c/gameultra3d438"` · `use gameultra3d438`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d439
+
+`import "std/c/gameultra3d439"` · `use gameultra3d439`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d440
+
+`import "std/c/gameultra3d440"` · `use gameultra3d440`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d441
+
+`import "std/c/gameultra3d441"` · `use gameultra3d441`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d442
+
+`import "std/c/gameultra3d442"` · `use gameultra3d442`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d443
+
+`import "std/c/gameultra3d443"` · `use gameultra3d443`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d444
+
+`import "std/c/gameultra3d444"` · `use gameultra3d444`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d445
+
+`import "std/c/gameultra3d445"` · `use gameultra3d445`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d446
+
+`import "std/c/gameultra3d446"` · `use gameultra3d446`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d447
+
+`import "std/c/gameultra3d447"` · `use gameultra3d447`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d448
+
+`import "std/c/gameultra3d448"` · `use gameultra3d448`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d449
+
+`import "std/c/gameultra3d449"` · `use gameultra3d449`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d450
+
+`import "std/c/gameultra3d450"` · `use gameultra3d450`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d451
+
+`import "std/c/gameultra3d451"` · `use gameultra3d451`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d452
+
+`import "std/c/gameultra3d452"` · `use gameultra3d452`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d453
+
+`import "std/c/gameultra3d453"` · `use gameultra3d453`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d454
+
+`import "std/c/gameultra3d454"` · `use gameultra3d454`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d455
+
+`import "std/c/gameultra3d455"` · `use gameultra3d455`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d456
+
+`import "std/c/gameultra3d456"` · `use gameultra3d456`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d457
+
+`import "std/c/gameultra3d457"` · `use gameultra3d457`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d458
+
+`import "std/c/gameultra3d458"` · `use gameultra3d458`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d459
+
+`import "std/c/gameultra3d459"` · `use gameultra3d459`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d460
+
+`import "std/c/gameultra3d460"` · `use gameultra3d460`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d461
+
+`import "std/c/gameultra3d461"` · `use gameultra3d461`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d462
+
+`import "std/c/gameultra3d462"` · `use gameultra3d462`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d463
+
+`import "std/c/gameultra3d463"` · `use gameultra3d463`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d464
+
+`import "std/c/gameultra3d464"` · `use gameultra3d464`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d465
+
+`import "std/c/gameultra3d465"` · `use gameultra3d465`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d466
+
+`import "std/c/gameultra3d466"` · `use gameultra3d466`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d467
+
+`import "std/c/gameultra3d467"` · `use gameultra3d467`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d468
+
+`import "std/c/gameultra3d468"` · `use gameultra3d468`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d469
+
+`import "std/c/gameultra3d469"` · `use gameultra3d469`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d470
+
+`import "std/c/gameultra3d470"` · `use gameultra3d470`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d471
+
+`import "std/c/gameultra3d471"` · `use gameultra3d471`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d472
+
+`import "std/c/gameultra3d472"` · `use gameultra3d472`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d473
+
+`import "std/c/gameultra3d473"` · `use gameultra3d473`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d474
+
+`import "std/c/gameultra3d474"` · `use gameultra3d474`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d475
+
+`import "std/c/gameultra3d475"` · `use gameultra3d475`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d476
+
+`import "std/c/gameultra3d476"` · `use gameultra3d476`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d477
+
+`import "std/c/gameultra3d477"` · `use gameultra3d477`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d478
+
+`import "std/c/gameultra3d478"` · `use gameultra3d478`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d479
+
+`import "std/c/gameultra3d479"` · `use gameultra3d479`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d480
+
+`import "std/c/gameultra3d480"` · `use gameultra3d480`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d481
+
+`import "std/c/gameultra3d481"` · `use gameultra3d481`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d482
+
+`import "std/c/gameultra3d482"` · `use gameultra3d482`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d483
+
+`import "std/c/gameultra3d483"` · `use gameultra3d483`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d484
+
+`import "std/c/gameultra3d484"` · `use gameultra3d484`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d485
+
+`import "std/c/gameultra3d485"` · `use gameultra3d485`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d486
+
+`import "std/c/gameultra3d486"` · `use gameultra3d486`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d487
+
+`import "std/c/gameultra3d487"` · `use gameultra3d487`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d488
+
+`import "std/c/gameultra3d488"` · `use gameultra3d488`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d489
+
+`import "std/c/gameultra3d489"` · `use gameultra3d489`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d490
+
+`import "std/c/gameultra3d490"` · `use gameultra3d490`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d491
+
+`import "std/c/gameultra3d491"` · `use gameultra3d491`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d492
+
+`import "std/c/gameultra3d492"` · `use gameultra3d492`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d493
+
+`import "std/c/gameultra3d493"` · `use gameultra3d493`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d494
+
+`import "std/c/gameultra3d494"` · `use gameultra3d494`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d495
+
+`import "std/c/gameultra3d495"` · `use gameultra3d495`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d496
+
+`import "std/c/gameultra3d496"` · `use gameultra3d496`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d497
+
+`import "std/c/gameultra3d497"` · `use gameultra3d497`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d498
+
+`import "std/c/gameultra3d498"` · `use gameultra3d498`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d499
+
+`import "std/c/gameultra3d499"` · `use gameultra3d499`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`
+
+## std/c/gameultra3d500
+
+`import "std/c/gameultra3d500"` · `use gameultra3d500`
+
+- `integratePos(pos list number, vel list number, n number, dt number) → list number`
+- `steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) → list number`
+- `boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) → list number`
+- `raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) → list number`

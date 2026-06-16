@@ -1,0 +1,15 @@
+module gameultra3d223
+
+function integratePos(pos list number, vel list number, n number, dt number) returns list number
+end
+
+function steerSeek(px number, py number, pz number, tx number, ty number, tz number, maxSpeed number) returns list number
+end
+
+function boidsVelStep(pos list number, vel list number, n number, dt number, neighborDist number, sepDist number, maxSpeed number) returns list number
+end
+
+function raySphereHit(ox number, oy number, oz number, dx number, dy number, dz number, cx number, cy number, cz number, r number) returns list number
+end
+
+end
