@@ -207,31 +207,31 @@ static void testFfiAllowlist() {
 }
 
 static void testCompileExample() {
-    afrilang::Compiler compiler("../examples/hello.afr", "..");
+    afrilang::Compiler compiler("examples/hello.afr", ".");
     auto program = compiler.compile();
     expect(program != nullptr, "compile hello.afr");
-    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/hello.afr");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "examples/hello.afr");
     analyzer.analyze();
 }
 
 static void testCompileOperatorsDemo() {
-    afrilang::Compiler compiler("../examples/operators_demo.afr", "..");
+    afrilang::Compiler compiler("examples/operators_demo.afr", ".");
     auto program = compiler.compile();
-    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/operators_demo.afr");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "examples/operators_demo.afr");
     analyzer.analyze();
 }
 
 static void testCompileUnionsDemo() {
-    afrilang::Compiler compiler("../examples/unions_demo.afr", "..");
+    afrilang::Compiler compiler("examples/unions_demo.afr", ".");
     auto program = compiler.compile();
-    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "../examples/unions_demo.afr");
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(), "examples/unions_demo.afr");
     analyzer.analyze();
 }
 
 static void testCompileFromSourceImports() {
-    std::ifstream file("../examples/full_demo.afr");
+    std::ifstream file("examples/full_demo.afr");
     std::string src((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-    afrilang::Compiler compiler("../examples/full_demo.afr", "..");
+    afrilang::Compiler compiler("examples/full_demo.afr", ".");
     auto program = compiler.compileFromSource(src);
     bool hasSum2 = false;
     for (const auto& fn : program->functions) {
