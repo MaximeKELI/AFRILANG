@@ -1,0 +1,27 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/test_gameultra.afr",
+  "variables": [
+    {"name":"cnt","type":"number","scope":"global"},
+    {"name":"simp","type":"list number","scope":"global"},
+    {"name":"path","type":"list number","scope":"global"},
+    {"name":"grid","type":"list number","scope":"global"},
+    {"name":"h","type":"number","scope":"global"},
+    {"name":"w","type":"number","scope":"global"},
+    {"name":"grid","type":"list number","scope":"astarGridPath"},
+    {"name":"w","type":"number","scope":"astarGridPath"},
+    {"name":"h","type":"number","scope":"astarGridPath"},
+    {"name":"sx","type":"number","scope":"astarGridPath"},
+    {"name":"sy","type":"number","scope":"astarGridPath"},
+    {"name":"gx","type":"number","scope":"astarGridPath"},
+    {"name":"gy","type":"number","scope":"astarGridPath"},
+    {"name":"blockedAbove","type":"number","scope":"astarGridPath"},
+    {"name":"grid","type":"list number","scope":"floodCount"},
+    {"name":"w","type":"number","scope":"floodCount"},
+    {"name":"h","type":"number","scope":"floodCount"},
+    {"name":"sx","type":"number","scope":"floodCount"},
+    {"name":"sy","type":"number","scope":"floodCount"},
+    {"name":"blockedAbove","type":"number","scope":"floodCount"},
+    {"name":"path","type":"list number","scope":"simplifyGridPath"},
+    {"name":"w","type":"number","scope":"simplifyGridPath"}
+  ]
+}
