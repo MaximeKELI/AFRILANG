@@ -64,6 +64,18 @@ add_executable(afrilang_tests tests/test_compiler.cpp ${AFRILANG_SOURCES})
 target_include_directories(afrilang_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_compile_definitions(afrilang_tests PRIVATE AFRILANG_TESTING=1)
 
+# SDL2 runtime (ui.hpp) is used by one unit test
+find_package(PkgConfig QUIET)
+if(PkgConfig_FOUND)
+    pkg_check_modules(SDL2 QUIET sdl2)
+    pkg_check_modules(SDL2TTF QUIET SDL2_ttf)
+    if(SDL2_FOUND AND SDL2TTF_FOUND)
+        target_include_directories(afrilang_tests PRIVATE ${SDL2_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS})
+        target_link_libraries(afrilang_tests ${SDL2_LIBRARIES} ${SDL2TTF_LIBRARIES})
+        target_compile_options(afrilang_tests PRIVATE ${SDL2_CFLAGS_OTHER} ${SDL2TTF_CFLAGS_OTHER})
+    endif()
+endif()
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(afrilang_tests PRIVATE -Wall -Wextra -Wpedantic)
     if(OpenSSL_FOUND)

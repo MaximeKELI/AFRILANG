@@ -18,6 +18,8 @@
 #include <string>
 #include <cstdlib>
 
+#include "../runtime/ui.hpp"
+
 static int failures = 0;
 
 static void expect(bool condition, const std::string& message) {
@@ -117,6 +119,21 @@ static void testSemanticUndeclaredVariable() {
 static void testFindSimilarNames() {
     const auto suggestions = afrilang::findSimilarNames("coutn", {"count", "counter", "x"});
     expect(!suggestions.empty(), "suggestion for coutn");
+}
+
+static void testUiMultilineTextRenders() {
+    // Test unitaire runtime: drawText doit supporter les sauts de ligne.
+    // Utilise le driver vidéo "dummy" pour fonctionner en environnement headless.
+    setenv("SDL_VIDEODRIVER", "dummy", 1);
+
+    afrilang::runtime::ui::openWindow("test", 320, 240);
+    expect(afrilang::runtime::ui::isOpen(), "ui window opens (dummy driver)");
+    afrilang::runtime::ui::beginFrame();
+    afrilang::runtime::ui::clearBackground(0, 0, 0);
+    afrilang::runtime::ui::drawText("Hello\nWorld", 10, 10, 18);
+    afrilang::runtime::ui::showFrame();
+    afrilang::runtime::ui::closeWindow();
+    expect(!afrilang::runtime::ui::isOpen(), "ui window closes");
 }
 
 static void testSemVer() {
@@ -326,6 +343,7 @@ int main() {
     testParserOperator();
     testSemanticUndeclaredVariable();
     testFindSimilarNames();
+    testUiMultilineTextRenders();
     testSemVer();
     testUtf8Validation();
     testI18nEnglish();

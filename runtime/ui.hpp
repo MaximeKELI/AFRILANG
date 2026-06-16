@@ -171,6 +171,16 @@ inline void drawText(const std::string& text, double x, double y, double fontSiz
                 SDL_RenderCopy(ctx.renderer, texture, nullptr, &dest);
                 SDL_DestroyTexture(texture);
             }
+        } else {
+            // Fallback visuel minimal si le rendu TTF échoue (permet de diagnostiquer un écran noir)
+            SDL_SetRenderDrawColor(ctx.renderer, 220, 80, 90, 255);
+            SDL_Rect dot{
+                static_cast<int>(x),
+                static_cast<int>(y) + lineIdx * lineH,
+                6,
+                6,
+            };
+            SDL_RenderFillRect(ctx.renderer, &dot);
         }
 
         if (end >= text.size()) break;
