@@ -215,11 +215,11 @@ inline void drawRect(double x, double y, double w, double h, double r, double g,
 }
 
 inline void drawText(const std::string& text, double x, double y, double fontSize) {
-    drawText(text, x, y, fontSize, 240.0, 240.0, 245.0);
+    drawTextImpl(text, x, y, fontSize, 240.0, 240.0, 245.0);
 }
 
-inline void drawText(const std::string& text, double x, double y, double fontSize,
-                     double r, double g, double b) {
+inline void drawTextImpl(const std::string& text, double x, double y, double fontSize,
+                         double r, double g, double b) {
     UiContext& ctx = context();
     if (!ctx.renderer) return;
 
@@ -278,7 +278,7 @@ inline void drawText(const std::string& text, double x, double y, double fontSiz
 
 inline void drawTextColor(const std::string& text, double x, double y, double fontSize,
                           double r, double g, double b) {
-    drawText(text, x, y, fontSize, r, g, b);
+    drawTextImpl(text, x, y, fontSize, r, g, b);
 }
 
 inline bool drawButton(const std::string& label, double x, double y, double w, double h) {
