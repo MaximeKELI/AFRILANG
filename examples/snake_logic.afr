@@ -1,6 +1,9 @@
 import "std/game"
 use game
 
+import "std/game2d"
+use game2d
+
 import "std/m/random2"
 use random2
 

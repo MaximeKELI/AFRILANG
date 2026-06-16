@@ -60,13 +60,16 @@ end
 
 test "countdown blocks early movement"
     assert canMoveAfterCountdown(0) is equal to false
-    assert canMoveAfterCountdown(1500) is equal to true
+    assert canMoveAfterCountdown(2000) is equal to false
+    assert canMoveAfterCountdown(2600) is equal to true
 end
 
 test "countdown labels sequence"
     assert countdownLabel(100) is equal to "3"
-    assert countdownLabel(1000) is equal to "GO!"
-    assert countdownLabel(2000) is equal to ""
+    assert countdownLabel(600) is equal to "2"
+    assert countdownLabel(1200) is equal to "1"
+    assert countdownLabel(1800) is equal to "GO!"
+    assert countdownLabel(2600) is equal to ""
 end
 
 say "Snake logic tests OK"
