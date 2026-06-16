@@ -552,6 +552,8 @@ inline bool isRedirect(double code) { return code >= 300 && code < 400; }
 namespace afrilang::runtime::game {
 inline double scoreBonus(double score, double level) { return score + level * 100; }
 inline double levelFromXp(double xp) { return std::floor(xp / 1000.0) + 1; }
+inline double xpForScore(double score) { return score * 250.0; }
+inline double speedMsForLevel(double level) { { double ms = 140.0 - (level - 1.0) * 8.0; return ms < 55.0 ? 55.0 : ms; } }
 } // namespace
 
 namespace afrilang::runtime::music {

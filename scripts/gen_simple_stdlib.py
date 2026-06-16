@@ -444,6 +444,8 @@ MODULES: list[tuple] = [
     ("game", "game", [
         ("scoreBonus", "number", [("score", "number"), ("level", "number")], "return score + level * 100;"),
         ("levelFromXp", "number", [("xp", "number")], "return std::floor(xp / 1000.0) + 1;"),
+        ("xpForScore", "number", [("score", "number")], "return score * 250.0;"),
+        ("speedMsForLevel", "number", [("level", "number")], "{ double ms = 140.0 - (level - 1.0) * 8.0; return ms < 55.0 ? 55.0 : ms; }"),
     ]),
     ("music", "music", [
         ("midiNote", "number", [("octave", "number"), ("note", "number")], "return (octave + 1) * 12 + note;"),

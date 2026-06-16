@@ -1427,12 +1427,16 @@ const StdlibParamSpec kParams_108[] = {
     {"score", "number"},
     {"level", "number"},
     {"xp", "number"},
+    {"score", "number"},
+    {"level", "number"},
     {nullptr, nullptr}
 };
 
 const StdlibFuncSpec kFuncs_108[] = {
     {"scoreBonus", "number", 2, &kParams_108[0]},
     {"levelFromXp", "number", 1, &kParams_108[2]},
+    {"xpForScore", "number", 1, &kParams_108[3]},
+    {"speedMsForLevel", "number", 1, &kParams_108[4]},
     {nullptr, nullptr, 0, nullptr}
 };
 
@@ -9084,7 +9088,7 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"base64", "base64", kFuncs_105, 2, "simple/base64.hpp", false},
     {"mime", "mime", kFuncs_106, 2, "simple/mime.hpp", false},
     {"httpcode", "httpcode", kFuncs_107, 2, "simple/httpcode.hpp", false},
-    {"game", "game", kFuncs_108, 2, "simple/game.hpp", false},
+    {"game", "game", kFuncs_108, 4, "simple/game.hpp", false},
     {"music", "music", kFuncs_109, 2, "simple/music.hpp", false},
     {"color2", "color2", kFuncs_110, 2, "simple/color2.hpp", false},
     {"matrix2", "matrix2", kFuncs_111, 2, "simple/matrix2.hpp", false},

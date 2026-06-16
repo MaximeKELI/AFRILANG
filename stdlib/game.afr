@@ -6,4 +6,10 @@ end
 function levelFromXp(xp number) returns number
 end
 
+function xpForScore(score number) returns number
+end
+
+function speedMsForLevel(level number) returns number
+end
+
 end

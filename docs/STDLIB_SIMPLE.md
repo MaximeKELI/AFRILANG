@@ -764,6 +764,8 @@
 
 - `scoreBonus(score number, level number) → number`
 - `levelFromXp(xp number) → number`
+- `xpForScore(score number) → number`
+- `speedMsForLevel(level number) → number`
 
 ## std/music
 
