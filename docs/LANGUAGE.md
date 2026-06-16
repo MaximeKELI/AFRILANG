@@ -541,6 +541,23 @@ Espace = lancer une bille supplémentaire.
 
 Clic souris : `pickBodyName` sur les corps physiques.
 
+### glTF binaire, animations, éditeur, réseau
+
+| Fonction | Description |
+|----------|-------------|
+| `loadGlb(name, path)` | Alias `.glb` (binaire) |
+| `gltfAnimCount`, `playGltfAnim`, `updateGltfAnims`, `gltfAnimRotY` | Animations de rotation glTF |
+| `setEditMode`, `addLevelGltf`, `addLevelModel`, `drawLevel` | Éditeur de niveau intégré |
+| `saveLevel(path)`, `loadLevel(path)` | Format texte `type asset x y z scale rotY` |
+| `pickGround(screenX, screenY)` + `pickGroundX/Z` | Clic sur le sol (y=0) |
+
+Module **`std/gamenet`** (UDP) : `hostGame(port)`, `joinGame(host, port)`, `sendPose`, `pollNet`, `remoteX/Y/Z/RotY`
+
+```bash
+./build/afrilang examples/game3d_editor.afr -o editor --run   # E éditer, clic placer, S/L sauver/charger
+./build/afrilang examples/game3d_net.afr -o net --run         # 2 instances : host + join
+```
+
 Exemple minimal :
 
 ```afr

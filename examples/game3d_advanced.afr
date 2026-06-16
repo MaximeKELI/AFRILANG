@@ -12,7 +12,7 @@ loadSkyboxFace("pz", "examples/assets/sky/pz.png")
 loadSkyboxFace("nz", "examples/assets/sky/nz.png")
 
 loadShader("lit", "examples/assets/shaders/lit.vert", "examples/assets/shaders/lit.frag")
-loadGltf("pyramid", "examples/assets/pyramid.gltf")
+loadGlb("pyramid", "examples/assets/pyramid_anim.glb")
 loadTexture3d("grass", "examples/assets/grass.png")
 loadModel("crate", "examples/assets/crate.obj")
 
@@ -39,6 +39,8 @@ while isOpen() do
     create dt number = deltaMs()
     set rot = rot + dt * 0.02
     stepPhysicsEx(dt, -18)
+    updateGltfAnims(dt)
+    playGltfAnim("pyramid", 0, true)
 
     if wasMouseClicked() then
         set picked = pickBodyName(mouseX(), mouseY())
@@ -61,7 +63,7 @@ while isOpen() do
     setShaderVec3("lit", "uSunDir", 0.4, 1, 0.3)
     setShaderVec3("lit", "uSunColor", 1, 0.95, 0.85)
     setShaderVec3("lit", "uAmbient", 0.2, 0.22, 0.28)
-    drawModelShader("lit", "pyramid", -5, 0, 4, 2.2, rot * 0.6)
+    drawModelShader("lit", "pyramid", -5, 0, 4, 2.2, rot * 0.6 + gltfAnimRotY("pyramid"))
 
     drawModelLit("crate", 6, 0.5, -4, 1.0, rot * 0.4, "grass")
     drawBody("crateA")
