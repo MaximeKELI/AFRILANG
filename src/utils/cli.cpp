@@ -130,6 +130,21 @@ static bool validateCrossTarget(const std::string& target) {
     return false;
 }
 
+static bool sourceUsesGui(const std::string& source) {
+    return source.find("open window") != std::string::npos ||
+           source.find("openWindow") != std::string::npos ||
+           source.find("import \"std/ui\"") != std::string::npos ||
+           source.find("use ui") != std::string::npos;
+}
+
+static void applyGuiExecConfig(ProcessConfig& config) {
+    config.interactiveGui = true;
+    config.newSession = false;
+    config.timeoutSeconds = 0;
+    config.limitProcessCount = false;
+    config.maxCpuSeconds = 0;
+}
+
 static ExecResult runCompiledProgram(const std::string& crossTarget,
                                      const std::string& executable,
                                      const ProcessConfig& config) {
@@ -224,6 +239,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 config.maxCpuSeconds = limits.maxCpuSeconds;
                 config.maxOutputBytes = limits.maxOutputBytes;
                 config.limitProcessCount = true;
+                if (sourceUsesGui(sourceContent)) {
+                    applyGuiExecConfig(config);
+                }
                 const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
                 if (!exec.output.empty()) std::cout << exec.output;
                 const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -278,6 +296,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         config.maxCpuSeconds = limits.maxCpuSeconds;
         config.maxOutputBytes = limits.maxOutputBytes;
         config.limitProcessCount = true;
+        if (semantic.usesUi || sourceUsesGui(sourceContent)) {
+            applyGuiExecConfig(config);
+        }
         const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
         if (!exec.output.empty()) {
             std::cout << exec.output;
