@@ -369,24 +369,65 @@ inline int gltfTypeCount(const std::string& type) {
     return 0;
 }
 
-inline bool loadGltf(const std::string& name, const std::string& path) {
-    const std::string json = readTextFile(path);
-    if (json.empty()) return false;
-    const std::string baseDir = dirnameOf(path);
+inline bool readGlbFile(const std::string& path, std::string& jsonOut,
+                        std::vector<std::uint8_t>& binOut) {
+    std::ifstream in(path, std::ios::binary);
+    if (!in) return false;
+    std::uint32_t magic = 0, version = 0, length = 0;
+    in.read(reinterpret_cast<char*>(&magic), 4);
+    in.read(reinterpret_cast<char*>(&version), 4);
+    in.read(reinterpret_cast<char*>(&length), 4);
+    if (magic != 0x46546C67 || version != 2) return false;
+    while (in && static_cast<std::uint32_t>(in.tellg()) < length) {
+        std::uint32_t chunkLen = 0, chunkType = 0;
+        in.read(reinterpret_cast<char*>(&chunkLen), 4);
+        in.read(reinterpret_cast<char*>(&chunkType), 4);
+        if (chunkType == 0x4E4F534A) {
+            std::vector<char> buf(chunkLen);
+            in.read(buf.data(), static_cast<std::streamsize>(chunkLen));
+            jsonOut.assign(buf.begin(), buf.end());
+        } else if (chunkType == 0x004E4942) {
+            binOut.resize(chunkLen);
+            in.read(reinterpret_cast<char*>(binOut.data()),
+                    static_cast<std::streamsize>(chunkLen));
+        } else {
+            in.seekg(chunkLen, std::ios::cur);
+        }
+    }
+    return !jsonOut.empty();
+}
 
-    const std::size_t bufKey = jsonFindKey(json, "buffers");
-    if (bufKey == std::string::npos) return false;
-    const std::string bufferUri = jsonReadStringAfter(json, jsonFindKey(json, "uri", bufKey));
-    const std::vector<std::uint8_t> buffer = loadGltfBuffer(bufferUri, baseDir);
+inline bool loadGltfFromJson(const std::string& name, const std::string& json,
+                             const std::vector<std::uint8_t>& embeddedBin,
+                             const std::string& baseDir) {
+    if (json.empty()) return false;
+
+    auto loadBuffer = [&](int bufferIndex) -> std::vector<std::uint8_t> {
+        if (bufferIndex == 0 && !embeddedBin.empty()) return embeddedBin;
+        const std::size_t bufKey = jsonFindKey(json, "buffers");
+        if (bufKey == std::string::npos) return {};
+        std::size_t search = bufKey;
+        int idx = 0;
+        while (idx <= bufferIndex) {
+            const std::size_t item = json.find('{', search);
+            if (item == std::string::npos) return {};
+            if (idx == bufferIndex) {
+                const std::size_t uriKey = jsonFindKey(json, "uri", item);
+                if (uriKey == std::string::npos) return embeddedBin;
+                const std::string uri = jsonReadStringAfter(json, uriKey);
+                return loadGltfBuffer(uri, baseDir);
+            }
+            ++idx;
+            search = item + 1;
+        }
+        return {};
+    };
+
+    const std::vector<std::uint8_t> buffer = loadBuffer(0);
     if (buffer.empty()) return false;
 
-    const std::size_t meshKey = jsonFindKey(json, "meshes");
-    const std::size_t posKey = meshKey == std::string::npos ? std::string::npos
-                                                             : jsonFindKey(json, "POSITION", meshKey);
-    int posAccessor = posKey == std::string::npos ? 0 : jsonReadIntAfter(json, posKey);
-
     auto readAccessor = [&](int accessorIndex, int& bufferView, int& byteOffset,
-                          int& componentType, int& count, std::string& type) -> bool {
+                            int& componentType, int& count, std::string& type) -> bool {
         const std::size_t accKey = jsonFindKey(json, "accessors");
         if (accKey == std::string::npos) return false;
         std::size_t search = accKey;
@@ -408,12 +449,6 @@ inline bool loadGltf(const std::string& name, const std::string& path) {
         return false;
     };
 
-    int accBufferView = 0, accByteOffset = 0, accComponentType = 0, accCount = 0;
-    std::string accType;
-    if (!readAccessor(posAccessor, accBufferView, accByteOffset, accComponentType, accCount, accType)) {
-        return false;
-    }
-
     auto readBufferView = [&](int viewIndex, int& byteOffset, int& byteLength) -> bool {
         const std::size_t bvKey = jsonFindKey(json, "bufferViews");
         if (bvKey == std::string::npos) return false;
@@ -433,16 +468,41 @@ inline bool loadGltf(const std::string& name, const std::string& path) {
         return false;
     };
 
+    auto readAccessorFloats = [&](int accessorIndex, std::vector<float>& out) -> bool {
+        int bufferView = 0, byteOffset = 0, componentType = 0, count = 0;
+        std::string type;
+        if (!readAccessor(accessorIndex, bufferView, byteOffset, componentType, count, type)) {
+            return false;
+        }
+        int viewOffset = 0, viewLength = 0;
+        if (!readBufferView(bufferView, viewOffset, viewLength)) return false;
+        const int compSize = gltfComponentSize(componentType);
+        const int typeCount = gltfTypeCount(type);
+        if (compSize != 4 || typeCount <= 0 || count <= 0) return false;
+        const std::size_t start = static_cast<std::size_t>(viewOffset + byteOffset);
+        const std::size_t bytesNeeded = static_cast<std::size_t>(count * typeCount * compSize);
+        if (start + bytesNeeded > buffer.size()) return false;
+        const float* floats = reinterpret_cast<const float*>(buffer.data() + start);
+        out.assign(floats, floats + count * typeCount);
+        return true;
+    };
+
+    const std::size_t meshKey = jsonFindKey(json, "meshes");
+    const std::size_t posKey = meshKey == std::string::npos ? std::string::npos
+                                                             : jsonFindKey(json, "POSITION", meshKey);
+    const int posAccessor = posKey == std::string::npos ? 0 : jsonReadIntAfter(json, posKey);
+
+    int accBufferView = 0, accByteOffset = 0, accComponentType = 0, accCount = 0;
+    std::string accType;
+    if (!readAccessor(posAccessor, accBufferView, accByteOffset, accComponentType, accCount, accType)) {
+        return false;
+    }
     int byteOffset = 0, byteLength = 0;
     if (!readBufferView(accBufferView, byteOffset, byteLength)) return false;
-
-    const int compSize = gltfComponentSize(accComponentType);
-    const int typeCount = gltfTypeCount(accType);
-    if (compSize <= 0 || typeCount <= 0 || accCount <= 0) return false;
-    if (accComponentType != 5126 || typeCount != 3) return false;
+    if (accComponentType != 5126 || gltfTypeCount(accType) != 3 || accCount <= 0) return false;
 
     const std::size_t start = static_cast<std::size_t>(byteOffset + accByteOffset);
-    const std::size_t bytesNeeded = static_cast<std::size_t>(accCount * typeCount * compSize);
+    const std::size_t bytesNeeded = static_cast<std::size_t>(accCount * 3 * 4);
     if (start + bytesNeeded > buffer.size()) return false;
 
     ObjModel model;
@@ -492,8 +552,132 @@ inline bool loadGltf(const std::string& name, const std::string& path) {
     for (std::size_t i = 0; i + 2 < model.triangles.size(); i += 3) {
         computeTriangleNormal(model.triangles[i], model.triangles[i + 1], model.triangles[i + 2]);
     }
+
+    const std::size_t animKey = jsonFindKey(json, "animations");
+    if (animKey != std::string::npos) {
+        const std::size_t sampKey = jsonFindKey(json, "samplers", animKey);
+        const std::size_t chanKey = jsonFindKey(json, "channels", animKey);
+        if (sampKey != std::string::npos && chanKey != std::string::npos) {
+            const int inputAcc = jsonReadIntAfter(json, jsonFindKey(json, "input", sampKey));
+            const int outputAcc = jsonReadIntAfter(json, jsonFindKey(json, "output", sampKey));
+            const std::string path = jsonReadStringAfter(json, jsonFindKey(json, "path", chanKey));
+            if (path == "rotation" && inputAcc >= 0 && outputAcc >= 0) {
+                std::vector<float> times;
+                std::vector<float> values;
+                if (readAccessorFloats(inputAcc, times) && readAccessorFloats(outputAcc, values)) {
+                    std::vector<float> rotY;
+                    for (std::size_t i = 0; i + 3 < values.size(); i += 4) {
+                        const float qx = values[i];
+                        const float qy = values[i + 1];
+                        const float qz = values[i + 2];
+                        const float qw = values[i + 3];
+                        const double siny = 2.0 * (qw * qy + qz * qx);
+                        const double cosy = 1.0 - 2.0 * (qx * qx + qy * qy);
+                        rotY.push_back(static_cast<float>(std::atan2(siny, cosy) * 180.0 / 3.141592653589793));
+                    }
+                    if (!times.empty() && times.size() == rotY.size()) {
+                        model.animTimes.push_back(std::move(times));
+                        model.animRotY.push_back(std::move(rotY));
+                    }
+                }
+            }
+        }
+    }
+
     context().models[name] = std::move(model);
     return true;
+}
+
+inline bool loadGltf(const std::string& name, const std::string& path) {
+    if (path.size() >= 4 && path.compare(path.size() - 4, 4, ".glb") == 0) {
+        std::string json;
+        std::vector<std::uint8_t> bin;
+        if (!readGlbFile(path, json, bin)) return false;
+        return loadGltfFromJson(name, json, bin, dirnameOf(path));
+    }
+    const std::string json = readTextFile(path);
+    if (json.empty()) return false;
+    const std::string baseDir = dirnameOf(path);
+    const std::size_t bufKey = jsonFindKey(json, "buffers");
+    if (bufKey == std::string::npos) return false;
+    const std::string bufferUri = jsonReadStringAfter(json, jsonFindKey(json, "uri", bufKey));
+    const std::vector<std::uint8_t> buffer = loadGltfBuffer(bufferUri, baseDir);
+    return loadGltfFromJson(name, json, buffer, baseDir);
+}
+
+inline bool loadGlb(const std::string& name, const std::string& path) {
+    return loadGltf(name, path);
+}
+
+inline double gltfAnimCount(const std::string& modelName) {
+    const auto it = context().models.find(modelName);
+    if (it == context().models.end()) return 0;
+    return static_cast<double>(it->second.animTimes.size());
+}
+
+inline void playGltfAnim(const std::string& modelName, double animIndex, bool loop) {
+    ModelAnimPlayback pb;
+    pb.animIndex = static_cast<int>(animIndex);
+    pb.timeSec = 0;
+    pb.playing = true;
+    pb.loop = loop;
+    context().modelAnims[modelName] = pb;
+}
+
+inline void stopGltfAnim(const std::string& modelName) {
+    auto it = context().modelAnims.find(modelName);
+    if (it == context().modelAnims.end()) return;
+    it->second.playing = false;
+}
+
+inline float sampleAnimRotY(const ObjModel& model, int animIndex, double timeSec) {
+    if (animIndex < 0 || animIndex >= static_cast<int>(model.animTimes.size())) return 0;
+    const std::vector<float>& times = model.animTimes[static_cast<std::size_t>(animIndex)];
+    const std::vector<float>& rots = model.animRotY[static_cast<std::size_t>(animIndex)];
+    if (times.empty()) return 0;
+    if (timeSec <= static_cast<double>(times.front())) return rots.front();
+    if (timeSec >= static_cast<double>(times.back())) return rots.back();
+    for (std::size_t i = 1; i < times.size(); ++i) {
+        if (timeSec <= static_cast<double>(times[i])) {
+            const double t0 = times[i - 1];
+            const double t1 = times[i];
+            const double u = (timeSec - t0) / (t1 - t0);
+            return static_cast<float>(rots[i - 1] + (rots[i] - rots[i - 1]) * u);
+        }
+    }
+    return rots.back();
+}
+
+inline void updateGltfAnims(double deltaMs) {
+    const double dt = deltaMs / 1000.0;
+    Game3dContext& ctx = context();
+    for (auto& [modelName, pb] : ctx.modelAnims) {
+        if (!pb.playing) continue;
+        const auto it = ctx.models.find(modelName);
+        if (it == ctx.models.end()) continue;
+        if (pb.animIndex < 0 ||
+            pb.animIndex >= static_cast<int>(it->second.animTimes.size())) continue;
+        const std::vector<float>& times = it->second.animTimes[static_cast<std::size_t>(pb.animIndex)];
+        if (times.empty()) continue;
+        pb.timeSec += dt;
+        const double end = times.back();
+        if (pb.timeSec > end) {
+            if (pb.loop) pb.timeSec = std::fmod(pb.timeSec, end);
+            else {
+                pb.timeSec = end;
+                pb.playing = false;
+            }
+        }
+    }
+}
+
+inline double gltfAnimRotY(const std::string& modelName) {
+    Game3dContext& ctx = context();
+    const auto pbIt = ctx.modelAnims.find(modelName);
+    if (pbIt == ctx.modelAnims.end() || !pbIt->second.playing) return 0;
+    const auto modelIt = ctx.models.find(modelName);
+    if (modelIt == ctx.models.end()) return 0;
+    return static_cast<double>(sampleAnimRotY(modelIt->second, pbIt->second.animIndex, pbIt->second.timeSec));
 }
 
 inline bool hasGltf(const std::string& name) {
