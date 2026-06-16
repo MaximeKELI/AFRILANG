@@ -362,9 +362,9 @@ PAGES['stdlib'] = _page(
         ]),
         h2('Tiered catalog'),
         ul([
-            '<strong>151 simple</strong> — <code>import "std/name"</code>',
+            '<strong>2151 simple</strong> — <code>import "std/name"</code> (incl. giskit001–500 GIS)',
             '<strong>102 medium</strong> — <code>import "std/m/name"</code>',
-            '<strong>210 complex</strong> — graphs, ML, crypto, finance, NLP',
+            '<strong>5710 complex</strong> — gisultra, rasterultra, segultra, dataultra, datasci, vizultra, iaultra, dbultra, games…',
         ]),
         h2('JSON example'),
         code('import "std/io"\nimport "std/json"\ncreate raw = readFile("config.json")\ncreate doc = parse(raw)'),
