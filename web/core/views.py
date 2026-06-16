@@ -139,7 +139,9 @@ def releases(request):
 def docs_search_view(request):
     q = request.GET.get('q', '').strip()
     results = search_docs(q, request.LANGUAGE_CODE) if q else []
-    return render(request, 'core/docs_search.html', {'query': q, 'results': results})
+    ctx = docs_context('docs_overview', request.LANGUAGE_CODE)
+    ctx.update({'query': q, 'results': results})
+    return render(request, 'core/docs_search.html', ctx)
 
 
 def playground(request):
