@@ -21,6 +21,97 @@ MODULES: list[tuple] = []
 def cx(name: str, funcs: list) -> None:
     MODULES.append((name, name, funcs))
 
+def add_ultra_game_modules(count: int) -> None:
+    """Add lots of game-oriented complex modules.
+
+    Each module is self-contained C++ (no extra headers beyond complex_libs.hpp includes).
+    We intentionally keep the API numeric/list-based for AFRILANG.
+    """
+    for i in range(1, count + 1):
+        name = f"gameultra{i:03d}"
+        # small per-module variation to make modules distinct
+        w_heur = 1.0 + (i % 17) * 0.03
+        cx(name, [
+            # A* path on a grid (grid is list number size w*h). Cell is blocked if grid[idx] > blockedAbove.
+            # Returns list of packed indices (x + y*w) from start to goal (inclusive). Empty if no path.
+            ('astarGridPath', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'),
+              ('sx', 'number'), ('sy', 'number'), ('gx', 'number'), ('gy', 'number'),
+              ('blockedAbove', 'number')],
+             '{int W=static_cast<int>(w),H=static_cast<int>(h);'
+             'int Sx=static_cast<int>(sx),Sy=static_cast<int>(sy),Gx=static_cast<int>(gx),Gy=static_cast<int>(gy);'
+             'if(W<=0||H<=0)return std::vector<double>{};'
+             'auto in=[&](int x,int y){return x>=0&&y>=0&&x<W&&y<H;};'
+             'if(!in(Sx,Sy)||!in(Gx,Gy))return std::vector<double>{};'
+             'auto idx=[&](int x,int y){return y*W+x;};'
+             'int N=W*H;'
+             'std::vector<double> gScore(N,1e18);'
+             'std::vector<int> came(N,-1);'
+             'std::vector<char> closed(N,0);'
+             'std::vector<int> open;open.reserve(256);'
+             'auto blocked=[&](int x,int y){std::size_t k=static_cast<std::size_t>(idx(x,y));'
+             'return k>=grid.size()?true:(grid[k]>blockedAbove);};'
+             'if(blocked(Sx,Sy)||blocked(Gx,Gy))return std::vector<double>{};'
+             f'auto hfun=[&](int x,int y){{return (std::fabs(x-Gx)+std::fabs(y-Gy))*{w_heur:.6f};}};'
+             'int s=idx(Sx,Sy),g=idx(Gx,Gy);'
+             'gScore[s]=0;open.push_back(s);'
+             'while(!open.empty()){'
+             'int besti=0;double bestf=1e18;'
+             'for(int oi=0;oi<(int)open.size();++oi){int n=open[(std::size_t)oi];'
+             'int x=n%W,y=n/W;double f=gScore[(std::size_t)n]+hfun(x,y);'
+             'if(f<bestf){bestf=f;besti=oi;}}'
+             'int cur=open[(std::size_t)besti];open.erase(open.begin()+besti);'
+             'if(cur==g)break;'
+             'if(closed[(std::size_t)cur])continue;'
+             'closed[(std::size_t)cur]=1;'
+             'int cx=cur%W,cy=cur/W;'
+             'const int dx[4]={1,-1,0,0};const int dy[4]={0,0,1,-1};'
+             'for(int k=0;k<4;++k){int nx=cx+dx[k],ny=cy+dy[k];'
+             'if(!in(nx,ny)||blocked(nx,ny))continue;'
+             'int ni=idx(nx,ny);if(closed[(std::size_t)ni])continue;'
+             'double tg=gScore[(std::size_t)cur]+1.0;'
+             'if(tg<gScore[(std::size_t)ni]){gScore[(std::size_t)ni]=tg;came[(std::size_t)ni]=cur;open.push_back(ni);} }'
+             '}'
+             'if(came[(std::size_t)g]<0 && g!=s)return std::vector<double>{};'
+             'std::vector<double> path;'
+             'for(int v=g;v>=0;v=came[(std::size_t)v]){path.push_back((double)v);if(v==s)break;}'
+             'std::reverse(path.begin(),path.end());return path;}'),
+
+            # Flood-fill count from (sx,sy) over non-blocked cells.
+            ('floodCount', 'number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'),
+              ('sx', 'number'), ('sy', 'number'), ('blockedAbove', 'number')],
+             '{int W=static_cast<int>(w),H=static_cast<int>(h);int Sx=static_cast<int>(sx),Sy=static_cast<int>(sy);'
+             'if(W<=0||H<=0)return 0;auto in=[&](int x,int y){return x>=0&&y>=0&&x<W&&y<H;};'
+             'if(!in(Sx,Sy))return 0;auto idx=[&](int x,int y){return y*W+x;};'
+             'auto blocked=[&](int x,int y){std::size_t k=(std::size_t)idx(x,y);return k>=grid.size()?true:(grid[k]>blockedAbove);};'
+             'if(blocked(Sx,Sy))return 0;'
+             'std::vector<char> vis((std::size_t)(W*H),0);std::vector<int> q;'
+             'int s=idx(Sx,Sy);vis[(std::size_t)s]=1;q.push_back(s);'
+             'int c=0;'
+             'for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];++c;int x=u%W,y=u/W;'
+             'const int dx[4]={1,-1,0,0};const int dy[4]={0,0,1,-1};'
+             'for(int k=0;k<4;++k){int nx=x+dx[k],ny=y+dy[k];if(!in(nx,ny)||blocked(nx,ny))continue;int v=idx(nx,ny);'
+             'if(!vis[(std::size_t)v]){vis[(std::size_t)v]=1;q.push_back(v);} } }'
+             'return (double)c;}'),
+
+            # Simplify a grid path by removing collinear intermediate points.
+            ('simplifyGridPath', 'list number',
+             [('path', 'list number'), ('w', 'number')],
+             '{int W=static_cast<int>(w);if(W<=0||path.size()<=2)return path;'
+             'auto ix=[&](double p){int v=(int)p;return v%W;};'
+             'auto iy=[&](double p){int v=(int)p;return v/W;};'
+             'std::vector<double> out;out.reserve(path.size());out.push_back(path[0]);'
+             'int px=ix(path[0]),py=iy(path[0]);'
+             'int lx=ix(path[1])-px,ly=iy(path[1])-py;'
+             'auto sgn=[&](int v){return v>0?1:(v<0?-1:0);};lx=sgn(lx);ly=sgn(ly);'
+             'for(std::size_t i=1;i+1<path.size();++i){int cx=ix(path[i]),cy=iy(path[i]);int nx=ix(path[i+1]),ny=iy(path[i+1]);'
+             'int dx=sgn(nx-cx),dy=sgn(ny-cy);'
+             'if(dx==lx && dy==ly){continue;}'
+             'out.push_back(path[i]);lx=dx;ly=dy;px=cx;py=cy;}'
+             'out.push_back(path.back());return out;}'),
+        ])
+
 
 cx('graphbfs', [
     ('bfsDistances', 'list number', [('adj', 'list number'), ('n', 'number'), ('start', 'number')],
@@ -3552,6 +3643,9 @@ cx('gametree', [
 
 
 assert len(MODULES) >= 200, f"Need 200+ modules, got {len(MODULES)}"
+
+# Add 500 ultra complex game modules in std/c/
+add_ultra_game_modules(500)
 
 
 def main() -> None:
