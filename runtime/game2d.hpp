@@ -372,8 +372,9 @@ inline void ensureAudio() {
 inline bool loadSprite(const std::string& name, const std::string& path) {
     ui::UiContext& u = ui::context();
     if (!u.renderer) return false;
-    if (IMG_Init(IMG_INIT_PNG) == 0 && (IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) == 0) {
-        // IMG_Init may return flags on success; retry simple load anyway.
+    static bool imgInited = false;
+    if (!imgInited) {
+        imgInited = (IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != 0;
     }
     SDL_Surface* surface = IMG_Load(path.c_str());
     if (!surface) return false;

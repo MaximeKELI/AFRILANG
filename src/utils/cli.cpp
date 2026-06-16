@@ -135,8 +135,10 @@ static bool sourceUsesGui(const std::string& source) {
            source.find("openWindow") != std::string::npos ||
            source.find("import \"std/ui\"") != std::string::npos ||
            source.find("import \"std/game2d\"") != std::string::npos ||
+           source.find("import \"std/game3d\"") != std::string::npos ||
            source.find("use ui") != std::string::npos ||
-           source.find("use game2d") != std::string::npos;
+           source.find("use game2d") != std::string::npos ||
+           source.find("use game3d") != std::string::npos;
 }
 
 static void applyGuiExecConfig(ProcessConfig& config) {
@@ -298,7 +300,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         config.maxCpuSeconds = limits.maxCpuSeconds;
         config.maxOutputBytes = limits.maxOutputBytes;
         config.limitProcessCount = true;
-        if (semantic.usesUi || sourceUsesGui(sourceContent)) {
+        if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
             applyGuiExecConfig(config);
         }
         const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);

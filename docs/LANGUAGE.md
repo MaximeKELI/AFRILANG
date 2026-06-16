@@ -434,6 +434,12 @@ Bibliothèque de jeu haut niveau (grille, timers, entrées, collisions) — bât
 | `drawCenteredText` / `drawHud` | Interface de jeu |
 | `moveIntervalForScore(score, base, min)` | Vitesse progressive |
 
+**Sprites PNG** : `loadSprite(name, path)`, `drawSprite`, `drawSpriteScaled`, `drawSpriteCell`, `hasSprite`
+
+**Sons** : `loadSound(name, path)`, `playSound`, `playSoundVolume(name, 0-128)`
+
+**Caméra** : `setCamera`, `followCamera(x, y, smooth)`, `configureViewport(cols, rows)` pour cartes plus grandes que l’écran
+
 `import "std/game2d"` puis `use game2d`. Voir aussi `std/game` (score, niveau, XP).
 
 Exemple minimal :

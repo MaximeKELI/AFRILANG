@@ -98,6 +98,7 @@ struct SemanticResult {
     bool usesAsync = false;
     bool usesGenerators = false;
     bool usesUi = false;
+    bool usesGame3d = false;
     std::vector<LintWarning> warnings;
 };
 

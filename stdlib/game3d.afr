@@ -1,0 +1,68 @@
+module game3d
+
+function openWindow(title text, width number, height number)
+end
+
+function closeWindow()
+end
+
+function shutdown()
+end
+
+function isOpen() returns bool
+end
+
+function beginFrame()
+end
+
+function showFrame()
+end
+
+function deltaMs() returns number
+end
+
+function windowWidth() returns number
+end
+
+function windowHeight() returns number
+end
+
+function clear(r number, g number, b number)
+end
+
+function isKeyDown(key text) returns bool
+end
+
+function wasKeyPressed(key text) returns bool
+end
+
+function setCamera(x number, y number, z number, yaw number, pitch number)
+end
+
+function applyCamera()
+end
+
+function updateFlyCamera(moveSpeed number, turnSpeed number)
+end
+
+function setSceneRotation(angleY number)
+end
+
+function applySceneRotation()
+end
+
+function drawCube(x number, y number, z number, size number, r number, g number, b number)
+end
+
+function drawPlane(y number, halfSize number, r number, g number, b number)
+end
+
+function drawGrid(y number, halfSize number, divisions number)
+end
+
+function drawAxis(size number)
+end
+
+function drawSphere(x number, y number, z number, radius number, r number, g number, b number)
+end
+end

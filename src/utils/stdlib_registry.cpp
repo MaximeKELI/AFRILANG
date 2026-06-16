@@ -74,7 +74,8 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "url" || moduleName == "random" || moduleName == "hex" ||
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
            moduleName == "email" || moduleName == "uuid" ||
-           moduleName == "async" || moduleName == "ui" || moduleName == "game2d";
+           moduleName == "async" || moduleName == "ui" || moduleName == "game2d" ||
+           moduleName == "game3d";
 }
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
@@ -119,6 +120,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "async") return "async";
     if (normalized == "ui") return "ui";
     if (normalized == "game2d") return "game2d";
+    if (normalized == "game3d") return "game3d";
     if (normalized == "fs") return "fs";
     if (normalized == "io") return "io";
     if (normalized == "sql") return "sql";
@@ -220,6 +222,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
     else if (moduleName == "game2d") injectGame2dModule(program);
+    else if (moduleName == "game3d") injectGame3dModule(program);
     else injectCatalogModule(program, moduleName);
 }
 
@@ -489,6 +492,41 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
         {{"name", "text"}, {"volume", "number"}}, "bool"));
     fns.push_back(makeStubFunction("shutdown", {}, ""));
     injectModule(program, "game2d", std::move(fns));
+}
+
+void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("openWindow", {{"title", "text"}, {"width", "number"}, {"height", "number"}}, ""));
+    fns.push_back(makeStubFunction("closeWindow", {}, ""));
+    fns.push_back(makeStubFunction("shutdown", {}, ""));
+    fns.push_back(makeStubFunction("isOpen", {}, "bool"));
+    fns.push_back(makeStubFunction("beginFrame", {}, ""));
+    fns.push_back(makeStubFunction("showFrame", {}, ""));
+    fns.push_back(makeStubFunction("deltaMs", {}, "number"));
+    fns.push_back(makeStubFunction("windowWidth", {}, "number"));
+    fns.push_back(makeStubFunction("windowHeight", {}, "number"));
+    fns.push_back(makeStubFunction("clear", {{"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("isKeyDown", {{"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("wasKeyPressed", {{"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("setCamera",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"yaw", "number"}, {"pitch", "number"}}, ""));
+    fns.push_back(makeStubFunction("applyCamera", {}, ""));
+    fns.push_back(makeStubFunction("updateFlyCamera",
+        {{"moveSpeed", "number"}, {"turnSpeed", "number"}}, ""));
+    fns.push_back(makeStubFunction("setSceneRotation", {{"angleY", "number"}}, ""));
+    fns.push_back(makeStubFunction("applySceneRotation", {}, ""));
+    fns.push_back(makeStubFunction("drawCube",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"size", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawPlane",
+        {{"y", "number"}, {"halfSize", "number"}, {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawGrid",
+        {{"y", "number"}, {"halfSize", "number"}, {"divisions", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawAxis", {{"size", "number"}}, ""));
+    fns.push_back(makeStubFunction("drawSphere",
+        {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"radius", "number"},
+         {"r", "number"}, {"g", "number"}, {"b", "number"}}, ""));
+    injectModule(program, "game3d", std::move(fns));
 }
 
 void StdlibRegistry::injectCryptoModule(ProgramNode& program) {

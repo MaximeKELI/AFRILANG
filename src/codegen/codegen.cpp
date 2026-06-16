@@ -564,6 +564,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
     if (semantic_.usesUi) out << "#include \"ui.hpp\"\n";
     if (semantic_.usedModules.count("game2d") > 0) out << "#include \"game2d.hpp\"\n";
+    if (semantic_.usesGame3d) out << "#include \"game3d.hpp\"\n";
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
@@ -2836,8 +2837,8 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
         return;
     }
 
-    if (moduleName == "ui" || moduleName == "game2d") {
-        const std::string ns = moduleName == "ui" ? "ui" : "game2d";
+    if (moduleName == "ui" || moduleName == "game2d" || moduleName == "game3d") {
+        const std::string ns = moduleName;
         const std::string rt = "afrilang::runtime::" + ns + "::" + func.name;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
@@ -3134,6 +3135,11 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     if (semantic_.usedModules.count("game2d") > 0 && !wasmBuild) {
         args.push_back("-lSDL2_image");
         args.push_back("-lSDL2_mixer");
+    }
+    if (semantic_.usesGame3d && !wasmBuild) {
+        args.push_back("-lSDL2");
+        args.push_back("-lGL");
+        args.push_back("-lGLU");
     }
 
     ProcessConfig config;

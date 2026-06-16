@@ -1005,6 +1005,7 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         result_.usedModules.insert(use->moduleName);
         if (use->moduleName == "ui") result_.usesUi = true;
         if (use->moduleName == "game2d") result_.usesUi = true;
+        if (use->moduleName == "game3d") result_.usesGame3d = true;
         return;
     }
 
