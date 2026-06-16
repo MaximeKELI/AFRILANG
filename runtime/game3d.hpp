@@ -14,6 +14,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "base64.hpp"
+
 namespace afrilang::runtime::game3d {
 
 struct Texture3d {
@@ -83,6 +85,15 @@ struct FogState {
     float end = 90.0f;
 };
 
+struct SkyboxState {
+    GLuint faces[6]{};
+    bool loaded[6]{};
+};
+
+struct ShaderInfo {
+    GLuint program = 0;
+};
+
 struct Game3dContext {
     SDL_Window* window = nullptr;
     SDL_GLContext glContext = nullptr;
@@ -116,11 +127,13 @@ struct Game3dContext {
     GLint lastViewport[4]{};
     std::unordered_map<std::string, Texture3d> textures;
     std::unordered_map<std::string, ObjModel> models;
+    std::unordered_map<std::string, ShaderInfo> shaders;
     std::unordered_map<std::string, RigidBody> bodies;
     std::vector<std::string> bodyOrder;
     std::vector<Particle> particles;
     LightingState lighting;
     FogState fog;
+    SkyboxState skybox;
 };
 
 inline Game3dContext& context() {
@@ -196,6 +209,15 @@ inline void releaseGpuAssets() {
     }
     ctx.textures.clear();
     ctx.models.clear();
+    for (auto& [_, sh] : ctx.shaders) {
+        if (sh.program) glDeleteProgram(sh.program);
+    }
+    ctx.shaders.clear();
+    for (int i = 0; i < 6; ++i) {
+        if (ctx.skybox.faces[i]) glDeleteTextures(1, &ctx.skybox.faces[i]);
+        ctx.skybox.faces[i] = 0;
+        ctx.skybox.loaded[i] = false;
+    }
     ctx.bodies.clear();
     ctx.bodyOrder.clear();
     ctx.particles.clear();
@@ -1181,6 +1203,8 @@ inline void resolveBoxGround(RigidBody& body, double groundY) {
     }
 }
 
+#include "game3d_advanced.inl.hpp"
+
 inline void stepPhysicsEx(double deltaMs, double gravity) {
     const double dt = deltaMs / 1000.0;
     Game3dContext& ctx = context();
@@ -1201,9 +1225,12 @@ inline void stepPhysicsEx(double deltaMs, double gravity) {
     }
     for (std::size_t i = 0; i < list.size(); ++i) {
         for (std::size_t j = i + 1; j < list.size(); ++j) {
-            if (!list[i]->isBox && !list[j]->isBox) {
-                resolveSpherePair(*list[i], *list[j]);
-            }
+            RigidBody& a = *list[i];
+            RigidBody& b = *list[j];
+            if (a.isBox && b.isBox) resolveBoxBox(a, b);
+            else if (!a.isBox && !b.isBox) resolveSpherePair(a, b);
+            else if (!a.isBox && b.isBox) resolveSphereBox(a, b);
+            else resolveSphereBox(b, a);
         }
     }
 }
@@ -1288,12 +1315,18 @@ inline double pickBody(double screenX, double screenY) {
         const auto it = ctx.bodies.find(name);
         if (it == ctx.bodies.end() || !it->second.active) continue;
         const RigidBody& body = it->second;
-        double t;
-        if (raySphereHit(ox, oy, oz, dx, dy, dz, body.px, body.py, body.pz, body.radius, t)) {
-            if (t < bestT) {
-                bestT = t;
-                bestIndex = i;
-            }
+        double t = 0;
+        bool hit = false;
+        if (body.isBox) {
+            hit = rayAabbHit(ox, oy, oz, dx, dy, dz,
+                             body.px, body.py, body.pz, body.hx, body.hy, body.hz, t);
+        } else {
+            hit = raySphereHit(ox, oy, oz, dx, dy, dz,
+                               body.px, body.py, body.pz, body.radius, t);
+        }
+        if (hit && t < bestT) {
+            bestT = t;
+            bestIndex = i;
         }
     }
     return static_cast<double>(bestIndex);
