@@ -765,6 +765,7 @@ main.afr-main-full {
   animation: afr-pulse 1s ease infinite;
 }
 
+@keyframes afr-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
