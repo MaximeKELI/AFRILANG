@@ -1,6 +1,8 @@
 {
-  "source": "/tmp/afrilang_web_p_aed_xm/playground.afr",
+  "source": "/tmp/afrilang_web_naz7py98/playground.afr",
   "variables": [
-
+    {"name":"animal","type":"Animal","scope":"global"},
+    {"name":"cat","type":"Cat","scope":"global"},
+    {"name":"animals","type":"Dog","scope":"global"}
   ]
 }
