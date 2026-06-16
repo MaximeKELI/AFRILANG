@@ -11,6 +11,7 @@ loadLevel("examples/assets/demo_level.txt")
 
 create brush number = 0
 create rot number = 0
+playGltfAnim("pyramid", 0, true)
 
 while isOpen() do
     beginFrame()
