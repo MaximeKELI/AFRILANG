@@ -7,6 +7,9 @@ use random2
 import "std/stopwatch"
 use stopwatch
 
+import "std/c/nlpkeyword"
+use nlpkeyword
+
 create W = 20
 create H = 14
 create MAX_STEPS = 250
@@ -201,7 +204,8 @@ create fx number = food at 0
 create fy number = food at 1
 set seed = food at 2
 
-create moves text = "DDDDDDSSSSSSAAAAAAWWWWWWDDDDSSAAWWDDSSAAWWDDDDSSSSAAAWW"
+create movesText text = "D D D D D D S S S S S S A A A A A A W W W W W W D D D D S S A A W W D D S S A A W W D D D D S S S S A A A W W"
+create moves = keywSplit(movesText, " ")
 
 create step number = 0
 while step is less than MAX_STEPS do
