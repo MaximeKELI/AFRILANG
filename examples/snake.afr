@@ -261,8 +261,9 @@ while isOpen() do
             if justStartedPlay is equal to no then
                 if warmupMoves is equal to 0 then
                     updateDirection(dirX, dirY)
-                    set dirX = inputDirX()
-                    set dirY = inputDirY()
+                    create wantDir = pickSafeDirection(xs, ys, snakeLen, W, H, dirX, dirY, inputDirX(), inputDirY())
+                    set dirX = wantDir at 0
+                    set dirY = wantDir at 1
                 end
             end
         end
@@ -274,8 +275,16 @@ while isOpen() do
     if isState("play") then
         if canMoveAfterCountdown(stateTimeMs()) then
             if everyMs("move", deltaMs(), moveMs) then
-                create newX number = (xs at 0) + dirX
-                create newY number = (ys at 0) + dirY
+                create moveDx number = dirX
+                create moveDy number = dirY
+                if moveDx is equal to 0 then
+                    if moveDy is equal to 0 then
+                        set moveDx = 1
+                        set moveDy = 0
+                    end
+                end
+                create newX number = (xs at 0) + moveDx
+                create newY number = (ys at 0) + moveDy
 
                 if isWallCell(newX, newY, W, H) then
                     setState("gameover")

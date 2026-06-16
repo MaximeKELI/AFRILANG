@@ -77,6 +77,34 @@ function resetGame(w number, h number) returns list number
     return list of snakeLen, dirX, dirY, score, fx, fy, x0, x1, x2, y0, y1, y2
 end
 
+function isMoveSafe(xs list number, ys list number, snakeLen number, w number, h number, dx number, dy number) returns bool
+    if dx is equal to 0 then
+        if dy is equal to 0 then
+            return no
+        end
+    end
+    create newX number = xs at 0 + dx
+    create newY number = ys at 0 + dy
+    if isWallCell(newX, newY, w, h) then
+        return no
+    end
+    create bodyLen number = snakeLen - 1
+    if snakeOccupies(xs, ys, bodyLen, newX, newY) then
+        return no
+    end
+    return yes
+end
+
+function pickSafeDirection(xs list number, ys list number, snakeLen number, w number, h number, curDx number, curDy number, wantDx number, wantDy number) returns list number
+    if isMoveSafe(xs, ys, snakeLen, w, h, wantDx, wantDy) then
+        return list of wantDx, wantDy
+    end
+    if isMoveSafe(xs, ys, snakeLen, w, h, curDx, curDy) then
+        return list of curDx, curDy
+    end
+    return list of 1, 0
+end
+
 function moveMsForDifficulty(score number, difficulty number) returns number
     create level number = levelFromXp(xpForScore(score))
     create moveMs number = speedMsForLevel(level)

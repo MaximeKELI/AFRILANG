@@ -81,4 +81,26 @@ test "countdown labels sequence"
     assert countdownLabel(2600) is equal to ""
 end
 
+test "unsafe left turn keeps moving right"
+    create xs list number = list of 20, 19, 18
+    create ys list number = list of 14, 14, 14
+    create pick = pickSafeDirection(xs, ys, 3, 36, 28, 1, 0, -1, 0)
+    assert pick at 0 is equal to 1
+    assert pick at 1 is equal to 0
+end
+
+test "safe turn up is accepted"
+    create xs list number = list of 20, 19, 18
+    create ys list number = list of 14, 14, 14
+    create pick = pickSafeDirection(xs, ys, 3, 36, 28, 1, 0, 0, -1)
+    assert pick at 0 is equal to 0
+    assert pick at 1 is equal to -1
+end
+
+test "zero direction is never safe"
+    create xs list number = list of 18, 17, 16
+    create ys list number = list of 14, 14, 14
+    assert isMoveSafe(xs, ys, 3, 36, 28, 0, 0) is equal to false
+end
+
 say "Snake logic tests OK"
