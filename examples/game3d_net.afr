@@ -1,0 +1,71 @@
+import "std/game3d"
+use game3d
+
+import "std/gamenet"
+use gamenet
+
+import "std/stopwatch"
+use stopwatch
+
+openWindow("AFRILANG 3D Net", 960, 600)
+setCamera(0, 8, 18, 0, -10)
+
+loadTexture3d("grass", "examples/assets/grass.png")
+
+create isHost bool = yes
+create px number = -2
+create py number = 1
+create pz number = 0
+create rot number = 0
+
+if isHost then
+    hostGame(4789)
+else
+    joinGame("127.0.0.1", 4789)
+end
+
+while isOpen() do
+    beginFrame()
+
+    if wasKeyPressed("Escape") then
+        shutdownNet()
+        shutdown()
+    end
+
+    create dt number = deltaMs()
+    create move number = dt * 0.012
+    if isKeyDown("W") then
+        set pz = pz - move * 8
+    end
+    if isKeyDown("S") then
+        set pz = pz + move * 8
+    end
+    if isKeyDown("A") then
+        set px = px - move * 8
+    end
+    if isKeyDown("D") then
+        set px = px + move * 8
+    end
+    if isKeyDown("Q") then
+        set rot = rot - move * 80
+    end
+    if isKeyDown("E") then
+        set rot = rot + move * 80
+    end
+
+    sendPose(px, py, pz, rot)
+    pollNet(nowMs(0))
+
+    clearScreen(16, 20, 28)
+    applyCamera()
+    drawGrid(0, 16, 16)
+    drawPlaneTextured(0, 16, "grass")
+
+    drawSphere(px, py, pz, 0.45, 100, 220, 255)
+
+    if hasRemotePlayer() then
+        drawSphere(remoteX(), remoteY(), remoteZ(), 0.45, 255, 140, 100)
+    end
+
+    showFrame()
+end
