@@ -27,13 +27,20 @@ function isWallCell(col number, row number, w number, h number) returns bool
     return no
 end
 
+function foodNotOnSnake(xs list number, ys list number, snakeLen number, fx number, fy number) returns bool
+    if snakeOccupies(xs, ys, snakeLen, fx, fy) then
+        return no
+    end
+    return yes
+end
+
 function placeFood(xs list number, ys list number, snakeLen number, w number, h number) returns list number
     create fx number = 1
     create fy number = 1
     repeat 400 times
         set fx = randomRange(1, w - 2)
         set fy = randomRange(1, h - 2)
-        if snakeOccupies(xs, ys, snakeLen, fx, fy) is equal to false then
+        if foodNotOnSnake(xs, ys, snakeLen, fx, fy) then
             return list of fx, fy
         end
     end
@@ -68,9 +75,6 @@ function stepSnake(xs list number, ys list number, snakeLen number, dirX number,
     if isWallCell(newX, newY, w, h) then
         return list of snakeLen, score, fx, fy, 1
     end
-    if snakeOccupies(xs, ys, snakeLen, newX, newY) then
-        return list of snakeLen, score, fx, fy, 1
-    end
 
     create grow bool = no
     if newX is equal to fx then
@@ -78,6 +82,14 @@ function stepSnake(xs list number, ys list number, snakeLen number, dirX number,
             set grow = yes
             set score = score + 1
         end
+    end
+
+    create bodyLen number = snakeLen
+    if grow is equal to no then
+        set bodyLen = snakeLen - 1
+    end
+    if snakeOccupies(xs, ys, bodyLen, newX, newY) then
+        return list of snakeLen, score, fx, fy, 1
     end
 
     if grow then
@@ -143,11 +155,4 @@ function countdownLabel(stateMs number) returns text
         return "GO!"
     end
     return ""
-end
-
-function foodNotOnSnake(xs list number, ys list number, snakeLen number, fx number, fy number) returns bool
-    if snakeOccupies(xs, ys, snakeLen, fx, fy) then
-        return no
-    end
-    return yes
 end

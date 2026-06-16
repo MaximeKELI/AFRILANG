@@ -7,25 +7,29 @@ import "std/stopwatch"
 use stopwatch
 
 test "snakeOccupies detects head"
+    say "T1"
     create xs list number = list of 5, 4, 3
     create ys list number = list of 5, 5, 5
-    assert snakeOccupies(xs, ys, 3, 5, 5) is equal to true
+    create hit bool = snakeOccupies(xs, ys, 3, 5, 5)
+    assert hit is equal to yes
 end
 
 test "snakeOccupies ignores tail miss"
     create xs list number = list of 5, 4, 3
     create ys list number = list of 5, 5, 5
-    assert snakeOccupies(xs, ys, 3, 9, 9) is equal to false
+    create hit bool = snakeOccupies(xs, ys, 3, 9, 9)
+    assert hit is equal to no
 end
 
 test "isWallCell detects borders"
     create w number = 12
     create h number = 10
-    assert isWallCell(0, 3, w, h) is equal to true
-    assert isWallCell(3, 0, w, h) is equal to true
-    assert isWallCell(w - 1, 3, w, h) is equal to true
-    assert isWallCell(3, h - 1, w, h) is equal to true
-    assert isWallCell(5, 5, w, h) is equal to false
+    assert isWallCell(0, 3, w, h) is equal to yes
+    assert isWallCell(3, 0, w, h) is equal to yes
+    assert isWallCell(w - 1, 3, w, h) is equal to yes
+    assert isWallCell(3, h - 1, w, h) is equal to yes
+    create inside bool = isWallCell(5, 5, w, h)
+    assert inside is equal to no
 end
 
 test "resetGame creates valid snake"
@@ -45,7 +49,8 @@ test "resetGame creates valid snake"
     assert score0 is equal to 0
     create foodX number = pack at 4
     create foodY number = pack at 5
-    assert snakeOccupies(xs, ys, 3, foodX, foodY) is equal to false
+    create onSnake bool = snakeOccupies(xs, ys, 3, foodX, foodY)
+    assert onSnake is equal to no
 end
 
 test "placeFood avoids snake body"
@@ -57,7 +62,8 @@ test "placeFood avoids snake body"
     create food = placeFood(xs, ys, 3, w, h)
     create foodX number = food at 0
     create foodY number = food at 1
-    assert foodNotOnSnake(xs, ys, 3, foodX, foodY) is equal to true
+    create ok bool = foodNotOnSnake(xs, ys, 3, foodX, foodY)
+    assert ok is equal to yes
 end
 
 test "stepSnake moves forward"
@@ -92,7 +98,8 @@ test "stepSnake eats food and grows"
     assert newLen is equal to 4
     assert newScore is equal to 1
     assert over2 is equal to 0
-    assert foodNotOnSnake(xs, ys, 4, newFx, newFy) is equal to true
+    create ok2 bool = foodNotOnSnake(xs, ys, 4, newFx, newFy)
+    assert ok2 is equal to yes
 end
 
 test "stepSnake dies on wall"
@@ -115,6 +122,18 @@ test "stepSnake dies on self"
     assert over4 is equal to 1
 end
 
+test "stepSnake may enter tail cell when not growing"
+    create w number = 12
+    create h number = 10
+    create xs list number = list of 4, 5, 3
+    create ys list number = list of 5, 5, 5
+    create result = stepSnake(xs, ys, 3, -1, 0, 8, 8, 0, w, h)
+    create over5 number = result at 4
+    assert over5 is equal to 0
+    create hx number = xs at 0
+    assert hx is equal to 3
+end
+
 test "moveMsForDifficulty scales speed"
     create easy number = moveMsForDifficulty(0, 1)
     create hard number = moveMsForDifficulty(0, 3)
@@ -122,14 +141,19 @@ test "moveMsForDifficulty scales speed"
 end
 
 test "shouldPauseOnSpace blocks same frame"
-    assert shouldPauseOnSpace(yes) is equal to false
-    assert shouldPauseOnSpace(no) is equal to true
+    create block bool = shouldPauseOnSpace(yes)
+    create allow bool = shouldPauseOnSpace(no)
+    assert block is equal to no
+    assert allow is equal to yes
 end
 
 test "countdown blocks early movement"
-    assert canMoveAfterCountdown(0) is equal to false
-    assert canMoveAfterCountdown(500) is equal to false
-    assert canMoveAfterCountdown(1500) is equal to true
+    create early bool = canMoveAfterCountdown(0)
+    create mid bool = canMoveAfterCountdown(500)
+    create late bool = canMoveAfterCountdown(1500)
+    assert early is equal to no
+    assert mid is equal to no
+    assert late is equal to yes
 end
 
 test "countdown labels sequence"
@@ -137,12 +161,19 @@ test "countdown labels sequence"
     create l2 text = countdownLabel(450)
     create l3 text = countdownLabel(700)
     create l4 text = countdownLabel(1000)
-    create l5 text = countdownLabel(2000)
     assert l1 is equal to "3"
     assert l2 is equal to "2"
     assert l3 is equal to "1"
     assert l4 is equal to "GO!"
-    assert l5 is equal to ""
+    create l5 text = countdownLabel(2000)
+    create empty text = ""
+    create same bool = yes
+    if l5 is equal to empty then
+        set same = yes
+    else
+        set same = no
+    end
+    assert same is equal to yes
 end
 
 say "Snake logic tests defined"

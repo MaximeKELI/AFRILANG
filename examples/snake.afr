@@ -286,7 +286,11 @@ while isOpen() do
 
     if isState("play") then
         create cd text = countdownLabel(stateTimeMs())
-        if cd is not equal to "" then
+        create showCd bool = yes
+        if cd is equal to "" then
+            set showCd = no
+        end
+        if showCd then
             drawCenteredText(cd, gridWindowHeight() / 2 - 30, 64, 255, 255, 255)
         end
     end
