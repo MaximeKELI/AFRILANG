@@ -21,6 +21,12 @@ end
 function drawButton(label text, x number, y number, width number, height number) returns bool
 end
 
+function isKeyDown(key text) returns bool
+end
+
+function wasKeyPressed(key text) returns bool
+end
+
 function showFrame()
 end
 end

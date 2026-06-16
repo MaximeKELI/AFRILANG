@@ -17,6 +17,8 @@ struct UiContext {
     int mouseX = 0;
     int mouseY = 0;
     bool clickThisFrame = false;
+    bool keys[SDL_NUM_SCANCODES]{};
+    bool pressed[SDL_NUM_SCANCODES]{};
 };
 
 inline UiContext& context() {
@@ -90,6 +92,9 @@ inline bool isOpen() {
 inline void pollEvents() {
     UiContext& ctx = context();
     ctx.clickThisFrame = false;
+    for (int i = 0; i < SDL_NUM_SCANCODES; ++i) {
+        ctx.pressed[i] = false;
+    }
 
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
@@ -102,6 +107,17 @@ inline void pollEvents() {
         } else if (event.type == SDL_MOUSEMOTION) {
             ctx.mouseX = event.motion.x;
             ctx.mouseY = event.motion.y;
+        } else if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
+            const SDL_Scancode sc = event.key.keysym.scancode;
+            if (sc >= 0 && sc < SDL_NUM_SCANCODES) {
+                ctx.keys[sc] = true;
+                ctx.pressed[sc] = true;
+            }
+        } else if (event.type == SDL_KEYUP) {
+            const SDL_Scancode sc = event.key.keysym.scancode;
+            if (sc >= 0 && sc < SDL_NUM_SCANCODES) {
+                ctx.keys[sc] = false;
+            }
         }
     }
 }
@@ -194,6 +210,34 @@ inline void showFrame() {
     if (!ctx.renderer) return;
     SDL_RenderPresent(ctx.renderer);
     SDL_Delay(16);
+}
+
+inline SDL_Scancode scancodeFromName(const std::string& key) {
+    if (key == "Left" || key == "ArrowLeft") return SDL_SCANCODE_LEFT;
+    if (key == "Right" || key == "ArrowRight") return SDL_SCANCODE_RIGHT;
+    if (key == "Up" || key == "ArrowUp") return SDL_SCANCODE_UP;
+    if (key == "Down" || key == "ArrowDown") return SDL_SCANCODE_DOWN;
+    if (key == "W" || key == "w") return SDL_SCANCODE_W;
+    if (key == "A" || key == "a") return SDL_SCANCODE_A;
+    if (key == "S" || key == "s") return SDL_SCANCODE_S;
+    if (key == "D" || key == "d") return SDL_SCANCODE_D;
+    if (key == "Space" || key == " ") return SDL_SCANCODE_SPACE;
+    if (key == "Escape" || key == "Esc") return SDL_SCANCODE_ESCAPE;
+    return SDL_SCANCODE_UNKNOWN;
+}
+
+inline bool isKeyDown(const std::string& key) {
+    UiContext& ctx = context();
+    const SDL_Scancode sc = scancodeFromName(key);
+    if (sc == SDL_SCANCODE_UNKNOWN) return false;
+    return ctx.keys[sc];
+}
+
+inline bool wasKeyPressed(const std::string& key) {
+    UiContext& ctx = context();
+    const SDL_Scancode sc = scancodeFromName(key);
+    if (sc == SDL_SCANCODE_UNKNOWN) return false;
+    return ctx.pressed[sc];
 }
 
 } // namespace afrilang::runtime::ui
