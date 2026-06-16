@@ -7,6 +7,8 @@
   </a>
   {% endfor %}
   <hr class="my-3">
+  <a class="docs-nav-link" href="{% url 'docs_search' %}">→ {% if current_lang == 'en' %}Search{% else %}Recherche{% endif %}</a>
+  <a class="docs-nav-link" href="{% url 'stdlib' %}">→ {% if current_lang == 'en' %}Stdlib browser{% else %}Navigateur stdlib{% endif %}</a>
   <a class="docs-nav-link" href="{% url 'playground' %}">→ Playground</a>
   <a class="docs-nav-link" href="{% url 'language' %}">→ {{ ui.nav_language }}</a>
 </nav>

@@ -89,6 +89,12 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'examples' %}active{% endif %}" href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' %}active{% endif %}" href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">{{ ui.nav_playground }}</a>
           </li>
           <li class="nav-item">
