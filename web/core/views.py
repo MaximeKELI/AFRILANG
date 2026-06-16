@@ -9,10 +9,11 @@ from django.views.decorators.http import require_GET, require_POST
 from .content.docs_nav import docs_context
 from .content.docs_pages import get_doc_page_by_url_name
 from .content.docs_search import search_docs
-from .content.ecosystem_i18n import translate_ecosystem
+from .content.example_topics import grouped_examples
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
 from .services.downloads import get_download_context, resolve_binary
+from .services.stdlib_docs import get_module_doc
 
 
 def _doc_view(request, url_name):
@@ -155,7 +156,12 @@ def examples_gallery(request):
     qs = CodeExample.objects.all()
     if q:
         qs = qs.filter(title__icontains=q) | qs.filter(description__icontains=q) | qs.filter(slug__icontains=q)
-    return render(request, 'core/examples.html', {'examples': qs, 'query': q})
+    groups = grouped_examples(qs, request.LANGUAGE_CODE) if not q else None
+    return render(request, 'core/examples.html', {
+        'examples': qs,
+        'groups': groups,
+        'query': q,
+    })
 
 
 def stdlib_browse(request):
@@ -172,7 +178,10 @@ def stdlib_detail(request, name):
     if not path.is_file():
         raise Http404('Module source not found')
     source = path.read_text(encoding='utf-8', errors='replace')
-    return render(request, 'core/stdlib_detail.html', {'mod': mod, 'source': source})
+    doc = get_module_doc(name)
+    return render(request, 'core/stdlib_detail.html', {
+        'mod': mod, 'source': source, 'doc': doc,
+    })
 
 
 def _parse_release_body(body: str) -> list[dict]:
