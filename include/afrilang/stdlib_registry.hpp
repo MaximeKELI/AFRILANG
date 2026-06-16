@@ -31,6 +31,7 @@ public:
     static void injectGame2dModule(ProgramNode& program);
     static void injectGame3dModule(ProgramNode& program);
     static void injectGamestateModule(ProgramNode& program);
+    static void injectGamenetModule(ProgramNode& program);
     static void injectCryptoModule(ProgramNode& program);
     static void injectYamlModule(ProgramNode& program);
     static void injectDatetimeModule(ProgramNode& program);
