@@ -416,6 +416,11 @@ void StdlibRegistry::injectUiModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("deltaMs", {}, "number"));
     fns.push_back(makeStubFunction("windowWidth", {}, "number"));
     fns.push_back(makeStubFunction("windowHeight", {}, "number"));
+    fns.push_back(makeStubFunction("mouseX", {}, "number"));
+    fns.push_back(makeStubFunction("mouseY", {}, "number"));
+    fns.push_back(makeStubFunction("isMouseDown", {}, "bool"));
+    fns.push_back(makeStubFunction("wasMousePressed", {}, "bool"));
+    fns.push_back(makeStubFunction("wasMouseClicked", {}, "bool"));
     fns.push_back(makeStubFunction("showFrame", {}, ""));
     injectModule(program, "ui", std::move(fns));
 }
