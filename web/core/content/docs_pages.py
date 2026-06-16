@@ -446,3 +446,9 @@ def get_doc_page_by_url_name(url_name, lang):
     page['prev'] = {'url_name': prev_item[0], 'label': label(prev_item)} if prev_item else None
     page['next'] = {'url_name': next_item[0], 'label': label(next_item)} if next_item else None
     return page
+
+
+from .docs_full import register_full_documentation
+
+register_full_documentation(PAGES)
+DOC_NAV_ORDER = _build_nav_order()
