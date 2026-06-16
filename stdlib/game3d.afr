@@ -234,6 +234,87 @@ end
 function drawGltfLit(name text, x number, y number, z number, scale number, rotY number, textureName text)
 end
 
+function loadGlb(name text, path text) returns bool
+end
+
+function gltfAnimCount(modelName text) returns number
+end
+
+function playGltfAnim(modelName text, animIndex number, loop bool)
+end
+
+function stopGltfAnim(modelName text)
+end
+
+function updateGltfAnims(deltaMs number)
+end
+
+function gltfAnimRotY(modelName text) returns number
+end
+
+function setEditMode(on bool)
+end
+
+function isEditMode() returns bool
+end
+
+function clearLevel()
+end
+
+function addLevelGltf(asset text, x number, y number, z number, scale number, rotY number)
+end
+
+function addLevelModel(asset text, x number, y number, z number, scale number, rotY number)
+end
+
+function levelCount() returns number
+end
+
+function levelType(index number) returns text
+end
+
+function levelAsset(index number) returns text
+end
+
+function levelX(index number) returns number
+end
+
+function levelY(index number) returns number
+end
+
+function levelZ(index number) returns number
+end
+
+function levelScale(index number) returns number
+end
+
+function levelRotY(index number) returns number
+end
+
+function saveLevel(path text) returns bool
+end
+
+function loadLevel(path text) returns bool
+end
+
+function drawLevel()
+end
+
+function pickGround(screenX number, screenY number) returns bool
+end
+
+function pickGroundX() returns number
+end
+
+function pickGroundY() returns number
+end
+
+function pickGroundZ() returns number
+end
+
+function pickGroundHit() returns bool
+end
+
 function pickBody(screenX number, screenY number) returns number
 end
 
