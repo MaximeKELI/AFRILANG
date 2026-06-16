@@ -413,16 +413,12 @@ PAGES['tooling'] = _page(
     ],
 )
 
-DOC_NAV_ORDER = [
-    ('docs_overview', 'overview'),
-    ('docs_getting_started', 'getting-started'),
-    ('docs_syntax', 'syntax'),
-    ('docs_types', 'types'),
-    ('docs_oop', 'oop'),
-    ('docs_advanced', 'advanced'),
-    ('docs_stdlib', 'stdlib'),
-    ('docs_tooling', 'tooling'),
-]
+DOC_NAV_ORDER = []  # filled after full docs registration
+
+
+def _build_nav_order():
+    from .docs_nav import build_doc_nav_order
+    return build_doc_nav_order()
 
 
 def get_doc_page(slug, lang):
