@@ -299,7 +299,7 @@ end''',
             ],
             'content': [
                 'Félicitations — vous maîtrisez les bases ! Installez le compilateur, '
-                'explorez la stdlib (463+ modules) et rejoignez la communauté.',
+                'explorez la stdlib (7900+ modules) et rejoignez la communauté.',
             ],
             'challenge': 'Créez un projet avec <code>afrilang init mon_app</code> et partagez-le sur GitHub.',
         },
@@ -313,7 +313,7 @@ end''',
             ],
             'content': [
                 'Congratulations — you know the basics! Install the compiler, '
-                'explore the stdlib (463+ modules) and join the community.',
+                'explore the stdlib (7900+ modules) and join the community.',
             ],
             'challenge': 'Create a project with <code>afrilang init my_app</code> and share it on GitHub.',
         },

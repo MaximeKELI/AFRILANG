@@ -757,9 +757,15 @@ def _extend_stdlib(pages):
             ['<code>std/async</code>', 'sleep(ms)'],
             ['<code>std/ui</code>', 'openWindow, drawText, drawButton, showFrame'],
         ]),
-        h2('Domaines (210 modules complexes)'),
-        ul(['Graphes, ML, crypto, finance, NLP, simulation, réseaux…']),
-        p('Navigateur complet : <a href="/stdlib/">463+ modules</a> avec source et signatures.'),
+        h2('Domaines (5710 modules complexes)'),
+        ul([
+            'SIG : gisultra*, rasterultra*, segultra*, giskit* (simple)',
+            'Data : dataultra*, datasci*, vizultra*',
+            'IA & DB : iaultra*, dbultra*',
+            'Jeux : gameultra*, game3dultra*',
+            'Graphes, NLP, crypto, finance, réseaux…',
+        ]),
+        p('Navigateur complet : <a href="/stdlib/">7900+ modules</a> avec source et signatures.'),
         callout('Référence : <code>docs/STDLIB_SIMPLE.md</code>, <code>STDLIB_MEDIUM.md</code>, '
                 '<code>STDLIB_COMPLEX.md</code>'),
     ])
@@ -781,9 +787,15 @@ def _extend_stdlib(pages):
             ['<code>std/async</code>', 'sleep(ms)'],
             ['<code>std/ui</code>', 'openWindow, drawText, drawButton, showFrame'],
         ]),
-        h2('Domains (210 complex modules)'),
-        ul(['Graphs, ML, crypto, finance, NLP, simulation, networking…']),
-        p('Full browser: <a href="/stdlib/">463+ modules</a> with source and signatures.'),
+        h2('Domains (5710 complex modules)'),
+        ul([
+            'GIS: gisultra*, rasterultra*, segultra*, giskit* (simple)',
+            'Data: dataultra*, datasci*, vizultra*',
+            'AI & DB: iaultra*, dbultra*',
+            'Games: gameultra*, game3dultra*',
+            'Graphs, NLP, crypto, finance, networking…',
+        ]),
+        p('Full browser: <a href="/stdlib/">7900+ modules</a> with source and signatures.'),
         callout('Reference: <code>docs/STDLIB_SIMPLE.md</code>, <code>STDLIB_MEDIUM.md</code>, '
                 '<code>STDLIB_COMPLEX.md</code>'),
     ])

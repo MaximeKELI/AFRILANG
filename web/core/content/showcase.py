@@ -17,12 +17,12 @@ PROJECTS = [
         'tags': ['compiler', 'stdlib', 'MIT'],
         'fr': {
             'title': 'AFRILANG',
-            'summary': 'Compilateur, stdlib (460+ modules), LSP, CLI et suite de tests.',
+            'summary': 'Compilateur, stdlib (7900+ modules), LSP, CLI et suite de tests.',
             'highlights': ['Transpilation C++17', '60+ exemples CI', 'Cross-compile WASM'],
         },
         'en': {
             'title': 'AFRILANG',
-            'summary': 'Compiler, stdlib (460+ modules), LSP, CLI and test suite.',
+            'summary': 'Compiler, stdlib (7900+ modules), LSP, CLI and test suite.',
             'highlights': ['C++17 transpilation', '60+ CI examples', 'WASM cross-compile'],
         },
     },
@@ -153,7 +153,7 @@ PROJECTS = [
         'category': 'official',
         'github': 'https://github.com/MaximeKELI/AFRILANG/tree/main/stdlib',
         'featured': False,
-        'tags': ['stdlib', '463 modules'],
+        'tags': ['stdlib', '7900 modules'],
         'fr': {
             'title': 'Bibliothèque standard',
             'summary': 'I/O, JSON, HTTP, crypto, NLP, finance, graphes et bien plus.',
