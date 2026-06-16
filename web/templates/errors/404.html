@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.errors_page.not_found_title }}{% endblock %}
+{% block meta %}{{ ui.errors_page.not_found_lead }}{% endblock %}
+{% block main_class %}container afr-error-page py-5{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8 text-center">
+    <div class="afr-error-code" aria-hidden="true">404</div>
+    <h1 class="h2 fw-bold mb-2">{{ ui.errors_page.not_found_h1 }}</h1>
+    <p class="lead text-secondary-custom mb-4">{{ ui.errors_page.not_found_lead }}</p>
+
+    <div class="code-panel text-start mb-4 mx-auto" style="max-width:420px">
+      <div class="code-panel-header"><span>not_found.afr</span></div>
+      <pre>if page exists then
+    say page
+else
+    say "{{ ui.errors_page.not_found_code }}"
+end</pre>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+      <a href="{% url 'home' %}" class="btn btn-afr-primary btn-lg">{{ ui.errors_page.btn_home }}</a>
+      <a href="{% url 'docs_search' %}" class="btn btn-afr-outline btn-lg">{{ ui.errors_page.btn_search }}</a>
+    </div>
+
+    <p class="small text-secondary-custom mb-0">
+      <a href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a> ·
+      <a href="{% url 'playground' %}">{{ ui.nav_playground }}</a> ·
+      <a href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

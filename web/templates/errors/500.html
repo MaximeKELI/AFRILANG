@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{{ ui.errors_page.server_title }}{% endblock %}
+{% block meta %}{{ ui.errors_page.server_lead }}{% endblock %}
+{% block main_class %}container afr-error-page py-5{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8 text-center">
+    <div class="afr-error-code afr-error-code-500" aria-hidden="true">500</div>
+    <h1 class="h2 fw-bold mb-2">{{ ui.errors_page.server_h1 }}</h1>
+    <p class="lead text-secondary-custom mb-4">{{ ui.errors_page.server_lead }}</p>
+
+    <div class="code-panel text-start mb-4 mx-auto" style="max-width:420px">
+      <div class="code-panel-header"><span>server_error.afr</span></div>
+      <pre>try
+    run this page
+catch error e
+    say "{{ ui.errors_page.server_code }}"
+end</pre>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+      <a href="{% url 'home' %}" class="btn btn-afr-primary btn-lg">{{ ui.errors_page.btn_home }}</a>
+      <a href="javascript:location.reload()" class="btn btn-afr-outline btn-lg">{{ ui.errors_page.btn_retry }}</a>
+    </div>
+
+    <p class="small text-secondary-custom mb-0">
+      <a href="https://github.com/MaximeKELI/AFRILANG/issues" target="_blank" rel="noopener noreferrer">{{ ui.errors_page.btn_report }}</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

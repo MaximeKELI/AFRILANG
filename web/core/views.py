@@ -427,3 +427,22 @@ def api_wasm_asset(request, session_id, filename):
         raise Http404
     content_type = 'application/javascript' if filename.endswith('.js') else 'application/wasm'
     return FileResponse(path.open('rb'), content_type=content_type)
+
+
+def page_not_found(request, exception):
+    return render(request, 'errors/404.html', status=404)
+
+
+def server_error(request):
+    try:
+        return render(request, 'errors/500.html', status=500)
+    except Exception:
+        from django.http import HttpResponse
+        return HttpResponse(
+            '<!DOCTYPE html><html><head><meta charset="utf-8"><title>500</title></head>'
+            '<body style="font-family:system-ui;text-align:center;padding:4rem">'
+            '<h1>500</h1><p>Internal server error.</p>'
+            '<a href="/">Home</a></body></html>',
+            status=500,
+            content_type='text/html; charset=utf-8',
+        )

@@ -25,3 +25,6 @@ urlpatterns += i18n_patterns(
     path('', include('core.urls')),
     prefix_default_language=False,
 )
+
+handler404 = 'core.views.page_not_found'
+handler500 = 'core.views.server_error'
