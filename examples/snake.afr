@@ -1,5 +1,5 @@
-import "std/io"
-use io
+import "std/ui"
+use ui
 
 import "std/m/random2"
 use random2
@@ -7,12 +7,8 @@ use random2
 import "std/stopwatch"
 use stopwatch
 
-import "std/c/nlpkeyword"
-use nlpkeyword
-
-create W = 20
-create H = 14
-create MAX_STEPS = 250
+create W = 22
+create H = 16
 
 function clampDirX(dx number) returns number
     if dx is greater than 1 then return 1 end
@@ -52,11 +48,11 @@ function placeFood(xs list number, ys list number, snakeLen number, w number, h 
     return list of fx, fy
 end
 
-function render(xs list number, ys list number, snakeLen number, fx number, fy number, score number, step number, w number, h number, maxSteps number) returns text
+function render(xs list number, ys list number, snakeLen number, fx number, fy number, score number, w number, h number) returns text
     create out text = ""
-    set out = out + "AFRILANG Snake (ASCII)\n"
-    set out = out + "score={score}  step={step}/{maxSteps}\n"
-    set out = out + "Moves: W/A/S/D (editez `moves`)  |  Q quit\n\n"
+    set out = out + "AFRILANG Snake — clavier live (WASD / flèches)\n"
+    set out = out + "Score: {score}\n"
+    set out = out + "Echap: quitter · Espace: pause\n\n"
 
     create y number = 0
     while y is less than h do
@@ -122,42 +118,6 @@ function render(xs list number, ys list number, snakeLen number, fx number, fy n
     return out
 end
 
-function dirFromChar(c text, dx number, dy number) returns list number
-    if c is equal to "W" then
-        if dy is equal to 1 then return list of dx, dy end
-        return list of 0, -1
-    end
-    if c is equal to "w" then
-        if dy is equal to 1 then return list of dx, dy end
-        return list of 0, -1
-    end
-    if c is equal to "S" then
-        if dy is equal to -1 then return list of dx, dy end
-        return list of 0, 1
-    end
-    if c is equal to "s" then
-        if dy is equal to -1 then return list of dx, dy end
-        return list of 0, 1
-    end
-    if c is equal to "A" then
-        if dx is equal to 1 then return list of dx, dy end
-        return list of -1, 0
-    end
-    if c is equal to "a" then
-        if dx is equal to 1 then return list of dx, dy end
-        return list of -1, 0
-    end
-    if c is equal to "D" then
-        if dx is equal to -1 then return list of dx, dy end
-        return list of 1, 0
-    end
-    if c is equal to "d" then
-        if dx is equal to -1 then return list of dx, dy end
-        return list of 1, 0
-    end
-    return list of dx, dy
-end
-
 seedRandom(nowMs(0))
 
 create startX number = W / 2
@@ -176,83 +136,145 @@ create food = placeFood(xs, ys, snakeLen, W, H)
 create fx number = food at 0
 create fy number = food at 1
 
-create movesText text = "D D D D D D S S S S S S A A A A A A W W W W W W D D D D S S A A W W D D S S A A W W D D D D S S S S A A A W W"
-create moves = keywSplit(movesText, " ")
+create paused bool = false
+create gameOver bool = false
 
-create step number = 0
-while step is less than MAX_STEPS do
-    repeat 30 times
-        say ""
+create lastTick number = nowMs(0)
+create tickMs number = 120
+
+openWindow("AFRILANG Snake", 860, 640)
+
+while isOpen() do
+    beginFrame()
+
+    if wasKeyPressed("Escape") then
+        closeWindow()
     end
 
-    say render(xs, ys, snakeLen, fx, fy, score, step, W, H, MAX_STEPS)
-
-    if step is less than length of moves then
-        create c = moves at step
-        if c is equal to "Q" then
-            say "Quit."
-            stop
-        end
-        if c is equal to "q" then
-            say "Quit."
-            stop
-        end
-        create d = dirFromChar(c, dirX, dirY)
-        set dirX = clampDirX(d at 0)
-        set dirY = clampDirY(d at 1)
-    end
-
-    create newX number = (xs at 0) + dirX
-    create newY number = (ys at 0) + dirY
-
-    create hitWall bool = no
-    if newX is less than 1 then set hitWall = yes end
-    if newX is greater than (W - 2) then set hitWall = yes end
-    if newY is less than 1 then set hitWall = yes end
-    if newY is greater than (H - 2) then set hitWall = yes end
-
-    if hitWall then
-        say "Game over: wall collision."
-        stop
-    end
-
-    if containsN(xs, ys, snakeLen, newX, newY) then
-        say "Game over: self collision."
-        stop
-    end
-
-    create grow bool = no
-    if newX is equal to fx then
-        if newY is equal to fy then
-            set grow = yes
-            set score = score + 1
+    if wasKeyPressed("Space") then
+        if paused is equal to true then
+            set paused = false
+        else
+            set paused = true
         end
     end
 
-    if grow then
-        add xs at (snakeLen - 1) to xs
-        add ys at (snakeLen - 1) to ys
-        set snakeLen = snakeLen + 1
+    if paused is equal to false then
+        if gameOver is equal to false then
+            create left bool = isKeyDown("Left")
+            if left is equal to false then left = isKeyDown("A") end
+            if left is equal to false then left = isKeyDown("a") end
+
+            create right bool = isKeyDown("Right")
+            if right is equal to false then right = isKeyDown("D") end
+            if right is equal to false then right = isKeyDown("d") end
+
+            create up bool = isKeyDown("Up")
+            if up is equal to false then up = isKeyDown("W") end
+            if up is equal to false then up = isKeyDown("w") end
+
+            create down bool = isKeyDown("Down")
+            if down is equal to false then down = isKeyDown("S") end
+            if down is equal to false then down = isKeyDown("s") end
+
+            if left then
+                if dirX is equal to 1 then
+                else
+                    set dirX = -1
+                    set dirY = 0
+                end
+            end
+            if right then
+                if dirX is equal to -1 then
+                else
+                    set dirX = 1
+                    set dirY = 0
+                end
+            end
+            if up then
+                if dirY is equal to 1 then
+                else
+                    set dirX = 0
+                    set dirY = -1
+                end
+            end
+            if down then
+                if dirY is equal to -1 then
+                else
+                    set dirX = 0
+                    set dirY = 1
+                end
+            end
+        end
     end
 
-    create i number = snakeLen - 1
-    while i is greater than 0 do
-        set xs at i = xs at (i - 1)
-        set ys at i = ys at (i - 1)
-        set i = i - 1
+    create now number = nowMs(0)
+    if paused is equal to false then
+        if gameOver is equal to false then
+        if (now - lastTick) is greater than tickMs then
+            set lastTick = now
+
+            create newX number = (xs at 0) + dirX
+            create newY number = (ys at 0) + dirY
+
+            create hitWall bool = no
+            if newX is less than 1 then set hitWall = yes end
+            if newX is greater than (W - 2) then set hitWall = yes end
+            if newY is less than 1 then set hitWall = yes end
+            if newY is greater than (H - 2) then set hitWall = yes end
+
+            if hitWall then
+                set gameOver = true
+            else
+                if containsN(xs, ys, snakeLen, newX, newY) then
+                    set gameOver = true
+                else
+                    create grow bool = no
+                    if newX is equal to fx then
+                        if newY is equal to fy then
+                            set grow = yes
+                            set score = score + 1
+                        end
+                    end
+
+                    if grow then
+                        add xs at (snakeLen - 1) to xs
+                        add ys at (snakeLen - 1) to ys
+                        set snakeLen = snakeLen + 1
+                    end
+
+                    create i number = snakeLen - 1
+                    while i is greater than 0 do
+                        set xs at i = xs at (i - 1)
+                        set ys at i = ys at (i - 1)
+                        set i = i - 1
+                    end
+
+                    set xs at 0 = newX
+                    set ys at 0 = newY
+
+                    if grow then
+                        create food2 = placeFood(xs, ys, snakeLen, W, H)
+                        set fx = food2 at 0
+                        set fy = food2 at 1
+                    end
+                end
+            end
+        end
+        end
     end
 
-    set xs at 0 = newX
-    set ys at 0 = newY
+    clearBackground(20, 20, 28)
+    drawText(render(xs, ys, snakeLen, fx, fy, score, W, H), 20, 20, 18)
 
-    if grow then
-        create food2 = placeFood(xs, ys, snakeLen, W, H)
-        set fx = food2 at 0
-        set fy = food2 at 1
+    if paused then
+        drawText("PAUSE", 700, 20, 22)
+    end
+    if gameOver then
+        drawText("GAME OVER — appuyez Echap", 450, 20, 18)
     end
 
-    set step = step + 1
+    showFrame()
 end
 
-say "Final score: {score}"
 
