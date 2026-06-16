@@ -1,0 +1,5 @@
+import "std/game"
+use game
+
+create ms number = speedMsForLevel(2)
+
