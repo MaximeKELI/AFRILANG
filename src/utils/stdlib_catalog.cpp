@@ -18147,6 +18147,9922 @@ const StdlibFuncSpec kFuncs_1150[] = {
     {nullptr, nullptr, 0, nullptr}
 };
 
+const StdlibParamSpec kParams_1151[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1151[] = {
+    {"len3", "number", 3, &kParams_1151[0]},
+    {"normalize3x", "number", 3, &kParams_1151[3]},
+    {"normalize3y", "number", 3, &kParams_1151[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1152[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1152[] = {
+    {"normalize3z", "number", 3, &kParams_1152[0]},
+    {"dist3", "number", 6, &kParams_1152[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1153[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1153[] = {
+    {"yawFromDir", "number", 2, &kParams_1153[0]},
+    {"pitchFromDir", "number", 3, &kParams_1153[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1154[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1154[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1154[0]},
+    {"lerp3x", "number", 3, &kParams_1154[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1155[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1155[] = {
+    {"smooth", "number", 3, &kParams_1155[0]},
+    {"lerp3x", "number", 3, &kParams_1155[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1156[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1156[] = {
+    {"dot3", "number", 6, &kParams_1156[0]},
+    {"crossX", "number", 6, &kParams_1156[6]},
+    {"crossY", "number", 6, &kParams_1156[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1157[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1157[] = {
+    {"len3", "number", 3, &kParams_1157[0]},
+    {"normalize3x", "number", 3, &kParams_1157[3]},
+    {"normalize3y", "number", 3, &kParams_1157[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1158[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1158[] = {
+    {"normalize3z", "number", 3, &kParams_1158[0]},
+    {"dist3", "number", 6, &kParams_1158[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1159[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1159[] = {
+    {"yawFromDir", "number", 2, &kParams_1159[0]},
+    {"pitchFromDir", "number", 3, &kParams_1159[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1160[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1160[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1160[0]},
+    {"lerp3x", "number", 3, &kParams_1160[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1161[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1161[] = {
+    {"smooth", "number", 3, &kParams_1161[0]},
+    {"lerp3x", "number", 3, &kParams_1161[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1162[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1162[] = {
+    {"dot3", "number", 6, &kParams_1162[0]},
+    {"crossX", "number", 6, &kParams_1162[6]},
+    {"crossY", "number", 6, &kParams_1162[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1163[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1163[] = {
+    {"len3", "number", 3, &kParams_1163[0]},
+    {"normalize3x", "number", 3, &kParams_1163[3]},
+    {"normalize3y", "number", 3, &kParams_1163[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1164[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1164[] = {
+    {"normalize3z", "number", 3, &kParams_1164[0]},
+    {"dist3", "number", 6, &kParams_1164[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1165[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1165[] = {
+    {"yawFromDir", "number", 2, &kParams_1165[0]},
+    {"pitchFromDir", "number", 3, &kParams_1165[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1166[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1166[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1166[0]},
+    {"lerp3x", "number", 3, &kParams_1166[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1167[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1167[] = {
+    {"smooth", "number", 3, &kParams_1167[0]},
+    {"lerp3x", "number", 3, &kParams_1167[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1168[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1168[] = {
+    {"dot3", "number", 6, &kParams_1168[0]},
+    {"crossX", "number", 6, &kParams_1168[6]},
+    {"crossY", "number", 6, &kParams_1168[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1169[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1169[] = {
+    {"len3", "number", 3, &kParams_1169[0]},
+    {"normalize3x", "number", 3, &kParams_1169[3]},
+    {"normalize3y", "number", 3, &kParams_1169[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1170[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1170[] = {
+    {"normalize3z", "number", 3, &kParams_1170[0]},
+    {"dist3", "number", 6, &kParams_1170[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1171[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1171[] = {
+    {"yawFromDir", "number", 2, &kParams_1171[0]},
+    {"pitchFromDir", "number", 3, &kParams_1171[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1172[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1172[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1172[0]},
+    {"lerp3x", "number", 3, &kParams_1172[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1173[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1173[] = {
+    {"smooth", "number", 3, &kParams_1173[0]},
+    {"lerp3x", "number", 3, &kParams_1173[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1174[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1174[] = {
+    {"dot3", "number", 6, &kParams_1174[0]},
+    {"crossX", "number", 6, &kParams_1174[6]},
+    {"crossY", "number", 6, &kParams_1174[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1175[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1175[] = {
+    {"len3", "number", 3, &kParams_1175[0]},
+    {"normalize3x", "number", 3, &kParams_1175[3]},
+    {"normalize3y", "number", 3, &kParams_1175[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1176[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1176[] = {
+    {"normalize3z", "number", 3, &kParams_1176[0]},
+    {"dist3", "number", 6, &kParams_1176[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1177[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1177[] = {
+    {"yawFromDir", "number", 2, &kParams_1177[0]},
+    {"pitchFromDir", "number", 3, &kParams_1177[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1178[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1178[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1178[0]},
+    {"lerp3x", "number", 3, &kParams_1178[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1179[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1179[] = {
+    {"smooth", "number", 3, &kParams_1179[0]},
+    {"lerp3x", "number", 3, &kParams_1179[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1180[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1180[] = {
+    {"dot3", "number", 6, &kParams_1180[0]},
+    {"crossX", "number", 6, &kParams_1180[6]},
+    {"crossY", "number", 6, &kParams_1180[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1181[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1181[] = {
+    {"len3", "number", 3, &kParams_1181[0]},
+    {"normalize3x", "number", 3, &kParams_1181[3]},
+    {"normalize3y", "number", 3, &kParams_1181[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1182[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1182[] = {
+    {"normalize3z", "number", 3, &kParams_1182[0]},
+    {"dist3", "number", 6, &kParams_1182[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1183[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1183[] = {
+    {"yawFromDir", "number", 2, &kParams_1183[0]},
+    {"pitchFromDir", "number", 3, &kParams_1183[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1184[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1184[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1184[0]},
+    {"lerp3x", "number", 3, &kParams_1184[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1185[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1185[] = {
+    {"smooth", "number", 3, &kParams_1185[0]},
+    {"lerp3x", "number", 3, &kParams_1185[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1186[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1186[] = {
+    {"dot3", "number", 6, &kParams_1186[0]},
+    {"crossX", "number", 6, &kParams_1186[6]},
+    {"crossY", "number", 6, &kParams_1186[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1187[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1187[] = {
+    {"len3", "number", 3, &kParams_1187[0]},
+    {"normalize3x", "number", 3, &kParams_1187[3]},
+    {"normalize3y", "number", 3, &kParams_1187[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1188[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1188[] = {
+    {"normalize3z", "number", 3, &kParams_1188[0]},
+    {"dist3", "number", 6, &kParams_1188[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1189[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1189[] = {
+    {"yawFromDir", "number", 2, &kParams_1189[0]},
+    {"pitchFromDir", "number", 3, &kParams_1189[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1190[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1190[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1190[0]},
+    {"lerp3x", "number", 3, &kParams_1190[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1191[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1191[] = {
+    {"smooth", "number", 3, &kParams_1191[0]},
+    {"lerp3x", "number", 3, &kParams_1191[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1192[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1192[] = {
+    {"dot3", "number", 6, &kParams_1192[0]},
+    {"crossX", "number", 6, &kParams_1192[6]},
+    {"crossY", "number", 6, &kParams_1192[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1193[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1193[] = {
+    {"len3", "number", 3, &kParams_1193[0]},
+    {"normalize3x", "number", 3, &kParams_1193[3]},
+    {"normalize3y", "number", 3, &kParams_1193[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1194[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1194[] = {
+    {"normalize3z", "number", 3, &kParams_1194[0]},
+    {"dist3", "number", 6, &kParams_1194[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1195[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1195[] = {
+    {"yawFromDir", "number", 2, &kParams_1195[0]},
+    {"pitchFromDir", "number", 3, &kParams_1195[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1196[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1196[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1196[0]},
+    {"lerp3x", "number", 3, &kParams_1196[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1197[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1197[] = {
+    {"smooth", "number", 3, &kParams_1197[0]},
+    {"lerp3x", "number", 3, &kParams_1197[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1198[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1198[] = {
+    {"dot3", "number", 6, &kParams_1198[0]},
+    {"crossX", "number", 6, &kParams_1198[6]},
+    {"crossY", "number", 6, &kParams_1198[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1199[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1199[] = {
+    {"len3", "number", 3, &kParams_1199[0]},
+    {"normalize3x", "number", 3, &kParams_1199[3]},
+    {"normalize3y", "number", 3, &kParams_1199[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1200[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1200[] = {
+    {"normalize3z", "number", 3, &kParams_1200[0]},
+    {"dist3", "number", 6, &kParams_1200[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1201[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1201[] = {
+    {"yawFromDir", "number", 2, &kParams_1201[0]},
+    {"pitchFromDir", "number", 3, &kParams_1201[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1202[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1202[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1202[0]},
+    {"lerp3x", "number", 3, &kParams_1202[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1203[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1203[] = {
+    {"smooth", "number", 3, &kParams_1203[0]},
+    {"lerp3x", "number", 3, &kParams_1203[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1204[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1204[] = {
+    {"dot3", "number", 6, &kParams_1204[0]},
+    {"crossX", "number", 6, &kParams_1204[6]},
+    {"crossY", "number", 6, &kParams_1204[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1205[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1205[] = {
+    {"len3", "number", 3, &kParams_1205[0]},
+    {"normalize3x", "number", 3, &kParams_1205[3]},
+    {"normalize3y", "number", 3, &kParams_1205[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1206[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1206[] = {
+    {"normalize3z", "number", 3, &kParams_1206[0]},
+    {"dist3", "number", 6, &kParams_1206[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1207[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1207[] = {
+    {"yawFromDir", "number", 2, &kParams_1207[0]},
+    {"pitchFromDir", "number", 3, &kParams_1207[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1208[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1208[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1208[0]},
+    {"lerp3x", "number", 3, &kParams_1208[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1209[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1209[] = {
+    {"smooth", "number", 3, &kParams_1209[0]},
+    {"lerp3x", "number", 3, &kParams_1209[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1210[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1210[] = {
+    {"dot3", "number", 6, &kParams_1210[0]},
+    {"crossX", "number", 6, &kParams_1210[6]},
+    {"crossY", "number", 6, &kParams_1210[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1211[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1211[] = {
+    {"len3", "number", 3, &kParams_1211[0]},
+    {"normalize3x", "number", 3, &kParams_1211[3]},
+    {"normalize3y", "number", 3, &kParams_1211[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1212[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1212[] = {
+    {"normalize3z", "number", 3, &kParams_1212[0]},
+    {"dist3", "number", 6, &kParams_1212[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1213[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1213[] = {
+    {"yawFromDir", "number", 2, &kParams_1213[0]},
+    {"pitchFromDir", "number", 3, &kParams_1213[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1214[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1214[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1214[0]},
+    {"lerp3x", "number", 3, &kParams_1214[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1215[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1215[] = {
+    {"smooth", "number", 3, &kParams_1215[0]},
+    {"lerp3x", "number", 3, &kParams_1215[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1216[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1216[] = {
+    {"dot3", "number", 6, &kParams_1216[0]},
+    {"crossX", "number", 6, &kParams_1216[6]},
+    {"crossY", "number", 6, &kParams_1216[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1217[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1217[] = {
+    {"len3", "number", 3, &kParams_1217[0]},
+    {"normalize3x", "number", 3, &kParams_1217[3]},
+    {"normalize3y", "number", 3, &kParams_1217[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1218[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1218[] = {
+    {"normalize3z", "number", 3, &kParams_1218[0]},
+    {"dist3", "number", 6, &kParams_1218[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1219[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1219[] = {
+    {"yawFromDir", "number", 2, &kParams_1219[0]},
+    {"pitchFromDir", "number", 3, &kParams_1219[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1220[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1220[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1220[0]},
+    {"lerp3x", "number", 3, &kParams_1220[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1221[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1221[] = {
+    {"smooth", "number", 3, &kParams_1221[0]},
+    {"lerp3x", "number", 3, &kParams_1221[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1222[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1222[] = {
+    {"dot3", "number", 6, &kParams_1222[0]},
+    {"crossX", "number", 6, &kParams_1222[6]},
+    {"crossY", "number", 6, &kParams_1222[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1223[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1223[] = {
+    {"len3", "number", 3, &kParams_1223[0]},
+    {"normalize3x", "number", 3, &kParams_1223[3]},
+    {"normalize3y", "number", 3, &kParams_1223[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1224[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1224[] = {
+    {"normalize3z", "number", 3, &kParams_1224[0]},
+    {"dist3", "number", 6, &kParams_1224[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1225[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1225[] = {
+    {"yawFromDir", "number", 2, &kParams_1225[0]},
+    {"pitchFromDir", "number", 3, &kParams_1225[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1226[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1226[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1226[0]},
+    {"lerp3x", "number", 3, &kParams_1226[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1227[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1227[] = {
+    {"smooth", "number", 3, &kParams_1227[0]},
+    {"lerp3x", "number", 3, &kParams_1227[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1228[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1228[] = {
+    {"dot3", "number", 6, &kParams_1228[0]},
+    {"crossX", "number", 6, &kParams_1228[6]},
+    {"crossY", "number", 6, &kParams_1228[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1229[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1229[] = {
+    {"len3", "number", 3, &kParams_1229[0]},
+    {"normalize3x", "number", 3, &kParams_1229[3]},
+    {"normalize3y", "number", 3, &kParams_1229[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1230[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1230[] = {
+    {"normalize3z", "number", 3, &kParams_1230[0]},
+    {"dist3", "number", 6, &kParams_1230[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1231[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1231[] = {
+    {"yawFromDir", "number", 2, &kParams_1231[0]},
+    {"pitchFromDir", "number", 3, &kParams_1231[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1232[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1232[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1232[0]},
+    {"lerp3x", "number", 3, &kParams_1232[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1233[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1233[] = {
+    {"smooth", "number", 3, &kParams_1233[0]},
+    {"lerp3x", "number", 3, &kParams_1233[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1234[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1234[] = {
+    {"dot3", "number", 6, &kParams_1234[0]},
+    {"crossX", "number", 6, &kParams_1234[6]},
+    {"crossY", "number", 6, &kParams_1234[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1235[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1235[] = {
+    {"len3", "number", 3, &kParams_1235[0]},
+    {"normalize3x", "number", 3, &kParams_1235[3]},
+    {"normalize3y", "number", 3, &kParams_1235[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1236[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1236[] = {
+    {"normalize3z", "number", 3, &kParams_1236[0]},
+    {"dist3", "number", 6, &kParams_1236[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1237[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1237[] = {
+    {"yawFromDir", "number", 2, &kParams_1237[0]},
+    {"pitchFromDir", "number", 3, &kParams_1237[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1238[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1238[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1238[0]},
+    {"lerp3x", "number", 3, &kParams_1238[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1239[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1239[] = {
+    {"smooth", "number", 3, &kParams_1239[0]},
+    {"lerp3x", "number", 3, &kParams_1239[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1240[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1240[] = {
+    {"dot3", "number", 6, &kParams_1240[0]},
+    {"crossX", "number", 6, &kParams_1240[6]},
+    {"crossY", "number", 6, &kParams_1240[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1241[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1241[] = {
+    {"len3", "number", 3, &kParams_1241[0]},
+    {"normalize3x", "number", 3, &kParams_1241[3]},
+    {"normalize3y", "number", 3, &kParams_1241[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1242[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1242[] = {
+    {"normalize3z", "number", 3, &kParams_1242[0]},
+    {"dist3", "number", 6, &kParams_1242[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1243[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1243[] = {
+    {"yawFromDir", "number", 2, &kParams_1243[0]},
+    {"pitchFromDir", "number", 3, &kParams_1243[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1244[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1244[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1244[0]},
+    {"lerp3x", "number", 3, &kParams_1244[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1245[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1245[] = {
+    {"smooth", "number", 3, &kParams_1245[0]},
+    {"lerp3x", "number", 3, &kParams_1245[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1246[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1246[] = {
+    {"dot3", "number", 6, &kParams_1246[0]},
+    {"crossX", "number", 6, &kParams_1246[6]},
+    {"crossY", "number", 6, &kParams_1246[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1247[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1247[] = {
+    {"len3", "number", 3, &kParams_1247[0]},
+    {"normalize3x", "number", 3, &kParams_1247[3]},
+    {"normalize3y", "number", 3, &kParams_1247[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1248[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1248[] = {
+    {"normalize3z", "number", 3, &kParams_1248[0]},
+    {"dist3", "number", 6, &kParams_1248[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1249[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1249[] = {
+    {"yawFromDir", "number", 2, &kParams_1249[0]},
+    {"pitchFromDir", "number", 3, &kParams_1249[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1250[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1250[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1250[0]},
+    {"lerp3x", "number", 3, &kParams_1250[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1251[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1251[] = {
+    {"smooth", "number", 3, &kParams_1251[0]},
+    {"lerp3x", "number", 3, &kParams_1251[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1252[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1252[] = {
+    {"dot3", "number", 6, &kParams_1252[0]},
+    {"crossX", "number", 6, &kParams_1252[6]},
+    {"crossY", "number", 6, &kParams_1252[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1253[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1253[] = {
+    {"len3", "number", 3, &kParams_1253[0]},
+    {"normalize3x", "number", 3, &kParams_1253[3]},
+    {"normalize3y", "number", 3, &kParams_1253[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1254[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1254[] = {
+    {"normalize3z", "number", 3, &kParams_1254[0]},
+    {"dist3", "number", 6, &kParams_1254[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1255[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1255[] = {
+    {"yawFromDir", "number", 2, &kParams_1255[0]},
+    {"pitchFromDir", "number", 3, &kParams_1255[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1256[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1256[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1256[0]},
+    {"lerp3x", "number", 3, &kParams_1256[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1257[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1257[] = {
+    {"smooth", "number", 3, &kParams_1257[0]},
+    {"lerp3x", "number", 3, &kParams_1257[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1258[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1258[] = {
+    {"dot3", "number", 6, &kParams_1258[0]},
+    {"crossX", "number", 6, &kParams_1258[6]},
+    {"crossY", "number", 6, &kParams_1258[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1259[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1259[] = {
+    {"len3", "number", 3, &kParams_1259[0]},
+    {"normalize3x", "number", 3, &kParams_1259[3]},
+    {"normalize3y", "number", 3, &kParams_1259[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1260[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1260[] = {
+    {"normalize3z", "number", 3, &kParams_1260[0]},
+    {"dist3", "number", 6, &kParams_1260[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1261[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1261[] = {
+    {"yawFromDir", "number", 2, &kParams_1261[0]},
+    {"pitchFromDir", "number", 3, &kParams_1261[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1262[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1262[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1262[0]},
+    {"lerp3x", "number", 3, &kParams_1262[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1263[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1263[] = {
+    {"smooth", "number", 3, &kParams_1263[0]},
+    {"lerp3x", "number", 3, &kParams_1263[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1264[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1264[] = {
+    {"dot3", "number", 6, &kParams_1264[0]},
+    {"crossX", "number", 6, &kParams_1264[6]},
+    {"crossY", "number", 6, &kParams_1264[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1265[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1265[] = {
+    {"len3", "number", 3, &kParams_1265[0]},
+    {"normalize3x", "number", 3, &kParams_1265[3]},
+    {"normalize3y", "number", 3, &kParams_1265[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1266[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1266[] = {
+    {"normalize3z", "number", 3, &kParams_1266[0]},
+    {"dist3", "number", 6, &kParams_1266[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1267[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1267[] = {
+    {"yawFromDir", "number", 2, &kParams_1267[0]},
+    {"pitchFromDir", "number", 3, &kParams_1267[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1268[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1268[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1268[0]},
+    {"lerp3x", "number", 3, &kParams_1268[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1269[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1269[] = {
+    {"smooth", "number", 3, &kParams_1269[0]},
+    {"lerp3x", "number", 3, &kParams_1269[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1270[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1270[] = {
+    {"dot3", "number", 6, &kParams_1270[0]},
+    {"crossX", "number", 6, &kParams_1270[6]},
+    {"crossY", "number", 6, &kParams_1270[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1271[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1271[] = {
+    {"len3", "number", 3, &kParams_1271[0]},
+    {"normalize3x", "number", 3, &kParams_1271[3]},
+    {"normalize3y", "number", 3, &kParams_1271[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1272[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1272[] = {
+    {"normalize3z", "number", 3, &kParams_1272[0]},
+    {"dist3", "number", 6, &kParams_1272[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1273[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1273[] = {
+    {"yawFromDir", "number", 2, &kParams_1273[0]},
+    {"pitchFromDir", "number", 3, &kParams_1273[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1274[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1274[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1274[0]},
+    {"lerp3x", "number", 3, &kParams_1274[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1275[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1275[] = {
+    {"smooth", "number", 3, &kParams_1275[0]},
+    {"lerp3x", "number", 3, &kParams_1275[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1276[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1276[] = {
+    {"dot3", "number", 6, &kParams_1276[0]},
+    {"crossX", "number", 6, &kParams_1276[6]},
+    {"crossY", "number", 6, &kParams_1276[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1277[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1277[] = {
+    {"len3", "number", 3, &kParams_1277[0]},
+    {"normalize3x", "number", 3, &kParams_1277[3]},
+    {"normalize3y", "number", 3, &kParams_1277[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1278[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1278[] = {
+    {"normalize3z", "number", 3, &kParams_1278[0]},
+    {"dist3", "number", 6, &kParams_1278[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1279[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1279[] = {
+    {"yawFromDir", "number", 2, &kParams_1279[0]},
+    {"pitchFromDir", "number", 3, &kParams_1279[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1280[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1280[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1280[0]},
+    {"lerp3x", "number", 3, &kParams_1280[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1281[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1281[] = {
+    {"smooth", "number", 3, &kParams_1281[0]},
+    {"lerp3x", "number", 3, &kParams_1281[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1282[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1282[] = {
+    {"dot3", "number", 6, &kParams_1282[0]},
+    {"crossX", "number", 6, &kParams_1282[6]},
+    {"crossY", "number", 6, &kParams_1282[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1283[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1283[] = {
+    {"len3", "number", 3, &kParams_1283[0]},
+    {"normalize3x", "number", 3, &kParams_1283[3]},
+    {"normalize3y", "number", 3, &kParams_1283[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1284[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1284[] = {
+    {"normalize3z", "number", 3, &kParams_1284[0]},
+    {"dist3", "number", 6, &kParams_1284[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1285[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1285[] = {
+    {"yawFromDir", "number", 2, &kParams_1285[0]},
+    {"pitchFromDir", "number", 3, &kParams_1285[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1286[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1286[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1286[0]},
+    {"lerp3x", "number", 3, &kParams_1286[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1287[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1287[] = {
+    {"smooth", "number", 3, &kParams_1287[0]},
+    {"lerp3x", "number", 3, &kParams_1287[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1288[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1288[] = {
+    {"dot3", "number", 6, &kParams_1288[0]},
+    {"crossX", "number", 6, &kParams_1288[6]},
+    {"crossY", "number", 6, &kParams_1288[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1289[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1289[] = {
+    {"len3", "number", 3, &kParams_1289[0]},
+    {"normalize3x", "number", 3, &kParams_1289[3]},
+    {"normalize3y", "number", 3, &kParams_1289[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1290[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1290[] = {
+    {"normalize3z", "number", 3, &kParams_1290[0]},
+    {"dist3", "number", 6, &kParams_1290[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1291[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1291[] = {
+    {"yawFromDir", "number", 2, &kParams_1291[0]},
+    {"pitchFromDir", "number", 3, &kParams_1291[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1292[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1292[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1292[0]},
+    {"lerp3x", "number", 3, &kParams_1292[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1293[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1293[] = {
+    {"smooth", "number", 3, &kParams_1293[0]},
+    {"lerp3x", "number", 3, &kParams_1293[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1294[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1294[] = {
+    {"dot3", "number", 6, &kParams_1294[0]},
+    {"crossX", "number", 6, &kParams_1294[6]},
+    {"crossY", "number", 6, &kParams_1294[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1295[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1295[] = {
+    {"len3", "number", 3, &kParams_1295[0]},
+    {"normalize3x", "number", 3, &kParams_1295[3]},
+    {"normalize3y", "number", 3, &kParams_1295[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1296[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1296[] = {
+    {"normalize3z", "number", 3, &kParams_1296[0]},
+    {"dist3", "number", 6, &kParams_1296[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1297[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1297[] = {
+    {"yawFromDir", "number", 2, &kParams_1297[0]},
+    {"pitchFromDir", "number", 3, &kParams_1297[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1298[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1298[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1298[0]},
+    {"lerp3x", "number", 3, &kParams_1298[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1299[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1299[] = {
+    {"smooth", "number", 3, &kParams_1299[0]},
+    {"lerp3x", "number", 3, &kParams_1299[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1300[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1300[] = {
+    {"dot3", "number", 6, &kParams_1300[0]},
+    {"crossX", "number", 6, &kParams_1300[6]},
+    {"crossY", "number", 6, &kParams_1300[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1301[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1301[] = {
+    {"len3", "number", 3, &kParams_1301[0]},
+    {"normalize3x", "number", 3, &kParams_1301[3]},
+    {"normalize3y", "number", 3, &kParams_1301[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1302[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1302[] = {
+    {"normalize3z", "number", 3, &kParams_1302[0]},
+    {"dist3", "number", 6, &kParams_1302[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1303[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1303[] = {
+    {"yawFromDir", "number", 2, &kParams_1303[0]},
+    {"pitchFromDir", "number", 3, &kParams_1303[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1304[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1304[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1304[0]},
+    {"lerp3x", "number", 3, &kParams_1304[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1305[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1305[] = {
+    {"smooth", "number", 3, &kParams_1305[0]},
+    {"lerp3x", "number", 3, &kParams_1305[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1306[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1306[] = {
+    {"dot3", "number", 6, &kParams_1306[0]},
+    {"crossX", "number", 6, &kParams_1306[6]},
+    {"crossY", "number", 6, &kParams_1306[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1307[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1307[] = {
+    {"len3", "number", 3, &kParams_1307[0]},
+    {"normalize3x", "number", 3, &kParams_1307[3]},
+    {"normalize3y", "number", 3, &kParams_1307[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1308[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1308[] = {
+    {"normalize3z", "number", 3, &kParams_1308[0]},
+    {"dist3", "number", 6, &kParams_1308[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1309[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1309[] = {
+    {"yawFromDir", "number", 2, &kParams_1309[0]},
+    {"pitchFromDir", "number", 3, &kParams_1309[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1310[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1310[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1310[0]},
+    {"lerp3x", "number", 3, &kParams_1310[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1311[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1311[] = {
+    {"smooth", "number", 3, &kParams_1311[0]},
+    {"lerp3x", "number", 3, &kParams_1311[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1312[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1312[] = {
+    {"dot3", "number", 6, &kParams_1312[0]},
+    {"crossX", "number", 6, &kParams_1312[6]},
+    {"crossY", "number", 6, &kParams_1312[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1313[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1313[] = {
+    {"len3", "number", 3, &kParams_1313[0]},
+    {"normalize3x", "number", 3, &kParams_1313[3]},
+    {"normalize3y", "number", 3, &kParams_1313[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1314[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1314[] = {
+    {"normalize3z", "number", 3, &kParams_1314[0]},
+    {"dist3", "number", 6, &kParams_1314[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1315[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1315[] = {
+    {"yawFromDir", "number", 2, &kParams_1315[0]},
+    {"pitchFromDir", "number", 3, &kParams_1315[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1316[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1316[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1316[0]},
+    {"lerp3x", "number", 3, &kParams_1316[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1317[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1317[] = {
+    {"smooth", "number", 3, &kParams_1317[0]},
+    {"lerp3x", "number", 3, &kParams_1317[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1318[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1318[] = {
+    {"dot3", "number", 6, &kParams_1318[0]},
+    {"crossX", "number", 6, &kParams_1318[6]},
+    {"crossY", "number", 6, &kParams_1318[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1319[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1319[] = {
+    {"len3", "number", 3, &kParams_1319[0]},
+    {"normalize3x", "number", 3, &kParams_1319[3]},
+    {"normalize3y", "number", 3, &kParams_1319[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1320[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1320[] = {
+    {"normalize3z", "number", 3, &kParams_1320[0]},
+    {"dist3", "number", 6, &kParams_1320[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1321[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1321[] = {
+    {"yawFromDir", "number", 2, &kParams_1321[0]},
+    {"pitchFromDir", "number", 3, &kParams_1321[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1322[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1322[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1322[0]},
+    {"lerp3x", "number", 3, &kParams_1322[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1323[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1323[] = {
+    {"smooth", "number", 3, &kParams_1323[0]},
+    {"lerp3x", "number", 3, &kParams_1323[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1324[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1324[] = {
+    {"dot3", "number", 6, &kParams_1324[0]},
+    {"crossX", "number", 6, &kParams_1324[6]},
+    {"crossY", "number", 6, &kParams_1324[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1325[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1325[] = {
+    {"len3", "number", 3, &kParams_1325[0]},
+    {"normalize3x", "number", 3, &kParams_1325[3]},
+    {"normalize3y", "number", 3, &kParams_1325[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1326[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1326[] = {
+    {"normalize3z", "number", 3, &kParams_1326[0]},
+    {"dist3", "number", 6, &kParams_1326[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1327[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1327[] = {
+    {"yawFromDir", "number", 2, &kParams_1327[0]},
+    {"pitchFromDir", "number", 3, &kParams_1327[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1328[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1328[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1328[0]},
+    {"lerp3x", "number", 3, &kParams_1328[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1329[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1329[] = {
+    {"smooth", "number", 3, &kParams_1329[0]},
+    {"lerp3x", "number", 3, &kParams_1329[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1330[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1330[] = {
+    {"dot3", "number", 6, &kParams_1330[0]},
+    {"crossX", "number", 6, &kParams_1330[6]},
+    {"crossY", "number", 6, &kParams_1330[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1331[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1331[] = {
+    {"len3", "number", 3, &kParams_1331[0]},
+    {"normalize3x", "number", 3, &kParams_1331[3]},
+    {"normalize3y", "number", 3, &kParams_1331[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1332[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1332[] = {
+    {"normalize3z", "number", 3, &kParams_1332[0]},
+    {"dist3", "number", 6, &kParams_1332[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1333[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1333[] = {
+    {"yawFromDir", "number", 2, &kParams_1333[0]},
+    {"pitchFromDir", "number", 3, &kParams_1333[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1334[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1334[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1334[0]},
+    {"lerp3x", "number", 3, &kParams_1334[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1335[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1335[] = {
+    {"smooth", "number", 3, &kParams_1335[0]},
+    {"lerp3x", "number", 3, &kParams_1335[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1336[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1336[] = {
+    {"dot3", "number", 6, &kParams_1336[0]},
+    {"crossX", "number", 6, &kParams_1336[6]},
+    {"crossY", "number", 6, &kParams_1336[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1337[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1337[] = {
+    {"len3", "number", 3, &kParams_1337[0]},
+    {"normalize3x", "number", 3, &kParams_1337[3]},
+    {"normalize3y", "number", 3, &kParams_1337[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1338[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1338[] = {
+    {"normalize3z", "number", 3, &kParams_1338[0]},
+    {"dist3", "number", 6, &kParams_1338[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1339[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1339[] = {
+    {"yawFromDir", "number", 2, &kParams_1339[0]},
+    {"pitchFromDir", "number", 3, &kParams_1339[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1340[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1340[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1340[0]},
+    {"lerp3x", "number", 3, &kParams_1340[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1341[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1341[] = {
+    {"smooth", "number", 3, &kParams_1341[0]},
+    {"lerp3x", "number", 3, &kParams_1341[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1342[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1342[] = {
+    {"dot3", "number", 6, &kParams_1342[0]},
+    {"crossX", "number", 6, &kParams_1342[6]},
+    {"crossY", "number", 6, &kParams_1342[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1343[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1343[] = {
+    {"len3", "number", 3, &kParams_1343[0]},
+    {"normalize3x", "number", 3, &kParams_1343[3]},
+    {"normalize3y", "number", 3, &kParams_1343[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1344[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1344[] = {
+    {"normalize3z", "number", 3, &kParams_1344[0]},
+    {"dist3", "number", 6, &kParams_1344[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1345[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1345[] = {
+    {"yawFromDir", "number", 2, &kParams_1345[0]},
+    {"pitchFromDir", "number", 3, &kParams_1345[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1346[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1346[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1346[0]},
+    {"lerp3x", "number", 3, &kParams_1346[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1347[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1347[] = {
+    {"smooth", "number", 3, &kParams_1347[0]},
+    {"lerp3x", "number", 3, &kParams_1347[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1348[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1348[] = {
+    {"dot3", "number", 6, &kParams_1348[0]},
+    {"crossX", "number", 6, &kParams_1348[6]},
+    {"crossY", "number", 6, &kParams_1348[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1349[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1349[] = {
+    {"len3", "number", 3, &kParams_1349[0]},
+    {"normalize3x", "number", 3, &kParams_1349[3]},
+    {"normalize3y", "number", 3, &kParams_1349[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1350[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1350[] = {
+    {"normalize3z", "number", 3, &kParams_1350[0]},
+    {"dist3", "number", 6, &kParams_1350[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1351[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1351[] = {
+    {"yawFromDir", "number", 2, &kParams_1351[0]},
+    {"pitchFromDir", "number", 3, &kParams_1351[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1352[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1352[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1352[0]},
+    {"lerp3x", "number", 3, &kParams_1352[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1353[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1353[] = {
+    {"smooth", "number", 3, &kParams_1353[0]},
+    {"lerp3x", "number", 3, &kParams_1353[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1354[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1354[] = {
+    {"dot3", "number", 6, &kParams_1354[0]},
+    {"crossX", "number", 6, &kParams_1354[6]},
+    {"crossY", "number", 6, &kParams_1354[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1355[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1355[] = {
+    {"len3", "number", 3, &kParams_1355[0]},
+    {"normalize3x", "number", 3, &kParams_1355[3]},
+    {"normalize3y", "number", 3, &kParams_1355[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1356[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1356[] = {
+    {"normalize3z", "number", 3, &kParams_1356[0]},
+    {"dist3", "number", 6, &kParams_1356[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1357[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1357[] = {
+    {"yawFromDir", "number", 2, &kParams_1357[0]},
+    {"pitchFromDir", "number", 3, &kParams_1357[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1358[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1358[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1358[0]},
+    {"lerp3x", "number", 3, &kParams_1358[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1359[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1359[] = {
+    {"smooth", "number", 3, &kParams_1359[0]},
+    {"lerp3x", "number", 3, &kParams_1359[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1360[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1360[] = {
+    {"dot3", "number", 6, &kParams_1360[0]},
+    {"crossX", "number", 6, &kParams_1360[6]},
+    {"crossY", "number", 6, &kParams_1360[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1361[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1361[] = {
+    {"len3", "number", 3, &kParams_1361[0]},
+    {"normalize3x", "number", 3, &kParams_1361[3]},
+    {"normalize3y", "number", 3, &kParams_1361[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1362[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1362[] = {
+    {"normalize3z", "number", 3, &kParams_1362[0]},
+    {"dist3", "number", 6, &kParams_1362[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1363[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1363[] = {
+    {"yawFromDir", "number", 2, &kParams_1363[0]},
+    {"pitchFromDir", "number", 3, &kParams_1363[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1364[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1364[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1364[0]},
+    {"lerp3x", "number", 3, &kParams_1364[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1365[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1365[] = {
+    {"smooth", "number", 3, &kParams_1365[0]},
+    {"lerp3x", "number", 3, &kParams_1365[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1366[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1366[] = {
+    {"dot3", "number", 6, &kParams_1366[0]},
+    {"crossX", "number", 6, &kParams_1366[6]},
+    {"crossY", "number", 6, &kParams_1366[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1367[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1367[] = {
+    {"len3", "number", 3, &kParams_1367[0]},
+    {"normalize3x", "number", 3, &kParams_1367[3]},
+    {"normalize3y", "number", 3, &kParams_1367[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1368[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1368[] = {
+    {"normalize3z", "number", 3, &kParams_1368[0]},
+    {"dist3", "number", 6, &kParams_1368[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1369[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1369[] = {
+    {"yawFromDir", "number", 2, &kParams_1369[0]},
+    {"pitchFromDir", "number", 3, &kParams_1369[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1370[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1370[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1370[0]},
+    {"lerp3x", "number", 3, &kParams_1370[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1371[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1371[] = {
+    {"smooth", "number", 3, &kParams_1371[0]},
+    {"lerp3x", "number", 3, &kParams_1371[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1372[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1372[] = {
+    {"dot3", "number", 6, &kParams_1372[0]},
+    {"crossX", "number", 6, &kParams_1372[6]},
+    {"crossY", "number", 6, &kParams_1372[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1373[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1373[] = {
+    {"len3", "number", 3, &kParams_1373[0]},
+    {"normalize3x", "number", 3, &kParams_1373[3]},
+    {"normalize3y", "number", 3, &kParams_1373[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1374[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1374[] = {
+    {"normalize3z", "number", 3, &kParams_1374[0]},
+    {"dist3", "number", 6, &kParams_1374[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1375[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1375[] = {
+    {"yawFromDir", "number", 2, &kParams_1375[0]},
+    {"pitchFromDir", "number", 3, &kParams_1375[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1376[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1376[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1376[0]},
+    {"lerp3x", "number", 3, &kParams_1376[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1377[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1377[] = {
+    {"smooth", "number", 3, &kParams_1377[0]},
+    {"lerp3x", "number", 3, &kParams_1377[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1378[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1378[] = {
+    {"dot3", "number", 6, &kParams_1378[0]},
+    {"crossX", "number", 6, &kParams_1378[6]},
+    {"crossY", "number", 6, &kParams_1378[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1379[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1379[] = {
+    {"len3", "number", 3, &kParams_1379[0]},
+    {"normalize3x", "number", 3, &kParams_1379[3]},
+    {"normalize3y", "number", 3, &kParams_1379[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1380[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1380[] = {
+    {"normalize3z", "number", 3, &kParams_1380[0]},
+    {"dist3", "number", 6, &kParams_1380[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1381[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1381[] = {
+    {"yawFromDir", "number", 2, &kParams_1381[0]},
+    {"pitchFromDir", "number", 3, &kParams_1381[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1382[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1382[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1382[0]},
+    {"lerp3x", "number", 3, &kParams_1382[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1383[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1383[] = {
+    {"smooth", "number", 3, &kParams_1383[0]},
+    {"lerp3x", "number", 3, &kParams_1383[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1384[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1384[] = {
+    {"dot3", "number", 6, &kParams_1384[0]},
+    {"crossX", "number", 6, &kParams_1384[6]},
+    {"crossY", "number", 6, &kParams_1384[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1385[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1385[] = {
+    {"len3", "number", 3, &kParams_1385[0]},
+    {"normalize3x", "number", 3, &kParams_1385[3]},
+    {"normalize3y", "number", 3, &kParams_1385[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1386[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1386[] = {
+    {"normalize3z", "number", 3, &kParams_1386[0]},
+    {"dist3", "number", 6, &kParams_1386[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1387[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1387[] = {
+    {"yawFromDir", "number", 2, &kParams_1387[0]},
+    {"pitchFromDir", "number", 3, &kParams_1387[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1388[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1388[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1388[0]},
+    {"lerp3x", "number", 3, &kParams_1388[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1389[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1389[] = {
+    {"smooth", "number", 3, &kParams_1389[0]},
+    {"lerp3x", "number", 3, &kParams_1389[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1390[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1390[] = {
+    {"dot3", "number", 6, &kParams_1390[0]},
+    {"crossX", "number", 6, &kParams_1390[6]},
+    {"crossY", "number", 6, &kParams_1390[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1391[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1391[] = {
+    {"len3", "number", 3, &kParams_1391[0]},
+    {"normalize3x", "number", 3, &kParams_1391[3]},
+    {"normalize3y", "number", 3, &kParams_1391[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1392[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1392[] = {
+    {"normalize3z", "number", 3, &kParams_1392[0]},
+    {"dist3", "number", 6, &kParams_1392[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1393[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1393[] = {
+    {"yawFromDir", "number", 2, &kParams_1393[0]},
+    {"pitchFromDir", "number", 3, &kParams_1393[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1394[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1394[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1394[0]},
+    {"lerp3x", "number", 3, &kParams_1394[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1395[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1395[] = {
+    {"smooth", "number", 3, &kParams_1395[0]},
+    {"lerp3x", "number", 3, &kParams_1395[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1396[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1396[] = {
+    {"dot3", "number", 6, &kParams_1396[0]},
+    {"crossX", "number", 6, &kParams_1396[6]},
+    {"crossY", "number", 6, &kParams_1396[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1397[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1397[] = {
+    {"len3", "number", 3, &kParams_1397[0]},
+    {"normalize3x", "number", 3, &kParams_1397[3]},
+    {"normalize3y", "number", 3, &kParams_1397[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1398[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1398[] = {
+    {"normalize3z", "number", 3, &kParams_1398[0]},
+    {"dist3", "number", 6, &kParams_1398[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1399[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1399[] = {
+    {"yawFromDir", "number", 2, &kParams_1399[0]},
+    {"pitchFromDir", "number", 3, &kParams_1399[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1400[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1400[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1400[0]},
+    {"lerp3x", "number", 3, &kParams_1400[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1401[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1401[] = {
+    {"smooth", "number", 3, &kParams_1401[0]},
+    {"lerp3x", "number", 3, &kParams_1401[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1402[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1402[] = {
+    {"dot3", "number", 6, &kParams_1402[0]},
+    {"crossX", "number", 6, &kParams_1402[6]},
+    {"crossY", "number", 6, &kParams_1402[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1403[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1403[] = {
+    {"len3", "number", 3, &kParams_1403[0]},
+    {"normalize3x", "number", 3, &kParams_1403[3]},
+    {"normalize3y", "number", 3, &kParams_1403[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1404[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1404[] = {
+    {"normalize3z", "number", 3, &kParams_1404[0]},
+    {"dist3", "number", 6, &kParams_1404[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1405[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1405[] = {
+    {"yawFromDir", "number", 2, &kParams_1405[0]},
+    {"pitchFromDir", "number", 3, &kParams_1405[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1406[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1406[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1406[0]},
+    {"lerp3x", "number", 3, &kParams_1406[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1407[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1407[] = {
+    {"smooth", "number", 3, &kParams_1407[0]},
+    {"lerp3x", "number", 3, &kParams_1407[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1408[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1408[] = {
+    {"dot3", "number", 6, &kParams_1408[0]},
+    {"crossX", "number", 6, &kParams_1408[6]},
+    {"crossY", "number", 6, &kParams_1408[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1409[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1409[] = {
+    {"len3", "number", 3, &kParams_1409[0]},
+    {"normalize3x", "number", 3, &kParams_1409[3]},
+    {"normalize3y", "number", 3, &kParams_1409[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1410[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1410[] = {
+    {"normalize3z", "number", 3, &kParams_1410[0]},
+    {"dist3", "number", 6, &kParams_1410[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1411[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1411[] = {
+    {"yawFromDir", "number", 2, &kParams_1411[0]},
+    {"pitchFromDir", "number", 3, &kParams_1411[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1412[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1412[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1412[0]},
+    {"lerp3x", "number", 3, &kParams_1412[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1413[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1413[] = {
+    {"smooth", "number", 3, &kParams_1413[0]},
+    {"lerp3x", "number", 3, &kParams_1413[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1414[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1414[] = {
+    {"dot3", "number", 6, &kParams_1414[0]},
+    {"crossX", "number", 6, &kParams_1414[6]},
+    {"crossY", "number", 6, &kParams_1414[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1415[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1415[] = {
+    {"len3", "number", 3, &kParams_1415[0]},
+    {"normalize3x", "number", 3, &kParams_1415[3]},
+    {"normalize3y", "number", 3, &kParams_1415[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1416[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1416[] = {
+    {"normalize3z", "number", 3, &kParams_1416[0]},
+    {"dist3", "number", 6, &kParams_1416[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1417[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1417[] = {
+    {"yawFromDir", "number", 2, &kParams_1417[0]},
+    {"pitchFromDir", "number", 3, &kParams_1417[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1418[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1418[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1418[0]},
+    {"lerp3x", "number", 3, &kParams_1418[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1419[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1419[] = {
+    {"smooth", "number", 3, &kParams_1419[0]},
+    {"lerp3x", "number", 3, &kParams_1419[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1420[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1420[] = {
+    {"dot3", "number", 6, &kParams_1420[0]},
+    {"crossX", "number", 6, &kParams_1420[6]},
+    {"crossY", "number", 6, &kParams_1420[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1421[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1421[] = {
+    {"len3", "number", 3, &kParams_1421[0]},
+    {"normalize3x", "number", 3, &kParams_1421[3]},
+    {"normalize3y", "number", 3, &kParams_1421[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1422[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1422[] = {
+    {"normalize3z", "number", 3, &kParams_1422[0]},
+    {"dist3", "number", 6, &kParams_1422[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1423[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1423[] = {
+    {"yawFromDir", "number", 2, &kParams_1423[0]},
+    {"pitchFromDir", "number", 3, &kParams_1423[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1424[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1424[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1424[0]},
+    {"lerp3x", "number", 3, &kParams_1424[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1425[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1425[] = {
+    {"smooth", "number", 3, &kParams_1425[0]},
+    {"lerp3x", "number", 3, &kParams_1425[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1426[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1426[] = {
+    {"dot3", "number", 6, &kParams_1426[0]},
+    {"crossX", "number", 6, &kParams_1426[6]},
+    {"crossY", "number", 6, &kParams_1426[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1427[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1427[] = {
+    {"len3", "number", 3, &kParams_1427[0]},
+    {"normalize3x", "number", 3, &kParams_1427[3]},
+    {"normalize3y", "number", 3, &kParams_1427[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1428[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1428[] = {
+    {"normalize3z", "number", 3, &kParams_1428[0]},
+    {"dist3", "number", 6, &kParams_1428[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1429[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1429[] = {
+    {"yawFromDir", "number", 2, &kParams_1429[0]},
+    {"pitchFromDir", "number", 3, &kParams_1429[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1430[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1430[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1430[0]},
+    {"lerp3x", "number", 3, &kParams_1430[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1431[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1431[] = {
+    {"smooth", "number", 3, &kParams_1431[0]},
+    {"lerp3x", "number", 3, &kParams_1431[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1432[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1432[] = {
+    {"dot3", "number", 6, &kParams_1432[0]},
+    {"crossX", "number", 6, &kParams_1432[6]},
+    {"crossY", "number", 6, &kParams_1432[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1433[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1433[] = {
+    {"len3", "number", 3, &kParams_1433[0]},
+    {"normalize3x", "number", 3, &kParams_1433[3]},
+    {"normalize3y", "number", 3, &kParams_1433[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1434[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1434[] = {
+    {"normalize3z", "number", 3, &kParams_1434[0]},
+    {"dist3", "number", 6, &kParams_1434[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1435[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1435[] = {
+    {"yawFromDir", "number", 2, &kParams_1435[0]},
+    {"pitchFromDir", "number", 3, &kParams_1435[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1436[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1436[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1436[0]},
+    {"lerp3x", "number", 3, &kParams_1436[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1437[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1437[] = {
+    {"smooth", "number", 3, &kParams_1437[0]},
+    {"lerp3x", "number", 3, &kParams_1437[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1438[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1438[] = {
+    {"dot3", "number", 6, &kParams_1438[0]},
+    {"crossX", "number", 6, &kParams_1438[6]},
+    {"crossY", "number", 6, &kParams_1438[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1439[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1439[] = {
+    {"len3", "number", 3, &kParams_1439[0]},
+    {"normalize3x", "number", 3, &kParams_1439[3]},
+    {"normalize3y", "number", 3, &kParams_1439[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1440[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1440[] = {
+    {"normalize3z", "number", 3, &kParams_1440[0]},
+    {"dist3", "number", 6, &kParams_1440[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1441[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1441[] = {
+    {"yawFromDir", "number", 2, &kParams_1441[0]},
+    {"pitchFromDir", "number", 3, &kParams_1441[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1442[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1442[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1442[0]},
+    {"lerp3x", "number", 3, &kParams_1442[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1443[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1443[] = {
+    {"smooth", "number", 3, &kParams_1443[0]},
+    {"lerp3x", "number", 3, &kParams_1443[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1444[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1444[] = {
+    {"dot3", "number", 6, &kParams_1444[0]},
+    {"crossX", "number", 6, &kParams_1444[6]},
+    {"crossY", "number", 6, &kParams_1444[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1445[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1445[] = {
+    {"len3", "number", 3, &kParams_1445[0]},
+    {"normalize3x", "number", 3, &kParams_1445[3]},
+    {"normalize3y", "number", 3, &kParams_1445[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1446[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1446[] = {
+    {"normalize3z", "number", 3, &kParams_1446[0]},
+    {"dist3", "number", 6, &kParams_1446[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1447[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1447[] = {
+    {"yawFromDir", "number", 2, &kParams_1447[0]},
+    {"pitchFromDir", "number", 3, &kParams_1447[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1448[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1448[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1448[0]},
+    {"lerp3x", "number", 3, &kParams_1448[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1449[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1449[] = {
+    {"smooth", "number", 3, &kParams_1449[0]},
+    {"lerp3x", "number", 3, &kParams_1449[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1450[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1450[] = {
+    {"dot3", "number", 6, &kParams_1450[0]},
+    {"crossX", "number", 6, &kParams_1450[6]},
+    {"crossY", "number", 6, &kParams_1450[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1451[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1451[] = {
+    {"len3", "number", 3, &kParams_1451[0]},
+    {"normalize3x", "number", 3, &kParams_1451[3]},
+    {"normalize3y", "number", 3, &kParams_1451[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1452[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1452[] = {
+    {"normalize3z", "number", 3, &kParams_1452[0]},
+    {"dist3", "number", 6, &kParams_1452[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1453[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1453[] = {
+    {"yawFromDir", "number", 2, &kParams_1453[0]},
+    {"pitchFromDir", "number", 3, &kParams_1453[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1454[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1454[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1454[0]},
+    {"lerp3x", "number", 3, &kParams_1454[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1455[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1455[] = {
+    {"smooth", "number", 3, &kParams_1455[0]},
+    {"lerp3x", "number", 3, &kParams_1455[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1456[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1456[] = {
+    {"dot3", "number", 6, &kParams_1456[0]},
+    {"crossX", "number", 6, &kParams_1456[6]},
+    {"crossY", "number", 6, &kParams_1456[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1457[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1457[] = {
+    {"len3", "number", 3, &kParams_1457[0]},
+    {"normalize3x", "number", 3, &kParams_1457[3]},
+    {"normalize3y", "number", 3, &kParams_1457[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1458[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1458[] = {
+    {"normalize3z", "number", 3, &kParams_1458[0]},
+    {"dist3", "number", 6, &kParams_1458[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1459[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1459[] = {
+    {"yawFromDir", "number", 2, &kParams_1459[0]},
+    {"pitchFromDir", "number", 3, &kParams_1459[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1460[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1460[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1460[0]},
+    {"lerp3x", "number", 3, &kParams_1460[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1461[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1461[] = {
+    {"smooth", "number", 3, &kParams_1461[0]},
+    {"lerp3x", "number", 3, &kParams_1461[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1462[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1462[] = {
+    {"dot3", "number", 6, &kParams_1462[0]},
+    {"crossX", "number", 6, &kParams_1462[6]},
+    {"crossY", "number", 6, &kParams_1462[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1463[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1463[] = {
+    {"len3", "number", 3, &kParams_1463[0]},
+    {"normalize3x", "number", 3, &kParams_1463[3]},
+    {"normalize3y", "number", 3, &kParams_1463[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1464[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1464[] = {
+    {"normalize3z", "number", 3, &kParams_1464[0]},
+    {"dist3", "number", 6, &kParams_1464[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1465[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1465[] = {
+    {"yawFromDir", "number", 2, &kParams_1465[0]},
+    {"pitchFromDir", "number", 3, &kParams_1465[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1466[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1466[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1466[0]},
+    {"lerp3x", "number", 3, &kParams_1466[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1467[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1467[] = {
+    {"smooth", "number", 3, &kParams_1467[0]},
+    {"lerp3x", "number", 3, &kParams_1467[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1468[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1468[] = {
+    {"dot3", "number", 6, &kParams_1468[0]},
+    {"crossX", "number", 6, &kParams_1468[6]},
+    {"crossY", "number", 6, &kParams_1468[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1469[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1469[] = {
+    {"len3", "number", 3, &kParams_1469[0]},
+    {"normalize3x", "number", 3, &kParams_1469[3]},
+    {"normalize3y", "number", 3, &kParams_1469[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1470[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1470[] = {
+    {"normalize3z", "number", 3, &kParams_1470[0]},
+    {"dist3", "number", 6, &kParams_1470[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1471[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1471[] = {
+    {"yawFromDir", "number", 2, &kParams_1471[0]},
+    {"pitchFromDir", "number", 3, &kParams_1471[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1472[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1472[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1472[0]},
+    {"lerp3x", "number", 3, &kParams_1472[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1473[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1473[] = {
+    {"smooth", "number", 3, &kParams_1473[0]},
+    {"lerp3x", "number", 3, &kParams_1473[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1474[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1474[] = {
+    {"dot3", "number", 6, &kParams_1474[0]},
+    {"crossX", "number", 6, &kParams_1474[6]},
+    {"crossY", "number", 6, &kParams_1474[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1475[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1475[] = {
+    {"len3", "number", 3, &kParams_1475[0]},
+    {"normalize3x", "number", 3, &kParams_1475[3]},
+    {"normalize3y", "number", 3, &kParams_1475[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1476[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1476[] = {
+    {"normalize3z", "number", 3, &kParams_1476[0]},
+    {"dist3", "number", 6, &kParams_1476[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1477[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1477[] = {
+    {"yawFromDir", "number", 2, &kParams_1477[0]},
+    {"pitchFromDir", "number", 3, &kParams_1477[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1478[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1478[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1478[0]},
+    {"lerp3x", "number", 3, &kParams_1478[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1479[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1479[] = {
+    {"smooth", "number", 3, &kParams_1479[0]},
+    {"lerp3x", "number", 3, &kParams_1479[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1480[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1480[] = {
+    {"dot3", "number", 6, &kParams_1480[0]},
+    {"crossX", "number", 6, &kParams_1480[6]},
+    {"crossY", "number", 6, &kParams_1480[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1481[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1481[] = {
+    {"len3", "number", 3, &kParams_1481[0]},
+    {"normalize3x", "number", 3, &kParams_1481[3]},
+    {"normalize3y", "number", 3, &kParams_1481[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1482[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1482[] = {
+    {"normalize3z", "number", 3, &kParams_1482[0]},
+    {"dist3", "number", 6, &kParams_1482[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1483[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1483[] = {
+    {"yawFromDir", "number", 2, &kParams_1483[0]},
+    {"pitchFromDir", "number", 3, &kParams_1483[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1484[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1484[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1484[0]},
+    {"lerp3x", "number", 3, &kParams_1484[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1485[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1485[] = {
+    {"smooth", "number", 3, &kParams_1485[0]},
+    {"lerp3x", "number", 3, &kParams_1485[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1486[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1486[] = {
+    {"dot3", "number", 6, &kParams_1486[0]},
+    {"crossX", "number", 6, &kParams_1486[6]},
+    {"crossY", "number", 6, &kParams_1486[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1487[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1487[] = {
+    {"len3", "number", 3, &kParams_1487[0]},
+    {"normalize3x", "number", 3, &kParams_1487[3]},
+    {"normalize3y", "number", 3, &kParams_1487[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1488[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1488[] = {
+    {"normalize3z", "number", 3, &kParams_1488[0]},
+    {"dist3", "number", 6, &kParams_1488[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1489[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1489[] = {
+    {"yawFromDir", "number", 2, &kParams_1489[0]},
+    {"pitchFromDir", "number", 3, &kParams_1489[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1490[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1490[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1490[0]},
+    {"lerp3x", "number", 3, &kParams_1490[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1491[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1491[] = {
+    {"smooth", "number", 3, &kParams_1491[0]},
+    {"lerp3x", "number", 3, &kParams_1491[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1492[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1492[] = {
+    {"dot3", "number", 6, &kParams_1492[0]},
+    {"crossX", "number", 6, &kParams_1492[6]},
+    {"crossY", "number", 6, &kParams_1492[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1493[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1493[] = {
+    {"len3", "number", 3, &kParams_1493[0]},
+    {"normalize3x", "number", 3, &kParams_1493[3]},
+    {"normalize3y", "number", 3, &kParams_1493[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1494[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1494[] = {
+    {"normalize3z", "number", 3, &kParams_1494[0]},
+    {"dist3", "number", 6, &kParams_1494[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1495[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1495[] = {
+    {"yawFromDir", "number", 2, &kParams_1495[0]},
+    {"pitchFromDir", "number", 3, &kParams_1495[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1496[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1496[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1496[0]},
+    {"lerp3x", "number", 3, &kParams_1496[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1497[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1497[] = {
+    {"smooth", "number", 3, &kParams_1497[0]},
+    {"lerp3x", "number", 3, &kParams_1497[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1498[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1498[] = {
+    {"dot3", "number", 6, &kParams_1498[0]},
+    {"crossX", "number", 6, &kParams_1498[6]},
+    {"crossY", "number", 6, &kParams_1498[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1499[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1499[] = {
+    {"len3", "number", 3, &kParams_1499[0]},
+    {"normalize3x", "number", 3, &kParams_1499[3]},
+    {"normalize3y", "number", 3, &kParams_1499[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1500[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1500[] = {
+    {"normalize3z", "number", 3, &kParams_1500[0]},
+    {"dist3", "number", 6, &kParams_1500[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1501[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1501[] = {
+    {"yawFromDir", "number", 2, &kParams_1501[0]},
+    {"pitchFromDir", "number", 3, &kParams_1501[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1502[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1502[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1502[0]},
+    {"lerp3x", "number", 3, &kParams_1502[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1503[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1503[] = {
+    {"smooth", "number", 3, &kParams_1503[0]},
+    {"lerp3x", "number", 3, &kParams_1503[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1504[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1504[] = {
+    {"dot3", "number", 6, &kParams_1504[0]},
+    {"crossX", "number", 6, &kParams_1504[6]},
+    {"crossY", "number", 6, &kParams_1504[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1505[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1505[] = {
+    {"len3", "number", 3, &kParams_1505[0]},
+    {"normalize3x", "number", 3, &kParams_1505[3]},
+    {"normalize3y", "number", 3, &kParams_1505[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1506[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1506[] = {
+    {"normalize3z", "number", 3, &kParams_1506[0]},
+    {"dist3", "number", 6, &kParams_1506[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1507[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1507[] = {
+    {"yawFromDir", "number", 2, &kParams_1507[0]},
+    {"pitchFromDir", "number", 3, &kParams_1507[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1508[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1508[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1508[0]},
+    {"lerp3x", "number", 3, &kParams_1508[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1509[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1509[] = {
+    {"smooth", "number", 3, &kParams_1509[0]},
+    {"lerp3x", "number", 3, &kParams_1509[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1510[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1510[] = {
+    {"dot3", "number", 6, &kParams_1510[0]},
+    {"crossX", "number", 6, &kParams_1510[6]},
+    {"crossY", "number", 6, &kParams_1510[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1511[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1511[] = {
+    {"len3", "number", 3, &kParams_1511[0]},
+    {"normalize3x", "number", 3, &kParams_1511[3]},
+    {"normalize3y", "number", 3, &kParams_1511[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1512[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1512[] = {
+    {"normalize3z", "number", 3, &kParams_1512[0]},
+    {"dist3", "number", 6, &kParams_1512[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1513[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1513[] = {
+    {"yawFromDir", "number", 2, &kParams_1513[0]},
+    {"pitchFromDir", "number", 3, &kParams_1513[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1514[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1514[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1514[0]},
+    {"lerp3x", "number", 3, &kParams_1514[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1515[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1515[] = {
+    {"smooth", "number", 3, &kParams_1515[0]},
+    {"lerp3x", "number", 3, &kParams_1515[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1516[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1516[] = {
+    {"dot3", "number", 6, &kParams_1516[0]},
+    {"crossX", "number", 6, &kParams_1516[6]},
+    {"crossY", "number", 6, &kParams_1516[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1517[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1517[] = {
+    {"len3", "number", 3, &kParams_1517[0]},
+    {"normalize3x", "number", 3, &kParams_1517[3]},
+    {"normalize3y", "number", 3, &kParams_1517[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1518[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1518[] = {
+    {"normalize3z", "number", 3, &kParams_1518[0]},
+    {"dist3", "number", 6, &kParams_1518[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1519[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1519[] = {
+    {"yawFromDir", "number", 2, &kParams_1519[0]},
+    {"pitchFromDir", "number", 3, &kParams_1519[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1520[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1520[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1520[0]},
+    {"lerp3x", "number", 3, &kParams_1520[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1521[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1521[] = {
+    {"smooth", "number", 3, &kParams_1521[0]},
+    {"lerp3x", "number", 3, &kParams_1521[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1522[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1522[] = {
+    {"dot3", "number", 6, &kParams_1522[0]},
+    {"crossX", "number", 6, &kParams_1522[6]},
+    {"crossY", "number", 6, &kParams_1522[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1523[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1523[] = {
+    {"len3", "number", 3, &kParams_1523[0]},
+    {"normalize3x", "number", 3, &kParams_1523[3]},
+    {"normalize3y", "number", 3, &kParams_1523[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1524[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1524[] = {
+    {"normalize3z", "number", 3, &kParams_1524[0]},
+    {"dist3", "number", 6, &kParams_1524[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1525[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1525[] = {
+    {"yawFromDir", "number", 2, &kParams_1525[0]},
+    {"pitchFromDir", "number", 3, &kParams_1525[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1526[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1526[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1526[0]},
+    {"lerp3x", "number", 3, &kParams_1526[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1527[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1527[] = {
+    {"smooth", "number", 3, &kParams_1527[0]},
+    {"lerp3x", "number", 3, &kParams_1527[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1528[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1528[] = {
+    {"dot3", "number", 6, &kParams_1528[0]},
+    {"crossX", "number", 6, &kParams_1528[6]},
+    {"crossY", "number", 6, &kParams_1528[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1529[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1529[] = {
+    {"len3", "number", 3, &kParams_1529[0]},
+    {"normalize3x", "number", 3, &kParams_1529[3]},
+    {"normalize3y", "number", 3, &kParams_1529[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1530[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1530[] = {
+    {"normalize3z", "number", 3, &kParams_1530[0]},
+    {"dist3", "number", 6, &kParams_1530[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1531[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1531[] = {
+    {"yawFromDir", "number", 2, &kParams_1531[0]},
+    {"pitchFromDir", "number", 3, &kParams_1531[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1532[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1532[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1532[0]},
+    {"lerp3x", "number", 3, &kParams_1532[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1533[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1533[] = {
+    {"smooth", "number", 3, &kParams_1533[0]},
+    {"lerp3x", "number", 3, &kParams_1533[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1534[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1534[] = {
+    {"dot3", "number", 6, &kParams_1534[0]},
+    {"crossX", "number", 6, &kParams_1534[6]},
+    {"crossY", "number", 6, &kParams_1534[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1535[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1535[] = {
+    {"len3", "number", 3, &kParams_1535[0]},
+    {"normalize3x", "number", 3, &kParams_1535[3]},
+    {"normalize3y", "number", 3, &kParams_1535[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1536[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1536[] = {
+    {"normalize3z", "number", 3, &kParams_1536[0]},
+    {"dist3", "number", 6, &kParams_1536[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1537[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1537[] = {
+    {"yawFromDir", "number", 2, &kParams_1537[0]},
+    {"pitchFromDir", "number", 3, &kParams_1537[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1538[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1538[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1538[0]},
+    {"lerp3x", "number", 3, &kParams_1538[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1539[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1539[] = {
+    {"smooth", "number", 3, &kParams_1539[0]},
+    {"lerp3x", "number", 3, &kParams_1539[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1540[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1540[] = {
+    {"dot3", "number", 6, &kParams_1540[0]},
+    {"crossX", "number", 6, &kParams_1540[6]},
+    {"crossY", "number", 6, &kParams_1540[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1541[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1541[] = {
+    {"len3", "number", 3, &kParams_1541[0]},
+    {"normalize3x", "number", 3, &kParams_1541[3]},
+    {"normalize3y", "number", 3, &kParams_1541[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1542[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1542[] = {
+    {"normalize3z", "number", 3, &kParams_1542[0]},
+    {"dist3", "number", 6, &kParams_1542[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1543[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1543[] = {
+    {"yawFromDir", "number", 2, &kParams_1543[0]},
+    {"pitchFromDir", "number", 3, &kParams_1543[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1544[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1544[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1544[0]},
+    {"lerp3x", "number", 3, &kParams_1544[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1545[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1545[] = {
+    {"smooth", "number", 3, &kParams_1545[0]},
+    {"lerp3x", "number", 3, &kParams_1545[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1546[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1546[] = {
+    {"dot3", "number", 6, &kParams_1546[0]},
+    {"crossX", "number", 6, &kParams_1546[6]},
+    {"crossY", "number", 6, &kParams_1546[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1547[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1547[] = {
+    {"len3", "number", 3, &kParams_1547[0]},
+    {"normalize3x", "number", 3, &kParams_1547[3]},
+    {"normalize3y", "number", 3, &kParams_1547[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1548[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1548[] = {
+    {"normalize3z", "number", 3, &kParams_1548[0]},
+    {"dist3", "number", 6, &kParams_1548[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1549[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1549[] = {
+    {"yawFromDir", "number", 2, &kParams_1549[0]},
+    {"pitchFromDir", "number", 3, &kParams_1549[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1550[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1550[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1550[0]},
+    {"lerp3x", "number", 3, &kParams_1550[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1551[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1551[] = {
+    {"smooth", "number", 3, &kParams_1551[0]},
+    {"lerp3x", "number", 3, &kParams_1551[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1552[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1552[] = {
+    {"dot3", "number", 6, &kParams_1552[0]},
+    {"crossX", "number", 6, &kParams_1552[6]},
+    {"crossY", "number", 6, &kParams_1552[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1553[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1553[] = {
+    {"len3", "number", 3, &kParams_1553[0]},
+    {"normalize3x", "number", 3, &kParams_1553[3]},
+    {"normalize3y", "number", 3, &kParams_1553[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1554[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1554[] = {
+    {"normalize3z", "number", 3, &kParams_1554[0]},
+    {"dist3", "number", 6, &kParams_1554[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1555[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1555[] = {
+    {"yawFromDir", "number", 2, &kParams_1555[0]},
+    {"pitchFromDir", "number", 3, &kParams_1555[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1556[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1556[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1556[0]},
+    {"lerp3x", "number", 3, &kParams_1556[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1557[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1557[] = {
+    {"smooth", "number", 3, &kParams_1557[0]},
+    {"lerp3x", "number", 3, &kParams_1557[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1558[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1558[] = {
+    {"dot3", "number", 6, &kParams_1558[0]},
+    {"crossX", "number", 6, &kParams_1558[6]},
+    {"crossY", "number", 6, &kParams_1558[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1559[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1559[] = {
+    {"len3", "number", 3, &kParams_1559[0]},
+    {"normalize3x", "number", 3, &kParams_1559[3]},
+    {"normalize3y", "number", 3, &kParams_1559[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1560[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1560[] = {
+    {"normalize3z", "number", 3, &kParams_1560[0]},
+    {"dist3", "number", 6, &kParams_1560[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1561[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1561[] = {
+    {"yawFromDir", "number", 2, &kParams_1561[0]},
+    {"pitchFromDir", "number", 3, &kParams_1561[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1562[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1562[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1562[0]},
+    {"lerp3x", "number", 3, &kParams_1562[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1563[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1563[] = {
+    {"smooth", "number", 3, &kParams_1563[0]},
+    {"lerp3x", "number", 3, &kParams_1563[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1564[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1564[] = {
+    {"dot3", "number", 6, &kParams_1564[0]},
+    {"crossX", "number", 6, &kParams_1564[6]},
+    {"crossY", "number", 6, &kParams_1564[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1565[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1565[] = {
+    {"len3", "number", 3, &kParams_1565[0]},
+    {"normalize3x", "number", 3, &kParams_1565[3]},
+    {"normalize3y", "number", 3, &kParams_1565[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1566[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1566[] = {
+    {"normalize3z", "number", 3, &kParams_1566[0]},
+    {"dist3", "number", 6, &kParams_1566[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1567[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1567[] = {
+    {"yawFromDir", "number", 2, &kParams_1567[0]},
+    {"pitchFromDir", "number", 3, &kParams_1567[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1568[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1568[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1568[0]},
+    {"lerp3x", "number", 3, &kParams_1568[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1569[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1569[] = {
+    {"smooth", "number", 3, &kParams_1569[0]},
+    {"lerp3x", "number", 3, &kParams_1569[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1570[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1570[] = {
+    {"dot3", "number", 6, &kParams_1570[0]},
+    {"crossX", "number", 6, &kParams_1570[6]},
+    {"crossY", "number", 6, &kParams_1570[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1571[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1571[] = {
+    {"len3", "number", 3, &kParams_1571[0]},
+    {"normalize3x", "number", 3, &kParams_1571[3]},
+    {"normalize3y", "number", 3, &kParams_1571[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1572[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1572[] = {
+    {"normalize3z", "number", 3, &kParams_1572[0]},
+    {"dist3", "number", 6, &kParams_1572[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1573[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1573[] = {
+    {"yawFromDir", "number", 2, &kParams_1573[0]},
+    {"pitchFromDir", "number", 3, &kParams_1573[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1574[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1574[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1574[0]},
+    {"lerp3x", "number", 3, &kParams_1574[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1575[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1575[] = {
+    {"smooth", "number", 3, &kParams_1575[0]},
+    {"lerp3x", "number", 3, &kParams_1575[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1576[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1576[] = {
+    {"dot3", "number", 6, &kParams_1576[0]},
+    {"crossX", "number", 6, &kParams_1576[6]},
+    {"crossY", "number", 6, &kParams_1576[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1577[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1577[] = {
+    {"len3", "number", 3, &kParams_1577[0]},
+    {"normalize3x", "number", 3, &kParams_1577[3]},
+    {"normalize3y", "number", 3, &kParams_1577[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1578[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1578[] = {
+    {"normalize3z", "number", 3, &kParams_1578[0]},
+    {"dist3", "number", 6, &kParams_1578[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1579[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1579[] = {
+    {"yawFromDir", "number", 2, &kParams_1579[0]},
+    {"pitchFromDir", "number", 3, &kParams_1579[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1580[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1580[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1580[0]},
+    {"lerp3x", "number", 3, &kParams_1580[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1581[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1581[] = {
+    {"smooth", "number", 3, &kParams_1581[0]},
+    {"lerp3x", "number", 3, &kParams_1581[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1582[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1582[] = {
+    {"dot3", "number", 6, &kParams_1582[0]},
+    {"crossX", "number", 6, &kParams_1582[6]},
+    {"crossY", "number", 6, &kParams_1582[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1583[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1583[] = {
+    {"len3", "number", 3, &kParams_1583[0]},
+    {"normalize3x", "number", 3, &kParams_1583[3]},
+    {"normalize3y", "number", 3, &kParams_1583[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1584[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1584[] = {
+    {"normalize3z", "number", 3, &kParams_1584[0]},
+    {"dist3", "number", 6, &kParams_1584[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1585[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1585[] = {
+    {"yawFromDir", "number", 2, &kParams_1585[0]},
+    {"pitchFromDir", "number", 3, &kParams_1585[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1586[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1586[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1586[0]},
+    {"lerp3x", "number", 3, &kParams_1586[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1587[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1587[] = {
+    {"smooth", "number", 3, &kParams_1587[0]},
+    {"lerp3x", "number", 3, &kParams_1587[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1588[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1588[] = {
+    {"dot3", "number", 6, &kParams_1588[0]},
+    {"crossX", "number", 6, &kParams_1588[6]},
+    {"crossY", "number", 6, &kParams_1588[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1589[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1589[] = {
+    {"len3", "number", 3, &kParams_1589[0]},
+    {"normalize3x", "number", 3, &kParams_1589[3]},
+    {"normalize3y", "number", 3, &kParams_1589[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1590[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1590[] = {
+    {"normalize3z", "number", 3, &kParams_1590[0]},
+    {"dist3", "number", 6, &kParams_1590[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1591[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1591[] = {
+    {"yawFromDir", "number", 2, &kParams_1591[0]},
+    {"pitchFromDir", "number", 3, &kParams_1591[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1592[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1592[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1592[0]},
+    {"lerp3x", "number", 3, &kParams_1592[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1593[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1593[] = {
+    {"smooth", "number", 3, &kParams_1593[0]},
+    {"lerp3x", "number", 3, &kParams_1593[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1594[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1594[] = {
+    {"dot3", "number", 6, &kParams_1594[0]},
+    {"crossX", "number", 6, &kParams_1594[6]},
+    {"crossY", "number", 6, &kParams_1594[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1595[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1595[] = {
+    {"len3", "number", 3, &kParams_1595[0]},
+    {"normalize3x", "number", 3, &kParams_1595[3]},
+    {"normalize3y", "number", 3, &kParams_1595[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1596[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1596[] = {
+    {"normalize3z", "number", 3, &kParams_1596[0]},
+    {"dist3", "number", 6, &kParams_1596[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1597[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1597[] = {
+    {"yawFromDir", "number", 2, &kParams_1597[0]},
+    {"pitchFromDir", "number", 3, &kParams_1597[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1598[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1598[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1598[0]},
+    {"lerp3x", "number", 3, &kParams_1598[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1599[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1599[] = {
+    {"smooth", "number", 3, &kParams_1599[0]},
+    {"lerp3x", "number", 3, &kParams_1599[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1600[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1600[] = {
+    {"dot3", "number", 6, &kParams_1600[0]},
+    {"crossX", "number", 6, &kParams_1600[6]},
+    {"crossY", "number", 6, &kParams_1600[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1601[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1601[] = {
+    {"len3", "number", 3, &kParams_1601[0]},
+    {"normalize3x", "number", 3, &kParams_1601[3]},
+    {"normalize3y", "number", 3, &kParams_1601[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1602[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1602[] = {
+    {"normalize3z", "number", 3, &kParams_1602[0]},
+    {"dist3", "number", 6, &kParams_1602[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1603[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1603[] = {
+    {"yawFromDir", "number", 2, &kParams_1603[0]},
+    {"pitchFromDir", "number", 3, &kParams_1603[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1604[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1604[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1604[0]},
+    {"lerp3x", "number", 3, &kParams_1604[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1605[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1605[] = {
+    {"smooth", "number", 3, &kParams_1605[0]},
+    {"lerp3x", "number", 3, &kParams_1605[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1606[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1606[] = {
+    {"dot3", "number", 6, &kParams_1606[0]},
+    {"crossX", "number", 6, &kParams_1606[6]},
+    {"crossY", "number", 6, &kParams_1606[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1607[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1607[] = {
+    {"len3", "number", 3, &kParams_1607[0]},
+    {"normalize3x", "number", 3, &kParams_1607[3]},
+    {"normalize3y", "number", 3, &kParams_1607[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1608[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1608[] = {
+    {"normalize3z", "number", 3, &kParams_1608[0]},
+    {"dist3", "number", 6, &kParams_1608[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1609[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1609[] = {
+    {"yawFromDir", "number", 2, &kParams_1609[0]},
+    {"pitchFromDir", "number", 3, &kParams_1609[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1610[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1610[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1610[0]},
+    {"lerp3x", "number", 3, &kParams_1610[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1611[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1611[] = {
+    {"smooth", "number", 3, &kParams_1611[0]},
+    {"lerp3x", "number", 3, &kParams_1611[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1612[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1612[] = {
+    {"dot3", "number", 6, &kParams_1612[0]},
+    {"crossX", "number", 6, &kParams_1612[6]},
+    {"crossY", "number", 6, &kParams_1612[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1613[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1613[] = {
+    {"len3", "number", 3, &kParams_1613[0]},
+    {"normalize3x", "number", 3, &kParams_1613[3]},
+    {"normalize3y", "number", 3, &kParams_1613[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1614[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1614[] = {
+    {"normalize3z", "number", 3, &kParams_1614[0]},
+    {"dist3", "number", 6, &kParams_1614[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1615[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1615[] = {
+    {"yawFromDir", "number", 2, &kParams_1615[0]},
+    {"pitchFromDir", "number", 3, &kParams_1615[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1616[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1616[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1616[0]},
+    {"lerp3x", "number", 3, &kParams_1616[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1617[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1617[] = {
+    {"smooth", "number", 3, &kParams_1617[0]},
+    {"lerp3x", "number", 3, &kParams_1617[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1618[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1618[] = {
+    {"dot3", "number", 6, &kParams_1618[0]},
+    {"crossX", "number", 6, &kParams_1618[6]},
+    {"crossY", "number", 6, &kParams_1618[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1619[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1619[] = {
+    {"len3", "number", 3, &kParams_1619[0]},
+    {"normalize3x", "number", 3, &kParams_1619[3]},
+    {"normalize3y", "number", 3, &kParams_1619[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1620[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1620[] = {
+    {"normalize3z", "number", 3, &kParams_1620[0]},
+    {"dist3", "number", 6, &kParams_1620[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1621[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1621[] = {
+    {"yawFromDir", "number", 2, &kParams_1621[0]},
+    {"pitchFromDir", "number", 3, &kParams_1621[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1622[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1622[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1622[0]},
+    {"lerp3x", "number", 3, &kParams_1622[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1623[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1623[] = {
+    {"smooth", "number", 3, &kParams_1623[0]},
+    {"lerp3x", "number", 3, &kParams_1623[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1624[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1624[] = {
+    {"dot3", "number", 6, &kParams_1624[0]},
+    {"crossX", "number", 6, &kParams_1624[6]},
+    {"crossY", "number", 6, &kParams_1624[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1625[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1625[] = {
+    {"len3", "number", 3, &kParams_1625[0]},
+    {"normalize3x", "number", 3, &kParams_1625[3]},
+    {"normalize3y", "number", 3, &kParams_1625[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1626[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1626[] = {
+    {"normalize3z", "number", 3, &kParams_1626[0]},
+    {"dist3", "number", 6, &kParams_1626[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1627[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1627[] = {
+    {"yawFromDir", "number", 2, &kParams_1627[0]},
+    {"pitchFromDir", "number", 3, &kParams_1627[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1628[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1628[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1628[0]},
+    {"lerp3x", "number", 3, &kParams_1628[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1629[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1629[] = {
+    {"smooth", "number", 3, &kParams_1629[0]},
+    {"lerp3x", "number", 3, &kParams_1629[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1630[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1630[] = {
+    {"dot3", "number", 6, &kParams_1630[0]},
+    {"crossX", "number", 6, &kParams_1630[6]},
+    {"crossY", "number", 6, &kParams_1630[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1631[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1631[] = {
+    {"len3", "number", 3, &kParams_1631[0]},
+    {"normalize3x", "number", 3, &kParams_1631[3]},
+    {"normalize3y", "number", 3, &kParams_1631[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1632[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1632[] = {
+    {"normalize3z", "number", 3, &kParams_1632[0]},
+    {"dist3", "number", 6, &kParams_1632[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1633[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1633[] = {
+    {"yawFromDir", "number", 2, &kParams_1633[0]},
+    {"pitchFromDir", "number", 3, &kParams_1633[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1634[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1634[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1634[0]},
+    {"lerp3x", "number", 3, &kParams_1634[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1635[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1635[] = {
+    {"smooth", "number", 3, &kParams_1635[0]},
+    {"lerp3x", "number", 3, &kParams_1635[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1636[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1636[] = {
+    {"dot3", "number", 6, &kParams_1636[0]},
+    {"crossX", "number", 6, &kParams_1636[6]},
+    {"crossY", "number", 6, &kParams_1636[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1637[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1637[] = {
+    {"len3", "number", 3, &kParams_1637[0]},
+    {"normalize3x", "number", 3, &kParams_1637[3]},
+    {"normalize3y", "number", 3, &kParams_1637[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1638[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1638[] = {
+    {"normalize3z", "number", 3, &kParams_1638[0]},
+    {"dist3", "number", 6, &kParams_1638[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1639[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1639[] = {
+    {"yawFromDir", "number", 2, &kParams_1639[0]},
+    {"pitchFromDir", "number", 3, &kParams_1639[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1640[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1640[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1640[0]},
+    {"lerp3x", "number", 3, &kParams_1640[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1641[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1641[] = {
+    {"smooth", "number", 3, &kParams_1641[0]},
+    {"lerp3x", "number", 3, &kParams_1641[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1642[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1642[] = {
+    {"dot3", "number", 6, &kParams_1642[0]},
+    {"crossX", "number", 6, &kParams_1642[6]},
+    {"crossY", "number", 6, &kParams_1642[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1643[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1643[] = {
+    {"len3", "number", 3, &kParams_1643[0]},
+    {"normalize3x", "number", 3, &kParams_1643[3]},
+    {"normalize3y", "number", 3, &kParams_1643[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1644[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1644[] = {
+    {"normalize3z", "number", 3, &kParams_1644[0]},
+    {"dist3", "number", 6, &kParams_1644[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1645[] = {
+    {"dx", "number"},
+    {"dz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1645[] = {
+    {"yawFromDir", "number", 2, &kParams_1645[0]},
+    {"pitchFromDir", "number", 3, &kParams_1645[2]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1646[] = {
+    {"ox", "number"},
+    {"oy", "number"},
+    {"oz", "number"},
+    {"dx", "number"},
+    {"dy", "number"},
+    {"dz", "number"},
+    {"py", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1646[] = {
+    {"rayPlaneHitT", "number", 7, &kParams_1646[0]},
+    {"lerp3x", "number", 3, &kParams_1646[7]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1647[] = {
+    {"cur", "number"},
+    {"target", "number"},
+    {"dt", "number"},
+    {"ax", "number"},
+    {"bx", "number"},
+    {"t", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1647[] = {
+    {"smooth", "number", 3, &kParams_1647[0]},
+    {"lerp3x", "number", 3, &kParams_1647[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1648[] = {
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {"ax", "number"},
+    {"ay", "number"},
+    {"az", "number"},
+    {"bx", "number"},
+    {"by", "number"},
+    {"bz", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1648[] = {
+    {"dot3", "number", 6, &kParams_1648[0]},
+    {"crossX", "number", 6, &kParams_1648[6]},
+    {"crossY", "number", 6, &kParams_1648[12]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1649[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1649[] = {
+    {"len3", "number", 3, &kParams_1649[0]},
+    {"normalize3x", "number", 3, &kParams_1649[3]},
+    {"normalize3y", "number", 3, &kParams_1649[6]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
+const StdlibParamSpec kParams_1650[] = {
+    {"x", "number"},
+    {"y", "number"},
+    {"z", "number"},
+    {"x0", "number"},
+    {"y0", "number"},
+    {"z0", "number"},
+    {"x1", "number"},
+    {"y1", "number"},
+    {"z1", "number"},
+    {nullptr, nullptr}
+};
+
+const StdlibFuncSpec kFuncs_1650[] = {
+    {"normalize3z", "number", 3, &kParams_1650[0]},
+    {"dist3", "number", 6, &kParams_1650[3]},
+    {nullptr, nullptr, 0, nullptr}
+};
+
 const StdlibModuleSpec kSimpleModules[] = {
     {"absnum", "absnum", kFuncs_0, 2, "simple/absnum.hpp", false},
     {"sqrtlib", "sqrtlib", kFuncs_1, 2, "simple/sqrtlib.hpp", false},
@@ -19299,10 +29215,510 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"game2dkit498", "game2dkit498", kFuncs_1148, 2, "simple/game2dkit498.hpp", false},
     {"game2dkit499", "game2dkit499", kFuncs_1149, 2, "simple/game2dkit499.hpp", false},
     {"game2dkit500", "game2dkit500", kFuncs_1150, 2, "simple/game2dkit500.hpp", false},
+    {"game3dkit001", "game3dkit001", kFuncs_1151, 3, "simple/game3dkit001.hpp", false},
+    {"game3dkit002", "game3dkit002", kFuncs_1152, 2, "simple/game3dkit002.hpp", false},
+    {"game3dkit003", "game3dkit003", kFuncs_1153, 2, "simple/game3dkit003.hpp", false},
+    {"game3dkit004", "game3dkit004", kFuncs_1154, 2, "simple/game3dkit004.hpp", false},
+    {"game3dkit005", "game3dkit005", kFuncs_1155, 2, "simple/game3dkit005.hpp", false},
+    {"game3dkit006", "game3dkit006", kFuncs_1156, 3, "simple/game3dkit006.hpp", false},
+    {"game3dkit007", "game3dkit007", kFuncs_1157, 3, "simple/game3dkit007.hpp", false},
+    {"game3dkit008", "game3dkit008", kFuncs_1158, 2, "simple/game3dkit008.hpp", false},
+    {"game3dkit009", "game3dkit009", kFuncs_1159, 2, "simple/game3dkit009.hpp", false},
+    {"game3dkit010", "game3dkit010", kFuncs_1160, 2, "simple/game3dkit010.hpp", false},
+    {"game3dkit011", "game3dkit011", kFuncs_1161, 2, "simple/game3dkit011.hpp", false},
+    {"game3dkit012", "game3dkit012", kFuncs_1162, 3, "simple/game3dkit012.hpp", false},
+    {"game3dkit013", "game3dkit013", kFuncs_1163, 3, "simple/game3dkit013.hpp", false},
+    {"game3dkit014", "game3dkit014", kFuncs_1164, 2, "simple/game3dkit014.hpp", false},
+    {"game3dkit015", "game3dkit015", kFuncs_1165, 2, "simple/game3dkit015.hpp", false},
+    {"game3dkit016", "game3dkit016", kFuncs_1166, 2, "simple/game3dkit016.hpp", false},
+    {"game3dkit017", "game3dkit017", kFuncs_1167, 2, "simple/game3dkit017.hpp", false},
+    {"game3dkit018", "game3dkit018", kFuncs_1168, 3, "simple/game3dkit018.hpp", false},
+    {"game3dkit019", "game3dkit019", kFuncs_1169, 3, "simple/game3dkit019.hpp", false},
+    {"game3dkit020", "game3dkit020", kFuncs_1170, 2, "simple/game3dkit020.hpp", false},
+    {"game3dkit021", "game3dkit021", kFuncs_1171, 2, "simple/game3dkit021.hpp", false},
+    {"game3dkit022", "game3dkit022", kFuncs_1172, 2, "simple/game3dkit022.hpp", false},
+    {"game3dkit023", "game3dkit023", kFuncs_1173, 2, "simple/game3dkit023.hpp", false},
+    {"game3dkit024", "game3dkit024", kFuncs_1174, 3, "simple/game3dkit024.hpp", false},
+    {"game3dkit025", "game3dkit025", kFuncs_1175, 3, "simple/game3dkit025.hpp", false},
+    {"game3dkit026", "game3dkit026", kFuncs_1176, 2, "simple/game3dkit026.hpp", false},
+    {"game3dkit027", "game3dkit027", kFuncs_1177, 2, "simple/game3dkit027.hpp", false},
+    {"game3dkit028", "game3dkit028", kFuncs_1178, 2, "simple/game3dkit028.hpp", false},
+    {"game3dkit029", "game3dkit029", kFuncs_1179, 2, "simple/game3dkit029.hpp", false},
+    {"game3dkit030", "game3dkit030", kFuncs_1180, 3, "simple/game3dkit030.hpp", false},
+    {"game3dkit031", "game3dkit031", kFuncs_1181, 3, "simple/game3dkit031.hpp", false},
+    {"game3dkit032", "game3dkit032", kFuncs_1182, 2, "simple/game3dkit032.hpp", false},
+    {"game3dkit033", "game3dkit033", kFuncs_1183, 2, "simple/game3dkit033.hpp", false},
+    {"game3dkit034", "game3dkit034", kFuncs_1184, 2, "simple/game3dkit034.hpp", false},
+    {"game3dkit035", "game3dkit035", kFuncs_1185, 2, "simple/game3dkit035.hpp", false},
+    {"game3dkit036", "game3dkit036", kFuncs_1186, 3, "simple/game3dkit036.hpp", false},
+    {"game3dkit037", "game3dkit037", kFuncs_1187, 3, "simple/game3dkit037.hpp", false},
+    {"game3dkit038", "game3dkit038", kFuncs_1188, 2, "simple/game3dkit038.hpp", false},
+    {"game3dkit039", "game3dkit039", kFuncs_1189, 2, "simple/game3dkit039.hpp", false},
+    {"game3dkit040", "game3dkit040", kFuncs_1190, 2, "simple/game3dkit040.hpp", false},
+    {"game3dkit041", "game3dkit041", kFuncs_1191, 2, "simple/game3dkit041.hpp", false},
+    {"game3dkit042", "game3dkit042", kFuncs_1192, 3, "simple/game3dkit042.hpp", false},
+    {"game3dkit043", "game3dkit043", kFuncs_1193, 3, "simple/game3dkit043.hpp", false},
+    {"game3dkit044", "game3dkit044", kFuncs_1194, 2, "simple/game3dkit044.hpp", false},
+    {"game3dkit045", "game3dkit045", kFuncs_1195, 2, "simple/game3dkit045.hpp", false},
+    {"game3dkit046", "game3dkit046", kFuncs_1196, 2, "simple/game3dkit046.hpp", false},
+    {"game3dkit047", "game3dkit047", kFuncs_1197, 2, "simple/game3dkit047.hpp", false},
+    {"game3dkit048", "game3dkit048", kFuncs_1198, 3, "simple/game3dkit048.hpp", false},
+    {"game3dkit049", "game3dkit049", kFuncs_1199, 3, "simple/game3dkit049.hpp", false},
+    {"game3dkit050", "game3dkit050", kFuncs_1200, 2, "simple/game3dkit050.hpp", false},
+    {"game3dkit051", "game3dkit051", kFuncs_1201, 2, "simple/game3dkit051.hpp", false},
+    {"game3dkit052", "game3dkit052", kFuncs_1202, 2, "simple/game3dkit052.hpp", false},
+    {"game3dkit053", "game3dkit053", kFuncs_1203, 2, "simple/game3dkit053.hpp", false},
+    {"game3dkit054", "game3dkit054", kFuncs_1204, 3, "simple/game3dkit054.hpp", false},
+    {"game3dkit055", "game3dkit055", kFuncs_1205, 3, "simple/game3dkit055.hpp", false},
+    {"game3dkit056", "game3dkit056", kFuncs_1206, 2, "simple/game3dkit056.hpp", false},
+    {"game3dkit057", "game3dkit057", kFuncs_1207, 2, "simple/game3dkit057.hpp", false},
+    {"game3dkit058", "game3dkit058", kFuncs_1208, 2, "simple/game3dkit058.hpp", false},
+    {"game3dkit059", "game3dkit059", kFuncs_1209, 2, "simple/game3dkit059.hpp", false},
+    {"game3dkit060", "game3dkit060", kFuncs_1210, 3, "simple/game3dkit060.hpp", false},
+    {"game3dkit061", "game3dkit061", kFuncs_1211, 3, "simple/game3dkit061.hpp", false},
+    {"game3dkit062", "game3dkit062", kFuncs_1212, 2, "simple/game3dkit062.hpp", false},
+    {"game3dkit063", "game3dkit063", kFuncs_1213, 2, "simple/game3dkit063.hpp", false},
+    {"game3dkit064", "game3dkit064", kFuncs_1214, 2, "simple/game3dkit064.hpp", false},
+    {"game3dkit065", "game3dkit065", kFuncs_1215, 2, "simple/game3dkit065.hpp", false},
+    {"game3dkit066", "game3dkit066", kFuncs_1216, 3, "simple/game3dkit066.hpp", false},
+    {"game3dkit067", "game3dkit067", kFuncs_1217, 3, "simple/game3dkit067.hpp", false},
+    {"game3dkit068", "game3dkit068", kFuncs_1218, 2, "simple/game3dkit068.hpp", false},
+    {"game3dkit069", "game3dkit069", kFuncs_1219, 2, "simple/game3dkit069.hpp", false},
+    {"game3dkit070", "game3dkit070", kFuncs_1220, 2, "simple/game3dkit070.hpp", false},
+    {"game3dkit071", "game3dkit071", kFuncs_1221, 2, "simple/game3dkit071.hpp", false},
+    {"game3dkit072", "game3dkit072", kFuncs_1222, 3, "simple/game3dkit072.hpp", false},
+    {"game3dkit073", "game3dkit073", kFuncs_1223, 3, "simple/game3dkit073.hpp", false},
+    {"game3dkit074", "game3dkit074", kFuncs_1224, 2, "simple/game3dkit074.hpp", false},
+    {"game3dkit075", "game3dkit075", kFuncs_1225, 2, "simple/game3dkit075.hpp", false},
+    {"game3dkit076", "game3dkit076", kFuncs_1226, 2, "simple/game3dkit076.hpp", false},
+    {"game3dkit077", "game3dkit077", kFuncs_1227, 2, "simple/game3dkit077.hpp", false},
+    {"game3dkit078", "game3dkit078", kFuncs_1228, 3, "simple/game3dkit078.hpp", false},
+    {"game3dkit079", "game3dkit079", kFuncs_1229, 3, "simple/game3dkit079.hpp", false},
+    {"game3dkit080", "game3dkit080", kFuncs_1230, 2, "simple/game3dkit080.hpp", false},
+    {"game3dkit081", "game3dkit081", kFuncs_1231, 2, "simple/game3dkit081.hpp", false},
+    {"game3dkit082", "game3dkit082", kFuncs_1232, 2, "simple/game3dkit082.hpp", false},
+    {"game3dkit083", "game3dkit083", kFuncs_1233, 2, "simple/game3dkit083.hpp", false},
+    {"game3dkit084", "game3dkit084", kFuncs_1234, 3, "simple/game3dkit084.hpp", false},
+    {"game3dkit085", "game3dkit085", kFuncs_1235, 3, "simple/game3dkit085.hpp", false},
+    {"game3dkit086", "game3dkit086", kFuncs_1236, 2, "simple/game3dkit086.hpp", false},
+    {"game3dkit087", "game3dkit087", kFuncs_1237, 2, "simple/game3dkit087.hpp", false},
+    {"game3dkit088", "game3dkit088", kFuncs_1238, 2, "simple/game3dkit088.hpp", false},
+    {"game3dkit089", "game3dkit089", kFuncs_1239, 2, "simple/game3dkit089.hpp", false},
+    {"game3dkit090", "game3dkit090", kFuncs_1240, 3, "simple/game3dkit090.hpp", false},
+    {"game3dkit091", "game3dkit091", kFuncs_1241, 3, "simple/game3dkit091.hpp", false},
+    {"game3dkit092", "game3dkit092", kFuncs_1242, 2, "simple/game3dkit092.hpp", false},
+    {"game3dkit093", "game3dkit093", kFuncs_1243, 2, "simple/game3dkit093.hpp", false},
+    {"game3dkit094", "game3dkit094", kFuncs_1244, 2, "simple/game3dkit094.hpp", false},
+    {"game3dkit095", "game3dkit095", kFuncs_1245, 2, "simple/game3dkit095.hpp", false},
+    {"game3dkit096", "game3dkit096", kFuncs_1246, 3, "simple/game3dkit096.hpp", false},
+    {"game3dkit097", "game3dkit097", kFuncs_1247, 3, "simple/game3dkit097.hpp", false},
+    {"game3dkit098", "game3dkit098", kFuncs_1248, 2, "simple/game3dkit098.hpp", false},
+    {"game3dkit099", "game3dkit099", kFuncs_1249, 2, "simple/game3dkit099.hpp", false},
+    {"game3dkit100", "game3dkit100", kFuncs_1250, 2, "simple/game3dkit100.hpp", false},
+    {"game3dkit101", "game3dkit101", kFuncs_1251, 2, "simple/game3dkit101.hpp", false},
+    {"game3dkit102", "game3dkit102", kFuncs_1252, 3, "simple/game3dkit102.hpp", false},
+    {"game3dkit103", "game3dkit103", kFuncs_1253, 3, "simple/game3dkit103.hpp", false},
+    {"game3dkit104", "game3dkit104", kFuncs_1254, 2, "simple/game3dkit104.hpp", false},
+    {"game3dkit105", "game3dkit105", kFuncs_1255, 2, "simple/game3dkit105.hpp", false},
+    {"game3dkit106", "game3dkit106", kFuncs_1256, 2, "simple/game3dkit106.hpp", false},
+    {"game3dkit107", "game3dkit107", kFuncs_1257, 2, "simple/game3dkit107.hpp", false},
+    {"game3dkit108", "game3dkit108", kFuncs_1258, 3, "simple/game3dkit108.hpp", false},
+    {"game3dkit109", "game3dkit109", kFuncs_1259, 3, "simple/game3dkit109.hpp", false},
+    {"game3dkit110", "game3dkit110", kFuncs_1260, 2, "simple/game3dkit110.hpp", false},
+    {"game3dkit111", "game3dkit111", kFuncs_1261, 2, "simple/game3dkit111.hpp", false},
+    {"game3dkit112", "game3dkit112", kFuncs_1262, 2, "simple/game3dkit112.hpp", false},
+    {"game3dkit113", "game3dkit113", kFuncs_1263, 2, "simple/game3dkit113.hpp", false},
+    {"game3dkit114", "game3dkit114", kFuncs_1264, 3, "simple/game3dkit114.hpp", false},
+    {"game3dkit115", "game3dkit115", kFuncs_1265, 3, "simple/game3dkit115.hpp", false},
+    {"game3dkit116", "game3dkit116", kFuncs_1266, 2, "simple/game3dkit116.hpp", false},
+    {"game3dkit117", "game3dkit117", kFuncs_1267, 2, "simple/game3dkit117.hpp", false},
+    {"game3dkit118", "game3dkit118", kFuncs_1268, 2, "simple/game3dkit118.hpp", false},
+    {"game3dkit119", "game3dkit119", kFuncs_1269, 2, "simple/game3dkit119.hpp", false},
+    {"game3dkit120", "game3dkit120", kFuncs_1270, 3, "simple/game3dkit120.hpp", false},
+    {"game3dkit121", "game3dkit121", kFuncs_1271, 3, "simple/game3dkit121.hpp", false},
+    {"game3dkit122", "game3dkit122", kFuncs_1272, 2, "simple/game3dkit122.hpp", false},
+    {"game3dkit123", "game3dkit123", kFuncs_1273, 2, "simple/game3dkit123.hpp", false},
+    {"game3dkit124", "game3dkit124", kFuncs_1274, 2, "simple/game3dkit124.hpp", false},
+    {"game3dkit125", "game3dkit125", kFuncs_1275, 2, "simple/game3dkit125.hpp", false},
+    {"game3dkit126", "game3dkit126", kFuncs_1276, 3, "simple/game3dkit126.hpp", false},
+    {"game3dkit127", "game3dkit127", kFuncs_1277, 3, "simple/game3dkit127.hpp", false},
+    {"game3dkit128", "game3dkit128", kFuncs_1278, 2, "simple/game3dkit128.hpp", false},
+    {"game3dkit129", "game3dkit129", kFuncs_1279, 2, "simple/game3dkit129.hpp", false},
+    {"game3dkit130", "game3dkit130", kFuncs_1280, 2, "simple/game3dkit130.hpp", false},
+    {"game3dkit131", "game3dkit131", kFuncs_1281, 2, "simple/game3dkit131.hpp", false},
+    {"game3dkit132", "game3dkit132", kFuncs_1282, 3, "simple/game3dkit132.hpp", false},
+    {"game3dkit133", "game3dkit133", kFuncs_1283, 3, "simple/game3dkit133.hpp", false},
+    {"game3dkit134", "game3dkit134", kFuncs_1284, 2, "simple/game3dkit134.hpp", false},
+    {"game3dkit135", "game3dkit135", kFuncs_1285, 2, "simple/game3dkit135.hpp", false},
+    {"game3dkit136", "game3dkit136", kFuncs_1286, 2, "simple/game3dkit136.hpp", false},
+    {"game3dkit137", "game3dkit137", kFuncs_1287, 2, "simple/game3dkit137.hpp", false},
+    {"game3dkit138", "game3dkit138", kFuncs_1288, 3, "simple/game3dkit138.hpp", false},
+    {"game3dkit139", "game3dkit139", kFuncs_1289, 3, "simple/game3dkit139.hpp", false},
+    {"game3dkit140", "game3dkit140", kFuncs_1290, 2, "simple/game3dkit140.hpp", false},
+    {"game3dkit141", "game3dkit141", kFuncs_1291, 2, "simple/game3dkit141.hpp", false},
+    {"game3dkit142", "game3dkit142", kFuncs_1292, 2, "simple/game3dkit142.hpp", false},
+    {"game3dkit143", "game3dkit143", kFuncs_1293, 2, "simple/game3dkit143.hpp", false},
+    {"game3dkit144", "game3dkit144", kFuncs_1294, 3, "simple/game3dkit144.hpp", false},
+    {"game3dkit145", "game3dkit145", kFuncs_1295, 3, "simple/game3dkit145.hpp", false},
+    {"game3dkit146", "game3dkit146", kFuncs_1296, 2, "simple/game3dkit146.hpp", false},
+    {"game3dkit147", "game3dkit147", kFuncs_1297, 2, "simple/game3dkit147.hpp", false},
+    {"game3dkit148", "game3dkit148", kFuncs_1298, 2, "simple/game3dkit148.hpp", false},
+    {"game3dkit149", "game3dkit149", kFuncs_1299, 2, "simple/game3dkit149.hpp", false},
+    {"game3dkit150", "game3dkit150", kFuncs_1300, 3, "simple/game3dkit150.hpp", false},
+    {"game3dkit151", "game3dkit151", kFuncs_1301, 3, "simple/game3dkit151.hpp", false},
+    {"game3dkit152", "game3dkit152", kFuncs_1302, 2, "simple/game3dkit152.hpp", false},
+    {"game3dkit153", "game3dkit153", kFuncs_1303, 2, "simple/game3dkit153.hpp", false},
+    {"game3dkit154", "game3dkit154", kFuncs_1304, 2, "simple/game3dkit154.hpp", false},
+    {"game3dkit155", "game3dkit155", kFuncs_1305, 2, "simple/game3dkit155.hpp", false},
+    {"game3dkit156", "game3dkit156", kFuncs_1306, 3, "simple/game3dkit156.hpp", false},
+    {"game3dkit157", "game3dkit157", kFuncs_1307, 3, "simple/game3dkit157.hpp", false},
+    {"game3dkit158", "game3dkit158", kFuncs_1308, 2, "simple/game3dkit158.hpp", false},
+    {"game3dkit159", "game3dkit159", kFuncs_1309, 2, "simple/game3dkit159.hpp", false},
+    {"game3dkit160", "game3dkit160", kFuncs_1310, 2, "simple/game3dkit160.hpp", false},
+    {"game3dkit161", "game3dkit161", kFuncs_1311, 2, "simple/game3dkit161.hpp", false},
+    {"game3dkit162", "game3dkit162", kFuncs_1312, 3, "simple/game3dkit162.hpp", false},
+    {"game3dkit163", "game3dkit163", kFuncs_1313, 3, "simple/game3dkit163.hpp", false},
+    {"game3dkit164", "game3dkit164", kFuncs_1314, 2, "simple/game3dkit164.hpp", false},
+    {"game3dkit165", "game3dkit165", kFuncs_1315, 2, "simple/game3dkit165.hpp", false},
+    {"game3dkit166", "game3dkit166", kFuncs_1316, 2, "simple/game3dkit166.hpp", false},
+    {"game3dkit167", "game3dkit167", kFuncs_1317, 2, "simple/game3dkit167.hpp", false},
+    {"game3dkit168", "game3dkit168", kFuncs_1318, 3, "simple/game3dkit168.hpp", false},
+    {"game3dkit169", "game3dkit169", kFuncs_1319, 3, "simple/game3dkit169.hpp", false},
+    {"game3dkit170", "game3dkit170", kFuncs_1320, 2, "simple/game3dkit170.hpp", false},
+    {"game3dkit171", "game3dkit171", kFuncs_1321, 2, "simple/game3dkit171.hpp", false},
+    {"game3dkit172", "game3dkit172", kFuncs_1322, 2, "simple/game3dkit172.hpp", false},
+    {"game3dkit173", "game3dkit173", kFuncs_1323, 2, "simple/game3dkit173.hpp", false},
+    {"game3dkit174", "game3dkit174", kFuncs_1324, 3, "simple/game3dkit174.hpp", false},
+    {"game3dkit175", "game3dkit175", kFuncs_1325, 3, "simple/game3dkit175.hpp", false},
+    {"game3dkit176", "game3dkit176", kFuncs_1326, 2, "simple/game3dkit176.hpp", false},
+    {"game3dkit177", "game3dkit177", kFuncs_1327, 2, "simple/game3dkit177.hpp", false},
+    {"game3dkit178", "game3dkit178", kFuncs_1328, 2, "simple/game3dkit178.hpp", false},
+    {"game3dkit179", "game3dkit179", kFuncs_1329, 2, "simple/game3dkit179.hpp", false},
+    {"game3dkit180", "game3dkit180", kFuncs_1330, 3, "simple/game3dkit180.hpp", false},
+    {"game3dkit181", "game3dkit181", kFuncs_1331, 3, "simple/game3dkit181.hpp", false},
+    {"game3dkit182", "game3dkit182", kFuncs_1332, 2, "simple/game3dkit182.hpp", false},
+    {"game3dkit183", "game3dkit183", kFuncs_1333, 2, "simple/game3dkit183.hpp", false},
+    {"game3dkit184", "game3dkit184", kFuncs_1334, 2, "simple/game3dkit184.hpp", false},
+    {"game3dkit185", "game3dkit185", kFuncs_1335, 2, "simple/game3dkit185.hpp", false},
+    {"game3dkit186", "game3dkit186", kFuncs_1336, 3, "simple/game3dkit186.hpp", false},
+    {"game3dkit187", "game3dkit187", kFuncs_1337, 3, "simple/game3dkit187.hpp", false},
+    {"game3dkit188", "game3dkit188", kFuncs_1338, 2, "simple/game3dkit188.hpp", false},
+    {"game3dkit189", "game3dkit189", kFuncs_1339, 2, "simple/game3dkit189.hpp", false},
+    {"game3dkit190", "game3dkit190", kFuncs_1340, 2, "simple/game3dkit190.hpp", false},
+    {"game3dkit191", "game3dkit191", kFuncs_1341, 2, "simple/game3dkit191.hpp", false},
+    {"game3dkit192", "game3dkit192", kFuncs_1342, 3, "simple/game3dkit192.hpp", false},
+    {"game3dkit193", "game3dkit193", kFuncs_1343, 3, "simple/game3dkit193.hpp", false},
+    {"game3dkit194", "game3dkit194", kFuncs_1344, 2, "simple/game3dkit194.hpp", false},
+    {"game3dkit195", "game3dkit195", kFuncs_1345, 2, "simple/game3dkit195.hpp", false},
+    {"game3dkit196", "game3dkit196", kFuncs_1346, 2, "simple/game3dkit196.hpp", false},
+    {"game3dkit197", "game3dkit197", kFuncs_1347, 2, "simple/game3dkit197.hpp", false},
+    {"game3dkit198", "game3dkit198", kFuncs_1348, 3, "simple/game3dkit198.hpp", false},
+    {"game3dkit199", "game3dkit199", kFuncs_1349, 3, "simple/game3dkit199.hpp", false},
+    {"game3dkit200", "game3dkit200", kFuncs_1350, 2, "simple/game3dkit200.hpp", false},
+    {"game3dkit201", "game3dkit201", kFuncs_1351, 2, "simple/game3dkit201.hpp", false},
+    {"game3dkit202", "game3dkit202", kFuncs_1352, 2, "simple/game3dkit202.hpp", false},
+    {"game3dkit203", "game3dkit203", kFuncs_1353, 2, "simple/game3dkit203.hpp", false},
+    {"game3dkit204", "game3dkit204", kFuncs_1354, 3, "simple/game3dkit204.hpp", false},
+    {"game3dkit205", "game3dkit205", kFuncs_1355, 3, "simple/game3dkit205.hpp", false},
+    {"game3dkit206", "game3dkit206", kFuncs_1356, 2, "simple/game3dkit206.hpp", false},
+    {"game3dkit207", "game3dkit207", kFuncs_1357, 2, "simple/game3dkit207.hpp", false},
+    {"game3dkit208", "game3dkit208", kFuncs_1358, 2, "simple/game3dkit208.hpp", false},
+    {"game3dkit209", "game3dkit209", kFuncs_1359, 2, "simple/game3dkit209.hpp", false},
+    {"game3dkit210", "game3dkit210", kFuncs_1360, 3, "simple/game3dkit210.hpp", false},
+    {"game3dkit211", "game3dkit211", kFuncs_1361, 3, "simple/game3dkit211.hpp", false},
+    {"game3dkit212", "game3dkit212", kFuncs_1362, 2, "simple/game3dkit212.hpp", false},
+    {"game3dkit213", "game3dkit213", kFuncs_1363, 2, "simple/game3dkit213.hpp", false},
+    {"game3dkit214", "game3dkit214", kFuncs_1364, 2, "simple/game3dkit214.hpp", false},
+    {"game3dkit215", "game3dkit215", kFuncs_1365, 2, "simple/game3dkit215.hpp", false},
+    {"game3dkit216", "game3dkit216", kFuncs_1366, 3, "simple/game3dkit216.hpp", false},
+    {"game3dkit217", "game3dkit217", kFuncs_1367, 3, "simple/game3dkit217.hpp", false},
+    {"game3dkit218", "game3dkit218", kFuncs_1368, 2, "simple/game3dkit218.hpp", false},
+    {"game3dkit219", "game3dkit219", kFuncs_1369, 2, "simple/game3dkit219.hpp", false},
+    {"game3dkit220", "game3dkit220", kFuncs_1370, 2, "simple/game3dkit220.hpp", false},
+    {"game3dkit221", "game3dkit221", kFuncs_1371, 2, "simple/game3dkit221.hpp", false},
+    {"game3dkit222", "game3dkit222", kFuncs_1372, 3, "simple/game3dkit222.hpp", false},
+    {"game3dkit223", "game3dkit223", kFuncs_1373, 3, "simple/game3dkit223.hpp", false},
+    {"game3dkit224", "game3dkit224", kFuncs_1374, 2, "simple/game3dkit224.hpp", false},
+    {"game3dkit225", "game3dkit225", kFuncs_1375, 2, "simple/game3dkit225.hpp", false},
+    {"game3dkit226", "game3dkit226", kFuncs_1376, 2, "simple/game3dkit226.hpp", false},
+    {"game3dkit227", "game3dkit227", kFuncs_1377, 2, "simple/game3dkit227.hpp", false},
+    {"game3dkit228", "game3dkit228", kFuncs_1378, 3, "simple/game3dkit228.hpp", false},
+    {"game3dkit229", "game3dkit229", kFuncs_1379, 3, "simple/game3dkit229.hpp", false},
+    {"game3dkit230", "game3dkit230", kFuncs_1380, 2, "simple/game3dkit230.hpp", false},
+    {"game3dkit231", "game3dkit231", kFuncs_1381, 2, "simple/game3dkit231.hpp", false},
+    {"game3dkit232", "game3dkit232", kFuncs_1382, 2, "simple/game3dkit232.hpp", false},
+    {"game3dkit233", "game3dkit233", kFuncs_1383, 2, "simple/game3dkit233.hpp", false},
+    {"game3dkit234", "game3dkit234", kFuncs_1384, 3, "simple/game3dkit234.hpp", false},
+    {"game3dkit235", "game3dkit235", kFuncs_1385, 3, "simple/game3dkit235.hpp", false},
+    {"game3dkit236", "game3dkit236", kFuncs_1386, 2, "simple/game3dkit236.hpp", false},
+    {"game3dkit237", "game3dkit237", kFuncs_1387, 2, "simple/game3dkit237.hpp", false},
+    {"game3dkit238", "game3dkit238", kFuncs_1388, 2, "simple/game3dkit238.hpp", false},
+    {"game3dkit239", "game3dkit239", kFuncs_1389, 2, "simple/game3dkit239.hpp", false},
+    {"game3dkit240", "game3dkit240", kFuncs_1390, 3, "simple/game3dkit240.hpp", false},
+    {"game3dkit241", "game3dkit241", kFuncs_1391, 3, "simple/game3dkit241.hpp", false},
+    {"game3dkit242", "game3dkit242", kFuncs_1392, 2, "simple/game3dkit242.hpp", false},
+    {"game3dkit243", "game3dkit243", kFuncs_1393, 2, "simple/game3dkit243.hpp", false},
+    {"game3dkit244", "game3dkit244", kFuncs_1394, 2, "simple/game3dkit244.hpp", false},
+    {"game3dkit245", "game3dkit245", kFuncs_1395, 2, "simple/game3dkit245.hpp", false},
+    {"game3dkit246", "game3dkit246", kFuncs_1396, 3, "simple/game3dkit246.hpp", false},
+    {"game3dkit247", "game3dkit247", kFuncs_1397, 3, "simple/game3dkit247.hpp", false},
+    {"game3dkit248", "game3dkit248", kFuncs_1398, 2, "simple/game3dkit248.hpp", false},
+    {"game3dkit249", "game3dkit249", kFuncs_1399, 2, "simple/game3dkit249.hpp", false},
+    {"game3dkit250", "game3dkit250", kFuncs_1400, 2, "simple/game3dkit250.hpp", false},
+    {"game3dkit251", "game3dkit251", kFuncs_1401, 2, "simple/game3dkit251.hpp", false},
+    {"game3dkit252", "game3dkit252", kFuncs_1402, 3, "simple/game3dkit252.hpp", false},
+    {"game3dkit253", "game3dkit253", kFuncs_1403, 3, "simple/game3dkit253.hpp", false},
+    {"game3dkit254", "game3dkit254", kFuncs_1404, 2, "simple/game3dkit254.hpp", false},
+    {"game3dkit255", "game3dkit255", kFuncs_1405, 2, "simple/game3dkit255.hpp", false},
+    {"game3dkit256", "game3dkit256", kFuncs_1406, 2, "simple/game3dkit256.hpp", false},
+    {"game3dkit257", "game3dkit257", kFuncs_1407, 2, "simple/game3dkit257.hpp", false},
+    {"game3dkit258", "game3dkit258", kFuncs_1408, 3, "simple/game3dkit258.hpp", false},
+    {"game3dkit259", "game3dkit259", kFuncs_1409, 3, "simple/game3dkit259.hpp", false},
+    {"game3dkit260", "game3dkit260", kFuncs_1410, 2, "simple/game3dkit260.hpp", false},
+    {"game3dkit261", "game3dkit261", kFuncs_1411, 2, "simple/game3dkit261.hpp", false},
+    {"game3dkit262", "game3dkit262", kFuncs_1412, 2, "simple/game3dkit262.hpp", false},
+    {"game3dkit263", "game3dkit263", kFuncs_1413, 2, "simple/game3dkit263.hpp", false},
+    {"game3dkit264", "game3dkit264", kFuncs_1414, 3, "simple/game3dkit264.hpp", false},
+    {"game3dkit265", "game3dkit265", kFuncs_1415, 3, "simple/game3dkit265.hpp", false},
+    {"game3dkit266", "game3dkit266", kFuncs_1416, 2, "simple/game3dkit266.hpp", false},
+    {"game3dkit267", "game3dkit267", kFuncs_1417, 2, "simple/game3dkit267.hpp", false},
+    {"game3dkit268", "game3dkit268", kFuncs_1418, 2, "simple/game3dkit268.hpp", false},
+    {"game3dkit269", "game3dkit269", kFuncs_1419, 2, "simple/game3dkit269.hpp", false},
+    {"game3dkit270", "game3dkit270", kFuncs_1420, 3, "simple/game3dkit270.hpp", false},
+    {"game3dkit271", "game3dkit271", kFuncs_1421, 3, "simple/game3dkit271.hpp", false},
+    {"game3dkit272", "game3dkit272", kFuncs_1422, 2, "simple/game3dkit272.hpp", false},
+    {"game3dkit273", "game3dkit273", kFuncs_1423, 2, "simple/game3dkit273.hpp", false},
+    {"game3dkit274", "game3dkit274", kFuncs_1424, 2, "simple/game3dkit274.hpp", false},
+    {"game3dkit275", "game3dkit275", kFuncs_1425, 2, "simple/game3dkit275.hpp", false},
+    {"game3dkit276", "game3dkit276", kFuncs_1426, 3, "simple/game3dkit276.hpp", false},
+    {"game3dkit277", "game3dkit277", kFuncs_1427, 3, "simple/game3dkit277.hpp", false},
+    {"game3dkit278", "game3dkit278", kFuncs_1428, 2, "simple/game3dkit278.hpp", false},
+    {"game3dkit279", "game3dkit279", kFuncs_1429, 2, "simple/game3dkit279.hpp", false},
+    {"game3dkit280", "game3dkit280", kFuncs_1430, 2, "simple/game3dkit280.hpp", false},
+    {"game3dkit281", "game3dkit281", kFuncs_1431, 2, "simple/game3dkit281.hpp", false},
+    {"game3dkit282", "game3dkit282", kFuncs_1432, 3, "simple/game3dkit282.hpp", false},
+    {"game3dkit283", "game3dkit283", kFuncs_1433, 3, "simple/game3dkit283.hpp", false},
+    {"game3dkit284", "game3dkit284", kFuncs_1434, 2, "simple/game3dkit284.hpp", false},
+    {"game3dkit285", "game3dkit285", kFuncs_1435, 2, "simple/game3dkit285.hpp", false},
+    {"game3dkit286", "game3dkit286", kFuncs_1436, 2, "simple/game3dkit286.hpp", false},
+    {"game3dkit287", "game3dkit287", kFuncs_1437, 2, "simple/game3dkit287.hpp", false},
+    {"game3dkit288", "game3dkit288", kFuncs_1438, 3, "simple/game3dkit288.hpp", false},
+    {"game3dkit289", "game3dkit289", kFuncs_1439, 3, "simple/game3dkit289.hpp", false},
+    {"game3dkit290", "game3dkit290", kFuncs_1440, 2, "simple/game3dkit290.hpp", false},
+    {"game3dkit291", "game3dkit291", kFuncs_1441, 2, "simple/game3dkit291.hpp", false},
+    {"game3dkit292", "game3dkit292", kFuncs_1442, 2, "simple/game3dkit292.hpp", false},
+    {"game3dkit293", "game3dkit293", kFuncs_1443, 2, "simple/game3dkit293.hpp", false},
+    {"game3dkit294", "game3dkit294", kFuncs_1444, 3, "simple/game3dkit294.hpp", false},
+    {"game3dkit295", "game3dkit295", kFuncs_1445, 3, "simple/game3dkit295.hpp", false},
+    {"game3dkit296", "game3dkit296", kFuncs_1446, 2, "simple/game3dkit296.hpp", false},
+    {"game3dkit297", "game3dkit297", kFuncs_1447, 2, "simple/game3dkit297.hpp", false},
+    {"game3dkit298", "game3dkit298", kFuncs_1448, 2, "simple/game3dkit298.hpp", false},
+    {"game3dkit299", "game3dkit299", kFuncs_1449, 2, "simple/game3dkit299.hpp", false},
+    {"game3dkit300", "game3dkit300", kFuncs_1450, 3, "simple/game3dkit300.hpp", false},
+    {"game3dkit301", "game3dkit301", kFuncs_1451, 3, "simple/game3dkit301.hpp", false},
+    {"game3dkit302", "game3dkit302", kFuncs_1452, 2, "simple/game3dkit302.hpp", false},
+    {"game3dkit303", "game3dkit303", kFuncs_1453, 2, "simple/game3dkit303.hpp", false},
+    {"game3dkit304", "game3dkit304", kFuncs_1454, 2, "simple/game3dkit304.hpp", false},
+    {"game3dkit305", "game3dkit305", kFuncs_1455, 2, "simple/game3dkit305.hpp", false},
+    {"game3dkit306", "game3dkit306", kFuncs_1456, 3, "simple/game3dkit306.hpp", false},
+    {"game3dkit307", "game3dkit307", kFuncs_1457, 3, "simple/game3dkit307.hpp", false},
+    {"game3dkit308", "game3dkit308", kFuncs_1458, 2, "simple/game3dkit308.hpp", false},
+    {"game3dkit309", "game3dkit309", kFuncs_1459, 2, "simple/game3dkit309.hpp", false},
+    {"game3dkit310", "game3dkit310", kFuncs_1460, 2, "simple/game3dkit310.hpp", false},
+    {"game3dkit311", "game3dkit311", kFuncs_1461, 2, "simple/game3dkit311.hpp", false},
+    {"game3dkit312", "game3dkit312", kFuncs_1462, 3, "simple/game3dkit312.hpp", false},
+    {"game3dkit313", "game3dkit313", kFuncs_1463, 3, "simple/game3dkit313.hpp", false},
+    {"game3dkit314", "game3dkit314", kFuncs_1464, 2, "simple/game3dkit314.hpp", false},
+    {"game3dkit315", "game3dkit315", kFuncs_1465, 2, "simple/game3dkit315.hpp", false},
+    {"game3dkit316", "game3dkit316", kFuncs_1466, 2, "simple/game3dkit316.hpp", false},
+    {"game3dkit317", "game3dkit317", kFuncs_1467, 2, "simple/game3dkit317.hpp", false},
+    {"game3dkit318", "game3dkit318", kFuncs_1468, 3, "simple/game3dkit318.hpp", false},
+    {"game3dkit319", "game3dkit319", kFuncs_1469, 3, "simple/game3dkit319.hpp", false},
+    {"game3dkit320", "game3dkit320", kFuncs_1470, 2, "simple/game3dkit320.hpp", false},
+    {"game3dkit321", "game3dkit321", kFuncs_1471, 2, "simple/game3dkit321.hpp", false},
+    {"game3dkit322", "game3dkit322", kFuncs_1472, 2, "simple/game3dkit322.hpp", false},
+    {"game3dkit323", "game3dkit323", kFuncs_1473, 2, "simple/game3dkit323.hpp", false},
+    {"game3dkit324", "game3dkit324", kFuncs_1474, 3, "simple/game3dkit324.hpp", false},
+    {"game3dkit325", "game3dkit325", kFuncs_1475, 3, "simple/game3dkit325.hpp", false},
+    {"game3dkit326", "game3dkit326", kFuncs_1476, 2, "simple/game3dkit326.hpp", false},
+    {"game3dkit327", "game3dkit327", kFuncs_1477, 2, "simple/game3dkit327.hpp", false},
+    {"game3dkit328", "game3dkit328", kFuncs_1478, 2, "simple/game3dkit328.hpp", false},
+    {"game3dkit329", "game3dkit329", kFuncs_1479, 2, "simple/game3dkit329.hpp", false},
+    {"game3dkit330", "game3dkit330", kFuncs_1480, 3, "simple/game3dkit330.hpp", false},
+    {"game3dkit331", "game3dkit331", kFuncs_1481, 3, "simple/game3dkit331.hpp", false},
+    {"game3dkit332", "game3dkit332", kFuncs_1482, 2, "simple/game3dkit332.hpp", false},
+    {"game3dkit333", "game3dkit333", kFuncs_1483, 2, "simple/game3dkit333.hpp", false},
+    {"game3dkit334", "game3dkit334", kFuncs_1484, 2, "simple/game3dkit334.hpp", false},
+    {"game3dkit335", "game3dkit335", kFuncs_1485, 2, "simple/game3dkit335.hpp", false},
+    {"game3dkit336", "game3dkit336", kFuncs_1486, 3, "simple/game3dkit336.hpp", false},
+    {"game3dkit337", "game3dkit337", kFuncs_1487, 3, "simple/game3dkit337.hpp", false},
+    {"game3dkit338", "game3dkit338", kFuncs_1488, 2, "simple/game3dkit338.hpp", false},
+    {"game3dkit339", "game3dkit339", kFuncs_1489, 2, "simple/game3dkit339.hpp", false},
+    {"game3dkit340", "game3dkit340", kFuncs_1490, 2, "simple/game3dkit340.hpp", false},
+    {"game3dkit341", "game3dkit341", kFuncs_1491, 2, "simple/game3dkit341.hpp", false},
+    {"game3dkit342", "game3dkit342", kFuncs_1492, 3, "simple/game3dkit342.hpp", false},
+    {"game3dkit343", "game3dkit343", kFuncs_1493, 3, "simple/game3dkit343.hpp", false},
+    {"game3dkit344", "game3dkit344", kFuncs_1494, 2, "simple/game3dkit344.hpp", false},
+    {"game3dkit345", "game3dkit345", kFuncs_1495, 2, "simple/game3dkit345.hpp", false},
+    {"game3dkit346", "game3dkit346", kFuncs_1496, 2, "simple/game3dkit346.hpp", false},
+    {"game3dkit347", "game3dkit347", kFuncs_1497, 2, "simple/game3dkit347.hpp", false},
+    {"game3dkit348", "game3dkit348", kFuncs_1498, 3, "simple/game3dkit348.hpp", false},
+    {"game3dkit349", "game3dkit349", kFuncs_1499, 3, "simple/game3dkit349.hpp", false},
+    {"game3dkit350", "game3dkit350", kFuncs_1500, 2, "simple/game3dkit350.hpp", false},
+    {"game3dkit351", "game3dkit351", kFuncs_1501, 2, "simple/game3dkit351.hpp", false},
+    {"game3dkit352", "game3dkit352", kFuncs_1502, 2, "simple/game3dkit352.hpp", false},
+    {"game3dkit353", "game3dkit353", kFuncs_1503, 2, "simple/game3dkit353.hpp", false},
+    {"game3dkit354", "game3dkit354", kFuncs_1504, 3, "simple/game3dkit354.hpp", false},
+    {"game3dkit355", "game3dkit355", kFuncs_1505, 3, "simple/game3dkit355.hpp", false},
+    {"game3dkit356", "game3dkit356", kFuncs_1506, 2, "simple/game3dkit356.hpp", false},
+    {"game3dkit357", "game3dkit357", kFuncs_1507, 2, "simple/game3dkit357.hpp", false},
+    {"game3dkit358", "game3dkit358", kFuncs_1508, 2, "simple/game3dkit358.hpp", false},
+    {"game3dkit359", "game3dkit359", kFuncs_1509, 2, "simple/game3dkit359.hpp", false},
+    {"game3dkit360", "game3dkit360", kFuncs_1510, 3, "simple/game3dkit360.hpp", false},
+    {"game3dkit361", "game3dkit361", kFuncs_1511, 3, "simple/game3dkit361.hpp", false},
+    {"game3dkit362", "game3dkit362", kFuncs_1512, 2, "simple/game3dkit362.hpp", false},
+    {"game3dkit363", "game3dkit363", kFuncs_1513, 2, "simple/game3dkit363.hpp", false},
+    {"game3dkit364", "game3dkit364", kFuncs_1514, 2, "simple/game3dkit364.hpp", false},
+    {"game3dkit365", "game3dkit365", kFuncs_1515, 2, "simple/game3dkit365.hpp", false},
+    {"game3dkit366", "game3dkit366", kFuncs_1516, 3, "simple/game3dkit366.hpp", false},
+    {"game3dkit367", "game3dkit367", kFuncs_1517, 3, "simple/game3dkit367.hpp", false},
+    {"game3dkit368", "game3dkit368", kFuncs_1518, 2, "simple/game3dkit368.hpp", false},
+    {"game3dkit369", "game3dkit369", kFuncs_1519, 2, "simple/game3dkit369.hpp", false},
+    {"game3dkit370", "game3dkit370", kFuncs_1520, 2, "simple/game3dkit370.hpp", false},
+    {"game3dkit371", "game3dkit371", kFuncs_1521, 2, "simple/game3dkit371.hpp", false},
+    {"game3dkit372", "game3dkit372", kFuncs_1522, 3, "simple/game3dkit372.hpp", false},
+    {"game3dkit373", "game3dkit373", kFuncs_1523, 3, "simple/game3dkit373.hpp", false},
+    {"game3dkit374", "game3dkit374", kFuncs_1524, 2, "simple/game3dkit374.hpp", false},
+    {"game3dkit375", "game3dkit375", kFuncs_1525, 2, "simple/game3dkit375.hpp", false},
+    {"game3dkit376", "game3dkit376", kFuncs_1526, 2, "simple/game3dkit376.hpp", false},
+    {"game3dkit377", "game3dkit377", kFuncs_1527, 2, "simple/game3dkit377.hpp", false},
+    {"game3dkit378", "game3dkit378", kFuncs_1528, 3, "simple/game3dkit378.hpp", false},
+    {"game3dkit379", "game3dkit379", kFuncs_1529, 3, "simple/game3dkit379.hpp", false},
+    {"game3dkit380", "game3dkit380", kFuncs_1530, 2, "simple/game3dkit380.hpp", false},
+    {"game3dkit381", "game3dkit381", kFuncs_1531, 2, "simple/game3dkit381.hpp", false},
+    {"game3dkit382", "game3dkit382", kFuncs_1532, 2, "simple/game3dkit382.hpp", false},
+    {"game3dkit383", "game3dkit383", kFuncs_1533, 2, "simple/game3dkit383.hpp", false},
+    {"game3dkit384", "game3dkit384", kFuncs_1534, 3, "simple/game3dkit384.hpp", false},
+    {"game3dkit385", "game3dkit385", kFuncs_1535, 3, "simple/game3dkit385.hpp", false},
+    {"game3dkit386", "game3dkit386", kFuncs_1536, 2, "simple/game3dkit386.hpp", false},
+    {"game3dkit387", "game3dkit387", kFuncs_1537, 2, "simple/game3dkit387.hpp", false},
+    {"game3dkit388", "game3dkit388", kFuncs_1538, 2, "simple/game3dkit388.hpp", false},
+    {"game3dkit389", "game3dkit389", kFuncs_1539, 2, "simple/game3dkit389.hpp", false},
+    {"game3dkit390", "game3dkit390", kFuncs_1540, 3, "simple/game3dkit390.hpp", false},
+    {"game3dkit391", "game3dkit391", kFuncs_1541, 3, "simple/game3dkit391.hpp", false},
+    {"game3dkit392", "game3dkit392", kFuncs_1542, 2, "simple/game3dkit392.hpp", false},
+    {"game3dkit393", "game3dkit393", kFuncs_1543, 2, "simple/game3dkit393.hpp", false},
+    {"game3dkit394", "game3dkit394", kFuncs_1544, 2, "simple/game3dkit394.hpp", false},
+    {"game3dkit395", "game3dkit395", kFuncs_1545, 2, "simple/game3dkit395.hpp", false},
+    {"game3dkit396", "game3dkit396", kFuncs_1546, 3, "simple/game3dkit396.hpp", false},
+    {"game3dkit397", "game3dkit397", kFuncs_1547, 3, "simple/game3dkit397.hpp", false},
+    {"game3dkit398", "game3dkit398", kFuncs_1548, 2, "simple/game3dkit398.hpp", false},
+    {"game3dkit399", "game3dkit399", kFuncs_1549, 2, "simple/game3dkit399.hpp", false},
+    {"game3dkit400", "game3dkit400", kFuncs_1550, 2, "simple/game3dkit400.hpp", false},
+    {"game3dkit401", "game3dkit401", kFuncs_1551, 2, "simple/game3dkit401.hpp", false},
+    {"game3dkit402", "game3dkit402", kFuncs_1552, 3, "simple/game3dkit402.hpp", false},
+    {"game3dkit403", "game3dkit403", kFuncs_1553, 3, "simple/game3dkit403.hpp", false},
+    {"game3dkit404", "game3dkit404", kFuncs_1554, 2, "simple/game3dkit404.hpp", false},
+    {"game3dkit405", "game3dkit405", kFuncs_1555, 2, "simple/game3dkit405.hpp", false},
+    {"game3dkit406", "game3dkit406", kFuncs_1556, 2, "simple/game3dkit406.hpp", false},
+    {"game3dkit407", "game3dkit407", kFuncs_1557, 2, "simple/game3dkit407.hpp", false},
+    {"game3dkit408", "game3dkit408", kFuncs_1558, 3, "simple/game3dkit408.hpp", false},
+    {"game3dkit409", "game3dkit409", kFuncs_1559, 3, "simple/game3dkit409.hpp", false},
+    {"game3dkit410", "game3dkit410", kFuncs_1560, 2, "simple/game3dkit410.hpp", false},
+    {"game3dkit411", "game3dkit411", kFuncs_1561, 2, "simple/game3dkit411.hpp", false},
+    {"game3dkit412", "game3dkit412", kFuncs_1562, 2, "simple/game3dkit412.hpp", false},
+    {"game3dkit413", "game3dkit413", kFuncs_1563, 2, "simple/game3dkit413.hpp", false},
+    {"game3dkit414", "game3dkit414", kFuncs_1564, 3, "simple/game3dkit414.hpp", false},
+    {"game3dkit415", "game3dkit415", kFuncs_1565, 3, "simple/game3dkit415.hpp", false},
+    {"game3dkit416", "game3dkit416", kFuncs_1566, 2, "simple/game3dkit416.hpp", false},
+    {"game3dkit417", "game3dkit417", kFuncs_1567, 2, "simple/game3dkit417.hpp", false},
+    {"game3dkit418", "game3dkit418", kFuncs_1568, 2, "simple/game3dkit418.hpp", false},
+    {"game3dkit419", "game3dkit419", kFuncs_1569, 2, "simple/game3dkit419.hpp", false},
+    {"game3dkit420", "game3dkit420", kFuncs_1570, 3, "simple/game3dkit420.hpp", false},
+    {"game3dkit421", "game3dkit421", kFuncs_1571, 3, "simple/game3dkit421.hpp", false},
+    {"game3dkit422", "game3dkit422", kFuncs_1572, 2, "simple/game3dkit422.hpp", false},
+    {"game3dkit423", "game3dkit423", kFuncs_1573, 2, "simple/game3dkit423.hpp", false},
+    {"game3dkit424", "game3dkit424", kFuncs_1574, 2, "simple/game3dkit424.hpp", false},
+    {"game3dkit425", "game3dkit425", kFuncs_1575, 2, "simple/game3dkit425.hpp", false},
+    {"game3dkit426", "game3dkit426", kFuncs_1576, 3, "simple/game3dkit426.hpp", false},
+    {"game3dkit427", "game3dkit427", kFuncs_1577, 3, "simple/game3dkit427.hpp", false},
+    {"game3dkit428", "game3dkit428", kFuncs_1578, 2, "simple/game3dkit428.hpp", false},
+    {"game3dkit429", "game3dkit429", kFuncs_1579, 2, "simple/game3dkit429.hpp", false},
+    {"game3dkit430", "game3dkit430", kFuncs_1580, 2, "simple/game3dkit430.hpp", false},
+    {"game3dkit431", "game3dkit431", kFuncs_1581, 2, "simple/game3dkit431.hpp", false},
+    {"game3dkit432", "game3dkit432", kFuncs_1582, 3, "simple/game3dkit432.hpp", false},
+    {"game3dkit433", "game3dkit433", kFuncs_1583, 3, "simple/game3dkit433.hpp", false},
+    {"game3dkit434", "game3dkit434", kFuncs_1584, 2, "simple/game3dkit434.hpp", false},
+    {"game3dkit435", "game3dkit435", kFuncs_1585, 2, "simple/game3dkit435.hpp", false},
+    {"game3dkit436", "game3dkit436", kFuncs_1586, 2, "simple/game3dkit436.hpp", false},
+    {"game3dkit437", "game3dkit437", kFuncs_1587, 2, "simple/game3dkit437.hpp", false},
+    {"game3dkit438", "game3dkit438", kFuncs_1588, 3, "simple/game3dkit438.hpp", false},
+    {"game3dkit439", "game3dkit439", kFuncs_1589, 3, "simple/game3dkit439.hpp", false},
+    {"game3dkit440", "game3dkit440", kFuncs_1590, 2, "simple/game3dkit440.hpp", false},
+    {"game3dkit441", "game3dkit441", kFuncs_1591, 2, "simple/game3dkit441.hpp", false},
+    {"game3dkit442", "game3dkit442", kFuncs_1592, 2, "simple/game3dkit442.hpp", false},
+    {"game3dkit443", "game3dkit443", kFuncs_1593, 2, "simple/game3dkit443.hpp", false},
+    {"game3dkit444", "game3dkit444", kFuncs_1594, 3, "simple/game3dkit444.hpp", false},
+    {"game3dkit445", "game3dkit445", kFuncs_1595, 3, "simple/game3dkit445.hpp", false},
+    {"game3dkit446", "game3dkit446", kFuncs_1596, 2, "simple/game3dkit446.hpp", false},
+    {"game3dkit447", "game3dkit447", kFuncs_1597, 2, "simple/game3dkit447.hpp", false},
+    {"game3dkit448", "game3dkit448", kFuncs_1598, 2, "simple/game3dkit448.hpp", false},
+    {"game3dkit449", "game3dkit449", kFuncs_1599, 2, "simple/game3dkit449.hpp", false},
+    {"game3dkit450", "game3dkit450", kFuncs_1600, 3, "simple/game3dkit450.hpp", false},
+    {"game3dkit451", "game3dkit451", kFuncs_1601, 3, "simple/game3dkit451.hpp", false},
+    {"game3dkit452", "game3dkit452", kFuncs_1602, 2, "simple/game3dkit452.hpp", false},
+    {"game3dkit453", "game3dkit453", kFuncs_1603, 2, "simple/game3dkit453.hpp", false},
+    {"game3dkit454", "game3dkit454", kFuncs_1604, 2, "simple/game3dkit454.hpp", false},
+    {"game3dkit455", "game3dkit455", kFuncs_1605, 2, "simple/game3dkit455.hpp", false},
+    {"game3dkit456", "game3dkit456", kFuncs_1606, 3, "simple/game3dkit456.hpp", false},
+    {"game3dkit457", "game3dkit457", kFuncs_1607, 3, "simple/game3dkit457.hpp", false},
+    {"game3dkit458", "game3dkit458", kFuncs_1608, 2, "simple/game3dkit458.hpp", false},
+    {"game3dkit459", "game3dkit459", kFuncs_1609, 2, "simple/game3dkit459.hpp", false},
+    {"game3dkit460", "game3dkit460", kFuncs_1610, 2, "simple/game3dkit460.hpp", false},
+    {"game3dkit461", "game3dkit461", kFuncs_1611, 2, "simple/game3dkit461.hpp", false},
+    {"game3dkit462", "game3dkit462", kFuncs_1612, 3, "simple/game3dkit462.hpp", false},
+    {"game3dkit463", "game3dkit463", kFuncs_1613, 3, "simple/game3dkit463.hpp", false},
+    {"game3dkit464", "game3dkit464", kFuncs_1614, 2, "simple/game3dkit464.hpp", false},
+    {"game3dkit465", "game3dkit465", kFuncs_1615, 2, "simple/game3dkit465.hpp", false},
+    {"game3dkit466", "game3dkit466", kFuncs_1616, 2, "simple/game3dkit466.hpp", false},
+    {"game3dkit467", "game3dkit467", kFuncs_1617, 2, "simple/game3dkit467.hpp", false},
+    {"game3dkit468", "game3dkit468", kFuncs_1618, 3, "simple/game3dkit468.hpp", false},
+    {"game3dkit469", "game3dkit469", kFuncs_1619, 3, "simple/game3dkit469.hpp", false},
+    {"game3dkit470", "game3dkit470", kFuncs_1620, 2, "simple/game3dkit470.hpp", false},
+    {"game3dkit471", "game3dkit471", kFuncs_1621, 2, "simple/game3dkit471.hpp", false},
+    {"game3dkit472", "game3dkit472", kFuncs_1622, 2, "simple/game3dkit472.hpp", false},
+    {"game3dkit473", "game3dkit473", kFuncs_1623, 2, "simple/game3dkit473.hpp", false},
+    {"game3dkit474", "game3dkit474", kFuncs_1624, 3, "simple/game3dkit474.hpp", false},
+    {"game3dkit475", "game3dkit475", kFuncs_1625, 3, "simple/game3dkit475.hpp", false},
+    {"game3dkit476", "game3dkit476", kFuncs_1626, 2, "simple/game3dkit476.hpp", false},
+    {"game3dkit477", "game3dkit477", kFuncs_1627, 2, "simple/game3dkit477.hpp", false},
+    {"game3dkit478", "game3dkit478", kFuncs_1628, 2, "simple/game3dkit478.hpp", false},
+    {"game3dkit479", "game3dkit479", kFuncs_1629, 2, "simple/game3dkit479.hpp", false},
+    {"game3dkit480", "game3dkit480", kFuncs_1630, 3, "simple/game3dkit480.hpp", false},
+    {"game3dkit481", "game3dkit481", kFuncs_1631, 3, "simple/game3dkit481.hpp", false},
+    {"game3dkit482", "game3dkit482", kFuncs_1632, 2, "simple/game3dkit482.hpp", false},
+    {"game3dkit483", "game3dkit483", kFuncs_1633, 2, "simple/game3dkit483.hpp", false},
+    {"game3dkit484", "game3dkit484", kFuncs_1634, 2, "simple/game3dkit484.hpp", false},
+    {"game3dkit485", "game3dkit485", kFuncs_1635, 2, "simple/game3dkit485.hpp", false},
+    {"game3dkit486", "game3dkit486", kFuncs_1636, 3, "simple/game3dkit486.hpp", false},
+    {"game3dkit487", "game3dkit487", kFuncs_1637, 3, "simple/game3dkit487.hpp", false},
+    {"game3dkit488", "game3dkit488", kFuncs_1638, 2, "simple/game3dkit488.hpp", false},
+    {"game3dkit489", "game3dkit489", kFuncs_1639, 2, "simple/game3dkit489.hpp", false},
+    {"game3dkit490", "game3dkit490", kFuncs_1640, 2, "simple/game3dkit490.hpp", false},
+    {"game3dkit491", "game3dkit491", kFuncs_1641, 2, "simple/game3dkit491.hpp", false},
+    {"game3dkit492", "game3dkit492", kFuncs_1642, 3, "simple/game3dkit492.hpp", false},
+    {"game3dkit493", "game3dkit493", kFuncs_1643, 3, "simple/game3dkit493.hpp", false},
+    {"game3dkit494", "game3dkit494", kFuncs_1644, 2, "simple/game3dkit494.hpp", false},
+    {"game3dkit495", "game3dkit495", kFuncs_1645, 2, "simple/game3dkit495.hpp", false},
+    {"game3dkit496", "game3dkit496", kFuncs_1646, 2, "simple/game3dkit496.hpp", false},
+    {"game3dkit497", "game3dkit497", kFuncs_1647, 2, "simple/game3dkit497.hpp", false},
+    {"game3dkit498", "game3dkit498", kFuncs_1648, 3, "simple/game3dkit498.hpp", false},
+    {"game3dkit499", "game3dkit499", kFuncs_1649, 3, "simple/game3dkit499.hpp", false},
+    {"game3dkit500", "game3dkit500", kFuncs_1650, 2, "simple/game3dkit500.hpp", false},
     {nullptr, nullptr, nullptr, 0, nullptr, false}
 };
 
-const std::size_t kSimpleModuleCount = 1151;
+const std::size_t kSimpleModuleCount = 1651;
 
 } // namespace
 

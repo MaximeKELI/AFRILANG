@@ -1,6 +1,6 @@
 # Bibliothèques simples AFRILANG
 
-**1151 modules** importables via `import "std/nom"` puis `use nom`.
+**1651 modules** importables via `import "std/nom"` puis `use nom`.
 
 ## std/absnum
 
@@ -8060,3 +8060,3670 @@
 
 - `approach(cur number, target number, maxDelta number) → number`
 - `follow(cam number, target number, dt number) → number`
+
+## std/game3dkit001
+
+`import "std/game3dkit001"` · `use game3dkit001`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit002
+
+`import "std/game3dkit002"` · `use game3dkit002`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit003
+
+`import "std/game3dkit003"` · `use game3dkit003`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit004
+
+`import "std/game3dkit004"` · `use game3dkit004`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit005
+
+`import "std/game3dkit005"` · `use game3dkit005`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit006
+
+`import "std/game3dkit006"` · `use game3dkit006`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit007
+
+`import "std/game3dkit007"` · `use game3dkit007`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit008
+
+`import "std/game3dkit008"` · `use game3dkit008`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit009
+
+`import "std/game3dkit009"` · `use game3dkit009`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit010
+
+`import "std/game3dkit010"` · `use game3dkit010`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit011
+
+`import "std/game3dkit011"` · `use game3dkit011`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit012
+
+`import "std/game3dkit012"` · `use game3dkit012`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit013
+
+`import "std/game3dkit013"` · `use game3dkit013`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit014
+
+`import "std/game3dkit014"` · `use game3dkit014`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit015
+
+`import "std/game3dkit015"` · `use game3dkit015`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit016
+
+`import "std/game3dkit016"` · `use game3dkit016`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit017
+
+`import "std/game3dkit017"` · `use game3dkit017`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit018
+
+`import "std/game3dkit018"` · `use game3dkit018`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit019
+
+`import "std/game3dkit019"` · `use game3dkit019`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit020
+
+`import "std/game3dkit020"` · `use game3dkit020`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit021
+
+`import "std/game3dkit021"` · `use game3dkit021`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit022
+
+`import "std/game3dkit022"` · `use game3dkit022`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit023
+
+`import "std/game3dkit023"` · `use game3dkit023`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit024
+
+`import "std/game3dkit024"` · `use game3dkit024`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit025
+
+`import "std/game3dkit025"` · `use game3dkit025`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit026
+
+`import "std/game3dkit026"` · `use game3dkit026`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit027
+
+`import "std/game3dkit027"` · `use game3dkit027`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit028
+
+`import "std/game3dkit028"` · `use game3dkit028`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit029
+
+`import "std/game3dkit029"` · `use game3dkit029`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit030
+
+`import "std/game3dkit030"` · `use game3dkit030`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit031
+
+`import "std/game3dkit031"` · `use game3dkit031`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit032
+
+`import "std/game3dkit032"` · `use game3dkit032`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit033
+
+`import "std/game3dkit033"` · `use game3dkit033`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit034
+
+`import "std/game3dkit034"` · `use game3dkit034`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit035
+
+`import "std/game3dkit035"` · `use game3dkit035`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit036
+
+`import "std/game3dkit036"` · `use game3dkit036`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit037
+
+`import "std/game3dkit037"` · `use game3dkit037`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit038
+
+`import "std/game3dkit038"` · `use game3dkit038`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit039
+
+`import "std/game3dkit039"` · `use game3dkit039`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit040
+
+`import "std/game3dkit040"` · `use game3dkit040`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit041
+
+`import "std/game3dkit041"` · `use game3dkit041`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit042
+
+`import "std/game3dkit042"` · `use game3dkit042`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit043
+
+`import "std/game3dkit043"` · `use game3dkit043`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit044
+
+`import "std/game3dkit044"` · `use game3dkit044`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit045
+
+`import "std/game3dkit045"` · `use game3dkit045`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit046
+
+`import "std/game3dkit046"` · `use game3dkit046`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit047
+
+`import "std/game3dkit047"` · `use game3dkit047`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit048
+
+`import "std/game3dkit048"` · `use game3dkit048`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit049
+
+`import "std/game3dkit049"` · `use game3dkit049`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit050
+
+`import "std/game3dkit050"` · `use game3dkit050`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit051
+
+`import "std/game3dkit051"` · `use game3dkit051`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit052
+
+`import "std/game3dkit052"` · `use game3dkit052`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit053
+
+`import "std/game3dkit053"` · `use game3dkit053`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit054
+
+`import "std/game3dkit054"` · `use game3dkit054`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit055
+
+`import "std/game3dkit055"` · `use game3dkit055`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit056
+
+`import "std/game3dkit056"` · `use game3dkit056`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit057
+
+`import "std/game3dkit057"` · `use game3dkit057`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit058
+
+`import "std/game3dkit058"` · `use game3dkit058`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit059
+
+`import "std/game3dkit059"` · `use game3dkit059`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit060
+
+`import "std/game3dkit060"` · `use game3dkit060`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit061
+
+`import "std/game3dkit061"` · `use game3dkit061`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit062
+
+`import "std/game3dkit062"` · `use game3dkit062`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit063
+
+`import "std/game3dkit063"` · `use game3dkit063`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit064
+
+`import "std/game3dkit064"` · `use game3dkit064`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit065
+
+`import "std/game3dkit065"` · `use game3dkit065`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit066
+
+`import "std/game3dkit066"` · `use game3dkit066`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit067
+
+`import "std/game3dkit067"` · `use game3dkit067`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit068
+
+`import "std/game3dkit068"` · `use game3dkit068`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit069
+
+`import "std/game3dkit069"` · `use game3dkit069`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit070
+
+`import "std/game3dkit070"` · `use game3dkit070`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit071
+
+`import "std/game3dkit071"` · `use game3dkit071`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit072
+
+`import "std/game3dkit072"` · `use game3dkit072`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit073
+
+`import "std/game3dkit073"` · `use game3dkit073`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit074
+
+`import "std/game3dkit074"` · `use game3dkit074`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit075
+
+`import "std/game3dkit075"` · `use game3dkit075`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit076
+
+`import "std/game3dkit076"` · `use game3dkit076`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit077
+
+`import "std/game3dkit077"` · `use game3dkit077`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit078
+
+`import "std/game3dkit078"` · `use game3dkit078`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit079
+
+`import "std/game3dkit079"` · `use game3dkit079`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit080
+
+`import "std/game3dkit080"` · `use game3dkit080`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit081
+
+`import "std/game3dkit081"` · `use game3dkit081`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit082
+
+`import "std/game3dkit082"` · `use game3dkit082`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit083
+
+`import "std/game3dkit083"` · `use game3dkit083`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit084
+
+`import "std/game3dkit084"` · `use game3dkit084`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit085
+
+`import "std/game3dkit085"` · `use game3dkit085`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit086
+
+`import "std/game3dkit086"` · `use game3dkit086`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit087
+
+`import "std/game3dkit087"` · `use game3dkit087`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit088
+
+`import "std/game3dkit088"` · `use game3dkit088`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit089
+
+`import "std/game3dkit089"` · `use game3dkit089`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit090
+
+`import "std/game3dkit090"` · `use game3dkit090`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit091
+
+`import "std/game3dkit091"` · `use game3dkit091`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit092
+
+`import "std/game3dkit092"` · `use game3dkit092`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit093
+
+`import "std/game3dkit093"` · `use game3dkit093`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit094
+
+`import "std/game3dkit094"` · `use game3dkit094`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit095
+
+`import "std/game3dkit095"` · `use game3dkit095`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit096
+
+`import "std/game3dkit096"` · `use game3dkit096`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit097
+
+`import "std/game3dkit097"` · `use game3dkit097`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit098
+
+`import "std/game3dkit098"` · `use game3dkit098`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit099
+
+`import "std/game3dkit099"` · `use game3dkit099`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit100
+
+`import "std/game3dkit100"` · `use game3dkit100`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit101
+
+`import "std/game3dkit101"` · `use game3dkit101`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit102
+
+`import "std/game3dkit102"` · `use game3dkit102`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit103
+
+`import "std/game3dkit103"` · `use game3dkit103`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit104
+
+`import "std/game3dkit104"` · `use game3dkit104`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit105
+
+`import "std/game3dkit105"` · `use game3dkit105`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit106
+
+`import "std/game3dkit106"` · `use game3dkit106`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit107
+
+`import "std/game3dkit107"` · `use game3dkit107`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit108
+
+`import "std/game3dkit108"` · `use game3dkit108`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit109
+
+`import "std/game3dkit109"` · `use game3dkit109`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit110
+
+`import "std/game3dkit110"` · `use game3dkit110`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit111
+
+`import "std/game3dkit111"` · `use game3dkit111`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit112
+
+`import "std/game3dkit112"` · `use game3dkit112`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit113
+
+`import "std/game3dkit113"` · `use game3dkit113`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit114
+
+`import "std/game3dkit114"` · `use game3dkit114`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit115
+
+`import "std/game3dkit115"` · `use game3dkit115`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit116
+
+`import "std/game3dkit116"` · `use game3dkit116`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit117
+
+`import "std/game3dkit117"` · `use game3dkit117`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit118
+
+`import "std/game3dkit118"` · `use game3dkit118`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit119
+
+`import "std/game3dkit119"` · `use game3dkit119`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit120
+
+`import "std/game3dkit120"` · `use game3dkit120`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit121
+
+`import "std/game3dkit121"` · `use game3dkit121`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit122
+
+`import "std/game3dkit122"` · `use game3dkit122`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit123
+
+`import "std/game3dkit123"` · `use game3dkit123`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit124
+
+`import "std/game3dkit124"` · `use game3dkit124`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit125
+
+`import "std/game3dkit125"` · `use game3dkit125`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit126
+
+`import "std/game3dkit126"` · `use game3dkit126`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit127
+
+`import "std/game3dkit127"` · `use game3dkit127`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit128
+
+`import "std/game3dkit128"` · `use game3dkit128`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit129
+
+`import "std/game3dkit129"` · `use game3dkit129`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit130
+
+`import "std/game3dkit130"` · `use game3dkit130`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit131
+
+`import "std/game3dkit131"` · `use game3dkit131`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit132
+
+`import "std/game3dkit132"` · `use game3dkit132`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit133
+
+`import "std/game3dkit133"` · `use game3dkit133`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit134
+
+`import "std/game3dkit134"` · `use game3dkit134`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit135
+
+`import "std/game3dkit135"` · `use game3dkit135`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit136
+
+`import "std/game3dkit136"` · `use game3dkit136`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit137
+
+`import "std/game3dkit137"` · `use game3dkit137`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit138
+
+`import "std/game3dkit138"` · `use game3dkit138`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit139
+
+`import "std/game3dkit139"` · `use game3dkit139`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit140
+
+`import "std/game3dkit140"` · `use game3dkit140`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit141
+
+`import "std/game3dkit141"` · `use game3dkit141`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit142
+
+`import "std/game3dkit142"` · `use game3dkit142`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit143
+
+`import "std/game3dkit143"` · `use game3dkit143`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit144
+
+`import "std/game3dkit144"` · `use game3dkit144`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit145
+
+`import "std/game3dkit145"` · `use game3dkit145`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit146
+
+`import "std/game3dkit146"` · `use game3dkit146`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit147
+
+`import "std/game3dkit147"` · `use game3dkit147`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit148
+
+`import "std/game3dkit148"` · `use game3dkit148`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit149
+
+`import "std/game3dkit149"` · `use game3dkit149`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit150
+
+`import "std/game3dkit150"` · `use game3dkit150`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit151
+
+`import "std/game3dkit151"` · `use game3dkit151`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit152
+
+`import "std/game3dkit152"` · `use game3dkit152`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit153
+
+`import "std/game3dkit153"` · `use game3dkit153`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit154
+
+`import "std/game3dkit154"` · `use game3dkit154`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit155
+
+`import "std/game3dkit155"` · `use game3dkit155`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit156
+
+`import "std/game3dkit156"` · `use game3dkit156`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit157
+
+`import "std/game3dkit157"` · `use game3dkit157`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit158
+
+`import "std/game3dkit158"` · `use game3dkit158`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit159
+
+`import "std/game3dkit159"` · `use game3dkit159`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit160
+
+`import "std/game3dkit160"` · `use game3dkit160`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit161
+
+`import "std/game3dkit161"` · `use game3dkit161`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit162
+
+`import "std/game3dkit162"` · `use game3dkit162`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit163
+
+`import "std/game3dkit163"` · `use game3dkit163`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit164
+
+`import "std/game3dkit164"` · `use game3dkit164`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit165
+
+`import "std/game3dkit165"` · `use game3dkit165`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit166
+
+`import "std/game3dkit166"` · `use game3dkit166`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit167
+
+`import "std/game3dkit167"` · `use game3dkit167`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit168
+
+`import "std/game3dkit168"` · `use game3dkit168`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit169
+
+`import "std/game3dkit169"` · `use game3dkit169`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit170
+
+`import "std/game3dkit170"` · `use game3dkit170`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit171
+
+`import "std/game3dkit171"` · `use game3dkit171`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit172
+
+`import "std/game3dkit172"` · `use game3dkit172`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit173
+
+`import "std/game3dkit173"` · `use game3dkit173`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit174
+
+`import "std/game3dkit174"` · `use game3dkit174`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit175
+
+`import "std/game3dkit175"` · `use game3dkit175`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit176
+
+`import "std/game3dkit176"` · `use game3dkit176`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit177
+
+`import "std/game3dkit177"` · `use game3dkit177`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit178
+
+`import "std/game3dkit178"` · `use game3dkit178`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit179
+
+`import "std/game3dkit179"` · `use game3dkit179`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit180
+
+`import "std/game3dkit180"` · `use game3dkit180`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit181
+
+`import "std/game3dkit181"` · `use game3dkit181`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit182
+
+`import "std/game3dkit182"` · `use game3dkit182`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit183
+
+`import "std/game3dkit183"` · `use game3dkit183`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit184
+
+`import "std/game3dkit184"` · `use game3dkit184`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit185
+
+`import "std/game3dkit185"` · `use game3dkit185`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit186
+
+`import "std/game3dkit186"` · `use game3dkit186`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit187
+
+`import "std/game3dkit187"` · `use game3dkit187`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit188
+
+`import "std/game3dkit188"` · `use game3dkit188`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit189
+
+`import "std/game3dkit189"` · `use game3dkit189`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit190
+
+`import "std/game3dkit190"` · `use game3dkit190`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit191
+
+`import "std/game3dkit191"` · `use game3dkit191`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit192
+
+`import "std/game3dkit192"` · `use game3dkit192`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit193
+
+`import "std/game3dkit193"` · `use game3dkit193`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit194
+
+`import "std/game3dkit194"` · `use game3dkit194`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit195
+
+`import "std/game3dkit195"` · `use game3dkit195`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit196
+
+`import "std/game3dkit196"` · `use game3dkit196`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit197
+
+`import "std/game3dkit197"` · `use game3dkit197`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit198
+
+`import "std/game3dkit198"` · `use game3dkit198`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit199
+
+`import "std/game3dkit199"` · `use game3dkit199`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit200
+
+`import "std/game3dkit200"` · `use game3dkit200`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit201
+
+`import "std/game3dkit201"` · `use game3dkit201`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit202
+
+`import "std/game3dkit202"` · `use game3dkit202`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit203
+
+`import "std/game3dkit203"` · `use game3dkit203`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit204
+
+`import "std/game3dkit204"` · `use game3dkit204`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit205
+
+`import "std/game3dkit205"` · `use game3dkit205`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit206
+
+`import "std/game3dkit206"` · `use game3dkit206`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit207
+
+`import "std/game3dkit207"` · `use game3dkit207`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit208
+
+`import "std/game3dkit208"` · `use game3dkit208`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit209
+
+`import "std/game3dkit209"` · `use game3dkit209`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit210
+
+`import "std/game3dkit210"` · `use game3dkit210`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit211
+
+`import "std/game3dkit211"` · `use game3dkit211`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit212
+
+`import "std/game3dkit212"` · `use game3dkit212`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit213
+
+`import "std/game3dkit213"` · `use game3dkit213`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit214
+
+`import "std/game3dkit214"` · `use game3dkit214`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit215
+
+`import "std/game3dkit215"` · `use game3dkit215`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit216
+
+`import "std/game3dkit216"` · `use game3dkit216`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit217
+
+`import "std/game3dkit217"` · `use game3dkit217`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit218
+
+`import "std/game3dkit218"` · `use game3dkit218`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit219
+
+`import "std/game3dkit219"` · `use game3dkit219`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit220
+
+`import "std/game3dkit220"` · `use game3dkit220`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit221
+
+`import "std/game3dkit221"` · `use game3dkit221`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit222
+
+`import "std/game3dkit222"` · `use game3dkit222`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit223
+
+`import "std/game3dkit223"` · `use game3dkit223`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit224
+
+`import "std/game3dkit224"` · `use game3dkit224`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit225
+
+`import "std/game3dkit225"` · `use game3dkit225`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit226
+
+`import "std/game3dkit226"` · `use game3dkit226`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit227
+
+`import "std/game3dkit227"` · `use game3dkit227`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit228
+
+`import "std/game3dkit228"` · `use game3dkit228`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit229
+
+`import "std/game3dkit229"` · `use game3dkit229`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit230
+
+`import "std/game3dkit230"` · `use game3dkit230`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit231
+
+`import "std/game3dkit231"` · `use game3dkit231`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit232
+
+`import "std/game3dkit232"` · `use game3dkit232`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit233
+
+`import "std/game3dkit233"` · `use game3dkit233`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit234
+
+`import "std/game3dkit234"` · `use game3dkit234`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit235
+
+`import "std/game3dkit235"` · `use game3dkit235`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit236
+
+`import "std/game3dkit236"` · `use game3dkit236`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit237
+
+`import "std/game3dkit237"` · `use game3dkit237`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit238
+
+`import "std/game3dkit238"` · `use game3dkit238`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit239
+
+`import "std/game3dkit239"` · `use game3dkit239`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit240
+
+`import "std/game3dkit240"` · `use game3dkit240`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit241
+
+`import "std/game3dkit241"` · `use game3dkit241`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit242
+
+`import "std/game3dkit242"` · `use game3dkit242`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit243
+
+`import "std/game3dkit243"` · `use game3dkit243`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit244
+
+`import "std/game3dkit244"` · `use game3dkit244`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit245
+
+`import "std/game3dkit245"` · `use game3dkit245`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit246
+
+`import "std/game3dkit246"` · `use game3dkit246`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit247
+
+`import "std/game3dkit247"` · `use game3dkit247`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit248
+
+`import "std/game3dkit248"` · `use game3dkit248`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit249
+
+`import "std/game3dkit249"` · `use game3dkit249`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit250
+
+`import "std/game3dkit250"` · `use game3dkit250`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit251
+
+`import "std/game3dkit251"` · `use game3dkit251`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit252
+
+`import "std/game3dkit252"` · `use game3dkit252`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit253
+
+`import "std/game3dkit253"` · `use game3dkit253`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit254
+
+`import "std/game3dkit254"` · `use game3dkit254`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit255
+
+`import "std/game3dkit255"` · `use game3dkit255`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit256
+
+`import "std/game3dkit256"` · `use game3dkit256`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit257
+
+`import "std/game3dkit257"` · `use game3dkit257`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit258
+
+`import "std/game3dkit258"` · `use game3dkit258`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit259
+
+`import "std/game3dkit259"` · `use game3dkit259`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit260
+
+`import "std/game3dkit260"` · `use game3dkit260`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit261
+
+`import "std/game3dkit261"` · `use game3dkit261`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit262
+
+`import "std/game3dkit262"` · `use game3dkit262`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit263
+
+`import "std/game3dkit263"` · `use game3dkit263`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit264
+
+`import "std/game3dkit264"` · `use game3dkit264`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit265
+
+`import "std/game3dkit265"` · `use game3dkit265`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit266
+
+`import "std/game3dkit266"` · `use game3dkit266`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit267
+
+`import "std/game3dkit267"` · `use game3dkit267`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit268
+
+`import "std/game3dkit268"` · `use game3dkit268`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit269
+
+`import "std/game3dkit269"` · `use game3dkit269`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit270
+
+`import "std/game3dkit270"` · `use game3dkit270`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit271
+
+`import "std/game3dkit271"` · `use game3dkit271`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit272
+
+`import "std/game3dkit272"` · `use game3dkit272`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit273
+
+`import "std/game3dkit273"` · `use game3dkit273`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit274
+
+`import "std/game3dkit274"` · `use game3dkit274`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit275
+
+`import "std/game3dkit275"` · `use game3dkit275`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit276
+
+`import "std/game3dkit276"` · `use game3dkit276`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit277
+
+`import "std/game3dkit277"` · `use game3dkit277`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit278
+
+`import "std/game3dkit278"` · `use game3dkit278`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit279
+
+`import "std/game3dkit279"` · `use game3dkit279`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit280
+
+`import "std/game3dkit280"` · `use game3dkit280`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit281
+
+`import "std/game3dkit281"` · `use game3dkit281`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit282
+
+`import "std/game3dkit282"` · `use game3dkit282`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit283
+
+`import "std/game3dkit283"` · `use game3dkit283`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit284
+
+`import "std/game3dkit284"` · `use game3dkit284`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit285
+
+`import "std/game3dkit285"` · `use game3dkit285`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit286
+
+`import "std/game3dkit286"` · `use game3dkit286`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit287
+
+`import "std/game3dkit287"` · `use game3dkit287`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit288
+
+`import "std/game3dkit288"` · `use game3dkit288`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit289
+
+`import "std/game3dkit289"` · `use game3dkit289`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit290
+
+`import "std/game3dkit290"` · `use game3dkit290`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit291
+
+`import "std/game3dkit291"` · `use game3dkit291`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit292
+
+`import "std/game3dkit292"` · `use game3dkit292`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit293
+
+`import "std/game3dkit293"` · `use game3dkit293`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit294
+
+`import "std/game3dkit294"` · `use game3dkit294`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit295
+
+`import "std/game3dkit295"` · `use game3dkit295`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit296
+
+`import "std/game3dkit296"` · `use game3dkit296`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit297
+
+`import "std/game3dkit297"` · `use game3dkit297`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit298
+
+`import "std/game3dkit298"` · `use game3dkit298`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit299
+
+`import "std/game3dkit299"` · `use game3dkit299`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit300
+
+`import "std/game3dkit300"` · `use game3dkit300`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit301
+
+`import "std/game3dkit301"` · `use game3dkit301`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit302
+
+`import "std/game3dkit302"` · `use game3dkit302`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit303
+
+`import "std/game3dkit303"` · `use game3dkit303`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit304
+
+`import "std/game3dkit304"` · `use game3dkit304`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit305
+
+`import "std/game3dkit305"` · `use game3dkit305`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit306
+
+`import "std/game3dkit306"` · `use game3dkit306`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit307
+
+`import "std/game3dkit307"` · `use game3dkit307`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit308
+
+`import "std/game3dkit308"` · `use game3dkit308`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit309
+
+`import "std/game3dkit309"` · `use game3dkit309`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit310
+
+`import "std/game3dkit310"` · `use game3dkit310`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit311
+
+`import "std/game3dkit311"` · `use game3dkit311`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit312
+
+`import "std/game3dkit312"` · `use game3dkit312`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit313
+
+`import "std/game3dkit313"` · `use game3dkit313`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit314
+
+`import "std/game3dkit314"` · `use game3dkit314`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit315
+
+`import "std/game3dkit315"` · `use game3dkit315`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit316
+
+`import "std/game3dkit316"` · `use game3dkit316`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit317
+
+`import "std/game3dkit317"` · `use game3dkit317`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit318
+
+`import "std/game3dkit318"` · `use game3dkit318`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit319
+
+`import "std/game3dkit319"` · `use game3dkit319`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit320
+
+`import "std/game3dkit320"` · `use game3dkit320`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit321
+
+`import "std/game3dkit321"` · `use game3dkit321`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit322
+
+`import "std/game3dkit322"` · `use game3dkit322`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit323
+
+`import "std/game3dkit323"` · `use game3dkit323`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit324
+
+`import "std/game3dkit324"` · `use game3dkit324`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit325
+
+`import "std/game3dkit325"` · `use game3dkit325`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit326
+
+`import "std/game3dkit326"` · `use game3dkit326`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit327
+
+`import "std/game3dkit327"` · `use game3dkit327`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit328
+
+`import "std/game3dkit328"` · `use game3dkit328`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit329
+
+`import "std/game3dkit329"` · `use game3dkit329`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit330
+
+`import "std/game3dkit330"` · `use game3dkit330`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit331
+
+`import "std/game3dkit331"` · `use game3dkit331`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit332
+
+`import "std/game3dkit332"` · `use game3dkit332`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit333
+
+`import "std/game3dkit333"` · `use game3dkit333`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit334
+
+`import "std/game3dkit334"` · `use game3dkit334`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit335
+
+`import "std/game3dkit335"` · `use game3dkit335`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit336
+
+`import "std/game3dkit336"` · `use game3dkit336`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit337
+
+`import "std/game3dkit337"` · `use game3dkit337`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit338
+
+`import "std/game3dkit338"` · `use game3dkit338`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit339
+
+`import "std/game3dkit339"` · `use game3dkit339`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit340
+
+`import "std/game3dkit340"` · `use game3dkit340`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit341
+
+`import "std/game3dkit341"` · `use game3dkit341`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit342
+
+`import "std/game3dkit342"` · `use game3dkit342`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit343
+
+`import "std/game3dkit343"` · `use game3dkit343`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit344
+
+`import "std/game3dkit344"` · `use game3dkit344`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit345
+
+`import "std/game3dkit345"` · `use game3dkit345`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit346
+
+`import "std/game3dkit346"` · `use game3dkit346`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit347
+
+`import "std/game3dkit347"` · `use game3dkit347`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit348
+
+`import "std/game3dkit348"` · `use game3dkit348`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit349
+
+`import "std/game3dkit349"` · `use game3dkit349`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit350
+
+`import "std/game3dkit350"` · `use game3dkit350`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit351
+
+`import "std/game3dkit351"` · `use game3dkit351`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit352
+
+`import "std/game3dkit352"` · `use game3dkit352`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit353
+
+`import "std/game3dkit353"` · `use game3dkit353`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit354
+
+`import "std/game3dkit354"` · `use game3dkit354`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit355
+
+`import "std/game3dkit355"` · `use game3dkit355`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit356
+
+`import "std/game3dkit356"` · `use game3dkit356`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit357
+
+`import "std/game3dkit357"` · `use game3dkit357`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit358
+
+`import "std/game3dkit358"` · `use game3dkit358`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit359
+
+`import "std/game3dkit359"` · `use game3dkit359`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit360
+
+`import "std/game3dkit360"` · `use game3dkit360`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit361
+
+`import "std/game3dkit361"` · `use game3dkit361`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit362
+
+`import "std/game3dkit362"` · `use game3dkit362`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit363
+
+`import "std/game3dkit363"` · `use game3dkit363`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit364
+
+`import "std/game3dkit364"` · `use game3dkit364`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit365
+
+`import "std/game3dkit365"` · `use game3dkit365`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit366
+
+`import "std/game3dkit366"` · `use game3dkit366`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit367
+
+`import "std/game3dkit367"` · `use game3dkit367`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit368
+
+`import "std/game3dkit368"` · `use game3dkit368`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit369
+
+`import "std/game3dkit369"` · `use game3dkit369`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit370
+
+`import "std/game3dkit370"` · `use game3dkit370`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit371
+
+`import "std/game3dkit371"` · `use game3dkit371`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit372
+
+`import "std/game3dkit372"` · `use game3dkit372`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit373
+
+`import "std/game3dkit373"` · `use game3dkit373`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit374
+
+`import "std/game3dkit374"` · `use game3dkit374`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit375
+
+`import "std/game3dkit375"` · `use game3dkit375`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit376
+
+`import "std/game3dkit376"` · `use game3dkit376`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit377
+
+`import "std/game3dkit377"` · `use game3dkit377`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit378
+
+`import "std/game3dkit378"` · `use game3dkit378`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit379
+
+`import "std/game3dkit379"` · `use game3dkit379`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit380
+
+`import "std/game3dkit380"` · `use game3dkit380`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit381
+
+`import "std/game3dkit381"` · `use game3dkit381`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit382
+
+`import "std/game3dkit382"` · `use game3dkit382`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit383
+
+`import "std/game3dkit383"` · `use game3dkit383`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit384
+
+`import "std/game3dkit384"` · `use game3dkit384`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit385
+
+`import "std/game3dkit385"` · `use game3dkit385`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit386
+
+`import "std/game3dkit386"` · `use game3dkit386`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit387
+
+`import "std/game3dkit387"` · `use game3dkit387`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit388
+
+`import "std/game3dkit388"` · `use game3dkit388`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit389
+
+`import "std/game3dkit389"` · `use game3dkit389`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit390
+
+`import "std/game3dkit390"` · `use game3dkit390`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit391
+
+`import "std/game3dkit391"` · `use game3dkit391`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit392
+
+`import "std/game3dkit392"` · `use game3dkit392`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit393
+
+`import "std/game3dkit393"` · `use game3dkit393`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit394
+
+`import "std/game3dkit394"` · `use game3dkit394`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit395
+
+`import "std/game3dkit395"` · `use game3dkit395`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit396
+
+`import "std/game3dkit396"` · `use game3dkit396`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit397
+
+`import "std/game3dkit397"` · `use game3dkit397`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit398
+
+`import "std/game3dkit398"` · `use game3dkit398`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit399
+
+`import "std/game3dkit399"` · `use game3dkit399`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit400
+
+`import "std/game3dkit400"` · `use game3dkit400`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit401
+
+`import "std/game3dkit401"` · `use game3dkit401`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit402
+
+`import "std/game3dkit402"` · `use game3dkit402`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit403
+
+`import "std/game3dkit403"` · `use game3dkit403`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit404
+
+`import "std/game3dkit404"` · `use game3dkit404`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit405
+
+`import "std/game3dkit405"` · `use game3dkit405`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit406
+
+`import "std/game3dkit406"` · `use game3dkit406`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit407
+
+`import "std/game3dkit407"` · `use game3dkit407`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit408
+
+`import "std/game3dkit408"` · `use game3dkit408`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit409
+
+`import "std/game3dkit409"` · `use game3dkit409`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit410
+
+`import "std/game3dkit410"` · `use game3dkit410`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit411
+
+`import "std/game3dkit411"` · `use game3dkit411`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit412
+
+`import "std/game3dkit412"` · `use game3dkit412`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit413
+
+`import "std/game3dkit413"` · `use game3dkit413`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit414
+
+`import "std/game3dkit414"` · `use game3dkit414`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit415
+
+`import "std/game3dkit415"` · `use game3dkit415`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit416
+
+`import "std/game3dkit416"` · `use game3dkit416`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit417
+
+`import "std/game3dkit417"` · `use game3dkit417`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit418
+
+`import "std/game3dkit418"` · `use game3dkit418`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit419
+
+`import "std/game3dkit419"` · `use game3dkit419`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit420
+
+`import "std/game3dkit420"` · `use game3dkit420`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit421
+
+`import "std/game3dkit421"` · `use game3dkit421`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit422
+
+`import "std/game3dkit422"` · `use game3dkit422`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit423
+
+`import "std/game3dkit423"` · `use game3dkit423`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit424
+
+`import "std/game3dkit424"` · `use game3dkit424`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit425
+
+`import "std/game3dkit425"` · `use game3dkit425`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit426
+
+`import "std/game3dkit426"` · `use game3dkit426`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit427
+
+`import "std/game3dkit427"` · `use game3dkit427`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit428
+
+`import "std/game3dkit428"` · `use game3dkit428`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit429
+
+`import "std/game3dkit429"` · `use game3dkit429`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit430
+
+`import "std/game3dkit430"` · `use game3dkit430`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit431
+
+`import "std/game3dkit431"` · `use game3dkit431`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit432
+
+`import "std/game3dkit432"` · `use game3dkit432`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit433
+
+`import "std/game3dkit433"` · `use game3dkit433`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit434
+
+`import "std/game3dkit434"` · `use game3dkit434`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit435
+
+`import "std/game3dkit435"` · `use game3dkit435`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit436
+
+`import "std/game3dkit436"` · `use game3dkit436`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit437
+
+`import "std/game3dkit437"` · `use game3dkit437`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit438
+
+`import "std/game3dkit438"` · `use game3dkit438`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit439
+
+`import "std/game3dkit439"` · `use game3dkit439`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit440
+
+`import "std/game3dkit440"` · `use game3dkit440`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit441
+
+`import "std/game3dkit441"` · `use game3dkit441`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit442
+
+`import "std/game3dkit442"` · `use game3dkit442`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit443
+
+`import "std/game3dkit443"` · `use game3dkit443`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit444
+
+`import "std/game3dkit444"` · `use game3dkit444`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit445
+
+`import "std/game3dkit445"` · `use game3dkit445`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit446
+
+`import "std/game3dkit446"` · `use game3dkit446`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit447
+
+`import "std/game3dkit447"` · `use game3dkit447`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit448
+
+`import "std/game3dkit448"` · `use game3dkit448`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit449
+
+`import "std/game3dkit449"` · `use game3dkit449`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit450
+
+`import "std/game3dkit450"` · `use game3dkit450`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit451
+
+`import "std/game3dkit451"` · `use game3dkit451`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit452
+
+`import "std/game3dkit452"` · `use game3dkit452`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit453
+
+`import "std/game3dkit453"` · `use game3dkit453`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit454
+
+`import "std/game3dkit454"` · `use game3dkit454`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit455
+
+`import "std/game3dkit455"` · `use game3dkit455`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit456
+
+`import "std/game3dkit456"` · `use game3dkit456`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit457
+
+`import "std/game3dkit457"` · `use game3dkit457`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit458
+
+`import "std/game3dkit458"` · `use game3dkit458`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit459
+
+`import "std/game3dkit459"` · `use game3dkit459`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit460
+
+`import "std/game3dkit460"` · `use game3dkit460`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit461
+
+`import "std/game3dkit461"` · `use game3dkit461`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit462
+
+`import "std/game3dkit462"` · `use game3dkit462`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit463
+
+`import "std/game3dkit463"` · `use game3dkit463`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit464
+
+`import "std/game3dkit464"` · `use game3dkit464`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit465
+
+`import "std/game3dkit465"` · `use game3dkit465`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit466
+
+`import "std/game3dkit466"` · `use game3dkit466`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit467
+
+`import "std/game3dkit467"` · `use game3dkit467`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit468
+
+`import "std/game3dkit468"` · `use game3dkit468`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit469
+
+`import "std/game3dkit469"` · `use game3dkit469`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit470
+
+`import "std/game3dkit470"` · `use game3dkit470`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit471
+
+`import "std/game3dkit471"` · `use game3dkit471`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit472
+
+`import "std/game3dkit472"` · `use game3dkit472`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit473
+
+`import "std/game3dkit473"` · `use game3dkit473`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit474
+
+`import "std/game3dkit474"` · `use game3dkit474`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit475
+
+`import "std/game3dkit475"` · `use game3dkit475`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit476
+
+`import "std/game3dkit476"` · `use game3dkit476`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit477
+
+`import "std/game3dkit477"` · `use game3dkit477`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit478
+
+`import "std/game3dkit478"` · `use game3dkit478`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit479
+
+`import "std/game3dkit479"` · `use game3dkit479`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit480
+
+`import "std/game3dkit480"` · `use game3dkit480`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit481
+
+`import "std/game3dkit481"` · `use game3dkit481`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit482
+
+`import "std/game3dkit482"` · `use game3dkit482`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit483
+
+`import "std/game3dkit483"` · `use game3dkit483`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit484
+
+`import "std/game3dkit484"` · `use game3dkit484`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit485
+
+`import "std/game3dkit485"` · `use game3dkit485`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit486
+
+`import "std/game3dkit486"` · `use game3dkit486`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit487
+
+`import "std/game3dkit487"` · `use game3dkit487`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit488
+
+`import "std/game3dkit488"` · `use game3dkit488`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit489
+
+`import "std/game3dkit489"` · `use game3dkit489`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit490
+
+`import "std/game3dkit490"` · `use game3dkit490`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit491
+
+`import "std/game3dkit491"` · `use game3dkit491`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit492
+
+`import "std/game3dkit492"` · `use game3dkit492`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit493
+
+`import "std/game3dkit493"` · `use game3dkit493`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit494
+
+`import "std/game3dkit494"` · `use game3dkit494`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`
+
+## std/game3dkit495
+
+`import "std/game3dkit495"` · `use game3dkit495`
+
+- `yawFromDir(dx number, dz number) → number`
+- `pitchFromDir(dx number, dy number, dz number) → number`
+
+## std/game3dkit496
+
+`import "std/game3dkit496"` · `use game3dkit496`
+
+- `rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit497
+
+`import "std/game3dkit497"` · `use game3dkit497`
+
+- `smooth(cur number, target number, dt number) → number`
+- `lerp3x(ax number, bx number, t number) → number`
+
+## std/game3dkit498
+
+`import "std/game3dkit498"` · `use game3dkit498`
+
+- `dot3(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossX(ax number, ay number, az number, bx number, by number, bz number) → number`
+- `crossY(ax number, ay number, az number, bx number, by number, bz number) → number`
+
+## std/game3dkit499
+
+`import "std/game3dkit499"` · `use game3dkit499`
+
+- `len3(x number, y number, z number) → number`
+- `normalize3x(x number, y number, z number) → number`
+- `normalize3y(x number, y number, z number) → number`
+
+## std/game3dkit500
+
+`import "std/game3dkit500"` · `use game3dkit500`
+
+- `normalize3z(x number, y number, z number) → number`
+- `dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) → number`

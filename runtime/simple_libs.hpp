@@ -5765,3 +5765,2670 @@ namespace afrilang::runtime::game2dkit500 {
 inline double approach(double cur, double target, double maxDelta) { double d = target - cur; if (d > maxDelta) return cur + maxDelta; if (d < -maxDelta) return cur - maxDelta; return target; }
 inline double follow(double cam, double target, double dt) { double t = dt * 0.082000; if (t > 1.0) t = 1.0; return cam + (target - cam) * t; }
 } // namespace
+
+namespace afrilang::runtime::game3dkit001 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit002 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit003 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit004 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit005 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit006 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit007 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit008 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit009 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit010 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit011 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit012 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit013 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit014 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit015 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit016 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit017 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit018 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit019 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit020 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit021 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit022 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit023 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit024 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit025 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit026 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit027 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit028 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit029 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit030 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit031 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit032 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit033 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit034 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit035 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.036000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit036 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit037 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit038 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit039 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit040 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit041 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.060000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit042 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit043 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit044 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit045 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit046 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit047 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.084000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit048 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit049 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit050 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit051 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit052 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit053 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.108000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit054 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit055 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit056 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit057 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit058 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit059 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.132000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit060 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit061 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit062 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit063 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit064 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit065 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.032000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit066 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit067 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit068 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit069 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit070 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit071 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.056000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit072 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit073 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit074 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit075 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit076 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit077 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.080000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit078 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit079 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit080 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit081 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit082 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit083 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.104000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit084 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit085 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit086 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit087 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit088 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit089 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.128000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit090 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit091 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit092 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit093 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit094 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit095 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.028000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit096 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit097 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit098 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit099 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit100 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit101 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit102 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit103 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit104 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit105 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit106 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit107 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit108 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit109 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit110 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit111 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit112 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit113 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit114 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit115 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit116 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit117 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit118 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit119 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit120 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit121 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit122 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit123 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit124 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit125 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.024000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit126 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit127 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit128 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit129 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit130 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit131 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.048000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit132 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit133 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit134 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit135 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit136 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit137 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.072000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit138 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit139 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit140 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit141 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit142 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit143 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.096000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit144 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit145 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit146 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit147 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit148 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit149 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.120000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit150 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit151 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit152 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit153 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit154 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit155 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.020000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit156 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit157 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit158 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit159 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit160 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit161 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.044000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit162 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit163 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit164 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit165 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit166 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit167 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.068000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit168 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit169 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit170 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit171 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit172 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit173 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.092000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit174 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit175 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit176 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit177 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit178 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit179 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.116000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit180 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit181 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit182 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit183 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit184 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit185 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.140000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit186 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit187 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit188 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit189 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit190 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit191 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit192 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit193 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit194 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit195 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit196 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit197 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit198 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit199 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit200 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit201 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit202 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit203 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit204 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit205 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit206 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit207 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit208 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit209 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit210 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit211 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit212 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit213 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit214 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit215 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit216 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit217 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit218 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit219 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit220 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit221 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.036000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit222 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit223 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit224 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit225 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit226 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit227 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.060000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit228 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit229 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit230 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit231 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit232 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit233 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.084000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit234 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit235 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit236 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit237 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit238 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit239 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.108000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit240 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit241 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit242 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit243 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit244 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit245 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.132000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit246 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit247 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit248 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit249 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit250 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit251 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.032000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit252 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit253 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit254 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit255 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit256 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit257 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.056000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit258 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit259 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit260 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit261 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit262 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit263 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.080000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit264 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit265 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit266 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit267 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit268 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit269 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.104000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit270 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit271 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit272 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit273 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit274 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit275 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.128000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit276 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit277 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit278 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit279 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit280 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit281 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.028000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit282 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit283 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit284 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit285 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit286 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit287 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit288 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit289 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit290 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit291 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit292 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit293 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit294 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit295 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit296 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit297 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit298 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit299 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit300 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit301 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit302 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit303 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit304 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit305 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit306 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit307 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit308 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit309 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit310 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit311 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.024000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit312 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit313 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit314 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit315 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit316 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit317 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.048000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit318 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit319 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit320 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit321 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit322 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit323 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.072000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit324 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit325 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit326 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit327 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit328 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit329 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.096000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit330 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit331 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit332 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit333 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit334 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit335 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.120000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit336 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit337 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit338 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit339 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit340 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit341 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.020000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit342 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit343 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit344 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit345 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit346 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit347 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.044000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit348 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit349 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit350 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit351 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit352 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit353 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.068000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit354 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit355 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit356 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit357 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit358 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit359 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.092000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit360 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit361 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit362 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit363 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit364 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit365 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.116000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit366 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit367 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit368 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit369 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit370 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit371 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.140000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit372 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit373 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit374 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit375 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit376 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit377 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.040000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit378 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit379 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit380 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit381 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit382 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit383 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.064000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit384 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit385 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit386 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit387 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit388 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit389 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.088000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit390 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit391 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit392 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit393 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit394 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit395 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.112000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit396 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit397 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit398 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit399 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit400 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit401 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.136000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit402 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit403 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit404 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit405 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit406 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit407 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.036000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit408 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit409 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit410 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit411 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit412 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit413 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.060000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit414 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit415 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit416 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit417 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit418 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit419 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.084000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit420 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit421 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit422 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit423 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit424 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit425 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.108000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit426 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit427 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit428 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit429 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit430 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit431 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.132000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit432 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit433 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit434 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit435 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit436 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit437 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.032000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit438 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit439 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit440 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit441 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit442 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit443 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.056000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit444 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit445 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit446 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit447 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit448 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit449 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.080000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit450 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit451 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit452 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit453 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit454 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit455 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.104000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit456 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit457 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit458 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit459 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit460 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000006000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit461 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.128000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit462 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit463 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit464 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit465 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit466 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000005000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit467 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.028000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit468 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit469 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit470 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000002000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit471 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit472 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000004000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit473 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.052000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit474 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit475 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit476 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000001000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit477 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit478 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000003000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit479 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.076000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit480 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit481 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit482 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000007000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit483 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit484 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000002000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit485 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.100000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit486 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit487 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit488 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000006000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit489 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit490 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000001000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit491 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.124000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit492 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit493 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit494 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000005000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace
+
+namespace afrilang::runtime::game3dkit495 {
+inline double yawFromDir(double dx, double dz) { return std::atan2(dx, -dz) * 180.0 / 3.141592653589793; }
+inline double pitchFromDir(double dx, double dy, double dz) { return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit496 {
+inline double rayPlaneHitT(double ox, double oy, double oz, double dx, double dy, double dz, double py) { if (std::fabs(dy) < 0.000007000) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit497 {
+inline double smooth(double cur, double target, double dt) { double t = dt * 0.024000; if (t > 1.0) t = 1.0; return cur + (target - cur) * t; }
+inline double lerp3x(double ax, double bx, double t) { return ax + (bx - ax) * t; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit498 {
+inline double dot3(double ax, double ay, double az, double bx, double by, double bz) { return ax * bx + ay * by + az * bz; }
+inline double crossX(double ax, double ay, double az, double bx, double by, double bz) { return ay * bz - az * by; }
+inline double crossY(double ax, double ay, double az, double bx, double by, double bz) { return az * bx - ax * bz; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit499 {
+inline double len3(double x, double y, double z) { return std::sqrt(x * x + y * y + z * z); }
+inline double normalize3x(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return x / l; }
+inline double normalize3y(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000003000) return 0; return y / l; }
+} // namespace
+
+namespace afrilang::runtime::game3dkit500 {
+inline double normalize3z(double x, double y, double z) { double l = std::sqrt(x*x + y*y + z*z); if (l < 0.000004000) return 0; return z / l; }
+inline double dist3(double x0, double y0, double z0, double x1, double y1, double z1) { double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; return std::sqrt(dx * dx + dy * dy + dz * dz); }
+} // namespace

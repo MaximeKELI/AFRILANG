@@ -1,0 +1,6 @@
+import "std/game2dkit001"
+use game2dkit001
+
+create hit bool = aabbHit(0, 0, 10, 10, 5, 5, 10, 10)
+create d number = dist2(0, 0, 3, 4)
+

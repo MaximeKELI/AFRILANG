@@ -724,11 +724,86 @@ def gen_game2dkit_modules(count: int) -> list[tuple]:
     return mods
 
 
+# 3D-focused kits (pure math helpers for games)
+def gen_game3dkit_modules(count: int) -> list[tuple]:
+    """Generate many tiny 3D game helper modules (simple stdlib).
+
+    Pure math only: vec ops, angles, ray tests. No OpenGL/SDL dependency.
+    """
+    mods: list[tuple] = []
+    for i in range(1, count + 1):
+        name = f"game3dkit{i:03d}"
+        eps = 1e-6 + (i % 7) * 1e-6
+        k = 0.02 + (i % 31) * 0.004
+        funcs = [
+            ("dot3", "number",
+             [("ax", "number"), ("ay", "number"), ("az", "number"),
+              ("bx", "number"), ("by", "number"), ("bz", "number")],
+             "return ax * bx + ay * by + az * bz;"),
+            ("len3", "number", [("x", "number"), ("y", "number"), ("z", "number")],
+             "return std::sqrt(x * x + y * y + z * z);"),
+            ("dist3", "number",
+             [("x0", "number"), ("y0", "number"), ("z0", "number"),
+              ("x1", "number"), ("y1", "number"), ("z1", "number")],
+             "double dx = x1 - x0; double dy = y1 - y0; double dz = z1 - z0; "
+             "return std::sqrt(dx * dx + dy * dy + dz * dz);"),
+            ("normalize3x", "number", [("x", "number"), ("y", "number"), ("z", "number")],
+             f"double l = std::sqrt(x*x + y*y + z*z); if (l < {eps:.9f}) return 0; return x / l;"),
+            ("normalize3y", "number", [("x", "number"), ("y", "number"), ("z", "number")],
+             f"double l = std::sqrt(x*x + y*y + z*z); if (l < {eps:.9f}) return 0; return y / l;"),
+            ("normalize3z", "number", [("x", "number"), ("y", "number"), ("z", "number")],
+             f"double l = std::sqrt(x*x + y*y + z*z); if (l < {eps:.9f}) return 0; return z / l;"),
+            ("crossX", "number",
+             [("ax", "number"), ("ay", "number"), ("az", "number"),
+              ("bx", "number"), ("by", "number"), ("bz", "number")],
+             "return ay * bz - az * by;"),
+            ("crossY", "number",
+             [("ax", "number"), ("ay", "number"), ("az", "number"),
+              ("bx", "number"), ("by", "number"), ("bz", "number")],
+             "return az * bx - ax * bz;"),
+            ("crossZ", "number",
+             [("ax", "number"), ("ay", "number"), ("az", "number"),
+              ("bx", "number"), ("by", "number"), ("bz", "number")],
+             "return ax * by - ay * bx;"),
+            ("yawFromDir", "number", [("dx", "number"), ("dz", "number")],
+             "return std::atan2(dx, -dz) * 180.0 / 3.141592653589793;"),
+            ("pitchFromDir", "number", [("dx", "number"), ("dy", "number"), ("dz", "number")],
+             "return std::atan2(dy, std::sqrt(dx*dx + dz*dz)) * 180.0 / 3.141592653589793;"),
+            ("rayPlaneHitT", "number",
+             [("ox", "number"), ("oy", "number"), ("oz", "number"),
+              ("dx", "number"), ("dy", "number"), ("dz", "number"),
+              ("py", "number")],
+             f"if (std::fabs(dy) < {eps:.9f}) return -1; double t = (py - oy) / dy; return t >= 0 ? t : -1;"),
+            ("lerp3x", "number", [("ax", "number"), ("bx", "number"), ("t", "number")],
+             "return ax + (bx - ax) * t;"),
+            ("smooth", "number", [("cur", "number"), ("target", "number"), ("dt", "number")],
+             f"double t = dt * {k:.6f}; if (t > 1.0) t = 1.0; return cur + (target - cur) * t;"),
+        ]
+        pick = i % 6
+        if pick == 0:
+            use = [funcs[0], funcs[6], funcs[7]]  # dot + cross
+        elif pick == 1:
+            use = [funcs[1], funcs[3], funcs[4]]  # len + normalize x/y
+        elif pick == 2:
+            use = [funcs[5], funcs[2]]            # normalize z + dist
+        elif pick == 3:
+            use = [funcs[9], funcs[10]]           # yaw/pitch
+        elif pick == 4:
+            use = [funcs[11], funcs[12]]          # ray-plane hit t + lerp
+        else:
+            use = [funcs[13], funcs[12]]          # smooth + lerp
+        mods.append((name, name, use))
+    return mods
+
+
 # Add 500 new simple game modules: std/gamekit001 .. std/gamekit500
 MODULES.extend(gen_gamekit_modules(500))
 #
 # Add 500 new simple 2D game modules: std/game2dkit001 .. std/game2dkit500
 MODULES.extend(gen_game2dkit_modules(500))
+#
+# Add 500 new simple 3D game modules: std/game3dkit001 .. std/game3dkit500
+MODULES.extend(gen_game3dkit_modules(500))
 
 assert len(MODULES) >= 100, f"Need >=100 modules, got {len(MODULES)}"
 

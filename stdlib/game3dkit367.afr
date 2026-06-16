@@ -1,0 +1,12 @@
+module game3dkit367
+
+function len3(x number, y number, z number) returns number
+end
+
+function normalize3x(x number, y number, z number) returns number
+end
+
+function normalize3y(x number, y number, z number) returns number
+end
+
+end

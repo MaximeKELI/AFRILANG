@@ -1,0 +1,12 @@
+module game3dkit108
+
+function dot3(ax number, ay number, az number, bx number, by number, bz number) returns number
+end
+
+function crossX(ax number, ay number, az number, bx number, by number, bz number) returns number
+end
+
+function crossY(ax number, ay number, az number, bx number, by number, bz number) returns number
+end
+
+end

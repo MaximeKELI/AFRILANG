@@ -1,0 +1,9 @@
+module game3dkit454
+
+function rayPlaneHitT(ox number, oy number, oz number, dx number, dy number, dz number, py number) returns number
+end
+
+function lerp3x(ax number, bx number, t number) returns number
+end
+
+end

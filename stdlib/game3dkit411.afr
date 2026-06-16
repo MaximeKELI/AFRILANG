@@ -1,0 +1,9 @@
+module game3dkit411
+
+function yawFromDir(dx number, dz number) returns number
+end
+
+function pitchFromDir(dx number, dy number, dz number) returns number
+end
+
+end
