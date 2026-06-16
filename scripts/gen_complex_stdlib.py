@@ -239,7 +239,6 @@ def add_ultra_data_modules(count: int) -> None:
     """Add lots of data-analysis complex modules in std/c/ (stats, series, transforms)."""
     for i in range(1, count + 1):
         name = f"dataultra{i:03d}"
-        pct = 0.05 + (i % 20) * 0.045
         win = 3 + (i % 11)
 
         cx(name, [

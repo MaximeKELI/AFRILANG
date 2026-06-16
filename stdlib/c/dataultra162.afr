@@ -1,0 +1,33 @@
+module dataultra162
+
+function mean(v list number) returns number
+end
+
+function stddev(v list number) returns number
+end
+
+function minVal(v list number) returns number
+end
+
+function maxVal(v list number) returns number
+end
+
+function normalize(v list number) returns list number
+end
+
+function diff1(v list number) returns list number
+end
+
+function rollingMean(v list number, window number) returns list number
+end
+
+function percentile(v list number, p number) returns number
+end
+
+function correlation(a list number, b list number) returns number
+end
+
+function linearSlope(xs list number, ys list number) returns number
+end
+
+end

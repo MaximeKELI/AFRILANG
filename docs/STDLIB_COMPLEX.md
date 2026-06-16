@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**3210 modules** — `std/c/{nom}`
+**4210 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -31000,3 +31000,12503 @@
 - `thresholdMask(grid list number, w number, h number, t number) → list number`
 - `thresholdDefault(grid list number, w number, h number) → list number`
 - `countComponents(mask list number, w number, h number) → number`
+
+## std/c/dataultra001
+
+`import "std/c/dataultra001"` · `use dataultra001`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra002
+
+`import "std/c/dataultra002"` · `use dataultra002`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra003
+
+`import "std/c/dataultra003"` · `use dataultra003`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra004
+
+`import "std/c/dataultra004"` · `use dataultra004`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra005
+
+`import "std/c/dataultra005"` · `use dataultra005`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra006
+
+`import "std/c/dataultra006"` · `use dataultra006`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra007
+
+`import "std/c/dataultra007"` · `use dataultra007`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra008
+
+`import "std/c/dataultra008"` · `use dataultra008`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra009
+
+`import "std/c/dataultra009"` · `use dataultra009`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra010
+
+`import "std/c/dataultra010"` · `use dataultra010`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra011
+
+`import "std/c/dataultra011"` · `use dataultra011`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra012
+
+`import "std/c/dataultra012"` · `use dataultra012`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra013
+
+`import "std/c/dataultra013"` · `use dataultra013`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra014
+
+`import "std/c/dataultra014"` · `use dataultra014`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra015
+
+`import "std/c/dataultra015"` · `use dataultra015`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra016
+
+`import "std/c/dataultra016"` · `use dataultra016`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra017
+
+`import "std/c/dataultra017"` · `use dataultra017`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra018
+
+`import "std/c/dataultra018"` · `use dataultra018`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra019
+
+`import "std/c/dataultra019"` · `use dataultra019`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra020
+
+`import "std/c/dataultra020"` · `use dataultra020`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra021
+
+`import "std/c/dataultra021"` · `use dataultra021`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra022
+
+`import "std/c/dataultra022"` · `use dataultra022`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra023
+
+`import "std/c/dataultra023"` · `use dataultra023`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra024
+
+`import "std/c/dataultra024"` · `use dataultra024`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra025
+
+`import "std/c/dataultra025"` · `use dataultra025`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra026
+
+`import "std/c/dataultra026"` · `use dataultra026`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra027
+
+`import "std/c/dataultra027"` · `use dataultra027`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra028
+
+`import "std/c/dataultra028"` · `use dataultra028`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra029
+
+`import "std/c/dataultra029"` · `use dataultra029`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra030
+
+`import "std/c/dataultra030"` · `use dataultra030`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra031
+
+`import "std/c/dataultra031"` · `use dataultra031`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra032
+
+`import "std/c/dataultra032"` · `use dataultra032`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra033
+
+`import "std/c/dataultra033"` · `use dataultra033`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra034
+
+`import "std/c/dataultra034"` · `use dataultra034`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra035
+
+`import "std/c/dataultra035"` · `use dataultra035`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra036
+
+`import "std/c/dataultra036"` · `use dataultra036`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra037
+
+`import "std/c/dataultra037"` · `use dataultra037`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra038
+
+`import "std/c/dataultra038"` · `use dataultra038`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra039
+
+`import "std/c/dataultra039"` · `use dataultra039`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra040
+
+`import "std/c/dataultra040"` · `use dataultra040`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra041
+
+`import "std/c/dataultra041"` · `use dataultra041`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra042
+
+`import "std/c/dataultra042"` · `use dataultra042`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra043
+
+`import "std/c/dataultra043"` · `use dataultra043`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra044
+
+`import "std/c/dataultra044"` · `use dataultra044`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra045
+
+`import "std/c/dataultra045"` · `use dataultra045`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra046
+
+`import "std/c/dataultra046"` · `use dataultra046`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra047
+
+`import "std/c/dataultra047"` · `use dataultra047`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra048
+
+`import "std/c/dataultra048"` · `use dataultra048`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra049
+
+`import "std/c/dataultra049"` · `use dataultra049`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra050
+
+`import "std/c/dataultra050"` · `use dataultra050`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra051
+
+`import "std/c/dataultra051"` · `use dataultra051`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra052
+
+`import "std/c/dataultra052"` · `use dataultra052`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra053
+
+`import "std/c/dataultra053"` · `use dataultra053`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra054
+
+`import "std/c/dataultra054"` · `use dataultra054`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra055
+
+`import "std/c/dataultra055"` · `use dataultra055`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra056
+
+`import "std/c/dataultra056"` · `use dataultra056`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra057
+
+`import "std/c/dataultra057"` · `use dataultra057`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra058
+
+`import "std/c/dataultra058"` · `use dataultra058`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra059
+
+`import "std/c/dataultra059"` · `use dataultra059`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra060
+
+`import "std/c/dataultra060"` · `use dataultra060`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra061
+
+`import "std/c/dataultra061"` · `use dataultra061`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra062
+
+`import "std/c/dataultra062"` · `use dataultra062`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra063
+
+`import "std/c/dataultra063"` · `use dataultra063`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra064
+
+`import "std/c/dataultra064"` · `use dataultra064`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra065
+
+`import "std/c/dataultra065"` · `use dataultra065`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra066
+
+`import "std/c/dataultra066"` · `use dataultra066`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra067
+
+`import "std/c/dataultra067"` · `use dataultra067`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra068
+
+`import "std/c/dataultra068"` · `use dataultra068`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra069
+
+`import "std/c/dataultra069"` · `use dataultra069`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra070
+
+`import "std/c/dataultra070"` · `use dataultra070`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra071
+
+`import "std/c/dataultra071"` · `use dataultra071`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra072
+
+`import "std/c/dataultra072"` · `use dataultra072`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra073
+
+`import "std/c/dataultra073"` · `use dataultra073`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra074
+
+`import "std/c/dataultra074"` · `use dataultra074`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra075
+
+`import "std/c/dataultra075"` · `use dataultra075`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra076
+
+`import "std/c/dataultra076"` · `use dataultra076`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra077
+
+`import "std/c/dataultra077"` · `use dataultra077`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra078
+
+`import "std/c/dataultra078"` · `use dataultra078`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra079
+
+`import "std/c/dataultra079"` · `use dataultra079`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra080
+
+`import "std/c/dataultra080"` · `use dataultra080`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra081
+
+`import "std/c/dataultra081"` · `use dataultra081`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra082
+
+`import "std/c/dataultra082"` · `use dataultra082`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra083
+
+`import "std/c/dataultra083"` · `use dataultra083`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra084
+
+`import "std/c/dataultra084"` · `use dataultra084`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra085
+
+`import "std/c/dataultra085"` · `use dataultra085`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra086
+
+`import "std/c/dataultra086"` · `use dataultra086`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra087
+
+`import "std/c/dataultra087"` · `use dataultra087`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra088
+
+`import "std/c/dataultra088"` · `use dataultra088`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra089
+
+`import "std/c/dataultra089"` · `use dataultra089`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra090
+
+`import "std/c/dataultra090"` · `use dataultra090`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra091
+
+`import "std/c/dataultra091"` · `use dataultra091`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra092
+
+`import "std/c/dataultra092"` · `use dataultra092`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra093
+
+`import "std/c/dataultra093"` · `use dataultra093`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra094
+
+`import "std/c/dataultra094"` · `use dataultra094`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra095
+
+`import "std/c/dataultra095"` · `use dataultra095`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra096
+
+`import "std/c/dataultra096"` · `use dataultra096`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra097
+
+`import "std/c/dataultra097"` · `use dataultra097`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra098
+
+`import "std/c/dataultra098"` · `use dataultra098`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra099
+
+`import "std/c/dataultra099"` · `use dataultra099`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra100
+
+`import "std/c/dataultra100"` · `use dataultra100`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra101
+
+`import "std/c/dataultra101"` · `use dataultra101`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra102
+
+`import "std/c/dataultra102"` · `use dataultra102`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra103
+
+`import "std/c/dataultra103"` · `use dataultra103`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra104
+
+`import "std/c/dataultra104"` · `use dataultra104`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra105
+
+`import "std/c/dataultra105"` · `use dataultra105`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra106
+
+`import "std/c/dataultra106"` · `use dataultra106`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra107
+
+`import "std/c/dataultra107"` · `use dataultra107`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra108
+
+`import "std/c/dataultra108"` · `use dataultra108`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra109
+
+`import "std/c/dataultra109"` · `use dataultra109`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra110
+
+`import "std/c/dataultra110"` · `use dataultra110`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra111
+
+`import "std/c/dataultra111"` · `use dataultra111`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra112
+
+`import "std/c/dataultra112"` · `use dataultra112`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra113
+
+`import "std/c/dataultra113"` · `use dataultra113`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra114
+
+`import "std/c/dataultra114"` · `use dataultra114`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra115
+
+`import "std/c/dataultra115"` · `use dataultra115`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra116
+
+`import "std/c/dataultra116"` · `use dataultra116`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra117
+
+`import "std/c/dataultra117"` · `use dataultra117`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra118
+
+`import "std/c/dataultra118"` · `use dataultra118`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra119
+
+`import "std/c/dataultra119"` · `use dataultra119`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra120
+
+`import "std/c/dataultra120"` · `use dataultra120`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra121
+
+`import "std/c/dataultra121"` · `use dataultra121`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra122
+
+`import "std/c/dataultra122"` · `use dataultra122`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra123
+
+`import "std/c/dataultra123"` · `use dataultra123`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra124
+
+`import "std/c/dataultra124"` · `use dataultra124`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra125
+
+`import "std/c/dataultra125"` · `use dataultra125`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra126
+
+`import "std/c/dataultra126"` · `use dataultra126`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra127
+
+`import "std/c/dataultra127"` · `use dataultra127`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra128
+
+`import "std/c/dataultra128"` · `use dataultra128`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra129
+
+`import "std/c/dataultra129"` · `use dataultra129`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra130
+
+`import "std/c/dataultra130"` · `use dataultra130`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra131
+
+`import "std/c/dataultra131"` · `use dataultra131`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra132
+
+`import "std/c/dataultra132"` · `use dataultra132`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra133
+
+`import "std/c/dataultra133"` · `use dataultra133`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra134
+
+`import "std/c/dataultra134"` · `use dataultra134`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra135
+
+`import "std/c/dataultra135"` · `use dataultra135`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra136
+
+`import "std/c/dataultra136"` · `use dataultra136`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra137
+
+`import "std/c/dataultra137"` · `use dataultra137`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra138
+
+`import "std/c/dataultra138"` · `use dataultra138`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra139
+
+`import "std/c/dataultra139"` · `use dataultra139`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra140
+
+`import "std/c/dataultra140"` · `use dataultra140`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra141
+
+`import "std/c/dataultra141"` · `use dataultra141`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra142
+
+`import "std/c/dataultra142"` · `use dataultra142`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra143
+
+`import "std/c/dataultra143"` · `use dataultra143`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra144
+
+`import "std/c/dataultra144"` · `use dataultra144`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra145
+
+`import "std/c/dataultra145"` · `use dataultra145`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra146
+
+`import "std/c/dataultra146"` · `use dataultra146`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra147
+
+`import "std/c/dataultra147"` · `use dataultra147`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra148
+
+`import "std/c/dataultra148"` · `use dataultra148`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra149
+
+`import "std/c/dataultra149"` · `use dataultra149`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra150
+
+`import "std/c/dataultra150"` · `use dataultra150`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra151
+
+`import "std/c/dataultra151"` · `use dataultra151`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra152
+
+`import "std/c/dataultra152"` · `use dataultra152`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra153
+
+`import "std/c/dataultra153"` · `use dataultra153`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra154
+
+`import "std/c/dataultra154"` · `use dataultra154`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra155
+
+`import "std/c/dataultra155"` · `use dataultra155`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra156
+
+`import "std/c/dataultra156"` · `use dataultra156`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra157
+
+`import "std/c/dataultra157"` · `use dataultra157`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra158
+
+`import "std/c/dataultra158"` · `use dataultra158`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra159
+
+`import "std/c/dataultra159"` · `use dataultra159`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra160
+
+`import "std/c/dataultra160"` · `use dataultra160`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra161
+
+`import "std/c/dataultra161"` · `use dataultra161`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra162
+
+`import "std/c/dataultra162"` · `use dataultra162`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra163
+
+`import "std/c/dataultra163"` · `use dataultra163`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra164
+
+`import "std/c/dataultra164"` · `use dataultra164`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra165
+
+`import "std/c/dataultra165"` · `use dataultra165`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra166
+
+`import "std/c/dataultra166"` · `use dataultra166`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra167
+
+`import "std/c/dataultra167"` · `use dataultra167`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra168
+
+`import "std/c/dataultra168"` · `use dataultra168`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra169
+
+`import "std/c/dataultra169"` · `use dataultra169`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra170
+
+`import "std/c/dataultra170"` · `use dataultra170`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra171
+
+`import "std/c/dataultra171"` · `use dataultra171`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra172
+
+`import "std/c/dataultra172"` · `use dataultra172`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra173
+
+`import "std/c/dataultra173"` · `use dataultra173`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra174
+
+`import "std/c/dataultra174"` · `use dataultra174`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra175
+
+`import "std/c/dataultra175"` · `use dataultra175`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra176
+
+`import "std/c/dataultra176"` · `use dataultra176`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra177
+
+`import "std/c/dataultra177"` · `use dataultra177`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra178
+
+`import "std/c/dataultra178"` · `use dataultra178`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra179
+
+`import "std/c/dataultra179"` · `use dataultra179`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra180
+
+`import "std/c/dataultra180"` · `use dataultra180`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra181
+
+`import "std/c/dataultra181"` · `use dataultra181`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra182
+
+`import "std/c/dataultra182"` · `use dataultra182`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra183
+
+`import "std/c/dataultra183"` · `use dataultra183`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra184
+
+`import "std/c/dataultra184"` · `use dataultra184`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra185
+
+`import "std/c/dataultra185"` · `use dataultra185`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra186
+
+`import "std/c/dataultra186"` · `use dataultra186`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra187
+
+`import "std/c/dataultra187"` · `use dataultra187`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra188
+
+`import "std/c/dataultra188"` · `use dataultra188`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra189
+
+`import "std/c/dataultra189"` · `use dataultra189`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra190
+
+`import "std/c/dataultra190"` · `use dataultra190`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra191
+
+`import "std/c/dataultra191"` · `use dataultra191`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra192
+
+`import "std/c/dataultra192"` · `use dataultra192`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra193
+
+`import "std/c/dataultra193"` · `use dataultra193`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra194
+
+`import "std/c/dataultra194"` · `use dataultra194`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra195
+
+`import "std/c/dataultra195"` · `use dataultra195`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra196
+
+`import "std/c/dataultra196"` · `use dataultra196`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra197
+
+`import "std/c/dataultra197"` · `use dataultra197`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra198
+
+`import "std/c/dataultra198"` · `use dataultra198`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra199
+
+`import "std/c/dataultra199"` · `use dataultra199`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra200
+
+`import "std/c/dataultra200"` · `use dataultra200`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra201
+
+`import "std/c/dataultra201"` · `use dataultra201`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra202
+
+`import "std/c/dataultra202"` · `use dataultra202`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra203
+
+`import "std/c/dataultra203"` · `use dataultra203`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra204
+
+`import "std/c/dataultra204"` · `use dataultra204`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra205
+
+`import "std/c/dataultra205"` · `use dataultra205`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra206
+
+`import "std/c/dataultra206"` · `use dataultra206`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra207
+
+`import "std/c/dataultra207"` · `use dataultra207`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra208
+
+`import "std/c/dataultra208"` · `use dataultra208`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra209
+
+`import "std/c/dataultra209"` · `use dataultra209`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra210
+
+`import "std/c/dataultra210"` · `use dataultra210`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra211
+
+`import "std/c/dataultra211"` · `use dataultra211`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra212
+
+`import "std/c/dataultra212"` · `use dataultra212`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra213
+
+`import "std/c/dataultra213"` · `use dataultra213`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra214
+
+`import "std/c/dataultra214"` · `use dataultra214`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra215
+
+`import "std/c/dataultra215"` · `use dataultra215`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra216
+
+`import "std/c/dataultra216"` · `use dataultra216`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra217
+
+`import "std/c/dataultra217"` · `use dataultra217`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra218
+
+`import "std/c/dataultra218"` · `use dataultra218`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra219
+
+`import "std/c/dataultra219"` · `use dataultra219`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra220
+
+`import "std/c/dataultra220"` · `use dataultra220`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra221
+
+`import "std/c/dataultra221"` · `use dataultra221`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra222
+
+`import "std/c/dataultra222"` · `use dataultra222`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra223
+
+`import "std/c/dataultra223"` · `use dataultra223`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra224
+
+`import "std/c/dataultra224"` · `use dataultra224`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra225
+
+`import "std/c/dataultra225"` · `use dataultra225`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra226
+
+`import "std/c/dataultra226"` · `use dataultra226`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra227
+
+`import "std/c/dataultra227"` · `use dataultra227`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra228
+
+`import "std/c/dataultra228"` · `use dataultra228`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra229
+
+`import "std/c/dataultra229"` · `use dataultra229`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra230
+
+`import "std/c/dataultra230"` · `use dataultra230`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra231
+
+`import "std/c/dataultra231"` · `use dataultra231`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra232
+
+`import "std/c/dataultra232"` · `use dataultra232`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra233
+
+`import "std/c/dataultra233"` · `use dataultra233`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra234
+
+`import "std/c/dataultra234"` · `use dataultra234`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra235
+
+`import "std/c/dataultra235"` · `use dataultra235`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra236
+
+`import "std/c/dataultra236"` · `use dataultra236`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra237
+
+`import "std/c/dataultra237"` · `use dataultra237`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra238
+
+`import "std/c/dataultra238"` · `use dataultra238`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra239
+
+`import "std/c/dataultra239"` · `use dataultra239`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra240
+
+`import "std/c/dataultra240"` · `use dataultra240`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra241
+
+`import "std/c/dataultra241"` · `use dataultra241`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra242
+
+`import "std/c/dataultra242"` · `use dataultra242`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra243
+
+`import "std/c/dataultra243"` · `use dataultra243`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra244
+
+`import "std/c/dataultra244"` · `use dataultra244`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra245
+
+`import "std/c/dataultra245"` · `use dataultra245`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra246
+
+`import "std/c/dataultra246"` · `use dataultra246`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra247
+
+`import "std/c/dataultra247"` · `use dataultra247`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra248
+
+`import "std/c/dataultra248"` · `use dataultra248`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra249
+
+`import "std/c/dataultra249"` · `use dataultra249`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra250
+
+`import "std/c/dataultra250"` · `use dataultra250`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra251
+
+`import "std/c/dataultra251"` · `use dataultra251`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra252
+
+`import "std/c/dataultra252"` · `use dataultra252`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra253
+
+`import "std/c/dataultra253"` · `use dataultra253`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra254
+
+`import "std/c/dataultra254"` · `use dataultra254`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra255
+
+`import "std/c/dataultra255"` · `use dataultra255`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra256
+
+`import "std/c/dataultra256"` · `use dataultra256`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra257
+
+`import "std/c/dataultra257"` · `use dataultra257`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra258
+
+`import "std/c/dataultra258"` · `use dataultra258`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra259
+
+`import "std/c/dataultra259"` · `use dataultra259`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra260
+
+`import "std/c/dataultra260"` · `use dataultra260`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra261
+
+`import "std/c/dataultra261"` · `use dataultra261`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra262
+
+`import "std/c/dataultra262"` · `use dataultra262`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra263
+
+`import "std/c/dataultra263"` · `use dataultra263`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra264
+
+`import "std/c/dataultra264"` · `use dataultra264`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra265
+
+`import "std/c/dataultra265"` · `use dataultra265`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra266
+
+`import "std/c/dataultra266"` · `use dataultra266`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra267
+
+`import "std/c/dataultra267"` · `use dataultra267`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra268
+
+`import "std/c/dataultra268"` · `use dataultra268`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra269
+
+`import "std/c/dataultra269"` · `use dataultra269`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra270
+
+`import "std/c/dataultra270"` · `use dataultra270`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra271
+
+`import "std/c/dataultra271"` · `use dataultra271`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra272
+
+`import "std/c/dataultra272"` · `use dataultra272`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra273
+
+`import "std/c/dataultra273"` · `use dataultra273`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra274
+
+`import "std/c/dataultra274"` · `use dataultra274`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra275
+
+`import "std/c/dataultra275"` · `use dataultra275`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra276
+
+`import "std/c/dataultra276"` · `use dataultra276`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra277
+
+`import "std/c/dataultra277"` · `use dataultra277`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra278
+
+`import "std/c/dataultra278"` · `use dataultra278`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra279
+
+`import "std/c/dataultra279"` · `use dataultra279`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra280
+
+`import "std/c/dataultra280"` · `use dataultra280`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra281
+
+`import "std/c/dataultra281"` · `use dataultra281`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra282
+
+`import "std/c/dataultra282"` · `use dataultra282`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra283
+
+`import "std/c/dataultra283"` · `use dataultra283`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra284
+
+`import "std/c/dataultra284"` · `use dataultra284`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra285
+
+`import "std/c/dataultra285"` · `use dataultra285`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra286
+
+`import "std/c/dataultra286"` · `use dataultra286`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra287
+
+`import "std/c/dataultra287"` · `use dataultra287`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra288
+
+`import "std/c/dataultra288"` · `use dataultra288`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra289
+
+`import "std/c/dataultra289"` · `use dataultra289`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra290
+
+`import "std/c/dataultra290"` · `use dataultra290`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra291
+
+`import "std/c/dataultra291"` · `use dataultra291`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra292
+
+`import "std/c/dataultra292"` · `use dataultra292`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra293
+
+`import "std/c/dataultra293"` · `use dataultra293`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra294
+
+`import "std/c/dataultra294"` · `use dataultra294`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra295
+
+`import "std/c/dataultra295"` · `use dataultra295`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra296
+
+`import "std/c/dataultra296"` · `use dataultra296`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra297
+
+`import "std/c/dataultra297"` · `use dataultra297`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra298
+
+`import "std/c/dataultra298"` · `use dataultra298`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra299
+
+`import "std/c/dataultra299"` · `use dataultra299`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra300
+
+`import "std/c/dataultra300"` · `use dataultra300`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra301
+
+`import "std/c/dataultra301"` · `use dataultra301`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra302
+
+`import "std/c/dataultra302"` · `use dataultra302`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra303
+
+`import "std/c/dataultra303"` · `use dataultra303`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra304
+
+`import "std/c/dataultra304"` · `use dataultra304`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra305
+
+`import "std/c/dataultra305"` · `use dataultra305`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra306
+
+`import "std/c/dataultra306"` · `use dataultra306`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra307
+
+`import "std/c/dataultra307"` · `use dataultra307`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra308
+
+`import "std/c/dataultra308"` · `use dataultra308`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra309
+
+`import "std/c/dataultra309"` · `use dataultra309`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra310
+
+`import "std/c/dataultra310"` · `use dataultra310`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra311
+
+`import "std/c/dataultra311"` · `use dataultra311`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra312
+
+`import "std/c/dataultra312"` · `use dataultra312`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra313
+
+`import "std/c/dataultra313"` · `use dataultra313`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra314
+
+`import "std/c/dataultra314"` · `use dataultra314`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra315
+
+`import "std/c/dataultra315"` · `use dataultra315`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra316
+
+`import "std/c/dataultra316"` · `use dataultra316`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra317
+
+`import "std/c/dataultra317"` · `use dataultra317`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra318
+
+`import "std/c/dataultra318"` · `use dataultra318`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra319
+
+`import "std/c/dataultra319"` · `use dataultra319`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra320
+
+`import "std/c/dataultra320"` · `use dataultra320`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra321
+
+`import "std/c/dataultra321"` · `use dataultra321`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra322
+
+`import "std/c/dataultra322"` · `use dataultra322`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra323
+
+`import "std/c/dataultra323"` · `use dataultra323`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra324
+
+`import "std/c/dataultra324"` · `use dataultra324`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra325
+
+`import "std/c/dataultra325"` · `use dataultra325`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra326
+
+`import "std/c/dataultra326"` · `use dataultra326`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra327
+
+`import "std/c/dataultra327"` · `use dataultra327`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra328
+
+`import "std/c/dataultra328"` · `use dataultra328`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra329
+
+`import "std/c/dataultra329"` · `use dataultra329`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra330
+
+`import "std/c/dataultra330"` · `use dataultra330`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra331
+
+`import "std/c/dataultra331"` · `use dataultra331`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra332
+
+`import "std/c/dataultra332"` · `use dataultra332`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra333
+
+`import "std/c/dataultra333"` · `use dataultra333`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra334
+
+`import "std/c/dataultra334"` · `use dataultra334`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra335
+
+`import "std/c/dataultra335"` · `use dataultra335`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra336
+
+`import "std/c/dataultra336"` · `use dataultra336`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra337
+
+`import "std/c/dataultra337"` · `use dataultra337`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra338
+
+`import "std/c/dataultra338"` · `use dataultra338`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra339
+
+`import "std/c/dataultra339"` · `use dataultra339`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra340
+
+`import "std/c/dataultra340"` · `use dataultra340`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra341
+
+`import "std/c/dataultra341"` · `use dataultra341`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra342
+
+`import "std/c/dataultra342"` · `use dataultra342`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra343
+
+`import "std/c/dataultra343"` · `use dataultra343`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra344
+
+`import "std/c/dataultra344"` · `use dataultra344`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra345
+
+`import "std/c/dataultra345"` · `use dataultra345`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra346
+
+`import "std/c/dataultra346"` · `use dataultra346`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra347
+
+`import "std/c/dataultra347"` · `use dataultra347`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra348
+
+`import "std/c/dataultra348"` · `use dataultra348`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra349
+
+`import "std/c/dataultra349"` · `use dataultra349`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra350
+
+`import "std/c/dataultra350"` · `use dataultra350`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra351
+
+`import "std/c/dataultra351"` · `use dataultra351`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra352
+
+`import "std/c/dataultra352"` · `use dataultra352`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra353
+
+`import "std/c/dataultra353"` · `use dataultra353`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra354
+
+`import "std/c/dataultra354"` · `use dataultra354`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra355
+
+`import "std/c/dataultra355"` · `use dataultra355`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra356
+
+`import "std/c/dataultra356"` · `use dataultra356`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra357
+
+`import "std/c/dataultra357"` · `use dataultra357`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra358
+
+`import "std/c/dataultra358"` · `use dataultra358`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra359
+
+`import "std/c/dataultra359"` · `use dataultra359`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra360
+
+`import "std/c/dataultra360"` · `use dataultra360`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra361
+
+`import "std/c/dataultra361"` · `use dataultra361`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra362
+
+`import "std/c/dataultra362"` · `use dataultra362`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra363
+
+`import "std/c/dataultra363"` · `use dataultra363`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra364
+
+`import "std/c/dataultra364"` · `use dataultra364`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra365
+
+`import "std/c/dataultra365"` · `use dataultra365`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra366
+
+`import "std/c/dataultra366"` · `use dataultra366`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra367
+
+`import "std/c/dataultra367"` · `use dataultra367`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra368
+
+`import "std/c/dataultra368"` · `use dataultra368`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra369
+
+`import "std/c/dataultra369"` · `use dataultra369`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra370
+
+`import "std/c/dataultra370"` · `use dataultra370`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra371
+
+`import "std/c/dataultra371"` · `use dataultra371`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra372
+
+`import "std/c/dataultra372"` · `use dataultra372`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra373
+
+`import "std/c/dataultra373"` · `use dataultra373`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra374
+
+`import "std/c/dataultra374"` · `use dataultra374`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra375
+
+`import "std/c/dataultra375"` · `use dataultra375`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra376
+
+`import "std/c/dataultra376"` · `use dataultra376`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra377
+
+`import "std/c/dataultra377"` · `use dataultra377`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra378
+
+`import "std/c/dataultra378"` · `use dataultra378`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra379
+
+`import "std/c/dataultra379"` · `use dataultra379`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra380
+
+`import "std/c/dataultra380"` · `use dataultra380`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra381
+
+`import "std/c/dataultra381"` · `use dataultra381`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra382
+
+`import "std/c/dataultra382"` · `use dataultra382`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra383
+
+`import "std/c/dataultra383"` · `use dataultra383`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra384
+
+`import "std/c/dataultra384"` · `use dataultra384`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra385
+
+`import "std/c/dataultra385"` · `use dataultra385`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra386
+
+`import "std/c/dataultra386"` · `use dataultra386`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra387
+
+`import "std/c/dataultra387"` · `use dataultra387`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra388
+
+`import "std/c/dataultra388"` · `use dataultra388`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra389
+
+`import "std/c/dataultra389"` · `use dataultra389`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra390
+
+`import "std/c/dataultra390"` · `use dataultra390`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra391
+
+`import "std/c/dataultra391"` · `use dataultra391`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra392
+
+`import "std/c/dataultra392"` · `use dataultra392`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra393
+
+`import "std/c/dataultra393"` · `use dataultra393`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra394
+
+`import "std/c/dataultra394"` · `use dataultra394`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra395
+
+`import "std/c/dataultra395"` · `use dataultra395`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra396
+
+`import "std/c/dataultra396"` · `use dataultra396`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra397
+
+`import "std/c/dataultra397"` · `use dataultra397`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra398
+
+`import "std/c/dataultra398"` · `use dataultra398`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra399
+
+`import "std/c/dataultra399"` · `use dataultra399`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra400
+
+`import "std/c/dataultra400"` · `use dataultra400`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra401
+
+`import "std/c/dataultra401"` · `use dataultra401`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra402
+
+`import "std/c/dataultra402"` · `use dataultra402`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra403
+
+`import "std/c/dataultra403"` · `use dataultra403`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra404
+
+`import "std/c/dataultra404"` · `use dataultra404`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra405
+
+`import "std/c/dataultra405"` · `use dataultra405`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra406
+
+`import "std/c/dataultra406"` · `use dataultra406`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra407
+
+`import "std/c/dataultra407"` · `use dataultra407`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra408
+
+`import "std/c/dataultra408"` · `use dataultra408`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra409
+
+`import "std/c/dataultra409"` · `use dataultra409`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra410
+
+`import "std/c/dataultra410"` · `use dataultra410`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra411
+
+`import "std/c/dataultra411"` · `use dataultra411`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra412
+
+`import "std/c/dataultra412"` · `use dataultra412`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra413
+
+`import "std/c/dataultra413"` · `use dataultra413`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra414
+
+`import "std/c/dataultra414"` · `use dataultra414`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra415
+
+`import "std/c/dataultra415"` · `use dataultra415`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra416
+
+`import "std/c/dataultra416"` · `use dataultra416`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra417
+
+`import "std/c/dataultra417"` · `use dataultra417`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra418
+
+`import "std/c/dataultra418"` · `use dataultra418`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra419
+
+`import "std/c/dataultra419"` · `use dataultra419`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra420
+
+`import "std/c/dataultra420"` · `use dataultra420`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra421
+
+`import "std/c/dataultra421"` · `use dataultra421`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra422
+
+`import "std/c/dataultra422"` · `use dataultra422`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra423
+
+`import "std/c/dataultra423"` · `use dataultra423`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra424
+
+`import "std/c/dataultra424"` · `use dataultra424`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra425
+
+`import "std/c/dataultra425"` · `use dataultra425`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra426
+
+`import "std/c/dataultra426"` · `use dataultra426`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra427
+
+`import "std/c/dataultra427"` · `use dataultra427`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra428
+
+`import "std/c/dataultra428"` · `use dataultra428`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra429
+
+`import "std/c/dataultra429"` · `use dataultra429`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra430
+
+`import "std/c/dataultra430"` · `use dataultra430`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra431
+
+`import "std/c/dataultra431"` · `use dataultra431`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra432
+
+`import "std/c/dataultra432"` · `use dataultra432`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra433
+
+`import "std/c/dataultra433"` · `use dataultra433`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra434
+
+`import "std/c/dataultra434"` · `use dataultra434`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra435
+
+`import "std/c/dataultra435"` · `use dataultra435`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra436
+
+`import "std/c/dataultra436"` · `use dataultra436`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra437
+
+`import "std/c/dataultra437"` · `use dataultra437`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra438
+
+`import "std/c/dataultra438"` · `use dataultra438`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra439
+
+`import "std/c/dataultra439"` · `use dataultra439`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra440
+
+`import "std/c/dataultra440"` · `use dataultra440`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra441
+
+`import "std/c/dataultra441"` · `use dataultra441`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra442
+
+`import "std/c/dataultra442"` · `use dataultra442`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra443
+
+`import "std/c/dataultra443"` · `use dataultra443`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra444
+
+`import "std/c/dataultra444"` · `use dataultra444`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra445
+
+`import "std/c/dataultra445"` · `use dataultra445`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra446
+
+`import "std/c/dataultra446"` · `use dataultra446`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra447
+
+`import "std/c/dataultra447"` · `use dataultra447`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra448
+
+`import "std/c/dataultra448"` · `use dataultra448`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra449
+
+`import "std/c/dataultra449"` · `use dataultra449`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra450
+
+`import "std/c/dataultra450"` · `use dataultra450`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra451
+
+`import "std/c/dataultra451"` · `use dataultra451`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra452
+
+`import "std/c/dataultra452"` · `use dataultra452`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra453
+
+`import "std/c/dataultra453"` · `use dataultra453`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra454
+
+`import "std/c/dataultra454"` · `use dataultra454`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra455
+
+`import "std/c/dataultra455"` · `use dataultra455`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra456
+
+`import "std/c/dataultra456"` · `use dataultra456`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra457
+
+`import "std/c/dataultra457"` · `use dataultra457`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra458
+
+`import "std/c/dataultra458"` · `use dataultra458`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra459
+
+`import "std/c/dataultra459"` · `use dataultra459`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra460
+
+`import "std/c/dataultra460"` · `use dataultra460`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra461
+
+`import "std/c/dataultra461"` · `use dataultra461`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra462
+
+`import "std/c/dataultra462"` · `use dataultra462`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra463
+
+`import "std/c/dataultra463"` · `use dataultra463`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra464
+
+`import "std/c/dataultra464"` · `use dataultra464`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra465
+
+`import "std/c/dataultra465"` · `use dataultra465`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra466
+
+`import "std/c/dataultra466"` · `use dataultra466`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra467
+
+`import "std/c/dataultra467"` · `use dataultra467`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra468
+
+`import "std/c/dataultra468"` · `use dataultra468`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra469
+
+`import "std/c/dataultra469"` · `use dataultra469`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra470
+
+`import "std/c/dataultra470"` · `use dataultra470`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra471
+
+`import "std/c/dataultra471"` · `use dataultra471`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra472
+
+`import "std/c/dataultra472"` · `use dataultra472`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra473
+
+`import "std/c/dataultra473"` · `use dataultra473`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra474
+
+`import "std/c/dataultra474"` · `use dataultra474`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra475
+
+`import "std/c/dataultra475"` · `use dataultra475`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra476
+
+`import "std/c/dataultra476"` · `use dataultra476`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra477
+
+`import "std/c/dataultra477"` · `use dataultra477`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra478
+
+`import "std/c/dataultra478"` · `use dataultra478`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra479
+
+`import "std/c/dataultra479"` · `use dataultra479`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra480
+
+`import "std/c/dataultra480"` · `use dataultra480`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra481
+
+`import "std/c/dataultra481"` · `use dataultra481`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra482
+
+`import "std/c/dataultra482"` · `use dataultra482`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra483
+
+`import "std/c/dataultra483"` · `use dataultra483`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra484
+
+`import "std/c/dataultra484"` · `use dataultra484`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra485
+
+`import "std/c/dataultra485"` · `use dataultra485`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra486
+
+`import "std/c/dataultra486"` · `use dataultra486`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra487
+
+`import "std/c/dataultra487"` · `use dataultra487`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra488
+
+`import "std/c/dataultra488"` · `use dataultra488`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra489
+
+`import "std/c/dataultra489"` · `use dataultra489`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra490
+
+`import "std/c/dataultra490"` · `use dataultra490`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra491
+
+`import "std/c/dataultra491"` · `use dataultra491`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra492
+
+`import "std/c/dataultra492"` · `use dataultra492`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra493
+
+`import "std/c/dataultra493"` · `use dataultra493`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra494
+
+`import "std/c/dataultra494"` · `use dataultra494`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra495
+
+`import "std/c/dataultra495"` · `use dataultra495`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra496
+
+`import "std/c/dataultra496"` · `use dataultra496`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra497
+
+`import "std/c/dataultra497"` · `use dataultra497`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra498
+
+`import "std/c/dataultra498"` · `use dataultra498`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra499
+
+`import "std/c/dataultra499"` · `use dataultra499`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/dataultra500
+
+`import "std/c/dataultra500"` · `use dataultra500`
+
+- `mean(v list number) → number`
+- `stddev(v list number) → number`
+- `minVal(v list number) → number`
+- `maxVal(v list number) → number`
+- `normalize(v list number) → list number`
+- `diff1(v list number) → list number`
+- `rollingMean(v list number, window number) → list number`
+- `percentile(v list number, p number) → number`
+- `correlation(a list number, b list number) → number`
+- `linearSlope(xs list number, ys list number) → number`
+
+## std/c/vizultra001
+
+`import "std/c/vizultra001"` · `use vizultra001`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra002
+
+`import "std/c/vizultra002"` · `use vizultra002`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra003
+
+`import "std/c/vizultra003"` · `use vizultra003`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra004
+
+`import "std/c/vizultra004"` · `use vizultra004`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra005
+
+`import "std/c/vizultra005"` · `use vizultra005`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra006
+
+`import "std/c/vizultra006"` · `use vizultra006`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra007
+
+`import "std/c/vizultra007"` · `use vizultra007`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra008
+
+`import "std/c/vizultra008"` · `use vizultra008`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra009
+
+`import "std/c/vizultra009"` · `use vizultra009`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra010
+
+`import "std/c/vizultra010"` · `use vizultra010`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra011
+
+`import "std/c/vizultra011"` · `use vizultra011`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra012
+
+`import "std/c/vizultra012"` · `use vizultra012`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra013
+
+`import "std/c/vizultra013"` · `use vizultra013`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra014
+
+`import "std/c/vizultra014"` · `use vizultra014`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra015
+
+`import "std/c/vizultra015"` · `use vizultra015`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra016
+
+`import "std/c/vizultra016"` · `use vizultra016`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra017
+
+`import "std/c/vizultra017"` · `use vizultra017`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra018
+
+`import "std/c/vizultra018"` · `use vizultra018`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra019
+
+`import "std/c/vizultra019"` · `use vizultra019`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra020
+
+`import "std/c/vizultra020"` · `use vizultra020`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra021
+
+`import "std/c/vizultra021"` · `use vizultra021`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra022
+
+`import "std/c/vizultra022"` · `use vizultra022`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra023
+
+`import "std/c/vizultra023"` · `use vizultra023`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra024
+
+`import "std/c/vizultra024"` · `use vizultra024`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra025
+
+`import "std/c/vizultra025"` · `use vizultra025`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra026
+
+`import "std/c/vizultra026"` · `use vizultra026`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra027
+
+`import "std/c/vizultra027"` · `use vizultra027`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra028
+
+`import "std/c/vizultra028"` · `use vizultra028`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra029
+
+`import "std/c/vizultra029"` · `use vizultra029`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra030
+
+`import "std/c/vizultra030"` · `use vizultra030`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra031
+
+`import "std/c/vizultra031"` · `use vizultra031`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra032
+
+`import "std/c/vizultra032"` · `use vizultra032`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra033
+
+`import "std/c/vizultra033"` · `use vizultra033`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra034
+
+`import "std/c/vizultra034"` · `use vizultra034`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra035
+
+`import "std/c/vizultra035"` · `use vizultra035`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra036
+
+`import "std/c/vizultra036"` · `use vizultra036`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra037
+
+`import "std/c/vizultra037"` · `use vizultra037`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra038
+
+`import "std/c/vizultra038"` · `use vizultra038`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra039
+
+`import "std/c/vizultra039"` · `use vizultra039`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra040
+
+`import "std/c/vizultra040"` · `use vizultra040`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra041
+
+`import "std/c/vizultra041"` · `use vizultra041`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra042
+
+`import "std/c/vizultra042"` · `use vizultra042`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra043
+
+`import "std/c/vizultra043"` · `use vizultra043`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra044
+
+`import "std/c/vizultra044"` · `use vizultra044`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra045
+
+`import "std/c/vizultra045"` · `use vizultra045`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra046
+
+`import "std/c/vizultra046"` · `use vizultra046`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra047
+
+`import "std/c/vizultra047"` · `use vizultra047`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra048
+
+`import "std/c/vizultra048"` · `use vizultra048`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra049
+
+`import "std/c/vizultra049"` · `use vizultra049`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra050
+
+`import "std/c/vizultra050"` · `use vizultra050`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra051
+
+`import "std/c/vizultra051"` · `use vizultra051`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra052
+
+`import "std/c/vizultra052"` · `use vizultra052`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra053
+
+`import "std/c/vizultra053"` · `use vizultra053`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra054
+
+`import "std/c/vizultra054"` · `use vizultra054`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra055
+
+`import "std/c/vizultra055"` · `use vizultra055`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra056
+
+`import "std/c/vizultra056"` · `use vizultra056`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra057
+
+`import "std/c/vizultra057"` · `use vizultra057`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra058
+
+`import "std/c/vizultra058"` · `use vizultra058`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra059
+
+`import "std/c/vizultra059"` · `use vizultra059`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra060
+
+`import "std/c/vizultra060"` · `use vizultra060`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra061
+
+`import "std/c/vizultra061"` · `use vizultra061`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra062
+
+`import "std/c/vizultra062"` · `use vizultra062`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra063
+
+`import "std/c/vizultra063"` · `use vizultra063`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra064
+
+`import "std/c/vizultra064"` · `use vizultra064`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra065
+
+`import "std/c/vizultra065"` · `use vizultra065`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra066
+
+`import "std/c/vizultra066"` · `use vizultra066`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra067
+
+`import "std/c/vizultra067"` · `use vizultra067`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra068
+
+`import "std/c/vizultra068"` · `use vizultra068`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra069
+
+`import "std/c/vizultra069"` · `use vizultra069`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra070
+
+`import "std/c/vizultra070"` · `use vizultra070`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra071
+
+`import "std/c/vizultra071"` · `use vizultra071`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra072
+
+`import "std/c/vizultra072"` · `use vizultra072`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra073
+
+`import "std/c/vizultra073"` · `use vizultra073`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra074
+
+`import "std/c/vizultra074"` · `use vizultra074`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra075
+
+`import "std/c/vizultra075"` · `use vizultra075`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra076
+
+`import "std/c/vizultra076"` · `use vizultra076`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra077
+
+`import "std/c/vizultra077"` · `use vizultra077`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra078
+
+`import "std/c/vizultra078"` · `use vizultra078`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra079
+
+`import "std/c/vizultra079"` · `use vizultra079`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra080
+
+`import "std/c/vizultra080"` · `use vizultra080`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra081
+
+`import "std/c/vizultra081"` · `use vizultra081`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra082
+
+`import "std/c/vizultra082"` · `use vizultra082`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra083
+
+`import "std/c/vizultra083"` · `use vizultra083`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra084
+
+`import "std/c/vizultra084"` · `use vizultra084`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra085
+
+`import "std/c/vizultra085"` · `use vizultra085`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra086
+
+`import "std/c/vizultra086"` · `use vizultra086`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra087
+
+`import "std/c/vizultra087"` · `use vizultra087`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra088
+
+`import "std/c/vizultra088"` · `use vizultra088`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra089
+
+`import "std/c/vizultra089"` · `use vizultra089`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra090
+
+`import "std/c/vizultra090"` · `use vizultra090`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra091
+
+`import "std/c/vizultra091"` · `use vizultra091`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra092
+
+`import "std/c/vizultra092"` · `use vizultra092`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra093
+
+`import "std/c/vizultra093"` · `use vizultra093`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra094
+
+`import "std/c/vizultra094"` · `use vizultra094`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra095
+
+`import "std/c/vizultra095"` · `use vizultra095`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra096
+
+`import "std/c/vizultra096"` · `use vizultra096`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra097
+
+`import "std/c/vizultra097"` · `use vizultra097`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra098
+
+`import "std/c/vizultra098"` · `use vizultra098`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra099
+
+`import "std/c/vizultra099"` · `use vizultra099`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra100
+
+`import "std/c/vizultra100"` · `use vizultra100`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra101
+
+`import "std/c/vizultra101"` · `use vizultra101`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra102
+
+`import "std/c/vizultra102"` · `use vizultra102`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra103
+
+`import "std/c/vizultra103"` · `use vizultra103`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra104
+
+`import "std/c/vizultra104"` · `use vizultra104`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra105
+
+`import "std/c/vizultra105"` · `use vizultra105`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra106
+
+`import "std/c/vizultra106"` · `use vizultra106`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra107
+
+`import "std/c/vizultra107"` · `use vizultra107`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra108
+
+`import "std/c/vizultra108"` · `use vizultra108`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra109
+
+`import "std/c/vizultra109"` · `use vizultra109`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra110
+
+`import "std/c/vizultra110"` · `use vizultra110`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra111
+
+`import "std/c/vizultra111"` · `use vizultra111`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra112
+
+`import "std/c/vizultra112"` · `use vizultra112`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra113
+
+`import "std/c/vizultra113"` · `use vizultra113`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra114
+
+`import "std/c/vizultra114"` · `use vizultra114`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra115
+
+`import "std/c/vizultra115"` · `use vizultra115`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra116
+
+`import "std/c/vizultra116"` · `use vizultra116`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra117
+
+`import "std/c/vizultra117"` · `use vizultra117`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra118
+
+`import "std/c/vizultra118"` · `use vizultra118`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra119
+
+`import "std/c/vizultra119"` · `use vizultra119`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra120
+
+`import "std/c/vizultra120"` · `use vizultra120`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra121
+
+`import "std/c/vizultra121"` · `use vizultra121`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra122
+
+`import "std/c/vizultra122"` · `use vizultra122`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra123
+
+`import "std/c/vizultra123"` · `use vizultra123`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra124
+
+`import "std/c/vizultra124"` · `use vizultra124`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra125
+
+`import "std/c/vizultra125"` · `use vizultra125`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra126
+
+`import "std/c/vizultra126"` · `use vizultra126`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra127
+
+`import "std/c/vizultra127"` · `use vizultra127`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra128
+
+`import "std/c/vizultra128"` · `use vizultra128`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra129
+
+`import "std/c/vizultra129"` · `use vizultra129`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra130
+
+`import "std/c/vizultra130"` · `use vizultra130`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra131
+
+`import "std/c/vizultra131"` · `use vizultra131`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra132
+
+`import "std/c/vizultra132"` · `use vizultra132`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra133
+
+`import "std/c/vizultra133"` · `use vizultra133`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra134
+
+`import "std/c/vizultra134"` · `use vizultra134`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra135
+
+`import "std/c/vizultra135"` · `use vizultra135`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra136
+
+`import "std/c/vizultra136"` · `use vizultra136`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra137
+
+`import "std/c/vizultra137"` · `use vizultra137`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra138
+
+`import "std/c/vizultra138"` · `use vizultra138`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra139
+
+`import "std/c/vizultra139"` · `use vizultra139`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra140
+
+`import "std/c/vizultra140"` · `use vizultra140`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra141
+
+`import "std/c/vizultra141"` · `use vizultra141`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra142
+
+`import "std/c/vizultra142"` · `use vizultra142`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra143
+
+`import "std/c/vizultra143"` · `use vizultra143`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra144
+
+`import "std/c/vizultra144"` · `use vizultra144`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra145
+
+`import "std/c/vizultra145"` · `use vizultra145`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra146
+
+`import "std/c/vizultra146"` · `use vizultra146`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra147
+
+`import "std/c/vizultra147"` · `use vizultra147`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra148
+
+`import "std/c/vizultra148"` · `use vizultra148`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra149
+
+`import "std/c/vizultra149"` · `use vizultra149`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra150
+
+`import "std/c/vizultra150"` · `use vizultra150`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra151
+
+`import "std/c/vizultra151"` · `use vizultra151`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra152
+
+`import "std/c/vizultra152"` · `use vizultra152`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra153
+
+`import "std/c/vizultra153"` · `use vizultra153`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra154
+
+`import "std/c/vizultra154"` · `use vizultra154`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra155
+
+`import "std/c/vizultra155"` · `use vizultra155`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra156
+
+`import "std/c/vizultra156"` · `use vizultra156`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra157
+
+`import "std/c/vizultra157"` · `use vizultra157`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra158
+
+`import "std/c/vizultra158"` · `use vizultra158`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra159
+
+`import "std/c/vizultra159"` · `use vizultra159`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra160
+
+`import "std/c/vizultra160"` · `use vizultra160`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra161
+
+`import "std/c/vizultra161"` · `use vizultra161`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra162
+
+`import "std/c/vizultra162"` · `use vizultra162`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra163
+
+`import "std/c/vizultra163"` · `use vizultra163`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra164
+
+`import "std/c/vizultra164"` · `use vizultra164`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra165
+
+`import "std/c/vizultra165"` · `use vizultra165`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra166
+
+`import "std/c/vizultra166"` · `use vizultra166`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra167
+
+`import "std/c/vizultra167"` · `use vizultra167`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra168
+
+`import "std/c/vizultra168"` · `use vizultra168`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra169
+
+`import "std/c/vizultra169"` · `use vizultra169`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra170
+
+`import "std/c/vizultra170"` · `use vizultra170`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra171
+
+`import "std/c/vizultra171"` · `use vizultra171`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra172
+
+`import "std/c/vizultra172"` · `use vizultra172`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra173
+
+`import "std/c/vizultra173"` · `use vizultra173`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra174
+
+`import "std/c/vizultra174"` · `use vizultra174`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra175
+
+`import "std/c/vizultra175"` · `use vizultra175`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra176
+
+`import "std/c/vizultra176"` · `use vizultra176`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra177
+
+`import "std/c/vizultra177"` · `use vizultra177`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra178
+
+`import "std/c/vizultra178"` · `use vizultra178`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra179
+
+`import "std/c/vizultra179"` · `use vizultra179`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra180
+
+`import "std/c/vizultra180"` · `use vizultra180`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra181
+
+`import "std/c/vizultra181"` · `use vizultra181`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra182
+
+`import "std/c/vizultra182"` · `use vizultra182`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra183
+
+`import "std/c/vizultra183"` · `use vizultra183`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra184
+
+`import "std/c/vizultra184"` · `use vizultra184`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra185
+
+`import "std/c/vizultra185"` · `use vizultra185`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra186
+
+`import "std/c/vizultra186"` · `use vizultra186`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra187
+
+`import "std/c/vizultra187"` · `use vizultra187`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra188
+
+`import "std/c/vizultra188"` · `use vizultra188`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra189
+
+`import "std/c/vizultra189"` · `use vizultra189`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra190
+
+`import "std/c/vizultra190"` · `use vizultra190`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra191
+
+`import "std/c/vizultra191"` · `use vizultra191`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra192
+
+`import "std/c/vizultra192"` · `use vizultra192`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra193
+
+`import "std/c/vizultra193"` · `use vizultra193`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra194
+
+`import "std/c/vizultra194"` · `use vizultra194`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra195
+
+`import "std/c/vizultra195"` · `use vizultra195`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra196
+
+`import "std/c/vizultra196"` · `use vizultra196`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra197
+
+`import "std/c/vizultra197"` · `use vizultra197`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra198
+
+`import "std/c/vizultra198"` · `use vizultra198`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra199
+
+`import "std/c/vizultra199"` · `use vizultra199`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra200
+
+`import "std/c/vizultra200"` · `use vizultra200`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra201
+
+`import "std/c/vizultra201"` · `use vizultra201`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra202
+
+`import "std/c/vizultra202"` · `use vizultra202`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra203
+
+`import "std/c/vizultra203"` · `use vizultra203`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra204
+
+`import "std/c/vizultra204"` · `use vizultra204`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra205
+
+`import "std/c/vizultra205"` · `use vizultra205`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra206
+
+`import "std/c/vizultra206"` · `use vizultra206`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra207
+
+`import "std/c/vizultra207"` · `use vizultra207`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra208
+
+`import "std/c/vizultra208"` · `use vizultra208`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra209
+
+`import "std/c/vizultra209"` · `use vizultra209`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra210
+
+`import "std/c/vizultra210"` · `use vizultra210`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra211
+
+`import "std/c/vizultra211"` · `use vizultra211`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra212
+
+`import "std/c/vizultra212"` · `use vizultra212`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra213
+
+`import "std/c/vizultra213"` · `use vizultra213`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra214
+
+`import "std/c/vizultra214"` · `use vizultra214`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra215
+
+`import "std/c/vizultra215"` · `use vizultra215`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra216
+
+`import "std/c/vizultra216"` · `use vizultra216`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra217
+
+`import "std/c/vizultra217"` · `use vizultra217`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra218
+
+`import "std/c/vizultra218"` · `use vizultra218`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra219
+
+`import "std/c/vizultra219"` · `use vizultra219`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra220
+
+`import "std/c/vizultra220"` · `use vizultra220`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra221
+
+`import "std/c/vizultra221"` · `use vizultra221`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra222
+
+`import "std/c/vizultra222"` · `use vizultra222`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra223
+
+`import "std/c/vizultra223"` · `use vizultra223`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra224
+
+`import "std/c/vizultra224"` · `use vizultra224`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra225
+
+`import "std/c/vizultra225"` · `use vizultra225`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra226
+
+`import "std/c/vizultra226"` · `use vizultra226`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra227
+
+`import "std/c/vizultra227"` · `use vizultra227`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra228
+
+`import "std/c/vizultra228"` · `use vizultra228`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra229
+
+`import "std/c/vizultra229"` · `use vizultra229`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra230
+
+`import "std/c/vizultra230"` · `use vizultra230`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra231
+
+`import "std/c/vizultra231"` · `use vizultra231`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra232
+
+`import "std/c/vizultra232"` · `use vizultra232`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra233
+
+`import "std/c/vizultra233"` · `use vizultra233`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra234
+
+`import "std/c/vizultra234"` · `use vizultra234`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra235
+
+`import "std/c/vizultra235"` · `use vizultra235`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra236
+
+`import "std/c/vizultra236"` · `use vizultra236`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra237
+
+`import "std/c/vizultra237"` · `use vizultra237`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra238
+
+`import "std/c/vizultra238"` · `use vizultra238`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra239
+
+`import "std/c/vizultra239"` · `use vizultra239`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra240
+
+`import "std/c/vizultra240"` · `use vizultra240`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra241
+
+`import "std/c/vizultra241"` · `use vizultra241`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra242
+
+`import "std/c/vizultra242"` · `use vizultra242`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra243
+
+`import "std/c/vizultra243"` · `use vizultra243`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra244
+
+`import "std/c/vizultra244"` · `use vizultra244`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra245
+
+`import "std/c/vizultra245"` · `use vizultra245`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra246
+
+`import "std/c/vizultra246"` · `use vizultra246`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra247
+
+`import "std/c/vizultra247"` · `use vizultra247`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra248
+
+`import "std/c/vizultra248"` · `use vizultra248`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra249
+
+`import "std/c/vizultra249"` · `use vizultra249`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra250
+
+`import "std/c/vizultra250"` · `use vizultra250`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra251
+
+`import "std/c/vizultra251"` · `use vizultra251`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra252
+
+`import "std/c/vizultra252"` · `use vizultra252`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra253
+
+`import "std/c/vizultra253"` · `use vizultra253`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra254
+
+`import "std/c/vizultra254"` · `use vizultra254`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra255
+
+`import "std/c/vizultra255"` · `use vizultra255`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra256
+
+`import "std/c/vizultra256"` · `use vizultra256`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra257
+
+`import "std/c/vizultra257"` · `use vizultra257`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra258
+
+`import "std/c/vizultra258"` · `use vizultra258`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra259
+
+`import "std/c/vizultra259"` · `use vizultra259`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra260
+
+`import "std/c/vizultra260"` · `use vizultra260`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra261
+
+`import "std/c/vizultra261"` · `use vizultra261`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra262
+
+`import "std/c/vizultra262"` · `use vizultra262`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra263
+
+`import "std/c/vizultra263"` · `use vizultra263`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra264
+
+`import "std/c/vizultra264"` · `use vizultra264`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra265
+
+`import "std/c/vizultra265"` · `use vizultra265`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra266
+
+`import "std/c/vizultra266"` · `use vizultra266`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra267
+
+`import "std/c/vizultra267"` · `use vizultra267`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra268
+
+`import "std/c/vizultra268"` · `use vizultra268`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra269
+
+`import "std/c/vizultra269"` · `use vizultra269`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra270
+
+`import "std/c/vizultra270"` · `use vizultra270`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra271
+
+`import "std/c/vizultra271"` · `use vizultra271`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra272
+
+`import "std/c/vizultra272"` · `use vizultra272`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra273
+
+`import "std/c/vizultra273"` · `use vizultra273`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra274
+
+`import "std/c/vizultra274"` · `use vizultra274`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra275
+
+`import "std/c/vizultra275"` · `use vizultra275`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra276
+
+`import "std/c/vizultra276"` · `use vizultra276`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra277
+
+`import "std/c/vizultra277"` · `use vizultra277`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra278
+
+`import "std/c/vizultra278"` · `use vizultra278`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra279
+
+`import "std/c/vizultra279"` · `use vizultra279`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra280
+
+`import "std/c/vizultra280"` · `use vizultra280`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra281
+
+`import "std/c/vizultra281"` · `use vizultra281`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra282
+
+`import "std/c/vizultra282"` · `use vizultra282`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra283
+
+`import "std/c/vizultra283"` · `use vizultra283`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra284
+
+`import "std/c/vizultra284"` · `use vizultra284`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra285
+
+`import "std/c/vizultra285"` · `use vizultra285`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra286
+
+`import "std/c/vizultra286"` · `use vizultra286`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra287
+
+`import "std/c/vizultra287"` · `use vizultra287`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra288
+
+`import "std/c/vizultra288"` · `use vizultra288`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra289
+
+`import "std/c/vizultra289"` · `use vizultra289`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra290
+
+`import "std/c/vizultra290"` · `use vizultra290`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra291
+
+`import "std/c/vizultra291"` · `use vizultra291`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra292
+
+`import "std/c/vizultra292"` · `use vizultra292`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra293
+
+`import "std/c/vizultra293"` · `use vizultra293`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra294
+
+`import "std/c/vizultra294"` · `use vizultra294`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra295
+
+`import "std/c/vizultra295"` · `use vizultra295`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra296
+
+`import "std/c/vizultra296"` · `use vizultra296`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra297
+
+`import "std/c/vizultra297"` · `use vizultra297`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra298
+
+`import "std/c/vizultra298"` · `use vizultra298`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra299
+
+`import "std/c/vizultra299"` · `use vizultra299`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra300
+
+`import "std/c/vizultra300"` · `use vizultra300`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra301
+
+`import "std/c/vizultra301"` · `use vizultra301`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra302
+
+`import "std/c/vizultra302"` · `use vizultra302`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra303
+
+`import "std/c/vizultra303"` · `use vizultra303`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra304
+
+`import "std/c/vizultra304"` · `use vizultra304`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra305
+
+`import "std/c/vizultra305"` · `use vizultra305`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra306
+
+`import "std/c/vizultra306"` · `use vizultra306`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra307
+
+`import "std/c/vizultra307"` · `use vizultra307`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra308
+
+`import "std/c/vizultra308"` · `use vizultra308`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra309
+
+`import "std/c/vizultra309"` · `use vizultra309`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra310
+
+`import "std/c/vizultra310"` · `use vizultra310`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra311
+
+`import "std/c/vizultra311"` · `use vizultra311`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra312
+
+`import "std/c/vizultra312"` · `use vizultra312`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra313
+
+`import "std/c/vizultra313"` · `use vizultra313`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra314
+
+`import "std/c/vizultra314"` · `use vizultra314`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra315
+
+`import "std/c/vizultra315"` · `use vizultra315`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra316
+
+`import "std/c/vizultra316"` · `use vizultra316`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra317
+
+`import "std/c/vizultra317"` · `use vizultra317`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra318
+
+`import "std/c/vizultra318"` · `use vizultra318`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra319
+
+`import "std/c/vizultra319"` · `use vizultra319`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra320
+
+`import "std/c/vizultra320"` · `use vizultra320`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra321
+
+`import "std/c/vizultra321"` · `use vizultra321`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra322
+
+`import "std/c/vizultra322"` · `use vizultra322`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra323
+
+`import "std/c/vizultra323"` · `use vizultra323`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra324
+
+`import "std/c/vizultra324"` · `use vizultra324`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra325
+
+`import "std/c/vizultra325"` · `use vizultra325`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra326
+
+`import "std/c/vizultra326"` · `use vizultra326`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra327
+
+`import "std/c/vizultra327"` · `use vizultra327`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra328
+
+`import "std/c/vizultra328"` · `use vizultra328`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra329
+
+`import "std/c/vizultra329"` · `use vizultra329`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra330
+
+`import "std/c/vizultra330"` · `use vizultra330`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra331
+
+`import "std/c/vizultra331"` · `use vizultra331`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra332
+
+`import "std/c/vizultra332"` · `use vizultra332`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra333
+
+`import "std/c/vizultra333"` · `use vizultra333`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra334
+
+`import "std/c/vizultra334"` · `use vizultra334`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra335
+
+`import "std/c/vizultra335"` · `use vizultra335`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra336
+
+`import "std/c/vizultra336"` · `use vizultra336`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra337
+
+`import "std/c/vizultra337"` · `use vizultra337`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra338
+
+`import "std/c/vizultra338"` · `use vizultra338`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra339
+
+`import "std/c/vizultra339"` · `use vizultra339`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra340
+
+`import "std/c/vizultra340"` · `use vizultra340`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra341
+
+`import "std/c/vizultra341"` · `use vizultra341`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra342
+
+`import "std/c/vizultra342"` · `use vizultra342`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra343
+
+`import "std/c/vizultra343"` · `use vizultra343`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra344
+
+`import "std/c/vizultra344"` · `use vizultra344`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra345
+
+`import "std/c/vizultra345"` · `use vizultra345`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra346
+
+`import "std/c/vizultra346"` · `use vizultra346`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra347
+
+`import "std/c/vizultra347"` · `use vizultra347`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra348
+
+`import "std/c/vizultra348"` · `use vizultra348`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra349
+
+`import "std/c/vizultra349"` · `use vizultra349`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra350
+
+`import "std/c/vizultra350"` · `use vizultra350`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra351
+
+`import "std/c/vizultra351"` · `use vizultra351`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra352
+
+`import "std/c/vizultra352"` · `use vizultra352`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra353
+
+`import "std/c/vizultra353"` · `use vizultra353`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra354
+
+`import "std/c/vizultra354"` · `use vizultra354`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra355
+
+`import "std/c/vizultra355"` · `use vizultra355`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra356
+
+`import "std/c/vizultra356"` · `use vizultra356`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra357
+
+`import "std/c/vizultra357"` · `use vizultra357`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra358
+
+`import "std/c/vizultra358"` · `use vizultra358`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra359
+
+`import "std/c/vizultra359"` · `use vizultra359`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra360
+
+`import "std/c/vizultra360"` · `use vizultra360`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra361
+
+`import "std/c/vizultra361"` · `use vizultra361`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra362
+
+`import "std/c/vizultra362"` · `use vizultra362`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra363
+
+`import "std/c/vizultra363"` · `use vizultra363`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra364
+
+`import "std/c/vizultra364"` · `use vizultra364`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra365
+
+`import "std/c/vizultra365"` · `use vizultra365`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra366
+
+`import "std/c/vizultra366"` · `use vizultra366`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra367
+
+`import "std/c/vizultra367"` · `use vizultra367`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra368
+
+`import "std/c/vizultra368"` · `use vizultra368`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra369
+
+`import "std/c/vizultra369"` · `use vizultra369`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra370
+
+`import "std/c/vizultra370"` · `use vizultra370`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra371
+
+`import "std/c/vizultra371"` · `use vizultra371`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra372
+
+`import "std/c/vizultra372"` · `use vizultra372`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra373
+
+`import "std/c/vizultra373"` · `use vizultra373`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra374
+
+`import "std/c/vizultra374"` · `use vizultra374`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra375
+
+`import "std/c/vizultra375"` · `use vizultra375`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra376
+
+`import "std/c/vizultra376"` · `use vizultra376`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra377
+
+`import "std/c/vizultra377"` · `use vizultra377`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra378
+
+`import "std/c/vizultra378"` · `use vizultra378`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra379
+
+`import "std/c/vizultra379"` · `use vizultra379`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra380
+
+`import "std/c/vizultra380"` · `use vizultra380`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra381
+
+`import "std/c/vizultra381"` · `use vizultra381`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra382
+
+`import "std/c/vizultra382"` · `use vizultra382`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra383
+
+`import "std/c/vizultra383"` · `use vizultra383`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra384
+
+`import "std/c/vizultra384"` · `use vizultra384`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra385
+
+`import "std/c/vizultra385"` · `use vizultra385`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra386
+
+`import "std/c/vizultra386"` · `use vizultra386`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra387
+
+`import "std/c/vizultra387"` · `use vizultra387`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra388
+
+`import "std/c/vizultra388"` · `use vizultra388`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra389
+
+`import "std/c/vizultra389"` · `use vizultra389`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra390
+
+`import "std/c/vizultra390"` · `use vizultra390`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra391
+
+`import "std/c/vizultra391"` · `use vizultra391`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra392
+
+`import "std/c/vizultra392"` · `use vizultra392`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra393
+
+`import "std/c/vizultra393"` · `use vizultra393`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra394
+
+`import "std/c/vizultra394"` · `use vizultra394`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra395
+
+`import "std/c/vizultra395"` · `use vizultra395`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra396
+
+`import "std/c/vizultra396"` · `use vizultra396`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra397
+
+`import "std/c/vizultra397"` · `use vizultra397`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra398
+
+`import "std/c/vizultra398"` · `use vizultra398`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra399
+
+`import "std/c/vizultra399"` · `use vizultra399`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra400
+
+`import "std/c/vizultra400"` · `use vizultra400`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra401
+
+`import "std/c/vizultra401"` · `use vizultra401`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra402
+
+`import "std/c/vizultra402"` · `use vizultra402`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra403
+
+`import "std/c/vizultra403"` · `use vizultra403`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra404
+
+`import "std/c/vizultra404"` · `use vizultra404`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra405
+
+`import "std/c/vizultra405"` · `use vizultra405`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra406
+
+`import "std/c/vizultra406"` · `use vizultra406`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra407
+
+`import "std/c/vizultra407"` · `use vizultra407`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra408
+
+`import "std/c/vizultra408"` · `use vizultra408`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra409
+
+`import "std/c/vizultra409"` · `use vizultra409`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra410
+
+`import "std/c/vizultra410"` · `use vizultra410`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra411
+
+`import "std/c/vizultra411"` · `use vizultra411`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra412
+
+`import "std/c/vizultra412"` · `use vizultra412`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra413
+
+`import "std/c/vizultra413"` · `use vizultra413`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra414
+
+`import "std/c/vizultra414"` · `use vizultra414`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra415
+
+`import "std/c/vizultra415"` · `use vizultra415`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra416
+
+`import "std/c/vizultra416"` · `use vizultra416`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra417
+
+`import "std/c/vizultra417"` · `use vizultra417`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra418
+
+`import "std/c/vizultra418"` · `use vizultra418`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra419
+
+`import "std/c/vizultra419"` · `use vizultra419`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra420
+
+`import "std/c/vizultra420"` · `use vizultra420`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra421
+
+`import "std/c/vizultra421"` · `use vizultra421`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra422
+
+`import "std/c/vizultra422"` · `use vizultra422`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra423
+
+`import "std/c/vizultra423"` · `use vizultra423`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra424
+
+`import "std/c/vizultra424"` · `use vizultra424`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra425
+
+`import "std/c/vizultra425"` · `use vizultra425`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra426
+
+`import "std/c/vizultra426"` · `use vizultra426`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra427
+
+`import "std/c/vizultra427"` · `use vizultra427`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra428
+
+`import "std/c/vizultra428"` · `use vizultra428`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra429
+
+`import "std/c/vizultra429"` · `use vizultra429`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra430
+
+`import "std/c/vizultra430"` · `use vizultra430`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra431
+
+`import "std/c/vizultra431"` · `use vizultra431`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra432
+
+`import "std/c/vizultra432"` · `use vizultra432`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra433
+
+`import "std/c/vizultra433"` · `use vizultra433`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra434
+
+`import "std/c/vizultra434"` · `use vizultra434`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra435
+
+`import "std/c/vizultra435"` · `use vizultra435`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra436
+
+`import "std/c/vizultra436"` · `use vizultra436`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra437
+
+`import "std/c/vizultra437"` · `use vizultra437`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra438
+
+`import "std/c/vizultra438"` · `use vizultra438`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra439
+
+`import "std/c/vizultra439"` · `use vizultra439`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra440
+
+`import "std/c/vizultra440"` · `use vizultra440`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra441
+
+`import "std/c/vizultra441"` · `use vizultra441`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra442
+
+`import "std/c/vizultra442"` · `use vizultra442`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra443
+
+`import "std/c/vizultra443"` · `use vizultra443`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra444
+
+`import "std/c/vizultra444"` · `use vizultra444`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra445
+
+`import "std/c/vizultra445"` · `use vizultra445`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra446
+
+`import "std/c/vizultra446"` · `use vizultra446`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra447
+
+`import "std/c/vizultra447"` · `use vizultra447`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra448
+
+`import "std/c/vizultra448"` · `use vizultra448`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra449
+
+`import "std/c/vizultra449"` · `use vizultra449`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra450
+
+`import "std/c/vizultra450"` · `use vizultra450`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra451
+
+`import "std/c/vizultra451"` · `use vizultra451`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra452
+
+`import "std/c/vizultra452"` · `use vizultra452`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra453
+
+`import "std/c/vizultra453"` · `use vizultra453`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra454
+
+`import "std/c/vizultra454"` · `use vizultra454`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra455
+
+`import "std/c/vizultra455"` · `use vizultra455`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra456
+
+`import "std/c/vizultra456"` · `use vizultra456`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra457
+
+`import "std/c/vizultra457"` · `use vizultra457`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra458
+
+`import "std/c/vizultra458"` · `use vizultra458`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra459
+
+`import "std/c/vizultra459"` · `use vizultra459`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra460
+
+`import "std/c/vizultra460"` · `use vizultra460`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra461
+
+`import "std/c/vizultra461"` · `use vizultra461`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra462
+
+`import "std/c/vizultra462"` · `use vizultra462`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra463
+
+`import "std/c/vizultra463"` · `use vizultra463`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra464
+
+`import "std/c/vizultra464"` · `use vizultra464`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra465
+
+`import "std/c/vizultra465"` · `use vizultra465`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra466
+
+`import "std/c/vizultra466"` · `use vizultra466`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra467
+
+`import "std/c/vizultra467"` · `use vizultra467`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra468
+
+`import "std/c/vizultra468"` · `use vizultra468`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra469
+
+`import "std/c/vizultra469"` · `use vizultra469`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra470
+
+`import "std/c/vizultra470"` · `use vizultra470`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra471
+
+`import "std/c/vizultra471"` · `use vizultra471`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra472
+
+`import "std/c/vizultra472"` · `use vizultra472`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra473
+
+`import "std/c/vizultra473"` · `use vizultra473`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra474
+
+`import "std/c/vizultra474"` · `use vizultra474`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra475
+
+`import "std/c/vizultra475"` · `use vizultra475`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra476
+
+`import "std/c/vizultra476"` · `use vizultra476`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra477
+
+`import "std/c/vizultra477"` · `use vizultra477`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra478
+
+`import "std/c/vizultra478"` · `use vizultra478`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra479
+
+`import "std/c/vizultra479"` · `use vizultra479`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra480
+
+`import "std/c/vizultra480"` · `use vizultra480`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra481
+
+`import "std/c/vizultra481"` · `use vizultra481`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra482
+
+`import "std/c/vizultra482"` · `use vizultra482`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra483
+
+`import "std/c/vizultra483"` · `use vizultra483`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra484
+
+`import "std/c/vizultra484"` · `use vizultra484`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra485
+
+`import "std/c/vizultra485"` · `use vizultra485`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra486
+
+`import "std/c/vizultra486"` · `use vizultra486`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra487
+
+`import "std/c/vizultra487"` · `use vizultra487`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra488
+
+`import "std/c/vizultra488"` · `use vizultra488`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra489
+
+`import "std/c/vizultra489"` · `use vizultra489`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra490
+
+`import "std/c/vizultra490"` · `use vizultra490`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra491
+
+`import "std/c/vizultra491"` · `use vizultra491`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra492
+
+`import "std/c/vizultra492"` · `use vizultra492`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra493
+
+`import "std/c/vizultra493"` · `use vizultra493`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra494
+
+`import "std/c/vizultra494"` · `use vizultra494`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra495
+
+`import "std/c/vizultra495"` · `use vizultra495`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra496
+
+`import "std/c/vizultra496"` · `use vizultra496`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra497
+
+`import "std/c/vizultra497"` · `use vizultra497`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra498
+
+`import "std/c/vizultra498"` · `use vizultra498`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra499
+
+`import "std/c/vizultra499"` · `use vizultra499`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/vizultra500
+
+`import "std/c/vizultra500"` · `use vizultra500`
+
+- `writeLineChart(path text, ys list number, width number, height number) → bool`
+- `writeBarChart(path text, ys list number, width number, height number) → bool`
+- `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
+- `writeCsv(path text, ys list number) → bool`
+- `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
