@@ -16,12 +16,12 @@ use stopwatch
 create W = 24
 create H = 18
 
-function placeFood(xs list number, ys list number, snakeLen number) returns list number
+function placeFood(xs list number, ys list number, snakeLen number, w number, h number) returns list number
     create fx number = 1
     create fy number = 1
     repeat 400 times
-        set fx = randomRange(1, W - 2)
-        set fy = randomRange(1, H - 2)
+        set fx = randomRange(1, w - 2)
+        set fy = randomRange(1, h - 2)
         if gridHas(xs, ys, snakeLen, fx, fy) is equal to false then
             return list of fx, fy
         end
@@ -59,27 +59,6 @@ function drawFood(fx number, fy number)
     fillCircleSolid(cx, cy, radius, 255, 90, 90)
 end
 
-function resetRound()
-    create startX number = W / 2
-    create startY number = H / 2
-    set xs at 0 = startX
-    set xs at 1 = startX - 1
-    set xs at 2 = startX - 2
-    set ys at 0 = startY
-    set ys at 1 = startY
-    set ys at 2 = startY
-    set snakeLen = 3
-    set dirX = 1
-    set dirY = 0
-    set score = 0
-    set paused = false
-    set gameOver = false
-    resetTimer("move")
-    create food = placeFood(xs, ys, snakeLen)
-    set fx = food at 0
-    set fy = food at 1
-end
-
 seedRandom(nowMs(0))
 
 create xs list number = list of 0, 0, 0
@@ -94,7 +73,19 @@ create paused bool = false
 create gameOver bool = false
 
 configureGrid(W, H, 28, 32, 88)
-resetRound()
+
+create startX number = W / 2
+create startY number = H / 2
+set xs at 0 = startX
+set xs at 1 = startX - 1
+set xs at 2 = startX - 2
+set ys at 0 = startY
+set ys at 1 = startY
+set ys at 2 = startY
+resetTimer("move")
+create food0 = placeFood(xs, ys, snakeLen, W, H)
+set fx = food0 at 0
+set fy = food0 at 1
 
 openWindow("AFRILANG Snake", gridWindowWidth(), gridWindowHeight())
 
@@ -115,7 +106,24 @@ while isOpen() do
 
     if gameOver then
         if wasKeyPressed("R") then
-            resetRound()
+            set startX = W / 2
+            set startY = H / 2
+            set xs at 0 = startX
+            set xs at 1 = startX - 1
+            set xs at 2 = startX - 2
+            set ys at 0 = startY
+            set ys at 1 = startY
+            set ys at 2 = startY
+            set snakeLen = 3
+            set dirX = 1
+            set dirY = 0
+            set score = 0
+            set paused = false
+            set gameOver = false
+            resetTimer("move")
+            create food1 = placeFood(xs, ys, snakeLen, W, H)
+            set fx = food1 at 0
+            set fy = food1 at 1
         end
     end
 
@@ -170,7 +178,7 @@ while isOpen() do
                         set ys at 0 = newY
 
                         if grow then
-                            create food2 = placeFood(xs, ys, snakeLen)
+                            create food2 = placeFood(xs, ys, snakeLen, W, H)
                             set fx = food2 at 0
                             set fy = food2 at 1
                         end

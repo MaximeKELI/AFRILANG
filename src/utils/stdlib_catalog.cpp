@@ -2087,7 +2087,7 @@ const StdlibModuleSpec kSimpleModules[] = {
     {"base64", "base64", kFuncs_105, 2, "simple/base64.hpp", false},
     {"mime", "mime", kFuncs_106, 2, "simple/mime.hpp", false},
     {"httpcode", "httpcode", kFuncs_107, 2, "simple/httpcode.hpp", false},
-    {"game", "game", kFuncs_108, 2, "simple/game.hpp", false},
+    {"game", "game", kFuncs_108, 4, "simple/game.hpp", false},
     {"music", "music", kFuncs_109, 2, "simple/music.hpp", false},
     {"color2", "color2", kFuncs_110, 2, "simple/color2.hpp", false},
     {"matrix2", "matrix2", kFuncs_111, 2, "simple/matrix2.hpp", false},
