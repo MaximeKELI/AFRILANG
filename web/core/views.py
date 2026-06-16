@@ -359,3 +359,50 @@ def api_check(request):
 def api_example(request, slug):
     ex = get_object_or_404(CodeExample, slug=slug)
     return JsonResponse({'slug': ex.slug, 'title': ex.title, 'source': ex.source})
+
+
+@require_POST
+def api_compile_js(request):
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
+
+    source = body.get('source', '')
+    if not source.strip():
+        return JsonResponse({'ok': False, 'output': 'Empty source'}, status=400)
+
+    try:
+        result = compile_to_js(source)
+    except AfrilangError as e:
+        return JsonResponse({'ok': False, 'output': str(e)}, status=503)
+
+    return JsonResponse(result)
+
+
+@require_POST
+def api_build_wasm(request):
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
+
+    source = body.get('source', '')
+    if not source.strip():
+        return JsonResponse({'ok': False, 'output': 'Empty source'}, status=400)
+
+    try:
+        result = build_wasm_web(source)
+    except AfrilangError as e:
+        return JsonResponse({'ok': False, 'output': str(e)}, status=503)
+
+    return JsonResponse(result)
+
+
+@require_GET
+def api_wasm_asset(request, session_id, filename):
+    path = wasm_session_path(session_id, filename)
+    if not path:
+        raise Http404
+    content_type = 'application/javascript' if filename.endswith('.js') else 'application/wasm'
+    return FileResponse(open(path, 'rb'), content_type=content_type)

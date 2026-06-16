@@ -11,6 +11,8 @@ LIMITED_PREFIXES = (
     '/api/run/',
     '/api/fmt/',
     '/api/check/',
+    '/api/compile/js/',
+    '/api/build/wasm/',
 )
 
 
