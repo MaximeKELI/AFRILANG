@@ -45,9 +45,11 @@ void applyChildLimits(const ProcessConfig& config) {
         rl.rlim_max = config.maxCpuSeconds;
         setrlimit(RLIMIT_CPU, &rl);
     }
-    rl.rlim_cur = 16 * 1024 * 1024;
-    rl.rlim_max = 16 * 1024 * 1024;
-    setrlimit(RLIMIT_FSIZE, &rl);
+    if (!config.interactiveGui) {
+        rl.rlim_cur = 16 * 1024 * 1024;
+        rl.rlim_max = 16 * 1024 * 1024;
+        setrlimit(RLIMIT_FSIZE, &rl);
+    }
     rl.rlim_cur = 64;
     rl.rlim_max = 64;
     setrlimit(RLIMIT_NOFILE, &rl);
@@ -109,7 +111,8 @@ pid_t spawnProcess(const std::string& executable,
     }
     applyChildLimits(config);
 
-    const int fd = open(outPath.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0600);
+    const char* sinkPath = config.interactiveGui ? "/dev/null" : outPath.c_str();
+    const int fd = open(sinkPath, O_WRONLY | O_CREAT | O_TRUNC, 0600);
     if (fd >= 0) {
         dup2(fd, STDOUT_FILENO);
         dup2(fd, STDERR_FILENO);

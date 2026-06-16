@@ -243,7 +243,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 config.maxCpuSeconds = limits.maxCpuSeconds;
                 config.maxOutputBytes = limits.maxOutputBytes;
                 config.limitProcessCount = true;
-                if (sourceUsesGui(sourceContent)) {
+                if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                     applyGuiExecConfig(config);
                 }
                 const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
