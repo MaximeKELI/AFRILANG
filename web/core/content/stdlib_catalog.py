@@ -35,8 +35,29 @@ CATEGORIES = [
      'fr_desc': 'Couleurs, SDL, fenêtres, dessin.',
      'en_desc': 'Colors, SDL, windows, drawing.'},
     {'id': 'games', 'fr': 'Jeux & simulation', 'en': 'Games & simulation',
-     'fr_desc': 'Dés, collisions, physique ludique.',
-     'en_desc': 'Dice, collisions, game physics.'},
+     'fr_desc': 'Dés, collisions, physique ludique, moteurs 2D/3D.',
+     'en_desc': 'Dice, collisions, game physics, 2D/3D engines.'},
+    {'id': 'gis', 'fr': 'SIG & télédétection', 'en': 'GIS & remote sensing',
+     'fr_desc': 'Géomatique, NDVI, rasters, tuiles — giskit*, gisultra*.',
+     'en_desc': 'Geomatics, NDVI, rasters, tiles — giskit*, gisultra*.'},
+    {'id': 'raster', 'fr': 'Traitement raster', 'en': 'Raster processing',
+     'fr_desc': 'Filtres, Sobel, NDVI, lissage — rasterultra* (500 modules).',
+     'en_desc': 'Filters, Sobel, NDVI, smoothing — rasterultra* (500 modules).'},
+    {'id': 'segmentation', 'fr': 'Segmentation & morphologie', 'en': 'Segmentation & morphology',
+     'fr_desc': 'Composantes connexes, flood fill, érosion — segultra*.',
+     'en_desc': 'Connected components, flood fill, erosion — segultra*.'},
+    {'id': 'datascience', 'fr': 'Data science', 'en': 'Data science',
+     'fr_desc': 'Stats, séries, régression — dataultra*, datasci*.',
+     'en_desc': 'Stats, time series, regression — dataultra*, datasci*.'},
+    {'id': 'visualization', 'fr': 'Visualisation (fichiers)', 'en': 'Visualization (files)',
+     'fr_desc': 'Export SVG/CSV — vizultra* (graphiques, heatmaps).',
+     'en_desc': 'SVG/CSV export — vizultra* (charts, heatmaps).'},
+    {'id': 'ai', 'fr': 'Intelligence artificielle', 'en': 'Artificial intelligence',
+     'fr_desc': 'Activations, softmax, métriques ML — iaultra*.',
+     'en_desc': 'Activations, softmax, ML metrics — iaultra*.'},
+    {'id': 'database', 'fr': 'Bases de données', 'en': 'Databases',
+     'fr_desc': 'SQLite, requêtes, export CSV — dbultra*.',
+     'en_desc': 'SQLite, queries, CSV export — dbultra*.'},
     {'id': 'system', 'fr': 'Système', 'en': 'System',
      'fr_desc': 'CPU, disque, processus, environnement.',
      'en_desc': 'CPU, disk, processes, environment.'},
@@ -44,11 +65,51 @@ CATEGORIES = [
      'fr_desc': 'Bibliothèques intermédiaires — import std/m/…',
      'en_desc': 'Intermediate libraries — import std/m/…'},
     {'id': 'complex', 'fr': 'Modules complex (c/)', 'en': 'Complex modules (c/)',
-     'fr_desc': 'Domaines avancés — graphes, NLP, réseaux complexes.',
-     'en_desc': 'Advanced domains — graphs, NLP, complex networks.'},
+     'fr_desc': 'Graphes, NLP, crypto avancé, réseaux, jeux pro.',
+     'en_desc': 'Graphs, NLP, advanced crypto, networks, pro games.'},
     {'id': 'utilities', 'fr': 'Utilitaires', 'en': 'Utilities',
      'fr_desc': 'Helpers simples et fonctions ponctuelles.',
      'en_desc': 'Simple helpers and single-purpose functions.'},
+]
+
+# Paquets ultra générés (500 modules chacun sauf indication)
+ULTRA_PACKS = [
+    {'prefix': 'giskit', 'tier': 'simple', 'count': 500, 'category': 'gis',
+     'fr': 'SIG simple (giskit001–500)', 'en': 'Simple GIS (giskit001–500)'},
+    {'prefix': 'gisultra', 'tier': 'complex', 'count': 500, 'category': 'gis',
+     'fr': 'SIG avancé (gisultra001–500)', 'en': 'Advanced GIS (gisultra001–500)'},
+    {'prefix': 'rasterultra', 'tier': 'complex', 'count': 500, 'category': 'raster',
+     'fr': 'Raster (rasterultra001–500)', 'en': 'Raster (rasterultra001–500)'},
+    {'prefix': 'segultra', 'tier': 'complex', 'count': 500, 'category': 'segmentation',
+     'fr': 'Segmentation (segultra001–500)', 'en': 'Segmentation (segultra001–500)'},
+    {'prefix': 'dataultra', 'tier': 'complex', 'count': 500, 'category': 'datascience',
+     'fr': 'Analyse de données (dataultra001–500)', 'en': 'Data analysis (dataultra001–500)'},
+    {'prefix': 'datasci', 'tier': 'complex', 'count': 500, 'category': 'datascience',
+     'fr': 'Data science (datasci001–500)', 'en': 'Data science (datasci001–500)'},
+    {'prefix': 'vizultra', 'tier': 'complex', 'count': 500, 'category': 'visualization',
+     'fr': 'Visualisation fichiers (vizultra001–500)', 'en': 'File visualization (vizultra001–500)'},
+    {'prefix': 'iaultra', 'tier': 'complex', 'count': 500, 'category': 'ai',
+     'fr': 'IA / ML (iaultra001–500)', 'en': 'AI / ML (iaultra001–500)'},
+    {'prefix': 'dbultra', 'tier': 'complex', 'count': 500, 'category': 'database',
+     'fr': 'Bases de données (dbultra001–500)', 'en': 'Databases (dbultra001–500)'},
+    {'prefix': 'gameultra', 'tier': 'complex', 'count': 500, 'category': 'games',
+     'fr': 'Jeux 2D (gameultra001–500)', 'en': '2D games (gameultra001–500)'},
+    {'prefix': 'game3dultra', 'tier': 'complex', 'count': 500, 'category': 'games',
+     'fr': 'Jeux 3D (game3dultra001–500)', 'en': '3D games (game3dultra001–500)'},
+]
+
+COMPLEX_PREFIX_CATEGORIES = [
+    ('gisultra', 'gis'),
+    ('rasterultra', 'raster'),
+    ('segultra', 'segmentation'),
+    ('dataultra', 'datascience'),
+    ('datasci', 'datascience'),
+    ('vizultra', 'visualization'),
+    ('iaultra', 'ai'),
+    ('dbultra', 'database'),
+    ('gameultra', 'games'),
+    ('game3dultra', 'games'),
+    ('game3dpro', 'games'),
 ]
 
 CORE_MODULES = frozenset({
@@ -110,12 +171,22 @@ GRAPHICS_KEYWORDS = frozenset({
 
 GAMES_KEYWORDS = frozenset({
     'game', 'dice', 'collision', 'sprite', 'player', 'score', 'level', 'board',
+    'game2d', 'game3d',
+})
+
+GIS_KEYWORDS = frozenset({
+    'giskit', 'gis', 'ndvi', 'raster', 'geo', 'tile', 'bbox', 'haversine',
+    'hillshade', 'remote',
 })
 
 SYSTEM_KEYWORDS = frozenset({
     'cpu', 'disk', 'memory', 'process', 'env', 'os', 'file', 'fs', 'path',
     'cache', 'thread',
 })
+
+
+def _module_basename(name: str) -> str:
+    return name.split('/')[-1].lower()
 
 
 def infer_tier(name: str) -> str:
@@ -128,16 +199,25 @@ def infer_tier(name: str) -> str:
 
 def infer_category(name: str) -> str:
     tier = infer_tier(name)
+    base = _module_basename(name)
+    low = name.lower()
+
     if tier == 'complex':
+        for prefix, cat in COMPLEX_PREFIX_CATEGORIES:
+            if base.startswith(prefix):
+                return cat
         return 'complex'
     if tier == 'medium':
         return 'medium'
 
-    base = name.split('/')[0].lower()
-    low = name.lower()
-
     if base in CORE_MODULES or name in CORE_MODULES:
         return 'core'
+    for prefix, _cat in COMPLEX_PREFIX_CATEGORIES:
+        if base.startswith(prefix):
+            return _cat
+    for kw in GIS_KEYWORDS:
+        if kw in low:
+            return 'gis'
     for kw in MATH_KEYWORDS:
         if kw in low:
             return 'math'
@@ -194,3 +274,22 @@ def category_by_id(cat_id: str, lang: str) -> dict | None:
         if c['id'] == cat_id:
             return c
     return None
+
+
+def get_ultra_packs(lang: str) -> list[dict]:
+    code = (lang or 'fr')[:2]
+    return [
+        {
+            'prefix': p['prefix'],
+            'tier': p['tier'],
+            'count': p['count'],
+            'category': p['category'],
+            'label': p.get(code) or p['fr'],
+            'import_example': (
+                f'import "std/c/{p["prefix"]}001"'
+                if p['tier'] == 'complex'
+                else f'import "std/{p["prefix"]}001"'
+            ),
+        }
+        for p in ULTRA_PACKS
+    ]
