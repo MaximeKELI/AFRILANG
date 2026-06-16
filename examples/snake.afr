@@ -145,12 +145,7 @@ configureGrid(W, H, 28, 32, 88)
 configureViewport(VIEW_W, VIEW_H)
 
 create initPack = resetGame(xs, ys, W, H)
-set snakeLen = initPack at 0
-set dirX = initPack at 1
-set dirY = initPack at 2
-set score = initPack at 3
-set fx = initPack at 4
-set fy = initPack at 5
+applyPlayPack(initPack)
 
 loadHighScore(SAVE_PATH)
 setState("menu")
