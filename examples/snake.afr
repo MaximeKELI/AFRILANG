@@ -122,13 +122,19 @@ seedRandom(nowMs(0))
 configureGrid(W, H, 28, 32, 88)
 configureViewport(VIEW_W, VIEW_H)
 
-create initPack = resetGame(xs, ys, W, H)
+create initPack = resetGame(W, H)
 set snakeLen = initPack at 0
 set dirX = initPack at 1
 set dirY = initPack at 2
 set score = initPack at 3
 set fx = initPack at 4
 set fy = initPack at 5
+set xs at 0 = initPack at 6
+set xs at 1 = initPack at 7
+set xs at 2 = initPack at 8
+set ys at 0 = initPack at 9
+set ys at 1 = initPack at 10
+set ys at 2 = initPack at 11
 
 loadHighScore(SAVE_PATH)
 setState("menu")
@@ -175,24 +181,36 @@ while isOpen() do
 
     if isState("menu") then
         if wasKeyPressed("Space") then
-            create pack = resetGame(xs, ys, W, H)
+            create pack = resetGame(W, H)
             set snakeLen = pack at 0
             set dirX = pack at 1
             set dirY = pack at 2
             set score = pack at 3
             set fx = pack at 4
             set fy = pack at 5
+            set xs at 0 = pack at 6
+            set xs at 1 = pack at 7
+            set xs at 2 = pack at 8
+            set ys at 0 = pack at 9
+            set ys at 1 = pack at 10
+            set ys at 2 = pack at 11
             set justStartedPlay = yes
             setState("play")
         end
         if wasKeyPressed("Enter") then
-            create pack = resetGame(xs, ys, W, H)
+            create pack = resetGame(W, H)
             set snakeLen = pack at 0
             set dirX = pack at 1
             set dirY = pack at 2
             set score = pack at 3
             set fx = pack at 4
             set fy = pack at 5
+            set xs at 0 = pack at 6
+            set xs at 1 = pack at 7
+            set xs at 2 = pack at 8
+            set ys at 0 = pack at 9
+            set ys at 1 = pack at 10
+            set ys at 2 = pack at 11
             set justStartedPlay = yes
             setState("play")
         end
@@ -213,13 +231,19 @@ while isOpen() do
     if isState("gameover") then
         set streak = 0
         if wasKeyPressed("R") then
-            create pack2 = resetGame(xs, ys, W, H)
+            create pack2 = resetGame(W, H)
             set snakeLen = pack2 at 0
             set dirX = pack2 at 1
             set dirY = pack2 at 2
             set score = pack2 at 3
             set fx = pack2 at 4
             set fy = pack2 at 5
+            set xs at 0 = pack2 at 6
+            set xs at 1 = pack2 at 7
+            set xs at 2 = pack2 at 8
+            set ys at 0 = pack2 at 9
+            set ys at 1 = pack2 at 10
+            set ys at 2 = pack2 at 11
             set justStartedPlay = yes
             setState("play")
         end
@@ -335,13 +359,19 @@ while isOpen() do
         drawCenteredText("Edition moderne 2026", gridWindowHeight() / 2 - 88, 20, 120, 170, 230)
         drawCenteredText("Espace / Entrer pour jouer", gridWindowHeight() / 2 - 52, 20, 170, 190, 220)
         if drawButton("Jouer", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 - 18, 240, 50) then
-            create pack = resetGame(xs, ys, W, H)
+            create pack = resetGame(W, H)
             set snakeLen = pack at 0
             set dirX = pack at 1
             set dirY = pack at 2
             set score = pack at 3
             set fx = pack at 4
             set fy = pack at 5
+            set xs at 0 = pack at 6
+            set xs at 1 = pack at 7
+            set xs at 2 = pack at 8
+            set ys at 0 = pack at 9
+            set ys at 1 = pack at 10
+            set ys at 2 = pack at 11
             set justStartedPlay = yes
             setState("play")
         end
@@ -370,13 +400,19 @@ while isOpen() do
         drawCenteredText("GAME OVER", gridWindowHeight() / 2 - 48, 44, 255, 95, 95)
         drawCenteredText("Score final {score}", gridWindowHeight() / 2 - 4, 24, 220, 220, 235)
         if drawButton("Rejouer (R)", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 36, 240, 50) then
-            create pack3 = resetGame(xs, ys, W, H)
+            create pack3 = resetGame(W, H)
             set snakeLen = pack3 at 0
             set dirX = pack3 at 1
             set dirY = pack3 at 2
             set score = pack3 at 3
             set fx = pack3 at 4
             set fy = pack3 at 5
+            set xs at 0 = pack3 at 6
+            set xs at 1 = pack3 at 7
+            set xs at 2 = pack3 at 8
+            set ys at 0 = pack3 at 9
+            set ys at 1 = pack3 at 10
+            set ys at 2 = pack3 at 11
             set justStartedPlay = yes
             setState("play")
         end
