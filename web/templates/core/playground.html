@@ -62,7 +62,7 @@
 <script>
 window.AFR_PLAYGROUND = {
   examples: JSON.parse(document.getElementById('examples-data')?.textContent || '{}'),
-  initialSlug: {{ initial_slug|default:"''"|safe }},
+  initialSlug: {% if initial_slug %}"{{ initial_slug|escapejs }}"{% else %}null{% endif %},
   urls: {
     run: '{% url "api_run" %}',
     wasm: '{% url "api_run_wasm" %}',
