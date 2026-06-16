@@ -135,6 +135,106 @@ def add_ultra_raster_modules(count: int) -> None:
              f'for(std::size_t i=0;i<n;++i)out[i]=a*cur[i]+(1.0-a)*prev[i];return out;}}'),
         ])
 
+def add_ultra_seg_modules(count: int) -> None:
+    """Add lots of raster segmentation / morphology modules in std/c/.
+
+    Raster storage: row-major list number length >= w*h.
+    Convention: masks/labels are numeric (0/1, or labels 1..K).
+    """
+    for i in range(1, count + 1):
+        name = f"segultra{i:03d}"
+        # Per-module variation: default threshold and connectivity
+        thr = 0.15 + (i % 19) * 0.02
+        conn8 = (i % 2) == 0
+
+        cx(name, [
+            # Flood fill region size in a binary mask starting from (sx,sy).
+            ('floodSize', 'number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number'), ('sx', 'number'), ('sy', 'number')],
+             '{int W=(int)w,H=(int)h;int Sx=(int)sx,Sy=(int)sy;'
+             'if(W<=0||H<=0)return 0;auto in=[&](int x,int y){return x>=0&&y>=0&&x<W&&y<H;};'
+             'if(!in(Sx,Sy))return 0;auto idx=[&](int x,int y){return y*W+x;};'
+             'std::size_t s=(std::size_t)idx(Sx,Sy);if(s>=mask.size()||mask[s]<=0)return 0;'
+             'std::vector<char> vis((std::size_t)(W*H),0);std::vector<int> q;'
+             'vis[s]=1;q.push_back((int)s);int c=0;'
+             'for(std::size_t qi=0;qi<q.size();++qi){int u=q[qi];++c;int x=u%W,y=u/W;'
+             'const int dx4[4]={1,-1,0,0};const int dy4[4]={0,0,1,-1};'
+             'for(int k=0;k<4;++k){int nx=x+dx4[k],ny=y+dy4[k];if(!in(nx,ny))continue;'
+             'int v=idx(nx,ny);std::size_t vk=(std::size_t)v;if(vk>=mask.size())continue;'
+             'if(!vis[vk] && mask[vk]>0){vis[vk]=1;q.push_back(v);} } }'
+             'return (double)c;}'),
+
+            # Count connected components in a binary mask (4-connectivity).
+            ('countComponents4', 'number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h; if(W<=0||H<=0)return 0;'
+             'int N=W*H;std::vector<char> vis((std::size_t)N,0);auto in=[&](int x,int y){return x>=0&&y>=0&&x<W&&y<H;};'
+             'auto idx=[&](int x,int y){return y*W+x;};int comps=0;'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){int u=idx(x,y);std::size_t uk=(std::size_t)u;'
+             'if(uk>=mask.size()||vis[uk]||mask[uk]<=0)continue;'
+             '++comps;std::vector<int> q;q.push_back(u);vis[uk]=1;'
+             'for(std::size_t qi=0;qi<q.size();++qi){int cur=q[qi];int cx=cur%W,cy=cur/W;'
+             'const int dx4[4]={1,-1,0,0};const int dy4[4]={0,0,1,-1};'
+             'for(int k=0;k<4;++k){int nx=cx+dx4[k],ny=cy+dy4[k];if(!in(nx,ny))continue;int v=idx(nx,ny);'
+             'std::size_t vk=(std::size_t)v;if(vk>=mask.size()||vis[vk]||mask[vk]<=0)continue;'
+             'vis[vk]=1;q.push_back(v);} }}}}'
+             'return (double)comps;}'),
+
+            # Count connected components with 8-connectivity.
+            ('countComponents8', 'number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h; if(W<=0||H<=0)return 0;'
+             'int N=W*H;std::vector<char> vis((std::size_t)N,0);auto in=[&](int x,int y){return x>=0&&y>=0&&x<W&&y<H;};'
+             'auto idx=[&](int x,int y){return y*W+x;};int comps=0;'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){int u=idx(x,y);std::size_t uk=(std::size_t)u;'
+             'if(uk>=mask.size()||vis[uk]||mask[uk]<=0)continue;'
+             '++comps;std::vector<int> q;q.push_back(u);vis[uk]=1;'
+             'for(std::size_t qi=0;qi<q.size();++qi){int cur=q[qi];int cx=cur%W,cy=cur/W;'
+             'for(int dy=-1;dy<=1;++dy){for(int dx=-1;dx<=1;++dx){if(dx==0&&dy==0)continue;'
+             'int nx=cx+dx,ny=cy+dy;if(!in(nx,ny))continue;int v=idx(nx,ny);std::size_t vk=(std::size_t)v;'
+             'if(vk>=mask.size()||vis[vk]||mask[vk]<=0)continue;vis[vk]=1;q.push_back(v);}} }}}}'
+             'return (double)comps;}'),
+
+            # Dilate binary mask with 3x3 neighborhood (one iteration).
+            ('dilate3', 'list number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out; if(W<=0||H<=0)return out;'
+             'out.resize((std::size_t)(W*H));auto idx=[&](int x,int y){return (std::size_t)(y*W+x);};'
+             'auto at=[&](int x,int y){if(x<0||y<0||x>=W||y>=H)return 0.0;std::size_t k=idx(x,y);return k<mask.size()?mask[k]:0.0;};'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){double m=0;'
+             'for(int dy=-1;dy<=1;++dy)for(int dx=-1;dx<=1;++dx)m=std::max(m, at(x+dx,y+dy));'
+             'out[idx(x,y)]=m>0?1.0:0.0;}}return out;}'),
+
+            # Erode binary mask with 3x3 neighborhood (one iteration).
+            ('erode3', 'list number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out; if(W<=0||H<=0)return out;'
+             'out.resize((std::size_t)(W*H));auto idx=[&](int x,int y){return (std::size_t)(y*W+x);};'
+             'auto at=[&](int x,int y){if(x<0||y<0||x>=W||y>=H)return 0.0;std::size_t k=idx(x,y);return k<mask.size()?mask[k]:0.0;};'
+             'for(int y=0;y<H;++y){for(int x=0;x<W;++x){double m=1.0;'
+             'for(int dy=-1;dy<=1;++dy)for(int dx=-1;dx<=1;++dx)m=std::min(m, at(x+dx,y+dy)>0?1.0:0.0);'
+             'out[idx(x,y)]=m>0?1.0:0.0;}}return out;}'),
+
+            # Threshold a raster into a binary mask (t is passed).
+            ('thresholdMask', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number'), ('t', 'number')],
+             '{int W=(int)w,H=(int)h;std::vector<double> out; if(W<=0||H<=0)return out;'
+             'std::size_t n=(std::size_t)(W*H);out.resize(n);'
+             'for(std::size_t i=0;i<n;++i){double v=i<grid.size()?grid[i]:0.0;out[i]=(v>=t)?1.0:0.0;}return out;}'),
+
+            # Convenience: threshold with module default (varies per module).
+            ('thresholdDefault', 'list number',
+             [('grid', 'list number'), ('w', 'number'), ('h', 'number')],
+             f'{{int W=(int)w,H=(int)h;std::vector<double> out; if(W<=0||H<=0)return out;'
+             f'std::size_t n=(std::size_t)(W*H);out.resize(n);'
+             f'for(std::size_t i=0;i<n;++i){{double v=i<grid.size()?grid[i]:0.0;out[i]=(v>={thr:.6f})?1.0:0.0;}}return out;}}'),
+
+            # Convenience: choose connectivity based on module variation.
+            ('countComponents', 'number',
+             [('mask', 'list number'), ('w', 'number'), ('h', 'number')],
+             '{' + ('return countComponents8(mask,w,h);' if conn8 else 'return countComponents4(mask,w,h);') + '}'),
+        ])
+
 def add_ultra_game_modules(count: int) -> None:
     """Add lots of game-oriented complex modules.
 
@@ -3939,6 +4039,9 @@ add_ultra_gis_modules(500)
 
 # Add 500 ultra complex raster / remote-sensing modules in std/c/
 add_ultra_raster_modules(500)
+
+# Add 500 ultra complex segmentation / morphology modules in std/c/
+add_ultra_seg_modules(500)
 
 
 def main() -> None:
