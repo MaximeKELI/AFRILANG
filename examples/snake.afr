@@ -26,9 +26,9 @@ function clampDirY(dy number) returns number
     return dy
 end
 
-function contains(xs list number, ys list number, x number, y number) returns bool
+function containsN(xs list number, ys list number, n number, x number, y number) returns bool
     create i number = 0
-    while i is less than length of xs do
+    while i is less than n do
         if (xs at i) is equal to x then
             if (ys at i) is equal to y then
                 return yes
@@ -39,43 +39,24 @@ function contains(xs list number, ys list number, x number, y number) returns bo
     return no
 end
 
-generator function takeN(v list number, n number) returns list number
-    create i number = 0
-    while i is less than n do
-        yield v at i
-        set i = i + 1
-    end
-end
-
-generator function prepend(v list number, head number) returns list number
-    yield head
-    create i number = 0
-    while i is less than length of v do
-        yield v at i
-        set i = i + 1
-    end
-end
-
-function placeFood(xs list number, ys list number, seed number, w number, h number) returns list number
-    create s number = seed
+function placeFood(xs list number, ys list number, snakeLen number, w number, h number) returns list number
     create fx number = 1
     create fy number = 1
-    repeat 200 times
-        set s = seedRandom(s)
+    repeat 400 times
         set fx = randomRange(1, w - 2)
-        set s = seedRandom(s)
         set fy = randomRange(1, h - 2)
-        if contains(xs, ys, fx, fy) is equal to false then
-            return list of fx, fy, s
+        if containsN(xs, ys, snakeLen, fx, fy) is equal to false then
+            return list of fx, fy
         end
     end
-    return list of fx, fy, s
+    return list of fx, fy
 end
 
-function render(xs list number, ys list number, fx number, fy number, score number, step number, w number, h number, maxSteps number) returns text
+function render(xs list number, ys list number, snakeLen number, fx number, fy number, score number, step number, w number, h number, maxSteps number) returns text
     create out text = ""
-    set out = out + "AFRILANG Snake  |  score={score}  step={step}/{maxSteps}\n"
-    set out = out + "Moves: W/A/S/D (editez la variable moves)  |  Q quit\n\n"
+    set out = out + "AFRILANG Snake (ASCII)\n"
+    set out = out + "score={score}  step={step}/{maxSteps}\n"
+    set out = out + "Moves: W/A/S/D (editez `moves`)  |  Q quit\n\n"
 
     create y number = 0
     while y is less than h do
@@ -83,38 +64,30 @@ function render(xs list number, ys list number, fx number, fy number, score numb
         create x number = 0
         while x is less than w do
             create wall bool = no
-            if y is equal to 0 then
-                set wall = yes
-            end
-            if y is equal to (h - 1) then
-                set wall = yes
-            end
-            if x is equal to 0 then
-                set wall = yes
-            end
-            if x is equal to (w - 1) then
-                set wall = yes
-            end
+            if y is equal to 0 then set wall = yes end
+            if y is equal to (h - 1) then set wall = yes end
+            if x is equal to 0 then set wall = yes end
+            if x is equal to (w - 1) then set wall = yes end
 
             if wall then
                 set row = row + "#"
             else
                 if x is equal to fx then
                     if y is equal to fy then
-                    set row = row + "*"
+                        set row = row + "*"
                     else
                         if x is equal to (xs at 0) then
                             if y is equal to (ys at 0) then
                                 set row = row + "@"
                             else
-                                if contains(xs, ys, x, y) then
+                                if containsN(xs, ys, snakeLen, x, y) then
                                     set row = row + "o"
                                 else
                                     set row = row + " "
                                 end
                             end
                         else
-                            if contains(xs, ys, x, y) then
+                            if containsN(xs, ys, snakeLen, x, y) then
                                 set row = row + "o"
                             else
                                 set row = row + " "
@@ -126,14 +99,14 @@ function render(xs list number, ys list number, fx number, fy number, score numb
                         if y is equal to (ys at 0) then
                             set row = row + "@"
                         else
-                            if contains(xs, ys, x, y) then
+                            if containsN(xs, ys, snakeLen, x, y) then
                                 set row = row + "o"
                             else
                                 set row = row + " "
                             end
                         end
                     else
-                        if contains(xs, ys, x, y) then
+                        if containsN(xs, ys, snakeLen, x, y) then
                             set row = row + "o"
                         else
                             set row = row + " "
@@ -185,24 +158,23 @@ function dirFromChar(c text, dx number, dy number) returns list number
     return list of dx, dy
 end
 
-create seed number = nowMs(0)
-set seed = seedRandom(seed)
+seedRandom(nowMs(0))
 
 create startX number = W / 2
 create startY number = H / 2
 
 create xs list number = list of startX, startX - 1, startX - 2
 create ys list number = list of startY, startY, startY
+create snakeLen number = length of xs
 
 create dirX number = 1
 create dirY number = 0
 
 create score number = 0
 
-create food = placeFood(xs, ys, seed, W, H)
+create food = placeFood(xs, ys, snakeLen, W, H)
 create fx number = food at 0
 create fy number = food at 1
-set seed = food at 2
 
 create movesText text = "D D D D D D S S S S S S A A A A A A W W W W W W D D D D S S A A W W D D S S A A W W D D D D S S S S A A A W W"
 create moves = keywSplit(movesText, " ")
@@ -213,7 +185,7 @@ while step is less than MAX_STEPS do
         say ""
     end
 
-    say render(xs, ys, fx, fy, score, step, W, H, MAX_STEPS)
+    say render(xs, ys, snakeLen, fx, fy, score, step, W, H, MAX_STEPS)
 
     if step is less than length of moves then
         create c = moves at step
@@ -244,7 +216,7 @@ while step is less than MAX_STEPS do
         stop
     end
 
-    if contains(xs, ys, newX, newY) then
+    if containsN(xs, ys, snakeLen, newX, newY) then
         say "Game over: self collision."
         stop
     end
@@ -258,15 +230,25 @@ while step is less than MAX_STEPS do
     end
 
     if grow then
-        set xs = prepend(xs, newX)
-        set ys = prepend(ys, newY)
-        create food2 = placeFood(xs, ys, seed, W, H)
+        add xs at (snakeLen - 1) to xs
+        add ys at (snakeLen - 1) to ys
+        set snakeLen = snakeLen + 1
+    end
+
+    create i number = snakeLen - 1
+    while i is greater than 0 do
+        set xs at i = xs at (i - 1)
+        set ys at i = ys at (i - 1)
+        set i = i - 1
+    end
+
+    set xs at 0 = newX
+    set ys at 0 = newY
+
+    if grow then
+        create food2 = placeFood(xs, ys, snakeLen, W, H)
         set fx = food2 at 0
         set fy = food2 at 1
-        set seed = food2 at 2
-    else
-        set xs = prepend(takeN(xs, (length of xs) - 1), newX)
-        set ys = prepend(takeN(ys, (length of ys) - 1), newY)
     end
 
     set step = step + 1
