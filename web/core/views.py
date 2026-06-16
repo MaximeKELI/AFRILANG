@@ -11,6 +11,7 @@ from .content.docs_pages import get_doc_page_by_url_name
 from .content.docs_search import search_docs
 from .content.ecosystem_i18n import translate_ecosystem
 from .content.example_topics import grouped_examples
+from .content.tutorial import get_lesson, get_lessons, total_steps
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
 from .services.downloads import get_download_context, resolve_binary
@@ -217,6 +218,28 @@ def docs_search_view(request):
     ctx = docs_context('docs_overview', request.LANGUAGE_CODE)
     ctx.update({'query': q, 'results': results})
     return render(request, 'core/docs_search.html', ctx)
+
+
+def tutorial(request, step=None):
+    lang = request.LANGUAGE_CODE
+    lessons = get_lessons(lang)
+    total = total_steps()
+    ctx = {
+        'lessons': lessons,
+        'total_steps': total,
+        'current_step': 0,
+    }
+    if step is not None:
+        lesson = get_lesson(step, lang)
+        if not lesson:
+            raise Http404
+        ctx.update({
+            'lesson': lesson,
+            'current_step': step,
+            'prev_step': step - 1 if step > 1 else None,
+            'next_step': step + 1 if step < total else None,
+        })
+    return render(request, 'core/tutorial.html', ctx)
 
 
 def playground(request):
