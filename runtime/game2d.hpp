@@ -288,6 +288,12 @@ inline double inputDirY() {
     return context().pendingDy;
 }
 
+inline void syncDirection(double dx, double dy) {
+    Game2dContext& ctx = context();
+    ctx.pendingDx = dx;
+    ctx.pendingDy = dy;
+}
+
 inline bool gridHas(const std::vector<double>& xs,
                     const std::vector<double>& ys,
                     double count,

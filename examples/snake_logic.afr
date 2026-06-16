@@ -85,6 +85,32 @@ function moveMsForDifficulty(score number, difficulty number) returns number
     return moveMs
 end
 
+function isPlayStateValid(xs list number, ys list number, snakeLen number, w number, h number) returns bool
+    if snakeLen is less than 1 then
+        return no
+    end
+    if isWallCell(xs at 0, ys at 0, w, h) then
+        return no
+    end
+    return yes
+end
+
+function firstMoveIsSafe(pack list number, w number, h number) returns bool
+    create hx number = pack at 6
+    create hy number = pack at 9
+    create newX number = hx + pack at 1
+    create newY number = hy + pack at 2
+    if isWallCell(newX, newY, w, h) then
+        return no
+    end
+    create tx list number = list of pack at 6, pack at 7, pack at 8
+    create ty list number = list of pack at 9, pack at 10, pack at 11
+    if snakeOccupies(tx, ty, 2, newX, newY) then
+        return no
+    end
+    return yes
+end
+
 function shouldPauseOnSpace(stateChanged bool) returns bool
     if stateChanged then
         return no

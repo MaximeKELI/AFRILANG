@@ -462,6 +462,7 @@ void StdlibRegistry::injectGame2dModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("updateDirection", {{"curDx", "number"}, {"curDy", "number"}}, ""));
     fns.push_back(makeStubFunction("inputDirX", {}, "number"));
     fns.push_back(makeStubFunction("inputDirY", {}, "number"));
+    fns.push_back(makeStubFunction("syncDirection", {{"dx", "number"}, {"dy", "number"}}, ""));
     fns.push_back(makeStubFunction("gridHas",
         {{"xs", "list number"}, {"ys", "list number"}, {"count", "number"},
          {"gx", "number"}, {"gy", "number"}}, "bool"));

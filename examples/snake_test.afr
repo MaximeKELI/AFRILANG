@@ -35,6 +35,15 @@ test "resetGame pack shape"
     assert pack at 9 is equal to 5
 end
 
+test "first move after reset is safe"
+    seedRandom(42)
+    create pack = resetGame(36, 28)
+    assert firstMoveIsSafe(pack, 36, 28) is equal to true
+    create xs list number = list of pack at 6, pack at 7, pack at 8
+    create ys list number = list of pack at 9, pack at 10, pack at 11
+    assert isPlayStateValid(xs, ys, 3, 36, 28) is equal to true
+end
+
 test "placeFood avoids snake body"
     seedRandom(99)
     create xs list number = list of 4, 3, 2

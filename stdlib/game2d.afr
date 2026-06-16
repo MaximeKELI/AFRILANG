@@ -66,6 +66,9 @@ end
 function inputDirY() returns number
 end
 
+function syncDirection(dx number, dy number)
+end
+
 function gridHas(xs list number, ys list number, count number, gx number, gy number) returns bool
 end
 
