@@ -106,7 +106,7 @@ end'''),
         ],
     )
 
-    PAGES['modules'] = _page(
+    pages['modules'] = _page(
         'modules',
         'Modules et imports', 'Modules & imports',
         'Modules export/private, import, use et appels qualifiés.',
@@ -177,7 +177,7 @@ use Math'''),
         ],
     )
 
-    PAGES['functional'] = _page(
+    pages['functional'] = _page(
         'functional',
         'Lambdas et collections', 'Lambdas & collections',
         'Fonctions anonymes, map/filter/reduce/flatMap, paramètres par défaut.',
@@ -268,7 +268,7 @@ end)'''),
         ],
     )
 
-    PAGES['exceptions'] = _page(
+    pages['exceptions'] = _page(
         'exceptions',
         'Exceptions', 'Exceptions',
         'try / catch / raise pour la gestion d\'erreurs runtime.',
@@ -299,7 +299,7 @@ end'''),
         ],
     )
 
-    PAGES['async'] = _page(
+    pages['async'] = _page(
         'async',
         'Async / await', 'Async / await',
         'Coroutines C++20, Result async, await dans les tests, std/async, std/http, std/io.',
@@ -380,7 +380,7 @@ end'''),
         ],
     )
 
-    PAGES['gui'] = _page(
+    pages['gui'] = _page(
         'gui',
         'Interfaces graphiques', 'Graphical UI',
         'Syntaxe naturelle SDL2 et module std/ui.',
@@ -433,7 +433,7 @@ showFrame()'''),
         ],
     )
 
-    PAGES['package-manager'] = _page(
+    pages['package-manager'] = _page(
         'package-manager',
         'Gestionnaire de paquets', 'Package manager',
         'afrilang.toml, semver, lockfile et commandes pkg.',
@@ -480,7 +480,7 @@ math = "0.1.0"'''),
         ],
     )
 
-    PAGES['spec'] = _page(
+    pages['spec'] = _page(
         'spec',
         'Référence du langage', 'Language reference',
         'Spécification 1.0, identifiants UTF-8, codes d\'erreur, compatibilité.',
@@ -522,19 +522,19 @@ math = "0.1.0"'''),
     )
 
 
-def _extend_existing_pages():
-    _extend_syntax()
-    _extend_types()
-    _extend_oop()
-    _extend_advanced()
-    _extend_stdlib()
-    _extend_tooling()
-    _extend_overview()
+def _extend_existing_pages(pages):
+    _extend_syntax(pages)
+    _extend_types(pages)
+    _extend_oop(pages)
+    _extend_advanced(pages)
+    _extend_stdlib(pages)
+    _extend_tooling(pages)
+    _extend_overview(pages)
 
 
-def _extend_syntax():
-    fr = PAGES['syntax']['fr']['blocks']
-    en = PAGES['syntax']['en']['blocks']
+def _extend_syntax(pages):
+    fr = pages['syntax']['fr']['blocks']
+    en = pages['syntax']['en']['blocks']
     extra_fr = [
         h2('Fonctions'),
         code('''function add(a number, b number) returns number
@@ -619,9 +619,9 @@ end'''),
     en.extend(extra_en)
 
 
-def _extend_types():
-    fr = PAGES['types']['fr']['blocks']
-    en = PAGES['types']['en']['blocks']
+def _extend_types(pages):
+    fr = pages['types']['fr']['blocks']
+    en = pages['types']['en']['blocks']
     fr.extend([
         h2('Génériques explicites'),
         code('say identity<number>(42)\nsay identity<text>("hi")'),
@@ -650,9 +650,9 @@ end'''),
     ])
 
 
-def _extend_oop():
-    fr = PAGES['oop']['fr']['blocks']
-    en = PAGES['oop']['en']['blocks']
+def _extend_oop(pages):
+    fr = pages['oop']['fr']['blocks']
+    en = pages['oop']['en']['blocks']
     fr.extend([
         h2('Records'),
         code('''record Point
@@ -707,9 +707,9 @@ end'''),
     ])
 
 
-def _extend_advanced():
-    fr = PAGES['advanced']['fr']['blocks']
-    en = PAGES['advanced']['en']['blocks']
+def _extend_advanced(pages):
+    fr = pages['advanced']['fr']['blocks']
+    en = pages['advanced']['en']['blocks']
     fr.extend([
         h2('Exceptions'),
         code('''try
@@ -736,9 +736,9 @@ end'''),
     ])
 
 
-def _extend_stdlib():
-    fr = PAGES['stdlib']['fr']['blocks']
-    en = PAGES['stdlib']['en']['blocks']
+def _extend_stdlib(pages):
+    fr = pages['stdlib']['fr']['blocks']
+    en = pages['stdlib']['en']['blocks']
     fr.extend([
         h2('Modules core (API)'),
         table(['Module', 'Fonctions clés'], [
@@ -789,9 +789,9 @@ def _extend_stdlib():
     ])
 
 
-def _extend_tooling():
-    fr = PAGES['tooling']['fr']['blocks']
-    en = PAGES['tooling']['en']['blocks']
+def _extend_tooling(pages):
+    fr = pages['tooling']['fr']['blocks']
+    en = pages['tooling']['en']['blocks']
     fr.extend([
         h2('CLI complète'),
         table(['Commande', 'Rôle'], [
@@ -855,8 +855,8 @@ def _extend_tooling():
 
 
 def _extend_overview():
-    fr = PAGES['overview']['fr']['blocks']
-    en = PAGES['overview']['en']['blocks']
+    fr = pages['overview']['fr']['blocks']
+    en = pages['overview']['en']['blocks']
     fr.extend([
         h2('Parcours d\'apprentissage'),
         table(['Sujet', 'Documentation', 'Exemple playground'], [
