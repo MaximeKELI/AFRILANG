@@ -7,9 +7,9 @@ use random2
 import "std/stopwatch"
 use stopwatch
 
-create const W = 20
-create const H = 14
-create const MAX_STEPS = 250
+create W = 20
+create H = 14
+create MAX_STEPS = 250
 
 function clampDirX(dx number) returns number
     if dx is greater than 1 then return 1 end

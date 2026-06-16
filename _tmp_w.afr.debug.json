@@ -1,0 +1,6 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/_tmp_w.afr",
+  "variables": [
+    {"name":"W","type":"number","scope":"global"}
+  ]
+}
