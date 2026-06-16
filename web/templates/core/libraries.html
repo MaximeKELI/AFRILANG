@@ -13,6 +13,25 @@
   </p>
 </div>
 
+{% if ultra_packs %}
+<section class="mb-5 afr-reveal">
+  <h2 class="h5 fw-bold mb-3">{{ ui.libraries_page.ultra_title }}</h2>
+  <p class="small text-secondary-custom mb-3">{{ ui.libraries_page.ultra_lead }}</p>
+  <div class="row g-2">
+    {% for pack in ultra_packs %}
+    <div class="col-md-6 col-lg-4">
+      <article class="afr-feature-card h-100 py-3 px-3">
+        <div class="fw-bold text-primary mb-1">{{ pack.label }}</div>
+        <p class="small text-secondary-custom mb-2">{{ pack.count }} modules · {{ pack.tier }}</p>
+        <code class="small d-block">{{ pack.import_example }}</code>
+        <a href="{% url 'stdlib' %}?category={{ pack.category }}" class="small d-inline-block mt-2">{{ ui.libraries_page.view_all }} →</a>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% for group in groups %}
 <section class="mb-5 afr-reveal" id="cat-{{ group.id }}">
   <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">

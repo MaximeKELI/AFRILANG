@@ -82,8 +82,8 @@ UI = {
             ),
             'feat_stdlib_title': 'Stdlib massive',
             'feat_stdlib': (
-                'I/O, JSON, HTTP, collections, graphes, stats, crypto, finance, NLP… '
-                'Plus de 460 modules via <code>import "std/…"</code>.'
+                'I/O, JSON, HTTP, SIG, raster, data science, IA, SQLite, jeux 2D/3D… '
+                'Plus de 7900 modules via <code>import "std/…"</code>.'
             ),
             'feat_tools_title': 'Toolchain intégrée',
             'feat_tools': (

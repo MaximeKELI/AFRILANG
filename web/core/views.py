@@ -229,11 +229,14 @@ def stdlib_browse(request):
 
 
 def libraries(request):
+    from core.content.stdlib_catalog import get_ultra_packs
+
     lang = request.LANGUAGE_CODE
     categories = get_categories(lang)
     groups = []
     total = 0
     pdf_count = 0
+    preview_limit = 12
     for c in categories:
         mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
         n = mods.count()
@@ -245,12 +248,14 @@ def libraries(request):
             **c,
             'count': n,
             'pdf_count': mods.filter(has_pdf=True).count(),
-            'modules': mods,
+            'modules': mods[:preview_limit],
+            'has_more': n > preview_limit,
         })
     return render(request, 'core/libraries.html', {
         'groups': groups,
         'total': total,
         'pdf_count': pdf_count,
+        'ultra_packs': get_ultra_packs(lang),
     })
 
 
