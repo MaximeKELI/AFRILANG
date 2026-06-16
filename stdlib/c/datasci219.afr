@@ -1,0 +1,54 @@
+module datasci219
+
+function median(v list number) returns number
+end
+
+function variance(v list number) returns number
+end
+
+function iqr(v list number) returns number
+end
+
+function zscores(v list number) returns list number
+end
+
+function minMaxScale(v list number) returns list number
+end
+
+function covariance(a list number, b list number) returns number
+end
+
+function rSquared(xs list number, ys list number) returns number
+end
+
+function rollingStd(v list number, window number) returns list number
+end
+
+function ema(v list number, alpha number) returns list number
+end
+
+function histogram(v list number, bins number) returns list number
+end
+
+function gini(v list number) returns number
+end
+
+function euclidean(a list number, b list number) returns number
+end
+
+function rmse(a list number, b list number) returns number
+end
+
+function mae(a list number, b list number) returns number
+end
+
+function outlierCount(v list number, threshold number) returns number
+end
+
+function log1p(v list number) returns list number
+end
+
+function trainSplitAt(n number, ratio number) returns number
+end
+
+end

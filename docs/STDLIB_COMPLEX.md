@@ -1,6 +1,6 @@
 # Bibliothèques complexes AFRILANG
 
-**4210 modules** — `std/c/{nom}`
+**4710 modules** — `std/c/{nom}`
 
 ## std/c/graphbfs
 
@@ -43500,3 +43500,11003 @@
 - `writeScatter(path text, xs list number, ys list number, width number, height number) → bool`
 - `writeCsv(path text, ys list number) → bool`
 - `writeHeatmap(path text, grid list number, w number, h number, width number, height number) → bool`
+
+## std/c/datasci001
+
+`import "std/c/datasci001"` · `use datasci001`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci002
+
+`import "std/c/datasci002"` · `use datasci002`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci003
+
+`import "std/c/datasci003"` · `use datasci003`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci004
+
+`import "std/c/datasci004"` · `use datasci004`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci005
+
+`import "std/c/datasci005"` · `use datasci005`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci006
+
+`import "std/c/datasci006"` · `use datasci006`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci007
+
+`import "std/c/datasci007"` · `use datasci007`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci008
+
+`import "std/c/datasci008"` · `use datasci008`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci009
+
+`import "std/c/datasci009"` · `use datasci009`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci010
+
+`import "std/c/datasci010"` · `use datasci010`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci011
+
+`import "std/c/datasci011"` · `use datasci011`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci012
+
+`import "std/c/datasci012"` · `use datasci012`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci013
+
+`import "std/c/datasci013"` · `use datasci013`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci014
+
+`import "std/c/datasci014"` · `use datasci014`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci015
+
+`import "std/c/datasci015"` · `use datasci015`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci016
+
+`import "std/c/datasci016"` · `use datasci016`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci017
+
+`import "std/c/datasci017"` · `use datasci017`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci018
+
+`import "std/c/datasci018"` · `use datasci018`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci019
+
+`import "std/c/datasci019"` · `use datasci019`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci020
+
+`import "std/c/datasci020"` · `use datasci020`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci021
+
+`import "std/c/datasci021"` · `use datasci021`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci022
+
+`import "std/c/datasci022"` · `use datasci022`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci023
+
+`import "std/c/datasci023"` · `use datasci023`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci024
+
+`import "std/c/datasci024"` · `use datasci024`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci025
+
+`import "std/c/datasci025"` · `use datasci025`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci026
+
+`import "std/c/datasci026"` · `use datasci026`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci027
+
+`import "std/c/datasci027"` · `use datasci027`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci028
+
+`import "std/c/datasci028"` · `use datasci028`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci029
+
+`import "std/c/datasci029"` · `use datasci029`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci030
+
+`import "std/c/datasci030"` · `use datasci030`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci031
+
+`import "std/c/datasci031"` · `use datasci031`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci032
+
+`import "std/c/datasci032"` · `use datasci032`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci033
+
+`import "std/c/datasci033"` · `use datasci033`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci034
+
+`import "std/c/datasci034"` · `use datasci034`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci035
+
+`import "std/c/datasci035"` · `use datasci035`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci036
+
+`import "std/c/datasci036"` · `use datasci036`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci037
+
+`import "std/c/datasci037"` · `use datasci037`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci038
+
+`import "std/c/datasci038"` · `use datasci038`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci039
+
+`import "std/c/datasci039"` · `use datasci039`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci040
+
+`import "std/c/datasci040"` · `use datasci040`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci041
+
+`import "std/c/datasci041"` · `use datasci041`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci042
+
+`import "std/c/datasci042"` · `use datasci042`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci043
+
+`import "std/c/datasci043"` · `use datasci043`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci044
+
+`import "std/c/datasci044"` · `use datasci044`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci045
+
+`import "std/c/datasci045"` · `use datasci045`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci046
+
+`import "std/c/datasci046"` · `use datasci046`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci047
+
+`import "std/c/datasci047"` · `use datasci047`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci048
+
+`import "std/c/datasci048"` · `use datasci048`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci049
+
+`import "std/c/datasci049"` · `use datasci049`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci050
+
+`import "std/c/datasci050"` · `use datasci050`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci051
+
+`import "std/c/datasci051"` · `use datasci051`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci052
+
+`import "std/c/datasci052"` · `use datasci052`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci053
+
+`import "std/c/datasci053"` · `use datasci053`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci054
+
+`import "std/c/datasci054"` · `use datasci054`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci055
+
+`import "std/c/datasci055"` · `use datasci055`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci056
+
+`import "std/c/datasci056"` · `use datasci056`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci057
+
+`import "std/c/datasci057"` · `use datasci057`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci058
+
+`import "std/c/datasci058"` · `use datasci058`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci059
+
+`import "std/c/datasci059"` · `use datasci059`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci060
+
+`import "std/c/datasci060"` · `use datasci060`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci061
+
+`import "std/c/datasci061"` · `use datasci061`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci062
+
+`import "std/c/datasci062"` · `use datasci062`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci063
+
+`import "std/c/datasci063"` · `use datasci063`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci064
+
+`import "std/c/datasci064"` · `use datasci064`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci065
+
+`import "std/c/datasci065"` · `use datasci065`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci066
+
+`import "std/c/datasci066"` · `use datasci066`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci067
+
+`import "std/c/datasci067"` · `use datasci067`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci068
+
+`import "std/c/datasci068"` · `use datasci068`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci069
+
+`import "std/c/datasci069"` · `use datasci069`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci070
+
+`import "std/c/datasci070"` · `use datasci070`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci071
+
+`import "std/c/datasci071"` · `use datasci071`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci072
+
+`import "std/c/datasci072"` · `use datasci072`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci073
+
+`import "std/c/datasci073"` · `use datasci073`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci074
+
+`import "std/c/datasci074"` · `use datasci074`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci075
+
+`import "std/c/datasci075"` · `use datasci075`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci076
+
+`import "std/c/datasci076"` · `use datasci076`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci077
+
+`import "std/c/datasci077"` · `use datasci077`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci078
+
+`import "std/c/datasci078"` · `use datasci078`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci079
+
+`import "std/c/datasci079"` · `use datasci079`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci080
+
+`import "std/c/datasci080"` · `use datasci080`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci081
+
+`import "std/c/datasci081"` · `use datasci081`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci082
+
+`import "std/c/datasci082"` · `use datasci082`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci083
+
+`import "std/c/datasci083"` · `use datasci083`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci084
+
+`import "std/c/datasci084"` · `use datasci084`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci085
+
+`import "std/c/datasci085"` · `use datasci085`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci086
+
+`import "std/c/datasci086"` · `use datasci086`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci087
+
+`import "std/c/datasci087"` · `use datasci087`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci088
+
+`import "std/c/datasci088"` · `use datasci088`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci089
+
+`import "std/c/datasci089"` · `use datasci089`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci090
+
+`import "std/c/datasci090"` · `use datasci090`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci091
+
+`import "std/c/datasci091"` · `use datasci091`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci092
+
+`import "std/c/datasci092"` · `use datasci092`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci093
+
+`import "std/c/datasci093"` · `use datasci093`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci094
+
+`import "std/c/datasci094"` · `use datasci094`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci095
+
+`import "std/c/datasci095"` · `use datasci095`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci096
+
+`import "std/c/datasci096"` · `use datasci096`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci097
+
+`import "std/c/datasci097"` · `use datasci097`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci098
+
+`import "std/c/datasci098"` · `use datasci098`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci099
+
+`import "std/c/datasci099"` · `use datasci099`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci100
+
+`import "std/c/datasci100"` · `use datasci100`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci101
+
+`import "std/c/datasci101"` · `use datasci101`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci102
+
+`import "std/c/datasci102"` · `use datasci102`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci103
+
+`import "std/c/datasci103"` · `use datasci103`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci104
+
+`import "std/c/datasci104"` · `use datasci104`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci105
+
+`import "std/c/datasci105"` · `use datasci105`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci106
+
+`import "std/c/datasci106"` · `use datasci106`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci107
+
+`import "std/c/datasci107"` · `use datasci107`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci108
+
+`import "std/c/datasci108"` · `use datasci108`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci109
+
+`import "std/c/datasci109"` · `use datasci109`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci110
+
+`import "std/c/datasci110"` · `use datasci110`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci111
+
+`import "std/c/datasci111"` · `use datasci111`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci112
+
+`import "std/c/datasci112"` · `use datasci112`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci113
+
+`import "std/c/datasci113"` · `use datasci113`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci114
+
+`import "std/c/datasci114"` · `use datasci114`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci115
+
+`import "std/c/datasci115"` · `use datasci115`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci116
+
+`import "std/c/datasci116"` · `use datasci116`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci117
+
+`import "std/c/datasci117"` · `use datasci117`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci118
+
+`import "std/c/datasci118"` · `use datasci118`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci119
+
+`import "std/c/datasci119"` · `use datasci119`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci120
+
+`import "std/c/datasci120"` · `use datasci120`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci121
+
+`import "std/c/datasci121"` · `use datasci121`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci122
+
+`import "std/c/datasci122"` · `use datasci122`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci123
+
+`import "std/c/datasci123"` · `use datasci123`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci124
+
+`import "std/c/datasci124"` · `use datasci124`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci125
+
+`import "std/c/datasci125"` · `use datasci125`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci126
+
+`import "std/c/datasci126"` · `use datasci126`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci127
+
+`import "std/c/datasci127"` · `use datasci127`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci128
+
+`import "std/c/datasci128"` · `use datasci128`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci129
+
+`import "std/c/datasci129"` · `use datasci129`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci130
+
+`import "std/c/datasci130"` · `use datasci130`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci131
+
+`import "std/c/datasci131"` · `use datasci131`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci132
+
+`import "std/c/datasci132"` · `use datasci132`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci133
+
+`import "std/c/datasci133"` · `use datasci133`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci134
+
+`import "std/c/datasci134"` · `use datasci134`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci135
+
+`import "std/c/datasci135"` · `use datasci135`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci136
+
+`import "std/c/datasci136"` · `use datasci136`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci137
+
+`import "std/c/datasci137"` · `use datasci137`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci138
+
+`import "std/c/datasci138"` · `use datasci138`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci139
+
+`import "std/c/datasci139"` · `use datasci139`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci140
+
+`import "std/c/datasci140"` · `use datasci140`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci141
+
+`import "std/c/datasci141"` · `use datasci141`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci142
+
+`import "std/c/datasci142"` · `use datasci142`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci143
+
+`import "std/c/datasci143"` · `use datasci143`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci144
+
+`import "std/c/datasci144"` · `use datasci144`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci145
+
+`import "std/c/datasci145"` · `use datasci145`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci146
+
+`import "std/c/datasci146"` · `use datasci146`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci147
+
+`import "std/c/datasci147"` · `use datasci147`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci148
+
+`import "std/c/datasci148"` · `use datasci148`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci149
+
+`import "std/c/datasci149"` · `use datasci149`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci150
+
+`import "std/c/datasci150"` · `use datasci150`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci151
+
+`import "std/c/datasci151"` · `use datasci151`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci152
+
+`import "std/c/datasci152"` · `use datasci152`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci153
+
+`import "std/c/datasci153"` · `use datasci153`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci154
+
+`import "std/c/datasci154"` · `use datasci154`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci155
+
+`import "std/c/datasci155"` · `use datasci155`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci156
+
+`import "std/c/datasci156"` · `use datasci156`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci157
+
+`import "std/c/datasci157"` · `use datasci157`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci158
+
+`import "std/c/datasci158"` · `use datasci158`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci159
+
+`import "std/c/datasci159"` · `use datasci159`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci160
+
+`import "std/c/datasci160"` · `use datasci160`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci161
+
+`import "std/c/datasci161"` · `use datasci161`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci162
+
+`import "std/c/datasci162"` · `use datasci162`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci163
+
+`import "std/c/datasci163"` · `use datasci163`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci164
+
+`import "std/c/datasci164"` · `use datasci164`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci165
+
+`import "std/c/datasci165"` · `use datasci165`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci166
+
+`import "std/c/datasci166"` · `use datasci166`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci167
+
+`import "std/c/datasci167"` · `use datasci167`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci168
+
+`import "std/c/datasci168"` · `use datasci168`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci169
+
+`import "std/c/datasci169"` · `use datasci169`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci170
+
+`import "std/c/datasci170"` · `use datasci170`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci171
+
+`import "std/c/datasci171"` · `use datasci171`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci172
+
+`import "std/c/datasci172"` · `use datasci172`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci173
+
+`import "std/c/datasci173"` · `use datasci173`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci174
+
+`import "std/c/datasci174"` · `use datasci174`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci175
+
+`import "std/c/datasci175"` · `use datasci175`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci176
+
+`import "std/c/datasci176"` · `use datasci176`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci177
+
+`import "std/c/datasci177"` · `use datasci177`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci178
+
+`import "std/c/datasci178"` · `use datasci178`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci179
+
+`import "std/c/datasci179"` · `use datasci179`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci180
+
+`import "std/c/datasci180"` · `use datasci180`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci181
+
+`import "std/c/datasci181"` · `use datasci181`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci182
+
+`import "std/c/datasci182"` · `use datasci182`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci183
+
+`import "std/c/datasci183"` · `use datasci183`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci184
+
+`import "std/c/datasci184"` · `use datasci184`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci185
+
+`import "std/c/datasci185"` · `use datasci185`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci186
+
+`import "std/c/datasci186"` · `use datasci186`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci187
+
+`import "std/c/datasci187"` · `use datasci187`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci188
+
+`import "std/c/datasci188"` · `use datasci188`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci189
+
+`import "std/c/datasci189"` · `use datasci189`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci190
+
+`import "std/c/datasci190"` · `use datasci190`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci191
+
+`import "std/c/datasci191"` · `use datasci191`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci192
+
+`import "std/c/datasci192"` · `use datasci192`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci193
+
+`import "std/c/datasci193"` · `use datasci193`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci194
+
+`import "std/c/datasci194"` · `use datasci194`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci195
+
+`import "std/c/datasci195"` · `use datasci195`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci196
+
+`import "std/c/datasci196"` · `use datasci196`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci197
+
+`import "std/c/datasci197"` · `use datasci197`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci198
+
+`import "std/c/datasci198"` · `use datasci198`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci199
+
+`import "std/c/datasci199"` · `use datasci199`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci200
+
+`import "std/c/datasci200"` · `use datasci200`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci201
+
+`import "std/c/datasci201"` · `use datasci201`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci202
+
+`import "std/c/datasci202"` · `use datasci202`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci203
+
+`import "std/c/datasci203"` · `use datasci203`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci204
+
+`import "std/c/datasci204"` · `use datasci204`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci205
+
+`import "std/c/datasci205"` · `use datasci205`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci206
+
+`import "std/c/datasci206"` · `use datasci206`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci207
+
+`import "std/c/datasci207"` · `use datasci207`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci208
+
+`import "std/c/datasci208"` · `use datasci208`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci209
+
+`import "std/c/datasci209"` · `use datasci209`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci210
+
+`import "std/c/datasci210"` · `use datasci210`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci211
+
+`import "std/c/datasci211"` · `use datasci211`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci212
+
+`import "std/c/datasci212"` · `use datasci212`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci213
+
+`import "std/c/datasci213"` · `use datasci213`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci214
+
+`import "std/c/datasci214"` · `use datasci214`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci215
+
+`import "std/c/datasci215"` · `use datasci215`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci216
+
+`import "std/c/datasci216"` · `use datasci216`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci217
+
+`import "std/c/datasci217"` · `use datasci217`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci218
+
+`import "std/c/datasci218"` · `use datasci218`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci219
+
+`import "std/c/datasci219"` · `use datasci219`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci220
+
+`import "std/c/datasci220"` · `use datasci220`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci221
+
+`import "std/c/datasci221"` · `use datasci221`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci222
+
+`import "std/c/datasci222"` · `use datasci222`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci223
+
+`import "std/c/datasci223"` · `use datasci223`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci224
+
+`import "std/c/datasci224"` · `use datasci224`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci225
+
+`import "std/c/datasci225"` · `use datasci225`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci226
+
+`import "std/c/datasci226"` · `use datasci226`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci227
+
+`import "std/c/datasci227"` · `use datasci227`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci228
+
+`import "std/c/datasci228"` · `use datasci228`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci229
+
+`import "std/c/datasci229"` · `use datasci229`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci230
+
+`import "std/c/datasci230"` · `use datasci230`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci231
+
+`import "std/c/datasci231"` · `use datasci231`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci232
+
+`import "std/c/datasci232"` · `use datasci232`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci233
+
+`import "std/c/datasci233"` · `use datasci233`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci234
+
+`import "std/c/datasci234"` · `use datasci234`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci235
+
+`import "std/c/datasci235"` · `use datasci235`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci236
+
+`import "std/c/datasci236"` · `use datasci236`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci237
+
+`import "std/c/datasci237"` · `use datasci237`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci238
+
+`import "std/c/datasci238"` · `use datasci238`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci239
+
+`import "std/c/datasci239"` · `use datasci239`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci240
+
+`import "std/c/datasci240"` · `use datasci240`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci241
+
+`import "std/c/datasci241"` · `use datasci241`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci242
+
+`import "std/c/datasci242"` · `use datasci242`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci243
+
+`import "std/c/datasci243"` · `use datasci243`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci244
+
+`import "std/c/datasci244"` · `use datasci244`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci245
+
+`import "std/c/datasci245"` · `use datasci245`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci246
+
+`import "std/c/datasci246"` · `use datasci246`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci247
+
+`import "std/c/datasci247"` · `use datasci247`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci248
+
+`import "std/c/datasci248"` · `use datasci248`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci249
+
+`import "std/c/datasci249"` · `use datasci249`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci250
+
+`import "std/c/datasci250"` · `use datasci250`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci251
+
+`import "std/c/datasci251"` · `use datasci251`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci252
+
+`import "std/c/datasci252"` · `use datasci252`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci253
+
+`import "std/c/datasci253"` · `use datasci253`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci254
+
+`import "std/c/datasci254"` · `use datasci254`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci255
+
+`import "std/c/datasci255"` · `use datasci255`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci256
+
+`import "std/c/datasci256"` · `use datasci256`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci257
+
+`import "std/c/datasci257"` · `use datasci257`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci258
+
+`import "std/c/datasci258"` · `use datasci258`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci259
+
+`import "std/c/datasci259"` · `use datasci259`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci260
+
+`import "std/c/datasci260"` · `use datasci260`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci261
+
+`import "std/c/datasci261"` · `use datasci261`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci262
+
+`import "std/c/datasci262"` · `use datasci262`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci263
+
+`import "std/c/datasci263"` · `use datasci263`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci264
+
+`import "std/c/datasci264"` · `use datasci264`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci265
+
+`import "std/c/datasci265"` · `use datasci265`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci266
+
+`import "std/c/datasci266"` · `use datasci266`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci267
+
+`import "std/c/datasci267"` · `use datasci267`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci268
+
+`import "std/c/datasci268"` · `use datasci268`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci269
+
+`import "std/c/datasci269"` · `use datasci269`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci270
+
+`import "std/c/datasci270"` · `use datasci270`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci271
+
+`import "std/c/datasci271"` · `use datasci271`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci272
+
+`import "std/c/datasci272"` · `use datasci272`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci273
+
+`import "std/c/datasci273"` · `use datasci273`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci274
+
+`import "std/c/datasci274"` · `use datasci274`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci275
+
+`import "std/c/datasci275"` · `use datasci275`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci276
+
+`import "std/c/datasci276"` · `use datasci276`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci277
+
+`import "std/c/datasci277"` · `use datasci277`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci278
+
+`import "std/c/datasci278"` · `use datasci278`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci279
+
+`import "std/c/datasci279"` · `use datasci279`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci280
+
+`import "std/c/datasci280"` · `use datasci280`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci281
+
+`import "std/c/datasci281"` · `use datasci281`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci282
+
+`import "std/c/datasci282"` · `use datasci282`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci283
+
+`import "std/c/datasci283"` · `use datasci283`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci284
+
+`import "std/c/datasci284"` · `use datasci284`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci285
+
+`import "std/c/datasci285"` · `use datasci285`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci286
+
+`import "std/c/datasci286"` · `use datasci286`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci287
+
+`import "std/c/datasci287"` · `use datasci287`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci288
+
+`import "std/c/datasci288"` · `use datasci288`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci289
+
+`import "std/c/datasci289"` · `use datasci289`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci290
+
+`import "std/c/datasci290"` · `use datasci290`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci291
+
+`import "std/c/datasci291"` · `use datasci291`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci292
+
+`import "std/c/datasci292"` · `use datasci292`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci293
+
+`import "std/c/datasci293"` · `use datasci293`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci294
+
+`import "std/c/datasci294"` · `use datasci294`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci295
+
+`import "std/c/datasci295"` · `use datasci295`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci296
+
+`import "std/c/datasci296"` · `use datasci296`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci297
+
+`import "std/c/datasci297"` · `use datasci297`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci298
+
+`import "std/c/datasci298"` · `use datasci298`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci299
+
+`import "std/c/datasci299"` · `use datasci299`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci300
+
+`import "std/c/datasci300"` · `use datasci300`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci301
+
+`import "std/c/datasci301"` · `use datasci301`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci302
+
+`import "std/c/datasci302"` · `use datasci302`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci303
+
+`import "std/c/datasci303"` · `use datasci303`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci304
+
+`import "std/c/datasci304"` · `use datasci304`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci305
+
+`import "std/c/datasci305"` · `use datasci305`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci306
+
+`import "std/c/datasci306"` · `use datasci306`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci307
+
+`import "std/c/datasci307"` · `use datasci307`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci308
+
+`import "std/c/datasci308"` · `use datasci308`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci309
+
+`import "std/c/datasci309"` · `use datasci309`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci310
+
+`import "std/c/datasci310"` · `use datasci310`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci311
+
+`import "std/c/datasci311"` · `use datasci311`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci312
+
+`import "std/c/datasci312"` · `use datasci312`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci313
+
+`import "std/c/datasci313"` · `use datasci313`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci314
+
+`import "std/c/datasci314"` · `use datasci314`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci315
+
+`import "std/c/datasci315"` · `use datasci315`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci316
+
+`import "std/c/datasci316"` · `use datasci316`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci317
+
+`import "std/c/datasci317"` · `use datasci317`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci318
+
+`import "std/c/datasci318"` · `use datasci318`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci319
+
+`import "std/c/datasci319"` · `use datasci319`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci320
+
+`import "std/c/datasci320"` · `use datasci320`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci321
+
+`import "std/c/datasci321"` · `use datasci321`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci322
+
+`import "std/c/datasci322"` · `use datasci322`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci323
+
+`import "std/c/datasci323"` · `use datasci323`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci324
+
+`import "std/c/datasci324"` · `use datasci324`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci325
+
+`import "std/c/datasci325"` · `use datasci325`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci326
+
+`import "std/c/datasci326"` · `use datasci326`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci327
+
+`import "std/c/datasci327"` · `use datasci327`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci328
+
+`import "std/c/datasci328"` · `use datasci328`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci329
+
+`import "std/c/datasci329"` · `use datasci329`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci330
+
+`import "std/c/datasci330"` · `use datasci330`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci331
+
+`import "std/c/datasci331"` · `use datasci331`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci332
+
+`import "std/c/datasci332"` · `use datasci332`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci333
+
+`import "std/c/datasci333"` · `use datasci333`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci334
+
+`import "std/c/datasci334"` · `use datasci334`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci335
+
+`import "std/c/datasci335"` · `use datasci335`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci336
+
+`import "std/c/datasci336"` · `use datasci336`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci337
+
+`import "std/c/datasci337"` · `use datasci337`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci338
+
+`import "std/c/datasci338"` · `use datasci338`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci339
+
+`import "std/c/datasci339"` · `use datasci339`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci340
+
+`import "std/c/datasci340"` · `use datasci340`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci341
+
+`import "std/c/datasci341"` · `use datasci341`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci342
+
+`import "std/c/datasci342"` · `use datasci342`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci343
+
+`import "std/c/datasci343"` · `use datasci343`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci344
+
+`import "std/c/datasci344"` · `use datasci344`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci345
+
+`import "std/c/datasci345"` · `use datasci345`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci346
+
+`import "std/c/datasci346"` · `use datasci346`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci347
+
+`import "std/c/datasci347"` · `use datasci347`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci348
+
+`import "std/c/datasci348"` · `use datasci348`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci349
+
+`import "std/c/datasci349"` · `use datasci349`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci350
+
+`import "std/c/datasci350"` · `use datasci350`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci351
+
+`import "std/c/datasci351"` · `use datasci351`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci352
+
+`import "std/c/datasci352"` · `use datasci352`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci353
+
+`import "std/c/datasci353"` · `use datasci353`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci354
+
+`import "std/c/datasci354"` · `use datasci354`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci355
+
+`import "std/c/datasci355"` · `use datasci355`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci356
+
+`import "std/c/datasci356"` · `use datasci356`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci357
+
+`import "std/c/datasci357"` · `use datasci357`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci358
+
+`import "std/c/datasci358"` · `use datasci358`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci359
+
+`import "std/c/datasci359"` · `use datasci359`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci360
+
+`import "std/c/datasci360"` · `use datasci360`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci361
+
+`import "std/c/datasci361"` · `use datasci361`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci362
+
+`import "std/c/datasci362"` · `use datasci362`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci363
+
+`import "std/c/datasci363"` · `use datasci363`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci364
+
+`import "std/c/datasci364"` · `use datasci364`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci365
+
+`import "std/c/datasci365"` · `use datasci365`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci366
+
+`import "std/c/datasci366"` · `use datasci366`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci367
+
+`import "std/c/datasci367"` · `use datasci367`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci368
+
+`import "std/c/datasci368"` · `use datasci368`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci369
+
+`import "std/c/datasci369"` · `use datasci369`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci370
+
+`import "std/c/datasci370"` · `use datasci370`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci371
+
+`import "std/c/datasci371"` · `use datasci371`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci372
+
+`import "std/c/datasci372"` · `use datasci372`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci373
+
+`import "std/c/datasci373"` · `use datasci373`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci374
+
+`import "std/c/datasci374"` · `use datasci374`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci375
+
+`import "std/c/datasci375"` · `use datasci375`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci376
+
+`import "std/c/datasci376"` · `use datasci376`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci377
+
+`import "std/c/datasci377"` · `use datasci377`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci378
+
+`import "std/c/datasci378"` · `use datasci378`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci379
+
+`import "std/c/datasci379"` · `use datasci379`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci380
+
+`import "std/c/datasci380"` · `use datasci380`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci381
+
+`import "std/c/datasci381"` · `use datasci381`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci382
+
+`import "std/c/datasci382"` · `use datasci382`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci383
+
+`import "std/c/datasci383"` · `use datasci383`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci384
+
+`import "std/c/datasci384"` · `use datasci384`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci385
+
+`import "std/c/datasci385"` · `use datasci385`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci386
+
+`import "std/c/datasci386"` · `use datasci386`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci387
+
+`import "std/c/datasci387"` · `use datasci387`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci388
+
+`import "std/c/datasci388"` · `use datasci388`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci389
+
+`import "std/c/datasci389"` · `use datasci389`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci390
+
+`import "std/c/datasci390"` · `use datasci390`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci391
+
+`import "std/c/datasci391"` · `use datasci391`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci392
+
+`import "std/c/datasci392"` · `use datasci392`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci393
+
+`import "std/c/datasci393"` · `use datasci393`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci394
+
+`import "std/c/datasci394"` · `use datasci394`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci395
+
+`import "std/c/datasci395"` · `use datasci395`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci396
+
+`import "std/c/datasci396"` · `use datasci396`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci397
+
+`import "std/c/datasci397"` · `use datasci397`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci398
+
+`import "std/c/datasci398"` · `use datasci398`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci399
+
+`import "std/c/datasci399"` · `use datasci399`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci400
+
+`import "std/c/datasci400"` · `use datasci400`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci401
+
+`import "std/c/datasci401"` · `use datasci401`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci402
+
+`import "std/c/datasci402"` · `use datasci402`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci403
+
+`import "std/c/datasci403"` · `use datasci403`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci404
+
+`import "std/c/datasci404"` · `use datasci404`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci405
+
+`import "std/c/datasci405"` · `use datasci405`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci406
+
+`import "std/c/datasci406"` · `use datasci406`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci407
+
+`import "std/c/datasci407"` · `use datasci407`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci408
+
+`import "std/c/datasci408"` · `use datasci408`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci409
+
+`import "std/c/datasci409"` · `use datasci409`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci410
+
+`import "std/c/datasci410"` · `use datasci410`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci411
+
+`import "std/c/datasci411"` · `use datasci411`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci412
+
+`import "std/c/datasci412"` · `use datasci412`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci413
+
+`import "std/c/datasci413"` · `use datasci413`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci414
+
+`import "std/c/datasci414"` · `use datasci414`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci415
+
+`import "std/c/datasci415"` · `use datasci415`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci416
+
+`import "std/c/datasci416"` · `use datasci416`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci417
+
+`import "std/c/datasci417"` · `use datasci417`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci418
+
+`import "std/c/datasci418"` · `use datasci418`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci419
+
+`import "std/c/datasci419"` · `use datasci419`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci420
+
+`import "std/c/datasci420"` · `use datasci420`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci421
+
+`import "std/c/datasci421"` · `use datasci421`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci422
+
+`import "std/c/datasci422"` · `use datasci422`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci423
+
+`import "std/c/datasci423"` · `use datasci423`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci424
+
+`import "std/c/datasci424"` · `use datasci424`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci425
+
+`import "std/c/datasci425"` · `use datasci425`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci426
+
+`import "std/c/datasci426"` · `use datasci426`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci427
+
+`import "std/c/datasci427"` · `use datasci427`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci428
+
+`import "std/c/datasci428"` · `use datasci428`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci429
+
+`import "std/c/datasci429"` · `use datasci429`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci430
+
+`import "std/c/datasci430"` · `use datasci430`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci431
+
+`import "std/c/datasci431"` · `use datasci431`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci432
+
+`import "std/c/datasci432"` · `use datasci432`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci433
+
+`import "std/c/datasci433"` · `use datasci433`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci434
+
+`import "std/c/datasci434"` · `use datasci434`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci435
+
+`import "std/c/datasci435"` · `use datasci435`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci436
+
+`import "std/c/datasci436"` · `use datasci436`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci437
+
+`import "std/c/datasci437"` · `use datasci437`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci438
+
+`import "std/c/datasci438"` · `use datasci438`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci439
+
+`import "std/c/datasci439"` · `use datasci439`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci440
+
+`import "std/c/datasci440"` · `use datasci440`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci441
+
+`import "std/c/datasci441"` · `use datasci441`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci442
+
+`import "std/c/datasci442"` · `use datasci442`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci443
+
+`import "std/c/datasci443"` · `use datasci443`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci444
+
+`import "std/c/datasci444"` · `use datasci444`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci445
+
+`import "std/c/datasci445"` · `use datasci445`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci446
+
+`import "std/c/datasci446"` · `use datasci446`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci447
+
+`import "std/c/datasci447"` · `use datasci447`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci448
+
+`import "std/c/datasci448"` · `use datasci448`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci449
+
+`import "std/c/datasci449"` · `use datasci449`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci450
+
+`import "std/c/datasci450"` · `use datasci450`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci451
+
+`import "std/c/datasci451"` · `use datasci451`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci452
+
+`import "std/c/datasci452"` · `use datasci452`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci453
+
+`import "std/c/datasci453"` · `use datasci453`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci454
+
+`import "std/c/datasci454"` · `use datasci454`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci455
+
+`import "std/c/datasci455"` · `use datasci455`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci456
+
+`import "std/c/datasci456"` · `use datasci456`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci457
+
+`import "std/c/datasci457"` · `use datasci457`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci458
+
+`import "std/c/datasci458"` · `use datasci458`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci459
+
+`import "std/c/datasci459"` · `use datasci459`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci460
+
+`import "std/c/datasci460"` · `use datasci460`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci461
+
+`import "std/c/datasci461"` · `use datasci461`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci462
+
+`import "std/c/datasci462"` · `use datasci462`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci463
+
+`import "std/c/datasci463"` · `use datasci463`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci464
+
+`import "std/c/datasci464"` · `use datasci464`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci465
+
+`import "std/c/datasci465"` · `use datasci465`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci466
+
+`import "std/c/datasci466"` · `use datasci466`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci467
+
+`import "std/c/datasci467"` · `use datasci467`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci468
+
+`import "std/c/datasci468"` · `use datasci468`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci469
+
+`import "std/c/datasci469"` · `use datasci469`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci470
+
+`import "std/c/datasci470"` · `use datasci470`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci471
+
+`import "std/c/datasci471"` · `use datasci471`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci472
+
+`import "std/c/datasci472"` · `use datasci472`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci473
+
+`import "std/c/datasci473"` · `use datasci473`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci474
+
+`import "std/c/datasci474"` · `use datasci474`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci475
+
+`import "std/c/datasci475"` · `use datasci475`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci476
+
+`import "std/c/datasci476"` · `use datasci476`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci477
+
+`import "std/c/datasci477"` · `use datasci477`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci478
+
+`import "std/c/datasci478"` · `use datasci478`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci479
+
+`import "std/c/datasci479"` · `use datasci479`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci480
+
+`import "std/c/datasci480"` · `use datasci480`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci481
+
+`import "std/c/datasci481"` · `use datasci481`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci482
+
+`import "std/c/datasci482"` · `use datasci482`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci483
+
+`import "std/c/datasci483"` · `use datasci483`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci484
+
+`import "std/c/datasci484"` · `use datasci484`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci485
+
+`import "std/c/datasci485"` · `use datasci485`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci486
+
+`import "std/c/datasci486"` · `use datasci486`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci487
+
+`import "std/c/datasci487"` · `use datasci487`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci488
+
+`import "std/c/datasci488"` · `use datasci488`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci489
+
+`import "std/c/datasci489"` · `use datasci489`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci490
+
+`import "std/c/datasci490"` · `use datasci490`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci491
+
+`import "std/c/datasci491"` · `use datasci491`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci492
+
+`import "std/c/datasci492"` · `use datasci492`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci493
+
+`import "std/c/datasci493"` · `use datasci493`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci494
+
+`import "std/c/datasci494"` · `use datasci494`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci495
+
+`import "std/c/datasci495"` · `use datasci495`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci496
+
+`import "std/c/datasci496"` · `use datasci496`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci497
+
+`import "std/c/datasci497"` · `use datasci497`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci498
+
+`import "std/c/datasci498"` · `use datasci498`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci499
+
+`import "std/c/datasci499"` · `use datasci499`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
+
+## std/c/datasci500
+
+`import "std/c/datasci500"` · `use datasci500`
+
+- `median(v list number) → number`
+- `variance(v list number) → number`
+- `iqr(v list number) → number`
+- `zscores(v list number) → list number`
+- `minMaxScale(v list number) → list number`
+- `covariance(a list number, b list number) → number`
+- `rSquared(xs list number, ys list number) → number`
+- `rollingStd(v list number, window number) → list number`
+- `ema(v list number, alpha number) → list number`
+- `histogram(v list number, bins number) → list number`
+- `gini(v list number) → number`
+- `euclidean(a list number, b list number) → number`
+- `rmse(a list number, b list number) → number`
+- `mae(a list number, b list number) → number`
+- `outlierCount(v list number, threshold number) → number`
+- `log1p(v list number) → list number`
+- `trainSplitAt(n number, ratio number) → number`
