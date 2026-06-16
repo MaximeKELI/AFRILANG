@@ -796,6 +796,263 @@ def gen_game3dkit_modules(count: int) -> list[tuple]:
     return mods
 
 
+def gen_giskit_modules(count: int) -> list[tuple]:
+    """Generate simple geomatics / télédétection / SIG (GIS) helper modules.
+
+    Pure math helpers: distances, CRS units, bbox, raster indices, NDVI family,
+    resolution, tiling, bearings, and lightweight projection approximations.
+    """
+    mods: list[tuple] = []
+    pi = "3.141592653589793"
+    re_km = "6371.0"
+    re_m = "6371000.0"
+
+    def hav_km() -> str:
+        return (
+            f"{{ double R={re_km}; auto rad=[](double d){{return d*{pi}/180.0;}}; "
+            "double dLat=rad(lat2-lat1), dLon=rad(lon2-lon1); "
+            "double a=std::sin(dLat/2)*std::sin(dLat/2)+std::cos(rad(lat1))*std::cos(rad(lat2))"
+            "*std::sin(dLon/2)*std::sin(dLon/2); "
+            "return R*2*std::atan2(std::sqrt(a), std::sqrt(1-a)); }}"
+        )
+
+    def hav_m() -> str:
+        return hav_km().replace(f"R={re_km}", f"R={re_m}")
+
+    for i in range(1, count + 1):
+        name = f"giskit{i:03d}"
+        band_a = 0.45 + (i % 17) * 0.01
+        band_b = 0.55 + (i % 13) * 0.012
+        gsd = 0.5 + (i % 29) * 0.25
+        zone = (i % 60) + 1
+        tile = 256 if i % 3 == 0 else (512 if i % 3 == 1 else 128)
+
+        funcs = [
+            # 0 geodesy
+            ("haversineKm", "number",
+             [("lat1", "number"), ("lon1", "number"), ("lat2", "number"), ("lon2", "number")],
+             hav_km()),
+            ("haversineM", "number",
+             [("lat1", "number"), ("lon1", "number"), ("lat2", "number"), ("lon2", "number")],
+             hav_m()),
+            # 1 bearing / azimuth
+            ("bearingDeg", "number",
+             [("lat1", "number"), ("lon1", "number"), ("lat2", "number"), ("lon2", "number")],
+             f"{{ auto rad=[](double d){{return d*{pi}/180.0;}}; "
+             "double y=std::sin(rad(lon2-lon1))*std::cos(rad(lat2)); "
+             "double x=std::cos(rad(lat1))*std::sin(rad(lat2))-std::sin(rad(lat1))*std::cos(rad(lat2))*std::cos(rad(lon2-lon1)); "
+             f"return std::fmod(std::atan2(y,x)*180.0/{pi}+360.0,360.0); }}"),
+            ("azimuthDiff", "number", [("a", "number"), ("b", "number")],
+             "double d = std::fmod(b - a + 540.0, 360.0) - 180.0; return d;"),
+            # 2 bbox
+            ("bboxWidth", "number",
+             [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return maxX - minX;"),
+            ("bboxHeight", "number",
+             [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return maxY - minY;"),
+            ("bboxCenterX", "number",
+             [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return (minX + maxX) / 2.0;"),
+            ("bboxCenterY", "number",
+             [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return (minY + maxY) / 2.0;"),
+            ("bboxArea", "number",
+             [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return std::fabs(maxX - minX) * std::fabs(maxY - minY);"),
+            ("pointInBbox", "bool",
+             [("x", "number"), ("y", "number"), ("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number")],
+             "return x >= minX && x <= maxX && y >= minY && y <= maxY;"),
+            # 3 CRS / units
+            ("degToRad", "number", [("deg", "number")], f"return deg * {pi} / 180.0;"),
+            ("radToDeg", "number", [("rad", "number")], f"return rad * 180.0 / {pi};"),
+            ("mToKm", "number", [("m", "number")], "return m / 1000.0;"),
+            ("kmToM", "number", [("km", "number")], "return km * 1000.0;"),
+            ("mToFt", "number", [("m", "number")], "return m * 3.280839895;"),
+            ("ftToM", "number", [("ft", "number")], "return ft / 3.280839895;"),
+            ("normalizeLon", "number", [("lon", "number")],
+             "return std::fmod(std::fmod(lon + 180.0, 360.0) + 360.0, 360.0) - 180.0;"),
+            ("clampLat", "number", [("lat", "number")],
+             "return lat < -90.0 ? -90.0 : (lat > 90.0 ? 90.0 : lat);"),
+            # 4 raster / pixel grid
+            ("pixelIndex", "number", [("row", "number"), ("col", "number"), ("width", "number")],
+             "return row * width + col;"),
+            ("rowCol", "number", [("index", "number"), ("width", "number")],
+             "return std::floor(index / width);"),
+            ("colOf", "number", [("index", "number"), ("width", "number")],
+             "return std::fmod(index, width);"),
+            ("geoToPixelX", "number", [("x", "number"), ("originX", "number"), ("resX", "number")],
+             "return resX == 0 ? 0 : (x - originX) / resX;"),
+            ("geoToPixelY", "number", [("y", "number"), ("originY", "number"), ("resY", "number")],
+             "return resY == 0 ? 0 : (originY - y) / resY;"),
+            ("pixelToGeoX", "number", [("col", "number"), ("originX", "number"), ("resX", "number")],
+             "return originX + col * resX;"),
+            ("pixelToGeoY", "number", [("row", "number"), ("originY", "number"), ("resY", "number")],
+             "return originY - row * resY;"),
+            # 5 télédétection / indices
+            ("ndvi", "number", [("nir", "number"), ("red", "number")],
+             "double d = nir + red; return d == 0 ? 0 : (nir - red) / d;"),
+            ("ndwi", "number", [("green", "number"), ("nir", "number")],
+             "double d = green + nir; return d == 0 ? 0 : (green - nir) / d;"),
+            ("ndbi", "number", [("swir", "number"), ("nir", "number")],
+             "double d = swir + nir; return d == 0 ? 0 : (swir - nir) / d;"),
+            ("savi", "number", [("nir", "number"), ("red", "number"), ("L", "number")],
+             "double d = nir + red + L; return d == 0 ? 0 : ((nir - red) / d) * (1.0 + L);"),
+            ("evi", "number", [("nir", "number"), ("red", "number"), ("blue", "number")],
+             "double d = nir + 6.0 * red - 7.5 * blue + 1.0; return d == 0 ? 0 : 2.5 * (nir - red) / d;"),
+            ("brightness", "number", [("r", "number"), ("g", "number"), ("b", "number")],
+             "return (r + g + b) / 3.0;"),
+            # 6 resolution / GSD
+            ("gsdFromAltitude", "number", [("altM", "number"), ("focalMm", "number"), ("pixelUm", "number")],
+             "return focalMm == 0 ? 0 : (altM * pixelUm) / (focalMm * 1000.0);"),
+            ("groundWidth", "number", [("pixels", "number"), ("gsd", "number")],
+             f"return pixels * gsd * {gsd:.6f};"),
+            ("scaleDenominator", "number", [("gsdM", "number")],
+             "return gsdM <= 0 ? 0 : 0.0254 / gsdM;"),
+            # 7 tiling / pyramids
+            ("tileRow", "number", [("lat", "number"), ("z", "number")],
+             f"{{ double n = std::pow(2.0, z); double latR = lat * {pi} / 180.0; "
+             "return std::floor((1.0 - std::log(std::tan(latR) + 1.0 / std::cos(latR)) / "
+             f"{pi}) / 2.0 * n); }}"),
+            ("tileCol", "number", [("lon", "number"), ("z", "number")],
+             f"{{ double n = std::pow(2.0, z); return std::floor((lon + 180.0) / 360.0 * n); }}"),
+            ("tileCount", "number", [("z", "number")], "return std::pow(2.0, z) * std::pow(2.0, z);"),
+            ("zoomResolution", "number", [("z", "number")],
+             f"return 156543.03392 * std::cos(0.0) / std::pow(2.0, z);"),
+            # 8 UTM / zones (approx)
+            ("utmZone", "number", [("lon", "number")],
+             "return std::floor((lon + 180.0) / 6.0) + 1.0;"),
+            ("isNorthernHemisphere", "bool", [("lat", "number")], "return lat >= 0.0;"),
+            ("eastingOffset", "number", [("zone", "number")],
+             f"return 500000.0 + (zone - {zone}) * 0.0;"),
+            # 9 distances plan / SIG
+            ("planarDist", "number",
+             [("x1", "number"), ("y1", "number"), ("x2", "number"), ("y2", "number")],
+             "double dx=x2-x1, dy=y2-y1; return std::sqrt(dx*dx+dy*dy);"),
+            ("planarDist2", "number",
+             [("x1", "number"), ("y1", "number"), ("x2", "number"), ("y2", "number")],
+             "double dx=x2-x1, dy=y2-y1; return dx*dx+dy*dy;"),
+            ("midPointX", "number", [("x1", "number"), ("x2", "number")], "return (x1 + x2) / 2.0;"),
+            ("midPointY", "number", [("y1", "number"), ("y2", "number")], "return (y1 + y2) / 2.0;"),
+            # 10 slope / elevation lite
+            ("percentSlope", "number", [("rise", "number"), ("run", "number")],
+             "return run == 0 ? 0 : (rise / run) * 100.0;"),
+            ("degreeSlope", "number", [("rise", "number"), ("run", "number")],
+             f"return run == 0 ? 0 : std::atan(rise / run) * 180.0 / {pi};"),
+            ("hillshadeFactor", "number", [("slopeDeg", "number"), ("aspectDeg", "number"), ("azSun", "number")],
+             f"{{ double s=slopeDeg*{pi}/180.0, a=aspectDeg*{pi}/180.0, z=azSun*{pi}/180.0; "
+             "return std::cos(s)*std::cos(z) + std::sin(s)*std::sin(z)*std::cos(a-z); }}"),
+            # 11 buffer / topology lite
+            ("bufferExpand", "number", [("minX", "number"), ("minY", "number"), ("maxX", "number"), ("maxY", "number"), ("d", "number")],
+             "(void)minY;(void)maxY;(void)d; return minX;"),  # placeholder - fix
+            ("expandBboxMinX", "number", [("minX", "number"), ("d", "number")], "return minX - d;"),
+            ("expandBboxMaxX", "number", [("maxX", "number"), ("d", "number")], "return maxX + d;"),
+            ("expandBboxMinY", "number", [("minY", "number"), ("d", "number")], "return minY - d;"),
+            ("expandBboxMaxY", "number", [("maxY", "number"), ("d", "number")], "return maxY + d;"),
+            # 12 zonal / stats raster
+            ("zonalMean", "number", [("sum", "number"), ("count", "number")],
+             "return count == 0 ? 0 : sum / count;"),
+            ("zonalDensity", "number", [("count", "number"), ("area", "number")],
+             "return area == 0 ? 0 : count / area;"),
+            ("classRatio", "number", [("cls", "number"), ("total", "number")],
+             "return total == 0 ? 0 : cls / total;"),
+            # 13 meridians / parallels grid
+            ("meridianSpacing", "number", [("lonMin", "number"), ("lonMax", "number"), ("n", "number")],
+             "return n <= 1 ? 0 : (lonMax - lonMin) / (n - 1.0);"),
+            ("parallelSpacing", "number", [("latMin", "number"), ("latMax", "number"), ("n", "number")],
+             "return n <= 1 ? 0 : (latMax - latMin) / (n - 1.0);"),
+            # 14 simple equirectangular projection
+            ("equirectX", "number", [("lon", "number"), ("lon0", "number"), ("k", "number")],
+             f"return ({re_m} * {pi} / 180.0) * (lon - lon0) * k * std::cos(lon0 * {pi} / 180.0);"),
+            ("equirectY", "number", [("lat", "number"), ("k", "number")],
+             f"return ({re_m} * {pi} / 180.0) * lat * k;"),
+            # 15 tile size helpers
+            ("tileOriginX", "number", [("tileCol", "number"), ("tileSize", "number")],
+             f"return tileCol * tileSize * {gsd:.6f};"),
+            ("tileOriginY", "number", [("tileRow", "number"), ("tileSize", "number")],
+             f"return tileRow * tileSize * {gsd:.6f};"),
+        ]
+
+        # Remove bad placeholder - use expand functions instead
+        funcs = [f for f in funcs if f[0] != "bufferExpand"]
+
+        pick = i % 16
+        if pick == 0:
+            use = [funcs[0], funcs[1]]
+        elif pick == 1:
+            use = [funcs[2], funcs[3]]
+        elif pick == 2:
+            use = [funcs[4], funcs[8]]
+        elif pick == 3:
+            use = [funcs[6], funcs[7]]
+        elif pick == 4:
+            use = [funcs[9], funcs[10]]
+        elif pick == 5:
+            use = [funcs[12], funcs[13]]
+        elif pick == 6:
+            use = [funcs[14], funcs[15]]
+        elif pick == 7:
+            use = [funcs[16], funcs[17]]
+        elif pick == 8:
+            use = [funcs[18], funcs[19]]
+        elif pick == 9:
+            use = [funcs[20], funcs[21]]
+        elif pick == 10:
+            use = [funcs[22], funcs[25]]
+        elif pick == 11:
+            use = [funcs[26], funcs[27]]
+        elif pick == 12:
+            use = [funcs[30], funcs[31]]
+        elif pick == 13:
+            use = [funcs[34], funcs[35]]
+        elif pick == 14:
+            use = [funcs[36], funcs[37]]
+        else:
+            use = [funcs[40], funcs[41]]
+
+        # Per-module band constants for RS indices
+        if pick in (8, 9, 10):
+            nir = band_a + 0.35
+            red = band_b
+            if use[0][0] == "ndvi":
+                use = [
+                    ("ndvi", "number", [("nir", "number"), ("red", "number")],
+                     f"double d=nir+red; return d==0?0:(nir-red)/d;"),
+                    ("ndwi", "number", [("green", "number"), ("nir", "number")],
+                     f"double d=green+nir; return d==0?0:(green-nir)/d;"),
+                ]
+            elif use[0][0] in ("ndwi", "ndbi", "savi", "evi"):
+                use = [
+                    use[0],
+                    ("brightness", "number", [("r", "number"), ("g", "number"), ("b", "number")],
+                     f"return (r*{band_a:.4f}+g*{band_b:.4f}+b*0.2)/({band_a+band_b+0.2:.4f});"),
+                ]
+
+        if pick in (12, 13):
+            use = [
+                ("tileRow", "number", [("lat", "number"), ("z", "number")], funcs[26][3]),
+                ("tileCol", "number", [("lon", "number"), ("z", "number")], funcs[27][3]),
+            ]
+
+        if pick == 14:
+            use = [
+                ("utmZone", "number", [("lon", "number")], funcs[30][3]),
+                ("isNorthernHemisphere", "bool", [("lat", "number")], funcs[31][3]),
+            ]
+
+        if pick == 15:
+            use = [
+                ("tileOriginX", "number", [("tileCol", "number"), ("tileSize", "number")],
+                 f"return tileCol * tileSize * {gsd:.6f};"),
+                ("tileOriginY", "number", [("tileRow", "number"), ("tileSize", "number")],
+                 f"return tileRow * tileSize * {gsd:.6f};"),
+            ]
+            _ = tile  # keep tile size variation in module identity via gsd
+
+        mods.append((name, name, use))
+    return mods
+
+
 # Add 500 new simple game modules: std/gamekit001 .. std/gamekit500
 MODULES.extend(gen_gamekit_modules(500))
 #
@@ -804,6 +1061,9 @@ MODULES.extend(gen_game2dkit_modules(500))
 #
 # Add 500 new simple 3D game modules: std/game3dkit001 .. std/game3dkit500
 MODULES.extend(gen_game3dkit_modules(500))
+#
+# Add 500 geomatics / télédétection / SIG modules: std/giskit001 .. std/giskit500
+MODULES.extend(gen_giskit_modules(500))
 
 assert len(MODULES) >= 100, f"Need >=100 modules, got {len(MODULES)}"
 
