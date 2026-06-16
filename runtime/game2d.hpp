@@ -19,6 +19,16 @@ struct SpriteInfo {
     int height = 0;
 };
 
+struct SpriteSheetInfo {
+    SDL_Texture* texture = nullptr;
+    int width = 0;
+    int height = 0;
+    int frameW = 0;
+    int frameH = 0;
+    int cols = 0;
+    int rows = 0;
+};
+
 struct GridConfig {
     int cols = 0;
     int rows = 0;
@@ -34,6 +44,8 @@ struct Game2dContext {
     std::unordered_map<std::string, double> timers;
     std::unordered_map<std::string, SpriteInfo> sprites;
     std::unordered_map<std::string, Mix_Chunk*> sounds;
+    std::unordered_map<std::string, Mix_Music*> music;
+    std::unordered_map<std::string, SpriteSheetInfo> sheets;
     double highScore = 0;
     double animTimeMs = 0;
     double pendingDx = 1;
@@ -369,6 +381,37 @@ inline void ensureAudio() {
     }
 }
 
+inline bool loadMusic(const std::string& name, const std::string& path) {
+    ensureAudio();
+    if (!context().audioReady) return false;
+    Mix_Music* music = Mix_LoadMUS(path.c_str());
+    if (!music) return false;
+    Game2dContext& ctx = context();
+    auto it = ctx.music.find(name);
+    if (it != ctx.music.end() && it->second) {
+        Mix_FreeMusic(it->second);
+    }
+    ctx.music[name] = music;
+    return true;
+}
+
+inline bool playMusic(const std::string& name, double loops) {
+    const auto it = context().music.find(name);
+    if (it == context().music.end() || !it->second) return false;
+    const int lp = static_cast<int>(loops);
+    return Mix_PlayMusic(it->second, lp) == 0;
+}
+
+inline void stopMusic() {
+    if (!context().audioReady) return;
+    Mix_HaltMusic();
+}
+
+inline void setMusicVolume(double volume0to128) {
+    const int vol = static_cast<int>(std::max(0.0, std::min(128.0, volume0to128)));
+    Mix_VolumeMusic(vol);
+}
+
 inline bool loadSprite(const std::string& name, const std::string& path) {
     ui::UiContext& u = ui::context();
     if (!u.renderer) return false;
@@ -445,6 +488,87 @@ inline void drawSpriteCell(const std::string& name, double col, double row) {
     drawSpriteScaled(name, x, y, size, size);
 }
 
+inline bool loadSpriteSheet(const std::string& name, const std::string& path,
+                            double frameW, double frameH) {
+    ui::UiContext& u = ui::context();
+    if (!u.renderer) return false;
+    static bool imgInited = false;
+    if (!imgInited) imgInited = (IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != 0;
+    SDL_Surface* surface = IMG_Load(path.c_str());
+    if (!surface) return false;
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(u.renderer, surface);
+    const int w = surface->w;
+    const int h = surface->h;
+    SDL_FreeSurface(surface);
+    if (!texture) return false;
+
+    const int fw = std::max(1, static_cast<int>(frameW));
+    const int fh = std::max(1, static_cast<int>(frameH));
+    SpriteSheetInfo sheet;
+    sheet.texture = texture;
+    sheet.width = w;
+    sheet.height = h;
+    sheet.frameW = fw;
+    sheet.frameH = fh;
+    sheet.cols = fw > 0 ? (w / fw) : 1;
+    sheet.rows = fh > 0 ? (h / fh) : 1;
+
+    Game2dContext& ctx = context();
+    auto it = ctx.sheets.find(name);
+    if (it != ctx.sheets.end() && it->second.texture) {
+        SDL_DestroyTexture(it->second.texture);
+    }
+    ctx.sheets[name] = sheet;
+    return true;
+}
+
+inline bool hasSpriteSheet(const std::string& name) {
+    const auto it = context().sheets.find(name);
+    return it != context().sheets.end() && it->second.texture != nullptr;
+}
+
+inline double sheetCols(const std::string& name) {
+    const auto it = context().sheets.find(name);
+    return it == context().sheets.end() ? 0 : static_cast<double>(it->second.cols);
+}
+
+inline double sheetRows(const std::string& name) {
+    const auto it = context().sheets.find(name);
+    return it == context().sheets.end() ? 0 : static_cast<double>(it->second.rows);
+}
+
+inline void drawSpriteFrame(const std::string& name, double frameIdx,
+                            double worldX, double worldY,
+                            double width, double height) {
+    const auto it = context().sheets.find(name);
+    if (it == context().sheets.end() || !it->second.texture) return;
+    ui::UiContext& u = ui::context();
+    if (!u.renderer) return;
+
+    const SpriteSheetInfo& sh = it->second;
+    const int frames = std::max(1, sh.cols * sh.rows);
+    int idx = static_cast<int>(frameIdx);
+    if (idx < 0) idx = 0;
+    idx = idx % frames;
+    const int col = sh.cols > 0 ? (idx % sh.cols) : 0;
+    const int row = sh.cols > 0 ? (idx / sh.cols) : 0;
+    const SDL_Rect src{col * sh.frameW, row * sh.frameH, sh.frameW, sh.frameH};
+    const SDL_Rect dst{
+        static_cast<int>(worldX - context().camX),
+        static_cast<int>(worldY - context().camY),
+        static_cast<int>(width),
+        static_cast<int>(height),
+    };
+    SDL_RenderCopy(u.renderer, sh.texture, &src, &dst);
+}
+
+inline void drawSpriteFrameCell(const std::string& name, double frameIdx,
+                                double col, double row) {
+    const GridConfig& g = context().grid;
+    const double size = static_cast<double>(g.cellSize);
+    drawSpriteFrame(name, frameIdx, cellWorldX(col), cellWorldY(row), size, size);
+}
+
 inline bool loadSound(const std::string& name, const std::string& path) {
     ensureAudio();
     Mix_Chunk* chunk = Mix_LoadWAV(path.c_str());
@@ -478,11 +602,20 @@ inline void shutdown() {
         if (sprite.texture) SDL_DestroyTexture(sprite.texture);
     }
     ctx.sprites.clear();
+    for (auto& [_, sheet] : ctx.sheets) {
+        if (sheet.texture) SDL_DestroyTexture(sheet.texture);
+    }
+    ctx.sheets.clear();
     for (auto& [_, sound] : ctx.sounds) {
         if (sound) Mix_FreeChunk(sound);
     }
     ctx.sounds.clear();
+    for (auto& [_, mus] : ctx.music) {
+        if (mus) Mix_FreeMusic(mus);
+    }
+    ctx.music.clear();
     if (ctx.audioReady) {
+        Mix_HaltMusic();
         Mix_CloseAudio();
         ctx.audioReady = false;
     }
