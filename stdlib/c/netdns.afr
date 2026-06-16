@@ -20,4 +20,5 @@ end
 
 function dnsReplace(s text, from text, to text) returns text
 end
+
 end

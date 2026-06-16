@@ -20,4 +20,5 @@ end
 
 function isCompressible(data list number) returns bool
 end
+
 end

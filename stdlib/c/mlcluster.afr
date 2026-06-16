@@ -20,4 +20,5 @@ end
 
 function clusNorm(v list number) returns list number
 end
+
 end

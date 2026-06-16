@@ -17,4 +17,5 @@ end
 
 function bitpackRoundTrip(data list number) returns bool
 end
+
 end

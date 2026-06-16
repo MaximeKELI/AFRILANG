@@ -20,4 +20,5 @@ end
 
 function diviNorm(v list number) returns list number
 end
+
 end

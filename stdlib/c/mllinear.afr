@@ -17,4 +17,5 @@ end
 
 function sigmoid(x number) returns number
 end
+
 end

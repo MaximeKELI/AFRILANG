@@ -17,4 +17,5 @@ end
 
 function isSymmetric(v list number) returns bool
 end
+
 end

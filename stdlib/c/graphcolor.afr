@@ -20,4 +20,5 @@ end
 
 function sameColorNeighbors(adj list number, n number, node number) returns number
 end
+
 end

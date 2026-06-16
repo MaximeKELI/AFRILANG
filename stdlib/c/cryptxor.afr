@@ -20,4 +20,5 @@ end
 
 function selfXor(s text) returns text
 end
+
 end

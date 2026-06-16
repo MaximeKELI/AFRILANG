@@ -20,4 +20,5 @@ end
 
 function vega(spot number, strike number, rate number, vol number, time number) returns number
 end
+
 end

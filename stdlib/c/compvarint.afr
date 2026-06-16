@@ -17,4 +17,5 @@ end
 
 function varintRoundTrip(data list number) returns bool
 end
+
 end

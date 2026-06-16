@@ -20,4 +20,5 @@ end
 
 function compReplace(s text, from text, to text) returns text
 end
+
 end

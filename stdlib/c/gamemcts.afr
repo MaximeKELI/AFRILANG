@@ -20,4 +20,5 @@ end
 
 function mctsValue(wins list number, visits list number) returns number
 end
+
 end

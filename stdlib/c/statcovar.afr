@@ -23,4 +23,5 @@ end
 
 function covariance(a list number, b list number) returns number
 end
+
 end

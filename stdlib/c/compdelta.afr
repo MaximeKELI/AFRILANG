@@ -17,4 +17,5 @@ end
 
 function maxDelta(data list number) returns number
 end
+
 end

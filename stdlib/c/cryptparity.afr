@@ -23,4 +23,5 @@ end
 
 function hash32(s text) returns number
 end
+
 end

@@ -20,4 +20,5 @@ end
 
 function poweNorm(v list number) returns list number
 end
+
 end

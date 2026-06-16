@@ -20,4 +20,5 @@ end
 
 function futuNorm(v list number) returns list number
 end
+
 end

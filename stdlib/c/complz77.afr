@@ -17,4 +17,5 @@ end
 
 function lz77RoundTrip(data list number) returns bool
 end
+
 end

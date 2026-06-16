@@ -20,4 +20,5 @@ end
 
 function isolateCount(adj list number, n number) returns number
 end
+
 end

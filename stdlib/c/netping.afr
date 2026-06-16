@@ -20,4 +20,5 @@ end
 
 function pingReplace(s text, from text, to text) returns text
 end
+
 end

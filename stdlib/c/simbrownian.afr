@@ -23,4 +23,5 @@ end
 
 function simulate(steps number, seed number) returns list number
 end
+
 end

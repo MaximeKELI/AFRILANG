@@ -23,4 +23,5 @@ end
 
 function bestChild(scores list number) returns number
 end
+
 end

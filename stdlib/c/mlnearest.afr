@@ -20,4 +20,5 @@ end
 
 function nearNorm(v list number) returns list number
 end
+
 end

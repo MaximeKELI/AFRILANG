@@ -17,4 +17,5 @@ end
 
 function bandEnergy(signal list number, lo number, hi number) returns number
 end
+
 end

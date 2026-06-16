@@ -17,4 +17,5 @@ end
 
 function dice(a text, b text) returns number
 end
+
 end

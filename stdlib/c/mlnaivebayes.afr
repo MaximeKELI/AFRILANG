@@ -17,4 +17,5 @@ end
 
 function logPosterior(features list number, trainX list number, trainY list number, cls number) returns number
 end
+
 end

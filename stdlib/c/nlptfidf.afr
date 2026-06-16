@@ -17,4 +17,5 @@ end
 
 function rankTerms(doc text, corpus list text) returns list text
 end
+
 end

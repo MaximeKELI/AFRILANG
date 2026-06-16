@@ -17,4 +17,5 @@ end
 
 function varianceReduction(samples number, seed number) returns number
 end
+
 end

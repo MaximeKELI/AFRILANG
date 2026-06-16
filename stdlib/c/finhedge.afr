@@ -20,4 +20,5 @@ end
 
 function hedgNorm(v list number) returns list number
 end
+
 end

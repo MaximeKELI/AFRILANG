@@ -20,4 +20,5 @@ end
 
 function scoreDiff(board list number) returns number
 end
+
 end

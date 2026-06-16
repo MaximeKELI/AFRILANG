@@ -17,4 +17,5 @@ end
 
 function urlSafe(s text) returns text
 end
+
 end

@@ -20,4 +20,5 @@ end
 
 function openSetSize(grid list number) returns number
 end
+
 end

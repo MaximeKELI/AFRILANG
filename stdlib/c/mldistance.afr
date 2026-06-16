@@ -20,4 +20,5 @@ end
 
 function distNorm(v list number) returns list number
 end
+
 end

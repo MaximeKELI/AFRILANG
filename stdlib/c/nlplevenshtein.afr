@@ -17,4 +17,5 @@ end
 
 function longestCommon(a text, b text) returns number
 end
+
 end
