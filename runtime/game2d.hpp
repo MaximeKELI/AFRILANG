@@ -2,6 +2,10 @@
 
 #include "ui.hpp"
 
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+
+#include <algorithm>
 #include <cmath>
 #include <string>
 #include <unordered_map>
@@ -9,9 +13,17 @@
 
 namespace afrilang::runtime::game2d {
 
+struct SpriteInfo {
+    SDL_Texture* texture = nullptr;
+    int width = 0;
+    int height = 0;
+};
+
 struct GridConfig {
     int cols = 0;
     int rows = 0;
+    int viewCols = 0;
+    int viewRows = 0;
     int cellSize = 28;
     int padX = 32;
     int padY = 88;
@@ -20,10 +32,15 @@ struct GridConfig {
 struct Game2dContext {
     GridConfig grid;
     std::unordered_map<std::string, double> timers;
+    std::unordered_map<std::string, SpriteInfo> sprites;
+    std::unordered_map<std::string, Mix_Chunk*> sounds;
     double highScore = 0;
     double animTimeMs = 0;
     double pendingDx = 1;
     double pendingDy = 0;
+    double camX = 0;
+    double camY = 0;
+    bool audioReady = false;
 };
 
 inline Game2dContext& context() {
@@ -40,24 +57,48 @@ inline void configureGrid(double cols, double rows, double cellSize, double padX
     ctx.grid.padY = static_cast<int>(padY);
 }
 
+inline void configureViewport(double viewCols, double viewRows) {
+    Game2dContext& ctx = context();
+    ctx.grid.viewCols = static_cast<int>(viewCols);
+    ctx.grid.viewRows = static_cast<int>(viewRows);
+}
+
+inline int visibleCols() {
+    const GridConfig& g = context().grid;
+    return g.viewCols > 0 ? g.viewCols : g.cols;
+}
+
+inline int visibleRows() {
+    const GridConfig& g = context().grid;
+    return g.viewRows > 0 ? g.viewRows : g.rows;
+}
+
 inline double gridWindowWidth() {
     const GridConfig& g = context().grid;
-    return static_cast<double>(g.padX * 2 + g.cols * g.cellSize);
+    return static_cast<double>(g.padX * 2 + visibleCols() * g.cellSize);
 }
 
 inline double gridWindowHeight() {
     const GridConfig& g = context().grid;
-    return static_cast<double>(g.padY + g.rows * g.cellSize + 40);
+    return static_cast<double>(g.padY + visibleRows() * g.cellSize + 40);
 }
 
-inline double cellPx(double col) {
+inline double cellWorldX(double col) {
     const GridConfig& g = context().grid;
     return static_cast<double>(g.padX + static_cast<int>(col) * g.cellSize);
 }
 
-inline double cellPy(double row) {
+inline double cellWorldY(double row) {
     const GridConfig& g = context().grid;
     return static_cast<double>(g.padY + static_cast<int>(row) * g.cellSize);
+}
+
+inline double cellPx(double col) {
+    return cellWorldX(col) - context().camX;
+}
+
+inline double cellPy(double row) {
+    return cellWorldY(row) - context().camY;
 }
 
 inline double cellInnerSize() {
@@ -140,6 +181,8 @@ inline void fillCircle(double x, double y, double radius, double r, double g, do
 inline void fillCircleSolid(double x, double y, double radius, double r, double g, double b) {
     ui::UiContext& u = ui::context();
     if (!u.renderer) return;
+    const double sx = x - context().camX;
+    const double sy = y - context().camY;
     SDL_SetRenderDrawColor(u.renderer,
                            static_cast<Uint8>(r),
                            static_cast<Uint8>(g),
@@ -282,6 +325,167 @@ inline void updateHighScore(double score) {
 inline double moveIntervalForScore(double score, double baseMs, double minMs) {
     const double interval = baseMs - score * 3.0;
     return interval < minMs ? minMs : interval;
+}
+
+inline void setCamera(double x, double y) {
+    context().camX = x;
+    context().camY = y;
+}
+
+inline double cameraX() {
+    return context().camX;
+}
+
+inline double cameraY() {
+    return context().camY;
+}
+
+inline void followCamera(double targetX, double targetY, double smooth) {
+    Game2dContext& ctx = context();
+    const double viewW = ui::windowWidth();
+    const double viewH = ui::windowHeight();
+    const double targetCamX = targetX - viewW / 2.0;
+    const double targetCamY = targetY - viewH / 2.0;
+    const double t = smooth <= 0 ? 1.0 : std::min(1.0, smooth);
+    ctx.camX += (targetCamX - ctx.camX) * t;
+    ctx.camY += (targetCamY - ctx.camY) * t;
+
+    const GridConfig& g = ctx.grid;
+    const double maxCamX = std::max(0.0,
+        static_cast<double>(g.padX * 2 + g.cols * g.cellSize) - viewW);
+    const double maxCamY = std::max(0.0,
+        static_cast<double>(g.padY + g.rows * g.cellSize + 40) - viewH);
+    if (ctx.camX < 0) ctx.camX = 0;
+    if (ctx.camY < 0) ctx.camY = 0;
+    if (ctx.camX > maxCamX) ctx.camX = maxCamX;
+    if (ctx.camY > maxCamY) ctx.camY = maxCamY;
+}
+
+inline void ensureAudio() {
+    Game2dContext& ctx = context();
+    if (ctx.audioReady) return;
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == 0) {
+        ctx.audioReady = true;
+    }
+}
+
+inline bool loadSprite(const std::string& name, const std::string& path) {
+    ui::UiContext& u = ui::context();
+    if (!u.renderer) return false;
+    if (IMG_Init(IMG_INIT_PNG) == 0 && (IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) == 0) {
+        // IMG_Init may return flags on success; retry simple load anyway.
+    }
+    SDL_Surface* surface = IMG_Load(path.c_str());
+    if (!surface) return false;
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(u.renderer, surface);
+    const int w = surface->w;
+    const int h = surface->h;
+    SDL_FreeSurface(surface);
+    if (!texture) return false;
+
+    Game2dContext& ctx = context();
+    auto it = ctx.sprites.find(name);
+    if (it != ctx.sprites.end() && it->second.texture) {
+        SDL_DestroyTexture(it->second.texture);
+    }
+    ctx.sprites[name] = SpriteInfo{texture, w, h};
+    return true;
+}
+
+inline bool hasSprite(const std::string& name) {
+    const auto it = context().sprites.find(name);
+    return it != context().sprites.end() && it->second.texture != nullptr;
+}
+
+inline double spriteWidth(const std::string& name) {
+    const auto it = context().sprites.find(name);
+    return it == context().sprites.end() ? 0 : static_cast<double>(it->second.width);
+}
+
+inline double spriteHeight(const std::string& name) {
+    const auto it = context().sprites.find(name);
+    return it == context().sprites.end() ? 0 : static_cast<double>(it->second.height);
+}
+
+inline void drawSprite(const std::string& name, double worldX, double worldY) {
+    const auto it = context().sprites.find(name);
+    if (it == context().sprites.end() || !it->second.texture) return;
+    ui::UiContext& u = ui::context();
+    if (!u.renderer) return;
+    const SDL_Rect dest{
+        static_cast<int>(worldX - context().camX),
+        static_cast<int>(worldY - context().camY),
+        it->second.width,
+        it->second.height,
+    };
+    SDL_RenderCopy(u.renderer, it->second.texture, nullptr, &dest);
+}
+
+inline void drawSpriteScaled(const std::string& name, double worldX, double worldY,
+                             double width, double height) {
+    const auto it = context().sprites.find(name);
+    if (it == context().sprites.end() || !it->second.texture) return;
+    ui::UiContext& u = ui::context();
+    if (!u.renderer) return;
+    const SDL_Rect dest{
+        static_cast<int>(worldX - context().camX),
+        static_cast<int>(worldY - context().camY),
+        static_cast<int>(width),
+        static_cast<int>(height),
+    };
+    SDL_RenderCopy(u.renderer, it->second.texture, nullptr, &dest);
+}
+
+inline void drawSpriteCell(const std::string& name, double col, double row) {
+    const GridConfig& g = context().grid;
+    const double size = static_cast<double>(g.cellSize);
+    const double x = cellWorldX(col);
+    const double y = cellWorldY(row);
+    drawSpriteScaled(name, x, y, size, size);
+}
+
+inline bool loadSound(const std::string& name, const std::string& path) {
+    ensureAudio();
+    Mix_Chunk* chunk = Mix_LoadWAV(path.c_str());
+    if (!chunk) return false;
+    Game2dContext& ctx = context();
+    auto it = ctx.sounds.find(name);
+    if (it != ctx.sounds.end() && it->second) {
+        Mix_FreeChunk(it->second);
+    }
+    ctx.sounds[name] = chunk;
+    return true;
+}
+
+inline bool playSound(const std::string& name) {
+    const auto it = context().sounds.find(name);
+    if (it == context().sounds.end() || !it->second) return false;
+    return Mix_PlayChannel(-1, it->second, 0) != -1;
+}
+
+inline bool playSoundVolume(const std::string& name, double volume) {
+    const auto it = context().sounds.find(name);
+    if (it == context().sounds.end() || !it->second) return false;
+    const int vol = static_cast<int>(std::max(0.0, std::min(128.0, volume)));
+    Mix_VolumeChunk(it->second, vol);
+    return Mix_PlayChannel(-1, it->second, 0) != -1;
+}
+
+inline void shutdown() {
+    Game2dContext& ctx = context();
+    for (auto& [_, sprite] : ctx.sprites) {
+        if (sprite.texture) SDL_DestroyTexture(sprite.texture);
+    }
+    ctx.sprites.clear();
+    for (auto& [_, sound] : ctx.sounds) {
+        if (sound) Mix_FreeChunk(sound);
+    }
+    ctx.sounds.clear();
+    if (ctx.audioReady) {
+        Mix_CloseAudio();
+        ctx.audioReady = false;
+    }
+    IMG_Quit();
 }
 
 } // namespace afrilang::runtime::game2d
