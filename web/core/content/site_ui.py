@@ -5,6 +5,7 @@ UI = {
         'nav_language': 'Le langage',
         'nav_docs': 'Documentation',
         'nav_ecosystem': 'Écosystème',
+        'nav_benchmarks': 'Benchmarks',
         'nav_packages': 'Paquets',
         'nav_playground': 'Playground',
         'nav_tutorial': 'Tutoriel',
@@ -241,6 +242,35 @@ UI = {
             'lead': 'Notes de version et nouveautés du compilateur et de la stdlib.',
             'empty': 'Aucune release — lancez python manage.py sync_releases',
         },
+        'benchmarks_page': {
+            'title': 'Benchmarks AFRILANG',
+            'label': 'Performance',
+            'h1': 'Benchmarks compilateur',
+            'lead': 'Temps de compilation et d\'exécution sur les exemples officiels — transpilation C++17 puis binaire natif.',
+            'sample_notice': 'Données indicatives — lancez sync_benchmarks pour des mesures réelles sur ce serveur.',
+            'updated': 'Dernière mesure :',
+            'stat_examples': 'Exemples',
+            'stat_compile': 'Compile moy.',
+            'stat_exec': 'Exec moy.',
+            'stat_total': 'Total moy.',
+            'chart_compile_exec': 'Compilation vs exécution',
+            'chart_total': 'Temps total par exemple',
+            'comparison_title': 'Comparaison exec (hello)',
+            'comparison_lead': 'Même sortie console — binaire AFRILANG vs interpréteur Python 3.',
+            'table_title': 'Résultats détaillés',
+            'col_file': 'Fichier',
+            'col_compile': 'Compile',
+            'col_exec': 'Exec',
+            'col_total': 'Total',
+            'try_btn': 'Playground',
+            'method_title': 'Méthodologie',
+            'method_body': (
+                'Mesures via <code>scripts/benchmark.sh</code> : '
+                '<code>afrilang run fichier.afr --emit</code> (compile + link g++), '
+                'puis exécution du binaire. Machine locale, une passe. '
+                'Les temps varient selon CPU, cache et charge système.'
+            ),
+        },
         'docs_search_page': {
             'title': 'Recherche documentation',
             'h1': 'Rechercher dans la doc',
@@ -256,6 +286,7 @@ UI = {
         'nav_language': 'Language',
         'nav_docs': 'Documentation',
         'nav_ecosystem': 'Ecosystem',
+        'nav_benchmarks': 'Benchmarks',
         'nav_packages': 'Packages',
         'nav_playground': 'Playground',
         'nav_tutorial': 'Tutorial',
@@ -491,6 +522,35 @@ UI = {
             'h1': 'Release history',
             'lead': 'Version notes and compiler/stdlib updates.',
             'empty': 'No releases — run python manage.py sync_releases',
+        },
+        'benchmarks_page': {
+            'title': 'AFRILANG Benchmarks',
+            'label': 'Performance',
+            'h1': 'Compiler benchmarks',
+            'lead': 'Compile and run times on official examples — C++17 transpilation then native binary.',
+            'sample_notice': 'Sample data — run sync_benchmarks for real measurements on this server.',
+            'updated': 'Last run:',
+            'stat_examples': 'Examples',
+            'stat_compile': 'Avg compile',
+            'stat_exec': 'Avg exec',
+            'stat_total': 'Avg total',
+            'chart_compile_exec': 'Compile vs execution',
+            'chart_total': 'Total time per example',
+            'comparison_title': 'Exec comparison (hello)',
+            'comparison_lead': 'Same console output — AFRILANG binary vs Python 3 interpreter.',
+            'table_title': 'Detailed results',
+            'col_file': 'File',
+            'col_compile': 'Compile',
+            'col_exec': 'Exec',
+            'col_total': 'Total',
+            'try_btn': 'Playground',
+            'method_title': 'Methodology',
+            'method_body': (
+                'Measured via <code>scripts/benchmark.sh</code>: '
+                '<code>afrilang run file.afr --emit</code> (compile + g++ link), '
+                'then binary execution. Local machine, single pass. '
+                'Times vary by CPU, cache and system load.'
+            ),
         },
         'docs_search_page': {
             'title': 'Documentation search',

@@ -44,6 +44,7 @@ Ouvrir **http://127.0.0.1:8000**
 - `/docs/` — Documentation
 - `/packages/` — Registre PostgreSQL + recherche
 - `/playground/` — Éditeur + API run/fmt
+- `/benchmarks/` — Graphiques compile/exec (Chart.js)
 - `/admin/` — Administration Django
 
 ## API REST
@@ -83,6 +84,7 @@ Pour exécuter la compilation **dans le navigateur** sans appeler `/api/compile/
 
 ```bash
 python manage.py sync_packages   # packages/index.json → PostgreSQL
+python manage.py sync_benchmarks # scripts/benchmark.sh → SiteMetric
 python manage.py seed_data       # exemples + capacités
 ```
 

@@ -23,6 +23,7 @@ from .services.afrilang import (
     source_hash,
     wasm_session_path,
 )
+from .services.benchmarks import benchmark_summary, load_benchmarks
 from .services.downloads import get_download_context, resolve_binary
 from .services.stdlib_docs import get_module_doc
 
@@ -125,6 +126,15 @@ def docs_spec(request):
 def download(request):
     ctx = get_download_context()
     return render(request, 'core/download.html', ctx)
+
+
+def benchmarks(request):
+    data = load_benchmarks()
+    summary = benchmark_summary(data)
+    return render(request, 'core/benchmarks.html', {
+        'benchmarks': data,
+        'summary': summary,
+    })
 
 
 @require_GET

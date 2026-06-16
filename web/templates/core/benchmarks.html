@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ ui.benchmarks_page.title }}{% endblock %}
+{% block meta %}{{ ui.benchmarks_page.lead }}{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <div class="section-label">{{ ui.benchmarks_page.label }}</div>
+  <h1 class="h2 fw-bold mb-2">{{ ui.benchmarks_page.h1 }}</h1>
+  <p class="lead text-secondary-custom">{{ ui.benchmarks_page.lead }}</p>
+  {% if benchmarks.is_sample %}
+  <div class="docs-callout docs-callout-warning mt-3">
+    <strong>{{ ui.benchmarks_page.sample_notice }}</strong>
+    <p class="small mb-0 mt-1"><code>python manage.py sync_benchmarks</code></p>
+  </div>
+  {% else %}
+  <p class="small text-secondary-custom mb-0">
+    {{ ui.benchmarks_page.updated }}
+    {% if benchmarks.generated_at %}{{ benchmarks.generated_at|slice:":10" }}{% endif %}
+    · {{ benchmarks.platform|default:"linux-x64" }}
+    · v{{ benchmarks.compiler_version|default:SITE_STATS.compiler_version }}
+  </p>
+  {% endif %}
+</div>
+
+<div class="row g-3 mb-5">
+  <div class="col-6 col-md-3">
+    <div class="afr-feature-card text-center h-100">
+      <div class="display-6 fw-bold text-primary">{{ summary.count }}</div>
+      <div class="small text-secondary-custom">{{ ui.benchmarks_page.stat_examples }}</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="afr-feature-card text-center h-100">
+      <div class="display-6 fw-bold text-primary">{{ summary.avg_compile_ms }}<span class="fs-6">ms</span></div>
+      <div class="small text-secondary-custom">{{ ui.benchmarks_page.stat_compile }}</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="afr-feature-card text-center h-100">
+      <div class="display-6 fw-bold text-primary">{{ summary.avg_exec_ms }}<span class="fs-6">ms</span></div>
+      <div class="small text-secondary-custom">{{ ui.benchmarks_page.stat_exec }}</div>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="afr-feature-card text-center h-100">
+      <div class="display-6 fw-bold text-primary">{{ summary.avg_total_ms }}<span class="fs-6">ms</span></div>
+      <div class="small text-secondary-custom">{{ ui.benchmarks_page.stat_total }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-5">
+  <div class="col-lg-8">
+    <div class="afr-card h-100">
+      <div class="card-header">{{ ui.benchmarks_page.chart_compile_exec }}</div>
+      <div class="card-body">
+        <canvas id="chart-compile-exec" height="280" aria-label="{{ ui.benchmarks_page.chart_compile_exec }}"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="afr-card h-100">
+      <div class="card-header">{{ ui.benchmarks_page.chart_total }}</div>
+      <div class="card-body">
+        <canvas id="chart-total" height="280" aria-label="{{ ui.benchmarks_page.chart_total }}"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if benchmarks.comparisons %}
+<section class="mb-5">
+  <h2 class="h4 fw-bold mb-3">{{ ui.benchmarks_page.comparison_title }}</h2>
+  <p class="text-secondary-custom small mb-3">{{ ui.benchmarks_page.comparison_lead }}</p>
+  <div class="row g-3">
+    {% for cmp in benchmarks.comparisons %}
+    <div class="col-md-6">
+      <div class="afr-feature-card">
+        <h3 class="h6 fw-bold mb-3">{{ cmp.label|default:cmp.name }}</h3>
+        <div class="benchmark-compare-row">
+          <span>AFRILANG</span>
+          <div class="benchmark-bar-wrap">
+            <div class="benchmark-bar benchmark-bar-afr" style="width: {% widthratio cmp.afrilang_exec_ms cmp.python_ms|default:cmp.afrilang_exec_ms 100 %}%"></div>
+          </div>
+          <span class="benchmark-ms">{{ cmp.afrilang_exec_ms }} ms</span>
+        </div>
+        {% if cmp.python_ms %}
+        <div class="benchmark-compare-row mt-2">
+          <span>Python 3</span>
+          <div class="benchmark-bar-wrap">
+            <div class="benchmark-bar benchmark-bar-py" style="width: 100%"></div>
+          </div>
+          <span class="benchmark-ms">{{ cmp.python_ms }} ms</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="mb-4">
+  <h2 class="h4 fw-bold mb-3">{{ ui.benchmarks_page.table_title }}</h2>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle benchmark-table">
+      <thead>
+        <tr>
+          <th>{{ ui.benchmarks_page.col_file }}</th>
+          <th class="text-end">{{ ui.benchmarks_page.col_compile }}</th>
+          <th class="text-end">{{ ui.benchmarks_page.col_exec }}</th>
+          <th class="text-end">{{ ui.benchmarks_page.col_total }}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in benchmarks.results %}
+        <tr>
+          <td><code>{{ row.file }}</code></td>
+          <td class="text-end font-monospace">{{ row.compile_ms }} ms</td>
+          <td class="text-end font-monospace">{{ row.exec_ms }} ms</td>
+          <td class="text-end font-monospace fw-semibold">{{ row.total_ms }} ms</td>
+          <td class="text-end">
+            <a href="{% url 'playground' %}?example={{ row.slug }}" class="btn btn-afr-outline btn-sm">{{ ui.benchmarks_page.try_btn }}</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="docs-callout">
+  <strong>{{ ui.benchmarks_page.method_title }}</strong>
+  <p class="small text-secondary-custom mb-0 mt-2">{{ ui.benchmarks_page.method_body|safe }}</p>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{{ benchmarks|json_script:"benchmark-data" }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/benchmarks.js' %}"></script>
+{% endblock %}

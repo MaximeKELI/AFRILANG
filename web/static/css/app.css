@@ -975,3 +975,44 @@ body.afr-body.afr-loaded main {
   }
 }
 
+/* ── Benchmarks ── */
+.benchmark-table code {
+  font-size: 0.88rem;
+}
+
+.benchmark-compare-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr 3.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.benchmark-bar-wrap {
+  height: 8px;
+  background: var(--afr-bg-muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.benchmark-bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.benchmark-bar-afr {
+  background: linear-gradient(90deg, var(--afr-primary), #6366f1);
+}
+
+.benchmark-bar-py {
+  background: linear-gradient(90deg, #3776ab, #ffd343);
+}
+
+.benchmark-ms {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.82rem;
+  color: var(--afr-text-secondary);
+  text-align: right;
+}
+
