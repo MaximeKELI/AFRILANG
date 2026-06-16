@@ -602,6 +602,7 @@ void StdlibRegistry::injectGame3dModule(ProgramNode& program) {
         {{"x", "number"}, {"y", "number"}, {"z", "number"}, {"count", "number"}, {"speed", "number"}}, ""));
     fns.push_back(makeStubFunction("updateParticles", {{"deltaMs", "number"}}, ""));
     fns.push_back(makeStubFunction("drawParticles", {}, ""));
+    fns.push_back(makeStubFunction("pickBody", {{"screenX", "number"}, {"screenY", "number"}}, "number"));
     injectModule(program, "game3d", std::move(fns));
 }
 
