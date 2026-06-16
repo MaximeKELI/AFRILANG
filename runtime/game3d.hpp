@@ -3,11 +3,11 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include <GL/gl.h>
-#include <GL/glu.h>
 #ifndef GL_GLEXT_PROTOTYPES
 #define GL_GLEXT_PROTOTYPES
 #endif
+#include <GL/gl.h>
+#include <GL/glu.h>
 #include <GL/glext.h>
 
 #include <algorithm>
