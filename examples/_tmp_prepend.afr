@@ -1,0 +1,14 @@
+generator function prepend(v list number, head number) returns list number
+    yield head
+    create i number = 0
+    while i is less than length of v do
+        yield v at i
+        set i = i + 1
+    end
+end
+
+create xs list number = list of 1, 2, 3
+set xs = prepend(xs, 0)
+say xs at 0
+say xs at 1
+say length of xs

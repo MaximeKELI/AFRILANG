@@ -191,8 +191,8 @@ set seed = seedRandom(seed)
 create startX number = W / 2
 create startY number = H / 2
 
-create xs = list of startX, startX - 1, startX - 2
-create ys = list of startY, startY, startY
+create xs list number = list of startX, startX - 1, startX - 2
+create ys list number = list of startY, startY, startY
 
 create dirX number = 1
 create dirY number = 0
@@ -219,11 +219,11 @@ while step is less than MAX_STEPS do
         create c = moves at step
         if c is equal to "Q" then
             say "Quit."
-            break
+            stop
         end
         if c is equal to "q" then
             say "Quit."
-            break
+            stop
         end
         create d = dirFromChar(c, dirX, dirY)
         set dirX = clampDirX(d at 0)
@@ -241,12 +241,12 @@ while step is less than MAX_STEPS do
 
     if hitWall then
         say "Game over: wall collision."
-        break
+        stop
     end
 
     if contains(xs, ys, newX, newY) then
         say "Game over: self collision."
-        break
+        stop
     end
 
     create grow bool = no
