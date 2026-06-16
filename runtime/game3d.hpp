@@ -91,6 +91,11 @@ struct Game3dContext {
     int windowH = 600;
     bool keys[SDL_NUM_SCANCODES]{};
     bool pressed[SDL_NUM_SCANCODES]{};
+    int mouseX = 0;
+    int mouseY = 0;
+    bool clickThisFrame = false;
+    bool mouseDown = false;
+    bool mousePressed = false;
     Uint32 lastFrameTicks = 0;
     double frameDeltaMs = 16.0;
     double camX = 0;
@@ -112,6 +117,7 @@ struct Game3dContext {
     std::unordered_map<std::string, Texture3d> textures;
     std::unordered_map<std::string, ObjModel> models;
     std::unordered_map<std::string, RigidBody> bodies;
+    std::vector<std::string> bodyOrder;
     std::vector<Particle> particles;
     LightingState lighting;
     FogState fog;
@@ -191,6 +197,7 @@ inline void releaseGpuAssets() {
     ctx.textures.clear();
     ctx.models.clear();
     ctx.bodies.clear();
+    ctx.bodyOrder.clear();
     ctx.particles.clear();
     if (ctx.imgInited) {
         IMG_Quit();
@@ -226,11 +233,24 @@ inline void pollEvents() {
     for (int i = 0; i < SDL_NUM_SCANCODES; ++i) {
         ctx.pressed[i] = false;
     }
+    ctx.mousePressed = false;
+    ctx.clickThisFrame = false;
 
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT) {
             ctx.open = false;
+        } else if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT) {
+            ctx.mouseDown = true;
+            ctx.mousePressed = true;
+            ctx.clickThisFrame = true;
+            ctx.mouseX = event.button.x;
+            ctx.mouseY = event.button.y;
+        } else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_LEFT) {
+            ctx.mouseDown = false;
+        } else if (event.type == SDL_MOUSEMOTION) {
+            ctx.mouseX = event.motion.x;
+            ctx.mouseY = event.motion.y;
         } else if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
             const SDL_Scancode sc = event.key.keysym.scancode;
             if (sc >= 0 && sc < SDL_NUM_SCANCODES) {
@@ -289,12 +309,64 @@ inline bool wasKeyPressed(const std::string& key) {
     return ctx.pressed[sc];
 }
 
+inline double mouseX() {
+    return static_cast<double>(context().mouseX);
+}
+
+inline double mouseY() {
+    return static_cast<double>(context().mouseY);
+}
+
+inline bool isMouseDown() {
+    return context().mouseDown;
+}
+
+inline bool wasMousePressed() {
+    return context().mousePressed;
+}
+
+inline bool wasMouseClicked() {
+    return context().clickThisFrame;
+}
+
 inline void clearScreen(double r, double g, double b) {
     glClearColor(static_cast<GLfloat>(r / 255.0),
                  static_cast<GLfloat>(g / 255.0),
                  static_cast<GLfloat>(b / 255.0),
                  1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+inline void drawSkyGradient(double topR, double topG, double topB,
+                            double botR, double botG, double botB) {
+    glPushAttrib(GL_ENABLE_BIT | GL_CURRENT_BIT | GL_DEPTH_BUFFER_BIT);
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_LIGHTING);
+    glDisable(GL_FOG);
+    glDisable(GL_TEXTURE_2D);
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+    glBegin(GL_QUADS);
+    glColor3f(static_cast<GLfloat>(topR / 255.0),
+              static_cast<GLfloat>(topG / 255.0),
+              static_cast<GLfloat>(topB / 255.0));
+    glVertex3f(-1.0f, 1.0f, -0.999f);
+    glVertex3f(1.0f, 1.0f, -0.999f);
+    glColor3f(static_cast<GLfloat>(botR / 255.0),
+              static_cast<GLfloat>(botG / 255.0),
+              static_cast<GLfloat>(botB / 255.0));
+    glVertex3f(1.0f, -1.0f, -0.999f);
+    glVertex3f(-1.0f, -1.0f, -0.999f);
+    glEnd();
+    glPopMatrix();
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+    glMatrixMode(GL_MODELVIEW);
+    glPopAttrib();
 }
 
 inline void setCamera(double x, double y, double z, double yaw, double pitch) {
@@ -750,12 +822,20 @@ inline void drawModelColored(const std::string& name, double x, double y, double
     glPopMatrix();
 }
 
+inline void addBodyToOrder(const std::string& name) {
+    std::vector<std::string>& order = context().bodyOrder;
+    if (std::find(order.begin(), order.end(), name) == order.end()) {
+        order.push_back(name);
+    }
+}
+
 inline void createBody(const std::string& name, double x, double y, double z, double radius) {
     RigidBody body;
     body.px = x;
     body.py = y;
     body.pz = z;
     body.radius = radius;
+    addBodyToOrder(name);
     context().bodies[name] = body;
 }
 
@@ -868,7 +948,10 @@ inline void stepPhysics(double deltaMs, double gravity) {
 }
 
 inline void removeBody(const std::string& name) {
-    context().bodies.erase(name);
+    Game3dContext& ctx = context();
+    ctx.bodies.erase(name);
+    auto& order = ctx.bodyOrder;
+    order.erase(std::remove(order.begin(), order.end(), name), order.end());
 }
 
 inline void enableLighting(bool on) {
@@ -975,6 +1058,7 @@ inline void createBoxBody(const std::string& name, double x, double y, double z,
     body.hz = hz;
     body.isBox = true;
     body.radius = std::max({hx, hy, hz});
+    addBodyToOrder(name);
     context().bodies[name] = body;
 }
 
@@ -1199,20 +1283,29 @@ inline double pickBody(double screenX, double screenY) {
     Game3dContext& ctx = context();
     double bestT = 1e18;
     int bestIndex = -1;
-    int idx = 0;
-    for (auto& [name, body] : ctx.bodies) {
-        (void)name;
-        if (!body.active) { idx++; continue; }
+    for (int i = 0; i < static_cast<int>(ctx.bodyOrder.size()); ++i) {
+        const std::string& name = ctx.bodyOrder[static_cast<std::size_t>(i)];
+        const auto it = ctx.bodies.find(name);
+        if (it == ctx.bodies.end() || !it->second.active) continue;
+        const RigidBody& body = it->second;
         double t;
         if (raySphereHit(ox, oy, oz, dx, dy, dz, body.px, body.py, body.pz, body.radius, t)) {
             if (t < bestT) {
                 bestT = t;
-                bestIndex = idx;
+                bestIndex = i;
             }
         }
-        idx++;
     }
     return static_cast<double>(bestIndex);
+}
+
+inline std::string pickBodyName(double screenX, double screenY) {
+    const double idx = pickBody(screenX, screenY);
+    if (idx < 0) return "";
+    const int i = static_cast<int>(idx);
+    const Game3dContext& ctx = context();
+    if (i < 0 || i >= static_cast<int>(ctx.bodyOrder.size())) return "";
+    return ctx.bodyOrder[static_cast<std::size_t>(i)];
 }
 
 } // namespace afrilang::runtime::game3d

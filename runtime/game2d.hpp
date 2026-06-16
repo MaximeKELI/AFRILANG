@@ -7,6 +7,8 @@
 
 #include <algorithm>
 #include <cmath>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -39,6 +41,14 @@ struct GridConfig {
     int padY = 88;
 };
 
+struct RectTrigger {
+    double x = 0;
+    double y = 0;
+    double w = 0;
+    double h = 0;
+    bool active = true;
+};
+
 struct Game2dContext {
     GridConfig grid;
     std::unordered_map<std::string, double> timers;
@@ -46,6 +56,7 @@ struct Game2dContext {
     std::unordered_map<std::string, Mix_Chunk*> sounds;
     std::unordered_map<std::string, Mix_Music*> music;
     std::unordered_map<std::string, SpriteSheetInfo> sheets;
+    std::unordered_map<std::string, RectTrigger> triggers;
     double highScore = 0;
     double animTimeMs = 0;
     double pendingDx = 1;
@@ -326,12 +337,99 @@ inline void drawHud(const std::string& text, double x, double y, double size,
     ui::drawTextColor(text, x, y, size, r, g, b);
 }
 
+inline void drawFps(double x, double y) {
+    const int fpsInt = static_cast<int>(ui::fps() + 0.5);
+    drawHud("FPS " + std::to_string(fpsInt), x, y, 16, 120, 255, 120);
+}
+
 inline double highScore() {
     return context().highScore;
 }
 
 inline void updateHighScore(double score) {
     if (score > context().highScore) context().highScore = score;
+}
+
+inline double mouseWorldX() {
+    return ui::mouseX() + context().camX;
+}
+
+inline double mouseWorldY() {
+    return ui::mouseY() + context().camY;
+}
+
+inline void defineTrigger(const std::string& name, double x, double y, double w, double h) {
+    RectTrigger t;
+    t.x = x;
+    t.y = y;
+    t.w = w;
+    t.h = h;
+    t.active = true;
+    context().triggers[name] = t;
+}
+
+inline void setTriggerActive(const std::string& name, bool active) {
+    auto it = context().triggers.find(name);
+    if (it == context().triggers.end()) return;
+    it->second.active = active;
+}
+
+inline bool pointInTrigger(const std::string& name, double wx, double wy) {
+    const auto it = context().triggers.find(name);
+    if (it == context().triggers.end() || !it->second.active) return false;
+    const RectTrigger& t = it->second;
+    return wx >= t.x && wx <= t.x + t.w && wy >= t.y && wy <= t.y + t.h;
+}
+
+inline bool mouseInTrigger(const std::string& name) {
+    return pointInTrigger(name, mouseWorldX(), mouseWorldY());
+}
+
+inline bool saveValue(const std::string& path, const std::string& key, double value) {
+    std::unordered_map<std::string, double> values;
+    std::ifstream in(path);
+    std::string line;
+    while (std::getline(in, line)) {
+        const auto eq = line.find('=');
+        if (eq == std::string::npos) continue;
+        const std::string k = line.substr(0, eq);
+        try {
+            values[k] = std::stod(line.substr(eq + 1));
+        } catch (...) {
+        }
+    }
+    values[key] = value;
+    std::ofstream out(path, std::ios::trunc);
+    if (!out) return false;
+    for (const auto& [k, v] : values) {
+        out << k << '=' << v << '\n';
+    }
+    return true;
+}
+
+inline double loadValue(const std::string& path, const std::string& key, double defaultValue) {
+    std::ifstream in(path);
+    std::string line;
+    while (std::getline(in, line)) {
+        const auto eq = line.find('=');
+        if (eq == std::string::npos) continue;
+        if (line.substr(0, eq) == key) {
+            try {
+                return std::stod(line.substr(eq + 1));
+            } catch (...) {
+                return defaultValue;
+            }
+        }
+    }
+    return defaultValue;
+}
+
+inline void loadHighScore(const std::string& path) {
+    context().highScore = loadValue(path, "highscore", context().highScore);
+}
+
+inline bool saveHighScore(const std::string& path) {
+    return saveValue(path, "highscore", context().highScore);
 }
 
 inline double moveIntervalForScore(double score, double baseMs, double minMs) {

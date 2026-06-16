@@ -25,6 +25,9 @@ struct UiContext {
     bool pressed[SDL_NUM_SCANCODES]{};
     Uint32 lastFrameTicks = 0;
     double frameDeltaMs = 16.0;
+    double fpsAccumMs = 0;
+    int fpsFrameCount = 0;
+    double fpsValue = 60.0;
 };
 
 inline UiContext& context() {
@@ -163,7 +166,18 @@ inline void beginFrame() {
         ctx.frameDeltaMs = static_cast<double>(now - ctx.lastFrameTicks);
     }
     ctx.lastFrameTicks = now;
+    ctx.fpsAccumMs += ctx.frameDeltaMs;
+    ctx.fpsFrameCount++;
+    if (ctx.fpsAccumMs >= 500.0) {
+        ctx.fpsValue = ctx.fpsFrameCount * 1000.0 / ctx.fpsAccumMs;
+        ctx.fpsAccumMs = 0;
+        ctx.fpsFrameCount = 0;
+    }
     pollEvents();
+}
+
+inline double fps() {
+    return context().fpsValue;
 }
 
 inline double deltaMs() {
