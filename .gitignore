@@ -1,5 +1,6 @@
 # Build
 /build/
+/dist/
 *.generated.cpp
 *.o
 *.a
