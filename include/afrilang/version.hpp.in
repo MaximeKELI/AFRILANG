@@ -1,0 +1,7 @@
+#pragma once
+
+namespace afrilang {
+
+inline constexpr const char* kVersion = "@PROJECT_VERSION@";
+
+} // namespace afrilang
