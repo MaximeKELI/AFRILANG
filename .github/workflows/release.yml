@@ -24,25 +24,36 @@ jobs:
         include:
           - os: ubuntu-latest
             platform: linux-x86_64
-            cmake_extra: -DCMAKE_BUILD_TYPE=Release
+            shell: bash
           - os: ubuntu-24.04-arm
             platform: linux-arm64
-            cmake_extra: -DCMAKE_BUILD_TYPE=Release
+            shell: bash
           - os: macos-14
             platform: macos-arm64
-            cmake_extra: -DCMAKE_BUILD_TYPE=Release
+            shell: bash
           - os: macos-13
             platform: macos-x86_64
-            cmake_extra: -DCMAKE_BUILD_TYPE=Release
+            shell: bash
           - os: windows-latest
             platform: windows-x86_64
-            cmake_extra: -DCMAKE_BUILD_TYPE=Release
+            shell: msys2 {0}
 
     steps:
       - uses: actions/checkout@v4
 
+      - uses: msys2/setup-msys2@v2
+        if: runner.os == 'Windows'
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-toolchain
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-openssl
+
       - name: Resolve version
         id: ver
+        shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             TAG="${{ github.event.inputs.tag }}"
@@ -54,23 +65,32 @@ jobs:
 
       - name: Install Linux dependencies
         if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake g++ build-essential libssl-dev
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ build-essential libssl-dev
 
-      - name: Configure & build (Unix)
-        if: runner.os != 'Windows'
+      - name: Install macOS dependencies
+        if: runner.os == 'macOS'
+        run: brew install openssl@3
+
+      - name: Configure & build (Linux)
+        if: runner.os == 'Linux'
         run: |
-          cmake -S . -B build ${{ matrix.cmake_extra }}
-          cmake --build build -j$(nproc 2>/dev/null || sysctl -n hw.ncpu)
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build -j$(nproc)
+
+      - name: Configure & build (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+            -DOPENSSL_ROOT_DIR="$(brew --prefix openssl@3)"
+          cmake --build build -j$(sysctl -n hw.ncpu)
 
       - name: Configure & build (Windows)
         if: runner.os == 'Windows'
         run: |
-          cmake -S . -B build -G "Visual Studio 17 2022" -A x64 ${{ matrix.cmake_extra }}
-          cmake --build build --config Release -j
+          cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
+          cmake --build build -j$(nproc)
 
-      - name: Smoke test
+      - name: Smoke test (Unix)
         if: runner.os != 'Windows'
         run: |
           ./build/afrilang version
@@ -78,11 +98,9 @@ jobs:
 
       - name: Smoke test (Windows)
         if: runner.os == 'Windows'
-        shell: bash
         run: |
-          ./build/Release/afrilang.exe version || ./build/afrilang.exe version
-          BIN=$(test -f ./build/Release/afrilang.exe && echo ./build/Release/afrilang.exe || echo ./build/afrilang.exe)
-          "$BIN" run examples/hello.afr
+          ./build/afrilang.exe version
+          ./build/afrilang.exe run examples/hello.afr
 
       - name: Package release
         shell: bash
@@ -94,7 +112,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: afrilang-${{ steps.ver.outputs.version }}-${{ matrix.platform }}
-          path: dist/afrilang-${{ steps.ver.outputs.version }}-${{ matrix.platform }}.*
+          path: |
+            dist/afrilang-${{ steps.ver.outputs.version }}-${{ matrix.platform }}.tar.gz
+            dist/afrilang-${{ steps.ver.outputs.version }}-${{ matrix.platform }}.zip
 
   publish:
     needs: build
@@ -120,7 +140,7 @@ jobs:
           merge-multiple: true
 
       - name: List assets
-        run: find dist -type f | sort
+        run: find dist -type f \( -name '*.tar.gz' -o -name '*.zip' \) | sort
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -129,7 +149,7 @@ jobs:
           name: AFRILANG ${{ steps.ver.outputs.version }}
           generate_release_notes: true
           files: |
-            dist/*.tar.gz
-            dist/*.zip
+            dist/**/*.tar.gz
+            dist/**/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
