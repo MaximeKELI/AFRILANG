@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-### Governance & standards (1.0)
+### Releases & installation
+- **`install.sh`** — installation en une commande (`curl | bash`) depuis GitHub Releases
+- **Workflow `release.yml`** — binaires Linux (x86_64, arm64), macOS (arm64, x86_64), Windows (x86_64)
+- **`afrilang version`** — affiche version et `AFRILANG_HOME` détecté
+- **`scripts/package-release.sh`** — archive `bin/`, `runtime/`, `stdlib/`, `examples/`, `packages/`, `site/`
+- Détection install améliorée (`share/afrilang`, macOS `_NSGetExecutablePath`)
+
 - Root **MIT LICENSE**, **SECURITY.md**, **CONTRIBUTING.md**, **CODE_OF_CONDUCT.md**, **NOTICE** (SPDX)
 - **Spec 1.0** — FFI, EBNF extract, UTF-8 identifiers, semver pkg, error codes
 - **LSP 1.0** — publishDiagnostics, hover, definition, FR/EN completion

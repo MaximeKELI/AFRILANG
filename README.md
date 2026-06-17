@@ -37,6 +37,37 @@ AFRILANG/
 fichier.afr  →  Compiler (imports)  →  Lexer  →  Parser  →  AST  →  Sémantique  →  CodeGen  →  g++  →  exécutable
 ```
 
+## Installation rapide
+
+```bash
+# Binaires précompilés (GitHub Releases)
+curl -fsSL https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/install.sh | bash
+
+# Version précise
+curl -fsSL https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/install.sh | bash -s -- --version v1.0.0
+
+# Fallback compilation locale
+curl -fsSL https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/install.sh | bash -s -- --from-source
+```
+
+Puis ajoutez à votre `~/.bashrc` ou `~/.zshrc` :
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+export AFRILANG_HOME="$HOME/.local/afrilang"
+```
+
+Vérifiez : `afrilang version`
+
+### Publier une release (mainteneurs)
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Le workflow `.github/workflows/release.yml` produit les archives pour Linux, macOS et Windows.
+
 ## Compilation du compilateur
 
 ```bash

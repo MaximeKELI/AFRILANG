@@ -100,28 +100,26 @@ install_binary() {
   local url archive tmp
 
   mkdir -p "$INSTALL_ROOT" "$BIN_DIR"
+  tmp="$(mktemp -d)"
 
   if [[ "$platform" == windows-* ]]; then
     archive="${base}.zip"
     url="https://github.com/${GITHUB_REPO}/releases/download/${tag}/${archive}"
-    tmp="$(mktemp -d)"
     echo "→ Downloading $url"
-    curl -fsSL "$url" -o "$tmp/$archive"
+    curl -fsSL "$url" -o "$tmp/$archive" || { rm -rf "$tmp"; return 1; }
     unzip -q "$tmp/$archive" -d "$tmp"
-    rm -rf "$INSTALL_ROOT"
-    mv "$tmp/$base" "$INSTALL_ROOT"
-    rm -rf "$tmp"
   else
     archive="${base}.tar.gz"
     url="https://github.com/${GITHUB_REPO}/releases/download/${tag}/${archive}"
-    tmp="$(mktemp -d)"
     echo "→ Downloading $url"
-    curl -fsSL "$url" -o "$tmp/$archive"
+    curl -fsSL "$url" -o "$tmp/$archive" || { rm -rf "$tmp"; return 1; }
     tar -xzf "$tmp/$archive" -C "$tmp"
-    rm -rf "$INSTALL_ROOT"
-    mv "$tmp/$base" "$INSTALL_ROOT"
-    rm -rf "$tmp"
   fi
+
+  rm -rf "$INSTALL_ROOT"
+  mv "$tmp/$base" "$INSTALL_ROOT"
+  rm -rf "$tmp"
+  return 0
 }
 
 link_binary() {
@@ -183,7 +181,9 @@ main() {
 
   VERSION="${VERSION#v}"
 
-  if ! install_binary "$platform" "$VERSION"; then
+  if install_binary "$platform" "$VERSION"; then
+    :
+  else
     echo "Release download failed; building from source..." >&2
     install_from_source
   fi
