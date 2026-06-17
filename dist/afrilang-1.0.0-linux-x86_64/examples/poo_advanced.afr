@@ -1,0 +1,19 @@
+final class Config
+    property text name
+    end
+
+    function init(n text)
+        set this.name = n
+    end
+
+    destroy
+        say "config destroyed"
+    end
+end
+
+create cfg = new Config("app")
+say cfg.name
+set cfg.name = "server"
+say cfg.name
+
+say "poo advanced complete"

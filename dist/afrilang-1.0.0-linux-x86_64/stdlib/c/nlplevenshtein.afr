@@ -1,0 +1,21 @@
+module nlplevenshtein
+
+function distance(a text, b text) returns number
+end
+
+function similarity(a text, b text) returns number
+end
+
+function ratio(a text, b text) returns number
+end
+
+function isClose(a text, b text, maxDist number) returns bool
+end
+
+function normalizedDist(a text, b text) returns number
+end
+
+function longestCommon(a text, b text) returns number
+end
+
+end

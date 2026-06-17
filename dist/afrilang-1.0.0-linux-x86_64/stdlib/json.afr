@@ -1,0 +1,20 @@
+module json
+
+function parse(text text) returns json
+end
+
+function stringify(value json) returns text
+end
+
+function getString(value json, key text) returns text
+end
+
+function getNumber(value json, key text) returns number
+end
+
+function getInt(value json, key text) returns int
+end
+
+function makeObject(key text, value text) returns json
+end
+end

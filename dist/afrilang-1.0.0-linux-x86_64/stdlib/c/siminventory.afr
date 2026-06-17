@@ -1,0 +1,27 @@
+module siminventory
+
+function inveSum(v list number) returns number
+end
+
+function inveMean(v list number) returns number
+end
+
+function inveMin(v list number) returns number
+end
+
+function inveMax(v list number) returns number
+end
+
+function inveVar(v list number) returns number
+end
+
+function inveStd(v list number) returns number
+end
+
+function inveNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end
+
+end

@@ -1,0 +1,24 @@
+module graphmatch
+
+function maxMatching(adj list number, n number) returns number
+end
+
+function matchingPairs(adj list number, n number) returns list number
+end
+
+function isPerfectMatching(adj list number, n number) returns bool
+end
+
+function unmatchedCount(adj list number, n number) returns number
+end
+
+function matchingWeight(adj list number, n number) returns number
+end
+
+function vertexCoverSize(adj list number, n number) returns number
+end
+
+function isMatched(adj list number, n number, node number) returns bool
+end
+
+end

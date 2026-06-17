@@ -1,0 +1,21 @@
+module finsharpe
+
+function sharpe(returns list number, rf number) returns number
+end
+
+function sortino(returns list number, rf number) returns number
+end
+
+function maxDrawdown(prices list number) returns number
+end
+
+function calmar(returns list number, prices list number) returns number
+end
+
+function volatility(returns list number) returns number
+end
+
+function annualizedReturn(returns list number, periods number) returns number
+end
+
+end

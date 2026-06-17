@@ -1,0 +1,15 @@
+function add(a number, b number) returns number
+    return a + b
+end
+
+test "addition works"
+    create r = add(2, 3)
+    assert r is equal to 5
+end
+
+test "boolean logic"
+    create flag bool = true
+    assert flag is equal to true
+end
+
+say "All tests defined"

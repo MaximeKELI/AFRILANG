@@ -1,0 +1,9 @@
+module jsonlite
+
+function quote(s text) returns text
+end
+
+function pair(key text, value text) returns text
+end
+
+end

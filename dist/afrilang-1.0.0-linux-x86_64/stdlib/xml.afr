@@ -1,0 +1,9 @@
+module xml
+
+function tag(name text, content text) returns text
+end
+
+function escapeXml(s text) returns text
+end
+
+end

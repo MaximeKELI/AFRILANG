@@ -1,0 +1,9 @@
+module id
+
+function hashId(s text) returns text
+end
+
+function shortHash(s text) returns text
+end
+
+end

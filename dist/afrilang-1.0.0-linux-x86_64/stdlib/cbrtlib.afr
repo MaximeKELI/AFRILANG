@@ -1,0 +1,9 @@
+module cbrtlib
+
+function cbrtNumber(n number) returns number
+end
+
+function cube(n number) returns number
+end
+
+end

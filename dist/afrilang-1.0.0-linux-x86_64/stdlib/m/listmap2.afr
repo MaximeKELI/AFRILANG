@@ -1,0 +1,14 @@
+module listmap2
+
+function mapUpper(v list text) returns list text
+end
+
+function mapLower(v list text) returns list text
+end
+
+function mapTrim(v list text) returns list text
+end
+
+function mapLength(v list text) returns list number
+end
+end

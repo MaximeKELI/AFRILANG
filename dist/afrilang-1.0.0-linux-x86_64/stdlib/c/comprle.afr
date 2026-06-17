@@ -1,0 +1,24 @@
+module comprle
+
+function rleEncode(data list number) returns list number
+end
+
+function rleDecode(encoded list number) returns list number
+end
+
+function rleRatio(data list number) returns number
+end
+
+function runLength(data list number) returns number
+end
+
+function compress(data list number) returns list number
+end
+
+function decompress(encoded list number) returns list number
+end
+
+function isCompressible(data list number) returns bool
+end
+
+end

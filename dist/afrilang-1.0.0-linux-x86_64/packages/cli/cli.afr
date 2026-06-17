@@ -1,0 +1,13 @@
+module Cli
+    function banner(msg text) returns text
+        return "=== " + msg + " ==="
+    end
+
+    function ok(msg text) returns text
+        return "[OK] " + msg
+    end
+
+    function err(msg text) returns text
+        return "[ERR] " + msg
+    end
+end

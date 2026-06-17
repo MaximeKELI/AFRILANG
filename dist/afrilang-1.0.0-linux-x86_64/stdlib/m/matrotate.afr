@@ -1,0 +1,14 @@
+module matrotate
+
+function rotate2d(angle number) returns list number
+end
+
+function apply2d(m list number, v list number) returns list number
+end
+
+function rotatePoint(x number, y number, angle number) returns list number
+end
+
+function degreesToRad(deg number) returns number
+end
+end

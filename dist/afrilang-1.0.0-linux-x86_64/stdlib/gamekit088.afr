@@ -1,0 +1,9 @@
+module gamekit088
+
+function easeOut(t number) returns number
+end
+
+function spring(x number, v number, target number, dt number) returns number
+end
+
+end

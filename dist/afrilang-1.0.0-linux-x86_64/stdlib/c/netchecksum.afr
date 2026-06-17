@@ -1,0 +1,21 @@
+module netchecksum
+
+function ipChecksum(data list number) returns number
+end
+
+function onesComplement(n number) returns number
+end
+
+function fold32(sum number) returns number
+end
+
+function verify(data list number, expected number) returns bool
+end
+
+function pseudoHeader(src list number, dst list number, proto number, len number) returns list number
+end
+
+function tcpChecksum(header list number, payload list number) returns number
+end
+
+end

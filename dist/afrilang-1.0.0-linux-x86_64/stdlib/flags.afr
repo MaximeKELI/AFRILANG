@@ -1,0 +1,9 @@
+module flags
+
+function hasFlag(n number, f number) returns bool
+end
+
+function setFlag(n number, f number) returns number
+end
+
+end

@@ -1,0 +1,27 @@
+module cryptpbkdf
+
+function pbkdLen(s text) returns number
+end
+
+function pbkdUpper(s text) returns text
+end
+
+function pbkdLower(s text) returns text
+end
+
+function pbkdTrim(s text) returns text
+end
+
+function pbkdSplit(s text, delim text) returns list text
+end
+
+function pbkdJoin(parts list text, delim text) returns text
+end
+
+function pbkdReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end
+
+end

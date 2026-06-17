@@ -1,0 +1,9 @@
+module game3dkit275
+
+function smooth(cur number, target number, dt number) returns number
+end
+
+function lerp3x(ax number, bx number, t number) returns number
+end
+
+end

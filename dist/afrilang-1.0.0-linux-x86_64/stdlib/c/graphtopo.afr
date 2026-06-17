@@ -1,0 +1,24 @@
+module graphtopo
+
+function topoSort(adj list number, n number) returns list number
+end
+
+function hasCycleDirected(adj list number, n number) returns bool
+end
+
+function inDegrees(adj list number, n number) returns list number
+end
+
+function outDegrees(adj list number, n number) returns list number
+end
+
+function sources(adj list number, n number) returns list number
+end
+
+function sinks(adj list number, n number) returns list number
+end
+
+function isDag(adj list number, n number) returns bool
+end
+
+end

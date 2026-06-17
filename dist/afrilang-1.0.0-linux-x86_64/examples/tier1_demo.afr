@@ -1,0 +1,15 @@
+import "std/json"
+
+use json
+
+create age int = 42
+create pi number = 3.14
+say age
+say pi
+
+create doc json = parse("{\"name\": \"AFRILANG\", \"version\": 1}")
+say getString(doc, "name")
+say getInt(doc, "version")
+
+create built json = makeObject("status", "ok")
+say stringify(built)

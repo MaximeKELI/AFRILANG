@@ -1,0 +1,14 @@
+module checksum2
+
+function crcSimple(s text) returns number
+end
+
+function adler32lite(s text) returns number
+end
+
+function fnvHash(s text) returns number
+end
+
+function sumChecksum(s text) returns number
+end
+end

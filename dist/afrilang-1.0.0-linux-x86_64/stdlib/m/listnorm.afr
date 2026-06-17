@@ -1,0 +1,14 @@
+module listnorm
+
+function normalize(v list number) returns list number
+end
+
+function zScores(v list number) returns list number
+end
+
+function scaleTo100(v list number) returns list number
+end
+
+function demean(v list number) returns list number
+end
+end

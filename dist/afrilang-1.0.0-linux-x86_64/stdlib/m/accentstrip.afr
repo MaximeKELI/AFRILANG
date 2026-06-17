@@ -1,0 +1,14 @@
+module accentstrip
+
+function stripAccents(s text) returns text
+end
+
+function toAsciiFold(s text) returns text
+end
+
+function removeNonPrintable(s text) returns text
+end
+
+function collapseSpaces(s text) returns text
+end
+end

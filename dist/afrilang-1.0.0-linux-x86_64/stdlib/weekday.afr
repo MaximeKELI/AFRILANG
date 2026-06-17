@@ -1,0 +1,9 @@
+module weekday
+
+function weekIndex(day number) returns number
+end
+
+function isWeekendIndex(day number) returns bool
+end
+
+end

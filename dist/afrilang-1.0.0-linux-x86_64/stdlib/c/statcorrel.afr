@@ -1,0 +1,24 @@
+module statcorrel
+
+function pearson(a list number, b list number) returns number
+end
+
+function covariance(a list number, b list number) returns number
+end
+
+function crossCorr(a list number, b list number, lag number) returns number
+end
+
+function autocorr1(v list number) returns number
+end
+
+function partialCorr(a list number, b list number, c list number) returns number
+end
+
+function corrMatrix2(a list number, b list number) returns list number
+end
+
+function rankCorr(a list number, b list number) returns number
+end
+
+end

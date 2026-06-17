@@ -1,0 +1,24 @@
+module nlpedit
+
+function editLen(s text) returns number
+end
+
+function editUpper(s text) returns text
+end
+
+function editLower(s text) returns text
+end
+
+function editTrim(s text) returns text
+end
+
+function editSplit(s text, delim text) returns list text
+end
+
+function editJoin(parts list text, delim text) returns text
+end
+
+function editReplace(s text, from text, to text) returns text
+end
+
+end

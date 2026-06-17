@@ -1,0 +1,24 @@
+module grapheuler
+
+function vertexDegrees(adj list number, n number) returns list number
+end
+
+function hasEulerCircuit(adj list number, n number) returns bool
+end
+
+function hasEulerPath(adj list number, n number) returns bool
+end
+
+function oddDegreeCount(adj list number, n number) returns number
+end
+
+function totalDegree(adj list number, n number) returns number
+end
+
+function eulerTrailLen(adj list number, n number) returns number
+end
+
+function isEulerian(adj list number, n number) returns bool
+end
+
+end

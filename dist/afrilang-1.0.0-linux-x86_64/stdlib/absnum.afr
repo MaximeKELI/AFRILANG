@@ -1,0 +1,9 @@
+module absnum
+
+function absNumber(n number) returns number
+end
+
+function absDiff(a number, b number) returns number
+end
+
+end

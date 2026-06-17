@@ -1,0 +1,21 @@
+module statanova
+
+function groupMeans(groups list number, labels list number) returns list number
+end
+
+function grandMean(v list number) returns number
+end
+
+function betweenSS(groups list number, labels list number) returns number
+end
+
+function withinSS(groups list number, labels list number) returns number
+end
+
+function fStatistic(groups list number, labels list number) returns number
+end
+
+function etaSquared(groups list number, labels list number) returns number
+end
+
+end

@@ -1,0 +1,9 @@
+module triangle
+
+function areaBaseHeight(b number, h number) returns number
+end
+
+function heron(a number, b number, c number) returns number
+end
+
+end

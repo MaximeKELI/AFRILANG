@@ -1,0 +1,27 @@
+module csvlimit
+
+function limiSum(v list number) returns number
+end
+
+function limiMean(v list number) returns number
+end
+
+function limiMin(v list number) returns number
+end
+
+function limiMax(v list number) returns number
+end
+
+function limiVar(v list number) returns number
+end
+
+function limiStd(v list number) returns number
+end
+
+function limiNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

@@ -1,0 +1,24 @@
+module gamemcts
+
+function uctSelect(wins list number, visits list number, totalVisits number, explore number) returns number
+end
+
+function rollout(state list number, depth number) returns number
+end
+
+function simulate(state list number, sims number) returns number
+end
+
+function bestAction(wins list number, visits list number) returns number
+end
+
+function updateStats(wins list number, visits list number, action number, reward number) returns list number
+end
+
+function treePolicy(state list number, actions list number) returns number
+end
+
+function mctsValue(wins list number, visits list number) returns number
+end
+
+end

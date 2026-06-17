@@ -1,0 +1,14 @@
+module datefmt2
+
+function formatIso(year number, month number, day number) returns text
+end
+
+function parseYear(date text) returns number
+end
+
+function parseMonth(date text) returns number
+end
+
+function parseDay(date text) returns number
+end
+end

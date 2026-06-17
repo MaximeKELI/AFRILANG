@@ -1,0 +1,9 @@
+module slug
+
+function slugify(s text) returns text
+end
+
+function deslugify(s text) returns text
+end
+
+end

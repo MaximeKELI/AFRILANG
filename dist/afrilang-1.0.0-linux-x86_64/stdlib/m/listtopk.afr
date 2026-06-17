@@ -1,0 +1,14 @@
+module listtopk
+
+function topK(v list number, k number) returns list number
+end
+
+function bottomK(v list number, k number) returns list number
+end
+
+function kthLargest(v list number, k number) returns number
+end
+
+function kthSmallest(v list number, k number) returns number
+end
+end

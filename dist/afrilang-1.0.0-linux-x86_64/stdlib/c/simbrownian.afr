@@ -1,0 +1,27 @@
+module simbrownian
+
+function browSum(v list number) returns number
+end
+
+function browMean(v list number) returns number
+end
+
+function browMin(v list number) returns number
+end
+
+function browMax(v list number) returns number
+end
+
+function browVar(v list number) returns number
+end
+
+function browStd(v list number) returns number
+end
+
+function browNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end
+
+end

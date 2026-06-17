@@ -1,0 +1,9 @@
+module base64
+
+function encode64(s text) returns text
+end
+
+function decode64(s text) returns text
+end
+
+end

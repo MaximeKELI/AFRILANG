@@ -1,0 +1,21 @@
+module cryptcrc32
+
+function crc32(s text) returns number
+end
+
+function crc32List(data list number) returns list number
+end
+
+function verify(s text, expected number) returns bool
+end
+
+function update(crc number, byte number) returns number
+end
+
+function finalize(crc number) returns number
+end
+
+function chunkCrc(s text, chunkSize number) returns list number
+end
+
+end

@@ -1,0 +1,27 @@
+module simqueue
+
+function queuSum(v list number) returns number
+end
+
+function queuMean(v list number) returns number
+end
+
+function queuMin(v list number) returns number
+end
+
+function queuMax(v list number) returns number
+end
+
+function queuVar(v list number) returns number
+end
+
+function queuStd(v list number) returns number
+end
+
+function queuNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end
+
+end

@@ -1,0 +1,24 @@
+module nlpbow
+
+function bowLen(s text) returns number
+end
+
+function bowUpper(s text) returns text
+end
+
+function bowLower(s text) returns text
+end
+
+function bowTrim(s text) returns text
+end
+
+function bowSplit(s text, delim text) returns list text
+end
+
+function bowJoin(parts list text, delim text) returns text
+end
+
+function bowReplace(s text, from text, to text) returns text
+end
+
+end

@@ -1,0 +1,21 @@
+module statrmse
+
+function rmse(actual list number, predicted list number) returns number
+end
+
+function mse(actual list number, predicted list number) returns number
+end
+
+function mae(actual list number, predicted list number) returns number
+end
+
+function nrmse(actual list number, predicted list number) returns number
+end
+
+function smape(actual list number, predicted list number) returns number
+end
+
+function r2Score(actual list number, predicted list number) returns number
+end
+
+end

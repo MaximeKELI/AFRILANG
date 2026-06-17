@@ -1,0 +1,19 @@
+class Box<T>
+    public field data T
+
+    function init(v T)
+        set this.data = v
+    end
+
+    function get() returns T
+        return this.data
+    end
+end
+
+create numbers = new Box<number>(42)
+say numbers.get()
+
+create label = new Box<text>("hello")
+say label.get()
+
+say "generic class complete"

@@ -1,0 +1,14 @@
+module matinv2
+
+function inv2x2(m list number) returns list number
+end
+
+function adj2x2(m list number) returns list number
+end
+
+function solve2x2(a list number, b list number) returns list number
+end
+
+function condition2x2(m list number) returns number
+end
+end

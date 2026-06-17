@@ -1,0 +1,14 @@
+module listunique2
+
+function unique(v list number) returns list number
+end
+
+function uniqueText(v list text) returns list text
+end
+
+function duplicates(v list number) returns list number
+end
+
+function frequency(v list number, val number) returns number
+end
+end

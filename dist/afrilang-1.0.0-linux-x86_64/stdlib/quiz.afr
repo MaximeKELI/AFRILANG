@@ -1,0 +1,9 @@
+module quiz
+
+function scorePercent(correct number, total number) returns number
+end
+
+function isPerfect(correct number, total number) returns bool
+end
+
+end

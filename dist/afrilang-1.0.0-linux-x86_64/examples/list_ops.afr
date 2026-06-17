@@ -1,0 +1,54 @@
+import "std/collections"
+import "std/str"
+
+use collections
+use str
+
+create nums = list of 1, 2, 3, 4, 5
+
+create doubled = mapNumbers(nums, function(x number) returns number
+    return x * 2
+end)
+
+say doubled at 0
+say doubled at 4
+
+create bigOnes = filterNumbers(nums, function(x number) returns bool
+    if x is greater than 3 then
+        return yes
+    else
+        return no
+    end
+end)
+
+say length of bigOnes
+say bigOnes at 0
+say bigOnes at 1
+
+create total = reduceNumbers(nums, function(acc number, x number) returns number
+    return acc + x
+end, 0)
+
+say total
+
+create words = list of "hi", "hello", "hey"
+
+create upper = mapText(words, function(w text) returns text
+    return w + "!"
+end)
+
+say upper at 0
+say upper at 2
+
+create longWords = filterText(words, function(w text) returns bool
+    if contains(w, "el") then
+        return yes
+    else
+        return no
+    end
+end)
+
+say length of longWords
+say longWords at 0
+
+say "list ops complete"

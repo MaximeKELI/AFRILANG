@@ -1,0 +1,32 @@
+enum Status
+    case Ok
+    case Error with message text
+end
+
+create s = Status.Ok
+create e = Status.Error with "failed"
+
+match s
+    case Ok then
+        say "ok"
+    end
+    default
+        say "other"
+    end
+end
+
+match e
+    case Error then
+        say e.message
+    end
+    default
+        say "unexpected"
+    end
+end
+
+create nickname text? = nothing
+if nickname is defined then
+    say nickname
+else
+    say "no nickname"
+end

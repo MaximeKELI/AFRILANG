@@ -1,0 +1,9 @@
+module fact
+
+function factorial(n number) returns number
+end
+
+function doubleFact(n number) returns number
+end
+
+end

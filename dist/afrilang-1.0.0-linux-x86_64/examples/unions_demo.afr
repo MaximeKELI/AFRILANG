@@ -1,0 +1,25 @@
+union Shape
+    case Circle with radius number
+    case Rect with w number, h number
+end
+
+create circle = Shape.Circle with 5
+create rect = Shape.Rect with 10, 3
+
+match circle
+    case Circle with r then
+        say "circle radius {r}"
+    end
+    case Rect with w, h then
+        say "rect {w}x{h}"
+    end
+end
+
+create area = match rect
+    case Circle with r then 3.14 * r * r
+    end
+    case Rect with w, h then w * h
+    end
+end
+
+say area

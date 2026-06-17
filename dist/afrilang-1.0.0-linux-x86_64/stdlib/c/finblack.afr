@@ -1,0 +1,24 @@
+module finblack
+
+function blacSum(v list number) returns number
+end
+
+function blacMean(v list number) returns number
+end
+
+function blacMin(v list number) returns number
+end
+
+function blacMax(v list number) returns number
+end
+
+function blacVar(v list number) returns number
+end
+
+function blacStd(v list number) returns number
+end
+
+function blacNorm(v list number) returns list number
+end
+
+end

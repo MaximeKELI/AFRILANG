@@ -1,0 +1,14 @@
+module listfilter2
+
+function filterEmpty(v list text) returns list text
+end
+
+function filterLonger(v list text, minLen number) returns list text
+end
+
+function filterContains(v list text, sub text) returns list text
+end
+
+function filterStarts(v list text, prefix text) returns list text
+end
+end

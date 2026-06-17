@@ -1,0 +1,24 @@
+module finamort
+
+function amorSum(v list number) returns number
+end
+
+function amorMean(v list number) returns number
+end
+
+function amorMin(v list number) returns number
+end
+
+function amorMax(v list number) returns number
+end
+
+function amorVar(v list number) returns number
+end
+
+function amorStd(v list number) returns number
+end
+
+function amorNorm(v list number) returns list number
+end
+
+end

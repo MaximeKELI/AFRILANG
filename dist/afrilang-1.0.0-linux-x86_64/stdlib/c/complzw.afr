@@ -1,0 +1,21 @@
+module complzw
+
+function lzwEncode(data list number) returns list number
+end
+
+function lzwDecode(encoded list number) returns list number
+end
+
+function lzwRatio(data list number) returns number
+end
+
+function lzwSize(data list number) returns number
+end
+
+function lzwCompressed(data list number) returns number
+end
+
+function lzwRoundTrip(data list number) returns bool
+end
+
+end

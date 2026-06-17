@@ -1,0 +1,20 @@
+class Vector
+    public field x number
+    public field y number
+
+    function init(ax number, ay number)
+        set this.x = ax
+        set this.y = ay
+    end
+
+    operator + (other Vector) returns Vector
+        return new Vector(x + other.x, y + other.y)
+    end
+end
+
+create a = new Vector(1, 2)
+create b = new Vector(3, 4)
+create c = a + b
+
+say c.x
+say c.y

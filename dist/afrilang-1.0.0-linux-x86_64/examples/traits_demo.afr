@@ -1,0 +1,42 @@
+interface Speakable
+    function speak()
+end
+
+interface Named
+    function getName() returns text
+end
+
+class Dog implements Speakable, Named
+    function speak()
+        say "Woof!"
+    end
+
+    function getName() returns text
+        return "Rex"
+    end
+end
+
+create pet Speakable = new Dog()
+pet.speak()
+
+create speakers list of Speakable = list of new Dog()
+for each s in speakers do
+    s.speak()
+end
+
+module Shapes
+    enum Kind
+        case Circle
+        case Square
+    end
+end
+
+create k = Kind.Circle
+match k
+    case Circle then
+        say "circle"
+    end
+    case Square then
+        say "square"
+    end
+end

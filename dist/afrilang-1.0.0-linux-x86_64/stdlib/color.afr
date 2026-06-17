@@ -1,0 +1,9 @@
+module color
+
+function rgb(r number, g number, b number) returns number
+end
+
+function redOf(packed number) returns number
+end
+
+end

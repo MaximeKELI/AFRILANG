@@ -1,0 +1,21 @@
+module cryptbase64
+
+function encode(s text) returns text
+end
+
+function decode(s text) returns text
+end
+
+function isValid(s text) returns bool
+end
+
+function paddedLen(s text) returns number
+end
+
+function roundTrip(s text) returns bool
+end
+
+function urlSafe(s text) returns text
+end
+
+end

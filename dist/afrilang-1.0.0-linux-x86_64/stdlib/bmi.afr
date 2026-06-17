@@ -1,0 +1,9 @@
+module bmi
+
+function bmi(kg number, m number) returns number
+end
+
+function bmiCategory(bmi number) returns text
+end
+
+end

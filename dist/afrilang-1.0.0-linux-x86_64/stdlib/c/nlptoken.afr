@@ -1,0 +1,24 @@
+module nlptoken
+
+function tokeLen(s text) returns number
+end
+
+function tokeUpper(s text) returns text
+end
+
+function tokeLower(s text) returns text
+end
+
+function tokeTrim(s text) returns text
+end
+
+function tokeSplit(s text, delim text) returns list text
+end
+
+function tokeJoin(parts list text, delim text) returns text
+end
+
+function tokeReplace(s text, from text, to text) returns text
+end
+
+end

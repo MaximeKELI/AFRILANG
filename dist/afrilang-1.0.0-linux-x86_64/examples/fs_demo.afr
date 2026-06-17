@@ -1,0 +1,22 @@
+import "std/fs"
+import "std/io"
+
+use fs
+use io
+
+create dir = "/tmp/afrilang_fs_demo"
+
+if fileExists(dir) is equal to true then
+    removeFile(dir + "/sample.txt")
+end
+
+say makeDir(dir)
+writeFile(dir + "/sample.txt", "filesystem demo")
+
+say fileSize(dir + "/sample.txt")
+
+for each name in listDir(dir) do
+    say name
+end
+
+say readFile(dir + "/sample.txt")

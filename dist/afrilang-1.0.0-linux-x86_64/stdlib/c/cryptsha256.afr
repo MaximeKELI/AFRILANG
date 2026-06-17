@@ -1,0 +1,27 @@
+module cryptsha256
+
+function sha2Len(s text) returns number
+end
+
+function sha2Upper(s text) returns text
+end
+
+function sha2Lower(s text) returns text
+end
+
+function sha2Trim(s text) returns text
+end
+
+function sha2Split(s text, delim text) returns list text
+end
+
+function sha2Join(parts list text, delim text) returns text
+end
+
+function sha2Replace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end
+
+end

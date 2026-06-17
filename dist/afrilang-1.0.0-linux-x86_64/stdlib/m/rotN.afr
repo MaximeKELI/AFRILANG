@@ -1,0 +1,14 @@
+module rotN
+
+function rotEncode(s text, n number) returns text
+end
+
+function rotDecode(s text, n number) returns text
+end
+
+function caesarShift(s text, n number) returns text
+end
+
+function xorCipher(s text, key text) returns text
+end
+end

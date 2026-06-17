@@ -1,0 +1,9 @@
+module rect
+
+function area(w number, h number) returns number
+end
+
+function perimeter(w number, h number) returns number
+end
+
+end

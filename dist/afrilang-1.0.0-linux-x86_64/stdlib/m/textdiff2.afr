@@ -1,0 +1,14 @@
+module textdiff2
+
+function commonPrefixLen(a text, b text) returns number
+end
+
+function commonSuffixLen(a text, b text) returns number
+end
+
+function levenshtein(a text, b text) returns number
+end
+
+function similarityRatio(a text, b text) returns number
+end
+end

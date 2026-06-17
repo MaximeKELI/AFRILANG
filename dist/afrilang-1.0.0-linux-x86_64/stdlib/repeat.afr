@@ -1,0 +1,9 @@
+module repeat
+
+function repeatText(s text, n number) returns text
+end
+
+function repeatChar(c text, n number) returns text
+end
+
+end

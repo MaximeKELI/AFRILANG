@@ -1,0 +1,9 @@
+module pressure
+
+function barToPsi(bar number) returns number
+end
+
+function psiToBar(psi number) returns number
+end
+
+end

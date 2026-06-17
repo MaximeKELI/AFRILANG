@@ -1,0 +1,21 @@
+module compresshuff
+
+function resshuffEncode(data list number) returns list number
+end
+
+function resshuffDecode(encoded list number) returns list number
+end
+
+function resshuffRatio(data list number) returns number
+end
+
+function resshuffSize(data list number) returns number
+end
+
+function resshuffCompressed(data list number) returns number
+end
+
+function resshuffRoundTrip(data list number) returns bool
+end
+
+end

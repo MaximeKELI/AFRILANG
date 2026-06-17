@@ -1,0 +1,14 @@
+module statsreg2
+
+function linearSlope(x list number, y list number) returns number
+end
+
+function linearIntercept(x list number, y list number) returns number
+end
+
+function predict(slope number, intercept number, x number) returns number
+end
+
+function rSquared(x list number, y list number) returns number
+end
+end

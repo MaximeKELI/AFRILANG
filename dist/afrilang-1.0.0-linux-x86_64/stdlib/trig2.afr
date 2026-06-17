@@ -1,0 +1,9 @@
+module trig2
+
+function tanDeg(deg number) returns number
+end
+
+function cotDeg(deg number) returns number
+end
+
+end

@@ -1,0 +1,24 @@
+module nlpcompress
+
+function compLen(s text) returns number
+end
+
+function compUpper(s text) returns text
+end
+
+function compLower(s text) returns text
+end
+
+function compTrim(s text) returns text
+end
+
+function compSplit(s text, delim text) returns list text
+end
+
+function compJoin(parts list text, delim text) returns text
+end
+
+function compReplace(s text, from text, to text) returns text
+end
+
+end

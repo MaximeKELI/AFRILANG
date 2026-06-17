@@ -1,0 +1,24 @@
+module siginterpolate
+
+function inteSum(v list number) returns number
+end
+
+function inteMean(v list number) returns number
+end
+
+function inteMin(v list number) returns number
+end
+
+function inteMax(v list number) returns number
+end
+
+function inteVar(v list number) returns number
+end
+
+function inteStd(v list number) returns number
+end
+
+function inteNorm(v list number) returns list number
+end
+
+end

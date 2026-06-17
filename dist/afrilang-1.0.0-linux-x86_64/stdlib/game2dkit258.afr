@@ -1,0 +1,9 @@
+module game2dkit258
+
+function aabbHit(ax number, ay number, aw number, ah number, bx number, by number, bw number, bh number) returns bool
+end
+
+function pointInRect(px number, py number, rx number, ry number, rw number, rh number) returns bool
+end
+
+end

@@ -1,0 +1,14 @@
+module csvparse2
+
+function parseRow(line text) returns list text
+end
+
+function getField(line text, index number) returns text
+end
+
+function fieldCount(line text) returns number
+end
+
+function parseAll(csv text) returns list text
+end
+end

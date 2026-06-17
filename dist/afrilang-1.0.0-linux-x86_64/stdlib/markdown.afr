@@ -1,0 +1,9 @@
+module markdown
+
+function bold(s text) returns text
+end
+
+function italic(s text) returns text
+end
+
+end

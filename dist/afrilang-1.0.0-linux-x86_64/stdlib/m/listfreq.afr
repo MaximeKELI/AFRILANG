@@ -1,0 +1,14 @@
+module listfreq
+
+function valueCounts(v list number) returns list number
+end
+
+function histogram(v list number, bins number) returns list number
+end
+
+function binEdges(v list number, bins number) returns list number
+end
+
+function skewness(v list number) returns number
+end
+end

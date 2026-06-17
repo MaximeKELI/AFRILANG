@@ -1,0 +1,9 @@
+module modlib
+
+function mod(a number, b number) returns number
+end
+
+function wrap(n number, lo number, hi number) returns number
+end
+
+end

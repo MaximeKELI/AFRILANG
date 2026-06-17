@@ -1,0 +1,14 @@
+module base64med
+
+function encodeBasic(s text) returns text
+end
+
+function decodeBasic(s text) returns text
+end
+
+function isBase64(s text) returns bool
+end
+
+function paddedLength(s text) returns number
+end
+end

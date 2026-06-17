@@ -1,0 +1,21 @@
+module statoutlier
+
+function iqrOutliers(v list number) returns list number
+end
+
+function zOutliers(v list number, threshold number) returns list number
+end
+
+function outlierCount(v list number) returns number
+end
+
+function winsorize(v list number, pct number) returns list number
+end
+
+function modifiedZ(v list number) returns list number
+end
+
+function isOutlier(v list number, val number) returns bool
+end
+
+end

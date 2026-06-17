@@ -1,0 +1,9 @@
+module semver
+
+function parseMajor(s text) returns number
+end
+
+function bumpMajor(s text) returns text
+end
+
+end

@@ -1,0 +1,14 @@
+module casemap2
+
+function titleCase(s text) returns text
+end
+
+function swapCase(s text) returns text
+end
+
+function camelToSnake(s text) returns text
+end
+
+function snakeToCamel(s text) returns text
+end
+end

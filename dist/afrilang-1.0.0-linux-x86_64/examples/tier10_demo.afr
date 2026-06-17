@@ -1,0 +1,9 @@
+say "Phase I — LSP & benchmark OK"
+
+function double(x number) returns number
+    return x * 2
+end
+
+create message text = "outline"
+say double(21)
+say message

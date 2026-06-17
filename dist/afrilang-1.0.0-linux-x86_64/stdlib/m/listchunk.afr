@@ -1,0 +1,17 @@
+module listchunk
+
+function chunkCount(v list number, size number) returns number
+end
+
+function take(v list number, n number) returns list number
+end
+
+function drop(v list number, n number) returns list number
+end
+
+function slice(v list number, start number, end number) returns list number
+end
+
+function chunkAt(v list number, index number, size number) returns list number
+end
+end

@@ -1,0 +1,21 @@
+module sigfft
+
+function dft(signal list number) returns list number
+end
+
+function magnitude(signal list number) returns list number
+end
+
+function powerSpectrum(signal list number) returns list number
+end
+
+function dominantFreq(signal list number) returns number
+end
+
+function inverseDft(spectrum list number, n number) returns list number
+end
+
+function bandEnergy(signal list number, lo number, hi number) returns number
+end
+
+end

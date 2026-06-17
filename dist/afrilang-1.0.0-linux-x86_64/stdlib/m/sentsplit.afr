@@ -1,0 +1,14 @@
+module sentsplit
+
+function splitSentences(s text) returns list text
+end
+
+function sentenceCount(s text) returns number
+end
+
+function firstSentence(s text) returns text
+end
+
+function lastSentence(s text) returns text
+end
+end

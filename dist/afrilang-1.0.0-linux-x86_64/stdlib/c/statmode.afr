@@ -1,0 +1,21 @@
+module statmode
+
+function mode(v list number) returns number
+end
+
+function modeCount(v list number) returns number
+end
+
+function multimodal(v list number) returns bool
+end
+
+function uniqueCount(v list number) returns number
+end
+
+function entropy(v list number) returns number
+end
+
+function giniSimpson(v list number) returns number
+end
+
+end

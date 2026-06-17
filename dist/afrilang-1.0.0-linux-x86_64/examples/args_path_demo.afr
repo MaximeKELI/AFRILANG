@@ -1,0 +1,10 @@
+import "std/args"
+import "std/path"
+
+use args
+use path
+
+say count()
+say join("home", "user")
+
+say "stdlib args path complete"

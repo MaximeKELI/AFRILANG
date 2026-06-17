@@ -1,0 +1,24 @@
+module tsseason
+
+function seasSum(v list number) returns number
+end
+
+function seasMean(v list number) returns number
+end
+
+function seasMin(v list number) returns number
+end
+
+function seasMax(v list number) returns number
+end
+
+function seasVar(v list number) returns number
+end
+
+function seasStd(v list number) returns number
+end
+
+function seasNorm(v list number) returns list number
+end
+
+end

@@ -1,0 +1,9 @@
+module interest
+
+function simpleInterest(principal number, rate number, years number) returns number
+end
+
+function compoundOnce(principal number, rate number) returns number
+end
+
+end

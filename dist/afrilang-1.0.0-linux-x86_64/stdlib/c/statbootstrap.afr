@@ -1,0 +1,21 @@
+module statbootstrap
+
+function bootstrapMean(v list number, samples number) returns number
+end
+
+function bootstrapSE(v list number, samples number) returns number
+end
+
+function resample(v list number, size number) returns list number
+end
+
+function bootstrapCI(v list number, samples number) returns list number
+end
+
+function jackknife(v list number) returns list number
+end
+
+function biasCorrected(v list number, stat number) returns number
+end
+
+end

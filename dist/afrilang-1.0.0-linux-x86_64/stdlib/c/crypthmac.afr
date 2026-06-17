@@ -1,0 +1,27 @@
+module crypthmac
+
+function hmacLen(s text) returns number
+end
+
+function hmacUpper(s text) returns text
+end
+
+function hmacLower(s text) returns text
+end
+
+function hmacTrim(s text) returns text
+end
+
+function hmacSplit(s text, delim text) returns list text
+end
+
+function hmacJoin(parts list text, delim text) returns text
+end
+
+function hmacReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end
+
+end

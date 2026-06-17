@@ -1,0 +1,9 @@
+module compass
+
+function bearingDeg(lat1 number, lon1 number, lat2 number, lon2 number) returns number
+end
+
+function cardinal(deg number) returns text
+end
+
+end

@@ -1,0 +1,14 @@
+module matrix2
+
+function create2x2(a number, b number, c number, d number) returns list number
+end
+
+function det2x2(m list number) returns number
+end
+
+function trace2x2(m list number) returns number
+end
+
+function scale2x2(m list number, s number) returns list number
+end
+end

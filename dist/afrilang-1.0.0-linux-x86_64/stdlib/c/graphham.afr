@@ -1,0 +1,24 @@
+module graphham
+
+function hamiltonianExists(adj list number, n number) returns bool
+end
+
+function permuteCheck(adj list number, n number) returns number
+end
+
+function longestPath(adj list number, n number) returns number
+end
+
+function hamiltonianCycle(adj list number, n number) returns bool
+end
+
+function pathCoverSize(adj list number, n number) returns number
+end
+
+function tspLowerBound(adj list number, n number) returns number
+end
+
+function nearestNeighbor(adj list number, n number, start number) returns list number
+end
+
+end

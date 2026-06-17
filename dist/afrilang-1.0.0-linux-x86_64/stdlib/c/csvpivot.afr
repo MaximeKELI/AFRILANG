@@ -1,0 +1,27 @@
+module csvpivot
+
+function pivoSum(v list number) returns number
+end
+
+function pivoMean(v list number) returns number
+end
+
+function pivoMin(v list number) returns number
+end
+
+function pivoMax(v list number) returns number
+end
+
+function pivoVar(v list number) returns number
+end
+
+function pivoStd(v list number) returns number
+end
+
+function pivoNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

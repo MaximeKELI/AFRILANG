@@ -1,0 +1,24 @@
+module parseyaml
+
+function yamlLen(s text) returns number
+end
+
+function yamlUpper(s text) returns text
+end
+
+function yamlLower(s text) returns text
+end
+
+function yamlTrim(s text) returns text
+end
+
+function yamlSplit(s text, delim text) returns list text
+end
+
+function yamlJoin(parts list text, delim text) returns text
+end
+
+function yamlReplace(s text, from text, to text) returns text
+end
+
+end

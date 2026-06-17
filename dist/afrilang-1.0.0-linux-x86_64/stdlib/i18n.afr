@@ -1,0 +1,9 @@
+module i18n
+
+function greetFr(name text) returns text
+end
+
+function greetEn(name text) returns text
+end
+
+end

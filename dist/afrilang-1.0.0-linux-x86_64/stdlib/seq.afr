@@ -1,0 +1,9 @@
+module seq
+
+function arithmetic(a number, d number, n number) returns number
+end
+
+function geometric(a number, r number, n number) returns number
+end
+
+end

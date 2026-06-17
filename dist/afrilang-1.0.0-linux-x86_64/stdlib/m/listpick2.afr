@@ -1,0 +1,14 @@
+module listpick2
+
+function pickFirst(v list text) returns text
+end
+
+function pickLast(v list text) returns text
+end
+
+function pickAt(v list text, index number) returns text
+end
+
+function pickRandom(v list text, seed number) returns text
+end
+end

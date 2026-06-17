@@ -1,0 +1,24 @@
+module parsetoml
+
+function tomlLen(s text) returns number
+end
+
+function tomlUpper(s text) returns text
+end
+
+function tomlLower(s text) returns text
+end
+
+function tomlTrim(s text) returns text
+end
+
+function tomlSplit(s text, delim text) returns list text
+end
+
+function tomlJoin(parts list text, delim text) returns text
+end
+
+function tomlReplace(s text, from text, to text) returns text
+end
+
+end

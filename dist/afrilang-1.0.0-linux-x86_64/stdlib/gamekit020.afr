@@ -1,0 +1,9 @@
+module gamekit020
+
+function easeIn(t number) returns number
+end
+
+function easeOut(t number) returns number
+end
+
+end

@@ -1,0 +1,9 @@
+module hex
+
+function toHex(n number) returns text
+end
+
+function fromHex(s text) returns number
+end
+
+end

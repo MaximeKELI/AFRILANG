@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation AFRILANG — démarrage, syntaxe, paquets, WASM, debug.">
+  <title>Documentation — AFRILANG</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="docs">
+  <div data-afr-shell></div>
+
+  <main class="page">
+    <section class="section" style="padding-top:2rem">
+      <div class="section-head">
+        <h2>Documentation</h2>
+        <p>Guide rapide du langage, de la toolchain et de l'écosystème.</p>
+      </div>
+
+      <div class="docs-layout">
+        <aside class="docs-sidebar">
+          <a href="#start">Démarrage</a>
+          <a href="#syntax">Syntaxe</a>
+          <a href="#modules">Modules</a>
+          <a href="#pkg">Paquets</a>
+          <a href="#wasm">WASM</a>
+          <a href="#ide">IDE & LSP</a>
+          <a href="#advanced">Avancé</a>
+        </aside>
+
+        <div class="docs-content">
+          <article class="doc-block" id="start">
+            <h3>Démarrage</h3>
+            <pre>git clone https://github.com/MaximeKELI/AFRILANG.git
+cd AFRILANG/build && cmake .. && cmake --build .
+
+afrilang run examples/hello.afr
+afrilang build mon_projet/
+afrilang test ..
+afrilang check examples/oop.afr</pre>
+          </article>
+
+          <article class="doc-block" id="syntax">
+            <h3>Syntaxe naturelle</h3>
+            <pre>create age int = 21
+if age is greater than 18 then
+    say "Adult"
+else
+    say "Minor"
+end
+
+while counter is less than 10 do
+    set counter = counter + 1
+end</pre>
+          </article>
+
+          <article class="doc-block" id="modules">
+            <h3>Modules & stdlib</h3>
+            <pre>import "std/json"
+use json
+
+create doc json = makeObject("lang", "AFRILANG")
+say getString(doc, "lang")
+
+module Utils
+    function twice(x number) returns number
+        return x * 2
+    end
+end
+use Utils</pre>
+          </article>
+
+          <article class="doc-block" id="pkg">
+            <h3>Gestionnaire de paquets</h3>
+            <pre>afrilang pkg list
+afrilang pkg list --blessed
+afrilang pkg add strings
+afrilang pkg install
+afrilang pkg sync
+afrilang pkg reindex ..</pre>
+            <p class="muted" style="margin-top:0.75rem">
+              10 paquets blessed : math, cli, datetime, strings, fmt, validate, config, testing, colors, uuid
+            </p>
+          </article>
+
+          <article class="doc-block" id="wasm">
+            <h3>WASM & Playground</h3>
+            <pre>afrilang run examples/tier8_demo.afr --target wasm32 --run
+
+# Serveur local
+AFRILANG_ALLOW_SERVE=1 afrilang serve 8080</pre>
+            <p class="muted" style="margin-top:0.75rem">
+              Playground : Run natif, Run WASM, Run in browser, Run (instant JS).
+            </p>
+          </article>
+
+          <article class="doc-block" id="ide">
+            <h3>IDE, LSP & Debug</h3>
+            <pre>afrilang lsp
+afrilang debug examples/hello.afr
+
+# Extension VS Code / Cursor
+code --install-extension afrilang.afrilang</pre>
+          </article>
+
+          <article class="doc-block" id="advanced">
+            <h3>Fonctionnalités avancées</h3>
+            <ul class="doc-list">
+              <li>Générateurs lazy (<code>generator T</code>)</li>
+              <li>Match avec guards (<code>case X if cond</code>)</li>
+              <li>Décorateurs (<code>@deprecated</code>, <code>@inline</code>)</li>
+              <li>Traits & interfaces étendues, records structurels</li>
+              <li>Async / await, UI SDL2, FFI extern</li>
+              <li>Cross-compile linux-arm64, benchmark CLI</li>
+            </ul>
+            <p style="margin-top:1rem">
+              <a class="btn btn-secondary" href="/explore.html">Vue complète des capacités →</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-afr-footer></footer>
+  <script src="/site.js"></script>
+</body>
+</html>

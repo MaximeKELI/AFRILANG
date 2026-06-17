@@ -12,7 +12,6 @@ configure_file(
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_BINARY_DIR}/generated)
 
 set(AFRILANG_SOURCES
     src/lexer/lexer.cpp
@@ -47,7 +46,10 @@ set(AFRILANG_SOURCES
 )
 
 add_executable(afrilang main.cpp ${AFRILANG_SOURCES})
-target_include_directories(afrilang PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(afrilang PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_BINARY_DIR}/generated
+)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(afrilang PRIVATE -Wall -Wextra -Wpedantic)
@@ -68,7 +70,10 @@ install(DIRECTORY stdlib/ DESTINATION share/afrilang/stdlib OPTIONAL)
 
 # Tests unitaires du compilateur
 add_executable(afrilang_tests tests/test_compiler.cpp ${AFRILANG_SOURCES})
-target_include_directories(afrilang_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(afrilang_tests PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_BINARY_DIR}/generated
+)
 target_compile_definitions(afrilang_tests PRIVATE AFRILANG_TESTING=1)
 
 # SDL2 runtime (ui.hpp) is used by one unit test

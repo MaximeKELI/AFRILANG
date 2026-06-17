@@ -1,0 +1,9 @@
+module prime
+
+function isPrime(n number) returns bool
+end
+
+function nextPrime(n number) returns number
+end
+
+end

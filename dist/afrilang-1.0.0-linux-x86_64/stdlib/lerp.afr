@@ -1,0 +1,9 @@
+module lerp
+
+function lerp(a number, b number, t number) returns number
+end
+
+function inverseLerp(a number, b number, v number) returns number
+end
+
+end

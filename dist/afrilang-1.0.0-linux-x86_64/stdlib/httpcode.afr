@@ -1,0 +1,9 @@
+module httpcode
+
+function isSuccess(code number) returns bool
+end
+
+function isRedirect(code number) returns bool
+end
+
+end

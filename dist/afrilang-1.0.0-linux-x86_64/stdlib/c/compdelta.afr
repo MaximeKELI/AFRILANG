@@ -1,0 +1,21 @@
+module compdelta
+
+function deltaEncode(data list number) returns list number
+end
+
+function deltaDecode(encoded list number) returns list number
+end
+
+function deltaSum(data list number) returns number
+end
+
+function secondOrder(data list number) returns list number
+end
+
+function roundTrip(data list number) returns bool
+end
+
+function maxDelta(data list number) returns number
+end
+
+end

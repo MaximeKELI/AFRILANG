@@ -1,0 +1,24 @@
+module gamealphabeta
+
+function alphabeta(board list number, depth number, alpha number, beta number, maximizing bool) returns number
+end
+
+function bestMove(board list number, depth number) returns number
+end
+
+function pruneCount(board list number, depth number) returns number
+end
+
+function evaluate(board list number) returns number
+end
+
+function search(board list number, depth number) returns number
+end
+
+function isWinning(board list number) returns bool
+end
+
+function windowSearch(board list number, depth number, window number) returns number
+end
+
+end

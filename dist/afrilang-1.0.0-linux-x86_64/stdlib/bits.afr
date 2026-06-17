@@ -1,0 +1,9 @@
+module bits
+
+function bitAnd(a number, b number) returns number
+end
+
+function bitOr(a number, b number) returns number
+end
+
+end

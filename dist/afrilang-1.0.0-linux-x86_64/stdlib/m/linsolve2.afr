@@ -1,0 +1,14 @@
+module linsolve2
+
+function solveLinear2(a1 number, b1 number, c1 number, a2 number, b2 number, c2 number) returns list number
+end
+
+function solve3eq(m list number, b list number) returns list number
+end
+
+function residual(a list number, x list number, b list number) returns number
+end
+
+function isConsistent(m list number) returns bool
+end
+end

@@ -1,0 +1,16 @@
+function divide(a number, b number) returns number
+    if b is equal to 0 then
+        raise "division by zero"
+    end
+    return a / b
+end
+
+try
+    say divide(10, 2)
+    say divide(10, 0)
+catch error e
+    say "caught:"
+    say e
+end
+
+say "program continues"

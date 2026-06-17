@@ -1,0 +1,24 @@
+module mlpca
+
+function pcaSum(v list number) returns number
+end
+
+function pcaMean(v list number) returns number
+end
+
+function pcaMin(v list number) returns number
+end
+
+function pcaMax(v list number) returns number
+end
+
+function pcaVar(v list number) returns number
+end
+
+function pcaStd(v list number) returns number
+end
+
+function pcaNorm(v list number) returns list number
+end
+
+end

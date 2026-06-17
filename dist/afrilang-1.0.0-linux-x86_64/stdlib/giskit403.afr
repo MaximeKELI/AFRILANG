@@ -1,0 +1,9 @@
+module giskit403
+
+function bboxCenterX(minX number, minY number, maxX number, maxY number) returns number
+end
+
+function bboxCenterY(minX number, minY number, maxX number, maxY number) returns number
+end
+
+end

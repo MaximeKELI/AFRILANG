@@ -1,0 +1,7 @@
+say "Phase H — instant JS OK"
+
+create n int = 0
+while n is less than 2 do
+    say "client compile"
+    set n = n + 1
+end

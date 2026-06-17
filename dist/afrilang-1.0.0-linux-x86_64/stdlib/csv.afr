@@ -1,0 +1,9 @@
+module csv
+
+function splitCsv2(line text) returns text
+end
+
+function splitCsvRest(line text) returns text
+end
+
+end

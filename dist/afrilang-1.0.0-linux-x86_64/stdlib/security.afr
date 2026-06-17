@@ -1,0 +1,9 @@
+module security
+
+function maskSecret(s text) returns text
+end
+
+function isMasked(s text) returns bool
+end
+
+end

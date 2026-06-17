@@ -1,0 +1,24 @@
+module graphcycle
+
+function detectCycleDirected(adj list number, n number) returns bool
+end
+
+function detectCycleUndirected(adj list number, n number) returns bool
+end
+
+function cycleEdgeCount(adj list number, n number) returns number
+end
+
+function isAcyclic(adj list number, n number) returns bool
+end
+
+function selfLoopCount(adj list number, n number) returns number
+end
+
+function removeSelfLoops(adj list number, n number) returns list number
+end
+
+function hasParallelEdges(adj list number, n number) returns bool
+end
+
+end

@@ -1,0 +1,9 @@
+module area_conv
+
+function m2ToCm2(m2 number) returns number
+end
+
+function cm2ToM2(cm2 number) returns number
+end
+
+end

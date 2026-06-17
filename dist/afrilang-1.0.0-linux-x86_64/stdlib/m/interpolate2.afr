@@ -1,0 +1,14 @@
+module interpolate2
+
+function lerp(a number, b number, t number) returns number
+end
+
+function lerpList(a list number, b list number, t number) returns list number
+end
+
+function inverseLerp(a number, b number, v number) returns number
+end
+
+function remap(v number, inLo number, inHi number, outLo number, outHi number) returns number
+end
+end

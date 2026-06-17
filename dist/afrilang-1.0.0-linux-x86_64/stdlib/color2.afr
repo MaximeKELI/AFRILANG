@@ -1,0 +1,9 @@
+module color2
+
+function lerpColor(a number, b number, t number) returns number
+end
+
+function invertRgb(packed number) returns number
+end
+
+end

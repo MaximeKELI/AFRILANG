@@ -1,0 +1,24 @@
+module sigderivative
+
+function deriSum(v list number) returns number
+end
+
+function deriMean(v list number) returns number
+end
+
+function deriMin(v list number) returns number
+end
+
+function deriMax(v list number) returns number
+end
+
+function deriVar(v list number) returns number
+end
+
+function deriStd(v list number) returns number
+end
+
+function deriNorm(v list number) returns list number
+end
+
+end

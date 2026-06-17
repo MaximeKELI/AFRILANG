@@ -1,0 +1,14 @@
+module timestamp2
+
+function epochDays(date text) returns number
+end
+
+function fromEpochDays(days number) returns text
+end
+
+function isValidDate(date text) returns bool
+end
+
+function todayOffset(date text, offset number) returns number
+end
+end

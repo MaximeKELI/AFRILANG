@@ -1,0 +1,9 @@
+module msconv
+
+function msToSec(ms number) returns number
+end
+
+function secToMs(s number) returns number
+end
+
+end

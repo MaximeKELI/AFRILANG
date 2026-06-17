@@ -1,0 +1,21 @@
+module finbond
+
+function pv(face number, rate number, years number, coupon number) returns number
+end
+
+function ytm(price number, face number, coupon number, years number) returns number
+end
+
+function duration(face number, rate number, years number, coupon number) returns number
+end
+
+function convexity(face number, rate number, years number, coupon number) returns number
+end
+
+function couponYield(coupon number, price number) returns number
+end
+
+function accruedInterest(coupon number, days number) returns number
+end
+
+end

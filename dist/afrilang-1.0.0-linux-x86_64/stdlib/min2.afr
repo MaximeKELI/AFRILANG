@@ -1,0 +1,9 @@
+module min2
+
+function min2(a number, b number) returns number
+end
+
+function min3(a number, b number, c number) returns number
+end
+
+end

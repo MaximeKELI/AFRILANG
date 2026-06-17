@@ -1,0 +1,24 @@
+module mlcluster
+
+function clusSum(v list number) returns number
+end
+
+function clusMean(v list number) returns number
+end
+
+function clusMin(v list number) returns number
+end
+
+function clusMax(v list number) returns number
+end
+
+function clusVar(v list number) returns number
+end
+
+function clusStd(v list number) returns number
+end
+
+function clusNorm(v list number) returns list number
+end
+
+end

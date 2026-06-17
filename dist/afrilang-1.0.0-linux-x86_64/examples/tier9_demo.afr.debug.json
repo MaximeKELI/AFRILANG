@@ -1,0 +1,6 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/tier9_demo.afr",
+  "variables": [
+    {"name":"n","type":"int","scope":"global"}
+  ]
+}

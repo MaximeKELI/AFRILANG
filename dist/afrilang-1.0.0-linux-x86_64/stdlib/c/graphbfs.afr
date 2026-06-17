@@ -1,0 +1,24 @@
+module graphbfs
+
+function bfsDistances(adj list number, n number, start number) returns list number
+end
+
+function bfsOrder(adj list number, n number, start number) returns list number
+end
+
+function bfsReachable(adj list number, n number, start number) returns number
+end
+
+function bfsLayers(adj list number, n number, start number) returns list number
+end
+
+function isConnected(adj list number, n number) returns bool
+end
+
+function shortestPathLen(adj list number, n number, start number, goal number) returns number
+end
+
+function multiSourceBfs(adj list number, n number, sources list number) returns list number
+end
+
+end

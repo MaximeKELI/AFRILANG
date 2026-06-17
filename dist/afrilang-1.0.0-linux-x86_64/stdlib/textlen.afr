@@ -1,0 +1,9 @@
+module textlen
+
+function length(s text) returns number
+end
+
+function isEmpty(s text) returns bool
+end
+
+end

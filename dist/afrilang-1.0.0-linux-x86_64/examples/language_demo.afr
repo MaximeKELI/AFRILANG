@@ -1,0 +1,40 @@
+module Calcul
+    export function add(a number, b number) returns number
+        return a + b
+    end
+
+    private function scale(x number) returns number
+        return x * 2
+    end
+
+    export function twice(x number) returns number
+        return scale(x)
+    end
+end
+
+function identity<T>(x T) returns T
+    return x
+end
+
+enum Status
+    case Ok
+    case Error with message text
+end
+
+use Calcul
+
+dire Calcul.add(3, 4)
+dire Calcul.twice(10)
+dire identity<number>(42)
+dire identity<text>("bonjour")
+
+create e = Status.Error with "echec"
+
+match e
+    cas Error avec msg alors
+        dire msg
+    fin
+    defaut
+        dire "autre"
+    fin
+fin

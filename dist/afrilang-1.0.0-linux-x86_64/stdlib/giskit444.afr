@@ -1,0 +1,9 @@
+module giskit444
+
+function utmZone(lon number) returns number
+end
+
+function isNorthernHemisphere(lat number) returns bool
+end
+
+end

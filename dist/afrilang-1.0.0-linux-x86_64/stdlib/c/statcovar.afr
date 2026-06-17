@@ -1,0 +1,27 @@
+module statcovar
+
+function covSum(v list number) returns number
+end
+
+function covMean(v list number) returns number
+end
+
+function covMin(v list number) returns number
+end
+
+function covMax(v list number) returns number
+end
+
+function covVar(v list number) returns number
+end
+
+function covStd(v list number) returns number
+end
+
+function covNorm(v list number) returns list number
+end
+
+function covariance(a list number, b list number) returns number
+end
+
+end

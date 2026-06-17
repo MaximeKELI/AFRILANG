@@ -1,0 +1,9 @@
+module kelvin
+
+function cToK(c number) returns number
+end
+
+function kToC(k number) returns number
+end
+
+end

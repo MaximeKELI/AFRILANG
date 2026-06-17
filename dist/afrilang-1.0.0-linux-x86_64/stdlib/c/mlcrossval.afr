@@ -1,0 +1,24 @@
+module mlcrossval
+
+function crosSum(v list number) returns number
+end
+
+function crosMean(v list number) returns number
+end
+
+function crosMin(v list number) returns number
+end
+
+function crosMax(v list number) returns number
+end
+
+function crosVar(v list number) returns number
+end
+
+function crosStd(v list number) returns number
+end
+
+function crosNorm(v list number) returns list number
+end
+
+end

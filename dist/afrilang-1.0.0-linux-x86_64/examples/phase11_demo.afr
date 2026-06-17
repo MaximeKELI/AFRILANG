@@ -1,0 +1,77 @@
+class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    function speak()
+        say "Woof!"
+    end
+end
+
+class Box<T>
+    public field data T
+
+    function init(v T)
+        set this.data = v
+    end
+
+    function get() returns T
+        return this.data
+    end
+end
+
+final class AppConfig
+    property text title
+    end
+
+    function init(t text)
+        set this.title = t
+    end
+
+    destroy
+        say "config cleanup"
+    end
+end
+
+create nums = list of 1, 2, 3
+
+create expanded = flatMap each n in nums do
+    return list of n, n * 10
+end
+
+say length of expanded
+say expanded at 0
+say expanded at 1
+say expanded at 2
+
+create words = list of "a", "bb", "ccc"
+
+create joined = reduce words from "" with each acc, w do
+    return acc + w + "-"
+end
+
+say joined
+
+create pets list of Animal = list of new Dog(), new Dog()
+
+for each pet in pets do
+    pet.speak()
+end
+
+create box = new Box<number>(99)
+say box.get()
+
+create cfg = new AppConfig("AFRILANG")
+say cfg.title
+
+import "std/args"
+import "std/path"
+use args
+use path
+
+say count()
+say join("examples", "phase11_demo.afr")
+
+say "phase 11 complete"

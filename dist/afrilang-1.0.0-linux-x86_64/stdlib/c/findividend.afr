@@ -1,0 +1,24 @@
+module findividend
+
+function diviSum(v list number) returns number
+end
+
+function diviMean(v list number) returns number
+end
+
+function diviMin(v list number) returns number
+end
+
+function diviMax(v list number) returns number
+end
+
+function diviVar(v list number) returns number
+end
+
+function diviStd(v list number) returns number
+end
+
+function diviNorm(v list number) returns list number
+end
+
+end

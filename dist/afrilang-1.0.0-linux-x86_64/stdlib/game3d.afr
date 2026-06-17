@@ -1,0 +1,323 @@
+module game3d
+
+function openWindow(title text, width number, height number)
+end
+
+function closeWindow()
+end
+
+function shutdown()
+end
+
+function isOpen() returns bool
+end
+
+function beginFrame()
+end
+
+function showFrame()
+end
+
+function deltaMs() returns number
+end
+
+function windowWidth() returns number
+end
+
+function windowHeight() returns number
+end
+
+function clearScreen(r number, g number, b number)
+end
+
+function isKeyDown(key text) returns bool
+end
+
+function wasKeyPressed(key text) returns bool
+end
+
+function setCamera(x number, y number, z number, yaw number, pitch number)
+end
+
+function applyCamera()
+end
+
+function updateFlyCamera(moveSpeed number, turnSpeed number)
+end
+
+function setSceneRotation(angleY number)
+end
+
+function applySceneRotation()
+end
+
+function drawCube(x number, y number, z number, size number, r number, g number, b number)
+end
+
+function drawPlane(y number, halfSize number, r number, g number, b number)
+end
+
+function drawGrid(y number, halfSize number, divisions number)
+end
+
+function drawAxis(size number)
+end
+
+function drawSphere(x number, y number, z number, radius number, r number, g number, b number)
+end
+
+function loadTexture3d(name text, path text) returns bool
+end
+
+function hasTexture3d(name text) returns bool
+end
+
+function drawPlaneTextured(y number, halfSize number, textureName text)
+end
+
+function drawCubeTextured(x number, y number, z number, size number, textureName text)
+end
+
+function loadModel(name text, path text) returns bool
+end
+
+function hasModel(name text) returns bool
+end
+
+function drawModel(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
+function drawModelColored(name text, x number, y number, z number, scale number, rotY number, r number, g number, b number)
+end
+
+function drawModelLit(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
+function createBody(name text, x number, y number, z number, radius number)
+end
+
+function createBoxBody(name text, x number, y number, z number, hx number, hy number, hz number)
+end
+
+function hasBody(name text) returns bool
+end
+
+function setBodyVelocity(name text, vx number, vy number, vz number)
+end
+
+function setBodyPosition(name text, x number, y number, z number)
+end
+
+function setBodyFriction(name text, friction number)
+end
+
+function setBodyRestitution(name text, restitution number)
+end
+
+function bodyX(name text) returns number
+end
+
+function bodyY(name text) returns number
+end
+
+function bodyZ(name text) returns number
+end
+
+function applyImpulse(name text, ix number, iy number, iz number)
+end
+
+function stepPhysics(deltaMs number, gravity number)
+end
+
+function stepPhysicsEx(deltaMs number, gravity number)
+end
+
+function removeBody(name text)
+end
+
+function drawBox(x number, y number, z number, sx number, sy number, sz number, r number, g number, b number)
+end
+
+function drawBody(name text)
+end
+
+function enableLighting(on bool)
+end
+
+function setAmbientLight(r number, g number, b number)
+end
+
+function setSunLight(dx number, dy number, dz number, r number, g number, b number)
+end
+
+function applyLighting()
+end
+
+function setFog(enabled bool, r number, g number, b number, startDist number, endDist number)
+end
+
+function applyFog()
+end
+
+function setWind(x number, y number, z number)
+end
+
+function followBody(name text, height number, distance number, smooth number)
+end
+
+function emitBurst(x number, y number, z number, count number, speed number)
+end
+
+function updateParticles(deltaMs number)
+end
+
+function drawParticles()
+end
+
+function mouseX() returns number
+end
+
+function mouseY() returns number
+end
+
+function isMouseDown() returns bool
+end
+
+function wasMousePressed() returns bool
+end
+
+function wasMouseClicked() returns bool
+end
+
+function drawSkyGradient(topR number, topG number, topB number, botR number, botG number, botB number)
+end
+
+function loadSkyboxFace(face text, path text) returns bool
+end
+
+function hasSkybox() returns bool
+end
+
+function drawSkybox(halfSize number)
+end
+
+function loadShader(name text, vertPath text, fragPath text) returns bool
+end
+
+function hasShader(name text) returns bool
+end
+
+function useShader(name text)
+end
+
+function stopShader()
+end
+
+function setShaderFloat(shaderName text, uniform text, value number)
+end
+
+function setShaderVec3(shaderName text, uniform text, x number, y number, z number)
+end
+
+function drawModelShader(shaderName text, modelName text, x number, y number, z number, scale number, rotY number)
+end
+
+function loadGltf(name text, path text) returns bool
+end
+
+function hasGltf(name text) returns bool
+end
+
+function drawGltf(name text, x number, y number, z number, scale number, rotY number)
+end
+
+function drawGltfLit(name text, x number, y number, z number, scale number, rotY number, textureName text)
+end
+
+function loadGlb(name text, path text) returns bool
+end
+
+function gltfAnimCount(modelName text) returns number
+end
+
+function playGltfAnim(modelName text, animIndex number, loop bool)
+end
+
+function stopGltfAnim(modelName text)
+end
+
+function updateGltfAnims(deltaMs number)
+end
+
+function gltfAnimRotY(modelName text) returns number
+end
+
+function setEditMode(on bool)
+end
+
+function isEditMode() returns bool
+end
+
+function clearLevel()
+end
+
+function addLevelGltf(asset text, x number, y number, z number, scale number, rotY number)
+end
+
+function addLevelModel(asset text, x number, y number, z number, scale number, rotY number)
+end
+
+function levelCount() returns number
+end
+
+function levelType(index number) returns text
+end
+
+function levelAsset(index number) returns text
+end
+
+function levelX(index number) returns number
+end
+
+function levelY(index number) returns number
+end
+
+function levelZ(index number) returns number
+end
+
+function levelScale(index number) returns number
+end
+
+function levelRotY(index number) returns number
+end
+
+function saveLevel(path text) returns bool
+end
+
+function loadLevel(path text) returns bool
+end
+
+function drawLevel()
+end
+
+function pickGround(screenX number, screenY number) returns bool
+end
+
+function pickGroundX() returns number
+end
+
+function pickGroundY() returns number
+end
+
+function pickGroundZ() returns number
+end
+
+function pickGroundHit() returns bool
+end
+
+function pickBody(screenX number, screenY number) returns number
+end
+
+function pickBodyName(screenX number, screenY number) returns text
+end
+end

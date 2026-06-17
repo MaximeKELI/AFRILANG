@@ -1,0 +1,14 @@
+module season2
+
+function seasonOf(month number) returns text
+end
+
+function isSummer(month number) returns bool
+end
+
+function isWinter(month number) returns bool
+end
+
+function daylightHours(month number, lat number) returns number
+end
+end

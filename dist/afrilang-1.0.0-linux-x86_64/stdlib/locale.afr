@@ -1,0 +1,9 @@
+module locale
+
+function decimalComma(s text) returns text
+end
+
+function decimalDot(s text) returns text
+end
+
+end

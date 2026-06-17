@@ -1,0 +1,9 @@
+module cpu
+
+function clampUsage(pct number) returns number
+end
+
+function isHighLoad(pct number) returns bool
+end
+
+end

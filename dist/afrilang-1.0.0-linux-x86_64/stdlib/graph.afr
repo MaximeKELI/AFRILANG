@@ -1,0 +1,9 @@
+module graph
+
+function edgeKey(a number, b number) returns number
+end
+
+function selfLoop(a number, b number) returns bool
+end
+
+end

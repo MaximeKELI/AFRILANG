@@ -1,0 +1,19 @@
+module gamestate
+
+function setState(name text)
+end
+
+function getState() returns text
+end
+
+function isState(name text) returns bool
+end
+
+function stateTimeMs() returns number
+end
+
+function wasStateChanged() returns bool
+end
+
+function tickState(deltaMs number)
+end

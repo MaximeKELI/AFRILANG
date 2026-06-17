@@ -1,0 +1,24 @@
+module netsubnet
+
+function subnLen(s text) returns number
+end
+
+function subnUpper(s text) returns text
+end
+
+function subnLower(s text) returns text
+end
+
+function subnTrim(s text) returns text
+end
+
+function subnSplit(s text, delim text) returns list text
+end
+
+function subnJoin(parts list text, delim text) returns text
+end
+
+function subnReplace(s text, from text, to text) returns text
+end
+
+end

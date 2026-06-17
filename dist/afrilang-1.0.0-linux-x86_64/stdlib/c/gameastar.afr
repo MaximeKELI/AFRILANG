@@ -1,0 +1,24 @@
+module gameastar
+
+function heuristic(ax number, ay number, bx number, by number) returns number
+end
+
+function astar(grid list number, width number, start number, goal number) returns list number
+end
+
+function pathCost(grid list number, width number, start number, goal number) returns number
+end
+
+function reconstruct(cameFrom list number, current number) returns list number
+end
+
+function manhattan(ax number, ay number, bx number, by number) returns number
+end
+
+function octile(ax number, ay number, bx number, by number) returns number
+end
+
+function openSetSize(grid list number) returns number
+end
+
+end

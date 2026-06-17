@@ -1,0 +1,14 @@
+module vector3
+
+function cross3(a list number, b list number) returns list number
+end
+
+function dot3(a list number, b list number) returns number
+end
+
+function length3(v list number) returns number
+end
+
+function normalize3(v list number) returns list number
+end
+end

@@ -1,0 +1,14 @@
+module listcum
+
+function cumSum(v list number) returns list number
+end
+
+function cumProd(v list number) returns list number
+end
+
+function diffs(v list number) returns list number
+end
+
+function pctChange(v list number) returns list number
+end
+end

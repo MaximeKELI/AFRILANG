@@ -1,0 +1,9 @@
+module paper
+
+function a4WidthCm(ignored number) returns number
+end
+
+function a4HeightCm(ignored number) returns number
+end
+
+end

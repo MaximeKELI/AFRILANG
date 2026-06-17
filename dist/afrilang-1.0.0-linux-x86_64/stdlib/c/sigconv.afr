@@ -1,0 +1,21 @@
+module sigconv
+
+function convolve(a list number, b list number) returns list number
+end
+
+function crossCorr(a list number, b list number) returns list number
+end
+
+function movingAvg(v list number, win number) returns list number
+end
+
+function deconvSimple(signal list number, kernel list number) returns list number
+end
+
+function energy(v list number) returns number
+end
+
+function normalize(v list number) returns list number
+end
+
+end

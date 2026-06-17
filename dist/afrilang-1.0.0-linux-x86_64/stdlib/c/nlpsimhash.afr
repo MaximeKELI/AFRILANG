@@ -1,0 +1,24 @@
+module nlpsimhash
+
+function simhLen(s text) returns number
+end
+
+function simhUpper(s text) returns text
+end
+
+function simhLower(s text) returns text
+end
+
+function simhTrim(s text) returns text
+end
+
+function simhSplit(s text, delim text) returns list text
+end
+
+function simhJoin(parts list text, delim text) returns text
+end
+
+function simhReplace(s text, from text, to text) returns text
+end
+
+end

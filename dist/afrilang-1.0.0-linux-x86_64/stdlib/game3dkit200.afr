@@ -1,0 +1,9 @@
+module game3dkit200
+
+function normalize3z(x number, y number, z number) returns number
+end
+
+function dist3(x0 number, y0 number, z0 number, x1 number, y1 number, z1 number) returns number
+end
+
+end

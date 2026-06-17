@@ -1,0 +1,9 @@
+module currency
+
+function formatEuro(n number) returns text
+end
+
+function formatDollar(n number) returns text
+end
+
+end

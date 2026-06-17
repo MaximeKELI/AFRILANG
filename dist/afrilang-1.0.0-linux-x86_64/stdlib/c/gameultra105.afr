@@ -1,0 +1,12 @@
+module gameultra105
+
+function astarGridPath(grid list number, w number, h number, sx number, sy number, gx number, gy number, blockedAbove number) returns list number
+end
+
+function floodCount(grid list number, w number, h number, sx number, sy number, blockedAbove number) returns number
+end
+
+function simplifyGridPath(path list number, w number) returns list number
+end
+
+end

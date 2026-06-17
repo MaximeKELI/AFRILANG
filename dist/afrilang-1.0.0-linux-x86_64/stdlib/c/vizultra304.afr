@@ -1,0 +1,18 @@
+module vizultra304
+
+function writeLineChart(path text, ys list number, width number, height number) returns bool
+end
+
+function writeBarChart(path text, ys list number, width number, height number) returns bool
+end
+
+function writeScatter(path text, xs list number, ys list number, width number, height number) returns bool
+end
+
+function writeCsv(path text, ys list number) returns bool
+end
+
+function writeHeatmap(path text, grid list number, w number, h number, width number, height number) returns bool
+end
+
+end

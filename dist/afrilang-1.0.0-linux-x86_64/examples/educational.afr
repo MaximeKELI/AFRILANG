@@ -1,0 +1,6 @@
+explain say "This message is explained then printed"
+
+explain create x = 10
+say x
+
+say "Program finished"

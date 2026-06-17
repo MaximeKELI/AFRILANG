@@ -1,0 +1,9 @@
+module listutil
+
+function firstIndex(ignored number) returns number
+end
+
+function lastIndex(count number) returns number
+end
+
+end

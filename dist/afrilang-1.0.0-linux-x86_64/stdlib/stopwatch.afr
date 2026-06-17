@@ -1,0 +1,9 @@
+module stopwatch
+
+function nowMs(ignored number) returns number
+end
+
+function elapsedMs(start number) returns number
+end
+
+end

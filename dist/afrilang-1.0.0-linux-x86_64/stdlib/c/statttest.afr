@@ -1,0 +1,21 @@
+module statttest
+
+function tStatistic(a list number, b list number) returns number
+end
+
+function pooledVariance(a list number, b list number) returns number
+end
+
+function cohenD(a list number, b list number) returns number
+end
+
+function meanDiff(a list number, b list number) returns number
+end
+
+function welchT(a list number, b list number) returns number
+end
+
+function effectSize(a list number, b list number) returns number
+end
+
+end

@@ -1,0 +1,21 @@
+module compbitpack
+
+function bitpackEncode(data list number) returns list number
+end
+
+function bitpackDecode(encoded list number) returns list number
+end
+
+function bitpackRatio(data list number) returns number
+end
+
+function bitpackSize(data list number) returns number
+end
+
+function bitpackCompressed(data list number) returns number
+end
+
+function bitpackRoundTrip(data list number) returns bool
+end
+
+end

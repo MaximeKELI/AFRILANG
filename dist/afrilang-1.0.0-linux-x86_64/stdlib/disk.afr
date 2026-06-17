@@ -1,0 +1,9 @@
+module disk
+
+function usagePercent(used number, total number) returns number
+end
+
+function freeSpace(used number, total number) returns number
+end
+
+end

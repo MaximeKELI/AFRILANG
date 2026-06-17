@@ -1,0 +1,24 @@
+module mlkldiv
+
+function kldiSum(v list number) returns number
+end
+
+function kldiMean(v list number) returns number
+end
+
+function kldiMin(v list number) returns number
+end
+
+function kldiMax(v list number) returns number
+end
+
+function kldiVar(v list number) returns number
+end
+
+function kldiStd(v list number) returns number
+end
+
+function kldiNorm(v list number) returns list number
+end
+
+end

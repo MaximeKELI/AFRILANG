@@ -1,0 +1,21 @@
+module stathistogram
+
+function histogram(v list number, bins number) returns list number
+end
+
+function binEdges(v list number, bins number) returns list number
+end
+
+function freqDensity(v list number, bins number) returns list number
+end
+
+function cumFreq(v list number, bins number) returns list number
+end
+
+function modeBin(v list number, bins number) returns number
+end
+
+function binWidth(v list number, bins number) returns number
+end
+
+end

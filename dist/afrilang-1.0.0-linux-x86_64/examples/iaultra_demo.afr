@@ -1,0 +1,20 @@
+import "std/c/iaultra001"
+use iaultra001
+
+create logits list number = list of 1, 3, 2
+create probs = softmax(logits)
+create features list number = list of 1, 2, 3
+create weights list number = list of 0.2, -0.1, 0.5
+create ytrue list number = list of 1, 0, 1, 1, 0
+create ypred list number = list of 1, 0, 0, 1, 0
+
+say "softmax={probs at 0} {probs at 1} {probs at 2} argmax={argmax(probs)}"
+say "predict={linearPredict(weights, features, 0.1)} sigmoid={sigmoid(0.5)}"
+say "cosine={cosineSim(features, weights)} entropy={entropy(probs)}"
+say "acc={accuracy(ytrue, ypred)} prec={precisionScore(ytrue, ypred)} f1={f1Score(ytrue, ypred)}"
+
+create step = sgdStep(weights, features, 1, 0)
+say "sgd w0={step at 0} w1={step at 1}"
+
+create matrix list number = list of 0, 0, 1, 0, 0, 1, 1, 1
+say "nearest={nearestIdx(features, matrix, 3)} defaultK={defaultK(0)}"

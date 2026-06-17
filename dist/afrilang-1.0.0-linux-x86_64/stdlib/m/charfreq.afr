@@ -1,0 +1,17 @@
+module charfreq
+
+function countChar(s text, ch text) returns number
+end
+
+function mostCommonChar(s text) returns text
+end
+
+function uniqueChars(s text) returns number
+end
+
+function alphaRatio(s text) returns number
+end
+
+function spaceRatio(s text) returns number
+end
+end

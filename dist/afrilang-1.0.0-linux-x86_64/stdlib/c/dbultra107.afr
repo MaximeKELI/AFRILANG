@@ -1,0 +1,63 @@
+module dbultra107
+
+function execSql(path text, sql text) returns bool
+end
+
+function queryRows(path text, sql text) returns text
+end
+
+function selectAll(path text, table text) returns text
+end
+
+function insertRow(path text, table text, columns text, values text) returns number
+end
+
+function deleteWhere(path text, table text, whereClause text) returns bool
+end
+
+function rowCount(path text, table text) returns number
+end
+
+function tableExists(path text, table text) returns bool
+end
+
+function dropTable(path text, table text) returns bool
+end
+
+function createTable(path text, ddl text) returns bool
+end
+
+function listTables(path text) returns text
+end
+
+function escapeLiteral(value text) returns text
+end
+
+function scalarQuery(path text, sql text) returns number
+end
+
+function writeQueryCsv(outPath text, dbPath text, sql text) returns bool
+end
+
+function vacuumDb(path text) returns bool
+end
+
+function maxColumn(path text, table text, col text) returns number
+end
+
+function updateWhere(path text, table text, setClause text, whereClause text) returns bool
+end
+
+function clearTable(path text, table text) returns bool
+end
+
+function selectTop(path text, table text, limit number) returns text
+end
+
+function countLines(text text) returns number
+end
+
+function sumColumn(path text, table text, col text) returns number
+end
+
+end

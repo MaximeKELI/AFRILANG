@@ -1,0 +1,9 @@
+module giskit261
+
+function mToKm(m number) returns number
+end
+
+function kmToM(km number) returns number
+end
+
+end

@@ -1,0 +1,24 @@
+module netroute
+
+function routLen(s text) returns number
+end
+
+function routUpper(s text) returns text
+end
+
+function routLower(s text) returns text
+end
+
+function routTrim(s text) returns text
+end
+
+function routSplit(s text, delim text) returns list text
+end
+
+function routJoin(parts list text, delim text) returns text
+end
+
+function routReplace(s text, from text, to text) returns text
+end
+
+end

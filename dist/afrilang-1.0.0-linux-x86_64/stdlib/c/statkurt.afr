@@ -1,0 +1,21 @@
+module statkurt
+
+function kurtosis(v list number) returns number
+end
+
+function excessKurtosis(v list number) returns number
+end
+
+function isLeptokurtic(v list number) returns bool
+end
+
+function isPlatykurtic(v list number) returns bool
+end
+
+function tailRatio(v list number) returns number
+end
+
+function peakedness(v list number) returns number
+end
+
+end

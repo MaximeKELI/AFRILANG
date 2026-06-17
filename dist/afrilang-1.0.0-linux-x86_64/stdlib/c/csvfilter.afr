@@ -1,0 +1,27 @@
+module csvfilter
+
+function filtSum(v list number) returns number
+end
+
+function filtMean(v list number) returns number
+end
+
+function filtMin(v list number) returns number
+end
+
+function filtMax(v list number) returns number
+end
+
+function filtVar(v list number) returns number
+end
+
+function filtStd(v list number) returns number
+end
+
+function filtNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

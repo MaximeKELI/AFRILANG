@@ -1,0 +1,17 @@
+module textsearch
+
+function findAll(s text, sub text) returns list number
+end
+
+function countOccurrences(s text, sub text) returns number
+end
+
+function containsIgnoreCase(s text, sub text) returns bool
+end
+
+function replaceAll(s text, from text, to text) returns text
+end
+
+function indexOf(s text, sub text) returns number
+end
+end

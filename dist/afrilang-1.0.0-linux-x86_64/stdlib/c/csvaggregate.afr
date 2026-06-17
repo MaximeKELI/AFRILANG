@@ -1,0 +1,27 @@
+module csvaggregate
+
+function aggrSum(v list number) returns number
+end
+
+function aggrMean(v list number) returns number
+end
+
+function aggrMin(v list number) returns number
+end
+
+function aggrMax(v list number) returns number
+end
+
+function aggrVar(v list number) returns number
+end
+
+function aggrStd(v list number) returns number
+end
+
+function aggrNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

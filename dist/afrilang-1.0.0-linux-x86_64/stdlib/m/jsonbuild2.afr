@@ -1,0 +1,14 @@
+module jsonbuild2
+
+function buildObject(pairs list text) returns text
+end
+
+function buildArray(items list text) returns text
+end
+
+function quoteKey(key text, value text) returns text
+end
+
+function quoteNum(key text, value number) returns text
+end
+end

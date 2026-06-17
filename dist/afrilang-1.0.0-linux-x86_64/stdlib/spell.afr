@@ -1,0 +1,9 @@
+module spell
+
+function spellDigit(n number) returns text
+end
+
+function spellBool(b bool) returns text
+end
+
+end

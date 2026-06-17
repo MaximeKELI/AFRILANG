@@ -1,0 +1,9 @@
+module giskit423
+
+function pixelIndex(row number, col number, width number) returns number
+end
+
+function geoToPixelX(x number, originX number, resX number) returns number
+end
+
+end

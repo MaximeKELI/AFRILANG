@@ -1,0 +1,14 @@
+module npv2
+
+function npv(rate number, cashflows list number) returns number
+end
+
+function npvSimple(rate number, initial number, returns list number) returns number
+end
+
+function profitability(npvVal number, investment number) returns number
+end
+
+function discountedCashflow(cf number, rate number, period number) returns number
+end
+end

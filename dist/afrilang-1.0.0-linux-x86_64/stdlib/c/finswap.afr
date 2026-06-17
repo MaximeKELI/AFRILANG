@@ -1,0 +1,24 @@
+module finswap
+
+function swapSum(v list number) returns number
+end
+
+function swapMean(v list number) returns number
+end
+
+function swapMin(v list number) returns number
+end
+
+function swapMax(v list number) returns number
+end
+
+function swapVar(v list number) returns number
+end
+
+function swapStd(v list number) returns number
+end
+
+function swapNorm(v list number) returns list number
+end
+
+end

@@ -1,0 +1,9 @@
+module mime
+
+function isTextPlain(mime text) returns bool
+end
+
+function isJson(mime text) returns bool
+end
+
+end

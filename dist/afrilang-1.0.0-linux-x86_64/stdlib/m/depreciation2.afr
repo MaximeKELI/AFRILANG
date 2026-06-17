@@ -1,0 +1,14 @@
+module depreciation2
+
+function straightLine(cost number, salvage number, years number) returns number
+end
+
+function decliningBalance(bookValue number, rate number) returns number
+end
+
+function sumOfYears(cost number, salvage number, years number, year number) returns number
+end
+
+function accumDepreciation(annual number, yearsElapsed number) returns number
+end
+end

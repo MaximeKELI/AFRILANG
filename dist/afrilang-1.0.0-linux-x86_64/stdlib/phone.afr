@@ -1,0 +1,9 @@
+module phone
+
+function isPhone(s text) returns bool
+end
+
+function digitsOnly(s text) returns text
+end
+
+end

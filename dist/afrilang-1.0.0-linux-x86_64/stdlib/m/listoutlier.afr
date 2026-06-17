@@ -1,0 +1,14 @@
+module listoutlier
+
+function outlierIndices(v list number) returns list number
+end
+
+function outlierCount(v list number) returns number
+end
+
+function withoutOutliers(v list number) returns list number
+end
+
+function winsorize(v list number, pct number) returns list number
+end
+end

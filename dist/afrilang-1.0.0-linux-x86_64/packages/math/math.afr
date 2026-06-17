@@ -1,0 +1,13 @@
+module Math
+    function square(x number) returns number
+        return x * x
+    end
+
+    function pi() returns number
+        return 3.14159265359
+    end
+
+    function twice(x number) returns number
+        return x * 2
+    end
+end

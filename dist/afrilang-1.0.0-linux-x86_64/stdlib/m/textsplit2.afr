@@ -1,0 +1,14 @@
+module textsplit2
+
+function splitLines(s text) returns list text
+end
+
+function splitBy(s text, delim text) returns list text
+end
+
+function splitWords(s text) returns list text
+end
+
+function splitChars(s text) returns list text
+end
+end

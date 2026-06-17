@@ -1,0 +1,35 @@
+create doubleIt = function(x number) returns number
+    return x * 2
+end
+
+create addFive = function(x number) returns number
+    return x + 5
+end
+
+say doubleIt(21)
+say addFive(10)
+
+function apply(fn function number to number, value number) returns number
+    return fn(value)
+end
+
+say apply(doubleIt, 10)
+say apply(addFive, 100)
+
+create pipeline = function(x number) returns number
+    return apply(addFive, apply(doubleIt, x))
+end
+
+say pipeline(3)
+
+create greet = function(name text) returns text
+    return "Hello, " + name
+end
+
+say greet("AFRILANG")
+
+create runTwice = function(fn function number to number, x number) returns number
+    return fn(fn(x))
+end
+
+say runTwice(doubleIt, 2)

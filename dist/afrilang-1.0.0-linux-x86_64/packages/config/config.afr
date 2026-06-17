@@ -1,0 +1,12 @@
+module Config
+    function getOr(value text, fallback text) returns text
+        if value is equal to "" then
+            return fallback
+        end
+        return value
+    end
+
+    function key(name text, value text) returns text
+        return name + ":" + value
+    end
+end

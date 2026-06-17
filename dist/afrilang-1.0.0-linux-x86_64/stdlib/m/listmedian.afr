@@ -1,0 +1,14 @@
+module listmedian
+
+function median(v list number) returns number
+end
+
+function q1(v list number) returns number
+end
+
+function q3(v list number) returns number
+end
+
+function iqr(v list number) returns number
+end
+end

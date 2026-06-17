@@ -1,0 +1,9 @@
+module uuid
+
+function randomHex(n number) returns text
+end
+
+function simpleId(ignored number) returns text
+end
+
+end

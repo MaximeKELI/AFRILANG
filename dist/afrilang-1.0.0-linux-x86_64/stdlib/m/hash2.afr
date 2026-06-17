@@ -1,0 +1,14 @@
+module hash2
+
+function djb2(s text) returns number
+end
+
+function sdbm(s text) returns number
+end
+
+function javaHash(s text) returns number
+end
+
+function hashCombine(a number, b number) returns number
+end
+end

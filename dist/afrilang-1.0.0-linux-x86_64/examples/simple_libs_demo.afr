@@ -1,0 +1,33 @@
+import "std/celsius"
+import "std/upper"
+import "std/trig"
+import "std/hex"
+import "std/i18n"
+import "std/quiz"
+import "std/format"
+
+use celsius
+use upper
+use trig
+use hex
+use i18n
+use quiz
+use format
+
+create tempF = cToF(20)
+say formatNumber(tempF, 1)
+
+create greeting = greetFr("AFRILANG")
+say greeting
+
+create label = toUpper("bonjour")
+say label
+
+create angle = sinDeg(90)
+say formatNumber(angle, 4)
+
+create code = toHex(255)
+say code
+
+create score = scorePercent(8, 10)
+say formatNumber(score, 1)

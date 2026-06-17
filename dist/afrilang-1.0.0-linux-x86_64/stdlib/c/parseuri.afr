@@ -1,0 +1,24 @@
+module parseuri
+
+function scheme(uri text) returns text
+end
+
+function host(uri text) returns text
+end
+
+function path(uri text) returns text
+end
+
+function query(uri text) returns text
+end
+
+function fragment(uri text) returns text
+end
+
+function port(uri text) returns number
+end
+
+function isValid(uri text) returns bool
+end
+
+end

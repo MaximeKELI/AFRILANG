@@ -1,0 +1,27 @@
+import "std/giskit001"
+use giskit001
+
+import "std/giskit025"
+use giskit025
+
+import "std/giskit042"
+use giskit042
+
+import "std/geo"
+use geo
+
+create lat1 number = 48.8566
+create lon1 number = 2.3522
+create lat2 number = 45.7640
+create lon2 number = 4.8357
+
+create bearing number = bearingDeg(lat1, lon1, lat2, lon2)
+create distKm number = haversineKm(lat1, lon1, lat2, lon2)
+create ndviVal number = ndvi(0.82, 0.21)
+create gsd number = gsdFromAltitude(1200, 35, 4.5)
+
+say "Paris -> Lyon"
+say "Distance km: {distKm}"
+say "Cap: {bearing} deg"
+say "NDVI demo: {ndviVal}"
+say "GSD m: {gsd}"

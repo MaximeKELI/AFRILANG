@@ -1,0 +1,21 @@
+module cryptcaesar
+
+function encrypt(s text, shift number) returns text
+end
+
+function decrypt(s text, shift number) returns text
+end
+
+function bruteForce(s text) returns list text
+end
+
+function countAlpha(s text) returns number
+end
+
+function rotAll(s text) returns list text
+end
+
+function isCaesar(plain text, cipher text) returns bool
+end
+
+end

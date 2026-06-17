@@ -1,0 +1,31 @@
+module gamenet
+
+function hostGame(port number) returns bool
+end
+
+function joinGame(host text, port number) returns bool
+end
+
+function sendPose(x number, y number, z number, rotY number)
+end
+
+function pollNet(nowMs number)
+end
+
+function hasRemotePlayer() returns bool
+end
+
+function remoteX() returns number
+end
+
+function remoteY() returns number
+end
+
+function remoteZ() returns number
+end
+
+function remoteRotY() returns number
+end
+
+function shutdownNet()
+end

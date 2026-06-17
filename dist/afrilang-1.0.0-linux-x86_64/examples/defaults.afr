@@ -1,0 +1,19 @@
+import "std/math"
+import "std/str"
+
+use math
+use str
+
+function power(base number, exp number = 2) returns number
+    return pow(base, exp)
+end
+
+say power(3)
+say power(2, 10)
+
+function label(message text, tag text = "info") returns text
+    return "{tag} {message}"
+end
+
+say label("System ready")
+say label("Warning", "warn")

@@ -1,0 +1,14 @@
+module inflation2
+
+function inflate(amount number, rate number, years number) returns number
+end
+
+function deflate(amount number, rate number, years number) returns number
+end
+
+function realReturn(nominal number, inflation number) returns number
+end
+
+function purchasingPower(amount number, inflation number, years number) returns number
+end
+end

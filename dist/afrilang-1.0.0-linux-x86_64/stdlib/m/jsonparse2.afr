@@ -1,0 +1,14 @@
+module jsonparse2
+
+function parseString(json text, key text) returns text
+end
+
+function parseNumber(json text, key text) returns number
+end
+
+function isValidJson(json text) returns bool
+end
+
+function keyCount(json text) returns number
+end
+end

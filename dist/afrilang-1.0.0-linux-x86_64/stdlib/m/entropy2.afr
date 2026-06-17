@@ -1,0 +1,14 @@
+module entropy2
+
+function shannonEntropy(s text) returns number
+end
+
+function uniqueRatio(s text) returns number
+end
+
+function compressionRatio(original number, compressed number) returns number
+end
+
+function bitEntropy(s text) returns number
+end
+end

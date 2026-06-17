@@ -1,0 +1,24 @@
+module finportfolio
+
+function portSum(v list number) returns number
+end
+
+function portMean(v list number) returns number
+end
+
+function portMin(v list number) returns number
+end
+
+function portMax(v list number) returns number
+end
+
+function portVar(v list number) returns number
+end
+
+function portStd(v list number) returns number
+end
+
+function portNorm(v list number) returns list number
+end
+
+end

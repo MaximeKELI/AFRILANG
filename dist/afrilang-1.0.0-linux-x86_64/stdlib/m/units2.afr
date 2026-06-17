@@ -1,0 +1,14 @@
+module units2
+
+function celsiusToFahrenheit(c number) returns number
+end
+
+function fahrenheitToCelsius(f number) returns number
+end
+
+function metersToFeet(m number) returns number
+end
+
+function feetToMeters(ft number) returns number
+end
+end

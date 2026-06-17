@@ -1,0 +1,22 @@
+class Person
+    function speak()
+        say "Bonjour, je suis une Personne"
+    end
+
+    function greet()
+        say "Bienvenue en AFRILANG!"
+    end
+end
+
+class Dog
+    function speak()
+        say "Woof!"
+    end
+end
+
+create person = new Person
+person.speak()
+person.greet()
+
+create dog = new Dog
+dog.speak()

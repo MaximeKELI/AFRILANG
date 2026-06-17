@@ -1,0 +1,24 @@
+module geomdistance
+
+function euclidean2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function manhattan2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function chebyshev2d(x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function pointToLine(px number, py number, x1 number, y1 number, x2 number, y2 number) returns number
+end
+
+function pairwiseDist(points list number) returns list number
+end
+
+function centroid2d(points list number) returns list number
+end
+
+function bbox2d(points list number) returns list number
+end
+
+end

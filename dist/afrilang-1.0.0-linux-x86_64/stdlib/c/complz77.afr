@@ -1,0 +1,21 @@
+module complz77
+
+function lz77Encode(data list number) returns list number
+end
+
+function lz77Decode(encoded list number) returns list number
+end
+
+function lz77Ratio(data list number) returns number
+end
+
+function lz77Size(data list number) returns number
+end
+
+function lz77Compressed(data list number) returns number
+end
+
+function lz77RoundTrip(data list number) returns bool
+end
+
+end

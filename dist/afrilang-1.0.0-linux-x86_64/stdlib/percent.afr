@@ -1,0 +1,9 @@
+module percent
+
+function percent(part number, whole number) returns number
+end
+
+function percentChange(oldVal number, newVal number) returns number
+end
+
+end

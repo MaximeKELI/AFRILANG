@@ -1,0 +1,14 @@
+module listgroup2
+
+function groupByLen(v list text, len number) returns list text
+end
+
+function groupByPrefix(v list text, prefix text) returns list text
+end
+
+function longestString(v list text) returns text
+end
+
+function shortestString(v list text) returns text
+end
+end

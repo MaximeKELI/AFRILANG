@@ -1,0 +1,24 @@
+module netdns
+
+function dnsLen(s text) returns number
+end
+
+function dnsUpper(s text) returns text
+end
+
+function dnsLower(s text) returns text
+end
+
+function dnsTrim(s text) returns text
+end
+
+function dnsSplit(s text, delim text) returns list text
+end
+
+function dnsJoin(parts list text, delim text) returns text
+end
+
+function dnsReplace(s text, from text, to text) returns text
+end
+
+end

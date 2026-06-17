@@ -1,0 +1,14 @@
+module calendar2
+
+function quarterOf(month number) returns number
+end
+
+function weekOfYear(date text) returns number
+end
+
+function monthName(month number) returns text
+end
+
+function dayName(date text) returns text
+end
+end

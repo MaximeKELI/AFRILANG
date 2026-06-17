@@ -1,0 +1,9 @@
+module dns
+
+function isValidHostname(s text) returns bool
+end
+
+function hasSubdomain(s text) returns bool
+end
+
+end

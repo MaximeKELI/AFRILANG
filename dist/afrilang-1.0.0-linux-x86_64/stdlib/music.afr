@@ -1,0 +1,9 @@
+module music
+
+function midiNote(octave number, note number) returns number
+end
+
+function freqA4(ignored number) returns number
+end
+
+end

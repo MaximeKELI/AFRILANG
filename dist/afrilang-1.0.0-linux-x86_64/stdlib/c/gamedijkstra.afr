@@ -1,0 +1,21 @@
+module gamedijkstra
+
+function gridDijkstra(grid list number, width number, start number) returns list number
+end
+
+function shortestCost(grid list number, width number, start number, goal number) returns number
+end
+
+function reachableCells(grid list number, width number, start number) returns number
+end
+
+function multiGoal(grid list number, width number, start number, goals list number) returns list number
+end
+
+function relaxStep(dist list number, grid list number, width number, u number) returns list number
+end
+
+function maxDist(grid list number, width number, start number) returns number
+end
+
+end

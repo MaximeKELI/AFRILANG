@@ -1,0 +1,9 @@
+module capitalize
+
+function capitalize(s text) returns text
+end
+
+function titleWord(s text) returns text
+end
+
+end

@@ -1,0 +1,27 @@
+module csvjoin
+
+function joinSum(v list number) returns number
+end
+
+function joinMean(v list number) returns number
+end
+
+function joinMin(v list number) returns number
+end
+
+function joinMax(v list number) returns number
+end
+
+function joinVar(v list number) returns number
+end
+
+function joinStd(v list number) returns number
+end
+
+function joinNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

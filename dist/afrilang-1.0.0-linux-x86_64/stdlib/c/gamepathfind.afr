@@ -1,0 +1,21 @@
+module gamepathfind
+
+function bfsPath(grid list number, width number, start number, goal number) returns list number
+end
+
+function pathLen(grid list number, width number, start number, goal number) returns number
+end
+
+function lineOfSight(grid list number, width number, x0 number, y0 number, x1 number, y1 number) returns bool
+end
+
+function smoothPath(path list number, grid list number, width number) returns list number
+end
+
+function waypoints(path list number, step number) returns list number
+end
+
+function navCost(grid list number, width number, start number, goal number) returns number
+end
+
+end

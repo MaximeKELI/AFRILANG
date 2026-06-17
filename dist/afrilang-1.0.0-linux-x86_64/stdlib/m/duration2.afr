@@ -1,0 +1,14 @@
+module duration2
+
+function hoursToMinutes(h number) returns number
+end
+
+function minutesToSeconds(m number) returns number
+end
+
+function daysToHours(d number) returns number
+end
+
+function secondsToHours(s number) returns number
+end
+end

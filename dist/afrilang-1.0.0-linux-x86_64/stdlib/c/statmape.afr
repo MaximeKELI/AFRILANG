@@ -1,0 +1,21 @@
+module statmape
+
+function mape(actual list number, predicted list number) returns number
+end
+
+function wape(actual list number, predicted list number) returns number
+end
+
+function smape(actual list number, predicted list number) returns number
+end
+
+function bias(actual list number, predicted list number) returns number
+end
+
+function trackingSignal(actual list number, predicted list number) returns number
+end
+
+function forecastError(actual list number, predicted list number) returns list number
+end
+
+end

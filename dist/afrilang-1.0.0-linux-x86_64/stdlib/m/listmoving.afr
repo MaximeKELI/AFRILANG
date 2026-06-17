@@ -1,0 +1,14 @@
+module listmoving
+
+function movingAvg(v list number, window number) returns list number
+end
+
+function movingMax(v list number, window number) returns list number
+end
+
+function movingMin(v list number, window number) returns list number
+end
+
+function movingSum(v list number, window number) returns list number
+end
+end

@@ -1,0 +1,21 @@
+module simmarkov
+
+function steadyState(trans list number, states number) returns list number
+end
+
+function simulate(trans list number, states number, steps number, seed number) returns list number
+end
+
+function transitionProb(trans list number, states number, from number, to number) returns number
+end
+
+function expectedSteps(trans list number, states number, target number) returns number
+end
+
+function isStochastic(trans list number, states number) returns bool
+end
+
+function mixingTime(trans list number, states number) returns number
+end
+
+end

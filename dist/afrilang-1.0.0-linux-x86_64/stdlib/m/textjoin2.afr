@@ -1,0 +1,14 @@
+module textjoin2
+
+function joinLines(parts list text) returns text
+end
+
+function joinWith(parts list text, delim text) returns text
+end
+
+function joinComma(parts list text) returns text
+end
+
+function joinSpace(parts list text) returns text
+end
+end

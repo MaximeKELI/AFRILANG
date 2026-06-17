@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Registre des paquets AFRILANG — paquets blessed vérifiés SHA256.">
+  <title>Paquets — AFRILANG</title>
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="packages">
+  <div data-afr-shell></div>
+
+  <main class="page">
+    <section class="section" style="padding-top:2rem">
+      <div class="section-head">
+        <h2>Écosystème de paquets</h2>
+        <p>Les paquets <span class="tag tag-gold">★ blessed</span> sont vérifiés SHA256 et recommandés.</p>
+        <p class="muted mono" style="margin-top:0.5rem">afrilang pkg list --blessed · afrilang pkg add math</p>
+      </div>
+
+      <input type="search" class="pkg-search" id="pkg-search" placeholder="Rechercher un paquet…" autocomplete="off">
+
+      <div class="pkg-grid" id="pkg-grid">
+        <p class="muted">Chargement du registre…</p>
+      </div>
+
+      <details style="margin-top:2rem">
+        <summary class="muted" style="cursor:pointer;font-weight:600">Vue tableau détaillée</summary>
+        <div class="doc-block" style="margin-top:1rem;overflow-x:auto">
+          <table class="pkg-table" id="pkg-table" hidden>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Version</th>
+                <th>Description</th>
+                <th>SHA256</th>
+              </tr>
+            </thead>
+            <tbody id="pkg-body"></tbody>
+          </table>
+          <div id="status" class="hint">Chargement…</div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer data-afr-footer></footer>
+  <script src="/site.js"></script>
+  <script>
+    let allPackages = [];
+
+    async function loadPackages() {
+      const grid = document.getElementById('pkg-grid');
+      const status = document.getElementById('status');
+      const table = document.getElementById('pkg-table');
+      const body = document.getElementById('pkg-body');
+      try {
+        const res = await fetch('/packages.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        allPackages = (data.packages || []).sort((a, b) =>
+          (b.blessed ? 1 : 0) - (a.blessed ? 1 : 0) || a.name.localeCompare(b.name));
+        renderGrid(allPackages);
+        body.innerHTML = '';
+        for (const pkg of allPackages) {
+          const tr = document.createElement('tr');
+          const name = document.createElement('td');
+          name.textContent = (pkg.blessed ? '★ ' : '') + pkg.name;
+          if (pkg.blessed) name.classList.add('blessed-name');
+          const ver = document.createElement('td');
+          ver.textContent = pkg.version || '';
+          const desc = document.createElement('td');
+          desc.textContent = pkg.description || '';
+          const sha = document.createElement('td');
+          sha.className = 'mono';
+          sha.textContent = pkg.sha256 ? pkg.sha256.slice(0, 16) + '…' : '—';
+          sha.title = pkg.sha256 || '';
+          tr.append(name, ver, desc, sha);
+          body.appendChild(tr);
+        }
+        status.textContent = allPackages.length + ' paquet(s), ' +
+          allPackages.filter(p => p.blessed).length + ' blessed';
+        table.hidden = false;
+      } catch (e) {
+        grid.innerHTML = '<p class="error">Impossible de charger packages.json — lancez afrilang pkg reindex</p>';
+        status.textContent = String(e.message);
+        status.classList.add('error');
+      }
+    }
+
+    function renderGrid(pkgs) {
+      const grid = document.getElementById('pkg-grid');
+      if (!pkgs.length) {
+        grid.innerHTML = '<p class="muted">Aucun paquet trouvé.</p>';
+        return;
+      }
+      grid.innerHTML = pkgs.map(p => `
+        <article class="pkg-card">
+          <div class="pkg-card-head">
+            ${p.blessed ? '<span class="pkg-star">★</span>' : ''}
+            <h3>${p.name}</h3>
+            <span class="tag">v${p.version || '0.1.0'}</span>
+          </div>
+          <p>${p.description || ''}</p>
+          <code class="pkg-cmd">afrilang pkg add ${p.name}</code>
+          ${p.sha256 ? `<p class="muted mono" style="font-size:0.72rem;margin-top:0.5rem" title="${p.sha256}">sha256: ${p.sha256.slice(0, 20)}…</p>` : ''}
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('pkg-search')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = q
+        ? allPackages.filter(p =>
+            p.name.toLowerCase().includes(q) ||
+            (p.description || '').toLowerCase().includes(q))
+        : allPackages;
+      renderGrid(filtered);
+    });
+
+    loadPackages();
+  </script>
+</body>
+</html>

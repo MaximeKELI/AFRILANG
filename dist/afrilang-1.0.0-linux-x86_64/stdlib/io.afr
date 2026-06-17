@@ -1,0 +1,17 @@
+module io
+
+function readFile(path text) returns text
+end
+
+function writeFile(path text, content text)
+end
+
+function fileExists(path text) returns bool
+end
+
+function readLine() returns text
+end
+
+function readFileAsync(path text) returns text
+end
+end

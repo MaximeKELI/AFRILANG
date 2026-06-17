@@ -1,0 +1,24 @@
+module sigcorrel
+
+function corrSum(v list number) returns number
+end
+
+function corrMean(v list number) returns number
+end
+
+function corrMin(v list number) returns number
+end
+
+function corrMax(v list number) returns number
+end
+
+function corrVar(v list number) returns number
+end
+
+function corrStd(v list number) returns number
+end
+
+function corrNorm(v list number) returns list number
+end
+
+end

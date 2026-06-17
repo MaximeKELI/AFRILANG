@@ -1,0 +1,24 @@
+module sigpower
+
+function poweSum(v list number) returns number
+end
+
+function poweMean(v list number) returns number
+end
+
+function poweMin(v list number) returns number
+end
+
+function poweMax(v list number) returns number
+end
+
+function poweVar(v list number) returns number
+end
+
+function poweStd(v list number) returns number
+end
+
+function poweNorm(v list number) returns list number
+end
+
+end

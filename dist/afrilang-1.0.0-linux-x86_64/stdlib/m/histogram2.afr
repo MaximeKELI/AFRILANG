@@ -1,0 +1,14 @@
+module histogram2
+
+function binIndex(value number, minVal number, maxVal number, bins number) returns number
+end
+
+function normalizeHist(counts list number) returns list number
+end
+
+function cumulativeHist(counts list number) returns list number
+end
+
+function peakBin(counts list number) returns number
+end
+end

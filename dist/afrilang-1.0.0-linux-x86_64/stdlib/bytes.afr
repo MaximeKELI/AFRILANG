@@ -1,0 +1,9 @@
+module bytes
+
+function bytesToKb(b number) returns number
+end
+
+function kbToMb(kb number) returns number
+end
+
+end

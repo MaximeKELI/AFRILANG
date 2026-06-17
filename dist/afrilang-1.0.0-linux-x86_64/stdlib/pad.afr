@@ -1,0 +1,9 @@
+module pad
+
+function padLeft(s text, n number, ch text) returns text
+end
+
+function padRight(s text, n number, ch text) returns text
+end
+
+end

@@ -1,0 +1,27 @@
+module simpoisson
+
+function poisSum(v list number) returns number
+end
+
+function poisMean(v list number) returns number
+end
+
+function poisMin(v list number) returns number
+end
+
+function poisMax(v list number) returns number
+end
+
+function poisVar(v list number) returns number
+end
+
+function poisStd(v list number) returns number
+end
+
+function poisNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end
+
+end

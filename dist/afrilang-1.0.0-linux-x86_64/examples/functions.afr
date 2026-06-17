@@ -1,0 +1,29 @@
+function add(a number, b number) returns number
+    return a + b
+end
+
+function greet(name text) returns text
+    return "Bonjour, " + name
+end
+
+function square(n number) returns number
+    return n * n
+end
+
+class Calculator
+    function compute(x number, y number) returns number
+        return x + y * 2
+    end
+end
+
+create result = add(10, 32)
+say result
+
+create message = greet("AFRILANG")
+say message
+
+create squared = square(7)
+say squared
+
+create calc = new Calculator
+say calc.compute(5, 3)

@@ -1,0 +1,31 @@
+class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    public field name text
+
+    function init(aName text)
+        set this.name = aName
+    end
+
+    function speak()
+        say name + " says Woof!"
+    end
+end
+
+class Cat extends Animal
+    function speak()
+        say "Meow!"
+    end
+end
+
+create rex = new Dog("Rex")
+rex.speak()
+
+create whiskers = new Cat
+whiskers.speak()
+
+say "POO demo complete"

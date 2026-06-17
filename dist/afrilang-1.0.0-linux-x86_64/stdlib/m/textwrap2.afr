@@ -1,0 +1,14 @@
+module textwrap2
+
+function wrapLines(s text, width number) returns list text
+end
+
+function wrapCount(s text, width number) returns number
+end
+
+function truncateWords(s text, maxWords number) returns text
+end
+
+function padCenter(s text, width number) returns text
+end
+end

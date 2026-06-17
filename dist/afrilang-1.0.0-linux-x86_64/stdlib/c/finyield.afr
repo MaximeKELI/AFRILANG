@@ -1,0 +1,24 @@
+module finyield
+
+function yielSum(v list number) returns number
+end
+
+function yielMean(v list number) returns number
+end
+
+function yielMin(v list number) returns number
+end
+
+function yielMax(v list number) returns number
+end
+
+function yielVar(v list number) returns number
+end
+
+function yielStd(v list number) returns number
+end
+
+function yielNorm(v list number) returns list number
+end
+
+end

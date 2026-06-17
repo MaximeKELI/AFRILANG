@@ -1,0 +1,14 @@
+module listvar
+
+function variance(v list number) returns number
+end
+
+function stddev(v list number) returns number
+end
+
+function popVariance(v list number) returns number
+end
+
+function popStddev(v list number) returns number
+end
+end

@@ -1,0 +1,24 @@
+module parsebinary
+
+function binaLen(s text) returns number
+end
+
+function binaUpper(s text) returns text
+end
+
+function binaLower(s text) returns text
+end
+
+function binaTrim(s text) returns text
+end
+
+function binaSplit(s text, delim text) returns list text
+end
+
+function binaJoin(parts list text, delim text) returns text
+end
+
+function binaReplace(s text, from text, to text) returns text
+end
+
+end

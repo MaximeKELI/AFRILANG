@@ -1,0 +1,9 @@
+module margin
+
+function margin(cost number, price number) returns number
+end
+
+function markup(cost number, price number) returns number
+end
+
+end

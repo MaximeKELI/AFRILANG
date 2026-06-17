@@ -1,0 +1,8 @@
+{
+  "source": "/home/maxime/AFRILANG/examples/unions_demo.afr",
+  "variables": [
+    {"name":"area","type":"number","scope":"global"},
+    {"name":"rect","type":"Shape","scope":"global"},
+    {"name":"circle","type":"Shape","scope":"global"}
+  ]
+}

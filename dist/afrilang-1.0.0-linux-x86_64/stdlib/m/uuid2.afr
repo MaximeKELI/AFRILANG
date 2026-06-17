@@ -1,0 +1,14 @@
+module uuid2
+
+function randomHex(n number) returns text
+end
+
+function simpleUuid(seed number) returns text
+end
+
+function formatUuid(hex32 text) returns text
+end
+
+function isUuidFormat(s text) returns bool
+end
+end

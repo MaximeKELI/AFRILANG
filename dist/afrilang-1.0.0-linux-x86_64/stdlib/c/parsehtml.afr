@@ -1,0 +1,24 @@
+module parsehtml
+
+function htmlLen(s text) returns number
+end
+
+function htmlUpper(s text) returns text
+end
+
+function htmlLower(s text) returns text
+end
+
+function htmlTrim(s text) returns text
+end
+
+function htmlSplit(s text, delim text) returns list text
+end
+
+function htmlJoin(parts list text, delim text) returns text
+end
+
+function htmlReplace(s text, from text, to text) returns text
+end
+
+end

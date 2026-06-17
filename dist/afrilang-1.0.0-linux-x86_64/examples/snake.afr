@@ -1,0 +1,422 @@
+import "snake_logic.afr"
+
+import "std/game2d"
+use game2d
+
+import "std/ui"
+use ui
+
+import "std/game"
+use game
+
+import "std/gamestate"
+use gamestate
+
+import "std/m/random2"
+use random2
+
+import "std/stopwatch"
+use stopwatch
+
+create W = 36
+create H = 28
+create VIEW_W = 22
+create VIEW_H = 16
+
+create SAVE_PATH = "snake_save.txt"
+
+create difficulty number = 1
+create volume number = 110
+create showDebug bool = no
+create streak number = 0
+create flashRecord number = 0
+create justStartedPlay bool = no
+create wantFreshPlay bool = no
+create warmupMoves number = 0
+
+create xs list number = list of 0, 0, 0
+create ys list number = list of 0, 0, 0
+create snakeLen number = 3
+create dirX number = 1
+create dirY number = 0
+create score number = 0
+create fx number = 1
+create fy number = 1
+
+function drawWallsLayer(w number, h number)
+    create y number = 0
+    while y is less than h do
+        create x number = 0
+        while x is less than w do
+            if isBorderCell(x, y) then
+                if hasSprite("wall") then
+                    drawSpriteCell("wall", x, y)
+                else
+                    create edge number = 62 + ((x + y) / 3) * 2
+                    fillCell(x, y, edge - 8, edge, edge + 18)
+                end
+            end
+            set x = x + 1
+        end
+        set y = y + 1
+    end
+end
+
+function drawSnake(xs list number, ys list number, snakeLen number)
+    create i number = 0
+    while i is less than snakeLen do
+        if i is equal to 0 then
+            if hasSprite("head") then
+                drawSpriteCell("head", xs at i, ys at i)
+            else
+                create pulse number = pulse01(350)
+                create radius number = 10 + pulse * 5
+                create cx number = cellWorldX(xs at i) + 14
+                create cy number = cellWorldY(ys at i) + 14
+                fillCircleSolid(cx, cy, radius + 6, 20, 80, 50)
+                fillCircleSolid(cx, cy, radius, 80, 255, 150)
+            end
+        else
+            if hasSprite("body") then
+                drawSpriteCell("body", xs at i, ys at i)
+            else
+                create shade number = 100 - i * 4
+                if shade is less than 50 then
+                    set shade = 50
+                end
+                fillCellRgb(xs at i, ys at i, rgb(35, shade, shade + 25))
+            end
+        end
+        set i = i + 1
+    end
+end
+
+function drawFood(fx number, fy number)
+    if hasSprite("food") then
+        drawSpriteCell("food", fx, fy)
+    else
+        create pulse number = pulse01(260)
+        create cx number = cellWorldX(fx) + 14
+        create cy number = cellWorldY(fy) + 14
+        create radius number = 9 + pulse * 5
+        fillCircleSolid(cx, cy, radius + 8, 255, 60, 90)
+        fillCircleSolid(cx, cy, radius + 3, 180, 40, 70)
+        fillCircleSolid(cx, cy, radius, 255, 120, 140)
+    end
+end
+
+function drawMoveBar(moveMs number, x number, y number, w number)
+    create fill number = pulse01(moveMs)
+    create filled number = w * fill
+    fillRect(x, y, w, 6, 30, 34, 52)
+    fillRect(x, y, filled, 6, 90, 220, 160)
+end
+
+function drawMenuOverlay()
+    create panelX number = gridWindowWidth() / 2 - 150
+    create panelY number = gridWindowHeight() / 2 - 160
+    fillRect(panelX, panelY, 300, 320, 16, 20, 36)
+    drawRect(panelX, panelY, 300, 320, 70, 110, 200)
+end
+
+seedRandom(nowMs(0))
+
+configureGrid(W, H, 28, 32, 88)
+configureViewport(VIEW_W, VIEW_H)
+
+create initPack = resetGame(W, H)
+set snakeLen = initPack at 0
+set dirX = initPack at 1
+set dirY = initPack at 2
+set score = initPack at 3
+set fx = initPack at 4
+set fy = initPack at 5
+set xs at 0 = initPack at 6
+set xs at 1 = initPack at 7
+set xs at 2 = initPack at 8
+set ys at 0 = initPack at 9
+set ys at 1 = initPack at 10
+set ys at 2 = initPack at 11
+syncDirection(dirX, dirY)
+
+loadHighScore(SAVE_PATH)
+setState("menu")
+
+openWindow("AFRILANG Snake", gridWindowWidth(), gridWindowHeight())
+
+loadSprite("head", "examples/assets/snake_head.png")
+loadSprite("body", "examples/assets/snake_body.png")
+loadSprite("food", "examples/assets/food.png")
+loadSprite("wall", "examples/assets/wall.png")
+loadSound("eat", "examples/assets/eat.wav")
+
+while isOpen() do
+    beginFrame()
+    tickState(deltaMs())
+
+    if flashRecord is greater than 0 then
+        set flashRecord = flashRecord - deltaMs()
+    end
+
+    if wasKeyPressed("Escape") then
+        shutdown()
+        closeWindow()
+    end
+
+    if wasKeyPressed("F1") then
+        if showDebug then
+            set showDebug = no
+        else
+            set showDebug = yes
+        end
+    end
+
+    if isState("play") then
+        if wasKeyPressed("P") then
+            setState("pause")
+        end
+    end
+    if isState("pause") then
+        if wasKeyPressed("P") then
+            setState("play")
+        end
+    end
+
+    if isState("menu") then
+        if wasKeyPressed("Space") then
+            set wantFreshPlay = yes
+            setState("play")
+        end
+        if wasKeyPressed("Enter") then
+            set wantFreshPlay = yes
+            setState("play")
+        end
+    end
+
+    if isState("play") then
+        if wasKeyPressed("Space") then
+            if shouldPauseOnSpace(wasStateChanged()) then
+                setState("pause")
+            end
+        end
+    end
+
+    if isState("pause") then
+        if wasKeyPressed("Space") then setState("play") end
+    end
+
+    if isState("gameover") then
+        set streak = 0
+        if wasKeyPressed("R") then
+            set wantFreshPlay = yes
+            setState("play")
+        end
+    end
+
+    if isState("play") then
+        if wasStateChanged() then
+            resetTimer("move")
+            if wantFreshPlay then
+                create pack = resetGame(W, H)
+                set snakeLen = pack at 0
+                set dirX = pack at 1
+                set dirY = pack at 2
+                set score = pack at 3
+                set fx = pack at 4
+                set fy = pack at 5
+                set xs at 0 = pack at 6
+                set xs at 1 = pack at 7
+                set xs at 2 = pack at 8
+                set ys at 0 = pack at 9
+                set ys at 1 = pack at 10
+                set ys at 2 = pack at 11
+                set justStartedPlay = yes
+                set warmupMoves = 2
+                syncDirection(dirX, dirY)
+                set wantFreshPlay = no
+            end
+        end
+        if isPlayStateValid(xs, ys, snakeLen, W, H) is equal to false then
+            create repair = resetGame(W, H)
+            set snakeLen = repair at 0
+            set dirX = repair at 1
+            set dirY = repair at 2
+            set score = repair at 3
+            set fx = repair at 4
+            set fy = repair at 5
+            set xs at 0 = repair at 6
+            set xs at 1 = repair at 7
+            set xs at 2 = repair at 8
+            set ys at 0 = repair at 9
+            set ys at 1 = repair at 10
+            set ys at 2 = repair at 11
+            set justStartedPlay = yes
+            set warmupMoves = 2
+            syncDirection(dirX, dirY)
+        end
+    end
+
+    if isState("play") then
+        if canMoveAfterCountdown(stateTimeMs()) then
+            if justStartedPlay is equal to no then
+                if warmupMoves is equal to 0 then
+                    updateDirection(dirX, dirY)
+                    create wantDir = pickSafeDirection(xs, ys, snakeLen, W, H, dirX, dirY, inputDirX(), inputDirY())
+                    set dirX = wantDir at 0
+                    set dirY = wantDir at 1
+                end
+            end
+        end
+    end
+
+    create level number = levelFromXp(xpForScore(score))
+    create moveMs number = moveMsForDifficulty(score, difficulty)
+
+    if isState("play") then
+        if canMoveAfterCountdown(stateTimeMs()) then
+            if everyMs("move", deltaMs(), moveMs) then
+                create moveDx number = dirX
+                create moveDy number = dirY
+                if moveDx is equal to 0 then
+                    if moveDy is equal to 0 then
+                        set moveDx = 1
+                        set moveDy = 0
+                    end
+                end
+                create headX number = xs at 0
+                create headY number = ys at 0
+                create newX number = headX + moveDx
+                create newY number = headY + moveDy
+
+                if isWallCell(newX, newY, W, H) then
+                    setState("gameover")
+                else
+                    create grow bool = no
+                    if newX is equal to fx then
+                        if newY is equal to fy then
+                            set grow = yes
+                            set score = score + 1
+                        end
+                    end
+
+                    create bodyLen number = snakeLen
+                    if grow is equal to no then
+                        set bodyLen = snakeLen - 1
+                    end
+                    create hit bool = snakeOccupies(xs, ys, bodyLen, newX, newY)
+                    if hit is equal to true then
+                        setState("gameover")
+                    else
+                        if grow then
+                            add xs at (snakeLen - 1) to xs
+                            add ys at (snakeLen - 1) to ys
+                            set snakeLen = snakeLen + 1
+                        end
+
+                        create i number = snakeLen - 1
+                        while i is greater than 0 do
+                            set xs at i = xs at (i - 1)
+                            set ys at i = ys at (i - 1)
+                            set i = i - 1
+                        end
+
+                        set xs at 0 = newX
+                        set ys at 0 = newY
+                        set justStartedPlay = no
+                        if warmupMoves is greater than 0 then
+                            set warmupMoves = warmupMoves - 1
+                        end
+                        syncDirection(dirX, dirY)
+
+                        if grow then
+                            create food2 = placeFood(xs, ys, snakeLen, W, H)
+                            set fx = food2 at 0
+                            set fy = food2 at 1
+                            set streak = streak + 1
+                            updateHighScore(score)
+                            saveHighScore(SAVE_PATH)
+                            playSoundVolume("eat", volume)
+                            if score is equal to highScore() then
+                                set flashRecord = 1800
+                            end
+                        else
+                            set streak = 0
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    create headWx number = cellWorldX(xs at 0) + 14
+    create headWy number = cellWorldY(ys at 0) + 14
+    followCamera(headWx, headWy, 0.14)
+
+    clearBackground(8, 10, 20)
+    drawHud("AFRILANG Snake", 32, 16, 28, 245, 245, 252)
+    drawHud("Score {score}  ·  Nv.{level}  ·  Record {highScore()}  ·  Serie {streak}", 32, 48, 18, 150, 210, 255)
+    drawHud("WASD / fleches  ·  Espace pause  ·  R rejouer  ·  Echap quitter", 32, 70, 15, 120, 128, 150)
+
+    if isState("play") then
+        drawMoveBar(moveMs, 32, 88, 140)
+    end
+
+    fillBoard(18, 24, 36)
+    drawGridLines(32, 38, 58)
+    drawWallsLayer(W, H)
+    drawFood(fx, fy)
+    drawSnake(xs, ys, snakeLen)
+
+    if flashRecord is greater than 0 then
+        drawCenteredText("NOUVEAU RECORD!", gridWindowHeight() / 2 - 180, 28, 255, 220, 90)
+    end
+
+    if isState("menu") then
+        drawMenuOverlay()
+        drawCenteredText("AFRILANG SNAKE", gridWindowHeight() / 2 - 132, 44, 250, 252, 255)
+        drawCenteredText("Edition moderne 2026", gridWindowHeight() / 2 - 88, 20, 120, 170, 230)
+        drawCenteredText("Espace / Entrer pour jouer", gridWindowHeight() / 2 - 52, 20, 170, 190, 220)
+        if drawButton("Jouer", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 - 18, 240, 50) then
+            set wantFreshPlay = yes
+            setState("play")
+        end
+        if drawButton("Difficulte: {difficulty}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 40, 240, 42) then
+            set difficulty = difficulty + 1
+            if difficulty is greater than 3 then set difficulty = 1 end
+        end
+        if drawButton("Son: {volume}", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 90, 240, 42) then
+            set volume = volume + 20
+            if volume is greater than 128 then set volume = 40 end
+        end
+    end
+
+    if isState("play") then
+        create cd text = countdownLabel(stateTimeMs())
+        if cd is not equal to "" then
+            drawCenteredText(cd, gridWindowHeight() / 2 - 30, 64, 255, 255, 255)
+        end
+    end
+
+    if isState("pause") then
+        drawCenteredText("PAUSE", gridWindowHeight() / 2 - 24, 44, 255, 220, 90)
+    end
+
+    if isState("gameover") then
+        drawCenteredText("GAME OVER", gridWindowHeight() / 2 - 48, 44, 255, 95, 95)
+        drawCenteredText("Score final {score}", gridWindowHeight() / 2 - 4, 24, 220, 220, 235)
+        if drawButton("Rejouer (R)", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 36, 240, 50) then
+            set wantFreshPlay = yes
+            setState("play")
+        end
+        if drawButton("Menu", gridWindowWidth() / 2 - 120, gridWindowHeight() / 2 + 94, 240, 42) then
+            setState("menu")
+        end
+    end
+
+    if showDebug then
+        drawFps(gridWindowWidth() - 72, gridWindowHeight() - 24)
+        drawHud("Etat {getState()}  ·  len {snakeLen}  ·  {moveMs}ms", 32, gridWindowHeight() - 24, 15, 160, 255, 160)
+    end
+
+    showFrame()
+end

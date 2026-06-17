@@ -1,0 +1,74 @@
+import "std/game3d"
+use game3d
+
+openWindow("AFRILANG 3D Avance", 1024, 640)
+setCamera(0, 8, 22, 0, -12)
+
+loadSkyboxFace("px", "examples/assets/sky/px.png")
+loadSkyboxFace("nx", "examples/assets/sky/nx.png")
+loadSkyboxFace("py", "examples/assets/sky/py.png")
+loadSkyboxFace("ny", "examples/assets/sky/ny.png")
+loadSkyboxFace("pz", "examples/assets/sky/pz.png")
+loadSkyboxFace("nz", "examples/assets/sky/nz.png")
+
+loadShader("lit", "examples/assets/shaders/lit.vert", "examples/assets/shaders/lit.frag")
+loadGlb("pyramid", "examples/assets/pyramid_anim.glb")
+loadTexture3d("grass", "examples/assets/grass.png")
+loadModel("crate", "examples/assets/crate.obj")
+
+setFog(yes, 120, 140, 165, 30, 120)
+setWind(0.4, 0, 0.2)
+
+createBody("ball", -2, 12, 0, 0.5)
+createBoxBody("crateA", 2, 10, 1, 0.9, 0.9, 0.9)
+createBoxBody("crateB", 0, 14, -2, 0.7, 0.7, 0.7)
+setBodyVelocity("ball", 1.5, 0, 0.8)
+setBodyRestitution("crateA", 0.65)
+setBodyRestitution("crateB", 0.7)
+
+create rot number = 0
+create picked text = ""
+playGltfAnim("pyramid", 0, true)
+
+while isOpen() do
+    beginFrame()
+
+    if wasKeyPressed("Escape") then
+        shutdown()
+    end
+
+    create dt number = deltaMs()
+    set rot = rot + dt * 0.02
+    stepPhysicsEx(dt, -18)
+    updateGltfAnims(dt)
+
+    if wasMouseClicked() then
+        set picked = pickBodyName(mouseX(), mouseY())
+    end
+
+    clearScreen(10, 12, 18)
+    applyFog()
+    applyCamera()
+
+    if hasSkybox() then
+        drawSkybox(180)
+    end
+
+    setSceneRotation(rot)
+    applySceneRotation()
+
+    drawGrid(0, 22, 22)
+    drawPlaneTextured(0, 22, "grass")
+
+    setShaderVec3("lit", "uSunDir", 0.4, 1, 0.3)
+    setShaderVec3("lit", "uSunColor", 1, 0.95, 0.85)
+    setShaderVec3("lit", "uAmbient", 0.2, 0.22, 0.28)
+    drawModelShader("lit", "pyramid", -5, 0, 4, 2.2, rot * 0.6 + gltfAnimRotY("pyramid"))
+
+    drawModelLit("crate", 6, 0.5, -4, 1.0, rot * 0.4, "grass")
+    drawBody("crateA")
+    drawBody("crateB")
+    drawSphere(bodyX("ball"), bodyY("ball"), bodyZ("ball"), 0.5, 255, 200, 100)
+
+    showFrame()
+end

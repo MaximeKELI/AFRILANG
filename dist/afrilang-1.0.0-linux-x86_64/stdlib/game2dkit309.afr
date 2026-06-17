@@ -1,0 +1,9 @@
+module game2dkit309
+
+function dist2(x0 number, y0 number, x1 number, y1 number) returns number
+end
+
+function wrap(v number, size number) returns number
+end
+
+end

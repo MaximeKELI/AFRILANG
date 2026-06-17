@@ -1,0 +1,27 @@
+module simdiscrete
+
+function discSum(v list number) returns number
+end
+
+function discMean(v list number) returns number
+end
+
+function discMin(v list number) returns number
+end
+
+function discMax(v list number) returns number
+end
+
+function discVar(v list number) returns number
+end
+
+function discStd(v list number) returns number
+end
+
+function discNorm(v list number) returns list number
+end
+
+function simulate(steps number, seed number) returns list number
+end
+
+end

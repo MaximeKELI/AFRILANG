@@ -1,0 +1,24 @@
+module tsdecompose
+
+function decoSum(v list number) returns number
+end
+
+function decoMean(v list number) returns number
+end
+
+function decoMin(v list number) returns number
+end
+
+function decoMax(v list number) returns number
+end
+
+function decoVar(v list number) returns number
+end
+
+function decoStd(v list number) returns number
+end
+
+function decoNorm(v list number) returns list number
+end
+
+end

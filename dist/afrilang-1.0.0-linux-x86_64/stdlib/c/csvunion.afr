@@ -1,0 +1,27 @@
+module csvunion
+
+function unioSum(v list number) returns number
+end
+
+function unioMean(v list number) returns number
+end
+
+function unioMin(v list number) returns number
+end
+
+function unioMax(v list number) returns number
+end
+
+function unioVar(v list number) returns number
+end
+
+function unioStd(v list number) returns number
+end
+
+function unioNorm(v list number) returns list number
+end
+
+function filterGt(col list number, threshold number) returns list number
+end
+
+end

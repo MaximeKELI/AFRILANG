@@ -1,0 +1,9 @@
+module loan
+
+function monthlyPayment(principal number, rate number, months number) returns number
+end
+
+function totalPaid(payment number, months number) returns number
+end
+
+end

@@ -1,0 +1,9 @@
+module network
+
+function isPortValid(port number) returns bool
+end
+
+function isLocalhost(host text) returns bool
+end
+
+end

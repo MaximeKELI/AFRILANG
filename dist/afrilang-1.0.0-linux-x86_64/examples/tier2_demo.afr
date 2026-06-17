@@ -1,0 +1,40 @@
+create nums = list of 1, 2, 3, 4, 5
+create part = nums from 1 to 4
+say part at 0
+say part at 2
+
+create status = 200
+match status
+    case 200 then
+        say "OK"
+    end
+    case 404 then
+        say "Not Found"
+    end
+    default
+        say "Other"
+    end
+end
+
+create msg text = "hello"
+match msg
+    case "hello" then
+        say "greetings"
+    end
+    default
+        say "unknown"
+    end
+end
+
+import "std/sql"
+use sql
+
+create dbPath text = "/tmp/afrilang_tier2.db"
+create tableOk = exec(dbPath, "create table if not exists kv (k text, v text)")
+say tableOk
+
+create inserted = exec(dbPath, "insert into kv values ('lang', 'AFRILANG')")
+say inserted
+
+create rows = query(dbPath, "select v from kv where k='lang'")
+say rows

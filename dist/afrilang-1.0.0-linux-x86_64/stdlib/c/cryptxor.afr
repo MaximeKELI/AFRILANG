@@ -1,0 +1,24 @@
+module cryptxor
+
+function xorBytes(a text, b text) returns text
+end
+
+function xorHex(hex text, key text) returns text
+end
+
+function repeatKey(data text, key text) returns text
+end
+
+function xorList(a list number, b list number) returns list number
+end
+
+function parity(s text) returns number
+end
+
+function rollingXor(data list number, key number) returns list number
+end
+
+function selfXor(s text) returns text
+end
+
+end

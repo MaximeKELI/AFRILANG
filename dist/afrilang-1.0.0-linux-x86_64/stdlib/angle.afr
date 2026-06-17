@@ -1,0 +1,9 @@
+module angle
+
+function normalizeAngle(d number) returns number
+end
+
+function angleDiff(a number, b number) returns number
+end
+
+end

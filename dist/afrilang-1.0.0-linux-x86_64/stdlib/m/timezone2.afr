@@ -1,0 +1,14 @@
+module timezone2
+
+function utcOffsetHours(offset number) returns number
+end
+
+function toUtc(localTime text, offsetHours number) returns text
+end
+
+function fromUtc(utcTime text, offsetHours number) returns text
+end
+
+function formatTime(hours number, minutes number) returns text
+end
+end

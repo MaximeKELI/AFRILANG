@@ -1,0 +1,24 @@
+module sigspline
+
+function spliSum(v list number) returns number
+end
+
+function spliMean(v list number) returns number
+end
+
+function spliMin(v list number) returns number
+end
+
+function spliMax(v list number) returns number
+end
+
+function spliVar(v list number) returns number
+end
+
+function spliStd(v list number) returns number
+end
+
+function spliNorm(v list number) returns list number
+end
+
+end

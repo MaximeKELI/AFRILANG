@@ -1,0 +1,14 @@
+module listmerge2
+
+function mergeSorted(a list number, b list number) returns list number
+end
+
+function mergeAll(a list number, b list number) returns list number
+end
+
+function intersect(a list number, b list number) returns list number
+end
+
+function unionAll(a list number, b list number) returns list number
+end
+end

@@ -1,0 +1,14 @@
+module currency2
+
+function convert(amount number, rate number) returns number
+end
+
+function crossRate(fromUsd number, toUsd number) returns number
+end
+
+function spread(bid number, ask number) returns number
+end
+
+function midRate(bid number, ask number) returns number
+end
+end

@@ -1,0 +1,17 @@
+module wordtok
+
+function tokenize(s text) returns list text
+end
+
+function tokenCount(s text) returns number
+end
+
+function longestToken(s text) returns text
+end
+
+function shortestToken(s text) returns text
+end
+
+function avgTokenLen(s text) returns number
+end
+end

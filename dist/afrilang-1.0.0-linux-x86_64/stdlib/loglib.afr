@@ -1,0 +1,9 @@
+module loglib
+
+function log10(n number) returns number
+end
+
+function log2(n number) returns number
+end
+
+end

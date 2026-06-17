@@ -1,0 +1,21 @@
+module mlcosine
+
+function cosineSim(a list number, b list number) returns number
+end
+
+function cosineDist(a list number, b list number) returns number
+end
+
+function normalize(v list number) returns list number
+end
+
+function angularDist(a list number, b list number) returns number
+end
+
+function batchCosine(query list number, matrix list number, dims number) returns list number
+end
+
+function mostSimilar(query list number, matrix list number, dims number) returns number
+end
+
+end

@@ -1,0 +1,27 @@
+import "std/async"
+
+use async
+
+async function delayedValue(ms number) returns number or error
+    if ms is less than 0 then
+        return error "negative delay"
+    end
+    await sleep(ms)
+    return ms * 2
+end
+
+async function runAll()
+    create r = await delayedValue(5)
+    if r is error then
+        say r.message
+    else
+        say r.value
+    end
+end
+
+test "async await in test"
+    create r = await delayedValue(1)
+    assert r.value is equal to 2
+end
+
+await runAll()

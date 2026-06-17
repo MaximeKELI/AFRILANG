@@ -1,0 +1,24 @@
+module mlentropy
+
+function entrSum(v list number) returns number
+end
+
+function entrMean(v list number) returns number
+end
+
+function entrMin(v list number) returns number
+end
+
+function entrMax(v list number) returns number
+end
+
+function entrVar(v list number) returns number
+end
+
+function entrStd(v list number) returns number
+end
+
+function entrNorm(v list number) returns list number
+end
+
+end

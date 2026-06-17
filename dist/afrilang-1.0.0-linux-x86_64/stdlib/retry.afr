@@ -1,0 +1,9 @@
+module retry
+
+function backoffMs(attempt number) returns number
+end
+
+function shouldRetry(attempt number, max number) returns bool
+end
+
+end

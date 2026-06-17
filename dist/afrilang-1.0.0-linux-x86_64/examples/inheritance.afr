@@ -1,0 +1,31 @@
+class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    function speak()
+        say "Woof!"
+    end
+
+    function breed() returns text
+        return "Labrador"
+    end
+end
+
+class Cat extends Animal
+    function speak()
+        say "Meow!"
+    end
+end
+
+create animals = new Dog
+animals.speak()
+say animals.breed()
+
+create cat = new Cat
+cat.speak()
+
+create animal = new Animal
+animal.speak()

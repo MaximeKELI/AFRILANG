@@ -1,0 +1,14 @@
+module irr2
+
+function irrApprox(cashflows list number) returns number
+end
+
+function mirr(cashflows list number, financeRate number, reinvestRate number) returns number
+end
+
+function paybackPeriod(cashflows list number) returns number
+end
+
+function roiPercent(gain number, cost number) returns number
+end
+end

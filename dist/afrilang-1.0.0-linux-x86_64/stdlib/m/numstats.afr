@@ -1,0 +1,17 @@
+module numstats
+
+function sum(v list number) returns number
+end
+
+function mean(v list number) returns number
+end
+
+function minVal(v list number) returns number
+end
+
+function maxVal(v list number) returns number
+end
+
+function range(v list number) returns number
+end
+end

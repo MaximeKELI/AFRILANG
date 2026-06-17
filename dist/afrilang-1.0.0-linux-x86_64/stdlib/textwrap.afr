@@ -1,0 +1,9 @@
+module textwrap
+
+function truncate(s text, n number) returns text
+end
+
+function ellipsize(s text, n number) returns text
+end
+
+end

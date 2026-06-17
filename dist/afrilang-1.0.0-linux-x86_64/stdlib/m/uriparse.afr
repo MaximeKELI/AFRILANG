@@ -1,0 +1,17 @@
+module uriparse
+
+function getScheme(url text) returns text
+end
+
+function getHost(url text) returns text
+end
+
+function getPath(url text) returns text
+end
+
+function getQuery(url text) returns text
+end
+
+function hasQuery(url text) returns bool
+end
+end

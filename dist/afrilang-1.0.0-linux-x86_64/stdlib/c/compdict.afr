@@ -1,0 +1,21 @@
+module compdict
+
+function dictEncode(data list number) returns list number
+end
+
+function dictDecode(encoded list number) returns list number
+end
+
+function dictRatio(data list number) returns number
+end
+
+function dictSize(data list number) returns number
+end
+
+function dictCompressed(data list number) returns number
+end
+
+function dictRoundTrip(data list number) returns bool
+end
+
+end

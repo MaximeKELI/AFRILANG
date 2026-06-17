@@ -1,0 +1,9 @@
+module powlib
+
+function pow2(n number) returns number
+end
+
+function pow10(n number) returns number
+end
+
+end

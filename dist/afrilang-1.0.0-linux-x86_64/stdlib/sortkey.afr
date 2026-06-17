@@ -1,0 +1,9 @@
+module sortkey
+
+function ascKey(n number) returns number
+end
+
+function descKey(n number) returns number
+end
+
+end

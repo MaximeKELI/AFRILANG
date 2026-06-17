@@ -1,0 +1,21 @@
+module nlptfidf
+
+function tf(doc text, term text) returns number
+end
+
+function idf(term text, corpus list text) returns number
+end
+
+function tfidf(doc text, term text, corpus list text) returns number
+end
+
+function docVector(doc text, terms list text, corpus list text) returns list number
+end
+
+function cosineSim(a list number, b list number) returns number
+end
+
+function rankTerms(doc text, corpus list text) returns list text
+end
+
+end

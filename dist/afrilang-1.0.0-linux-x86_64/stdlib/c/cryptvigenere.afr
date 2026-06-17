@@ -1,0 +1,27 @@
+module cryptvigenere
+
+function vigeLen(s text) returns number
+end
+
+function vigeUpper(s text) returns text
+end
+
+function vigeLower(s text) returns text
+end
+
+function vigeTrim(s text) returns text
+end
+
+function vigeSplit(s text, delim text) returns list text
+end
+
+function vigeJoin(parts list text, delim text) returns text
+end
+
+function vigeReplace(s text, from text, to text) returns text
+end
+
+function hash32(s text) returns number
+end
+
+end
