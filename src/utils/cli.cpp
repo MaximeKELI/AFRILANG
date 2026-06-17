@@ -20,6 +20,8 @@
 #include "afrilang/js_codegen.hpp"
 #include "afrilang/formatter.hpp"
 
+#include "afrilang/version.hpp"
+
 #include <cstdlib>
 #include <chrono>
 #include <filesystem>
@@ -28,18 +30,61 @@
 #include <thread>
 #include <sstream>
 
+#if defined(__APPLE__)
+#include <mach-o/dyld.h>
+#endif
+
 namespace fs = std::filesystem;
 
 namespace afrilang {
+
+namespace {
+
+fs::path executableDirectory() {
+#if defined(__linux__)
+    try {
+        return fs::weakly_canonical(fs::read_symlink("/proc/self/exe")).parent_path();
+    } catch (...) {
+        return {};
+    }
+#elif defined(__APPLE__)
+    char path[4096];
+    uint32_t size = sizeof(path);
+    if (_NSGetExecutablePath(path, &size) == 0) {
+        return fs::weakly_canonical(fs::path(path)).parent_path();
+    }
+    return {};
+#else
+    return {};
+#endif
+}
+
+bool hasRuntimeLayout(const fs::path& root) {
+    return fs::exists(root / "stdlib") && fs::exists(root / "runtime");
+}
+
+} // namespace
 
 std::string detectAfrilangRoot() {
     if (const char* env = std::getenv("AFRILANG_HOME")) {
         return env;
     }
 
-    fs::path exe = fs::read_symlink("/proc/self/exe").parent_path();
-    if (fs::exists(exe / "stdlib")) return exe.string();
-    if (fs::exists(exe.parent_path() / "stdlib")) return exe.parent_path().string();
+    const fs::path exeDir = executableDirectory();
+    if (!exeDir.empty()) {
+        const std::vector<fs::path> candidates = {
+            exeDir,
+            exeDir.parent_path(),
+            exeDir.parent_path() / "share" / "afrilang",
+            exeDir.parent_path().parent_path() / "share" / "afrilang",
+        };
+        for (const auto& candidate : candidates) {
+            if (!candidate.empty() && hasRuntimeLayout(candidate)) {
+                return fs::weakly_canonical(candidate).string();
+            }
+        }
+    }
+
     return fs::current_path().string();
 }
 
@@ -87,8 +132,9 @@ static int reportCliException(const std::exception& e, const std::string& userPa
 }
 
 static void printUsage() {
-    std::cerr << "AFRILANG — compilateur v1.0\n\n";
+    std::cerr << "AFRILANG — compilateur v" << kVersion << "\n\n";
     std::cerr << "Usage:\n";
+    std::cerr << "  afrilang version             Afficher la version\n";
     std::cerr << "  afrilang build [projet/]     Compiler un projet (afrilang.toml)\n";
     std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter [--watch] [--profile]\n";
     std::cerr << "  afrilang check <fichier.afr> Vérifier sans compiler\n";
@@ -825,6 +871,11 @@ int runCli(int argc, char* argv[]) {
 
     const std::string cmd = argv[1];
 
+    if (cmd == "version" || cmd == "--version" || cmd == "-V") {
+        std::cout << "afrilang " << kVersion << "\n";
+        std::cout << "root: " << detectAfrilangRoot() << "\n";
+        return 0;
+    }
     if (cmd == "build") {
         return cmdBuild(argc, argv);
     }
