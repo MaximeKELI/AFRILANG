@@ -5,12 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-configure_file(
-    ${CMAKE_SOURCE_DIR}/include/afrilang/version.hpp.in
-    ${CMAKE_BINARY_DIR}/generated/afrilang/version.hpp
-    @ONLY
-)
-
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 set(AFRILANG_SOURCES
@@ -46,10 +40,8 @@ set(AFRILANG_SOURCES
 )
 
 add_executable(afrilang main.cpp ${AFRILANG_SOURCES})
-target_include_directories(afrilang PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_BINARY_DIR}/generated
-)
+target_include_directories(afrilang PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_compile_definitions(afrilang PRIVATE AFRILANG_VERSION="${PROJECT_VERSION}")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(afrilang PRIVATE -Wall -Wextra -Wpedantic)
@@ -70,10 +62,8 @@ install(DIRECTORY stdlib/ DESTINATION share/afrilang/stdlib OPTIONAL)
 
 # Tests unitaires du compilateur
 add_executable(afrilang_tests tests/test_compiler.cpp ${AFRILANG_SOURCES})
-target_include_directories(afrilang_tests PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_BINARY_DIR}/generated
-)
+target_include_directories(afrilang_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_compile_definitions(afrilang_tests PRIVATE AFRILANG_VERSION="${PROJECT_VERSION}")
 target_compile_definitions(afrilang_tests PRIVATE AFRILANG_TESTING=1)
 
 # SDL2 runtime (ui.hpp) is used by one unit test
