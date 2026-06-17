@@ -5,7 +5,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+configure_file(
+    ${CMAKE_SOURCE_DIR}/include/afrilang/version.hpp.in
+    ${CMAKE_BINARY_DIR}/generated/afrilang/version.hpp
+    @ONLY
+)
+
 include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_BINARY_DIR}/generated)
 
 set(AFRILANG_SOURCES
     src/lexer/lexer.cpp
