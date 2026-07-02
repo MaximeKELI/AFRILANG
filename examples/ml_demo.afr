@@ -1,0 +1,72 @@
+import "std/torch"
+use torch
+
+setSeed(7)
+
+say "=== Mini framework ML AFRILANG ==="
+
+say ""
+say "--- Autograd ---"
+
+create x tensor = enableGrad(fromList(list of 2.0, 3.0))
+create y tensor = mul(x, x)
+create loss tensor = totalOf(y)
+
+say "x :"
+say toString(x)
+say "y = x * x :"
+say toString(y)
+say "loss = totalOf(y) :"
+say item(loss)
+
+computeGrad(loss)
+
+say "Gradient de x :"
+say toString(gradOf(x))
+
+say ""
+say "--- Couche lineaire ---"
+
+create input tensor = random(4, 3)
+create weight tensor = random(2, 3)
+create bias tensor = randomFromShape(list of 2.0)
+
+create output tensor = linear(input, weight, bias)
+say "Entree (4 x 3) :"
+say toString(input)
+say "Poids (2 x 3) :"
+say toString(weight)
+say "Sortie lineaire (4 x 2) :"
+say toString(output)
+
+say ""
+say "--- Conv2d ---"
+
+create shape4d = list of 1.0, 1.0, 8.0, 8.0
+create image tensor = randomFromShape(shape4d)
+create kernelShape = list of 2.0, 1.0, 3.0, 3.0
+create kernel tensor = randomFromShape(kernelShape)
+create biasConv tensor = zerosFromShape(list of 2.0)
+
+create features tensor = conv2d(image, kernel, biasConv, 1)
+say "Image (1 x 1 x 8 x 8) :"
+say toString(image)
+say "Features conv2d :"
+say toString(features)
+
+say ""
+say "--- GPU (si disponible) ---"
+
+if gpuIsReady() is equal to true then
+    create onGpu tensor = moveToGpu(input)
+    if isOnGpu(onGpu) is equal to true then
+        say "Le tenseur est bien sur le GPU"
+    else
+        say "Echec du transfert GPU"
+    end
+    create back tensor = moveToCpu(onGpu)
+    say "Retour CPU OK"
+end
+
+say ""
+say "Mini framework ML : termine."

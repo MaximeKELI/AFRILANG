@@ -59,6 +59,43 @@ std::string normalizeImportPath(const std::string& path) {
     return p;
 }
 
+std::vector<std::unique_ptr<FunctionNode>> makeTorchFunctions() {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("setSeed", {{"seed", "number"}}, ""));
+    fns.push_back(makeStubFunction("gpuIsReady", {}, "bool"));
+    fns.push_back(makeStubFunction("fromList", {{"values", "list number"}}, "tensor"));
+    fns.push_back(makeStubFunction("zeros", {{"rows", "number"}, {"cols", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("ones", {{"rows", "number"}, {"cols", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("random", {{"rows", "number"}, {"cols", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("zerosFromShape", {{"dims", "list number"}}, "tensor"));
+    fns.push_back(makeStubFunction("randomFromShape", {{"dims", "list number"}}, "tensor"));
+    fns.push_back(makeStubFunction("add", {{"a", "tensor"}, {"b", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("sub", {{"a", "tensor"}, {"b", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("mul", {{"a", "tensor"}, {"b", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("matmul", {{"a", "tensor"}, {"b", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("relu", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("sum", {{"t", "tensor"}}, "number"));
+    fns.push_back(makeStubFunction("totalOf", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("item", {{"t", "tensor"}}, "number"));
+    fns.push_back(makeStubFunction("itemAt", {{"t", "tensor"}, {"index", "number"}}, "number"));
+    fns.push_back(makeStubFunction("shape", {{"t", "tensor"}}, "list number"));
+    fns.push_back(makeStubFunction("toString", {{"t", "tensor"}}, "text"));
+    fns.push_back(makeStubFunction("freeTensor", {{"t", "tensor"}}, ""));
+    fns.push_back(makeStubFunction("save", {{"t", "tensor"}, {"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("load", {{"path", "text"}}, "tensor"));
+    fns.push_back(makeStubFunction("moveToGpu", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("moveToCpu", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("isOnGpu", {{"t", "tensor"}}, "bool"));
+    fns.push_back(makeStubFunction("enableGrad", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("gradIsEnabled", {{"t", "tensor"}}, "bool"));
+    fns.push_back(makeStubFunction("computeGrad", {{"t", "tensor"}}, ""));
+    fns.push_back(makeStubFunction("gradOf", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("linear", {{"input", "tensor"}, {"weight", "tensor"}, {"bias", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("conv2d", {{"input", "tensor"}, {"weight", "tensor"}, {"bias", "tensor"}, {"stride", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("flatten", {{"t", "tensor"}}, "tensor"));
+    return fns;
+}
+
 } // namespace
 
 bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
@@ -75,7 +112,8 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
            moduleName == "email" || moduleName == "uuid" ||
            moduleName == "async" || moduleName == "ui" || moduleName == "game2d" ||
-           moduleName == "game3d" || moduleName == "gamestate" || moduleName == "gamenet";
+           moduleName == "game3d" || moduleName == "gamestate" || moduleName == "gamenet" ||
+           moduleName == "torch" || moduleName == "tensor";
 }
 
 bool StdlibRegistry::isStdlibModule(const std::string& moduleName) {
@@ -144,6 +182,8 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "cli") return "cli";
     if (normalized == "email") return "email";
     if (normalized == "uuid") return "uuid";
+    if (normalized == "torch") return "torch";
+    if (normalized == "tensor") return "tensor";
 
     if (normalized.rfind("m/", 0) == 0) {
         if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {
@@ -227,6 +267,8 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "game3d") injectGame3dModule(program);
     else if (moduleName == "gamestate") injectGamestateModule(program);
     else if (moduleName == "gamenet") injectGamenetModule(program);
+    else if (moduleName == "torch") injectTorchModule(program);
+    else if (moduleName == "tensor") injectTensorModule(program);
     else injectCatalogModule(program, moduleName);
 }
 
@@ -820,6 +862,14 @@ void StdlibRegistry::injectUuidModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("v4", {}, "text"));
     injectModule(program, "uuid", std::move(fns));
+}
+
+void StdlibRegistry::injectTorchModule(ProgramNode& program) {
+    injectModule(program, "torch", makeTorchFunctions());
+}
+
+void StdlibRegistry::injectTensorModule(ProgramNode& program) {
+    injectModule(program, "tensor", makeTorchFunctions());
 }
 
 } // namespace afrilang

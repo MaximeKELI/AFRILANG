@@ -2374,6 +2374,7 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     if (target.kind == TypeKind::BigInt &&
         (value.kind == TypeKind::Int || value.kind == TypeKind::Number)) return true;
     if (target.kind == TypeKind::Json && value.kind == TypeKind::Json) return true;
+    if (target.kind == TypeKind::Tensor && value.kind == TypeKind::Tensor) return true;
     if (target.kind == TypeKind::Text && value.kind == TypeKind::Text) return true;
     if (target.kind == TypeKind::Bool && value.kind == TypeKind::Bool) return true;
     if (target.kind == TypeKind::Class && value.kind == TypeKind::Class) {
@@ -2423,7 +2424,8 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
 }
 
 bool SemanticAnalyzer::isConcreteTypeName(const std::string& name) const {
-    if (name == "number" || name == "int" || name == "text" || name == "bool" || name == "json") {
+    if (name == "number" || name == "int" || name == "text" || name == "bool" ||
+        name == "json" || name == "tensor" || name == "bigint") {
         return true;
     }
     if (result_.classes.count(name) || result_.records.count(name) ||

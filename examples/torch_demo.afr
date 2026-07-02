@@ -1,0 +1,47 @@
+import "std/torch"
+use torch
+
+setSeed(42)
+
+say "=== AFRILANG + PyTorch ==="
+
+if gpuIsReady() is equal to true then
+    say "Le GPU est pret"
+else
+    say "Mode CPU (pas de GPU detecte)"
+end
+
+create v tensor = fromList(list of 1.0, 2.0, 3.0)
+say "Vecteur :"
+say toString(v)
+say "Somme :"
+say sum(v)
+
+create a tensor = ones(2, 3)
+create b tensor = random(2, 3)
+
+say "Matrice A :"
+say toString(a)
+say "Matrice B :"
+say toString(b)
+
+create c tensor = add(a, b)
+say "A + B :"
+say toString(c)
+
+create w tensor = ones(3, 2)
+create m tensor = matmul(a, w)
+say "A @ W :"
+say toString(m)
+
+create r tensor = relu(sub(b, a))
+say "ReLU(B - A) :"
+say toString(r)
+
+create dims = shape(c)
+say "Shape lignes :"
+say dims at 0
+say "Shape colonnes :"
+say dims at 1
+
+say "Termine."

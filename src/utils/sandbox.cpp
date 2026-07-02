@@ -45,7 +45,7 @@ void applyChildLimits(const ProcessConfig& config) {
         rl.rlim_max = config.maxCpuSeconds;
         setrlimit(RLIMIT_CPU, &rl);
     }
-    if (!config.interactiveGui) {
+    if (!config.interactiveGui && !config.relaxFileSizeLimit) {
         rl.rlim_cur = 16 * 1024 * 1024;
         rl.rlim_max = 16 * 1024 * 1024;
         setrlimit(RLIMIT_FSIZE, &rl);

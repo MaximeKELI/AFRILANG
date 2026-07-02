@@ -7,6 +7,7 @@
 #include "afrilang/stdlib_catalog.hpp"
 #include "afrilang/medium_catalog.hpp"
 #include "afrilang/complex_catalog.hpp"
+#include "afrilang/torch_install.hpp"
 
 #include <cstdlib>
 #include <cctype>
@@ -93,6 +94,7 @@ std::string cppGenericArg(const std::string& afr) {
     if (afr == "int") return "std::int64_t";
     if (afr == "bigint") return "afrilang::runtime::bigint::BigInt";
     if (afr == "json") return "afrilang::runtime::json::Value";
+    if (afr == "tensor") return "afrilang::runtime::torch::Tensor";
     if (afr == "text") return "std::string";
     if (afr == "bool") return "bool";
     return afr;
@@ -113,6 +115,7 @@ std::string cppTypeFromAfrType(const AfrType& type) {
         case TypeKind::Int: return "std::int64_t";
         case TypeKind::BigInt: return "afrilang::runtime::bigint::BigInt";
         case TypeKind::Json: return "afrilang::runtime::json::Value";
+        case TypeKind::Tensor: return "afrilang::runtime::torch::Tensor";
         case TypeKind::Text: return "std::string";
         case TypeKind::Bool: return "bool";
         case TypeKind::Void: return "void";
@@ -477,6 +480,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsCli = false;
     bool needsEmail = false;
     bool needsUuid = false;
+    bool needsTorch = false;
     bool needsSimpleLibs = false;
     bool needsMediumLibs = false;
     bool needsComplexLibs = false;
@@ -512,6 +516,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "cli") needsCli = true;
         if (module->name == "email") needsEmail = true;
         if (module->name == "uuid") needsUuid = true;
+        if (module->name == "torch" || module->name == "tensor") needsTorch = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
@@ -559,6 +564,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCli) out << "#include \"cli.hpp\"\n";
     if (needsEmail) out << "#include \"email.hpp\"\n";
     if (needsUuid) out << "#include \"uuid.hpp\"\n";
+    if (needsTorch) out << "#include \"torch.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
@@ -2811,7 +2817,8 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "random" || name == "hex" || name == "csv" || name == "html" ||
            name == "cli" || name == "email" || name == "uuid" ||
            name == "async" || name == "ui" || name == "game2d" || name == "game3d" ||
-           name == "gamestate" || name == "gamenet" || stdlibCatalogIsSimpleModule(name) ||
+           name == "gamestate" || name == "gamenet" || name == "torch" || name == "tensor" ||
+           stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);
 }
 
@@ -2841,9 +2848,13 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
     }
 
     if (moduleName == "ui" || moduleName == "game2d" || moduleName == "game3d" ||
-        moduleName == "gamestate" || moduleName == "gamenet") {
-        const std::string ns = moduleName;
-        const std::string rt = "afrilang::runtime::" + ns + "::" + func.name;
+        moduleName == "gamestate" || moduleName == "gamenet" ||
+        moduleName == "torch" || moduleName == "tensor") {
+        const std::string ns = moduleName == "tensor" ? "torch" : moduleName;
+        std::string fnName = func.name;
+        if (moduleName == "torch" && fnName == "random") fnName = "randTensor";
+        if (moduleName == "tensor" && fnName == "random") fnName = "randTensor";
+        const std::string rt = "afrilang::runtime::" + ns + "::" + fnName;
         if (func.returnTypeName.empty()) {
             out << rt << "(";
             for (std::size_t i = 0; i < func.parameters.size(); ++i) {
@@ -3082,13 +3093,21 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
             break;
         }
     }
+    const bool usesTorch = programUsesTorchModule(semantic_.usedModules);
     args.push_back("-std=" + (usesCoroutines && !wasmBuild ? std::string("c++20") : std::string("c++17")));
-    args.push_back(usesComplexCatalog && !wasmBuild ? "-O0" : "-O2");
-    args.push_back("-Wall");
-    args.push_back("-Wextra");
-    if (usesComplexCatalog && !wasmBuild) {
+    if (usesTorch && !wasmBuild) {
+        args.push_back("-O0");
+    } else {
+        args.push_back(usesComplexCatalog && !wasmBuild ? "-O0" : "-O2");
+    }
+    if (!usesTorch) {
+        args.push_back("-Wall");
+        args.push_back("-Wextra");
+    }
+    if ((usesComplexCatalog || usesTorch) && !wasmBuild) {
         args.push_back("-Wno-unused-parameter");
-        args.push_back("-Wno-unused-variable");
+        if (usesComplexCatalog) args.push_back("-Wno-unused-variable");
+        if (usesTorch) args.push_back("-Wno-dangling-reference");
     }
     if (!wasmBuild) {
         args.push_back("-fstack-protector-strong");
@@ -3158,12 +3177,47 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         args.push_back("-lGL");
         args.push_back("-lGLU");
     }
+    if (programUsesTorchModule(semantic_.usedModules) && !wasmBuild) {
+        std::string torchHome = resolveLibtorchHome();
+        if (torchHome.empty()) {
+            std::string err;
+            if (!ensureLibtorchInstalled(torchHome, err)) {
+                std::cerr << "Erreur libtorch: " << err << "\n";
+                return false;
+            }
+        }
+        if (!torchHome.empty()) {
+            args.push_back("-DAFRILANG_HAS_LIBTORCH");
+            args.push_back("-I" + torchHome + "/include");
+            args.push_back("-I" + torchHome + "/include/torch/csrc/api/include");
+            args.push_back("-L" + torchHome + "/lib");
+            args.push_back("-Wl,-rpath," + torchHome + "/lib");
+            args.push_back("-ltorch");
+            args.push_back("-ltorch_cpu");
+            args.push_back("-lc10");
+            bool useCuda = false;
+            if (const char* cudaEnv = std::getenv("AFRILANG_TORCH_CUDA")) {
+                useCuda = cudaEnv[0] == '1' || cudaEnv[0] == 'y' || cudaEnv[0] == 'Y' ||
+                          cudaEnv[0] == 't' || cudaEnv[0] == 'T';
+            } else {
+                const std::string cudaLib = torchHome + "/lib/libtorch_cuda.so";
+                std::ifstream probe(cudaLib);
+                useCuda = probe.good();
+            }
+            if (useCuda) {
+                args.push_back("-DAFRILANG_HAS_TORCH_CUDA");
+                args.push_back("-ltorch_cuda");
+                args.push_back("-lc10_cuda");
+            }
+        }
+    }
 
     ProcessConfig config;
     config.timeoutSeconds = securityLimits(SecurityContext::TrustedCompile).compileTimeoutSeconds;
     config.maxMemoryMb = securityLimits(SecurityContext::TrustedCompile).maxMemoryMb;
     config.maxCpuSeconds = static_cast<std::size_t>(config.timeoutSeconds);
     config.applyResourceLimits = isSecureMode();
+    if (usesTorch) config.relaxFileSizeLimit = true;
 
     std::string output;
     const int code = runCommand(args, config, output);

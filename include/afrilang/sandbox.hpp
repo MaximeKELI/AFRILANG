@@ -25,6 +25,8 @@ struct ProcessConfig {
   bool limitProcessCount = false;
   // Keep DISPLAY/Wayland sockets open (required for SDL windows).
   bool interactiveGui = false;
+  // libtorch / large C++ deps need bigger temp files during g++ compile.
+  bool relaxFileSizeLimit = false;
 };
 
 ExecResult execWithTimeout(const std::string& executable,

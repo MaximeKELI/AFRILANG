@@ -148,7 +148,10 @@ say readFile("/tmp/test.txt")
 | `std/game2d` | moteur 2D (Snake, sprites, sons) |
 | `std/game3d` | moteur 3D OpenGL, physique, glTF |
 | `std/async` | `sleep`, coroutines |
+| `std/torch` / `std/tensor` | PyTorch C++ (libtorch) — ML, GPU, autograd |
 | Packs ultra | giskit, segultra, dataultra, datasci, iaultra, dbultra, … |
+
+Voir [docs/TORCH.md](docs/TORCH.md) pour l'installation (`afrilang install torch gpu`) et l'API complète.
 
 ### Messages d'erreur enrichis
 
@@ -679,6 +682,11 @@ Generics transpile to C++ `template<typename T>` functions. Types are inferred f
 | `examples/fs_demo.afr` | Stdlib fs (listDir, makeDir, fileSize) |
 | `examples/advanced.afr` | Enums, match, null-safety |
 | `examples/generics.afr` | Fonctions génériques (type params, inference) |
+| `examples/torch_demo.afr` | PyTorch — opérations tensorielles de base |
+| `examples/ml_demo.afr` | PyTorch — autograd, linear, conv2d, GPU |
+| `examples/torch_test.afr` | PyTorch — tests intégrés (`test` / `assert`) |
+
+Documentation PyTorch : [docs/TORCH.md](docs/TORCH.md)
 
 ## Compiler tous les exemples
 

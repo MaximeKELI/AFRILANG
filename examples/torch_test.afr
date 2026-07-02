@@ -1,0 +1,46 @@
+import "std/tensor"
+use tensor
+
+setSeed(42)
+
+say "=== Tests tensor / libtorch ==="
+
+test "module tensor loads"
+    create x tensor = fromList(list of 1.0, 2.0, 3.0)
+    assert gradIsEnabled(x) is equal to false
+end
+
+test "shape of 2x3 matrix"
+    create m tensor = ones(2, 3)
+    create dims = shape(m)
+    assert dims at 0 is equal to 2
+    assert dims at 1 is equal to 3
+end
+
+test "add and sum"
+    create a tensor = fromList(list of 1.0, 2.0)
+    create b tensor = fromList(list of 3.0, 4.0)
+    create c tensor = add(a, b)
+    assert sum(c) is equal to 10
+end
+
+test "matmul dimensions"
+    create a tensor = ones(2, 3)
+    create w tensor = ones(3, 2)
+    create out tensor = matmul(a, w)
+    create dims = shape(out)
+    assert dims at 0 is equal to 2
+    assert dims at 1 is equal to 2
+end
+
+test "autograd gradient"
+    create x tensor = enableGrad(fromList(list of 2.0, 3.0))
+    create y tensor = mul(x, x)
+    create loss tensor = totalOf(y)
+    computeGrad(loss)
+    create g = gradOf(x)
+    assert itemAt(g, 0) is equal to 4
+    assert itemAt(g, 1) is equal to 6
+end
+
+say "Tous les tests tensor passent."

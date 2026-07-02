@@ -12,6 +12,7 @@
 #include "afrilang/cache.hpp"
 #include "afrilang/semver.hpp"
 #include "afrilang/utf8.hpp"
+#include "afrilang/torch_install.hpp"
 
 #include "afrilang/sandbox.hpp"
 
@@ -22,7 +23,9 @@
 #include <string>
 #include <cstdlib>
 
+#ifdef AFRILANG_HAS_SDL2
 #include "../runtime/ui.hpp"
+#endif
 
 static int failures = 0;
 
@@ -126,8 +129,7 @@ static void testFindSimilarNames() {
 }
 
 static void testUiMultilineTextRenders() {
-    // Test unitaire runtime: drawText doit supporter les sauts de ligne.
-    // Utilise le driver vidéo "dummy" pour fonctionner en environnement headless.
+#ifdef AFRILANG_HAS_SDL2
     setenv("SDL_VIDEODRIVER", "dummy", 1);
 
     afrilang::runtime::ui::openWindow("test", 320, 240);
@@ -138,6 +140,9 @@ static void testUiMultilineTextRenders() {
     afrilang::runtime::ui::showFrame();
     afrilang::runtime::ui::closeWindow();
     expect(!afrilang::runtime::ui::isOpen(), "ui window closes");
+#else
+    std::cout << "  (skip UI test — SDL2 non installe)\n";
+#endif
 }
 
 static void testSemVer() {
@@ -452,6 +457,92 @@ static void testJsonStringLiteralParse() {
     analyzer.analyze();
 }
 
+static void testTensorTypeName() {
+    expect(afrilang::typeFromName("tensor").kind == afrilang::TypeKind::Tensor,
+           "tensor type name");
+    expect(afrilang::typeFromName("tensor").toCpp() ==
+               "afrilang::runtime::torch::Tensor",
+           "tensor C++ mapping");
+}
+
+static void testLexerTensorKeyword() {
+    afrilang::Lexer lexer("create x tensor = fromList(list of 1.0)");
+    const auto tokens = lexer.tokenize();
+    bool foundTensor = false;
+    for (const auto& t : tokens) {
+        if (t.type == afrilang::TokenType::TypeTensor) foundTensor = true;
+    }
+    expect(foundTensor, "lexer recognizes tensor type keyword");
+}
+
+static void testTorchModuleSemantic() {
+    const std::string src =
+        "import \"std/tensor\"\n"
+        "use tensor\n"
+        "create x tensor = fromList(list of 1.0, 2.0)\n";
+    afrilang::Compiler compiler("examples/torch_semantic.afr",
+                                afrilang::detectAfrilangRoot());
+    auto program = compiler.compileFromSource(src);
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(),
+                                         "examples/torch_semantic.afr");
+    const auto result = analyzer.analyze();
+    expect(result.usedModules.count("tensor") > 0, "tensor module used");
+    expect(result.globalVariables.at("x").kind == afrilang::TypeKind::Tensor,
+           "tensor variable typed");
+}
+
+static void testTorchCodegenIncludes() {
+    const std::string src =
+        "import \"std/torch\"\n"
+        "use torch\n"
+        "create x tensor = zeros(2, 2)\n";
+    afrilang::Compiler compiler("examples/torch_codegen.afr",
+                                afrilang::detectAfrilangRoot());
+    auto program = compiler.compileFromSource(src);
+    afrilang::SemanticAnalyzer analyzer(*program, &compiler.sources(),
+                                         "examples/torch_codegen.afr");
+    const auto semantic = analyzer.analyze();
+    afrilang::CodeGenerator codegen(*program, semantic);
+    const std::string cpp = codegen.generate();
+    expect(cpp.find("#include \"torch.hpp\"") != std::string::npos,
+           "codegen includes torch.hpp");
+    expect(cpp.find("afrilang::runtime::torch::zeros") != std::string::npos,
+           "codegen calls torch runtime zeros");
+}
+
+static void testTorchInstallHelpers() {
+    expect(afrilang::programUsesTorchModule({"tensor"}), "tensor module detected");
+    expect(afrilang::programUsesTorchModule({"torch"}), "torch module detected");
+    expect(!afrilang::programUsesTorchModule({"json"}), "json is not torch");
+    const auto gpu = afrilang::detectGpuInfo();
+    if (gpu.found) {
+        expect(!afrilang::cudaTagForGpu(gpu).empty(), "cuda tag for detected gpu");
+    }
+}
+
+static void testTorchCheckFile() {
+    expect(afrilang::Pipeline::checkFile("examples/torch_test.afr"),
+           "torch_test.afr passes semantic check");
+}
+
+static void testCompileTorchTestEmit() {
+    afrilang::CompileOptions opts;
+    opts.runtimeDir = afrilang::detectAfrilangRoot() + "/runtime";
+    opts.emitOnly = true;
+    opts.useCache = false;
+    const auto result = afrilang::Pipeline::compileFile("examples/torch_test.afr", opts);
+    expect(result.success, "emit torch_test.afr");
+    std::ifstream in(result.generatedCpp);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string cpp = buf.str();
+    expect(cpp.find("namespace tensor") != std::string::npos,
+           "torch_test emits tensor namespace");
+    expect(cpp.find("afr_test_") != std::string::npos,
+           "torch_test emits test functions");
+    std::remove(result.generatedCpp.c_str());
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -490,6 +581,13 @@ int main() {
     testSnakeLogicUnitTests();
     testStringInterpolationCall();
     testJsonStringLiteralParse();
+    testTensorTypeName();
+    testLexerTensorKeyword();
+    testTorchModuleSemantic();
+    testTorchCodegenIncludes();
+    testTorchInstallHelpers();
+    testTorchCheckFile();
+    testCompileTorchTestEmit();
     std::cout << "\n";
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";

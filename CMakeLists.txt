@@ -34,6 +34,7 @@ set(AFRILANG_SOURCES
     src/utils/js_codegen.cpp
     src/utils/env.cpp
     src/utils/educational.cpp
+    src/utils/torch_install.cpp
     src/repl/repl.cpp
     src/serve/server.cpp
     src/lsp/server.cpp
@@ -72,6 +73,7 @@ if(PkgConfig_FOUND)
     pkg_check_modules(SDL2 QUIET sdl2)
     pkg_check_modules(SDL2TTF QUIET SDL2_ttf)
     if(SDL2_FOUND AND SDL2TTF_FOUND)
+        target_compile_definitions(afrilang_tests PRIVATE AFRILANG_HAS_SDL2=1)
         target_include_directories(afrilang_tests PRIVATE ${SDL2_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS})
         target_link_libraries(afrilang_tests ${SDL2_LIBRARIES} ${SDL2TTF_LIBRARIES})
         target_compile_options(afrilang_tests PRIVATE ${SDL2_CFLAGS_OTHER} ${SDL2TTF_CFLAGS_OTHER})

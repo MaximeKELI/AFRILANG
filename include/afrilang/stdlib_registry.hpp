@@ -46,6 +46,8 @@ public:
     static void injectCliModule(ProgramNode& program);
     static void injectEmailModule(ProgramNode& program);
     static void injectUuidModule(ProgramNode& program);
+    static void injectTorchModule(ProgramNode& program);
+    static void injectTensorModule(ProgramNode& program);
 
     static void injectModuleByName(ProgramNode& program, const std::string& moduleName);
     static void injectCatalogModule(ProgramNode& program, const std::string& moduleName);

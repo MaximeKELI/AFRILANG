@@ -11,6 +11,9 @@
 | map | `map K to V` | `std::unordered_map<K,V>` |
 | optional | `T?` | `std::optional<T>` |
 | result | `T or error` | `AfrResult_T` |
+| tensor | `tensor` | `afrilang::runtime::torch::Tensor` |
+
+Voir [TORCH.md](TORCH.md) pour PyTorch / libtorch (ML, GPU, autograd).
 
 ## Programmation orientée objet (POO)
 

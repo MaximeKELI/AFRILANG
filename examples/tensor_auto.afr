@@ -1,0 +1,6 @@
+import "std/tensor"
+use tensor
+
+say "Test auto libtorch"
+create x tensor = fromList(list of 1.0, 2.0)
+say toString(x)

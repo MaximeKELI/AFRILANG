@@ -19,6 +19,7 @@
 #include "afrilang/semantic.hpp"
 #include "afrilang/js_codegen.hpp"
 #include "afrilang/formatter.hpp"
+#include "afrilang/torch_install.hpp"
 
 #include "afrilang/version.hpp"
 
@@ -146,7 +147,11 @@ static void printUsage() {
     std::cerr << "  afrilang pkg search [query]  Rechercher un paquet\n";
     std::cerr << "  afrilang pkg add <name>      Ajouter un paquet\n";
     std::cerr << "  afrilang pkg install         Installer les dépendances\n";
+    std::cerr << "  afrilang install torch [gpu|cpu] [version <X.Y.Z>] [--force]\n";
+    std::cerr << "                               Installer libtorch (PyTorch C++)\n";
     std::cerr << "  afrilang pkg publish <dir>   Publier dans le registre local\n";
+    std::cerr << "  afrilang install torch [gpu|cpu] [version <X.Y.Z>] [--force]\n";
+    std::cerr << "                               Installer libtorch (GPU auto-detecte)\n";
     std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
     std::cerr << "  afrilang benchmark           Mesurer compile + exec (exemples)\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
@@ -193,6 +198,15 @@ static void applyGuiExecConfig(ProcessConfig& config) {
     config.timeoutSeconds = 0;
     config.limitProcessCount = false;
     config.maxCpuSeconds = 0;
+}
+
+static void applyTorchExecConfig(ProcessConfig& config) {
+    config.limitProcessCount = false;
+    config.timeoutSeconds = 120;
+    config.maxCpuSeconds = 120;
+    setenv("OMP_NUM_THREADS", "4", 1);
+    setenv("MKL_NUM_THREADS", "4", 1);
+    setenv("OPENBLAS_NUM_THREADS", "4", 1);
 }
 
 static ExecResult runCompiledProgram(const std::string& crossTarget,
@@ -263,6 +277,15 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
     std::cout << "Compilation de " << sourcePath << "...\n";
 
+    if (programUsesTorchModule(semantic.usedModules) && !isWasmTarget(crossTarget)) {
+        std::string torchHome;
+        std::string torchErr;
+        if (!ensureLibtorchInstalled(torchHome, torchErr)) {
+            std::cerr << "Erreur libtorch: " << torchErr << "\n";
+            return result;
+        }
+    }
+
     const auto compileStart = std::chrono::steady_clock::now();
 
     std::ifstream sourceIn(srcPath);
@@ -291,6 +314,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 config.limitProcessCount = true;
                 if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                     applyGuiExecConfig(config);
+                }
+                if (programUsesTorchModule(semantic.usedModules)) {
+                    applyTorchExecConfig(config);
                 }
                 const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
                 if (!exec.output.empty()) std::cout << exec.output;
@@ -348,6 +374,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         config.limitProcessCount = true;
         if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
             applyGuiExecConfig(config);
+        }
+        if (programUsesTorchModule(semantic.usedModules)) {
+            applyTorchExecConfig(config);
         }
         const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
         if (!exec.output.empty()) {
@@ -972,6 +1001,19 @@ int runCli(int argc, char* argv[]) {
             return PkgRegistry::cmdPublish(pkgDir, root);
         }
         std::cerr << "Sous-commande pkg inconnue: " << sub << "\n";
+        return 1;
+    }
+    if (cmd == "install") {
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang install torch [gpu|cpu] [version <X.Y.Z>] [--force]\n";
+            return 1;
+        }
+        const std::string sub = argv[2];
+        if (sub == "torch") {
+            return cmdInstallTorch(argc, argv);
+        }
+        std::cerr << "Paquet inconnu: " << sub << "\n";
+        std::cerr << "Usage: afrilang install torch [gpu|cpu] [version <X.Y.Z>] [--force]\n";
         return 1;
     }
     if (cmd == "benchmark") {
