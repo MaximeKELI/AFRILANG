@@ -43,4 +43,29 @@ test "autograd gradient"
     assert itemAt(g, 1) is equal to 6
 end
 
+test "trainStep reduces loss"
+    create x tensor = fromList(list of 1.0, 2.0)
+    create y tensor = fromList(list of 2.0, 4.0)
+    create w tensor = enableGrad(zeros(1, 1))
+    create params = list of w
+    create optim optimizer = sgd(params, 0.1)
+    trainMode()
+    for i from 1 to 50 do
+        create pred tensor = mul(x, w)
+        create loss tensor = mseLoss(pred, y)
+        trainStep(optim, loss)
+    end
+    create finalPred tensor = mul(x, w)
+    create finalLoss tensor = mseLoss(finalPred, y)
+    assert item(finalLoss) is less than 1
+end
+
+test "noGradMode disables autograd"
+    enableGradMode()
+    assert gradModeIsOn() is equal to true
+    noGradMode()
+    assert gradModeIsOn() is equal to false
+    enableGradMode()
+end
+
 say "Tous les tests tensor passent."

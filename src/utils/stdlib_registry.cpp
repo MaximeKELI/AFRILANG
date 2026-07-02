@@ -93,6 +93,32 @@ std::vector<std::unique_ptr<FunctionNode>> makeTorchFunctions() {
     fns.push_back(makeStubFunction("linear", {{"input", "tensor"}, {"weight", "tensor"}, {"bias", "tensor"}}, "tensor"));
     fns.push_back(makeStubFunction("conv2d", {{"input", "tensor"}, {"weight", "tensor"}, {"bias", "tensor"}, {"stride", "number"}}, "tensor"));
     fns.push_back(makeStubFunction("flatten", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("sigmoid", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("tanhOf", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("softmax", {{"t", "tensor"}, {"dim", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("logSoftmax", {{"t", "tensor"}, {"dim", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("dropout", {{"t", "tensor"}, {"p", "number"}}, "tensor"));
+    fns.push_back(makeStubFunction("fromIntList", {{"values", "list number"}}, "tensor"));
+    fns.push_back(makeStubFunction("detach", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("cloneTensor", {{"t", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("zeroTensorGrad", {{"t", "tensor"}}, ""));
+    fns.push_back(makeStubFunction("backward", {{"t", "tensor"}}, ""));
+    fns.push_back(makeStubFunction("gradModeIsOn", {}, "bool"));
+    fns.push_back(makeStubFunction("setGradMode", {{"enabled", "bool"}}, ""));
+    fns.push_back(makeStubFunction("noGradMode", {}, ""));
+    fns.push_back(makeStubFunction("enableGradMode", {}, ""));
+    fns.push_back(makeStubFunction("trainMode", {}, ""));
+    fns.push_back(makeStubFunction("evalMode", {}, ""));
+    fns.push_back(makeStubFunction("isTrainingMode", {}, "bool"));
+    fns.push_back(makeStubFunction("mseLoss", {{"pred", "tensor"}, {"target", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("crossEntropyLoss", {{"logits", "tensor"}, {"targets", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("binaryCrossEntropy", {{"pred", "tensor"}, {"target", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("nllLoss", {{"logProbs", "tensor"}, {"targets", "tensor"}}, "tensor"));
+    fns.push_back(makeStubFunction("sgd", {{"params", "list tensor"}, {"lr", "number"}}, "optimizer"));
+    fns.push_back(makeStubFunction("adam", {{"params", "list tensor"}, {"lr", "number"}}, "optimizer"));
+    fns.push_back(makeStubFunction("zeroOptimizer", {{"opt", "optimizer"}}, ""));
+    fns.push_back(makeStubFunction("optimizerStep", {{"opt", "optimizer"}}, ""));
+    fns.push_back(makeStubFunction("trainStep", {{"opt", "optimizer"}, {"loss", "tensor"}}, ""));
     return fns;
 }
 

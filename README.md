@@ -683,7 +683,8 @@ Generics transpile to C++ `template<typename T>` functions. Types are inferred f
 | `examples/advanced.afr` | Enums, match, null-safety |
 | `examples/generics.afr` | Fonctions génériques (type params, inference) |
 | `examples/torch_demo.afr` | PyTorch — opérations tensorielles de base |
-| `examples/ml_demo.afr` | PyTorch — autograd, linear, conv2d, GPU |
+| `examples/ml_demo.afr` | PyTorch — autograd, linear, conv2d, entraînement |
+| `examples/train_demo.afr` | PyTorch — boucle SGD/Adam, noGrad, cross-entropy |
 | `examples/torch_test.afr` | PyTorch — tests intégrés (`test` / `assert`) |
 
 Documentation PyTorch : [docs/TORCH.md](docs/TORCH.md)

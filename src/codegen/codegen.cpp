@@ -95,6 +95,7 @@ std::string cppGenericArg(const std::string& afr) {
     if (afr == "bigint") return "afrilang::runtime::bigint::BigInt";
     if (afr == "json") return "afrilang::runtime::json::Value";
     if (afr == "tensor") return "afrilang::runtime::torch::Tensor";
+    if (afr == "optimizer") return "afrilang::runtime::torch::Optimizer";
     if (afr == "text") return "std::string";
     if (afr == "bool") return "bool";
     return afr;
@@ -116,6 +117,7 @@ std::string cppTypeFromAfrType(const AfrType& type) {
         case TypeKind::BigInt: return "afrilang::runtime::bigint::BigInt";
         case TypeKind::Json: return "afrilang::runtime::json::Value";
         case TypeKind::Tensor: return "afrilang::runtime::torch::Tensor";
+        case TypeKind::Optimizer: return "afrilang::runtime::torch::Optimizer";
         case TypeKind::Text: return "std::string";
         case TypeKind::Bool: return "bool";
         case TypeKind::Void: return "void";

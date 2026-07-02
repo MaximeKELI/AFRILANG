@@ -12,8 +12,9 @@
 | optional | `T?` | `std::optional<T>` |
 | result | `T or error` | `AfrResult_T` |
 | tensor | `tensor` | `afrilang::runtime::torch::Tensor` |
+| optimizer | `optimizer` | `afrilang::runtime::torch::Optimizer` |
 
-Voir [TORCH.md](TORCH.md) pour PyTorch / libtorch (ML, GPU, autograd).
+Voir [TORCH.md](TORCH.md) pour PyTorch / libtorch (ML, GPU, autograd, entraînement).
 
 ## Programmation orientée objet (POO)
 

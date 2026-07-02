@@ -110,14 +110,14 @@ use tensor
 
 ---
 
-## Type `tensor`
+## Types `tensor` et `optimizer`
 
 ```afr
 create weights tensor = random(10, 5)
-create x tensor = fromList(list of 1.0, 2.0, 3.0)
+create optim optimizer = adam(list of weights, 0.01)
 ```
 
-En C++ généré : `afrilang::runtime::torch::Tensor`.
+En C++ généré : `afrilang::runtime::torch::Tensor` et `afrilang::runtime::torch::Optimizer`.
 
 > Les appels de fonction sans argument nécessitent des parenthèses dans les conditions :
 > `if gpuIsReady() is equal to true then` (pas `gpuIsReady` seul).
@@ -187,17 +187,99 @@ end
 | `enableGrad(t)` | Activer le suivi des gradients |
 | `gradIsEnabled(t)` | Vérifier si grad est actif |
 | `computeGrad(t)` | Rétropropagation (`backward`) |
+| `backward(t)` | Alias de `computeGrad` |
 | `gradOf(t)` | Lire le gradient |
+| `zeroTensorGrad(t)` | Remettre le gradient d'un tenseur à zéro |
+| `detach(t)` | Détacher du graphe autograd |
+| `cloneTensor(t)` | Copie du tenseur |
 
 ```afr
 create x tensor = enableGrad(fromList(list of 2.0, 3.0))
 create y tensor = mul(x, x)
 create loss tensor = totalOf(y)
-computeGrad(loss)
+backward(loss)
 say toString(gradOf(x))
 ```
 
 > Utilise `totalOf(y)` (retourne un `tensor`) pour l'autograd, pas `sum(y)` (retourne un `number`).
+
+---
+
+## API — mode gradient / inference
+
+| Fonction | Description |
+|----------|-------------|
+| `gradModeIsOn()` | `true` si le calcul de gradient est actif (équivalent `torch.is_grad_enabled()`) |
+| `setGradMode(enabled)` | Activer / désactiver le mode gradient global |
+| `noGradMode()` | Désactiver les gradients (`torch.no_grad()`) |
+| `enableGradMode()` | Réactiver les gradients |
+| `trainMode()` | Mode entraînement (dropout actif) |
+| `evalMode()` | Mode évaluation / inference |
+| `isTrainingMode()` | Vérifier le mode entraînement |
+
+```afr
+noGradMode()
+create pred tensor = linear(input, weight, bias)
+enableGradMode()
+```
+
+---
+
+## API — fonctions de perte
+
+| Fonction | Description |
+|----------|-------------|
+| `mseLoss(pred, target)` | Erreur quadratique moyenne |
+| `crossEntropyLoss(logits, targets)` | Cross-entropy (labels entiers via `fromIntList`) |
+| `binaryCrossEntropy(pred, target)` | BCE |
+| `nllLoss(logProbs, targets)` | Negative log-likelihood |
+
+---
+
+## API — activations
+
+| Fonction | Description |
+|----------|-------------|
+| `softmax(t, dim)` | Softmax sur la dimension `dim` |
+| `logSoftmax(t, dim)` | Log-softmax |
+| `dropout(t, p)` | Dropout (respecte `trainMode` / `evalMode`) |
+| `sigmoid(t)` | Sigmoïde |
+| `tanhOf(t)` | Tangente hyperbolique |
+| `fromIntList(values)` | Tenseur d'indices entiers (labels) |
+
+---
+
+## API — optimiseurs et entraînement
+
+| Fonction | Description |
+|----------|-------------|
+| `sgd(params, lr)` | Optimiseur SGD (`params` = `list tensor`) |
+| `adam(params, lr)` | Optimiseur Adam |
+| `zeroOptimizer(opt)` | `optimizer.zero_grad()` |
+| `optimizerStep(opt)` | `optimizer.step()` |
+| `trainStep(opt, loss)` | `zero_grad` + `backward` + `step` en une passe |
+
+```afr
+create weight tensor = enableGrad(random(2, 3))
+create bias tensor = enableGrad(zerosFromShape(list of 2.0))
+create params = list of weight, bias
+create optim optimizer = adam(params, 0.01)
+
+trainMode()
+
+for epoch from 1 to 100 do
+    create pred tensor = linear(input, weight, bias)
+    create loss tensor = mseLoss(pred, target)
+    trainStep(optim, loss)
+end
+
+evalMode()
+noGradMode()
+create output tensor = linear(input, weight, bias)
+enableGradMode()
+```
+
+Type `optimizer` en C++ : `afrilang::runtime::torch::Optimizer`.
 
 ---
 
@@ -235,7 +317,8 @@ create loaded tensor = load("modele.pt")
 | Fichier | Description |
 |---------|-------------|
 | `examples/torch_demo.afr` | Opérations de base (matrices, ReLU) |
-| `examples/ml_demo.afr` | Autograd, linear, conv2d, GPU |
+| `examples/ml_demo.afr` | Autograd, linear, conv2d, GPU, entraînement |
+| `examples/train_demo.afr` | Boucle complète SGD/Adam, noGrad, cross-entropy |
 | `examples/tensor_auto.afr` | Import `std/tensor` minimal |
 | `examples/torch_test.afr` | Tests intégrés (`test` / `assert`) |
 

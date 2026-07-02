@@ -574,6 +574,7 @@ std::vector<std::string> Parser::parseTypeParams() {
         else if (match(TokenType::TypeBigInt)) params.push_back("bigint");
         else if (match(TokenType::TypeJson)) params.push_back("json");
         else if (match(TokenType::TypeTensor)) params.push_back("tensor");
+        else if (match(TokenType::TypeOptimizer)) params.push_back("optimizer");
         else if (match(TokenType::TypeText)) params.push_back("text");
         else if (match(TokenType::TypeBool)) params.push_back("bool");
         else {
@@ -610,6 +611,7 @@ std::string Parser::parseTypeName() {
     else if (match(TokenType::TypeBigInt)) base = "bigint";
     else if (match(TokenType::TypeJson)) base = "json";
     else if (match(TokenType::TypeTensor)) base = "tensor";
+    else if (match(TokenType::TypeOptimizer)) base = "optimizer";
     else if (match(TokenType::TypeText))   base = "text";
     else if (match(TokenType::TypeBool))   base = "bool";
     else if (match(TokenType::Task)) {

@@ -36,6 +36,7 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"bigint",   TokenType::TypeBigInt},
     {"json",     TokenType::TypeJson},
     {"tensor",   TokenType::TypeTensor},
+    {"optimizer", TokenType::TypeOptimizer},
     {"text",     TokenType::TypeText},
     {"bool",     TokenType::TypeBool},
     {"while",    TokenType::While},

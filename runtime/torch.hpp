@@ -8,6 +8,7 @@
 #ifdef AFRILANG_HAS_LIBTORCH
 #include <torch/torch.h>
 #include <torch/nn/functional.h>
+#include <torch/optim.h>
 #endif
 
 namespace afrilang {
@@ -35,10 +36,50 @@ private:
 #endif
 };
 
+class Optimizer {
+public:
+    Optimizer() = default;
+
+#ifdef AFRILANG_HAS_LIBTORCH
+    explicit Optimizer(std::shared_ptr<::torch::optim::Optimizer> impl)
+        : impl_(std::move(impl)) {}
+
+    ::torch::optim::Optimizer& raw() { return *impl_; }
+    const ::torch::optim::Optimizer& raw() const { return *impl_; }
+
+    bool defined() const { return static_cast<bool>(impl_); }
+#else
+    bool defined() const { return false; }
+#endif
+
+private:
+#ifdef AFRILANG_HAS_LIBTORCH
+    std::shared_ptr<::torch::optim::Optimizer> impl_;
+#endif
+};
+
 #ifdef AFRILANG_HAS_LIBTORCH
 
 inline ::torch::TensorOptions floatOpts() {
     return ::torch::TensorOptions().dtype(::torch::kFloat32);
+}
+
+inline ::torch::TensorOptions longOpts() {
+    return ::torch::TensorOptions().dtype(::torch::kLong);
+}
+
+inline bool& trainingModeFlag() {
+    static thread_local bool flag = true;
+    return flag;
+}
+
+inline std::vector<::torch::Tensor> toRawParams(const std::vector<Tensor>& params) {
+    std::vector<::torch::Tensor> raw;
+    raw.reserve(params.size());
+    for (const auto& p : params) {
+        raw.push_back(p.raw());
+    }
+    return raw;
 }
 
 inline ::torch::Device currentDevice(bool preferGpu) {
@@ -59,9 +100,46 @@ inline bool gpuIsReady() {
     return ::torch::cuda::is_available();
 }
 
+inline bool gradModeIsOn() {
+    return ::torch::GradMode::is_enabled();
+}
+
+inline void setGradMode(bool enabled) {
+    ::torch::GradMode::set_enabled(enabled);
+}
+
+inline void noGradMode() {
+    setGradMode(false);
+}
+
+inline void enableGradMode() {
+    setGradMode(true);
+}
+
+inline void trainMode() {
+    trainingModeFlag() = true;
+}
+
+inline void evalMode() {
+    trainingModeFlag() = false;
+}
+
+inline bool isTrainingMode() {
+    return trainingModeFlag();
+}
+
 inline Tensor fromList(const std::vector<double>& values) {
     std::vector<float> data(values.begin(), values.end());
     return Tensor(::torch::tensor(data, floatOpts()));
+}
+
+inline Tensor fromIntList(const std::vector<double>& values) {
+    std::vector<int64_t> data;
+    data.reserve(values.size());
+    for (double v : values) {
+        data.push_back(static_cast<int64_t>(v));
+    }
+    return Tensor(::torch::tensor(data, longOpts()));
 }
 
 inline Tensor zeros(double rows, double cols) {
@@ -114,6 +192,26 @@ inline Tensor matmul(const Tensor& a, const Tensor& b) {
 
 inline Tensor relu(const Tensor& t) {
     return Tensor(::torch::relu(t.raw()));
+}
+
+inline Tensor sigmoid(const Tensor& t) {
+    return Tensor(::torch::sigmoid(t.raw()));
+}
+
+inline Tensor tanhOf(const Tensor& t) {
+    return Tensor(::torch::tanh(t.raw()));
+}
+
+inline Tensor softmax(const Tensor& t, double dim) {
+    return Tensor(::torch::softmax(t.raw(), static_cast<int64_t>(dim)));
+}
+
+inline Tensor logSoftmax(const Tensor& t, double dim) {
+    return Tensor(::torch::log_softmax(t.raw(), static_cast<int64_t>(dim)));
+}
+
+inline Tensor dropout(const Tensor& t, double p) {
+    return Tensor(::torch::dropout(t.raw(), p, trainingModeFlag()));
 }
 
 inline double sum(const Tensor& t) {
@@ -185,6 +283,12 @@ inline bool gradIsEnabled(const Tensor& t) {
     return t.raw().requires_grad();
 }
 
+inline void zeroTensorGrad(const Tensor& t) {
+    if (t.raw().grad().defined()) {
+        t.raw().grad().zero_();
+    }
+}
+
 inline void computeGrad(const Tensor& t) {
     if (t.raw().grad().defined()) {
         t.raw().grad().zero_();
@@ -192,11 +296,63 @@ inline void computeGrad(const Tensor& t) {
     t.raw().backward();
 }
 
+inline void backward(const Tensor& t) {
+    computeGrad(t);
+}
+
 inline Tensor gradOf(const Tensor& t) {
     if (!t.raw().grad().defined()) {
         return Tensor(::torch::zeros({1}, floatOpts()));
     }
     return Tensor(t.raw().grad().clone());
+}
+
+inline Tensor detach(const Tensor& t) {
+    return Tensor(t.raw().detach());
+}
+
+inline Tensor cloneTensor(const Tensor& t) {
+    return Tensor(t.raw().clone());
+}
+
+inline Tensor mseLoss(const Tensor& pred, const Tensor& target) {
+    return Tensor(::torch::mse_loss(pred.raw(), target.raw()));
+}
+
+inline Tensor crossEntropyLoss(const Tensor& logits, const Tensor& targets) {
+    return Tensor(::torch::cross_entropy_loss(logits.raw(), targets.raw()));
+}
+
+inline Tensor binaryCrossEntropy(const Tensor& pred, const Tensor& target) {
+    return Tensor(::torch::binary_cross_entropy(pred.raw(), target.raw()));
+}
+
+inline Tensor nllLoss(const Tensor& logProbs, const Tensor& targets) {
+    return Tensor(::torch::nll_loss(logProbs.raw(), targets.raw()));
+}
+
+inline Optimizer sgd(const std::vector<Tensor>& params, double lr) {
+    return Optimizer(std::make_shared<::torch::optim::SGD>(
+        toRawParams(params), ::torch::optim::SGDOptions(lr)));
+}
+
+inline Optimizer adam(const std::vector<Tensor>& params, double lr) {
+    return Optimizer(std::make_shared<::torch::optim::Adam>(
+        toRawParams(params), ::torch::optim::AdamOptions(lr)));
+}
+
+inline void zeroOptimizer(Optimizer& opt) {
+    opt.raw().zero_grad();
+}
+
+inline void optimizerStep(Optimizer& opt) {
+    opt.raw().step();
+}
+
+inline void trainStep(Optimizer& opt, const Tensor& loss) {
+    opt.raw().zero_grad();
+    loss.raw().backward();
+    opt.raw().step();
 }
 
 inline Tensor linear(const Tensor& input, const Tensor& weight, const Tensor& bias) {
@@ -221,7 +377,15 @@ inline Tensor flatten(const Tensor& t) {
 
 inline void setSeed(double) {}
 inline bool gpuIsReady() { return false; }
+inline bool gradModeIsOn() { return false; }
+inline void setGradMode(bool) {}
+inline void noGradMode() {}
+inline void enableGradMode() {}
+inline void trainMode() {}
+inline void evalMode() {}
+inline bool isTrainingMode() { return true; }
 inline Tensor fromList(const std::vector<double>&) { return {}; }
+inline Tensor fromIntList(const std::vector<double>&) { return {}; }
 inline Tensor zeros(double, double) { return {}; }
 inline Tensor ones(double, double) { return {}; }
 inline Tensor randTensor(double, double) { return {}; }
@@ -232,6 +396,11 @@ inline Tensor sub(const Tensor&, const Tensor&) { return {}; }
 inline Tensor mul(const Tensor&, const Tensor&) { return {}; }
 inline Tensor matmul(const Tensor&, const Tensor&) { return {}; }
 inline Tensor relu(const Tensor&) { return {}; }
+inline Tensor sigmoid(const Tensor&) { return {}; }
+inline Tensor tanhOf(const Tensor&) { return {}; }
+inline Tensor softmax(const Tensor&, double) { return {}; }
+inline Tensor logSoftmax(const Tensor&, double) { return {}; }
+inline Tensor dropout(const Tensor&, double) { return {}; }
 inline double sum(const Tensor&) { return 0; }
 inline Tensor totalOf(const Tensor& t) { return t; }
 inline double item(const Tensor&) { return 0; }
@@ -248,8 +417,21 @@ inline Tensor moveToCpu(const Tensor& t) { return t; }
 inline bool isOnGpu(const Tensor&) { return false; }
 inline Tensor enableGrad(Tensor t) { return t; }
 inline bool gradIsEnabled(const Tensor&) { return false; }
+inline void zeroTensorGrad(const Tensor&) {}
 inline void computeGrad(const Tensor&) {}
+inline void backward(const Tensor&) {}
 inline Tensor gradOf(const Tensor&) { return {}; }
+inline Tensor detach(const Tensor&) { return {}; }
+inline Tensor cloneTensor(const Tensor& t) { return t; }
+inline Tensor mseLoss(const Tensor&, const Tensor&) { return {}; }
+inline Tensor crossEntropyLoss(const Tensor&, const Tensor&) { return {}; }
+inline Tensor binaryCrossEntropy(const Tensor&, const Tensor&) { return {}; }
+inline Tensor nllLoss(const Tensor&, const Tensor&) { return {}; }
+inline Optimizer sgd(const std::vector<Tensor>&, double) { return {}; }
+inline Optimizer adam(const std::vector<Tensor>&, double) { return {}; }
+inline void zeroOptimizer(Optimizer&) {}
+inline void optimizerStep(Optimizer&) {}
+inline void trainStep(Optimizer&, const Tensor&) {}
 inline Tensor linear(const Tensor&, const Tensor&, const Tensor&) { return {}; }
 inline Tensor conv2d(const Tensor&, const Tensor&, const Tensor&, double) { return {}; }
 inline Tensor flatten(const Tensor& t) { return t; }

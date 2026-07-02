@@ -69,4 +69,34 @@ if gpuIsReady() is equal to true then
 end
 
 say ""
+say "--- Entrainement (trainStep / noGrad) ---"
+
+create trainInput tensor = random(8, 3)
+create trainTarget tensor = random(8, 2)
+create w tensor = enableGrad(random(2, 3))
+create b tensor = enableGrad(zerosFromShape(list of 2.0))
+create trainParams = list of w, b
+create trainOptim optimizer = adam(trainParams, 0.01)
+
+trainMode()
+
+for epoch from 1 to 20 do
+    create predTrain tensor = linear(trainInput, w, b)
+    create trainLoss tensor = mseLoss(predTrain, trainTarget)
+    trainStep(trainOptim, trainLoss)
+end
+
+say "Loss apres entrainement :"
+create predFinal tensor = linear(trainInput, w, b)
+create lossFinal tensor = mseLoss(predFinal, trainTarget)
+say item(lossFinal)
+
+evalMode()
+noGradMode()
+create predEval tensor = linear(trainInput, w, b)
+say "Sortie eval (sans grad) :"
+say toString(predEval)
+enableGradMode()
+
+say ""
 say "Mini framework ML : termine."

@@ -1,0 +1,73 @@
+import "std/torch"
+use torch
+
+setSeed(42)
+
+say "=== Entrainement reseau (PyTorch complet) ==="
+
+say ""
+say "--- Regression lineaire : y = 2x + 1 ---"
+
+create input tensor = fromList(list of 1.0, 2.0, 3.0, 4.0)
+create target tensor = fromList(list of 3.0, 5.0, 7.0, 9.0)
+
+create weight tensor = enableGrad(random(1, 1))
+create bias tensor = enableGrad(zerosFromShape(list of 1.0))
+create params = list of weight, bias
+create optim optimizer = adam(params, 0.05)
+
+trainMode()
+
+for epoch from 1 to 200 do
+    create pred tensor = add(mul(input, weight), bias)
+    create loss tensor = mseLoss(pred, target)
+    trainStep(optim, loss)
+end
+
+say "Poids appris :"
+say toString(weight)
+say "Biais appris :"
+say toString(bias)
+say "Loss finale :"
+create finalPred tensor = add(mul(input, weight), bias)
+create finalLoss tensor = mseLoss(finalPred, target)
+say item(finalLoss)
+
+say ""
+say "--- Inference sans gradient (noGrad) ---"
+
+evalMode()
+noGradMode()
+
+create inference tensor = add(mul(input, weight), bias)
+say "Predictions (eval) :"
+say toString(inference)
+
+enableGradMode()
+trainMode()
+
+say ""
+say "--- Classification softmax + cross-entropy ---"
+
+create logits tensor = enableGrad(random(3, 4))
+create labels tensor = fromIntList(list of 0, 2, 1)
+create clsWeight tensor = enableGrad(random(4, 4))
+create clsBias tensor = enableGrad(zerosFromShape(list of 4.0))
+create clsParams = list of clsWeight, clsBias
+create clsOptim optimizer = sgd(clsParams, 0.1)
+
+for epoch from 1 to 30 do
+    create scores tensor = linear(logits, clsWeight, clsBias)
+    create lossCls tensor = crossEntropyLoss(scores, labels)
+    trainStep(clsOptim, lossCls)
+end
+
+noGradMode()
+create scoresEval tensor = linear(logits, clsWeight, clsBias)
+create probs tensor = softmax(scoresEval, 1)
+say "Probabilites (softmax) :"
+say toString(probs)
+enableGradMode()
+
+say ""
+say "Entrainement termine."

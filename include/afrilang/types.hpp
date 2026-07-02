@@ -14,6 +14,7 @@ enum class TypeKind {
     Bool,
     Json,
     Tensor,
+    Optimizer,
     List,
     Map,
     Class,
@@ -42,6 +43,7 @@ struct AfrType {
     static AfrType text() { return {TypeKind::Text, {}, {}, {}}; }
     static AfrType jsonType() { return {TypeKind::Json, {}, {}, {}}; }
     static AfrType tensorType() { return {TypeKind::Tensor, {}, {}, {}}; }
+    static AfrType optimizerType() { return {TypeKind::Optimizer, {}, {}, {}}; }
     static AfrType boolType() { return {TypeKind::Bool, {}, {}, {}}; }
     static AfrType pointer() { return {TypeKind::Pointer, {}, {}, {}}; }
     static AfrType classType(std::string name) {
@@ -130,6 +132,7 @@ struct AfrType {
             case TypeKind::Text:   return "text";
             case TypeKind::Json:   return "json";
             case TypeKind::Tensor: return "tensor";
+            case TypeKind::Optimizer: return "optimizer";
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "pointer";
             case TypeKind::List:   return "list " + listElementTypeName;
@@ -166,6 +169,7 @@ struct AfrType {
             case TypeKind::Text:   return "std::string";
             case TypeKind::Json:   return "afrilang::runtime::json::Value";
             case TypeKind::Tensor: return "afrilang::runtime::torch::Tensor";
+            case TypeKind::Optimizer: return "afrilang::runtime::torch::Optimizer";
             case TypeKind::Bool:   return "bool";
             case TypeKind::Pointer: return "void*";
             case TypeKind::List:   return "std::vector<" + listElementCpp() + ">";
@@ -237,6 +241,7 @@ inline AfrType typeFromName(const std::string& name) {
     if (name == "text")   return AfrType::text();
     if (name == "json") return AfrType::jsonType();
     if (name == "tensor") return AfrType::tensorType();
+    if (name == "optimizer") return AfrType::optimizerType();
     if (name == "bool")   return AfrType::boolType();
     if (name == "pointer") return AfrType::pointer();
     if (name.size() > 5 && name.substr(0, 5) == "list ") {
