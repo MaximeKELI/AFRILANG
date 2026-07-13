@@ -256,6 +256,18 @@ static void addOutlineSymbol(AnalysisResult& result, const std::string& name,
     result.outline.push_back(std::move(sym));
 }
 
+static std::string diagnosticToLspJson(const Diagnostic& d, int severity) {
+    std::ostringstream out;
+    out << "{\"range\":{\"start\":{\"line\":" << std::max(0, d.line - 1)
+        << ",\"character\":" << std::max(0, d.column - 1)
+        << "},\"end\":{\"line\":" << std::max(0, d.line - 1)
+        << ",\"character\":" << std::max(0, d.column) << "}},"
+        << "\"severity\":" << severity << ",\"source\":\"afrilang\",\"code\":\""
+        << errorCodeString(d.code) << "\",\"message\":\""
+        << jsonEscape(d.message) << "\"}";
+    return out.str();
+}
+
 static AnalysisResult analyzeDocument(const std::string& path, const std::string& source,
                                       bool preferDisk) {
     AnalysisResult result;
@@ -269,8 +281,19 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
         } else {
             program = compiler->compileFromSource(source);
         }
+
+        for (const auto& d : compiler->diagnostics().diagnostics()) {
+            result.ok = false;
+            result.diagnosticJson.push_back(diagnosticToLspJson(d, 1));
+        }
+
         SemanticAnalyzer analyzer(*program, &compiler->sources(), filePath);
         const SemanticResult semantic = analyzer.analyze();
+
+        for (const auto& d : semantic.errors) {
+            result.ok = false;
+            result.diagnosticJson.push_back(diagnosticToLspJson(d, 1));
+        }
 
         for (const auto& [name, sig] : semantic.functions) {
             if (sig.isExtern) continue;
@@ -295,26 +318,17 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
                              info.endColumn, doc);
         }
         for (const auto& w : semantic.warnings) {
-            std::ostringstream d;
-            d << "{\"range\":{\"start\":{\"line\":" << std::max(0, w.line - 1)
-              << ",\"character\":" << std::max(0, w.column - 1)
-              << "},\"end\":{\"line\":" << std::max(0, w.line - 1)
-              << ",\"character\":" << std::max(0, w.column) << "}},"
-              << "\"severity\":2,\"source\":\"afrilang\",\"message\":\""
-              << jsonEscape(w.message) << "\"}";
-            result.diagnosticJson.push_back(d.str());
+            Diagnostic d;
+            d.severity = DiagnosticSeverity::Warning;
+            d.message = w.message;
+            d.file = w.file;
+            d.line = w.line;
+            d.column = w.column;
+            result.diagnosticJson.push_back(diagnosticToLspJson(d, 2));
         }
     } catch (const CompileError& e) {
         result.ok = false;
-        std::ostringstream d;
-        d << "{\"range\":{\"start\":{\"line\":" << std::max(0, e.line() - 1)
-          << ",\"character\":" << std::max(0, e.column() - 1)
-          << "},\"end\":{\"line\":" << std::max(0, e.line() - 1)
-          << ",\"character\":" << std::max(0, e.column()) << "}},"
-          << "\"severity\":1,\"source\":\"afrilang\",\"code\":\""
-          << errorCodeString(e.code()) << "\",\"message\":\""
-          << jsonEscape(e.what()) << "\"}";
-        result.diagnosticJson.push_back(d.str());
+        result.diagnosticJson.push_back(diagnosticToLspJson(e.toDiagnostic(), 1));
     }
     return result;
 }

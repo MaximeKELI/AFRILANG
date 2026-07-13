@@ -207,165 +207,227 @@ static ExecResult runCompiledProgram(const std::string& crossTarget,
 CompileResult Pipeline::compileFile(const std::string& sourcePath,
                                     const CompileOptions& options) {
     CompileResult result;
-    const std::string crossTarget = normalizeCrossTarget(options.crossTarget);
-    if (!validateCrossTarget(options.crossTarget)) {
-        return result;
-    }
-    const fs::path srcPath = fs::absolute(sourcePath);
-    const std::string baseName = srcPath.stem().string();
+    try {
+        const std::string crossTarget = normalizeCrossTarget(options.crossTarget);
+        if (!validateCrossTarget(options.crossTarget)) {
+            result.diagnostics.push_back(Diagnostic{
+                DiagnosticSeverity::Error, ErrorCode::Generic,
+                "Cible de cross-compilation invalide: " + options.crossTarget,
+                "", 0, 0, {}, {}, {}});
+            return result;
+        }
 
-    if (options.showTokens) {
-        std::ifstream file(srcPath);
-        std::ostringstream buffer;
-        buffer << file.rdbuf();
-        Lexer lexer(buffer.str());
-        printTokens(lexer.tokenize());
-    }
+        const fs::path srcPath = fs::absolute(sourcePath);
+        if (!fs::exists(srcPath)) {
+            printFileNotFoundHint(sourcePath);
+            result.diagnostics.push_back(Diagnostic{
+                DiagnosticSeverity::Error, ErrorCode::Generic,
+                "Fichier introuvable: " + sourcePath, "", 0, 0, {}, {}, {}});
+            return result;
+        }
 
-    Compiler compiler(srcPath.string(), detectAfrilangRoot());
-    std::unique_ptr<ProgramNode> program = compiler.compile();
+        const std::string baseName = srcPath.stem().string();
+        const std::string root = detectAfrilangRoot();
+        const std::string runtimeDir = options.runtimeDir.empty()
+            ? root + "/runtime"
+            : options.runtimeDir;
 
-    if (options.showAST) {
-        std::cout << "=== AST ===\n";
-        std::cout << "Classes: " << program->classes.size() << "\n";
-        std::cout << "Functions: " << program->functions.size() << "\n";
-        std::cout << "Modules: " << program->modules.size() << "\n";
-        std::cout << "===========\n";
-    }
+        if (options.showTokens) {
+            std::ifstream file(srcPath);
+            std::ostringstream buffer;
+            buffer << file.rdbuf();
+            Lexer lexer(buffer.str());
+            printTokens(lexer.tokenize());
+        }
 
-    SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
-    const SemanticResult semantic = analyzer.analyze();
+        Compiler compiler(srcPath.string(), root);
+        std::unique_ptr<ProgramNode> program = compiler.compile();
 
-    CodeGenerator codegen(*program, semantic);
-    codegen.setRuntimeDir(options.runtimeDir.empty() ? detectAfrilangRoot() + "/runtime"
-                                                     : options.runtimeDir);
-    codegen.setSourceFile(srcPath.string());
-    codegen.setDebugSymbols(options.debugSymbols);
-    codegen.setCrossTarget(crossTarget);
-    codegen.setCoverageMode(options.coverageMode);
+        for (const auto& d : compiler.diagnostics().diagnostics()) {
+            result.diagnostics.push_back(d);
+        }
 
-    result.generatedCpp = baseName + ".generated.cpp";
-    std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
-    if (fs::exists(executable) && fs::is_directory(executable)) {
-        executable = baseName + "_bin";
-    }
-    if (isWasmTarget(crossTarget)) {
-        executable = baseName + ".js";
-    }
-    result.executable = executable;
+        if (options.showAST) {
+            std::cout << "=== AST ===\n";
+            std::cout << "Classes: " << program->classes.size() << "\n";
+            std::cout << "Functions: " << program->functions.size() << "\n";
+            std::cout << "Modules: " << program->modules.size() << "\n";
+            std::cout << "===========\n";
+        }
 
-    if (options.emitOnly) {
-        std::ofstream out(result.generatedCpp);
-        codegen.generate(out);
-        result.success = true;
-        return result;
-    }
+        SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
+        const SemanticResult semantic = analyzer.analyze();
+        for (const auto& d : semantic.errors) {
+            result.diagnostics.push_back(d);
+        }
 
-    std::cout << "Compilation de " << sourcePath << "...\n";
-
-    const auto compileStart = std::chrono::steady_clock::now();
-
-    std::ifstream sourceIn(srcPath);
-    std::ostringstream sourceBuf;
-    sourceBuf << sourceIn.rdbuf();
-    const std::string sourceContent = sourceBuf.str();
-    const std::string projectDir = srcPath.parent_path().string();
-    const CompileCache cache(projectDir);
-    const std::string sourceHash = CompileCache::hashContent(sourceContent);
-
-    if (options.useCache) {
-        const CompileCacheEntry cached = cache.lookup(sourcePath);
-        if (cached.valid && cached.sourceHash == sourceHash &&
-            fs::exists(result.executable)) {
-            result.success = true;
-            std::cout << "Cache: exécutable à jour (" << result.executable << ")\n";
-            if (options.runAfter) {
-                std::cout << "--- Exécution ---\n";
-                const auto execStart = std::chrono::steady_clock::now();
-                const auto limits = securityLimits(SecurityContext::TrustedCompile);
-                ProcessConfig config;
-                config.timeoutSeconds = limits.execTimeoutSeconds;
-                config.maxMemoryMb = limits.maxMemoryMb;
-                config.maxCpuSeconds = limits.maxCpuSeconds;
-                config.maxOutputBytes = limits.maxOutputBytes;
-                config.limitProcessCount = true;
-                if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
-                    applyGuiExecConfig(config);
-                }
-                const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
-                if (!exec.output.empty()) std::cout << exec.output;
-                const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
-                    std::chrono::steady_clock::now() - execStart).count();
-                std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
-                if (options.profileMode) {
-                    std::cout << "[profile] exec: " << execMs << " ms (cache hit)\n";
-                }
+        const bool hasErrors = compiler.hasErrors() || semantic.hasErrors();
+        if (hasErrors) {
+            for (std::size_t i = 0; i < result.diagnostics.size(); ++i) {
+                if (i > 0) std::cerr << "\n";
+                std::cerr << formatDiagnostic(result.diagnostics[i]);
             }
             return result;
         }
-    }
 
-    if (!codegen.compileToExecutable(result.generatedCpp, result.executable)) {
-        const char* compiler = isWasmTarget(crossTarget) ? "em++" : "g++";
-        std::cerr << "Erreur: la compilation " << compiler << " a échoué.\n";
-        if (isWasmTarget(crossTarget)) {
-            std::cerr << "Installez Emscripten (emsdk) et assurez-vous que em++ est dans le PATH.\n";
+        CodeGenerator codegen(*program, semantic);
+        codegen.setRuntimeDir(runtimeDir);
+        codegen.setSourceFile(srcPath.string());
+        codegen.setDebugSymbols(options.debugSymbols);
+        codegen.setCrossTarget(crossTarget);
+        codegen.setCoverageMode(options.coverageMode);
+
+        result.generatedCpp = baseName + ".generated.cpp";
+        std::string executable = options.outputExecutable.empty() ? baseName : options.outputExecutable;
+        if (fs::exists(executable) && fs::is_directory(executable)) {
+            executable = baseName + "_bin";
         }
-        std::cerr << "Consultez " << result.generatedCpp << " pour le code généré.\n";
+        if (isWasmTarget(crossTarget)) {
+            executable = baseName + ".js";
+        }
+        result.executable = executable;
+
+        if (options.emitOnly) {
+            std::ofstream out(result.generatedCpp);
+            codegen.generate(out);
+            result.success = true;
+            return result;
+        }
+
+        std::cout << "Compilation de " << sourcePath << "...\n";
+
+        const auto compileStart = std::chrono::steady_clock::now();
+
+        std::ifstream sourceIn(srcPath);
+        std::ostringstream sourceBuf;
+        sourceBuf << sourceIn.rdbuf();
+        const std::string sourceContent = sourceBuf.str();
+        const std::string projectDir = srcPath.parent_path().string();
+        const CompileCache cache(projectDir);
+
+        CacheFingerprintInput fpIn;
+        fpIn.sourceContent = sourceContent;
+        for (const auto& [path, file] : compiler.sources().files()) {
+            if (path != srcPath.string()) {
+                fpIn.importContents.push_back(file.content);
+            }
+        }
+        fpIn.compilerVersion = kVersion;
+        fpIn.crossTarget = crossTarget;
+        fpIn.debugSymbols = options.debugSymbols;
+        fpIn.coverageMode = options.coverageMode;
+        fpIn.runtimeDir = runtimeDir;
+        fpIn.stdlibStamp = "stdlib-v1";
+        const std::string fingerprint = CompileCache::buildFingerprint(fpIn);
+
+        if (options.useCache) {
+            const CompileCacheEntry cached = cache.lookup(srcPath.string());
+            if (cached.valid && cached.sourceHash == fingerprint &&
+                fs::exists(result.executable)) {
+                result.success = true;
+                std::cout << "Cache: exécutable à jour (" << result.executable << ")\n";
+                if (options.runAfter) {
+                    std::cout << "--- Exécution ---\n";
+                    const auto execStart = std::chrono::steady_clock::now();
+                    const auto limits = securityLimits(SecurityContext::TrustedCompile);
+                    ProcessConfig config;
+                    config.timeoutSeconds = limits.execTimeoutSeconds;
+                    config.maxMemoryMb = limits.maxMemoryMb;
+                    config.maxCpuSeconds = limits.maxCpuSeconds;
+                    config.maxOutputBytes = limits.maxOutputBytes;
+                    config.limitProcessCount = true;
+                    if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
+                        applyGuiExecConfig(config);
+                    }
+                    const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
+                    if (!exec.output.empty()) std::cout << exec.output;
+                    const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+                        std::chrono::steady_clock::now() - execStart).count();
+                    std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
+                    if (options.profileMode) {
+                        std::cout << "[profile] exec: " << execMs << " ms (cache hit)\n";
+                    }
+                }
+                return result;
+            }
+        }
+
+        if (!codegen.compileToExecutable(result.generatedCpp, result.executable)) {
+            const char* compilerName = isWasmTarget(crossTarget) ? "em++" : "g++";
+            std::cerr << "Erreur: la compilation " << compilerName << " a échoué.\n";
+            if (isWasmTarget(crossTarget)) {
+                std::cerr << "Installez Emscripten (emsdk) et assurez-vous que em++ est dans le PATH.\n";
+            }
+            std::cerr << "Consultez " << result.generatedCpp << " pour le code généré.\n";
+            result.diagnostics.push_back(Diagnostic{
+                DiagnosticSeverity::Error, ErrorCode::Generic,
+                std::string("Échec de compilation ") + compilerName, srcPath.string(),
+                0, 0, {}, {}, {}});
+            return result;
+        }
+
+        result.success = true;
+        if (options.debugSymbols) {
+            writeDebugMetadata(result.executable + ".afr.debug.json", *program, semantic,
+                               srcPath.string());
+        }
+        if (options.useCache) {
+            cache.store(srcPath.string(), fingerprint, fs::absolute(result.executable).string());
+        }
+        const auto compileMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - compileStart).count();
+        if (isWasmTarget(crossTarget)) {
+            const fs::path wasmPath = fs::path(result.executable).replace_extension(".wasm");
+            std::cout << "Module WASM produit: " << wasmPath.filename().string()
+                      << " (+ " << result.executable << ")\n";
+        } else {
+            std::cout << "Exécutable produit: " << result.executable << "\n";
+        }
+        if (options.profileMode) {
+            std::cout << "[profile] compile: " << compileMs << " ms\n";
+        }
+
+        if (options.runAfter) {
+            std::cout << "--- Exécution ---\n";
+            const auto execStart = std::chrono::steady_clock::now();
+            const auto limits = securityLimits(SecurityContext::TrustedCompile);
+            ProcessConfig config;
+            config.timeoutSeconds = limits.execTimeoutSeconds;
+            config.maxMemoryMb = limits.maxMemoryMb;
+            config.maxCpuSeconds = limits.maxCpuSeconds;
+            config.maxOutputBytes = limits.maxOutputBytes;
+            config.limitProcessCount = true;
+            if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
+                applyGuiExecConfig(config);
+            }
+            const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
+            if (!exec.output.empty()) {
+                std::cout << exec.output;
+            }
+            if (exec.timedOut) {
+                std::cerr << "Exécution interrompue (timeout " << config.timeoutSeconds << "s)\n";
+            }
+            const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+                std::chrono::steady_clock::now() - execStart).count();
+            std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
+            if (options.profileMode) {
+                std::cout << "[profile] exec: " << execMs << " ms\n";
+                std::cout << "[profile] total: " << (compileMs + execMs) << " ms\n";
+            }
+        }
+
+        return result;
+    } catch (const CompileError& e) {
+        result.diagnostics.push_back(e.toDiagnostic());
+        std::cerr << e.format();
+        return result;
+    } catch (const std::exception& e) {
+        reportCliException(e, sourcePath);
+        result.diagnostics.push_back(Diagnostic{
+            DiagnosticSeverity::Error, ErrorCode::Generic, e.what(),
+            sourcePath, 0, 0, {}, {}, {}});
         return result;
     }
-
-    result.success = true;
-    if (options.debugSymbols) {
-        writeDebugMetadata(result.executable + ".afr.debug.json", *program, semantic,
-                           srcPath.string());
-    }
-    if (options.useCache) {
-        cache.store(sourcePath, sourceHash, fs::absolute(result.executable).string());
-    }
-    const auto compileMs = std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::steady_clock::now() - compileStart).count();
-    if (isWasmTarget(crossTarget)) {
-        const fs::path wasmPath = fs::path(result.executable).replace_extension(".wasm");
-        std::cout << "Module WASM produit: " << wasmPath.filename().string()
-                  << " (+ " << result.executable << ")\n";
-    } else {
-        std::cout << "Exécutable produit: " << result.executable << "\n";
-    }
-    if (options.profileMode) {
-        std::cout << "[profile] compile: " << compileMs << " ms\n";
-    }
-
-    if (options.runAfter) {
-        std::cout << "--- Exécution ---\n";
-        const auto execStart = std::chrono::steady_clock::now();
-        const auto limits = securityLimits(SecurityContext::TrustedCompile);
-        ProcessConfig config;
-        config.timeoutSeconds = limits.execTimeoutSeconds;
-        config.maxMemoryMb = limits.maxMemoryMb;
-        config.maxCpuSeconds = limits.maxCpuSeconds;
-        config.maxOutputBytes = limits.maxOutputBytes;
-        config.limitProcessCount = true;
-        if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
-            applyGuiExecConfig(config);
-        }
-        const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
-        if (!exec.output.empty()) {
-            std::cout << exec.output;
-        }
-        if (exec.timedOut) {
-            std::cerr << "Exécution interrompue (timeout " << config.timeoutSeconds << "s)\n";
-        }
-        const auto execMs = std::chrono::duration_cast<std::chrono::milliseconds>(
-            std::chrono::steady_clock::now() - execStart).count();
-        std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
-        if (options.profileMode) {
-            std::cout << "[profile] exec: " << execMs << " ms\n";
-            std::cout << "[profile] total: " << (compileMs + execMs) << " ms\n";
-        }
-    }
-
-    return result;
 }
 
 bool Pipeline::checkFile(const std::string& sourcePath) {
@@ -378,7 +440,23 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
         Compiler compiler(srcPath.string(), detectAfrilangRoot());
         std::unique_ptr<ProgramNode> program = compiler.compile();
         SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
-        analyzer.analyze();
+        const SemanticResult semantic = analyzer.analyze();
+
+        DiagnosticEngine all;
+        for (const auto& d : compiler.diagnostics().diagnostics()) all.report(d);
+        for (const auto& d : semantic.errors) all.report(d);
+        for (const auto& w : semantic.warnings) {
+            all.reportWarning(w.message, w.line, w.column, w.file);
+        }
+
+        if (all.hasErrors()) {
+            std::cerr << all.formatAll();
+            return false;
+        }
+
+        if (!all.warnings().empty()) {
+            std::cout << all.formatAll();
+        }
         std::cout << "OK — " << sourcePath << " (aucune erreur)\n";
         return true;
     } catch (const CompileError& e) {
@@ -1018,16 +1096,29 @@ int runCli(int argc, char* argv[]) {
             std::cerr << "Usage: afrilang debug <fichier.afr> [args...]\n";
             return 1;
         }
-        CompileOptions opts;
-        opts.debugSymbols = true;
-        opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
-        auto result = Pipeline::compileFile(argv[2], opts);
-        if (!result.success) return 1;
-        std::vector<std::string> progArgs;
-        for (int i = 3; i < argc; ++i) {
-            progArgs.emplace_back(argv[i]);
+        try {
+            CompileOptions opts;
+            opts.debugSymbols = true;
+            opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
+            auto result = Pipeline::compileFile(argv[2], opts);
+            if (!result.success) {
+                for (std::size_t i = 0; i < result.diagnostics.size(); ++i) {
+                    // compileFile already printed errors; ensure exit code
+                }
+                return 1;
+            }
+            std::vector<std::string> progArgs;
+            for (int i = 3; i < argc; ++i) {
+                progArgs.emplace_back(argv[i]);
+            }
+            return runDebugger("./" + result.executable, progArgs);
+        } catch (const CompileError& e) {
+            std::cerr << e.format();
+            return 1;
+        } catch (const std::exception& e) {
+            reportCliException(e, argv[2]);
+            return 1;
         }
-        return runDebugger("./" + result.executable, progArgs);
     }
     if (cmd == "env") {
         if (argc < 3) {
