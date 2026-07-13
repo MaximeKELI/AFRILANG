@@ -1,8 +1,0 @@
-import "pkg/w2_lib/w2_lib.afr"
-
-use w2_lib
-
-test "hello"
-    create h = hello()
-    assert h is equal to "hello from w2_lib"
-end

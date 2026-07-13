@@ -281,35 +281,50 @@ static std::string extractJsonObjectForName(const std::string& body, const std::
 }
 
 static std::string readFieldFromObject(const std::string& obj, const std::string& field) {
-    const std::string key = "\"" + field + "\":\"";
-    const std::size_t shaPos = obj.find(key);
-    if (shaPos == std::string::npos) {
+    const std::string key = "\"" + field + "\"";
+    const std::size_t keyPos = obj.find(key);
+    if (keyPos == std::string::npos) {
         if (field == "blessed" && obj.find("\"blessed\":true") != std::string::npos) return "true";
         return {};
     }
-    const std::size_t start = shaPos + key.size();
+    std::size_t i = keyPos + key.size();
+    while (i < obj.size() && std::isspace(static_cast<unsigned char>(obj[i]))) ++i;
+    if (i >= obj.size() || obj[i] != ':') return {};
+    ++i;
+    while (i < obj.size() && std::isspace(static_cast<unsigned char>(obj[i]))) ++i;
+    if (i < obj.size() && obj.compare(i, 4, "true") == 0) return "true";
+    if (i >= obj.size() || obj[i] != '"') return {};
+    const std::size_t start = i + 1;
     const std::size_t end = obj.find('"', start);
     if (end == std::string::npos || end <= start) return {};
     return obj.substr(start, end - start);
 }
 
-static std::vector<std::string> readTagsFromObject(const std::string& obj) {
-    std::vector<std::string> tags;
-    const std::string key = "\"tags\":[";
-    const std::size_t pos = obj.find(key);
-    if (pos == std::string::npos) return tags;
-    std::size_t i = pos + key.size();
-    while (i < obj.size() && obj[i] != ']') {
-        if (obj[i] == '"') {
-            const std::size_t end = obj.find('"', i + 1);
-            if (end == std::string::npos) break;
-            tags.push_back(obj.substr(i + 1, end - i - 1));
-            i = end + 1;
+static std::vector<std::string> listPackageNamesInIndex(const std::string& body) {
+    std::vector<std::string> names;
+    const std::string key = "\"name\"";
+    for (std::size_t i = 0; i < body.size(); ) {
+        const std::size_t pos = body.find(key, i);
+        if (pos == std::string::npos) break;
+        std::size_t j = pos + key.size();
+        while (j < body.size() && std::isspace(static_cast<unsigned char>(body[j]))) ++j;
+        if (j >= body.size() || body[j] != ':') {
+            i = pos + key.size();
             continue;
         }
-        ++i;
+        ++j;
+        while (j < body.size() && std::isspace(static_cast<unsigned char>(body[j]))) ++j;
+        if (j >= body.size() || body[j] != '"') {
+            i = j;
+            continue;
+        }
+        const std::size_t start = j + 1;
+        const std::size_t end = body.find('"', start);
+        if (end == std::string::npos) break;
+        names.push_back(body.substr(start, end - start));
+        i = end + 1;
     }
-    return tags;
+    return names;
 }
 
 static void applyIndexObject(PackageInfo& pkg, const std::string& obj) {
