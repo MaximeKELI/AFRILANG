@@ -1008,42 +1008,70 @@ static int cmdBuildWasmWeb(const std::string& sourcePath, const std::string& out
     }
 }
 
+static int writeDocForFile(const fs::path& srcPath, std::ostream& out) {
+    Compiler compiler(srcPath.string(), detectAfrilangRoot());
+    std::unique_ptr<ProgramNode> program = compiler.compile();
+    out << "# " << srcPath.filename().string() << "\n\n";
+    for (const auto& func : program->functions) {
+        out << "## function " << func->name << "\n\n";
+        if (!func->parameters.empty()) {
+            out << "**Parameters:** ";
+            for (std::size_t i = 0; i < func->parameters.size(); ++i) {
+                if (i > 0) out << ", ";
+                out << func->parameters[i].name << " `" << func->parameters[i].typeName << "`";
+            }
+            out << "\n\n";
+        }
+        if (!func->returnTypeName.empty()) {
+            out << "**Returns:** `" << func->returnTypeName << "`\n\n";
+        }
+    }
+    for (const auto& cls : program->classes) {
+        out << "## class " << cls->name << "\n\n";
+        for (const auto& method : cls->methods) {
+            if (method->isOperator) continue;
+            out << "- `" << method->name << "`";
+            if (!method->returnTypeName.empty()) {
+                out << " → `" << method->returnTypeName << "`";
+            }
+            out << "\n";
+        }
+        out << "\n";
+    }
+    for (const auto& test : program->tests) {
+        out << "## test \"" << test->name << "\"\n\n";
+    }
+    return 0;
+}
+
 static int cmdDoc(const std::string& sourcePath) {
     try {
         const fs::path srcPath = fs::absolute(sourcePath);
-        Compiler compiler(srcPath.string(), detectAfrilangRoot());
-        std::unique_ptr<ProgramNode> program = compiler.compile();
-        std::cout << "# " << srcPath.filename().string() << "\n\n";
-        for (const auto& func : program->functions) {
-            std::cout << "## function " << func->name << "\n\n";
-            if (!func->parameters.empty()) {
-                std::cout << "**Parameters:** ";
-                for (std::size_t i = 0; i < func->parameters.size(); ++i) {
-                    if (i > 0) std::cout << ", ";
-                    std::cout << func->parameters[i].name << " `" << func->parameters[i].typeName << "`";
-                }
-                std::cout << "\n\n";
+        if (fs::is_directory(srcPath)) {
+            const fs::path outDir = fs::current_path() / "docs" / "api";
+            fs::create_directories(outDir);
+            int count = 0;
+            for (const auto& entry : fs::recursive_directory_iterator(
+                     srcPath, fs::directory_options::skip_permission_denied)) {
+                if (!entry.is_regular_file()) continue;
+                if (entry.path().extension() != ".afr") continue;
+                const fs::path rel = fs::relative(entry.path(), srcPath);
+                fs::path outFile = outDir / rel;
+                outFile.replace_extension(".md");
+                fs::create_directories(outFile.parent_path());
+                std::ofstream out(outFile);
+                writeDocForFile(entry.path(), out);
+                std::cout << "Wrote " << outFile.string() << "\n";
+                ++count;
             }
-            if (!func->returnTypeName.empty()) {
-                std::cout << "**Returns:** `" << func->returnTypeName << "`\n\n";
+            if (count == 0) {
+                std::cerr << "Aucun fichier .afr dans " << srcPath << "\n";
+                return 1;
             }
+            std::cout << count << " fichier(s) documenté(s) → " << outDir.string() << "\n";
+            return 0;
         }
-        for (const auto& cls : program->classes) {
-            std::cout << "## class " << cls->name << "\n\n";
-            for (const auto& method : cls->methods) {
-                if (method->isOperator) continue;
-                std::cout << "- `" << method->name << "`";
-                if (!method->returnTypeName.empty()) {
-                    std::cout << " → `" << method->returnTypeName << "`";
-                }
-                std::cout << "\n";
-            }
-            std::cout << "\n";
-        }
-        for (const auto& test : program->tests) {
-            std::cout << "## test \"" << test->name << "\"\n\n";
-        }
-        return 0;
+        return writeDocForFile(srcPath, std::cout);
     } catch (const CompileError& e) {
         std::cerr << e.format();
         return 1;
@@ -1094,12 +1122,28 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "test") {
         bool coverage = false;
+        bool examplesMode = false;
+        std::string rootArg;
         for (int i = 2; i < argc; ++i) {
-            if (std::string(argv[i]) == "--coverage") coverage = true;
+            const std::string arg = argv[i];
+            if (arg == "--coverage") coverage = true;
+            else if (arg == "--examples") examplesMode = true;
+            else if (!arg.empty() && arg[0] != '-' && rootArg.empty()) rootArg = arg;
         }
-        return Pipeline::runTests(argc > 2 && argv[2][0] != '-'
-                                      ? argv[2] : detectAfrilangRoot(),
-                                  coverage);
+        if (rootArg.empty()) {
+            rootArg = examplesMode ? detectAfrilangRoot() : fs::current_path().string();
+            // CI historically: `afrilang test .` from repo root → examples
+            if (!examplesMode && fs::exists(fs::path(rootArg) / "examples" / "hello.afr") &&
+                fs::exists(fs::path(rootArg) / "CMakeLists.txt")) {
+                examplesMode = true;
+            }
+        } else if (fs::exists(fs::path(rootArg) / "examples" / "hello.afr") &&
+                   fs::exists(fs::path(rootArg) / "CMakeLists.txt") && !examplesMode) {
+            // Explicit language root without --examples still runs example suite
+            examplesMode = true;
+        }
+        return Pipeline::runTests(rootArg.empty() ? detectAfrilangRoot() : rootArg, coverage,
+                                  examplesMode);
     }
     if (cmd == "lsp") {
         return afrilang::runLspServer();
@@ -1146,7 +1190,7 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|search|add|install|sync|reindex|publish> [args]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|update|init|sync|reindex|publish> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
@@ -1163,14 +1207,37 @@ int runCli(int argc, char* argv[]) {
             const std::string query = argc >= 4 ? argv[3] : "";
             return PkgRegistry::cmdSearch(root, query);
         }
+        if (sub == "init") {
+            const std::string name = argc >= 4 ? argv[3] : "mylib";
+            return PkgRegistry::cmdInit(name);
+        }
         if (sub == "add") {
             if (argc < 4) {
-                std::cerr << "Usage: afrilang pkg add <name>\n";
+                std::cerr << "Usage: afrilang pkg add <name> [--git URL|--path DIR] [--tag T] [--branch B]\n";
                 return 1;
             }
-            return PkgRegistry::cmdAdd(dir, argv[3], root);
+            const std::string name = argv[3];
+            std::string gitUrl;
+            std::string pathDep;
+            std::string tag;
+            std::string branch;
+            for (int i = 4; i < argc; ++i) {
+                const std::string arg = argv[i];
+                if (arg == "--git" && i + 1 < argc) gitUrl = argv[++i];
+                else if (arg == "--path" && i + 1 < argc) pathDep = argv[++i];
+                else if (arg == "--tag" && i + 1 < argc) tag = argv[++i];
+                else if (arg == "--branch" && i + 1 < argc) branch = argv[++i];
+            }
+            if (!gitUrl.empty()) {
+                return PkgRegistry::cmdAddGit(dir, name, gitUrl, tag, branch, root);
+            }
+            if (!pathDep.empty()) {
+                return PkgRegistry::cmdAddPath(dir, name, pathDep, root);
+            }
+            return PkgRegistry::cmdAdd(dir, name, root);
         }
         if (sub == "install") return PkgRegistry::cmdInstall(dir, root);
+        if (sub == "update") return PkgRegistry::cmdUpdate(dir, root);
         if (sub == "sync") return PkgRegistry::syncRemoteRegistry(root);
         if (sub == "reindex") return PkgRegistry::rebuildIndex(root);
         if (sub == "publish") {
