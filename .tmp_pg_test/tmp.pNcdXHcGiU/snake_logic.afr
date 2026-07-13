@@ -1,0 +1,174 @@
+import "std/game"
+use game
+
+import "std/game2d"
+use game2d
+
+import "std/m/random2"
+use random2
+
+function snakeOccupies(xs list number, ys list number, count number, gx number, gy number) returns bool
+    create i number = 0
+    while i is less than count do
+        if xs at i is equal to gx then
+            if ys at i is equal to gy then
+                return yes
+            end
+        end
+        set i = i + 1
+    end
+    return no
+end
+
+function isWallCell(col number, row number, w number, h number) returns bool
+    if col is less than 1 then return yes end
+    if row is less than 1 then return yes end
+    if col is greater than w - 2 then return yes end
+    if row is greater than h - 2 then return yes end
+    return no
+end
+
+function foodNotOnSnake(xs list number, ys list number, snakeLen number, fx number, fy number) returns bool
+    if snakeOccupies(xs, ys, snakeLen, fx, fy) then
+        return no
+    end
+    return yes
+end
+
+function placeFood(xs list number, ys list number, snakeLen number, w number, h number) returns list number
+    create fx number = 1
+    create fy number = 1
+    repeat 400 times
+        set fx = randomRange(1, w - 2)
+        set fy = randomRange(1, h - 2)
+        if snakeOccupies(xs, ys, snakeLen, fx, fy) is equal to false then
+            return list of fx, fy
+        end
+    end
+    return list of fx, fy
+end
+
+function snakeStartCoords(w number, h number) returns list number
+    create startX number = w / 2
+    create startY number = h / 2
+    return list of startX, startX - 1, startX - 2, startY, startY, startY
+end
+
+function resetGame(w number, h number) returns list number
+    create snakeLen number = 3
+    create dirX number = 1
+    create dirY number = 0
+    create score number = 0
+
+    create coords = snakeStartCoords(w, h)
+    create x0 number = coords at 0
+    create x1 number = coords at 1
+    create x2 number = coords at 2
+    create y0 number = coords at 3
+    create y1 number = coords at 4
+    create y2 number = coords at 5
+    create tx list number = list of x0, x1, x2
+    create ty list number = list of y0, y1, y2
+
+    resetTimer("move")
+    create food0 = placeFood(tx, ty, snakeLen, w, h)
+    create fx number = food0 at 0
+    create fy number = food0 at 1
+    return list of snakeLen, dirX, dirY, score, fx, fy, x0, x1, x2, y0, y1, y2
+end
+
+function isMoveSafe(xs list number, ys list number, snakeLen number, w number, h number, dx number, dy number) returns bool
+    if dx is equal to 0 then
+        if dy is equal to 0 then
+            return no
+        end
+    end
+    create headX number = xs at 0
+    create headY number = ys at 0
+    create newX number = headX + dx
+    create newY number = headY + dy
+    if isWallCell(newX, newY, w, h) then
+        return no
+    end
+    create bodyLen number = snakeLen - 1
+    if snakeOccupies(xs, ys, bodyLen, newX, newY) then
+        return no
+    end
+    return yes
+end
+
+function pickSafeDirection(xs list number, ys list number, snakeLen number, w number, h number, curDx number, curDy number, wantDx number, wantDy number) returns list number
+    if isMoveSafe(xs, ys, snakeLen, w, h, wantDx, wantDy) then
+        return list of wantDx, wantDy
+    end
+    if isMoveSafe(xs, ys, snakeLen, w, h, curDx, curDy) then
+        return list of curDx, curDy
+    end
+    return list of 1, 0
+end
+
+function moveMsForDifficulty(score number, difficulty number) returns number
+    create level number = levelFromXp(xpForScore(score))
+    create moveMs number = speedMsForLevel(level)
+    if difficulty is equal to 2 then set moveMs = moveMs * 0.82 end
+    if difficulty is equal to 3 then set moveMs = moveMs * 0.68 end
+    return moveMs
+end
+
+function isPlayStateValid(xs list number, ys list number, snakeLen number, w number, h number) returns bool
+    if snakeLen is less than 1 then
+        return no
+    end
+    if isWallCell(xs at 0, ys at 0, w, h) then
+        return no
+    end
+    return yes
+end
+
+function firstMoveIsSafe(pack list number, w number, h number) returns bool
+    create hx number = pack at 6
+    create hy number = pack at 9
+    create dirX number = pack at 1
+    create dirY number = pack at 2
+    create newX number = hx + dirX
+    create newY number = hy + dirY
+    if isWallCell(newX, newY, w, h) then
+        return no
+    end
+    create tx list number = list of pack at 6, pack at 7, pack at 8
+    create ty list number = list of pack at 9, pack at 10, pack at 11
+    if snakeOccupies(tx, ty, 2, newX, newY) then
+        return no
+    end
+    return yes
+end
+
+function shouldPauseOnSpace(stateChanged bool) returns bool
+    if stateChanged then
+        return no
+    end
+    return yes
+end
+
+function canMoveAfterCountdown(stateMs number) returns bool
+    if stateMs is less than 2500 then
+        return no
+    end
+    return yes
+end
+
+function countdownLabel(stateMs number) returns text
+    if stateMs is less than 500 then
+        return "3"
+    end
+    if stateMs is less than 1000 then
+        return "2"
+    end
+    if stateMs is less than 1500 then
+        return "1"
+    end
+    if stateMs is less than 2500 then
+        return "GO!"
+    end
+    return ""
+end
