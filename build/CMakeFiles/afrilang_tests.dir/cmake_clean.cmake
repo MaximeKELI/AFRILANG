@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/afrilang_tests.dir/link.d"
   "CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/codegen/codegen.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o"
