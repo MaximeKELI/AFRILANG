@@ -38,9 +38,9 @@ public:
 
     static bool checkFile(const std::string& sourcePath,
                           std::size_t errorLimit = DiagnosticEngine::kDefaultErrorLimit);
-    /** Project tests under tests/, or example suite when examplesMode. */
+    /** Project tests, examples suite, or Testament-style specs (--specs). */
     static int runTests(const std::string& rootOrProject, bool coverage = false,
-                        bool examplesMode = false);
+                        bool examplesMode = false, bool specsMode = false);
 
     static bool formatFile(const std::string& sourcePath, bool writeBack);
     static bool evalReplSource(const std::string& source, std::string& errorOut);

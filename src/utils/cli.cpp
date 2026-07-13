@@ -140,7 +140,8 @@ static void printUsage() {
     std::cerr << "  afrilang build [projet/]     Compiler un projet (afrilang.toml)\n";
     std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter [--watch] [--profile]\n";
     std::cerr << "  afrilang check <fichier.afr> [--error-limit N]\n";
-    std::cerr << "  afrilang test [--examples] [--coverage]  Tests projet (tests/) ou exemples\n";
+    std::cerr << "  afrilang test [--examples|--specs] [--coverage]\n";
+    std::cerr << "      Tests projet | exemples | specs (tests/specs + tests/stdlib)\n";
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
@@ -660,8 +661,63 @@ static int runProjectTests(const fs::path& projectDir, bool coverage) {
     return failures == 0 ? 0 : 1;
 }
 
-int Pipeline::runTests(const std::string& rootOrProject, bool coverage, bool examplesMode) {
+static int runSpecsSuite(const fs::path& root, bool coverage) {
+    std::vector<fs::path> files;
+    for (const char* sub : {"tests/specs", "tests/stdlib"}) {
+        const fs::path dir = root / sub;
+        if (!fs::exists(dir) || !fs::is_directory(dir)) continue;
+        for (const auto& entry : fs::recursive_directory_iterator(
+                 dir, fs::directory_options::skip_permission_denied)) {
+            if (!entry.is_regular_file()) continue;
+            if (entry.path().extension() == ".afr") files.push_back(entry.path());
+        }
+    }
+    std::sort(files.begin(), files.end());
+    if (files.empty()) {
+        std::cout << "Aucun fichier tests/specs ou tests/stdlib trouvé.\n";
+        return 1;
+    }
+
+    std::cout << "=== Specs AFRILANG (" << files.size() << " fichier(s)) ===\n\n";
+    CompileOptions opts;
+    opts.runtimeDir = (root / "runtime").string();
+    opts.useCache = false;
+    opts.coverageMode = coverage;
+    opts.runAfter = true;
+
+    int failures = 0;
+    int passed = 0;
+    for (const auto& path : files) {
+        const std::string rel = fs::relative(path, root).string();
+        std::cout << "  " << rel << " ... ";
+        std::cout.flush();
+        try {
+            auto result = Pipeline::compileFile(path.string(), opts);
+            if (result.success) {
+                std::cout << "OK\n";
+                ++passed;
+            } else {
+                std::cout << "FAIL\n";
+                ++failures;
+            }
+        } catch (const CompileError&) {
+            std::cout << "FAIL\n";
+            ++failures;
+        } catch (const std::exception& e) {
+            std::cout << "FAIL (" << e.what() << ")\n";
+            ++failures;
+        }
+    }
+    std::cout << "\n" << passed << " réussi(s), " << failures << " échec(s).\n";
+    return failures == 0 ? 0 : 1;
+}
+
+int Pipeline::runTests(const std::string& rootOrProject, bool coverage, bool examplesMode,
+                       bool specsMode) {
     const fs::path root(rootOrProject);
+    if (specsMode) {
+        return runSpecsSuite(root, coverage);
+    }
     if (examplesMode) {
         return runExampleSuite(root, coverage);
     }
@@ -1125,27 +1181,31 @@ int runCli(int argc, char* argv[]) {
     if (cmd == "test") {
         bool coverage = false;
         bool examplesMode = false;
+        bool specsMode = false;
         std::string rootArg;
         for (int i = 2; i < argc; ++i) {
             const std::string arg = argv[i];
             if (arg == "--coverage") coverage = true;
             else if (arg == "--examples") examplesMode = true;
+            else if (arg == "--specs") specsMode = true;
             else if (!arg.empty() && arg[0] != '-' && rootArg.empty()) rootArg = arg;
+        }
+        if (specsMode) {
+            if (rootArg.empty()) rootArg = detectAfrilangRoot();
+            return Pipeline::runTests(rootArg, coverage, false, true);
         }
         if (rootArg.empty()) {
             rootArg = examplesMode ? detectAfrilangRoot() : fs::current_path().string();
-            // CI historically: `afrilang test .` from repo root → examples
             if (!examplesMode && fs::exists(fs::path(rootArg) / "examples" / "hello.afr") &&
                 fs::exists(fs::path(rootArg) / "CMakeLists.txt")) {
                 examplesMode = true;
             }
         } else if (fs::exists(fs::path(rootArg) / "examples" / "hello.afr") &&
                    fs::exists(fs::path(rootArg) / "CMakeLists.txt") && !examplesMode) {
-            // Explicit language root without --examples still runs example suite
             examplesMode = true;
         }
         return Pipeline::runTests(rootArg.empty() ? detectAfrilangRoot() : rootArg, coverage,
-                                  examplesMode);
+                                  examplesMode, false);
     }
     if (cmd == "lsp") {
         return afrilang::runLspServer();
