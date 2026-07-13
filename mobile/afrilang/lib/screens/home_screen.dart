@@ -445,6 +445,13 @@ class HtmlBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final bodyColor = theme.colorScheme.onSurface.withValues(alpha: 0.88);
+    // Light chip on dark theme was AfrColors.bgSubtle (#F8FAFC) → white bars.
+    final codeBg = isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0);
+    final codeFg = isDark ? const Color(0xFF93C5FD) : AfrColors.primaryDark;
+
     return Html(
       data: html,
       style: {
@@ -453,12 +460,25 @@ class HtmlBlock extends StatelessWidget {
           padding: HtmlPaddings.zero,
           fontSize: FontSize(15),
           lineHeight: const LineHeight(1.55),
+          color: bodyColor,
+        ),
+        'p': Style(
+          margin: Margins.zero,
+          color: bodyColor,
         ),
         'code': Style(
-          backgroundColor: AfrColors.bgSubtle,
+          backgroundColor: codeBg,
+          color: codeFg,
           fontFamily: 'JetBrains Mono',
           fontSize: FontSize(13),
+          padding: HtmlPaddings.symmetric(horizontal: 6, vertical: 2),
+          whiteSpace: WhiteSpace.pre,
         ),
+        'strong': Style(
+          fontWeight: FontWeight.w700,
+          color: theme.colorScheme.onSurface,
+        ),
+        'a': Style(color: theme.colorScheme.primary),
       },
     );
   }
