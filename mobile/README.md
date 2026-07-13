@@ -5,12 +5,21 @@ Application mobile qui **reproduit le frontend du site web** et consomme le **m�
 ## Prérequis
 
 - Flutter 3.22+ (`flutter doctor`)
-- Backend web démarré :
+- Backend web avec le **venv** (Django n’est pas installé globalement) :
 
 ```bash
 cd web
-source .venv/bin/activate   # si besoin
+source .venv/bin/activate
 python manage.py runserver 0.0.0.0:8000
+```
+
+Si `.venv` n’existe pas encore :
+
+```bash
+cd web
+python3 -m venv .venv   # ou: uv venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Lancer l’app
