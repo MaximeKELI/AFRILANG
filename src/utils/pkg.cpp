@@ -1291,12 +1291,14 @@ int PkgRegistry::cmdTest(const std::string& packageDir, const std::string& afril
         return 1;
     }
 
-    // Vendor self so import pkg/<name>/... resolves (like nimble test)
+    // Install into local registry so `import "pkg/<name>/..."` resolves (Nimble-style).
+    const fs::path registryDst = fs::path(afrilangRoot) / "packages" / info.name;
+    copyDirectory(src, registryDst);
+    // Also vendor under package root for path-style layouts
     std::string relPrefix;
     const fs::path vendorRoot = vendorRootFor(src.string(), relPrefix);
-    const fs::path dst = vendorRoot / info.name;
-    copyDirectory(src, dst);
-    std::cout << "Self-vendor: " << dst.string() << "\n";
+    copyDirectory(src, vendorRoot / info.name);
+    std::cout << "Self-install: packages/" << info.name << " (+ vendor)\n";
 
     const fs::path testsDir = src / "tests";
     if (!fs::exists(testsDir)) {
@@ -1304,8 +1306,6 @@ int PkgRegistry::cmdTest(const std::string& packageDir, const std::string& afril
         return 1;
     }
 
-    // Delegate to CLI test runner via compiling each tests/*.afr with run
-    // Implemented inline to avoid circular CLI dependency.
     int failures = 0;
     int passed = 0;
     for (const auto& entry : fs::recursive_directory_iterator(
