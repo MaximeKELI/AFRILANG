@@ -660,6 +660,12 @@ int main() {
     testNetworkServeGate();
     testIntAndJsonTypes();
     testCompileCacheHash();
+    testLexerUnexpectedCharRecovers();
+    testLexerUnterminatedStringRecovers();
+    testUndeclaredHasHelpNote();
+    testTypeMismatchCode();
+    testErrorLimitStopsReporting();
+    testFormatAllSummary();
     testMultiSemanticErrors();
     testParserRecoveryContinues();
     testDuplicateClassErrorCode();
