@@ -147,6 +147,8 @@ private:
                           bool isGlobalScope);
     AfrType analyzeExpression(const ExpressionNode& expr,
                               const std::unordered_map<std::string, AfrType>& scope);
+    AfrType analyzeExpressionRaw(const ExpressionNode& expr,
+                                 const std::unordered_map<std::string, AfrType>& scope);
     AfrType finishExpression(const ExpressionNode& expr, AfrType type) const;
     AfrType inferReturnTypeFromBlock(
         const std::vector<std::unique_ptr<StatementNode>>& body,

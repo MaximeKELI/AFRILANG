@@ -144,6 +144,7 @@ AfrType SemanticAnalyzer::resolveFunctionReturnType(const FunctionNode& func) co
 
 void SemanticAnalyzer::registerInterfaces() {
     for (const auto& iface : program_.interfaces) {
+        recover([&] {
         if (result_.interfaces.count(iface->name)) {
             errorAt(*iface, "Interface '" + iface->name + "' déjà définie");
         }
@@ -164,15 +165,18 @@ void SemanticAnalyzer::registerInterfaces() {
         }
 
         result_.interfaces[iface->name] = std::move(info);
+        });
     }
 
     for (auto& [name, info] : result_.interfaces) {
+        recover([&] {
         for (const auto& baseName : info.baseInterfaces) {
             if (!result_.interfaces.count(baseName)) {
                 error("Interface de base '" + baseName + "' introuvable pour '" + name + "'");
             }
         }
         mergeInterfaceBases(info);
+        });
     }
 }
 
@@ -195,6 +199,7 @@ void SemanticAnalyzer::mergeInterfaceBases(InterfaceInfo& info) const {
 
 void SemanticAnalyzer::registerRecords() {
     for (const auto& record : program_.records) {
+        recover([&] {
         if (result_.records.count(record->name)) {
             errorAt(*record, "Record '" + record->name + "' déjà défini");
         }
@@ -209,10 +214,12 @@ void SemanticAnalyzer::registerRecords() {
             info.fields[field.name] = std::move(fi);
         }
         result_.records[record->name] = std::move(info);
+        });
     }
 
     for (const auto& module : program_.modules) {
         for (const auto& record : module->records) {
+            recover([&] {
             if (result_.records.count(record->name)) {
                 errorAt(*record, "Record '" + record->name + "' déjà défini");
             }
@@ -227,12 +234,14 @@ void SemanticAnalyzer::registerRecords() {
             }
             result_.records[record->name] = std::move(info);
             result_.modules[module->name].records[record->name] = result_.records.at(record->name);
+            });
         }
     }
 }
 
 void SemanticAnalyzer::registerEnums() {
     for (const auto& en : program_.enums) {
+        recover([&] {
         if (result_.enums.count(en->name)) {
             errorAt(*en, "Enum '" + en->name + "' déjà définie");
         }
@@ -251,10 +260,12 @@ void SemanticAnalyzer::registerEnums() {
             info.cases[c.name] = std::move(ci);
         }
         result_.enums[en->name] = std::move(info);
+        });
     }
 
     for (const auto& module : program_.modules) {
         for (const auto& en : module->enums) {
+            recover([&] {
             if (result_.enums.count(en->name)) {
                 errorAt(*en, "Enum '" + en->name + "' déjà définie");
             }
@@ -272,12 +283,14 @@ void SemanticAnalyzer::registerEnums() {
                 info.cases[c.name] = std::move(ci);
             }
             result_.enums[en->name] = std::move(info);
+            });
         }
     }
 }
 
 void SemanticAnalyzer::registerClasses() {
     for (const auto& cls : program_.classes) {
+        recover([&] {
         if (result_.classes.count(cls->name)) {
             errorAt(*cls, "Classe '" + cls->name + "' déjà définie");
         }
@@ -1371,8 +1384,24 @@ AfrType SemanticAnalyzer::inferReturnTypeFromBlock(
         [this](const ASTNode& node, const std::string& msg) { errorAt(node, msg); });
 }
 
+AfrType SemanticAnalyzer::finishExpression(const ExpressionNode& expr, AfrType type) const {
+    expr.inferredType = type;
+    expr.typeInferred = true;
+    return type;
+}
+
 AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                                             const std::unordered_map<std::string, AfrType>& scope) {
+    try {
+        return finishExpression(expr, analyzeExpressionRaw(expr, scope));
+    } catch (const CompileError&) {
+        finishExpression(expr, AfrType::voidType());
+        throw;
+    }
+}
+
+AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
+                                               const std::unordered_map<std::string, AfrType>& scope) {
     if (const auto* str = dynamic_cast<const StringLiteralNode*>(&expr)) {
         (void)str;
         return AfrType::text();
