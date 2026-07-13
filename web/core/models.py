@@ -85,6 +85,9 @@ class StdlibModule(models.Model):
     tier = models.CharField(max_length=16, choices=TIER_CHOICES, default='simple', db_index=True)
     function_count = models.PositiveSmallIntegerField(default=0)
     has_pdf = models.BooleanField(default=False)
+    # Vague 3: core (legacy runtime) vs generated catalog
+    is_core = models.BooleanField(default=False, db_index=True)
+    experimental = models.BooleanField(default=True, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
