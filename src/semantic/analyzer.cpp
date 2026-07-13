@@ -2767,7 +2767,27 @@ const MethodSignature* SemanticAnalyzer::findOperator(const std::string& classNa
         sug = findSimilarNames(badName, nameHints);
     }
 
-    throw CompileError(message, node.loc.line, node.loc.column, currentFile_, snippet, sug, code);
+    ErrorCode effective = code;
+    if (effective == ErrorCode::Semantic) {
+        if (message.find("incompatible") != std::string::npos ||
+            message.find("incohérent") != std::string::npos ||
+            message.find("Types incohérents") != std::string::npos) {
+            effective = ErrorCode::TypeMismatch;
+        }
+    }
+
+    CompileError err(message, node.loc.line, node.loc.column, currentFile_, snippet, sug, effective);
+    if (effective == ErrorCode::UndeclaredVariable) {
+        Diagnostic d = err.toDiagnostic();
+        DiagnosticNote note;
+        note.message = currentLocale() == Locale::English
+            ? "declare it with `create name = ...` or fix the spelling"
+            : "déclarez-la avec `create nom = ...` ou corrigez l'orthographe";
+        d.notes.push_back(std::move(note));
+        throw CompileError(d.message, d.line, d.column, d.file, d.sourceLine, d.suggestions, d.code);
+        // notes lost on throw - need better approach
+    }
+    throw err;
 }
 
 } // namespace afrilang
