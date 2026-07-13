@@ -47,7 +47,8 @@ public:
                           const std::string& pathDep, const std::string& afrilangRoot);
     static int cmdInstall(const std::string& projectDir, const std::string& afrilangRoot);
     static int cmdUpdate(const std::string& projectDir, const std::string& afrilangRoot);
-    static int cmdInit(const std::string& targetDir, const std::string& packageName);
+    /** Create a library package scaffold at dirOrName (cwd/name if relative). */
+    static int cmdInit(const std::string& dirOrName);
     static int cmdList(const std::string& afrilangRoot, bool blessedOnly = false);
     static int cmdSearch(const std::string& afrilangRoot, const std::string& query);
     static int cmdPublish(const std::string& packageDir, const std::string& afrilangRoot);

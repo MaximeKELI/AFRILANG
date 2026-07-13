@@ -839,28 +839,17 @@ int PkgRegistry::cmdUpdate(const std::string& projectDir, const std::string& afr
     return failures == 0 ? 0 : 1;
 }
 
-int PkgRegistry::cmdInit(const std::string& targetDir, const std::string& packageName) {
-    const std::string name = packageName.empty() ? "mylib" : packageName;
-    fs::path dir = targetDir.empty() ? fs::current_path() / name : fs::path(targetDir);
-    if (!targetDir.empty() && packageName.empty()) {
-        dir = fs::path(targetDir);
-    } else if (!targetDir.empty() && !packageName.empty() &&
-               fs::path(targetDir).filename() != name) {
-        dir = fs::path(targetDir) / name;
-    }
+int PkgRegistry::cmdInit(const std::string& dirOrName) {
+    const fs::path dir = dirOrName.empty()
+                             ? fs::current_path() / "mylib"
+                             : (fs::path(dirOrName).is_absolute()
+                                    ? fs::path(dirOrName)
+                                    : fs::current_path() / dirOrName);
+    const std::string name = dir.filename().string().empty() ? "mylib" : dir.filename().string();
 
-    if (fs::exists(dir) && !fs::is_empty(dir)) {
-        // Allow init into empty dir; reject non-empty
-        bool hasContent = false;
-        for (const auto& e : fs::directory_iterator(dir)) {
-            (void)e;
-            hasContent = true;
-            break;
-        }
-        if (hasContent) {
-            std::cerr << "Erreur: le dossier '" << dir.string() << "' n'est pas vide.\n";
-            return 1;
-        }
+    if (fs::exists(dir)) {
+        std::cerr << "Erreur: le dossier '" << dir.string() << "' existe déjà.\n";
+        return 1;
     }
 
     fs::create_directories(dir / "tests");

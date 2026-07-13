@@ -38,7 +38,9 @@ public:
 
     static bool checkFile(const std::string& sourcePath,
                           std::size_t errorLimit = DiagnosticEngine::kDefaultErrorLimit);
-    static int runTests(const std::string& afrilangRoot, bool coverage = false);
+    /** Project tests under tests/, or example suite when examplesMode. */
+    static int runTests(const std::string& rootOrProject, bool coverage = false,
+                        bool examplesMode = false);
 
     static bool formatFile(const std::string& sourcePath, bool writeBack);
     static bool evalReplSource(const std::string& source, std::string& errorOut);
