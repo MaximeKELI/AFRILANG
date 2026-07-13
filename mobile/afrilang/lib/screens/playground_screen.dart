@@ -20,7 +20,7 @@ say "Hello, {name}!"
   (
     'If / else',
     '''create score number = 95
-if score is greater than or equal to 90 then
+if score is greater than 90 then
     say "Excellent!"
 else
     say "Keep learning"
@@ -39,7 +39,7 @@ say greet("World")
   (
     'Loop',
     '''create i number = 1
-while i is less than or equal to 5 then
+while i is less than 6 do
     say "tick " + i
     set i = i + 1
 end

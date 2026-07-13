@@ -158,7 +158,7 @@ def api_mobile_home(request):
             '    return "Hello, " + who\n'
             'end\n\n'
             'create score number = 95\n'
-            'if score is greater than or equal to 90 then\n'
+            'if score is greater than 90 then\n'
             '    say greet(name) + " — Excellent!"\n'
             'else\n'
             '    say "Keep learning"\n'

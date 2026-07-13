@@ -49,9 +49,9 @@
   <div class="compare-grid">
     <div class="compare-card other">
       <div class="compare-card-header">Style traditionnel</div>
-      <pre class="code-block mb-0" style="background:var(--afr-bg-muted);color:var(--afr-text);border-radius:0">if (score >= 90) {
+      <pre class="code-block mb-0" style="background:var(--afr-bg-muted);color:var(--afr-text);border-radius:0">if (score > 90) {
     printf("Excellent\n");
-} else if (score >= 50) {
+} else if (score > 50) {
     printf("Pass\n");
 } else {
     printf("Retry\n");
@@ -59,12 +59,14 @@
     </div>
     <div class="compare-card afr">
       <div class="compare-card-header">AFRILANG</div>
-      <pre class="code-block mb-0" style="background:var(--afr-code-bg);border-radius:0">if score is greater than or equal to 90 then
+      <pre class="code-block mb-0" style="background:var(--afr-code-bg);border-radius:0">if score is greater than 90 then
     say "Excellent"
-else if score is greater than or equal to 50 then
-    say "Pass"
 else
-    say "Retry"
+    if score is greater than 50 then
+        say "Pass"
+    else
+        say "Retry"
+    end
 end</pre>
     </div>
   </div>
