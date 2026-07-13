@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -69,6 +71,7 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
   bool? _ok;
   bool _busy = false;
   bool _ready = false;
+  Timer? _persistTimer;
 
   @override
   void initState() {
@@ -78,8 +81,6 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
     _src.addListener(_persistDebounced);
   }
 
-  Timer? _persistTimer;
-  // ignore: prefer_void_with_void_callback — local debounce helper
   void _persistDebounced() {
     _persistTimer?.cancel();
     _persistTimer = Timer(const Duration(milliseconds: 600), _persist);
@@ -116,10 +117,9 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
     try {
       final res = await context.read<AppState>().api.run(_src.text);
       if (!mounted) return;
-      final ok = res['ok'] == true;
       setState(() {
         _output = res['output']?.toString() ?? '';
-        _ok = ok;
+        _ok = res['ok'] == true;
       });
       HapticFeedback.lightImpact();
     } catch (e) {
@@ -163,7 +163,7 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
       if (!mounted) return;
       setState(() {
         _output = res['output']?.toString() ?? res.toString();
-        _ok = res['ok'] == true || (res['errors'] == 0);
+        _ok = res['ok'] == true || res['errors'] == 0;
       });
     } catch (e) {
       if (!mounted) return;
@@ -313,10 +313,7 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
                       color: outColor,
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      'Output',
-                      style: TextStyle(fontWeight: FontWeight.w700, color: outColor),
-                    ),
+                    Text('Output', style: TextStyle(fontWeight: FontWeight.w700, color: outColor)),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -337,12 +334,4 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
       ],
     );
   }
-}
-
-// Local Timer import
-class Timer {
-  Timer(Duration duration, void Function() callback) {
-    Future.delayed(duration, callback);
-  }
-  void cancel() {}
 }
