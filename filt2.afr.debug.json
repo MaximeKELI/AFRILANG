@@ -1,7 +1,0 @@
-{
-  "source": "/tmp/filt2.afr",
-  "variables": [
-    {"name":"evens","type":"list number","scope":"global"},
-    {"name":"xs","type":"list number","scope":"global"}
-  ]
-}

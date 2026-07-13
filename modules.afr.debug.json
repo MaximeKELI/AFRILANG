@@ -1,9 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/modules.afr",
-  "variables": [
-    {"name":"a","type":"number","scope":"add","line":2},
-    {"name":"b","type":"number","scope":"add","line":2},
-    {"name":"a","type":"number","scope":"multiply","line":6},
-    {"name":"b","type":"number","scope":"multiply","line":6}
-  ]
-}

@@ -1,7 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/pkg_demo.afr",
-  "variables": [
-    {"name":"x","type":"number","scope":"square","line":2},
-    {"name":"x","type":"number","scope":"twice","line":10}
-  ]
-}

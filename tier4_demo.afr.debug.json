@@ -1,9 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/tier4_demo.afr",
-  "variables": [
-    {"name":"msg","type":"text","scope":"banner","line":2},
-    {"name":"msg","type":"text","scope":"ok","line":6},
-    {"name":"msg","type":"text","scope":"err","line":10},
-    {"name":"seconds","type":"number","scope":"formatDuration","line":2}
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/records.afr",
-  "variables": [
-    {"name":"dist","type":"number","scope":"global"},
-    {"name":"py","type":"number","scope":"global"},
-    {"name":"px","type":"number","scope":"global"}
-  ]
-}

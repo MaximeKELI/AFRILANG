@@ -1,9 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/generics.afr",
-  "variables": [
-    {"name":"words","type":"list text","scope":"global"},
-    {"name":"nums","type":"list number","scope":"global"},
-    {"name":"x","type":"T","scope":"identity","line":1},
-    {"name":"items","type":"list T","scope":"first","line":5}
-  ]
-}

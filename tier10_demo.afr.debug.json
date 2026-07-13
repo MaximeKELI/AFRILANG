@@ -1,7 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/tier10_demo.afr",
-  "variables": [
-    {"name":"message","type":"text","scope":"global"},
-    {"name":"x","type":"number","scope":"double","line":3}
-  ]
-}

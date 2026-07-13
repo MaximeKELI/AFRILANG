@@ -1,7 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/exceptions.afr",
-  "variables": [
-    {"name":"a","type":"number","scope":"divide","line":1},
-    {"name":"b","type":"number","scope":"divide","line":1}
-  ]
-}

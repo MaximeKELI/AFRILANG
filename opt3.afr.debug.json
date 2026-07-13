@@ -1,6 +1,0 @@
-{
-  "source": "/tmp/opt3.afr",
-  "variables": [
-    {"name":"nickname","type":"text?","scope":"global"}
-  ]
-}

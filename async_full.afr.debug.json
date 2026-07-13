@@ -1,8 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/async_full.afr",
-  "variables": [
-    {"name":"ms","type":"number","scope":"delayedValue","line":5},
-    {"name":"r","type":"","scope":"runAll","line":14},
-    {"name":"ms","type":"number","scope":"sleep"}
-  ]
-}

@@ -1,7 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/poo_advanced.afr",
-  "variables": [
-    {"name":"cfg","type":"Config","scope":"global"},
-    {"name":"n","type":"text","scope":"init","line":5}
-  ]
-}

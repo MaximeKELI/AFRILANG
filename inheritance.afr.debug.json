@@ -1,8 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/inheritance.afr",
-  "variables": [
-    {"name":"animal","type":"Animal","scope":"global"},
-    {"name":"cat","type":"Cat","scope":"global"},
-    {"name":"animals","type":"Dog","scope":"global"}
-  ]
-}

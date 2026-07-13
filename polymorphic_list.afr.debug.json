@@ -1,6 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/polymorphic_list.afr",
-  "variables": [
-    {"name":"pets","type":"list Animal","scope":"global"}
-  ]
-}

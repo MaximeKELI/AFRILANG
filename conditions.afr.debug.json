@@ -1,9 +1,0 @@
-{
-  "source": "/home/maxime/AFRILANG/examples/conditions.afr",
-  "variables": [
-    {"name":"y","type":"number","scope":"global"},
-    {"name":"x","type":"number","scope":"global"},
-    {"name":"score","type":"number","scope":"global"},
-    {"name":"age","type":"number","scope":"global"}
-  ]
-}
