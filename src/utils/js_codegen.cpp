@@ -10,25 +10,7 @@ namespace afrilang {
 
 namespace {
 
-bool expressionSupported(const ExpressionNode& expr) {
-    if (dynamic_cast<const StringLiteralNode*>(&expr)) return true;
-    if (dynamic_cast<const NumberLiteralNode*>(&expr)) return true;
-    if (dynamic_cast<const BoolLiteralNode*>(&expr)) return true;
-    if (dynamic_cast<const IdentifierNode*>(&expr)) return true;
-    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
-        static const char* ops[] = {"+", "-", "*", "/", ">", "<", "==", "!=", "&&", "||"};
-        bool ok = false;
-        for (const char* op : ops) {
-            if (bin->op == op) ok = true;
-        }
-        return ok && expressionSupported(*bin->left) && expressionSupported(*bin->right);
-    }
-    if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
-        return (unary->op == "-" || unary->op == "not") &&
-               expressionSupported(*unary->operand);
-    }
-    return false;
-}
+bool expressionSupported(const ExpressionNode& expr);
 
 bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmts) {
     for (const auto& stmt : stmts) {
@@ -65,9 +47,54 @@ bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmt
             if (!statementsSupported(repeat->body)) return false;
             continue;
         }
+        if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(stmt.get())) {
+            if (!expressionSupported(*forRange->start) || !expressionSupported(*forRange->end)) {
+                return false;
+            }
+            if (forRange->step && !expressionSupported(*forRange->step)) return false;
+            if (!statementsSupported(forRange->body)) return false;
+            continue;
+        }
+        if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(stmt.get())) {
+            if (ret->value && !expressionSupported(*ret->value)) return false;
+            continue;
+        }
+        if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(stmt.get())) {
+            if (!exprStmt->expression || !expressionSupported(*exprStmt->expression)) return false;
+            continue;
+        }
         return false;
     }
     return true;
+}
+
+bool expressionSupported(const ExpressionNode& expr) {
+    if (dynamic_cast<const StringLiteralNode*>(&expr)) return true;
+    if (dynamic_cast<const NumberLiteralNode*>(&expr)) return true;
+    if (dynamic_cast<const BoolLiteralNode*>(&expr)) return true;
+    if (dynamic_cast<const IdentifierNode*>(&expr)) return true;
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        static const char* ops[] = {"+", "-", "*", "/", ">", "<", "==", "!=", "&&", "||",
+                                    ">=", "<="};
+        bool ok = false;
+        for (const char* op : ops) {
+            if (bin->op == op) ok = true;
+        }
+        return ok && expressionSupported(*bin->left) && expressionSupported(*bin->right);
+    }
+    if (const auto* unary = dynamic_cast<const UnaryOpNode*>(&expr)) {
+        return (unary->op == "-" || unary->op == "not") &&
+               expressionSupported(*unary->operand);
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        if (!expressionSupported(*call->callee)) return false;
+        if (!call->typeArgs.empty()) return false;
+        for (const auto& arg : call->arguments) {
+            if (!expressionSupported(*arg)) return false;
+        }
+        return true;
+    }
+    return false;
 }
 
 } // namespace
@@ -79,9 +106,9 @@ std::string compileSourceToJavaScript(const std::string& source,
     SemanticAnalyzer analyzer(*program, &compiler.sources(), virtualPath);
     const SemanticResult semantic = analyzer.analyze();
     if (!supportsJavaScriptPlayground(*program, semantic)) {
-        throw CompileError(
-            "Ce programme nécessite le compilateur natif (imports, classes, async, etc.)",
-            0, 0, virtualPath, {}, {}, ErrorCode::TypeMismatch);
+        throw CompileError("JS playground: sous-ensemble non supporté "
+                           "(pas d'imports/classes/async/UI ; fonctions OK)",
+                           0, 0, virtualPath);
     }
     JsCodeGenerator gen(*program, semantic);
     return gen.generate();
@@ -91,10 +118,16 @@ bool supportsJavaScriptPlayground(const ProgramNode& program,
                                   const SemanticResult& semantic) {
     if (!program.imports.empty()) return false;
     if (!program.classes.empty() || !program.modules.empty()) return false;
-    if (!program.enums.empty() || !program.functions.empty()) return false;
+    if (!program.enums.empty()) return false;
     if (!program.interfaces.empty() || !program.records.empty()) return false;
     if (!program.externs.empty() || !program.tests.empty()) return false;
     if (semantic.usesAsync || semantic.usesGenerators || semantic.usesUi) return false;
+    for (const auto& func : program.functions) {
+        if (func->isAsync || func->isGenerator || func->isOperator || func->isAbstract) {
+            return false;
+        }
+        if (!statementsSupported(func->body)) return false;
+    }
     return statementsSupported(program.statements);
 }
 
@@ -109,6 +142,9 @@ std::string JsCodeGenerator::generate() const {
 
 void JsCodeGenerator::generate(std::ostream& out) const {
     out << "\"use strict\";\n";
+    for (const auto& func : program_.functions) {
+        emitFunction(out, *func);
+    }
     for (const auto& stmt : program_.statements) {
         emitStatement(out, *stmt, 0);
     }
@@ -132,6 +168,19 @@ std::string JsCodeGenerator::escapeString(const std::string& s) {
         }
     }
     return result;
+}
+
+void JsCodeGenerator::emitFunction(std::ostream& out, const FunctionNode& func) const {
+    out << "function " << func.name << "(";
+    for (std::size_t i = 0; i < func.parameters.size(); ++i) {
+        if (i > 0) out << ", ";
+        out << func.parameters[i].name;
+    }
+    out << ") {\n";
+    for (const auto& stmt : func.body) {
+        emitStatement(out, *stmt, 1);
+    }
+    out << "}\n";
 }
 
 void JsCodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr) const {
@@ -170,6 +219,17 @@ void JsCodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& ex
         out << " " << bin->op << " ";
         emitExpression(out, *bin->right);
         out << ")";
+        return;
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        emitExpression(out, *call->callee);
+        out << "(";
+        for (std::size_t i = 0; i < call->arguments.size(); ++i) {
+            if (i > 0) out << ", ";
+            emitExpression(out, *call->arguments[i]);
+        }
+        out << ")";
+        return;
     }
 }
 
@@ -230,6 +290,42 @@ void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt
         }
         indent(out, indentLevel);
         out << "}\n";
+        return;
+    }
+
+    if (const auto* forRange = dynamic_cast<const ForRangeStatementNode*>(&stmt)) {
+        out << "for (let " << forRange->varName << " = ";
+        emitExpression(out, *forRange->start);
+        out << "; " << forRange->varName << " <= ";
+        emitExpression(out, *forRange->end);
+        out << "; " << forRange->varName << " += ";
+        if (forRange->step) {
+            emitExpression(out, *forRange->step);
+        } else {
+            out << "1";
+        }
+        out << ") {\n";
+        for (const auto& bodyStmt : forRange->body) {
+            emitStatement(out, *bodyStmt, indentLevel + 1);
+        }
+        indent(out, indentLevel);
+        out << "}\n";
+        return;
+    }
+
+    if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        out << "return";
+        if (ret->value) {
+            out << " ";
+            emitExpression(out, *ret->value);
+        }
+        out << ";\n";
+        return;
+    }
+
+    if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(&stmt)) {
+        emitExpression(out, *exprStmt->expression);
+        out << ";\n";
         return;
     }
 
