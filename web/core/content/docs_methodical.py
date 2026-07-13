@@ -17,6 +17,7 @@ from .docs_methodical_more import (
     tooling_page,
     wasm_page,
 )
+from .docs_prose import enrich_language_pages_with_prose
 
 
 def register_methodical_documentation(pages):
@@ -35,6 +36,7 @@ def register_methodical_documentation(pages):
     pages['testing'] = testing_page()
     pages['wasm'] = wasm_page()
     pages['contributing'] = contributing_page()
+    enrich_language_pages_with_prose(pages)
 
 
 def _overview():
@@ -171,9 +173,20 @@ def _getting_started():
         'Installation méthodique du compilateur, premier programme, projet, PATH, vérification.',
         'Methodical compiler install, first program, project, PATH, verification.',
         [
-            callout('<strong>Objectif</strong> — À la fin : <code>afrilang --version</code> fonctionne et '
-                    '<code>hello.afr</code> s’exécute.'),
+            callout(
+                '<strong>Objectif</strong> — À la fin de cette page : '
+                '<code>afrilang --version</code> répond, et un fichier <code>hello.afr</code> '
+                's’exécute sur votre machine. Lisez chaque paragraphe <em>avant</em> de coller '
+                'les commandes : le code montre ; le texte explique pourquoi.'
+            ),
             h2('Étape 0 — Prérequis'),
+            p(
+                'AFRILANG ne s’exécute pas dans une machine virtuelle : le compilateur produit '
+                'du C++, puis <code>g++</code> fabrique un binaire. '
+                'Il vous faut donc une machine Linux avec une toolchain C++ classique. '
+                'Les paquets optionnels (SDL2, Emscripten, sqlite) ne sont nécessaires '
+                'que si vous touchez GUI, WASM ou certaines demos « ultra ».'
+            ),
             table(['Outil', 'Minimum', 'Pourquoi'], [
                 ['Linux', 'Ubuntu/Debian recommandés', 'Toolchain CI de référence'],
                 ['Git', '2.x', 'Cloner le dépôt'],
@@ -181,16 +194,29 @@ def _getting_started():
                 ['g++', 'C++17 (C++20 pour async)', 'Compilation du runtime'],
                 ['Optionnel', 'Emscripten, SDL2, sqlite3-dev', 'WASM / GUI / demos ultra'],
             ]),
+            p('Sur Debian/Ubuntu, installez d’abord les outils de base :'),
             code('sudo apt-get update\nsudo apt-get install -y git cmake g++ build-essential', 'Terminal'),
             h2('Étape 1 — Installer le compilateur (sources)'),
+            p(
+                'La méthode la plus fiable est de compiler depuis le dépôt GitHub. '
+                'Après le build, le binaire se trouve dans <code>build/afrilang</code>. '
+                'La <strong>racine du clone</strong> doit rester accessible : '
+                'c’est elle qui fournit la stdlib, les packages et le runtime '
+                '(via <code>AFRILANG_HOME</code> à l’étape suivante).'
+            ),
             code('''git clone https://github.com/MaximeKELI/AFRILANG.git
 cd AFRILANG
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
 ./build/afrilang --version''', 'Terminal'),
-            p('Le binaire est <code>build/afrilang</code>. La racine du repo sert de '
-              '<code>AFRILANG_HOME</code> (stdlib, packages, runtime).'),
             h2('Étape 2 — Mettre dans le PATH'),
+            p(
+                'Sans PATH, vous devez taper le chemin complet à chaque fois. '
+                'Sans <code>AFRILANG_HOME</code>, le compilateur ne trouve pas la stdlib '
+                '(erreur du type « module introuvable »). '
+                'Les deux exports ci-dessous résolvent ces deux problèmes. '
+                'Adaptez le chemin si votre clone n’est pas dans <code>$HOME/AFRILANG</code>.'
+            ),
             code('''mkdir -p ~/.local/bin
 cp build/afrilang ~/.local/bin/
 echo 'export AFRILANG_HOME="$HOME/AFRILANG"' >> ~/.bashrc
@@ -198,17 +224,34 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 afrilang --version''', 'Terminal'),
             h2('Étape 3 — Alternative : page Télécharger'),
-            p('Binaire précompilé (si disponible) : <a href="/download/">/download/</a>. '
-              'Configurez quand même <code>AFRILANG_HOME</code> vers un clone du dépôt '
-              '(stdlib + packages).'),
+            p(
+                'Si un binaire précompilé est proposé sur '
+                '<a href="/download/">/download/</a>, vous pouvez l’utiliser. '
+                'Gardez quand même un clone du dépôt pour <code>AFRILANG_HOME</code> : '
+                'le binaire seul ne contient pas toute la stdlib.'
+            ),
             h2('Étape 4 — Premier fichier'),
+            p(
+                'Créez un fichier texte <code>hello.afr</code>. '
+                '<code>say</code> affiche une ligne. '
+                '<code>repeat 3 times … end</code> répète un bloc trois fois. '
+                'Puis lancez <code>afrilang run</code> : le compilateur transpile en C++, '
+                'appelle <code>g++</code>, et exécute le programme résultant. '
+                'Vous ne voyez pas le C++ sauf si vous demandez un build sans run.'
+            ),
             code('''say "Bonjour depuis AFRILANG!"
 repeat 3 times
     say "Hello"
 end''', 'hello.afr'),
             code('afrilang run hello.afr', 'Terminal'),
-            p('Le compilateur génère du C++, compile avec <code>g++</code>, puis exécute le binaire.'),
             h2('Étape 5 — Créer un projet'),
+            p(
+                '<code>afrilang init</code> prépare une structure standard : '
+                'métadonnées (<code>afrilang.toml</code>), point d’entrée '
+                '(<code>src/main.afr</code>), dossier de tests. '
+                'C’est le format attendu par <code>pkg</code> et <code>afrilang test</code>. '
+                'Pour une bibliothèque publiable, ajoutez <code>--lib</code>.'
+            ),
             code('''afrilang init mon_app
 cd mon_app
 afrilang run src/main.afr
@@ -220,6 +263,7 @@ afrilang test''', 'Terminal'),
                 '<code>afrilang init mon_lib --lib</code> — scaffold bibliothèque',
             ]),
             h2('Étape 6 — Checklist de validation'),
+            p('Cochez mentalement chaque point avant de passer à la syntaxe :'),
             ul([
                 '<code>afrilang --version</code> affiche 1.x',
                 '<code>afrilang run examples/hello.afr</code> (depuis le dépôt) réussit',
@@ -227,6 +271,10 @@ afrilang test''', 'Terminal'),
                 'Extension VS Code/Cursor installée (optionnel) : voir Outils',
             ]),
             h2('Erreurs fréquentes'),
+            p(
+                'La plupart des blocages d’installation se réduisent à trois causes : '
+                'commande absente du PATH, stdlib introuvable, ou compilateur C++ manquant.'
+            ),
             table(['Symptôme', 'Cause', 'Remède'], [
                 ['<code>commande introuvable</code>', 'Pas dans PATH', 'Copier vers <code>~/.local/bin</code>'],
                 ['stdlib introuvable', '<code>AFRILANG_HOME</code> absent', 'Exporter la variable'],
@@ -235,9 +283,16 @@ afrilang test''', 'Terminal'),
             callout('<strong>Suite :</strong> <a href="/docs/syntax/">Syntaxe de base →</a>'),
         ],
         [
-            callout('<strong>Goal</strong> — By the end: <code>afrilang --version</code> works and '
-                    '<code>hello.afr</code> runs.'),
+            callout(
+                '<strong>Goal</strong> — By the end: <code>afrilang --version</code> works and '
+                '<code>hello.afr</code> runs. Read each paragraph <em>before</em> pasting commands.'
+            ),
             h2('Step 0 — Prerequisites'),
+            p(
+                'AFRILANG has no VM: the compiler emits C++, then <code>g++</code> builds a binary. '
+                'You need a Linux box with a normal C++ toolchain. '
+                'Optional packages (SDL2, Emscripten, sqlite) are only for GUI / WASM / some demos.'
+            ),
             table(['Tool', 'Minimum', 'Why'], [
                 ['Linux', 'Ubuntu/Debian recommended', 'CI reference toolchain'],
                 ['Git', '2.x', 'Clone the repo'],
@@ -245,16 +300,26 @@ afrilang test''', 'Terminal'),
                 ['g++', 'C++17 (C++20 for async)', 'Compile the runtime'],
                 ['Optional', 'Emscripten, SDL2, sqlite3-dev', 'WASM / GUI / ultra demos'],
             ]),
+            p('On Debian/Ubuntu, install the basics first:'),
             code('sudo apt-get update\nsudo apt-get install -y git cmake g++ build-essential', 'Terminal'),
             h2('Step 1 — Install the compiler (from source)'),
+            p(
+                'The most reliable path is building from the GitHub repo. '
+                'The binary lands in <code>build/afrilang</code>. '
+                'Keep the <strong>clone root</strong> available: it provides stdlib, packages, '
+                'and runtime via <code>AFRILANG_HOME</code> next.'
+            ),
             code('''git clone https://github.com/MaximeKELI/AFRILANG.git
 cd AFRILANG
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j$(nproc)
 ./build/afrilang --version''', 'Terminal'),
-            p('The binary is <code>build/afrilang</code>. The repo root is '
-              '<code>AFRILANG_HOME</code> (stdlib, packages, runtime).'),
             h2('Step 2 — Put it on PATH'),
+            p(
+                'Without PATH you type the full path every time. '
+                'Without <code>AFRILANG_HOME</code> the compiler cannot find the stdlib. '
+                'Adapt the path if your clone is not under <code>$HOME/AFRILANG</code>.'
+            ),
             code('''mkdir -p ~/.local/bin
 cp build/afrilang ~/.local/bin/
 echo 'export AFRILANG_HOME="$HOME/AFRILANG"' >> ~/.bashrc
@@ -262,17 +327,27 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 afrilang --version''', 'Terminal'),
             h2('Step 3 — Alternative: Download page'),
-            p('Prebuilt binary (when available): <a href="/download/">/download/</a>. '
-              'Still set <code>AFRILANG_HOME</code> to a clone of the repo '
-              '(stdlib + packages).'),
+            p(
+                'If a prebuilt binary is on <a href="/download/">/download/</a>, you may use it. '
+                'Still keep a repo clone for <code>AFRILANG_HOME</code>.'
+            ),
             h2('Step 4 — First file'),
+            p(
+                'Create <code>hello.afr</code>. <code>say</code> prints a line; '
+                '<code>repeat … end</code> repeats a block. '
+                '<code>afrilang run</code> transpiles to C++, runs <code>g++</code>, then executes.'
+            ),
             code('''say "Hello from AFRILANG!"
 repeat 3 times
     say "Hello"
 end''', 'hello.afr'),
             code('afrilang run hello.afr', 'Terminal'),
-            p('The compiler emits C++, builds with <code>g++</code>, then runs the binary.'),
             h2('Step 5 — Create a project'),
+            p(
+                '<code>afrilang init</code> scaffolds metadata, entry point, and tests — '
+                'the layout expected by <code>pkg</code> and <code>afrilang test</code>. '
+                'Use <code>--lib</code> for a publishable library.'
+            ),
             code('''afrilang init my_app
 cd my_app
 afrilang run src/main.afr
@@ -284,6 +359,7 @@ afrilang test''', 'Terminal'),
                 '<code>afrilang init my_lib --lib</code> — library scaffold',
             ]),
             h2('Step 6 — Validation checklist'),
+            p('Check each point before moving on to syntax:'),
             ul([
                 '<code>afrilang --version</code> prints 1.x',
                 '<code>afrilang run examples/hello.afr</code> (from the repo) succeeds',
@@ -291,6 +367,7 @@ afrilang test''', 'Terminal'),
                 'VS Code/Cursor extension installed (optional): see Tooling',
             ]),
             h2('Common errors'),
+            p('Most install blockers are PATH, missing <code>AFRILANG_HOME</code>, or no C++ toolchain.'),
             table(['Symptom', 'Cause', 'Fix'], [
                 ['command not found', 'Not on PATH', 'Copy to <code>~/.local/bin</code>'],
                 ['stdlib missing', 'No <code>AFRILANG_HOME</code>', 'Export the variable'],
