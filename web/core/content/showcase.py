@@ -118,16 +118,16 @@ PROJECTS = [
         'github': 'https://github.com/MaximeKELI/AFRILANG/blob/main/examples/gui_demo.afr',
         'featured': False,
         'tags': ['GUI', 'SDL2'],
-        'playground_slug': 'gui-demo',
+        'playground_slug': '',  # GUI native — pas le playground web
         'fr': {
             'title': 'Démo GUI (SDL2)',
-            'summary': 'Interface graphique native via stdlib/ui et SDL2.',
-            'highlights': ['Fenêtres', 'Boutons', 'Cross-platform'],
+            'summary': 'Interface graphique native via stdlib/ui et SDL2 (compilateur local).',
+            'highlights': ['Fenêtres', 'Boutons', 'Desktop only'],
         },
         'en': {
             'title': 'GUI demo (SDL2)',
-            'summary': 'Native GUI via stdlib/ui and SDL2.',
-            'highlights': ['Windows', 'Buttons', 'Cross-platform'],
+            'summary': 'Native GUI via stdlib/ui and SDL2 (local compiler).',
+            'highlights': ['Windows', 'Buttons', 'Desktop only'],
         },
     },
     {
