@@ -1,0 +1,25 @@
+import "std/c/nlplevenshtein"
+import "std/c/statcorrel"
+import "std/c/mlcosine"
+import "std/format"
+
+use nlplevenshtein
+use statcorrel
+use mlcosine
+use format
+
+create dist = distance("kitten", "sitting")
+say formatNumber(dist, 0)
+
+create sim = similarity("hello", "hallo")
+say formatNumber(sim, 3)
+
+create numsA = list of 1, 2, 3, 4, 5
+create numsB = list of 2, 4, 6, 8, 10
+create corr = pearson(numsA, numsB)
+say formatNumber(corr, 3)
+
+create vecA = list of 1, 0, 1
+create vecB = list of 1, 1, 0
+create cos = cosineSim(vecA, vecB)
+say formatNumber(cos, 3)
