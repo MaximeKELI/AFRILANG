@@ -221,7 +221,11 @@ class _StdlibDetailScreenState extends State<StdlibDetailScreen> {
                       final fn = f as Map<String, dynamic>;
                       final name = fn['name']?.toString() ?? '';
                       final returns = fn['returns']?.toString() ?? '';
-                      final params = (fn['params'] as List?)?.join(', ') ?? '';
+                      final paramsRaw = fn['params'] as List? ?? [];
+                      final params = paramsRaw.map((p) {
+                        if (p is Map) return '${p['name'] ?? p}';
+                        return p.toString();
+                      }).join(', ');
                       final role = fn['role']?.toString() ?? fn['doc']?.toString() ?? '';
                       final sig = returns.isNotEmpty ? '$name($params) → $returns' : '$name($params)';
                       return Card(
