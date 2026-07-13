@@ -1,4 +1,4 @@
-# WASM stdlib smoke (str + math — documented WASM-ok)
+// WASM stdlib smoke (str + math — documented WASM-ok)
 
 import "std/str"
 import "std/math"
