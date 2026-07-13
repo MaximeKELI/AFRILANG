@@ -8,6 +8,7 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6">
+        <p class="afr-hero-brand mb-2">{{ ui.home.brand }}</p>
         <div class="afr-hero-badge mb-3">
           <span>{% if current_lang == 'en' %}Language{% else %}Langage{% endif %} {{ SITE_STATS.version }}</span>
           <span>·</span>
@@ -17,24 +18,15 @@
           {{ ui.home.hero_h1_a }} <span class="afr-hero-accent">{{ ui.home.hero_h1_b }}</span>,<br>
           {{ ui.home.hero_h1_c }}
         </h1>
-        <p class="lead mt-3">
-          {{ ui.home.hero_lead }}
-          {% if current_lang == 'en' %}
-          <strong>{{ SITE_STATS.stdlib_modules }}+</strong> stdlib modules.
-          {% else %}
-          <strong>{{ SITE_STATS.stdlib_modules }}+</strong> modules stdlib.
-          {% endif %}
-        </p>
+        <p class="lead mt-3">{{ ui.home.hero_lead }}</p>
         <div class="d-flex flex-wrap gap-2 mt-4">
           <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-primary btn-lg">{{ ui.home.btn_start }}</a>
-          <a href="{% url 'tutorial' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.btn_tutorial }}</a>
-          <a href="{% url 'download' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_download }}</a>
           <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.btn_try }}</a>
         </div>
         <p class="small text-secondary-custom mt-3 mb-0">{{ ui.home.hero_compat }}</p>
       </div>
       <div class="col-lg-6">
-        <div class="code-panel">
+        <div class="code-panel afr-code-float">
           <div class="code-panel-header">
             <div class="code-panel-dots" aria-hidden="true"><span></span><span></span><span></span></div>
             <span>main.afr</span>
@@ -60,82 +52,50 @@ end</pre>
 
 <section class="afr-section">
   <div class="container">
-    <div class="row g-3 mb-5">
-      <div class="col-6 col-md-3">
-        <div class="afr-stat-card">
-          <div class="stat-value" data-count="{{ SITE_STATS.examples }}" data-suffix="+">0+</div>
-          <div class="stat-label">{{ ui.home.stat_examples }}</div>
-        </div>
+    <div class="afr-stat-row">
+      <div class="stat-item">
+        <div class="stat-value" data-count="{{ SITE_STATS.examples }}" data-suffix="+">0+</div>
+        <div class="stat-label">{{ ui.home.stat_examples }}</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="afr-stat-card">
-          <div class="stat-value" data-count="{{ SITE_STATS.stdlib_modules }}">0</div>
-          <div class="stat-label">{{ ui.home.stat_stdlib }}</div>
-        </div>
+      <div class="stat-item">
+        <div class="stat-value" data-count="{{ SITE_STATS.stdlib_modules }}">0</div>
+        <div class="stat-label">{{ ui.home.stat_stdlib }}</div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="afr-stat-card">
-          <div class="stat-value" data-count="{{ SITE_STATS.blessed_packages }}">0</div>
-          <div class="stat-label">{{ ui.home.stat_packages }}</div>
-        </div>
+      <div class="stat-item">
+        <div class="stat-value" data-count="{{ SITE_STATS.blessed_packages }}">0</div>
+        <div class="stat-label">{{ ui.home.stat_packages }}</div>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="stat-item">
         <a href="{% url 'download' %}" class="text-decoration-none">
-          <div class="afr-stat-card">
-            <div class="stat-value">v{{ SITE_STATS.compiler_version }}</div>
-            <div class="stat-label">{% if current_lang == 'en' %}Compiler{% else %}Compilateur{% endif %}</div>
-          </div>
+          <div class="stat-value">v{{ SITE_STATS.compiler_version }}</div>
+          <div class="stat-label">{% if current_lang == 'en' %}Compiler{% else %}Compilateur{% endif %}</div>
         </a>
       </div>
     </div>
 
-    <div class="text-center mb-5">
+    <div class="mb-4">
       <div class="section-label">{{ ui.home.why_label }}</div>
       <h2 class="fw-bold">{{ ui.home.why_title }}</h2>
-      <p class="text-secondary-custom mx-auto" style="max-width:42rem">{{ ui.home.why_desc }}</p>
+      <p class="text-secondary-custom" style="max-width:42rem">{{ ui.home.why_desc }}</p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">💬</div>
+    <div class="row g-4 g-lg-5">
+      <div class="col-md-4">
+        <div class="afr-feature-plain">
           <h3 class="h5 fw-bold">{{ ui.home.feat_natural_title }}</h3>
           <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_natural|safe }}</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">⚡</div>
+      <div class="col-md-4">
+        <div class="afr-feature-plain">
           <h3 class="h5 fw-bold">{{ ui.home.feat_perf_title }}</h3>
           <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_perf|safe }}</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">🧩</div>
-          <h3 class="h5 fw-bold">{{ ui.home.feat_modern_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_modern|safe }}</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">📚</div>
-          <h3 class="h5 fw-bold">{{ ui.home.feat_stdlib_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_stdlib|safe }}</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">🛠</div>
+      <div class="col-md-4">
+        <div class="afr-feature-plain">
           <h3 class="h5 fw-bold">{{ ui.home.feat_tools_title }}</h3>
           <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_tools|safe }}</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="afr-feature-icon" aria-hidden="true">🌍</div>
-          <h3 class="h5 fw-bold">{{ ui.home.feat_africa_title }}</h3>
-          <p class="mb-0 small text-secondary-custom">{{ ui.home.feat_africa|safe }}</p>
         </div>
       </div>
     </div>
@@ -153,9 +113,7 @@ end</pre>
           <div class="code-panel-header"><span>Terminal</span></div>
           <pre>git clone https://github.com/MaximeKELI/AFRILANG
 cd AFRILANG/build && cmake .. && cmake --build .
-./afrilang run examples/hello.afr
-./afrilang init mon_app && cd mon_app
-afrilang build && afrilang run src/main.afr</pre>
+./afrilang run examples/hello.afr</pre>
         </div>
       </div>
       <div class="col-lg-6">
@@ -187,30 +145,26 @@ rex.speak()</pre>
 
 <section class="afr-section">
   <div class="container">
-    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
       <div>
         <div class="section-label">{{ ui.home.packages_label }}</div>
         <h2 class="fw-bold mb-0">{{ ui.home.packages_title }}</h2>
       </div>
       <a href="{% url 'packages' %}" class="btn btn-afr-outline btn-sm">{{ ui.home.packages_all }}</a>
     </div>
-    <div class="row g-3">
-      {% for pkg in packages %}
-      <div class="col-md-6 col-lg-4">
-        <div class="afr-feature-card">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="text-warning" aria-label="certified">★</span>
-            <h3 class="h6 fw-bold mb-0">{{ pkg.name }}</h3>
-            <span class="badge text-bg-light border ms-auto">v{{ pkg.version }}</span>
-          </div>
-          <p class="small text-secondary-custom mb-2">{{ pkg.description }}</p>
-          <code class="small">afrilang pkg add {{ pkg.name }}</code>
-        </div>
+    {% for pkg in packages|slice:":3" %}
+    <a href="{% url 'package_detail' pkg.name %}" class="afr-pkg-row">
+      <div class="d-flex flex-wrap align-items-baseline gap-2">
+        {% if pkg.blessed %}<span class="text-warning" aria-label="certified">★</span>{% endif %}
+        <strong>{{ pkg.name }}</strong>
+        <span class="badge text-bg-light border">v{{ pkg.version }}</span>
       </div>
-      {% empty %}
-      <p class="text-secondary-custom">{{ ui.home.packages_empty|safe }}</p>
-      {% endfor %}
-    </div>
+      <p class="small text-secondary-custom mb-1 mt-1">{{ pkg.description }}</p>
+      <code class="small">afrilang pkg add {{ pkg.name }}</code>
+    </a>
+    {% empty %}
+    <p class="text-secondary-custom">{{ ui.home.packages_empty|safe }}</p>
+    {% endfor %}
   </div>
 </section>
 
@@ -221,10 +175,6 @@ rex.speak()</pre>
     <div class="d-flex flex-wrap justify-content-center gap-2">
       <a href="{% url 'download' %}" class="btn btn-afr-primary btn-lg">{{ ui.nav_download }}</a>
       <a href="{% url 'docs_getting_started' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_guide }}</a>
-      <a href="{% url 'tutorial' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_tutorial }}</a>
-      <a href="{% url 'language' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_lang }}</a>
-      <a href="{% url 'examples' %}" class="btn btn-afr-outline btn-lg">{{ ui.nav_examples }}</a>
-      <a href="{% url 'playground' %}" class="btn btn-afr-outline btn-lg">{{ ui.home.cta_play }}</a>
     </div>
   </div>
 </section>

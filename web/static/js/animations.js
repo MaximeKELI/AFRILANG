@@ -7,9 +7,11 @@
     if (reduced) return;
     var selectors = [
       '.afr-hero .col-lg-6',
+      '.afr-section .afr-feature-plain',
       '.afr-section .afr-feature-card',
-      '.afr-section .afr-stat-card',
+      '.afr-section .afr-stat-row',
       '.afr-section .code-panel',
+      '.afr-page-header',
       '.afr-card',
       '.compare-card',
       '.docs-content > h2',
