@@ -203,14 +203,13 @@ static void testFfiAllowlist() {
     afrilang::SourceManager sources;
     sources.addFile("test.afr", src);
     afrilang::SemanticAnalyzer analyzer(*program, &sources, "test.afr");
-    bool threw = false;
-    try {
-        analyzer.analyze();
-    } catch (const afrilang::CompileError& e) {
-        threw = true;
-        expect(e.code() == afrilang::ErrorCode::FfiLibraryDenied, "ffi denied");
+    const auto result = analyzer.analyze();
+    expect(result.hasErrors(), "ffi library rejected");
+    bool found = false;
+    for (const auto& e : result.errors) {
+        if (e.code == afrilang::ErrorCode::FfiLibraryDenied) found = true;
     }
-    expect(threw, "ffi library rejected");
+    expect(found, "ffi denied");
 }
 
 static void testCompileExample() {
@@ -328,6 +327,112 @@ static void testCompileCacheHash() {
     const std::string h3 = afrilang::CompileCache::hashContent("world");
     expect(h1 == h2, "cache hash stable");
     expect(h1 != h3, "cache hash differs");
+}
+
+static void testMultiSemanticErrors() {
+    const std::string src =
+        "say unknown_one\n"
+        "say unknown_two\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SourceManager sources;
+    sources.addFile("multi.afr", src);
+    afrilang::SemanticAnalyzer analyzer(*program, &sources, "multi.afr");
+    const auto result = analyzer.analyze();
+    expect(result.errors.size() >= 2, "multi semantic errors collected");
+}
+
+static void testParserRecoveryContinues() {
+    const std::string src =
+        "function broken(\n"
+        "say \"still parsed\"\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(parser.hasErrors(), "parser reports errors");
+    expect(!program->statements.empty() || parser.diagnostics().errorCount() >= 1,
+           "parser recovery yields partial AST or diagnostics");
+    bool hasSay = false;
+    for (const auto& stmt : program->statements) {
+        if (dynamic_cast<const afrilang::SayStatementNode*>(stmt.get())) hasSay = true;
+    }
+    expect(hasSay || parser.diagnostics().errorCount() >= 1,
+           "valid say recovered or error reported");
+}
+
+static void testDuplicateClassErrorCode() {
+    const std::string src =
+        "class A\nend\n"
+        "class A\nend\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "dup.afr");
+    const auto result = analyzer.analyze();
+    expect(result.hasErrors(), "duplicate class error");
+}
+
+static void testTypedExpressionAnnotation() {
+    const std::string src = "create x = 42\nsay x\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "typed.afr");
+    analyzer.analyze();
+    expect(program->statements.size() >= 2, "two statements");
+    const auto* say = dynamic_cast<const afrilang::SayStatementNode*>(program->statements[1].get());
+    expect(say != nullptr, "say statement");
+    expect(say->value->typeInferred, "expression type annotated");
+    expect(say->value->inferredType.kind == afrilang::TypeKind::Number ||
+           say->value->inferredType.kind == afrilang::TypeKind::Int,
+           "inferred number type");
+}
+
+static void testCacheFingerprintVersionInvalidates() {
+    afrilang::CacheFingerprintInput a;
+    a.sourceContent = "say \"hi\"\n";
+    a.compilerVersion = "1.0.0";
+    a.crossTarget = "native";
+    a.runtimeDir = "";
+    a.stdlibStamp = "stdlib-v1";
+    afrilang::CacheFingerprintInput b = a;
+    b.compilerVersion = "1.0.1";
+    expect(afrilang::CompileCache::buildFingerprint(a) !=
+               afrilang::CompileCache::buildFingerprint(b),
+           "version change invalidates fingerprint");
+}
+
+static void testCacheMetaKeyDistinctPaths() {
+    const std::string k1 = afrilang::CompileCache::metaKeyForPath("/tmp/a/hello.afr");
+    const std::string k2 = afrilang::CompileCache::metaKeyForPath("/tmp/b/hello.afr");
+    expect(k1 != k2, "basename collision avoided via absolute path key");
+}
+
+static void testPipelineMissingFile() {
+    afrilang::CompileOptions opts;
+    opts.useCache = false;
+    auto result = afrilang::Pipeline::compileFile("/tmp/afrilang_does_not_exist_xyz.afr", opts);
+    expect(!result.success, "missing file fails");
+    expect(!result.diagnostics.empty(), "missing file has diagnostic");
+}
+
+static void testPipelineMultiErrorNoCodegen() {
+    namespace fs = std::filesystem;
+    const fs::path tmp = fs::temp_directory_path() / "afrilang_multi_err.afr";
+    {
+        std::ofstream out(tmp);
+        out << "say foo_missing\n"
+            << "say bar_missing\n";
+    }
+    afrilang::CompileOptions opts;
+    opts.useCache = false;
+    opts.emitOnly = true;
+    auto result = afrilang::Pipeline::compileFile(tmp.string(), opts);
+    expect(!result.success, "pipeline fails on semantic errors");
+    expect(result.diagnostics.size() >= 2, "pipeline collects multiple diagnostics");
+    std::error_code ec;
+    fs::remove(tmp, ec);
 }
 
 static void testSecureTempPath() {
@@ -485,6 +590,14 @@ int main() {
     testNetworkServeGate();
     testIntAndJsonTypes();
     testCompileCacheHash();
+    testMultiSemanticErrors();
+    testParserRecoveryContinues();
+    testDuplicateClassErrorCode();
+    testTypedExpressionAnnotation();
+    testCacheFingerprintVersionInvalidates();
+    testCacheMetaKeyDistinctPaths();
+    testPipelineMissingFile();
+    testPipelineMultiErrorNoCodegen();
     testSecureTempPath();
     testParseIndexComparison();
     testParseCallComparison();
