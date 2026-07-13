@@ -99,7 +99,10 @@ struct SemanticResult {
     bool usesGenerators = false;
     bool usesUi = false;
     bool usesGame3d = false;
+    std::vector<Diagnostic> errors;
     std::vector<LintWarning> warnings;
+
+    bool hasErrors() const { return !errors.empty(); }
 };
 
 class SemanticAnalyzer {
@@ -116,6 +119,7 @@ private:
     std::string currentFile_;
     std::string currentModuleName_;
     SemanticResult result_;
+    mutable DiagnosticEngine diagnostics_;
     int loopDepth_ = 0;
     int asyncContextDepth_ = 0;
     bool inGeneratorFunction_ = false;
@@ -143,6 +147,7 @@ private:
                           bool isGlobalScope);
     AfrType analyzeExpression(const ExpressionNode& expr,
                               const std::unordered_map<std::string, AfrType>& scope);
+    AfrType finishExpression(const ExpressionNode& expr, AfrType type) const;
     AfrType inferReturnTypeFromBlock(
         const std::vector<std::unique_ptr<StatementNode>>& body,
         const std::unordered_map<std::string, AfrType>& scope,
@@ -192,6 +197,15 @@ private:
 
     std::vector<std::string> activeTypeParams_;
     AfrType currentGeneratorElementType_ = AfrType::voidType();
+
+    template <typename Fn>
+    void recover(Fn&& fn) {
+        try {
+            fn();
+        } catch (const CompileError& e) {
+            diagnostics_.report(e);
+        }
+    }
 
     [[noreturn]] void error(const std::string& message, int line = 0, int column = 0) const;
     [[noreturn]] void errorAt(const ASTNode& node, const std::string& message,
