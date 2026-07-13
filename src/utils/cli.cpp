@@ -543,7 +543,6 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
     opts.runtimeDir = (root / "runtime").string();
     opts.useCache = false;
     opts.coverageMode = coverage;
-    opts.runAfter = true;
 
     std::cout << "[examples]\n";
     for (const auto& ex : examples) {
@@ -810,8 +809,12 @@ static int cmdExplain(const std::string& file, int lineFilter) {
     }
 }
 
-static int cmdInit(const std::string& name) {
+static int cmdInit(const std::string& name, bool asLib) {
     const std::string projectName = name.empty() ? "mon_projet" : name;
+    if (asLib) {
+        return PkgRegistry::cmdInit(projectName);
+    }
+
     const fs::path dir = fs::current_path() / projectName;
 
     if (fs::exists(dir)) {
@@ -838,13 +841,33 @@ static int cmdInit(const std::string& name) {
 
     {
         std::ofstream test(dir / "tests/smoke.afr");
-        test << "say \"Test OK\"\n";
+        test << "test \"smoke\"\n";
+        test << "    create x = 1 + 1\n";
+        test << "    assert x is equal to 2\n";
+        test << "end\n";
+    }
+
+    {
+        std::ofstream readme(dir / "README.md");
+        readme << "# " << projectName << "\n\n";
+        readme << "Projet AFRILANG.\n\n";
+        readme << "```bash\n";
+        readme << "afrilang build\n";
+        readme << "afrilang run src/main.afr\n";
+        readme << "afrilang test\n";
+        readme << "```\n";
+    }
+
+    {
+        std::ofstream gi(dir / ".gitignore");
+        gi << "build/\nvendor/\n*.o\n.afrilang/\nafrilang.lock\n";
     }
 
     std::cout << "Projet '" << projectName << "' créé.\n";
     std::cout << "  cd " << projectName << "\n";
     std::cout << "  afrilang build\n";
     std::cout << "  afrilang run src/main.afr\n";
+    std::cout << "  afrilang test\n";
     return 0;
 }
 
