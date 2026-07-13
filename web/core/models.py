@@ -7,6 +7,12 @@ class Package(models.Model):
     description = models.TextField(blank=True)
     sha256 = models.CharField(max_length=64, blank=True)
     blessed = models.BooleanField(default=False, db_index=True)
+    # Vague 3 — searchable registry metadata (shards.info-style)
+    repo_url = models.URLField(blank=True)
+    method = models.CharField(max_length=16, blank=True, default='local')
+    license = models.CharField(max_length=64, blank=True)
+    tags = models.JSONField(default=list, blank=True)
+    readme = models.TextField(blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -15,6 +21,10 @@ class Package(models.Model):
     def __str__(self):
         prefix = '★ ' if self.blessed else ''
         return f'{prefix}{self.name} v{self.version}'
+
+    @property
+    def tag_list(self):
+        return self.tags if isinstance(self.tags, list) else []
 
 
 class Capability(models.Model):
