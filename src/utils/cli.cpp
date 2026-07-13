@@ -24,11 +24,13 @@
 
 #include <cstdlib>
 #include <chrono>
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <thread>
 #include <sstream>
+#include <vector>
 
 #if defined(__APPLE__)
 #include <mach-o/dyld.h>
@@ -481,12 +483,11 @@ bool Pipeline::checkFile(const std::string& sourcePath, std::size_t errorLimit) 
     }
 }
 
-int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
+static int runExampleSuite(const fs::path& root, bool coverage) {
     int failures = 0;
     int passed = 0;
-    const fs::path root(afrilangRoot);
 
-    std::cout << "=== Tests AFRILANG ===\n\n";
+    std::cout << "=== Tests AFRILANG (exemples) ===\n\n";
 
     const std::vector<std::string> examples = {
         "hello.afr", "oop.afr", "conditions.afr", "inheritance.afr",
@@ -538,11 +539,11 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         "examples/test_gameultra.afr",
     };
 
-    const int totalExamples = static_cast<int>(examples.size());
     CompileOptions opts;
     opts.runtimeDir = (root / "runtime").string();
     opts.useCache = false;
     opts.coverageMode = coverage;
+    opts.runAfter = true;
 
     std::cout << "[examples]\n";
     for (const auto& ex : examples) {
@@ -550,7 +551,7 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         std::cout << "  " << ex << " ... ";
         std::cout.flush();
         try {
-            auto result = compileFile(path, opts);
+            auto result = Pipeline::compileFile(path, opts);
             if (result.success) {
                 std::cout << "OK\n";
                 ++passed;
@@ -571,7 +572,7 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         std::cout << "  " << label << " ... ";
         std::cout.flush();
         try {
-            auto result = compileFile(path, opts);
+            auto result = Pipeline::compileFile(path, opts);
             if (result.success) {
                 std::cout << "OK\n";
                 ++passed;
@@ -585,22 +586,94 @@ int Pipeline::runTests(const std::string& afrilangRoot, bool coverage) {
         }
     }
 
-    const int totalTests = totalExamples + static_cast<int>(stdlibSamples.size());
+    const int totalTests = static_cast<int>(examples.size() + stdlibSamples.size());
     std::cout << "\n";
     if (coverage) {
         const int pct = totalTests > 0 ? (passed * 100) / totalTests : 0;
         std::cout << "Couverture exemples: " << passed << "/" << totalTests
                   << " (" << pct << "%)\n";
-        if (coverage && passed == totalTests) {
-            std::cout << "Artefacts gcov dans le répertoire courant (si g++ --coverage actif).\n";
-        }
     }
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";
     } else {
         std::cout << failures << " test(s) en échec.\n";
     }
-    return failures;
+    return failures == 0 ? 0 : 1;
+}
+
+static std::vector<fs::path> discoverProjectTests(const fs::path& projectDir) {
+    std::vector<fs::path> files;
+    const fs::path testsDir = projectDir / "tests";
+    if (!fs::exists(testsDir) || !fs::is_directory(testsDir)) return files;
+    for (const auto& entry : fs::recursive_directory_iterator(
+             testsDir, fs::directory_options::skip_permission_denied)) {
+        if (!entry.is_regular_file()) continue;
+        if (entry.path().extension() == ".afr") {
+            files.push_back(entry.path());
+        }
+    }
+    std::sort(files.begin(), files.end());
+    return files;
+}
+
+static int runProjectTests(const fs::path& projectDir, bool coverage) {
+    const auto files = discoverProjectTests(projectDir);
+    if (files.empty()) {
+        std::cout << "Aucun fichier tests/**/*.afr trouvé dans " << projectDir.string() << "\n";
+        std::cout << "Astuce: afrilang test --examples pour la suite d'exemples du compilateur.\n";
+        return 1;
+    }
+
+    std::cout << "=== Tests projet (" << files.size() << " fichier(s)) ===\n\n";
+    CompileOptions opts;
+    opts.runtimeDir = (fs::path(detectAfrilangRoot()) / "runtime").string();
+    opts.useCache = false;
+    opts.coverageMode = coverage;
+    opts.runAfter = true;
+
+    int failures = 0;
+    int passed = 0;
+    for (const auto& path : files) {
+        const std::string rel = fs::relative(path, projectDir).string();
+        std::cout << "  " << rel << " ... ";
+        std::cout.flush();
+        try {
+            auto result = Pipeline::compileFile(path.string(), opts);
+            if (result.success) {
+                std::cout << "OK\n";
+                ++passed;
+            } else {
+                std::cout << "FAIL\n";
+                ++failures;
+            }
+        } catch (const CompileError&) {
+            std::cout << "FAIL\n";
+            ++failures;
+        } catch (const std::exception& e) {
+            std::cout << "FAIL (" << e.what() << ")\n";
+            ++failures;
+        }
+    }
+
+    std::cout << "\n" << passed << " réussi(s), " << failures << " échec(s).\n";
+    return failures == 0 ? 0 : 1;
+}
+
+int Pipeline::runTests(const std::string& rootOrProject, bool coverage, bool examplesMode) {
+    const fs::path root(rootOrProject);
+    if (examplesMode) {
+        return runExampleSuite(root, coverage);
+    }
+
+    if (fs::exists(root / "tests") && fs::is_directory(root / "tests") &&
+        !discoverProjectTests(root).empty() &&
+        !(fs::exists(root / "examples" / "hello.afr") && fs::exists(root / "src" / "utils"))) {
+        return runProjectTests(root, coverage);
+    }
+    if (fs::exists(root / "examples" / "hello.afr")) {
+        return runExampleSuite(root, coverage);
+    }
+    return runProjectTests(fs::current_path(), coverage);
 }
 
 static int cmdBuild(int argc, char* argv[]) {
