@@ -1,0 +1,5 @@
+module w2smoke
+    function hello() returns text
+        return "hello from w2smoke"
+    end
+end

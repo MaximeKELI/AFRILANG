@@ -263,19 +263,41 @@ std::vector<PackageInfo> PkgRegistry::listAvailable(const std::string& afrilangR
 }
 
 static std::string extractJsonObjectForName(const std::string& body, const std::string& packageName) {
-    const std::string needle = "\"name\":\"" + packageName + "\"";
-    const std::size_t pos = body.find(needle);
-    if (pos == std::string::npos) return {};
-    // walk back to '{'
-    std::size_t start = pos;
-    while (start > 0 && body[start] != '{') --start;
-    int depth = 0;
-    for (std::size_t i = start; i < body.size(); ++i) {
-        if (body[i] == '{') ++depth;
-        else if (body[i] == '}') {
-            --depth;
-            if (depth == 0) return body.substr(start, i - start + 1);
+    // Find "name" : "packageName" with optional whitespace
+    const std::string key = "\"name\"";
+    for (std::size_t searchFrom = 0; searchFrom < body.size(); ) {
+        const std::size_t pos = body.find(key, searchFrom);
+        if (pos == std::string::npos) return {};
+        std::size_t j = pos + key.size();
+        while (j < body.size() && std::isspace(static_cast<unsigned char>(body[j]))) ++j;
+        if (j >= body.size() || body[j] != ':') {
+            searchFrom = pos + key.size();
+            continue;
         }
+        ++j;
+        while (j < body.size() && std::isspace(static_cast<unsigned char>(body[j]))) ++j;
+        if (j >= body.size() || body[j] != '"') {
+            searchFrom = j;
+            continue;
+        }
+        const std::size_t start = j + 1;
+        const std::size_t end = body.find('"', start);
+        if (end == std::string::npos) return {};
+        if (body.substr(start, end - start) != packageName) {
+            searchFrom = end + 1;
+            continue;
+        }
+        std::size_t objStart = pos;
+        while (objStart > 0 && body[objStart] != '{') --objStart;
+        int depth = 0;
+        for (std::size_t i = objStart; i < body.size(); ++i) {
+            if (body[i] == '{') ++depth;
+            else if (body[i] == '}') {
+                --depth;
+                if (depth == 0) return body.substr(objStart, i - objStart + 1);
+            }
+        }
+        return {};
     }
     return {};
 }
@@ -382,21 +404,6 @@ static std::string readIndexFile(const fs::path& indexPath) {
     std::ostringstream buf;
     buf << in.rdbuf();
     return buf.str();
-}
-
-static std::vector<std::string> listPackageNamesInIndex(const std::string& body) {
-    std::vector<std::string> names;
-    const std::string key = "\"name\":\"";
-    for (std::size_t i = 0; i < body.size(); ) {
-        const std::size_t pos = body.find(key, i);
-        if (pos == std::string::npos) break;
-        const std::size_t start = pos + key.size();
-        const std::size_t end = body.find('"', start);
-        if (end == std::string::npos) break;
-        names.push_back(body.substr(start, end - start));
-        i = end + 1;
-    }
-    return names;
 }
 
 static void enrichPackagesFromIndex(const std::string& afrilangRoot,

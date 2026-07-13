@@ -1,0 +1,8 @@
+import "pkg/w2smoke/w2smoke.afr"
+
+use w2smoke
+
+test "hello"
+    create h = hello()
+    assert h is equal to "hello from w2smoke"
+end
