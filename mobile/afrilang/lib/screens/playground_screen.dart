@@ -46,6 +46,30 @@ end
 '''
   ),
   (
+    'OOP',
+    '''class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    public field name text
+
+    function init(aName text)
+        set this.name = aName
+    end
+
+    function speak()
+        say name + " says Woof!"
+    end
+end
+
+create rex = new Dog("Rex")
+rex.speak()
+'''
+  ),
+  (
     'Multi-file',
     '''import "helpers.afr"
 
