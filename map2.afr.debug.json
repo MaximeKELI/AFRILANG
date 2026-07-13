@@ -1,0 +1,7 @@
+{
+  "source": "/tmp/map2.afr",
+  "variables": [
+    {"name":"doubled","type":"list number","scope":"global"},
+    {"name":"xs","type":"list number","scope":"global"}
+  ]
+}
