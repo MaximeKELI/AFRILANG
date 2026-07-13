@@ -3,12 +3,35 @@ from __future__ import annotations
 
 import hashlib
 import os
+import re
+import secrets
+import shutil
 import subprocess
 import tempfile
 import time
 from pathlib import Path
 
 from django.conf import settings
+
+_IMPORT_RE = re.compile(r'^\s*import\s+"([^"]+)"', re.MULTILINE)
+
+# Exemples / programmes qui ouvrent une fenêtre ou une boucle d'événements :
+# le playground web est headless — on refuse au lieu d'attendre le timeout.
+_DESKTOP_MARKERS = (
+    'import "std/ui"',
+    'import "std/game2d"',
+    'import "std/game3d"',
+    'open window',
+    'while window is open',
+)
+
+_DESKTOP_MESSAGE = (
+    'Cet exemple nécessite une fenêtre graphique (SDL) et le compilateur '
+    'AFRILANG en local — il ne peut pas tourner dans le playground web.\n\n'
+    'Sur votre machine :\n'
+    '  afrilang run examples/<fichier>.afr\n\n'
+    'Choisissez un autre exemple (hello, list_ops, oop, …) pour l’exécuter ici.'
+)
 
 
 class AfrilangError(Exception):
@@ -29,15 +52,88 @@ def _repo_root() -> Path:
     return Path(settings.AFRILANG_ROOT).resolve()
 
 
+def requires_desktop_display(source: str) -> bool:
+    """True si le programme ouvre une UI / boucle fenêtre (incompatible playground)."""
+    return any(marker in source for marker in _DESKTOP_MARKERS)
+
+
+def _resolve_relative_import(import_path: str) -> Path | None:
+    """Cherche un import relatif (.afr local) dans examples/ puis à la racine du dépôt."""
+    if import_path.startswith('std/') or import_path.startswith('pkg/'):
+        return None
+    if '..' in import_path or import_path.startswith('/') or import_path.startswith('\\'):
+        return None
+
+    root = _repo_root()
+    candidates = [
+        root / 'examples' / import_path,
+        root / 'examples' / Path(import_path).name,
+        root / import_path,
+    ]
+    for cand in candidates:
+        try:
+            resolved = cand.resolve()
+            resolved.relative_to(root)
+        except (ValueError, OSError):
+            continue
+        if resolved.is_file():
+            return resolved
+    return None
+
+
+def _stage_relative_imports(source: str, tmp_path: Path) -> None:
+    """Copie les .afr importés relativement (helpers.afr, snake_logic.afr, …) dans tmp."""
+    pending = list(_IMPORT_RE.findall(source))
+    seen: set[str] = set()
+
+    while pending:
+        imp = pending.pop(0)
+        if imp in seen:
+            continue
+        seen.add(imp)
+        src = _resolve_relative_import(imp)
+        if src is None:
+            continue
+        dest = tmp_path / Path(imp).name if '/' not in imp.rstrip('/') else tmp_path / imp
+        if '/' in imp:
+            dest = tmp_path / imp
+            dest.parent.mkdir(parents=True, exist_ok=True)
+        else:
+            dest = tmp_path / imp
+        if not dest.exists():
+            shutil.copy2(src, dest)
+        try:
+            content = dest.read_text(encoding='utf-8', errors='replace')
+        except OSError:
+            continue
+        for nested in _IMPORT_RE.findall(content):
+            if nested not in seen:
+                pending.append(nested)
+
+
+def _write_staged_source(tmp_path: Path, filename: str, source: str) -> Path:
+    src_file = tmp_path / filename
+    src_file.write_text(source, encoding='utf-8')
+    _stage_relative_imports(source, tmp_path)
+    return src_file
+
+
 def run_source(source: str, target: str = 'native') -> dict:
+    if requires_desktop_display(source):
+        return {
+            'ok': False,
+            'output': _DESKTOP_MESSAGE,
+            'exitCode': 2,
+            'duration_ms': 0,
+        }
+
     bin_path = _bin()
     timeout = settings.PLAYGROUND_TIMEOUT
     start = time.monotonic()
 
     with tempfile.TemporaryDirectory(prefix='afrilang_web_') as tmp:
         tmp_path = Path(tmp)
-        src_file = tmp_path / 'playground.afr'
-        src_file.write_text(source, encoding='utf-8')
+        src_file = _write_staged_source(tmp_path, 'playground.afr', source)
         cwd = _repo_root()
 
         cmd = [str(bin_path), 'run', str(src_file), '--target', target, '--run']
@@ -76,8 +172,7 @@ def format_source(source: str) -> dict:
     cwd = _repo_root()
 
     with tempfile.TemporaryDirectory(prefix='afrilang_fmt_') as tmp:
-        src_file = Path(tmp) / 'fmt.afr'
-        src_file.write_text(source, encoding='utf-8')
+        src_file = _write_staged_source(Path(tmp), 'fmt.afr', source)
         try:
             proc = subprocess.run(
                 [str(bin_path), 'fmt', str(src_file)],
@@ -101,8 +196,7 @@ def check_source(source: str) -> dict:
     cwd = _repo_root()
 
     with tempfile.TemporaryDirectory(prefix='afrilang_check_') as tmp:
-        src_file = Path(tmp) / 'check.afr'
-        src_file.write_text(source, encoding='utf-8')
+        src_file = _write_staged_source(Path(tmp), 'check.afr', source)
         try:
             proc = subprocess.run(
                 [str(bin_path), 'check', str(src_file)],
@@ -123,12 +217,14 @@ def check_source(source: str) -> dict:
 
 
 def compile_to_js(source: str) -> dict:
+    if requires_desktop_display(source):
+        return {'ok': False, 'output': _DESKTOP_MESSAGE}
+
     bin_path = _bin()
     cwd = _repo_root()
 
     with tempfile.TemporaryDirectory(prefix='afrilang_js_') as tmp:
-        src_file = Path(tmp) / 'playground.afr'
-        src_file.write_text(source, encoding='utf-8')
+        src_file = _write_staged_source(Path(tmp), 'playground.afr', source)
         try:
             proc = subprocess.run(
                 [str(bin_path), 'compile-js', str(src_file)],
@@ -148,8 +244,8 @@ def compile_to_js(source: str) -> dict:
 
 def build_wasm_web(source: str) -> dict:
     """Compile source to browser-loadable WASM (requires Emscripten on server)."""
-    import secrets
-    import shutil
+    if requires_desktop_display(source):
+        return {'ok': False, 'output': _DESKTOP_MESSAGE, 'exitCode': 2}
 
     bin_path = _bin()
     cwd = _repo_root()
@@ -160,8 +256,7 @@ def build_wasm_web(source: str) -> dict:
 
     with tempfile.TemporaryDirectory(prefix='afr_build_') as tmp:
         tmp_path = Path(tmp)
-        src_file = tmp_path / 'playground.afr'
-        src_file.write_text(source, encoding='utf-8')
+        src_file = _write_staged_source(tmp_path, 'playground.afr', source)
         out_dir = tmp_path / 'out'
         out_dir.mkdir()
         try:

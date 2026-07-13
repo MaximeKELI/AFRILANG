@@ -1833,13 +1833,18 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             std::vector<std::unique_ptr<ExpressionNode>> arguments;
             if (!check(TokenType::RightParen)) {
                 do {
-                    if (isStatementStart()) {
+                    // `function` / `match` start statements AND expressions (lambdas /
+                    // match-expr). Allow them as call arguments so list_ops-style
+                    // mapNumbers(nums, function(...) ... end) parses correctly.
+                    if (isStatementStart() && !check(TokenType::Function) &&
+                        !check(TokenType::Match)) {
                         error("')' attendu après les arguments");
                     }
                     arguments.push_back(parseOperand());
                 } while (match(TokenType::Comma));
             }
-            if (isStatementStart()) {
+            if (isStatementStart() && !check(TokenType::Function) &&
+                !check(TokenType::Match)) {
                 error("')' attendu après les arguments");
             }
             consume(TokenType::RightParen, "')' attendu après les arguments");
