@@ -13,10 +13,9 @@ from core.content.docs_pages import PAGES, get_doc_page
 from core.content.site_ui import UI
 from core.content.stdlib_catalog import get_categories
 from core.content.tutorial import get_lesson, get_lessons, total_steps
-from core.models import CodeExample, Package, Release, StdlibModule
+from core.models import CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from core.services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
 from core.services.stdlib_meta import build_page_context
-from core.models import PlaygroundRun
 
 
 def _lang(request) -> str:
