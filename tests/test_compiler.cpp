@@ -391,8 +391,72 @@ static void testFormatAllSummary() {
     afrilang::DiagnosticEngine engine;
     engine.reportError("one", 1, 1, "f.afr");
     engine.reportError("two", 2, 1, "f.afr");
+    setenv("NO_COLOR", "1", 1);
     const std::string formatted = engine.formatAll();
+    unsetenv("NO_COLOR");
     expect(formatted.find("2") != std::string::npos, "summary mentions error count");
+}
+
+static void testBlockRecoveryKeepsValidStatements() {
+    const std::string src =
+        "function demo()\n"
+        "    say broken(\n"
+        "    say \"ok\"\n"
+        "end\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(parser.hasErrors(), "block recovery reports parse error");
+    expect(!program->functions.empty(), "function still parsed");
+    bool hasSayOk = false;
+    for (const auto& stmt : program->functions[0]->body) {
+        if (const auto* say = dynamic_cast<const afrilang::SayStatementNode*>(stmt.get())) {
+            if (const auto* lit = dynamic_cast<const afrilang::StringLiteralNode*>(say->value.get())) {
+                if (lit->value == "ok") hasSayOk = true;
+            }
+        }
+    }
+    expect(hasSayOk, "valid statement after error kept in block");
+}
+
+static void testDiagnosticSpanUnderline() {
+    afrilang::Diagnostic d;
+    d.code = afrilang::ErrorCode::UndeclaredVariable;
+    d.message = "bad";
+    d.file = "t.afr";
+    d.line = 1;
+    d.column = 5;
+    d.endLine = 1;
+    d.endColumn = 12;
+    d.sourceLine = "say missing";
+    setenv("NO_COLOR", "1", 1);
+    const std::string formatted = afrilang::formatDiagnostic(d);
+    unsetenv("NO_COLOR");
+    expect(formatted.find("^~~~~~~") != std::string::npos ||
+           formatted.find("^~") != std::string::npos,
+           "span underline present");
+}
+
+static void testDiagnosticMultilineSpanNote() {
+    afrilang::Diagnostic d;
+    d.code = afrilang::ErrorCode::Parser;
+    d.message = "span";
+    d.file = "t.afr";
+    d.line = 1;
+    d.column = 1;
+    d.endLine = 3;
+    d.endColumn = 4;
+    d.sourceLine = "function foo(";
+    setenv("NO_COLOR", "1", 1);
+    const std::string formatted = afrilang::formatDiagnostic(d);
+    unsetenv("NO_COLOR");
+    expect(formatted.find("3") != std::string::npos, "multiline span mentions end line");
+}
+
+static void testNoColorDisablesAnsi() {
+    setenv("NO_COLOR", "1", 1);
+    expect(!afrilang::diagnosticsUseColor(), "NO_COLOR disables ansi");
+    unsetenv("NO_COLOR");
 }
 
 static void testMultiSemanticErrors() {
@@ -666,6 +730,10 @@ int main() {
     testTypeMismatchCode();
     testErrorLimitStopsReporting();
     testFormatAllSummary();
+    testBlockRecoveryKeepsValidStatements();
+    testDiagnosticSpanUnderline();
+    testDiagnosticMultilineSpanNote();
+    testNoColorDisablesAnsi();
     testMultiSemanticErrors();
     testParserRecoveryContinues();
     testDuplicateClassErrorCode();

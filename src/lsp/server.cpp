@@ -257,11 +257,13 @@ static void addOutlineSymbol(AnalysisResult& result, const std::string& name,
 }
 
 static std::string diagnosticToLspJson(const Diagnostic& d, int severity) {
+    const int endLine = d.resolvedEndLine();
+    const int endCol = d.resolvedEndColumn();
     std::ostringstream out;
     out << "{\"range\":{\"start\":{\"line\":" << std::max(0, d.line - 1)
         << ",\"character\":" << std::max(0, d.column - 1)
-        << "},\"end\":{\"line\":" << std::max(0, d.line - 1)
-        << ",\"character\":" << std::max(0, d.column) << "}},"
+        << "},\"end\":{\"line\":" << std::max(0, endLine - 1)
+        << ",\"character\":" << std::max(0, endCol - 1) << "}},"
         << "\"severity\":" << severity << ",\"source\":\"afrilang\",\"code\":\""
         << errorCodeString(d.code) << "\",\"message\":\""
         << jsonEscape(d.message) << "\"}";

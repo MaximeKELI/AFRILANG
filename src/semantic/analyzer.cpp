@@ -2786,7 +2786,8 @@ const MethodSignature* SemanticAnalyzer::findOperator(const std::string& classNa
     }
 
     throw CompileError(message, node.loc.line, node.loc.column, currentFile_, snippet, sug,
-                       effective, std::move(notes));
+                       effective, std::move(notes),
+                       node.loc.endLine, node.loc.endColumn);
 }
 
 } // namespace afrilang

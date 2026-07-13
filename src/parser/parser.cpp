@@ -101,9 +101,63 @@ void Parser::synchronize() {
     }
 }
 
+void Parser::synchronizeInBlock() {
+    // Already on a statement boundary — keep the token for the next parse.
+    if (isStatementStart()) return;
+    if (!isAtEnd()) advance();
+    while (!isAtEnd()) {
+        if (isStatementStart()) return;
+        advance();
+    }
+}
+
+bool Parser::isStatementStart() const {
+    switch (peek().type) {
+        case TokenType::End:
+        case TokenType::Else:
+        case TokenType::Catch:
+        case TokenType::Teardown:
+        case TokenType::Say:
+        case TokenType::Create:
+        case TokenType::Set:
+        case TokenType::If:
+        case TokenType::While:
+        case TokenType::Repeat:
+        case TokenType::For:
+        case TokenType::Return:
+        case TokenType::Match:
+        case TokenType::Try:
+        case TokenType::Raise:
+        case TokenType::Assert:
+        case TokenType::Explain:
+        case TokenType::Stop:
+        case TokenType::Skip:
+        case TokenType::Yield:
+        case TokenType::Ask:
+        case TokenType::Use:
+        case TokenType::Add:
+        case TokenType::Open:
+        case TokenType::Close:
+        case TokenType::Draw:
+        case TokenType::Clear:
+        case TokenType::Show:
+        case TokenType::Class:
+        case TokenType::Function:
+        case TokenType::Module:
+        case TokenType::Import:
+        case TokenType::Test:
+            return true;
+        default:
+            return false;
+    }
+}
+
 void Parser::setLoc(ASTNode& node) const {
     node.loc.line = previous().line;
     node.loc.column = previous().column;
+    node.loc.endLine = previous().line;
+    const int lexLen = static_cast<int>(previous().lexeme.size());
+    node.loc.endColumn = previous().column + std::max(1, lexLen);
 }
 
 namespace {
@@ -859,8 +913,14 @@ std::unique_ptr<ExpressionNode> Parser::parseReduceExpression() {
 std::vector<std::unique_ptr<StatementNode>> Parser::parseBlock() {
     std::vector<std::unique_ptr<StatementNode>> body;
     while (!check(TokenType::End) && !check(TokenType::Else) &&
-           !check(TokenType::Catch) && !isAtEnd()) {
-        body.push_back(parseStatement());
+           !check(TokenType::Catch) && !check(TokenType::Teardown) && !isAtEnd()) {
+        try {
+            body.push_back(parseStatement());
+        } catch (const CompileError& e) {
+            diagnostics_.report(e);
+            synchronizeInBlock();
+            if (diagnostics_.errorLimitReached()) break;
+        }
     }
     return body;
 }
@@ -1773,8 +1833,14 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             std::vector<std::unique_ptr<ExpressionNode>> arguments;
             if (!check(TokenType::RightParen)) {
                 do {
+                    if (isStatementStart()) {
+                        error("')' attendu après les arguments");
+                    }
                     arguments.push_back(parseOperand());
                 } while (match(TokenType::Comma));
+            }
+            if (isStatementStart()) {
+                error("')' attendu après les arguments");
             }
             consume(TokenType::RightParen, "')' attendu après les arguments");
             callee = std::make_unique<CallExpressionNode>(

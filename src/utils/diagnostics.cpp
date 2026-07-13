@@ -4,19 +4,54 @@
 #include "afrilang/utf8.hpp"
 
 #include <algorithm>
+#include <cstdlib>
 #include <sstream>
 
+#if defined(__unix__) || defined(__APPLE__)
+#include <unistd.h>
+#endif
+
 namespace afrilang {
+
+namespace {
+
+const char* ansiReset() { return "\033[0m"; }
+const char* ansiBold() { return "\033[1m"; }
+const char* ansiRed() { return "\033[31m"; }
+const char* ansiYellow() { return "\033[33m"; }
+const char* ansiCyan() { return "\033[36m"; }
+const char* ansiBlue() { return "\033[34m"; }
+
+} // namespace
+
+bool diagnosticsUseColor() {
+    if (const char* no = std::getenv("NO_COLOR")) {
+        if (no[0] != '\0') return false;
+    }
+    if (const char* forced = std::getenv("AFRILANG_COLOR")) {
+        if (forced[0] == '0') return false;
+        if (forced[0] == '1') return true;
+    }
+#if defined(__unix__) || defined(__APPLE__)
+    return isatty(STDERR_FILENO) != 0;
+#else
+    return false;
+#endif
+}
 
 CompileError::CompileError(std::string message, int line, int column,
                            std::string file, std::string sourceLine,
                            std::vector<std::string> suggestions,
                            ErrorCode code,
-                           std::vector<DiagnosticNote> notes)
+                           std::vector<DiagnosticNote> notes,
+                           int endLine,
+                           int endColumn)
     : std::runtime_error("")
     , message_(std::move(message))
     , line_(line)
     , column_(column)
+    , endLine_(endLine)
+    , endColumn_(endColumn)
     , file_(std::move(file))
     , sourceLine_(std::move(sourceLine))
     , suggestions_(std::move(suggestions))
@@ -34,6 +69,8 @@ Diagnostic CompileError::toDiagnostic() const {
     d.file = file_;
     d.line = line_;
     d.column = column_;
+    d.endLine = endLine_;
+    d.endColumn = endColumn_;
     d.sourceLine = sourceLine_;
     d.suggestions = suggestions_;
     d.notes = notes_;
@@ -41,28 +78,62 @@ Diagnostic CompileError::toDiagnostic() const {
 }
 
 std::string formatDiagnostic(const Diagnostic& diagnostic) {
-    std::ostringstream out;
-    out << formatErrorHeader(diagnostic.file, diagnostic.line, diagnostic.column, diagnostic.code);
-    out << "  " << diagnostic.message << "\n";
+    const bool color = diagnosticsUseColor();
+    auto styled = [&](const char* style, const std::string& text) -> std::string {
+        if (!color) return text;
+        return std::string(style) + text + ansiReset();
+    };
 
-    if (!diagnostic.sourceLine.empty()) {
+    std::ostringstream out;
+    const std::string header = formatErrorHeader(
+        diagnostic.file, diagnostic.line, diagnostic.column, diagnostic.code);
+    out << (color ? std::string(ansiBold()) + ansiRed() + header + ansiReset() : header);
+    out << "  " << styled(ansiBold(), diagnostic.message) << "\n";
+
+    if (!diagnostic.sourceLine.empty() && diagnostic.line > 0) {
         out << "\n  " << diagnostic.sourceLine << "\n  ";
-        const std::size_t caretPos = utf8DisplayWidthBefore(diagnostic.sourceLine, diagnostic.column);
-        for (std::size_t i = 0; i < caretPos; ++i) {
-            out << ' ';
+        const int startCol = std::max(1, diagnostic.column);
+        const int endLine = diagnostic.resolvedEndLine();
+        const int endCol = diagnostic.resolvedEndColumn();
+        const std::size_t caretPos = utf8DisplayWidthBefore(diagnostic.sourceLine, startCol);
+
+        for (std::size_t i = 0; i < caretPos; ++i) out << ' ';
+
+        std::string underline;
+        if (endLine > diagnostic.line) {
+            underline = "^";
+            const std::size_t rest =
+                utf8DisplayWidthBefore(diagnostic.sourceLine,
+                                       static_cast<int>(diagnostic.sourceLine.size()) + 1);
+            for (std::size_t i = caretPos + 1; i < rest && i < caretPos + 16; ++i) {
+                underline += '~';
+            }
+            out << styled(ansiRed(), underline) << "\n";
+            const bool en = currentLocale() == Locale::English;
+            out << "  " << styled(ansiCyan(),
+                (en ? "... through line " : "... jusqu'à la ligne ") +
+                std::to_string(endLine) +
+                (en ? ", column " : ", colonne ") + std::to_string(endCol)) << "\n";
+        } else {
+            int span = std::max(1, endCol - startCol);
+            if (span > 40) span = 40;
+            underline = "^";
+            for (int i = 1; i < span; ++i) underline += '~';
+            out << styled(ansiRed(), underline) << "\n";
         }
-        out << "^\n";
     }
 
     if (!diagnostic.suggestions.empty()) {
-        out << "\n  " << formatSuggestionLabel(static_cast<int>(diagnostic.suggestions.size())) << "\n";
+        out << "\n  " << styled(ansiYellow(), formatSuggestionLabel(
+                              static_cast<int>(diagnostic.suggestions.size())))
+            << "\n";
         for (const auto& s : diagnostic.suggestions) {
             out << "    - " << s << "\n";
         }
     }
 
     for (const auto& note : diagnostic.notes) {
-        out << "  help: " << note.message;
+        out << "  " << styled(ansiBlue(), "help:") << " " << note.message;
         if (!note.file.empty() && note.line > 0) {
             out << " (" << note.file << ":" << note.line << ":" << note.column << ")";
         }
@@ -82,6 +153,8 @@ std::string CompileError::formatJson() const {
         << "\"message\":\"" << message_ << "\","
         << "\"line\":" << line_ << ","
         << "\"column\":" << column_ << ","
+        << "\"endLine\":" << (endLine_ > 0 ? endLine_ : line_) << ","
+        << "\"endColumn\":" << (endColumn_ > 0 ? endColumn_ : (column_ > 0 ? column_ + 1 : 1)) << ","
         << "\"file\":\"" << file_ << "\"}";
     return out.str();
 }
@@ -118,7 +191,9 @@ void DiagnosticEngine::report(const CompileError& error) {
 void DiagnosticEngine::reportError(std::string message, int line, int column,
                                    std::string file, std::string sourceLine,
                                    std::vector<std::string> suggestions,
-                                   ErrorCode code) {
+                                   ErrorCode code,
+                                   int endLine,
+                                   int endColumn) {
     Diagnostic d;
     d.severity = DiagnosticSeverity::Error;
     d.code = code;
@@ -126,6 +201,8 @@ void DiagnosticEngine::reportError(std::string message, int line, int column,
     d.file = std::move(file);
     d.line = line;
     d.column = column;
+    d.endLine = endLine;
+    d.endColumn = endColumn;
     d.sourceLine = std::move(sourceLine);
     d.suggestions = std::move(suggestions);
     report(std::move(d));
@@ -183,10 +260,14 @@ std::string DiagnosticEngine::formatAll() const {
     const std::size_t errs = errorCount();
     if (errs > 1) {
         const bool en = currentLocale() == Locale::English;
-        out << "\n"
-            << (en ? "error: aborting due to " : "erreur : arrêt après ")
-            << errs
-            << (en ? " previous errors\n" : " erreurs précédentes\n");
+        const bool color = diagnosticsUseColor();
+        std::string summary = en
+            ? ("error: aborting due to " + std::to_string(errs) + " previous errors\n")
+            : ("erreur : arrêt après " + std::to_string(errs) + " erreurs précédentes\n");
+        if (color) {
+            summary = std::string(ansiBold()) + ansiRed() + summary + ansiReset();
+        }
+        out << "\n" << summary;
     }
     return out.str();
 }

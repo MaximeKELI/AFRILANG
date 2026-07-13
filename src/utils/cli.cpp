@@ -210,19 +210,22 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     try {
         const std::string crossTarget = normalizeCrossTarget(options.crossTarget);
         if (!validateCrossTarget(options.crossTarget)) {
-            result.diagnostics.push_back(Diagnostic{
-                DiagnosticSeverity::Error, ErrorCode::Generic,
-                "Cible de cross-compilation invalide: " + options.crossTarget,
-                "", 0, 0, {}, {}, {}});
+            Diagnostic d;
+            d.severity = DiagnosticSeverity::Error;
+            d.code = ErrorCode::Generic;
+            d.message = "Cible de cross-compilation invalide: " + options.crossTarget;
+            result.diagnostics.push_back(std::move(d));
             return result;
         }
 
         const fs::path srcPath = fs::absolute(sourcePath);
         if (!fs::exists(srcPath)) {
             printFileNotFoundHint(sourcePath);
-            result.diagnostics.push_back(Diagnostic{
-                DiagnosticSeverity::Error, ErrorCode::Generic,
-                "Fichier introuvable: " + sourcePath, "", 0, 0, {}, {}, {}});
+            Diagnostic d;
+            d.severity = DiagnosticSeverity::Error;
+            d.code = ErrorCode::Generic;
+            d.message = "Fichier introuvable: " + sourcePath;
+            result.diagnostics.push_back(std::move(d));
             return result;
         }
 
@@ -360,10 +363,12 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 std::cerr << "Installez Emscripten (emsdk) et assurez-vous que em++ est dans le PATH.\n";
             }
             std::cerr << "Consultez " << result.generatedCpp << " pour le code généré.\n";
-            result.diagnostics.push_back(Diagnostic{
-                DiagnosticSeverity::Error, ErrorCode::Generic,
-                std::string("Échec de compilation ") + compilerName, srcPath.string(),
-                0, 0, {}, {}, {}});
+            Diagnostic d;
+            d.severity = DiagnosticSeverity::Error;
+            d.code = ErrorCode::Generic;
+            d.message = std::string("Échec de compilation ") + compilerName;
+            d.file = srcPath.string();
+            result.diagnostics.push_back(std::move(d));
             return result;
         }
 
@@ -424,9 +429,12 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         return result;
     } catch (const std::exception& e) {
         reportCliException(e, sourcePath);
-        result.diagnostics.push_back(Diagnostic{
-            DiagnosticSeverity::Error, ErrorCode::Generic, e.what(),
-            sourcePath, 0, 0, {}, {}, {}});
+        Diagnostic d;
+        d.severity = DiagnosticSeverity::Error;
+        d.code = ErrorCode::Generic;
+        d.message = e.what();
+        d.file = sourcePath;
+        result.diagnostics.push_back(std::move(d));
         return result;
     }
 }
