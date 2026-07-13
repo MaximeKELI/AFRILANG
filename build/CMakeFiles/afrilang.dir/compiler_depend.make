@@ -657,6 +657,7 @@ CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: /home/admin20/AFRILANG/src/lsp/ser
   /home/admin20/AFRILANG/include/afrilang/i18n.hpp \
   /home/admin20/AFRILANG/include/afrilang/lsp.hpp \
   /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
+  /home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -7959,6 +7960,10 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/utf8.cpp:
 
+/home/admin20/AFRILANG/include/afrilang/parser.hpp:
+
+/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
+
 /usr/include/c++/15/bits/uses_allocator_args.h:
 
 /usr/include/c++/15/bits/chrono.h:
@@ -8004,10 +8009,6 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 /usr/include/c++/15/cstring:
 
 /home/admin20/AFRILANG/src/utils/security.cpp:
-
-/home/admin20/AFRILANG/include/afrilang/parser.hpp:
-
-/home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/sigcontext.h:
 

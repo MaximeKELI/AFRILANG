@@ -437,14 +437,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <unordered_map>\n";
     out << "#include <stdexcept>\n";
     out << "#include <functional>\n";
-
-    bool needsOptional = false;
-    for (const auto& [_, t] : semantic_.globalVariables) {
-        if (t.kind == TypeKind::Optional) needsOptional = true;
-    }
-    if (!program_.enums.empty() || needsOptional) {
-        out << "#include <optional>\n";
-    }
+    out << "#include <optional>\n";
 
     bool needsIo = false;
     bool needsJson = false;
