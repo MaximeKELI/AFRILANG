@@ -102,7 +102,7 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'download' %}">{{ ui.nav_download }}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name in 'language explore libraries stdlib stdlib_detail tutorial tutorial_step community benchmarks showcase releases api_reference' %}active{% endif %}"
+            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name == 'language' or request.resolver_match.url_name == 'explore' or request.resolver_match.url_name == 'libraries' or request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' or request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' or request.resolver_match.url_name == 'community' or request.resolver_match.url_name == 'benchmarks' or request.resolver_match.url_name == 'showcase' or request.resolver_match.url_name == 'releases' or request.resolver_match.url_name == 'api_reference' %}active{% endif %}"
                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ ui.nav_more }}
             </a>

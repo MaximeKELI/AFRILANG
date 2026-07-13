@@ -17,6 +17,7 @@ UI = {
         'nav_community': 'Communauté',
         'nav_api': 'API',
         'nav_github': 'GitHub',
+        'nav_more': 'Plus',
         'nav_start': 'Commencer',
         'nav_theme_light': 'Mode clair',
         'nav_theme_dark': 'Mode sombre',
@@ -43,57 +44,41 @@ UI = {
         'home': {
             'title': 'AFRILANG — Codez en phrases, déployez en natif',
             'badge': 'Open source · MIT',
+            'brand': 'AFRILANG',
             'hero_h1_a': 'Codez en',
             'hero_h1_b': 'langage naturel',
             'hero_h1_c': 'compilez en natif.',
             'hero_lead': (
-                'AFRILANG est un langage orienté objet à syntaxe lisible qui transpile vers C++17. '
-                'Classes, génériques, pattern matching, async/await — avec une bibliothèque standard '
-                'et une toolchain complète.'
+                'Langage orienté objet à syntaxe lisible : transpile vers C++17, '
+                'compile en binaire natif. Français et anglais.'
             ),
-            'hero_compat': 'Compatible français et anglais · LSP · REPL · WASM · cross-compilation',
+            'hero_compat': 'LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Commencer',
-            'btn_try': 'Essayer en ligne',
+            'btn_try': 'Playground',
             'btn_tutorial': 'Tutoriel interactif',
-            'stat_examples': 'Exemples officiels',
+            'stat_examples': 'Exemples',
             'stat_stdlib': 'Modules stdlib',
             'stat_packages': 'Paquets certifiés',
             'stat_targets': 'Cibles (x64, ARM, WASM)',
             'why_label': 'Pourquoi AFRILANG',
             'why_title': 'Lisible comme une phrase, performant comme du C++',
             'why_desc': (
-                "Conçu pour l'apprentissage et la production : syntaxe naturelle, erreurs explicites, "
-                'outils modernes et écosystème open source africain.'
+                "Syntaxe naturelle, erreurs explicites, toolchain moderne "
+                'et écosystème open source.'
             ),
             'feat_natural_title': 'Syntaxe naturelle',
             'feat_natural': (
-                '<code>if age is greater than 18 then</code> au lieu de symboles cryptiques. '
-                'Mots-clés en français (<code>dire</code>, <code>si</code>, <code>fin</code>) ou en anglais.'
+                '<code>if age is greater than 18 then</code> — mots-clés en français '
+                '(<code>dire</code>, <code>si</code>, <code>fin</code>) ou en anglais.'
             ),
             'feat_perf_title': 'Performance native',
             'feat_perf': (
-                'Transpilation vers C++17 puis compilation <code>g++</code>. Binaires natifs, '
-                'cross-compilation linux-x64, linux-arm64 et wasm32.'
-            ),
-            'feat_modern_title': 'Moderne et complet',
-            'feat_modern': (
-                'POO, génériques, enums, match, traits, async/await, Result, null-safety, '
-                "surcharge d'opérateurs et FFI."
-            ),
-            'feat_stdlib_title': 'Stdlib massive',
-            'feat_stdlib': (
-                'I/O, JSON, HTTP, SIG, raster, data science, IA, SQLite, jeux 2D/3D… '
-                'Plus de 7900 modules via <code>import "std/…"</code>.'
+                'Transpilation C++17 puis <code>g++</code>. Binaires natifs, '
+                'linux-x64, linux-arm64 et wasm32.'
             ),
             'feat_tools_title': 'Toolchain intégrée',
             'feat_tools': (
-                'CLI (<code>build</code>, <code>test</code>, <code>fmt</code>, <code>lint</code>), '
-                'LSP 1.1, REPL, debug adapter, extension VS Code/Cursor, playground web.'
-            ),
-            'feat_africa_title': 'Open source africain',
-            'feat_africa': (
-                'Projet communautaire MIT. Gestionnaire de paquets, registre officiel '
-                'et documentation complète pour contribuer.'
+                'CLI, LSP, REPL, debug, extension VS Code/Cursor et playground web.'
             ),
             'example_label': 'Exemple rapide',
             'example_title': 'De la phrase au binaire en une commande',
@@ -106,7 +91,7 @@ UI = {
             'packages_all': 'Voir tout →',
             'packages_empty': 'Registre vide — lancez <code>python manage.py sync_packages</code>',
             'cta_title': 'Prêt à écrire votre premier programme ?',
-            'cta_desc': 'Documentation détaillée, playground interactif et extension IDE — tout est là.',
+            'cta_desc': 'Installez le compilateur ou suivez le guide de démarrage.',
             'cta_guide': 'Guide de démarrage',
             'cta_lang': 'Découvrir le langage',
             'cta_play': 'Playground',
