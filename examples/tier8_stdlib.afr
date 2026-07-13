@@ -1,0 +1,13 @@
+# WASM stdlib smoke (str + math — documented WASM-ok)
+
+import "std/str"
+import "std/math"
+
+use str
+use math
+
+say "Phase E WASM stdlib OK"
+say trim("  wasm  ")
+say abs(0 - 4)
+say floor(3.9)
+say pow(2, 3)
