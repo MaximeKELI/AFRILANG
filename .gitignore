@@ -53,7 +53,10 @@
 /match_expr_demo
 /unions_demo
 /operators_demo
+# Compiled demo binary named "tests" (not the tests/ source tree)
 /tests
+!/tests/
+!/tests/**
 /oop
 
 # IDE

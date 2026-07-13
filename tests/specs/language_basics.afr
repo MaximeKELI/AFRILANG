@@ -1,0 +1,29 @@
+test "arithmetic and comparisons"
+    create x = 2 + 3 * 4
+    assert x is equal to 14
+    assert 5 is greater than 2
+    assert 1 is less than 2
+end
+
+test "while and for"
+    create i = 0
+    create sum = 0
+    while i is less than 3 do
+        set sum = sum + i
+        set i = i + 1
+    end
+    assert sum is equal to 3
+
+    create total = 0
+    for n from 1 to 3 do
+        set total = total + n
+    end
+    assert total is equal to 6
+end
+
+test "function call"
+    function double(n number) returns number
+        return n * 2
+    end
+    assert double(21) is equal to 42
+end

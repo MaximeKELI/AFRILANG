@@ -1,0 +1,29 @@
+test "optional defined and nothing"
+    create a number? = 7
+    assert a is defined
+    create b number? = nothing
+    assert (b is defined) is equal to false
+end
+
+test "result ok path"
+    function half(n number) returns number or error
+        if n is equal to 0 then
+            return error "zero"
+        end
+        return n / 2
+    end
+    create r = half(10)
+    assert (r is error) is equal to false
+    assert r.value is equal to 5
+end
+
+test "result error path"
+    function half(n number) returns number or error
+        if n is equal to 0 then
+            return error "zero"
+        end
+        return n / 2
+    end
+    create bad = half(0)
+    assert bad is error
+end

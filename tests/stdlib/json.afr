@@ -1,0 +1,19 @@
+import "std/json"
+
+use json
+
+test "makeObject and getString"
+    create doc json = makeObject("lang", "AFRILANG")
+    assert getString(doc, "lang") is equal to "AFRILANG"
+end
+
+test "parse roundtrip"
+    create doc json = makeObject("lang", "AFRILANG")
+    create again json = parse(stringify(doc))
+    assert getString(again, "lang") is equal to "AFRILANG"
+end
+
+test "getNumber"
+    create numDoc json = parse("{\"value\": 42}")
+    assert getNumber(numDoc, "value") is equal to 42
+end

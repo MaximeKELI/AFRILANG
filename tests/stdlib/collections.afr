@@ -1,0 +1,16 @@
+test "list length and at"
+    create xs = [10, 20, 30]
+    assert length of xs is equal to 3
+    assert xs at 0 is equal to 10
+    assert xs at 2 is equal to 30
+end
+
+test "map and filter"
+    create xs = list of 1, 2, 3, 4
+    create doubled = map each x in xs do
+        return x * 2
+    end
+    assert doubled at 1 is equal to 4
+    create evens = filter each x in xs where x is equal to 2 or x is equal to 4
+    assert length of evens is equal to 2
+end

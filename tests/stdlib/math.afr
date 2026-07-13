@@ -1,0 +1,17 @@
+import "std/math"
+
+use math
+
+test "abs of negative"
+    create a = abs(0 - 3)
+    assert a is equal to 3
+end
+
+test "floor and ceil"
+    assert floor(3.7) is equal to 3
+    assert ceil(3.2) is equal to 4
+end
+
+test "pow"
+    assert pow(2, 10) is equal to 1024
+end

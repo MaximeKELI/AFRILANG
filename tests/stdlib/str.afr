@@ -1,0 +1,18 @@
+import "std/str"
+
+use str
+
+test "trim strips whitespace"
+    create t = trim("  hello  ")
+    assert t is equal to "hello"
+end
+
+test "contains finds substring"
+    assert contains("afrilang", "lang") is equal to true
+    assert contains("afrilang", "xyz") is equal to false
+end
+
+test "replace substitutes"
+    create r = replace("aa-bb-aa", "aa", "xx")
+    assert r is equal to "xx-bb-xx"
+end
