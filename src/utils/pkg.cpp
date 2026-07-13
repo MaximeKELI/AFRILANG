@@ -327,6 +327,31 @@ static std::vector<std::string> listPackageNamesInIndex(const std::string& body)
     return names;
 }
 
+static std::vector<std::string> readTagsFromObject(const std::string& obj) {
+    std::vector<std::string> tags;
+    const std::string key = "\"tags\"";
+    const std::size_t pos = obj.find(key);
+    if (pos == std::string::npos) return tags;
+    std::size_t i = pos + key.size();
+    while (i < obj.size() && std::isspace(static_cast<unsigned char>(obj[i]))) ++i;
+    if (i >= obj.size() || obj[i] != ':') return tags;
+    ++i;
+    while (i < obj.size() && std::isspace(static_cast<unsigned char>(obj[i]))) ++i;
+    if (i >= obj.size() || obj[i] != '[') return tags;
+    ++i;
+    while (i < obj.size() && obj[i] != ']') {
+        if (obj[i] == '"') {
+            const std::size_t end = obj.find('"', i + 1);
+            if (end == std::string::npos) break;
+            tags.push_back(obj.substr(i + 1, end - i - 1));
+            i = end + 1;
+            continue;
+        }
+        ++i;
+    }
+    return tags;
+}
+
 static void applyIndexObject(PackageInfo& pkg, const std::string& obj) {
     if (obj.empty()) return;
     const std::string ver = readFieldFromObject(obj, "version");
