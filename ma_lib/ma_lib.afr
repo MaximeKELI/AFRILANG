@@ -1,0 +1,5 @@
+module ma_lib
+    function hello() returns text
+        return "hello from ma_lib"
+    end
+end

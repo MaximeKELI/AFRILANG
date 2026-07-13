@@ -7,9 +7,10 @@
     {"name":"config","version":"0.1.0","description":"Simple config helpers","method":"local","sha256":"3c5adbb5d0868a6ac9adee35061cbb696ff63503b4392b99a623206e1c0d135f","blessed":true},
     {"name":"cli","version":"0.1.0","description":"CLI helpers (colors, banners)","method":"local","sha256":"185536742e36dee8de6fa7218afa00e001ff88f6c94f4e4616ef981dd5785d0d","blessed":true},
     {"name":"validate","version":"0.1.0","description":"Validation helpers","method":"local","sha256":"d217ed00077cb9db7ebfca5858d2effd60fa17d7d7d1718ebd5b72ea9e0d57a1","blessed":true},
+    {"name":"w2smoke","version":"0.1.0","description":"Paquet AFRILANG w2smoke","method":"local","sha256":"3b49d6303b5cad88a31c9939afb6fad18c26bc5baa28b4bf1bd2bda8eed56092"},
     {"name":"strings","version":"0.1.0","description":"String helpers (replicate, upper, lower)","method":"local","sha256":"f7bd8dd98661893c1b1910e0fb042f0e684f24e932ae789abfe156de138eeac8","blessed":true},
-    {"name":"w2_lib","version":"0.1.0","description":"Paquet AFRILANG w2_lib","method":"local","sha256":"f936acddae03589f861da8b25cd880bab2b3db8957444af9f6ad20d62beca2ab"},
     {"name":"datetime","version":"0.1.0","description":"Date/time helpers","method":"local","sha256":"c5c57b4e7cd18fce8c19ebf6b3bbef75c939ed172501aac90450cff12af5b265","blessed":true},
-    {"name":"colors","version":"0.1.0","description":"ANSI color helpers","method":"local","sha256":"ad354a5851aa329e1d173b9b8771dfed5d2be9629719e9ef75e55ada4edf22bb","blessed":true}
+    {"name":"colors","version":"0.1.0","description":"ANSI color helpers","method":"local","sha256":"ad354a5851aa329e1d173b9b8771dfed5d2be9629719e9ef75e55ada4edf22bb","blessed":true},
+    {"name":"ma_lib","version":"0.1.0","description":"Paquet AFRILANG ma_lib","method":"local","sha256":"b94feac2966b9221e484a69bfd0a93595e663c9be061f65a3ee9810d26c56911"}
   ]
 }

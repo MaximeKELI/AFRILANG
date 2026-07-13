@@ -1,0 +1,8 @@
+import "pkg/ma_lib/ma_lib.afr"
+
+use ma_lib
+
+test "hello"
+    create h = hello()
+    assert h is equal to "hello from ma_lib"
+end

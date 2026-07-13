@@ -1,0 +1,9 @@
+{
+  "name": "ma_lib",
+  "version": "0.1.0",
+  "description": "Paquet AFRILANG ma_lib",
+  "method": "git",
+  "url": "https://github.com/OWNER/ma_lib",
+  "license": "MIT",
+  "tags": ["afrilang"]
+}
