@@ -1,0 +1,15 @@
+{
+  "source": "/home/admin20/AFRILANG/./tests/stdlib/str.afr",
+  "variables": [
+    {"name":"text","type":"text","scope":"trim"},
+    {"name":"text","type":"text","scope":"contains"},
+    {"name":"needle","type":"text","scope":"contains"},
+    {"name":"text","type":"text","scope":"replace"},
+    {"name":"from","type":"text","scope":"replace"},
+    {"name":"to","type":"text","scope":"replace"},
+    {"name":"text","type":"text","scope":"split"},
+    {"name":"sep","type":"text","scope":"split"},
+    {"name":"parts","type":"list text","scope":"join"},
+    {"name":"sep","type":"text","scope":"join"}
+  ]
+}
