@@ -8,19 +8,34 @@ import 'code_highlight.dart';
 import 'motion.dart';
 
 class AfrBrandMark extends StatelessWidget {
-  const AfrBrandMark({super.key, this.size = 22});
+  const AfrBrandMark({super.key, this.size = 22, this.showWordmark = true});
   final double size;
+  final bool showWordmark;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'AFRILANG',
-      style: GoogleFonts.plusJakartaSans(
-        fontSize: size,
-        fontWeight: FontWeight.w800,
-        letterSpacing: -0.5,
-        color: Theme.of(context).colorScheme.primary,
-      ),
+    final mark = Image.asset(
+      'assets/brand/app_icon_transparent.png',
+      width: size * 1.35,
+      height: size * 1.35,
+      filterQuality: FilterQuality.high,
+    );
+    if (!showWordmark) return mark;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        mark,
+        SizedBox(width: size * 0.35),
+        Text(
+          'AFRILANG',
+          style: GoogleFonts.plusJakartaSans(
+            fontSize: size,
+            fontWeight: FontWeight.w800,
+            letterSpacing: -0.5,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+      ],
     );
   }
 }

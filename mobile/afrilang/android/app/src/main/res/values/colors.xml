@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Transparent so the Africa silhouette shows against the home-screen wallpaper
+         (launchers still apply a circle/squircle mask, but outside the logo stays see-through). -->
     <color name="ic_launcher_background">#00000000</color>
+    <color name="splash_background">#1A2330</color>
 </resources>

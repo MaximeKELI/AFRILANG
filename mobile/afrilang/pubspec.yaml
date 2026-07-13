@@ -26,3 +26,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/brand/app_icon.png
+    - assets/brand/app_icon_transparent.png
