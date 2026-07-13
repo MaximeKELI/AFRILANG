@@ -15,6 +15,10 @@ from django.conf import settings
 
 _IMPORT_RE = re.compile(r'^\s*import\s+"([^"]+)"', re.MULTILINE)
 
+MAX_PROJECT_FILES = 40
+MAX_FILE_BYTES = 200 * 1024
+MAX_PROJECT_BYTES = 1024 * 1024
+
 # Exemples / programmes qui ouvrent une fenêtre ou une boucle d'événements :
 # le playground web est headless — on refuse au lieu d'attendre le timeout.
 _DESKTOP_MARKERS = (
@@ -38,6 +42,10 @@ class AfrilangError(Exception):
     pass
 
 
+class ProjectPayloadError(ValueError):
+    """Payload projet invalide (chemins, taille, etc.)."""
+
+
 def _bin() -> Path:
     path = Path(settings.AFRILANG_BIN)
     if not path.is_file():
@@ -55,6 +63,73 @@ def _repo_root() -> Path:
 def requires_desktop_display(source: str) -> bool:
     """True si le programme ouvre une UI / boucle fenêtre (incompatible playground)."""
     return any(marker in source for marker in _DESKTOP_MARKERS)
+
+
+def normalize_project_path(raw: str) -> str:
+    """Normalise et valide un chemin relatif de projet (.afr)."""
+    if not isinstance(raw, str) or not raw.strip():
+        raise ProjectPayloadError('Chemin de fichier vide')
+    path = raw.replace('\\', '/').strip().lstrip('/')
+    if not path or path in ('.', '..'):
+        raise ProjectPayloadError(f'Chemin invalide: {raw!r}')
+    if path.startswith('/') or path.startswith('\\'):
+        raise ProjectPayloadError(f'Chemin absolu interdit: {raw!r}')
+    parts = [p for p in path.split('/') if p and p != '.']
+    if any(p == '..' for p in parts):
+        raise ProjectPayloadError(f'Traversée de répertoire interdite: {raw!r}')
+    if any(p.startswith('.') for p in parts):
+        raise ProjectPayloadError(f'Nom de segment interdit: {raw!r}')
+    normalized = '/'.join(parts)
+    if not normalized.lower().endswith('.afr'):
+        raise ProjectPayloadError(f'Seuls les fichiers .afr sont autorisés: {raw!r}')
+    return normalized
+
+
+def validate_project_files(entry: str, files: dict) -> tuple[str, dict[str, str]]:
+    """Valide entry + map path→source. Retourne (entry_norm, files_norm)."""
+    if not isinstance(files, dict) or not files:
+        raise ProjectPayloadError('Aucun fichier de projet')
+    if len(files) > MAX_PROJECT_FILES:
+        raise ProjectPayloadError(f'Trop de fichiers (max {MAX_PROJECT_FILES})')
+
+    normalized: dict[str, str] = {}
+    total = 0
+    for raw_path, content in files.items():
+        path = normalize_project_path(str(raw_path))
+        if not isinstance(content, str):
+            raise ProjectPayloadError(f'Contenu non texte: {path}')
+        size = len(content.encode('utf-8'))
+        if size > MAX_FILE_BYTES:
+            raise ProjectPayloadError(
+                f'Fichier trop volumineux (max {MAX_FILE_BYTES} octets): {path}'
+            )
+        total += size
+        if total > MAX_PROJECT_BYTES:
+            raise ProjectPayloadError(
+                f'Projet trop volumineux (max {MAX_PROJECT_BYTES} octets)'
+            )
+        normalized[path] = content
+
+    entry_norm = normalize_project_path(entry)
+    if entry_norm not in normalized:
+        raise ProjectPayloadError(f'Fichier d’entrée introuvable dans le projet: {entry_norm}')
+    return entry_norm, normalized
+
+
+def resolve_run_payload(body: dict) -> tuple[str, dict[str, str]]:
+    """
+    Accepte soit {entry, files} soit {source} (rétrocompat → playground.afr).
+    """
+    files = body.get('files')
+    if isinstance(files, dict) and files:
+        entry = body.get('entry') or next(iter(files.keys()))
+        return validate_project_files(str(entry), files)
+
+    source = body.get('source', '')
+    if isinstance(source, str) and source.strip():
+        return 'playground.afr', {'playground.afr': source}
+
+    raise ProjectPayloadError('Empty source')
 
 
 def _resolve_relative_import(import_path: str) -> Path | None:
@@ -82,7 +157,7 @@ def _resolve_relative_import(import_path: str) -> Path | None:
 
 
 def _stage_relative_imports(source: str, tmp_path: Path) -> None:
-    """Copie les .afr importés relativement (helpers.afr, snake_logic.afr, …) dans tmp."""
+    """Copie les .afr importés depuis examples/ s'ils manquent dans tmp."""
     pending = list(_IMPORT_RE.findall(source))
     seen: set[str] = set()
 
@@ -91,14 +166,23 @@ def _stage_relative_imports(source: str, tmp_path: Path) -> None:
         if imp in seen:
             continue
         seen.add(imp)
+        dest = tmp_path / imp
+        if dest.exists():
+            try:
+                content = dest.read_text(encoding='utf-8', errors='replace')
+            except OSError:
+                continue
+            for nested in _IMPORT_RE.findall(content):
+                if nested not in seen:
+                    pending.append(nested)
+            continue
+
         src = _resolve_relative_import(imp)
         if src is None:
             continue
-        dest = tmp_path / imp
         if '/' in imp:
             dest.parent.mkdir(parents=True, exist_ok=True)
-        if not dest.exists():
-            shutil.copy2(src, dest)
+        shutil.copy2(src, dest)
         try:
             content = dest.read_text(encoding='utf-8', errors='replace')
         except OSError:
@@ -108,15 +192,31 @@ def _stage_relative_imports(source: str, tmp_path: Path) -> None:
                 pending.append(nested)
 
 
+def stage_project(tmp_path: Path, entry: str, files: dict[str, str]) -> Path:
+    """Écrit tous les fichiers user dans tmp, complète les imports examples, retourne entry path."""
+    entry_norm, files_norm = validate_project_files(entry, files)
+    for path, content in files_norm.items():
+        dest = tmp_path / path
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_text(content, encoding='utf-8')
+
+    for content in files_norm.values():
+        _stage_relative_imports(content, tmp_path)
+
+    return tmp_path / entry_norm
+
+
 def _write_staged_source(tmp_path: Path, filename: str, source: str) -> Path:
-    src_file = tmp_path / filename
-    src_file.write_text(source, encoding='utf-8')
-    _stage_relative_imports(source, tmp_path)
-    return src_file
+    return stage_project(tmp_path, filename, {filename: source})
 
 
-def run_source(source: str, target: str = 'native') -> dict:
-    if requires_desktop_display(source):
+def _combined_sources(files: dict[str, str]) -> str:
+    return '\n'.join(files.values())
+
+
+def run_project(entry: str, files: dict[str, str], target: str = 'native') -> dict:
+    entry_norm, files_norm = validate_project_files(entry, files)
+    if requires_desktop_display(_combined_sources(files_norm)):
         return {
             'ok': False,
             'output': _DESKTOP_MESSAGE,
@@ -130,11 +230,9 @@ def run_source(source: str, target: str = 'native') -> dict:
 
     with tempfile.TemporaryDirectory(prefix='afrilang_web_') as tmp:
         tmp_path = Path(tmp)
-        src_file = _write_staged_source(tmp_path, 'playground.afr', source)
+        src_file = stage_project(tmp_path, entry_norm, files_norm)
         cwd = _repo_root()
-
         cmd = [str(bin_path), 'run', str(src_file), '--target', target, '--run']
-
         env = os.environ.copy()
         env['AFRILANG_HOME'] = str(cwd)
 
@@ -164,6 +262,10 @@ def run_source(source: str, target: str = 'native') -> dict:
         }
 
 
+def run_source(source: str, target: str = 'native') -> dict:
+    return run_project('playground.afr', {'playground.afr': source}, target=target)
+
+
 def format_source(source: str) -> dict:
     bin_path = _bin()
     cwd = _repo_root()
@@ -188,12 +290,13 @@ def format_source(source: str) -> dict:
         return {'ok': True, 'source': formatted}
 
 
-def check_source(source: str) -> dict:
+def check_project(entry: str, files: dict[str, str]) -> dict:
+    entry_norm, files_norm = validate_project_files(entry, files)
     bin_path = _bin()
     cwd = _repo_root()
 
     with tempfile.TemporaryDirectory(prefix='afrilang_check_') as tmp:
-        src_file = _write_staged_source(Path(tmp), 'check.afr', source)
+        src_file = stage_project(Path(tmp), entry_norm, files_norm)
         try:
             proc = subprocess.run(
                 [str(bin_path), 'check', str(src_file)],
@@ -211,6 +314,10 @@ def check_source(source: str) -> dict:
             'output': output.strip() or '(no output)',
             'errors': 0 if proc.returncode == 0 else 1,
         }
+
+
+def check_source(source: str) -> dict:
+    return check_project('check.afr', {'check.afr': source})
 
 
 def compile_to_js(source: str) -> dict:
@@ -239,9 +346,38 @@ def compile_to_js(source: str) -> dict:
         return {'ok': True, 'js': proc.stdout}
 
 
+def compile_project_to_js(entry: str, files: dict[str, str]) -> dict:
+    entry_norm, files_norm = validate_project_files(entry, files)
+    if requires_desktop_display(_combined_sources(files_norm)):
+        return {'ok': False, 'output': _DESKTOP_MESSAGE}
+
+    bin_path = _bin()
+    cwd = _repo_root()
+    with tempfile.TemporaryDirectory(prefix='afrilang_js_') as tmp:
+        src_file = stage_project(Path(tmp), entry_norm, files_norm)
+        try:
+            proc = subprocess.run(
+                [str(bin_path), 'compile-js', str(src_file)],
+                cwd=cwd,
+                capture_output=True,
+                text=True,
+                timeout=15,
+            )
+        except subprocess.TimeoutExpired:
+            return {'ok': False, 'output': 'Compile timeout'}
+        if proc.returncode != 0:
+            return {'ok': False, 'output': (proc.stderr or proc.stdout or 'Compile error').strip()}
+        return {'ok': True, 'js': proc.stdout}
+
+
 def build_wasm_web(source: str) -> dict:
     """Compile source to browser-loadable WASM (requires Emscripten on server)."""
-    if requires_desktop_display(source):
+    return build_wasm_project('playground.afr', {'playground.afr': source})
+
+
+def build_wasm_project(entry: str, files: dict[str, str]) -> dict:
+    entry_norm, files_norm = validate_project_files(entry, files)
+    if requires_desktop_display(_combined_sources(files_norm)):
         return {'ok': False, 'output': _DESKTOP_MESSAGE, 'exitCode': 2}
 
     bin_path = _bin()
@@ -253,7 +389,7 @@ def build_wasm_web(source: str) -> dict:
 
     with tempfile.TemporaryDirectory(prefix='afr_build_') as tmp:
         tmp_path = Path(tmp)
-        src_file = _write_staged_source(tmp_path, 'playground.afr', source)
+        src_file = stage_project(tmp_path, entry_norm, files_norm)
         out_dir = tmp_path / 'out'
         out_dir.mkdir()
         try:
@@ -302,3 +438,11 @@ def wasm_session_path(session_id: str, filename: str) -> Path | None:
 
 def source_hash(source: str) -> str:
     return hashlib.sha256(source.encode('utf-8')).hexdigest()
+
+
+def project_hash(entry: str, files: dict[str, str]) -> str:
+    entry_norm, files_norm = validate_project_files(entry, files)
+    blob = entry_norm + '\n' + '\n'.join(
+        f'{p}\n{files_norm[p]}' for p in sorted(files_norm)
+    )
+    return hashlib.sha256(blob.encode('utf-8')).hexdigest()

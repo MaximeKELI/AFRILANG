@@ -14,7 +14,15 @@ from core.content.site_ui import UI
 from core.content.stdlib_catalog import get_categories
 from core.content.tutorial import get_lesson, get_lessons, total_steps
 from core.models import CodeExample, Package, PlaygroundRun, Release, StdlibModule
-from core.services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
+from core.services.afrilang import (
+    AfrilangError,
+    ProjectPayloadError,
+    check_project,
+    format_source,
+    project_hash,
+    resolve_run_payload,
+    run_project,
+)
 from core.services.stdlib_meta import build_page_context
 
 
@@ -372,18 +380,17 @@ def api_mobile_run(request):
     except json.JSONDecodeError:
         return _json({'ok': False, 'output': 'Invalid JSON', 'exitCode': 1}, status=400)
 
-    source = body.get('source', '')
     target = body.get('target', 'native')
-    if not source.strip():
-        return _json({'ok': False, 'output': 'Empty source', 'exitCode': 1}, status=400)
-
     try:
-        result = run_source(source, target=target)
+        entry, files = resolve_run_payload(body)
+        result = run_project(entry, files, target=target)
+    except ProjectPayloadError as e:
+        return _json({'ok': False, 'output': str(e), 'exitCode': 1}, status=400)
     except AfrilangError as e:
         return _json({'ok': False, 'output': str(e), 'exitCode': 1}, status=503)
 
     PlaygroundRun.objects.create(
-        source_hash=source_hash(source),
+        source_hash=project_hash(entry, files),
         target=target,
         ok=result['ok'],
         exit_code=result['exitCode'],
@@ -422,11 +429,11 @@ def api_mobile_check(request):
         body = json.loads(request.body.decode('utf-8'))
     except json.JSONDecodeError:
         return _json({'ok': False, 'output': 'Invalid JSON'}, status=400)
-    source = body.get('source', '')
-    if not source.strip():
-        return _json({'ok': False, 'output': 'Empty source', 'errors': 1}, status=400)
     try:
-        result = check_source(source)
+        entry, files = resolve_run_payload(body)
+        result = check_project(entry, files)
+    except ProjectPayloadError as e:
+        return _json({'ok': False, 'output': str(e), 'errors': 1}, status=400)
     except AfrilangError as e:
         return _json({'ok': False, 'output': str(e), 'errors': 1}, status=503)
     return _json(result)

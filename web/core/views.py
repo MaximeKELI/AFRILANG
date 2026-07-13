@@ -17,12 +17,14 @@ from .content.tutorial import get_lesson, get_lessons, total_steps
 from .models import Capability, CodeExample, Package, PlaygroundRun, Release, StdlibModule
 from .services.afrilang import (
     AfrilangError,
-    build_wasm_web,
-    check_source,
-    compile_to_js,
+    ProjectPayloadError,
+    build_wasm_project,
+    check_project,
+    compile_project_to_js,
     format_source,
-    run_source,
-    source_hash,
+    project_hash,
+    resolve_run_payload,
+    run_project,
     wasm_session_path,
 )
 from .services.benchmarks import benchmark_summary, load_benchmarks
@@ -519,18 +521,17 @@ def api_run(request, target_override=None):
     except json.JSONDecodeError:
         return JsonResponse({'ok': False, 'output': 'Invalid JSON', 'exitCode': 1}, status=400)
 
-    source = body.get('source', '')
     target = target_override or body.get('target', 'native')
-    if not source.strip():
-        return JsonResponse({'ok': False, 'output': 'Empty source', 'exitCode': 1}, status=400)
-
     try:
-        result = run_source(source, target=target)
+        entry, files = resolve_run_payload(body)
+        result = run_project(entry, files, target=target)
+    except ProjectPayloadError as e:
+        return JsonResponse({'ok': False, 'output': str(e), 'exitCode': 1}, status=400)
     except AfrilangError as e:
         return JsonResponse({'ok': False, 'output': str(e), 'exitCode': 1}, status=503)
 
     PlaygroundRun.objects.create(
-        source_hash=source_hash(source),
+        source_hash=project_hash(entry, files),
         target=target,
         ok=result['ok'],
         exit_code=result['exitCode'],
@@ -567,12 +568,11 @@ def api_check(request):
     except json.JSONDecodeError:
         return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
 
-    source = body.get('source', '')
-    if not source.strip():
-        return JsonResponse({'ok': False, 'output': 'Empty source', 'errors': 1}, status=400)
-
     try:
-        result = check_source(source)
+        entry, files = resolve_run_payload(body)
+        result = check_project(entry, files)
+    except ProjectPayloadError as e:
+        return JsonResponse({'ok': False, 'output': str(e), 'errors': 1}, status=400)
     except AfrilangError as e:
         return JsonResponse({'ok': False, 'output': str(e), 'errors': 1}, status=503)
 
@@ -592,12 +592,11 @@ def api_compile_js(request):
     except json.JSONDecodeError:
         return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
 
-    source = body.get('source', '')
-    if not source.strip():
-        return JsonResponse({'ok': False, 'output': 'Empty source'}, status=400)
-
     try:
-        result = compile_to_js(source)
+        entry, files = resolve_run_payload(body)
+        result = compile_project_to_js(entry, files)
+    except ProjectPayloadError as e:
+        return JsonResponse({'ok': False, 'output': str(e)}, status=400)
     except AfrilangError as e:
         return JsonResponse({'ok': False, 'output': str(e)}, status=503)
 
@@ -611,12 +610,11 @@ def api_build_wasm(request):
     except json.JSONDecodeError:
         return JsonResponse({'ok': False, 'output': 'Invalid JSON'}, status=400)
 
-    source = body.get('source', '')
-    if not source.strip():
-        return JsonResponse({'ok': False, 'output': 'Empty source'}, status=400)
-
     try:
-        result = build_wasm_web(source)
+        entry, files = resolve_run_payload(body)
+        result = build_wasm_project(entry, files)
+    except ProjectPayloadError as e:
+        return JsonResponse({'ok': False, 'output': str(e)}, status=400)
     except AfrilangError as e:
         return JsonResponse({'ok': False, 'output': str(e)}, status=503)
 
