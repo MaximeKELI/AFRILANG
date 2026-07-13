@@ -31,8 +31,8 @@
       "extensions": [".afr"],
       "configuration": "./language-configuration.json",
       "icon": {
-        "light": "icons/afr-light.png",
-        "dark": "icons/afr-dark.png"
+        "light": "./icons/afr-light.png",
+        "dark": "./icons/afr-dark.png"
       }
     }],
     "iconThemes": [{

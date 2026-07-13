@@ -1,10 +1,10 @@
 {
   "iconDefinitions": {
     "_afr_file": {
-      "iconPath": {
-        "light": "./afr-light.png",
-        "dark": "./afr-dark.png"
-      }
+      "iconPath": "./afr-dark.png"
+    },
+    "_afr_file_light": {
+      "iconPath": "./afr-light.png"
     }
   },
   "fileExtensions": {
@@ -12,6 +12,14 @@
   },
   "languageIds": {
     "afrilang": "_afr_file"
+  },
+  "light": {
+    "fileExtensions": {
+      "afr": "_afr_file_light"
+    },
+    "languageIds": {
+      "afrilang": "_afr_file_light"
+    }
   },
   "showLanguageModeIcons": true
 }
