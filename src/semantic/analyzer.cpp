@@ -91,16 +91,32 @@ SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
     , currentFile_(std::move(currentFile)) {}
 
 SemanticResult SemanticAnalyzer::analyze() {
-    registerRecords();
-    registerEnums();
-    registerInterfaces();
-    registerClasses();
-    registerModules();
-    registerExterns();
-    analyzeProgram();
-    collectLintWarnings();
-    validateProgramSize(program_);
+    recover([this] { registerRecords(); });
+    recover([this] { registerEnums(); });
+    recover([this] { registerInterfaces(); });
+    recover([this] { registerClasses(); });
+    recover([this] { registerModules(); });
+    recover([this] { registerExterns(); });
+    recover([this] { analyzeProgram(); });
+    recover([this] { collectLintWarnings(); });
+    recover([this] { validateProgramSize(program_); });
+
+    result_.errors = diagnostics_.errors();
+    for (const auto& w : diagnostics_.warnings()) {
+        LintWarning lw;
+        lw.line = w.line;
+        lw.column = w.column;
+        lw.message = w.message;
+        lw.file = w.file;
+        result_.warnings.push_back(std::move(lw));
+    }
     return result_;
+}
+
+AfrType SemanticAnalyzer::finishExpression(const ExpressionNode& expr, AfrType type) const {
+    expr.inferredType = type;
+    expr.typeInferred = true;
+    return type;
 }
 
 AfrType SemanticAnalyzer::resolveFunctionReturnTypeWithParams(
@@ -503,34 +519,34 @@ void SemanticAnalyzer::analyzeProgram() {
     std::unordered_map<std::string, AfrType> scope;
     for (const auto& stmt : program_.statements) {
         if (dynamic_cast<const UseStatementNode*>(stmt.get())) {
-            analyzeStatement(*stmt, scope, true);
+            recover([&] { analyzeStatement(*stmt, scope, true); });
         }
     }
 
     for (const auto& record : program_.records) {
-        analyzeRecord(*record);
+        recover([&] { analyzeRecord(*record); });
     }
 
     for (const auto& cls : program_.classes) {
-        analyzeClass(*cls);
+        recover([&] { analyzeClass(*cls); });
     }
 
     for (const auto& module : program_.modules) {
-        analyzeModule(*module);
+        recover([&] { analyzeModule(*module); });
     }
 
     for (const auto& func : program_.functions) {
-        analyzeGlobalFunction(*func);
+        recover([&] { analyzeGlobalFunction(*func); });
     }
 
     for (const auto& test : program_.tests) {
-        analyzeTest(*test);
+        recover([&] { analyzeTest(*test); });
     }
 
     const int savedAsync = asyncContextDepth_;
     asyncContextDepth_ = 1;
     for (const auto& stmt : program_.statements) {
-        analyzeStatement(*stmt, scope, true);
+        recover([&] { analyzeStatement(*stmt, scope, true); });
     }
     asyncContextDepth_ = savedAsync;
 }
