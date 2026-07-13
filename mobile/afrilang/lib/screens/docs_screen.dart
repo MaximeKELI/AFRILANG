@@ -91,7 +91,7 @@ class _DocsScreenState extends State<DocsScreen> {
                 leading: CircleAvatar(
                   backgroundColor: AfrColors.primary.withValues(alpha: 0.12),
                   foregroundColor: AfrColors.primary,
-                  child: Text('${i}', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                  child: Text('$i', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
                 ),
                 title: Text(p['title']?.toString() ?? '', style: const TextStyle(fontWeight: FontWeight.w700)),
                 subtitle: Text(

@@ -219,11 +219,16 @@ class _StdlibDetailScreenState extends State<StdlibDetailScreen> {
                     const SizedBox(height: 8),
                     ...((( _m!['functions'] as List?) ?? []).map((f) {
                       final fn = f as Map<String, dynamic>;
+                      final name = fn['name']?.toString() ?? '';
+                      final returns = fn['returns']?.toString() ?? '';
+                      final params = (fn['params'] as List?)?.join(', ') ?? '';
+                      final role = fn['role']?.toString() ?? fn['doc']?.toString() ?? '';
+                      final sig = returns.isNotEmpty ? '$name($params) → $returns' : '$name($params)';
                       return Card(
                         margin: const EdgeInsets.only(bottom: 8),
                         child: ListTile(
-                          title: Text(fn['name']?.toString() ?? '', style: afrMono(fontSize: 13, color: AfrColors.primary)),
-                          subtitle: Text(fn['signature']?.toString() ?? fn['doc']?.toString() ?? ''),
+                          title: Text(sig, style: afrMono(fontSize: 13, color: AfrColors.primary)),
+                          subtitle: role.isEmpty ? null : Text(role),
                         ),
                       );
                     })),
