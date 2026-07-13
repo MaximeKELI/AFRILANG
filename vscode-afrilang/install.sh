@@ -44,20 +44,20 @@ install_editor() {
   # Enregistrement minimal dans extensions.json (Cursor / VS Code)
   local catalog="${ext_dir}/extensions.json"
   if [[ -f "$catalog" ]] || [[ -d "$ext_dir" ]]; then
-    node -e "
+    CATALOG="$catalog" EXT_VERSION="$VERSION" EXT_REL="$EXT_ID" EXT_ABS="$dest" node <<'NODE'
 const fs = require('fs');
-const path = ${JSON.stringify(catalog)};
+const path = process.env.CATALOG;
 const id = 'afrilang.afrilang';
-const version = ${JSON.stringify(VERSION)};
-const rel = ${JSON.stringify(EXT_ID)};
-const abs = ${JSON.stringify('${dest}')};
+const version = process.env.EXT_VERSION;
+const rel = process.env.EXT_REL;
+const abs = process.env.EXT_ABS;
 let data = [];
 try { data = JSON.parse(fs.readFileSync(path, 'utf8')); } catch (_) {}
 if (!Array.isArray(data)) data = [];
 const entry = {
   identifier: { id },
   version,
-  location: { \$mid: 1, fsPath: abs, external: 'file://' + abs, path: abs, scheme: 'file' },
+  location: { $mid: 1, fsPath: abs, external: 'file://' + abs, path: abs, scheme: 'file' },
   relativeLocation: rel,
   metadata: {
     isApplicationScoped: false,
@@ -68,10 +68,10 @@ const entry = {
     source: 'vsix'
   }
 };
-const out = data.filter(e => e?.identifier?.id !== id);
+const out = data.filter(e => e && e.identifier && e.identifier.id !== id);
 out.push(entry);
 fs.writeFileSync(path, JSON.stringify(out));
-"
+NODE
   fi
 
   echo "  ✓ $label → ${dest}"
