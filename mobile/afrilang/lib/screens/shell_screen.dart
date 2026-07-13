@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 
 import '../state/app_state.dart';
@@ -38,6 +39,14 @@ class _ShellScreenState extends State<ShellScreen> {
                   .scale(begin: const Offset(0.9, 0.9), end: const Offset(1, 1)),
               const SizedBox(height: 24),
               const CircularProgressIndicator(),
+              if (app.error != null) ...[
+                const SizedBox(height: 16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Text(app.error!, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13)),
+                ),
+                TextButton(onPressed: app.refreshBootstrap, child: const Text('Réessayer')),
+              ],
             ],
           ),
         ),
@@ -86,14 +95,43 @@ class _ShellScreenState extends State<ShellScreen> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: _go,
+        height: 68,
         destinations: [
-          NavigationDestination(icon: const Icon(Icons.home_outlined), selectedIcon: const Icon(Icons.home_rounded), label: app.lang == 'en' ? 'Home' : 'Accueil'),
-          NavigationDestination(icon: const Icon(Icons.menu_book_outlined), selectedIcon: const Icon(Icons.menu_book_rounded), label: app.t('nav_docs', 'Docs')),
-          NavigationDestination(icon: const Icon(Icons.inventory_2_outlined), selectedIcon: const Icon(Icons.inventory_2_rounded), label: app.t('nav_packages', 'Paquets')),
-          NavigationDestination(icon: const Icon(Icons.code_outlined), selectedIcon: const Icon(Icons.code_rounded), label: app.t('nav_examples', 'Exemples')),
-          NavigationDestination(icon: const Icon(Icons.library_books_outlined), selectedIcon: const Icon(Icons.library_books_rounded), label: app.t('nav_stdlib', 'Stdlib')),
-          NavigationDestination(icon: const Icon(Icons.play_circle_outline), selectedIcon: const Icon(Icons.play_circle_filled), label: app.t('nav_playground', 'Play')),
-          NavigationDestination(icon: const Icon(Icons.more_horiz), selectedIcon: const Icon(Icons.more_horiz), label: app.t('nav_more', 'Plus')),
+          NavigationDestination(
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home_rounded),
+            label: app.lang == 'en' ? 'Home' : 'Accueil',
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.menu_book_outlined),
+            selectedIcon: const Icon(Icons.menu_book_rounded),
+            label: app.t('nav_docs', 'Docs'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.inventory_2_outlined),
+            selectedIcon: const Icon(Icons.inventory_2_rounded),
+            label: app.t('nav_packages', 'Pkgs'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.code_outlined),
+            selectedIcon: const Icon(Icons.code_rounded),
+            label: app.t('nav_examples', 'Ex.'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.library_books_outlined),
+            selectedIcon: const Icon(Icons.library_books_rounded),
+            label: app.t('nav_stdlib', 'Std'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.play_circle_outline),
+            selectedIcon: const Icon(Icons.play_circle_filled),
+            label: app.t('nav_playground', 'Play'),
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.more_horiz),
+            selectedIcon: const Icon(Icons.more_horiz),
+            label: app.t('nav_more', 'Plus'),
+          ),
         ],
       ),
     );
@@ -117,10 +155,4 @@ class _ShellScreenState extends State<ShellScreen> {
         return app.t('nav_more', 'Plus');
     }
   }
-}
-
-// Local import for animate on splash — avoid unused if flutter_animate already in common
-extension on Widget {
-  // ignore: unused_element
-  Widget animate() => this;
 }
