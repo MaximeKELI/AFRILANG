@@ -2,10 +2,10 @@
 {% block title %}{{ ui.releases_page.title }}{% endblock %}
 
 {% block content %}
-<div class="mb-5">
+<div class="afr-page-header">
   <div class="section-label">{{ ui.releases_page.label }}</div>
-  <h1 class="h2 fw-bold mb-1">{{ ui.releases_page.h1 }}</h1>
-  <p class="text-secondary-custom mb-0">{{ ui.releases_page.lead }}</p>
+  <h1 class="h2">{{ ui.releases_page.h1 }}</h1>
+  <p class="lead">{{ ui.releases_page.lead }}</p>
 </div>
 
 {% for rel in releases %}

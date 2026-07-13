@@ -10,20 +10,19 @@
   </ol>
 </nav>
 
-<div class="mb-4">
+<div class="afr-page-header">
   <div class="d-flex flex-wrap gap-2 mb-2">
     {% if category %}<span class="badge text-bg-light border">{{ category.label }}</span>{% endif %}
     <span class="badge text-bg-light border">{{ mod.tier }}</span>
     <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
   </div>
-  <h1 class="h2 fw-bold mb-1"><code>import "{{ mod.import_path }}"</code></h1>
-  <p class="text-secondary-custom">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr }}{% else %}{{ mod.description_fr|default:mod.description_en }}{% endif %}</p>
+  <h1 class="h2 mb-1"><code>import "{{ mod.import_path }}"</code></h1>
+  <p class="lead">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr }}{% else %}{{ mod.description_fr|default:mod.description_en }}{% endif %}</p>
 </div>
 
 <div class="d-flex flex-wrap gap-2 mb-4">
   <a href="{% url 'stdlib_guide' mod.name %}" class="btn btn-afr-primary btn-sm">{{ ui.libraries_page.guide }}</a>
-  <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-outline btn-sm">↓ PDF (5+ {{ ui.libraries_page.pages }})</a>
-  <a href="{% url 'playground' %}?example=stdlib-demo" class="btn btn-afr-outline btn-sm">{{ ui.stdlib_page.try_playground }}</a>
+  <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-outline btn-sm">PDF</a>
 </div>
 
 {% if functions %}

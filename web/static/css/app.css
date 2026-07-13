@@ -197,11 +197,23 @@ body.afr-body {
   line-height: 1.65;
 }
 
+.docs-content .afr-page-header {
+  margin-bottom: 2rem;
+}
+
+.docs-content .afr-page-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.docs-content .afr-page-header .lead {
+  margin-bottom: 0;
+}
+
 .code-panel {
   background: var(--afr-code-bg);
   border-radius: var(--afr-radius);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
 }
 
 .code-panel-header {
@@ -977,14 +989,14 @@ body.afr-body.afr-loaded main {
 .tutorial-progress {
   height: 6px;
   background: var(--afr-bg-muted);
-  border-radius: 999px;
+  border-radius: 0.35rem;
   overflow: hidden;
 }
 
 .tutorial-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--afr-primary), #6366f1);
-  border-radius: 999px;
+  background: var(--afr-primary);
+  border-radius: 0.35rem;
   transition: width 0.4s ease;
 }
 
@@ -1072,18 +1084,18 @@ body.afr-body.afr-loaded main {
 .benchmark-bar-wrap {
   height: 8px;
   background: var(--afr-bg-muted);
-  border-radius: 999px;
+  border-radius: 0.35rem;
   overflow: hidden;
 }
 
 .benchmark-bar {
   height: 100%;
-  border-radius: 999px;
+  border-radius: 0.35rem;
   transition: width 0.6s ease;
 }
 
 .benchmark-bar-afr {
-  background: linear-gradient(90deg, var(--afr-primary), #6366f1);
+  background: var(--afr-primary);
 }
 
 .benchmark-bar-py {
@@ -1130,11 +1142,8 @@ body.afr-body.afr-loaded main {
   font-weight: 800;
   line-height: 1;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--afr-primary), #6366f1);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.9;
+  color: var(--afr-primary);
+  opacity: 0.85;
 }
 
 .stdlib-guide-body {
