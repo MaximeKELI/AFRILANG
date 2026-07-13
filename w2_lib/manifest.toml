@@ -1,0 +1,4 @@
+name = "w2_lib"
+version = "0.1.0"
+description = "Paquet AFRILANG w2_lib"
+main = "w2_lib.afr"

@@ -118,12 +118,21 @@ static void enrichPackagesFromIndex(const std::string& afrilangRoot,
 static void copyDirectory(const fs::path& src, const fs::path& dst) {
     const fs::path canonicalSrc = fs::weakly_canonical(src);
     fs::create_directories(dst);
+    static const std::unordered_set<std::string> kSkip = {
+        "vendor", ".git", "build", ".afrilang", ".cache",
+    };
     for (const auto& entry : fs::recursive_directory_iterator(
              src, fs::directory_options::skip_permission_denied)) {
         const fs::path rel = fs::relative(entry.path(), src);
+        bool skip = false;
         for (const auto& part : rel) {
             validatePathComponent(part.string());
+            if (kSkip.count(part.string())) {
+                skip = true;
+                break;
+            }
         }
+        if (skip) continue;
         const fs::path target = dst / rel;
 
         if (entry.is_symlink()) {
@@ -1084,7 +1093,8 @@ int PkgRegistry::cmdInit(const std::string& dirOrName) {
 
     {
         std::ofstream test(dir / "tests" / "smoke.afr");
-        test << "import pkg/" << name << "/" << name << "\n\n";
+        test << "import \"pkg/" << name << "/" << name << ".afr\"\n\n";
+        test << "use " << name << "\n\n";
         test << "test \"hello\"\n";
         test << "    create h = hello()\n";
         test << "    assert h is equal to \"hello from " << name << "\"\n";

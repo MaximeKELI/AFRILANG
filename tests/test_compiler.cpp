@@ -180,7 +180,7 @@ static void testParseDependencyValue() {
 
 static void testLockFileRoundTrip() {
     namespace fs = std::filesystem;
-    const fs::path dir = fs::temp_directory_path() / "afrilang_lock_test";
+    const fs::path dir = fs::path(".") / ".afrilang_lock_test_tmp";
     fs::create_directories(dir);
     const fs::path lockPath = dir / "afrilang.lock";
 

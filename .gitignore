@@ -71,6 +71,7 @@ Thumbs.db
 
 # Package remote download cache
 /packages/.cache/
+/.afrilang_lock_test_tmp/
 
 # Coverage
 *.gcno

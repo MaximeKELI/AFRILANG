@@ -1,0 +1,5 @@
+module w2_lib
+    function hello() returns text
+        return "hello from w2_lib"
+    end
+end
