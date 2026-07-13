@@ -1,0 +1,72 @@
+import "std/game3d"
+use game3d
+
+openWindow("AFRILANG Editeur 3D", 1024, 640)
+setCamera(0, 12, 24, 0, -14)
+
+loadGlb("pyramid", "examples/assets/pyramid_anim.glb")
+loadModel("crate", "examples/assets/crate.obj")
+loadTexture3d("grass", "examples/assets/grass.png")
+loadLevel("examples/assets/demo_level.txt")
+
+create brush number = 0
+create rot number = 0
+playGltfAnim("pyramid", 0, true)
+
+while isOpen() do
+    beginFrame()
+
+    if wasKeyPressed("Escape") then
+        shutdown()
+    end
+
+    if wasKeyPressed("E") then
+        if isEditMode() then
+            setEditMode(false)
+        else
+            setEditMode(true)
+        end
+    end
+
+    if wasKeyPressed("1") then
+        set brush = 0
+    end
+    if wasKeyPressed("2") then
+        set brush = 1
+    end
+
+    if wasKeyPressed("S") then
+        saveLevel("examples/assets/demo_level.txt")
+    end
+    if wasKeyPressed("L") then
+        loadLevel("examples/assets/demo_level.txt")
+    end
+
+    create dt number = deltaMs()
+    set rot = rot + dt * 0.01
+    updateGltfAnims(dt)
+
+    create move number = dt * 0.014
+    create turn number = dt * 0.04
+    updateFlyCamera(move, turn)
+
+    if isEditMode() then
+        if wasMouseClicked() then
+            if pickGround(mouseX(), mouseY()) then
+                if brush is equal to 0 then
+                    addLevelGltf("pyramid", pickGroundX(), 0, pickGroundZ(), 2, 0)
+                else
+                    addLevelModel("crate", pickGroundX(), 0.5, pickGroundZ(), 1, 0)
+                end
+            end
+        end
+    end
+
+    clearScreen(14, 18, 26)
+    applyCamera()
+    drawGrid(0, 24, 24)
+    drawPlaneTextured(0, 24, "grass")
+    drawLevel()
+
+    showFrame()
+end
