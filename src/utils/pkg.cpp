@@ -1012,8 +1012,16 @@ int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& q
     for (const auto& pkg : packages) {
         if (!query.empty() &&
             !containsIgnoreCase(pkg.name, query) &&
-            !containsIgnoreCase(pkg.description, query)) {
-            continue;
+            !containsIgnoreCase(pkg.description, query) &&
+            !containsIgnoreCase(pkg.url, query)) {
+            bool tagHit = false;
+            for (const auto& tag : pkg.tags) {
+                if (containsIgnoreCase(tag, query)) {
+                    tagHit = true;
+                    break;
+                }
+            }
+            if (!tagHit) continue;
         }
         found = true;
         std::cout << pkg.name << "@" << pkg.version;
@@ -1156,13 +1164,13 @@ int PkgRegistry::cmdTest(const std::string& packageDir, const std::string& afril
         std::cout << "  " << fs::relative(entry.path(), src).string() << " ... ";
         std::cout.flush();
         std::ostringstream cmd;
-        // Use same binary if possible
-        cmd << "AFRILANG_HOME=\"" << afrilangRoot << "\" ";
-        if (const char* self = std::getenv("_")) {
-            (void)self;
+        try {
+            const fs::path selfExe = fs::weakly_canonical(fs::read_symlink("/proc/self/exe"));
+            cmd << "AFRILANG_HOME=\"" << afrilangRoot << "\" \"" << selfExe.string()
+                << "\" run \"" << file << "\"";
+        } catch (...) {
+            cmd << "AFRILANG_HOME=\"" << afrilangRoot << "\" afrilang run \"" << file << "\"";
         }
-        // Prefer PATH afrilang
-        cmd << "afrilang run \"" << file << "\"";
         const int rc = runCommand(cmd.str());
         if (rc == 0) {
             std::cout << "OK\n";

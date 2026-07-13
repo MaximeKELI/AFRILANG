@@ -2,7 +2,7 @@
 
 Objectif : rapprocher AFRILANG d’un produit langage de type **Nim / Crystal** (haut niveau → natif + écosystème paquets), sans prétendre cloner 15 ans d’adoption d’un coup.
 
-## Vague 1 — Parité écosystème (en cours / livrée)
+## Vague 1 — Parité écosystème (livrée)
 
 Inspiré de [Nimble](https://github.com/nim-lang/nimble) et [Shards](https://github.com/crystal-lang/shards) :
 
@@ -16,12 +16,16 @@ Inspiré de [Nimble](https://github.com/nim-lang/nimble) et [Shards](https://git
 - [x] Docs : ce roadmap, `PKG.md`, `CORE_STDLIB.md`
 - [x] `afrilang doc <dir>` → `docs/api/`
 
-## Vague 2 — Registre distant
+## Vague 2 — Registre distant (livrée)
 
-- [ ] Téléchargement de paquets (archives) depuis un registre, pas seulement l’index JSON
-- [ ] `pkg publish` distant authentifié
-- [ ] Résolution transitive multi-niveaux + conflits
-- [ ] Site searchable type shards.info / packages.nim-lang.org
+Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `method: git`) :
+
+- [x] Téléchargement de paquets depuis l’index distant si absent du registre local
+- [x] `pkg sync` enrichit `list` / `search` / `lookup` via `remote-index.json`
+- [x] `pkg publish --remote` — recette `registry-entry.json` + POST si `AFRILANG_REGISTRY_TOKEN`
+- [x] Résolution transitive multi-niveaux + détection de conflits de versions
+- [x] Index enrichi (`url`, `method`, `tags`, `license`, `web`)
+- [x] `pkg test` — boucle auteur (self-vendor + tests/)
 
 ## Vague 3 — Profondeur & cibles
 
@@ -29,7 +33,8 @@ Inspiré de [Nimble](https://github.com/nim-lang/nimble) et [Shards](https://git
 - [ ] Réduire la dépendance aux stubs générés pour l’expérience utilisateur
 - [ ] WASM / JS : élargir le sous-ensemble (voir `WASM_COMPAT.md`)
 - [ ] Batterie de tests compilateur élargie (style Testament / Crystal specs)
+- [ ] Site searchable type shards.info (deps graph, versions, README)
 
 ## Hors roadmap (non codable ici)
 
-Communauté, libs tierces, adoption — progressent avec Vague 2 + usage réel.
+Communauté, libs tierces, adoption — progressent avec le registre distant + usage réel.

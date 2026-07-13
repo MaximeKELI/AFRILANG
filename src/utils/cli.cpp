@@ -150,7 +150,9 @@ static void printUsage() {
     std::cerr << "  afrilang pkg install         Installer depuis afrilang.lock / toml\n";
     std::cerr << "  afrilang pkg update          Re-résoudre et régénérer le lock\n";
     std::cerr << "  afrilang pkg init [nom]      Créer un paquet bibliothèque\n";
-    std::cerr << "  afrilang pkg publish <dir>   Publier dans le registre local\n";
+    std::cerr << "  afrilang pkg test [dir]      Tester un paquet (self-vendor)\n";
+    std::cerr << "  afrilang pkg publish <dir> [--remote]  Publier (local / registre)\n";
+    std::cerr << "  afrilang pkg sync            Télécharger l'index distant\n";
     std::cerr << "  afrilang debug <fichier>      Débugger avec GDB\n";
     std::cerr << "  afrilang benchmark           Mesurer compile + exec (exemples)\n";
     std::cerr << "  afrilang serve [port]        Playground web local\n";
@@ -1190,7 +1192,7 @@ int runCli(int argc, char* argv[]) {
     }
     if (cmd == "pkg") {
         if (argc < 3) {
-            std::cerr << "Usage: afrilang pkg <list|search|add|install|update|init|sync|reindex|publish> [args]\n";
+            std::cerr << "Usage: afrilang pkg <list|search|add|install|update|init|test|sync|reindex|publish> [args]\n";
             return 1;
         }
         const std::string sub = argv[2];
@@ -1210,6 +1212,10 @@ int runCli(int argc, char* argv[]) {
         if (sub == "init") {
             const std::string name = argc >= 4 ? argv[3] : "mylib";
             return PkgRegistry::cmdInit(name);
+        }
+        if (sub == "test") {
+            const std::string pkgDir = argc >= 4 ? argv[3] : dir;
+            return PkgRegistry::cmdTest(pkgDir, root);
         }
         if (sub == "add") {
             if (argc < 4) {
@@ -1241,8 +1247,14 @@ int runCli(int argc, char* argv[]) {
         if (sub == "sync") return PkgRegistry::syncRemoteRegistry(root);
         if (sub == "reindex") return PkgRegistry::rebuildIndex(root);
         if (sub == "publish") {
-            const std::string pkgDir = argc >= 4 ? argv[3] : dir;
-            return PkgRegistry::cmdPublish(pkgDir, root);
+            std::string pkgDir = dir;
+            bool remote = false;
+            for (int i = 3; i < argc; ++i) {
+                const std::string arg = argv[i];
+                if (arg == "--remote") remote = true;
+                else if (!arg.empty() && arg[0] != '-') pkgDir = arg;
+            }
+            return PkgRegistry::cmdPublish(pkgDir, root, remote);
         }
         std::cerr << "Sous-commande pkg inconnue: " << sub << "\n";
         return 1;

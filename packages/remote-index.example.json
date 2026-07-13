@@ -1,0 +1,14 @@
+{
+  "packages": [
+    {
+      "name": "example_remote",
+      "version": "0.1.0",
+      "description": "Exemple d'entrée registre distant (style Nimble)",
+      "method": "git",
+      "url": "https://github.com/afrilang/example_remote",
+      "license": "MIT",
+      "tags": ["example", "remote"],
+      "web": "https://github.com/afrilang/example_remote"
+    }
+  ]
+}
