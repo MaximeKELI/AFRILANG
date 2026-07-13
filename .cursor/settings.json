@@ -1,10 +1,6 @@
 {
   "afrilang.serverPath": "/home/admin20/AFRILANG/build/afrilang",
   "workbench.iconTheme": "afrilang-icons",
-  "files.associations": {
-    "*.afr": "afrilang"
-  },
-  "[afrilang]": {
-    "editor.tabSize": 4
-  }
+  "files.associations": { "*.afr": "afrilang" },
+  "[afrilang]": { "editor.tabSize": 4 }
 }
