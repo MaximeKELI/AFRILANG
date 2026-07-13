@@ -20,7 +20,7 @@ MAX_FILE_BYTES = 200 * 1024
 MAX_PROJECT_BYTES = 1024 * 1024
 
 # Exemples / programmes qui ouvrent une fenêtre ou une boucle d'événements :
-# le playground web est headless — on refuse au lieu d'attendre le timeout.
+# le playground web / l'app mobile sont headless — on refuse au lieu d'attendre le timeout.
 _DESKTOP_MARKERS = (
     'import "std/ui"',
     'import "std/game2d"',
@@ -31,8 +31,9 @@ _DESKTOP_MARKERS = (
 
 _DESKTOP_MESSAGE = (
     'Cet exemple nécessite une fenêtre graphique (SDL) et le compilateur '
-    'AFRILANG en local — il ne peut pas tourner dans le playground web.\n\n'
-    'Sur votre machine :\n'
+    'AFRILANG en local — il ne peut pas tourner dans le playground web '
+    'ni dans l’application mobile.\n\n'
+    'Sur votre machine (Linux / macOS / Windows) :\n'
     '  afrilang run examples/<fichier>.afr\n\n'
     'Choisissez un autre exemple (hello, list_ops, oop, …) pour l’exécuter ici.'
 )

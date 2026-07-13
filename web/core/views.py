@@ -581,8 +581,15 @@ def api_check(request):
 
 @require_GET
 def api_example(request, slug):
+    from .services.afrilang import requires_desktop_display
+
     ex = get_object_or_404(CodeExample, slug=slug)
-    return JsonResponse({'slug': ex.slug, 'title': ex.title, 'source': ex.source})
+    return JsonResponse({
+        'slug': ex.slug,
+        'title': ex.title,
+        'source': ex.source,
+        'desktop_only': requires_desktop_display(ex.source or ''),
+    })
 
 
 @require_POST

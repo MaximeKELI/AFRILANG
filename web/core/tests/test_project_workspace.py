@@ -11,6 +11,7 @@ from django.test import SimpleTestCase
 from core.services.afrilang import (
     ProjectPayloadError,
     normalize_project_path,
+    requires_desktop_display,
     resolve_run_payload,
     run_project,
     stage_project,
@@ -95,6 +96,26 @@ class ProjectRunTests(SimpleTestCase):
         result = run_project('main.afr', files)
         self.assertTrue(result['ok'], result['output'])
         self.assertIn('42', result['output'])
+
+
+class DesktopGuiGateTests(SimpleTestCase):
+    def test_detects_ui_import_and_open_window(self):
+        self.assertTrue(requires_desktop_display('import "std/ui"\nuse ui\n'))
+        self.assertTrue(requires_desktop_display('import "std/game2d"\n'))
+        self.assertTrue(requires_desktop_display('import "std/game3d"\n'))
+        self.assertTrue(requires_desktop_display('open window titled "Hi"\n'))
+        self.assertTrue(requires_desktop_display('while window is open do\nend\n'))
+        self.assertFalse(requires_desktop_display('say "hello"\nclass Dog\nend\n'))
+
+    def test_run_project_refuses_gui(self):
+        result = run_project(
+            'gui.afr',
+            {'gui.afr': 'import "std/ui"\nopen window titled "Demo"\n'},
+        )
+        self.assertFalse(result['ok'])
+        self.assertEqual(result['exitCode'], 2)
+        self.assertIn('fenêtre graphique', result['output'])
+        self.assertIn('application mobile', result['output'])
 
 
 if __name__ == '__main__':

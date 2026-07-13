@@ -238,6 +238,8 @@ def api_mobile_package_detail(request, name):
 
 @require_GET
 def api_mobile_examples(request):
+    from .services.afrilang import requires_desktop_display
+
     lang = _lang(request)
     q = request.GET.get('q', '').strip()
     qs = CodeExample.objects.all()
@@ -250,6 +252,7 @@ def api_mobile_examples(request):
             'title': ex.title,
             'description': ex.description,
             'featured': ex.featured,
+            'desktop_only': requires_desktop_display(ex.source or ''),
             'source_preview': (ex.source or '')[:280],
         }
         for ex in qs[:120]

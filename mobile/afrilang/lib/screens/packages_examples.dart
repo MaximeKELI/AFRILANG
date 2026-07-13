@@ -255,14 +255,35 @@ class _ExamplesScreenState extends State<ExamplesScreen> {
             child: Card(
               margin: const EdgeInsets.only(bottom: 10),
               child: ListTile(
-                leading: const Icon(Icons.code_rounded, color: AfrColors.primary),
+                leading: Icon(
+                  e['desktop_only'] == true
+                      ? Icons.desktop_windows_outlined
+                      : Icons.code_rounded,
+                  color: AfrColors.primary,
+                ),
                 title: Text(e['title']?.toString() ?? e['slug']?.toString() ?? '', style: const TextStyle(fontWeight: FontWeight.w700)),
                 subtitle: Text(
-                  e['source_preview']?.toString() ?? '',
+                  e['desktop_only'] == true
+                      ? (context.read<AppState>().lang == 'en'
+                          ? 'Desktop only (SDL) — cannot run in the app'
+                          : 'Desktop uniquement (SDL) — non exécutable dans l’app')
+                      : (e['source_preview']?.toString() ?? ''),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: afrMono(fontSize: 11, color: AfrColors.textSecondary),
                 ),
+                trailing: e['desktop_only'] == true
+                    ? Chip(
+                        label: Text(
+                          context.read<AppState>().lang == 'en' ? 'Desktop' : 'Desktop',
+                          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+                        ),
+                        visualDensity: VisualDensity.compact,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: EdgeInsets.zero,
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+                      )
+                    : null,
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => ExampleDetailScreen(slug: e['slug'] as String)),
                 ),
@@ -330,6 +351,12 @@ class _ExampleDetailScreenState extends State<ExampleDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final lang = context.read<AppState>().lang;
+    final desktopOnly = _ex?['desktop_only'] == true;
+    final desktopHint = lang == 'en'
+        ? 'This example needs a native SDL window. Run it on your computer with:\nafrilang run examples/${widget.slug}.afr'
+        : 'Cet exemple nécessite une fenêtre SDL native. Lancez-le sur votre ordinateur avec :\nafrilang run examples/${widget.slug}.afr';
+
     return Scaffold(
       appBar: AppBar(
         title: Text(_ex?['title']?.toString() ?? widget.slug),
@@ -349,14 +376,33 @@ class _ExampleDetailScreenState extends State<ExampleDetailScreen> {
               : ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
+                    if (desktopOnly) ...[
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: AfrColors.accent.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(10),
+                          border: const Border(left: BorderSide(color: AfrColors.accent, width: 3)),
+                        ),
+                        child: Text(desktopHint, style: const TextStyle(height: 1.45)),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
                     CodePanel(code: _ex!['source']?.toString() ?? '', filename: '${widget.slug}.afr'),
                     const SizedBox(height: 16),
                     ElevatedButton.icon(
-                      onPressed: _running ? null : _run,
+                      onPressed: (_running || desktopOnly) ? null : _run,
                       icon: _running
                           ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                          : const Icon(Icons.play_arrow_rounded),
-                      label: Text(_running ? '…' : 'Run'),
+                          : Icon(desktopOnly ? Icons.desktop_windows_outlined : Icons.play_arrow_rounded),
+                      label: Text(
+                        _running
+                            ? '…'
+                            : desktopOnly
+                                ? (lang == 'en' ? 'Desktop only' : 'Desktop uniquement')
+                                : 'Run',
+                      ),
                     ),
                     if (_output != null) ...[
                       const SizedBox(height: 16),
