@@ -394,6 +394,8 @@ static void testFormatAllSummary() {
     const std::string formatted = engine.formatAll();
     expect(formatted.find("2") != std::string::npos, "summary mentions error count");
 }
+
+static void testMultiSemanticErrors() {
     const std::string src =
         "say unknown_one\n"
         "say unknown_two\n";
