@@ -131,11 +131,14 @@ class CodePanel extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 16),
-            child: SelectableText(code, style: afrMono()),
+            child: AfrCodeHighlight(code: code),
           ),
         ],
       ),
-    );
+    )
+        .animate()
+        .fadeIn(duration: 400.ms)
+        .slideY(begin: 0.04, end: 0, curve: Curves.easeOutCubic);
 
     if (maxHeight == null) return body;
     return ConstrainedBox(
@@ -148,8 +151,11 @@ class CodePanel extends StatelessWidget {
         width: 10,
         height: 10,
         decoration: BoxDecoration(color: c, shape: BoxShape.circle),
-      );
+      )
+          .animate(onPlay: (ctrl) => ctrl.repeat(reverse: true))
+          .scale(begin: const Offset(0.9, 0.9), end: const Offset(1.05, 1.05), duration: 1800.ms);
 }
+
 
 class AfrPrimaryButton extends StatelessWidget {
   const AfrPrimaryButton({
@@ -180,7 +186,8 @@ class AfrPrimaryButton extends StatelessWidget {
 class StatRow extends StatelessWidget {
   const StatRow({super.key, required this.items});
 
-  final List<(String value, String label)> items;
+  /// (numeric value for animation, display suffix, label) — or use display string via suffix-only.
+  final List<({num? count, String display, String label})> items;
 
   @override
   Widget build(BuildContext context) {
@@ -191,34 +198,39 @@ class StatRow extends StatelessWidget {
         for (var i = 0; i < items.length; i++)
           FadeSlideIn(
             delay: (80 * i).ms,
-            child: Container(
-              width: 150,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: AfrColors.border.withValues(alpha: 0.8)),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    items[i].$1,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                      color: AfrColors.primary,
+            child: SoftPress(
+              child: Container(
+                width: 150,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: AfrColors.border.withValues(alpha: 0.8)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (items[i].count != null)
+                      AnimatedCounter(value: items[i].count!, suffix: items[i].display)
+                    else
+                      Text(
+                        items[i].display,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          color: AfrColors.primary,
+                        ),
+                      ),
+                    const SizedBox(height: 4),
+                    Text(
+                      items[i].label,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    items[i].$2,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -226,6 +238,82 @@ class StatRow extends StatelessWidget {
     );
   }
 }
+
+class PkgRow extends StatelessWidget {
+  const PkgRow({
+    super.key,
+    required this.name,
+    required this.version,
+    required this.description,
+    this.blessed = false,
+    this.onTap,
+  });
+
+  final String name;
+  final String version;
+  final String description;
+  final bool blessed;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return SoftPress(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(color: AfrColors.border.withValues(alpha: 0.9)),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                if (blessed)
+                  const Padding(
+                    padding: EdgeInsets.only(right: 6),
+                    child: Text('★', style: TextStyle(color: AfrColors.accent, fontSize: 16)),
+                  ),
+                Text(name, style: const TextStyle(fontWeight: FontWeight.w800)),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AfrColors.border),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text('v$version', style: const TextStyle(fontSize: 12)),
+                ),
+              ],
+            ),
+            if (description.isNotEmpty) ...[
+              const SizedBox(height: 6),
+              Text(
+                description,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
+                ),
+              ),
+            ],
+            const SizedBox(height: 6),
+            Text(
+              'afrilang pkg add $name',
+              style: afrMono(fontSize: 12, color: AfrColors.primary),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class HeroMeshBackground extends StatelessWidget {
   const HeroMeshBackground({super.key, required this.child});
