@@ -1387,12 +1387,6 @@ AfrType SemanticAnalyzer::inferReturnTypeFromBlock(
         [this](const ASTNode& node, const std::string& msg) { errorAt(node, msg); });
 }
 
-AfrType SemanticAnalyzer::finishExpression(const ExpressionNode& expr, AfrType type) const {
-    expr.inferredType = type;
-    expr.typeInferred = true;
-    return type;
-}
-
 AfrType SemanticAnalyzer::analyzeExpression(const ExpressionNode& expr,
                                             const std::unordered_map<std::string, AfrType>& scope) {
     try {
