@@ -79,9 +79,10 @@ Exemple `settings.json` :
 - **Config debug** — *AFRILANG: Initialiser la config debug* → `launch.json` pour F5
 - **Icône** — carte d'Afrique pour les fichiers `.afr`
 
-### Icône des fichiers `.afr`
+### Icône + coloration des fichiers `.afr`
 
-Les fichiers `.afr` affichent le logo AFRILANG dans l'explorateur (via l'icône de langage + thème Seti).
+Le workspace active le thème d'icônes **AFRILANG** (`afrilang-icons`) : les `.afr`
+affichent la carte d'Afrique. La grammaire TextMate colore mots-clés, types, chaînes, etc.
 
 Si la coloration ou l'icône n'apparaissent pas :
 
@@ -90,14 +91,10 @@ Si la coloration ou l'icône n'apparaissent pas :
    cd vscode-afrilang && ./install.sh
    ```
 2. **Rechargez** la fenêtre : *Developer: Reload Window*
-3. Vérifiez le mode langage en bas à droite : **AFRILANG** (pas « Plain Text »)
-4. **Cursor Glass / Agents Window** : bug connu — les grammaires d'extensions
-   (dont AFRILANG) ne s'appliquent souvent pas dans la vue Agents.
-   Ouvrez le fichier dans l'**éditeur classique** (IDE) : couleurs + logo y fonctionnent.
-5. **Optionnel** — thème d'icônes dédié :
-   ```json
-   { "workbench.iconTheme": "afrilang-icons" }
-   ```
+3. Barre d'état (bas à droite) = **AFRILANG** (pas « Plain Text »)
+4. *File Icon Theme* = **AFRILANG**
+5. **Cursor Glass / Agents Window** : bug connu — les grammaires d'extensions
+   y sont souvent absentes. Ouvrez le fichier dans l'**éditeur classique** (IDE).
 
 ## Commandes
 
