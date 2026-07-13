@@ -1,0 +1,16 @@
+import "std/c/dataultra001"
+use dataultra001
+
+create values list number = list of 2, 4, 6, 8, 10, 12
+create xs list number = list of 0, 1, 2, 3, 4, 5
+
+say "mean={mean(values)} stddev={stddev(values)}"
+say "min={minVal(values)} max={maxVal(values)}"
+say "slope={linearSlope(xs, values)}"
+say "corr={correlation(xs, values)}"
+
+create norm = normalize(values)
+say "norm[0]={norm at 0} norm[5]={norm at 5}"
+
+create dif = diff1(values)
+say "diff1[0]={dif at 0} diff1[4]={dif at 4}"
