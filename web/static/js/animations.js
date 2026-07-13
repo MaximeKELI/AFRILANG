@@ -6,7 +6,6 @@
   function initScrollReveal() {
     if (reduced) return;
     var selectors = [
-      '.afr-hero .col-lg-6',
       '.afr-section .afr-feature-plain',
       '.afr-section .afr-feature-card',
       '.afr-section .afr-stat-row',

@@ -977,7 +977,8 @@ body.afr-body:not(.afr-loaded) main {
 }
 
 body.afr-body.afr-loaded main {
-  animation: afr-fade-up 0.45s var(--afr-ease-out) both;
+  opacity: 1;
+  transition: opacity 0.4s var(--afr-ease-out);
 }
 
 .afr-reveal {
@@ -1048,6 +1049,21 @@ body.afr-body.afr-loaded main {
 }
 .afr-hero-cta .btn:nth-child(1) { animation-delay: 0.22s; }
 .afr-hero-cta .btn:nth-child(2) { animation-delay: 0.32s; }
+
+.afr-hero-accent {
+  color: var(--afr-primary);
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 92%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.12em;
+  transition: background-size 0.55s var(--afr-ease-out);
+}
+
+.afr-loaded .afr-hero-accent {
+  background-size: 100% 0.12em;
+}
 
 [data-afr-theme="dark"] .afr-pkg-row:hover {
   background: rgba(96, 165, 250, 0.08);
