@@ -1,0 +1,7 @@
+name = "mon_app"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/mon_app"
+
+[dependencies]
+math = "0.1.0"

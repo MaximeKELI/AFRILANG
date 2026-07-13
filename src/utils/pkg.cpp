@@ -63,6 +63,17 @@ std::string PkgRegistry::registryUrl() {
     return "https://raw.githubusercontent.com/afrilang/registry/main/index.json";
 }
 
+std::string PkgRegistry::registryPublishUrl() {
+    if (const char* url = std::getenv("AFRILANG_REGISTRY_PUBLISH_URL")) {
+        return url;
+    }
+    // Same host as index by convention; POST /publish
+    std::string index = registryUrl();
+    const auto slash = index.rfind('/');
+    if (slash == std::string::npos) return "https://registry.afrilang.dev/publish";
+    return index.substr(0, slash) + "/publish";
+}
+
 int PkgRegistry::syncRemoteRegistry(const std::string& afrilangRoot) {
     const std::string url = registryUrl();
     std::cout << "Synchronisation du registre: " << url << "\n";
@@ -101,177 +112,174 @@ PackageInfo PkgRegistry::loadManifest(const std::string& packageDir) {
     return info;
 }
 
-static void enrichPackagesFromIndex(const std::string& afrilangRoot,
-                                    std::vector<PackageInfo>& packages);
-
-std::vector<PackageInfo> PkgRegistry::listAvailable(const std::string& afrilangRoot) {
-    std::vector<PackageInfo> packages;
-    const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
-    if (!fs::exists(packagesDir)) return packages;
-
-    for (const auto& entry : fs::directory_iterator(packagesDir)) {
-        if (!entry.is_directory()) continue;
-        PackageInfo info = loadManifest(entry.path().string());
-        if (!info.name.empty()) {
-            packages.push_back(std::move(info));
-        }
-    }
-    enrichPackagesFromIndex(afrilangRoot, packages);
-    return packages;
-}
-
-static void copyDirectory(const fs::path& src, const fs::path& dst) {
-    const fs::path canonicalSrc = fs::weakly_canonical(src);
-    fs::create_directories(dst);
-    for (const auto& entry : fs::recursive_directory_iterator(
-             src, fs::directory_options::skip_permission_denied)) {
-        const fs::path rel = fs::relative(entry.path(), src);
-        for (const auto& part : rel) {
-            validatePathComponent(part.string());
-        }
-        const fs::path target = dst / rel;
-
-        if (entry.is_symlink()) {
-            const fs::path linkTarget = fs::read_symlink(entry.path());
-            const fs::path resolved = linkTarget.is_absolute()
-                                          ? fs::weakly_canonical(linkTarget)
-                                          : fs::weakly_canonical(entry.path().parent_path() /
-                                                                 linkTarget);
-            if (!isPathInsideRoot(canonicalSrc.string(), resolved.string())) {
-                securityViolation("Lien symbolique hors du paquet: " + entry.path().string());
-            }
-            continue;
-        }
-
-        if (entry.is_directory()) {
-            fs::create_directories(target);
-        } else if (entry.is_regular_file()) {
-            fs::create_directories(target.parent_path());
-            fs::copy_file(entry.path(), target, fs::copy_options::overwrite_existing);
-        }
-    }
-}
-
-static fs::path vendorRootFor(const std::string& projectDir, std::string& relPrefixOut) {
-    if (const char* envVendor = std::getenv("AFRILANG_VENDOR")) {
-        relPrefixOut = ".afrilang/env/vendor/";
-        return fs::path(envVendor);
-    }
-    const fs::path envDst = fs::path(projectDir) / ".afrilang" / "env" / "vendor";
-    if (fs::exists(fs::path(projectDir) / ".afrilang" / "env")) {
-        relPrefixOut = ".afrilang/env/vendor/";
-        return envDst;
-    }
-    relPrefixOut = "vendor/";
-    return fs::path(projectDir) / "vendor";
-}
-
-static std::string jsonEscape(const std::string& s) {
-    std::string out;
-    for (char c : s) {
-        switch (c) {
-            case '"': out += "\\\""; break;
-            case '\\': out += "\\\\"; break;
-            default: out += c; break;
-        }
-    }
-    return out;
-}
-
-static bool containsIgnoreCase(const std::string& haystack, const std::string& needle) {
-    if (needle.empty()) return true;
-    auto lower = [](unsigned char c) { return static_cast<char>(std::tolower(c)); };
-    std::string h;
-    h.resize(haystack.size());
-    std::transform(haystack.begin(), haystack.end(), h.begin(), lower);
-    std::string n;
-    n.resize(needle.size());
-    std::transform(needle.begin(), needle.end(), n.begin(), lower);
-    return h.find(n) != std::string::npos;
-}
-
-static std::unordered_set<std::string> loadBlessedNames(const std::string& afrilangRoot) {
-    std::unordered_set<std::string> names;
-    const fs::path path = fs::path(afrilangRoot) / "packages" / "blessed.json";
-    if (!fs::exists(path)) return names;
-    std::ifstream in(path);
-    std::ostringstream buf;
-    buf << in.rdbuf();
-    const std::string body = buf.str();
-    for (std::size_t i = 0; i < body.size(); ++i) {
-        if (body[i] != '"') continue;
-        const std::size_t end = body.find('"', i + 1);
-        if (end == std::string::npos) break;
-        const std::string name = body.substr(i + 1, end - i - 1);
-        if (!name.empty() && name != "packages") {
-            names.insert(name);
-        }
-        i = end;
-    }
-    return names;
-}
-
-static std::string readIndexField(const std::string& body, const std::string& packageName,
-                                  const std::string& field) {
+static std::string extractJsonObjectForName(const std::string& body, const std::string& packageName) {
     const std::string needle = "\"name\":\"" + packageName + "\"";
     const std::size_t pos = body.find(needle);
     if (pos == std::string::npos) return {};
-    const std::string key = "\"" + field + "\":\"";
-    const std::size_t shaPos = body.find(key, pos);
-    if (shaPos == std::string::npos) {
-        if (field == "blessed") {
-            const std::size_t boolPos = body.find("\"blessed\":true", pos);
-            if (boolPos != std::string::npos && boolPos < body.find('}', pos)) {
-                return "true";
-            }
+    // walk back to '{'
+    std::size_t start = pos;
+    while (start > 0 && body[start] != '{') --start;
+    int depth = 0;
+    for (std::size_t i = start; i < body.size(); ++i) {
+        if (body[i] == '{') ++depth;
+        else if (body[i] == '}') {
+            --depth;
+            if (depth == 0) return body.substr(start, i - start + 1);
         }
+    }
+    return {};
+}
+
+static std::string readFieldFromObject(const std::string& obj, const std::string& field) {
+    const std::string key = "\"" + field + "\":\"";
+    const std::size_t shaPos = obj.find(key);
+    if (shaPos == std::string::npos) {
+        if (field == "blessed" && obj.find("\"blessed\":true") != std::string::npos) return "true";
         return {};
     }
     const std::size_t start = shaPos + key.size();
-    const std::size_t end = body.find('"', start);
+    const std::size_t end = obj.find('"', start);
     if (end == std::string::npos || end <= start) return {};
-    return body.substr(start, end - start);
+    return obj.substr(start, end - start);
 }
 
-static std::string readIndexSha256(const fs::path& indexPath, const std::string& packageName) {
+static std::vector<std::string> readTagsFromObject(const std::string& obj) {
+    std::vector<std::string> tags;
+    const std::string key = "\"tags\":[";
+    const std::size_t pos = obj.find(key);
+    if (pos == std::string::npos) return tags;
+    std::size_t i = pos + key.size();
+    while (i < obj.size() && obj[i] != ']') {
+        if (obj[i] == '"') {
+            const std::size_t end = obj.find('"', i + 1);
+            if (end == std::string::npos) break;
+            tags.push_back(obj.substr(i + 1, end - i - 1));
+            i = end + 1;
+            continue;
+        }
+        ++i;
+    }
+    return tags;
+}
+
+static void applyIndexObject(PackageInfo& pkg, const std::string& obj) {
+    if (obj.empty()) return;
+    const std::string ver = readFieldFromObject(obj, "version");
+    if (!ver.empty()) pkg.version = ver;
+    const std::string desc = readFieldFromObject(obj, "description");
+    if (!desc.empty()) pkg.description = desc;
+    const std::string hash = readFieldFromObject(obj, "sha256");
+    if (!hash.empty()) pkg.sha256 = hash;
+    const std::string url = readFieldFromObject(obj, "url");
+    if (!url.empty()) pkg.url = url;
+    const std::string method = readFieldFromObject(obj, "method");
+    if (!method.empty()) pkg.method = method;
+    const std::string license = readFieldFromObject(obj, "license");
+    if (!license.empty()) pkg.license = license;
+    const std::string web = readFieldFromObject(obj, "web");
+    if (!web.empty()) pkg.web = web;
+    if (readFieldFromObject(obj, "blessed") == "true" ||
+        obj.find("\"blessed\":true") != std::string::npos) {
+        pkg.blessed = true;
+    }
+    auto tags = readTagsFromObject(obj);
+    if (!tags.empty()) pkg.tags = std::move(tags);
+}
+
+static std::string readIndexFile(const fs::path& indexPath) {
     if (!fs::exists(indexPath)) return {};
     std::ifstream in(indexPath);
     std::ostringstream buf;
     buf << in.rdbuf();
-    return readIndexField(buf.str(), packageName, "sha256");
+    return buf.str();
+}
+
+static std::vector<std::string> listPackageNamesInIndex(const std::string& body) {
+    std::vector<std::string> names;
+    const std::string key = "\"name\":\"";
+    for (std::size_t i = 0; i < body.size(); ) {
+        const std::size_t pos = body.find(key, i);
+        if (pos == std::string::npos) break;
+        const std::size_t start = pos + key.size();
+        const std::size_t end = body.find('"', start);
+        if (end == std::string::npos) break;
+        names.push_back(body.substr(start, end - start));
+        i = end + 1;
+    }
+    return names;
 }
 
 static void enrichPackagesFromIndex(const std::string& afrilangRoot,
                                     std::vector<PackageInfo>& packages) {
     const auto blessed = loadBlessedNames(afrilangRoot);
-    const fs::path indexPath = fs::path(afrilangRoot) / "packages" / "index.json";
-    std::string body;
-    if (fs::exists(indexPath)) {
-        std::ifstream in(indexPath);
-        std::ostringstream buf;
-        buf << in.rdbuf();
-        body = buf.str();
-    }
-    for (auto& pkg : packages) {
-        if (blessed.count(pkg.name)) pkg.blessed = true;
-        if (body.empty()) continue;
-        const std::string hash = readIndexField(body, pkg.name, "sha256");
-        if (!hash.empty()) pkg.sha256 = hash;
-        const std::size_t pos = body.find("\"name\":\"" + pkg.name + "\"");
-        if (pos != std::string::npos) {
-            const std::size_t end = body.find('}', pos);
-            const std::string slice = body.substr(pos, end - pos);
-            if (slice.find("\"blessed\":true") != std::string::npos) {
-                pkg.blessed = true;
+    const std::string localBody = readIndexFile(fs::path(afrilangRoot) / "packages" / "index.json");
+    const std::string remoteBody =
+        readIndexFile(fs::path(afrilangRoot) / "packages" / "remote-index.json");
+
+    std::unordered_map<std::string, std::size_t> byName;
+    for (std::size_t i = 0; i < packages.size(); ++i) byName[packages[i].name] = i;
+
+    auto mergeBody = [&](const std::string& body, bool remoteOnlyNew) {
+        if (body.empty()) return;
+        for (const auto& name : listPackageNamesInIndex(body)) {
+            const std::string obj = extractJsonObjectForName(body, name);
+            auto it = byName.find(name);
+            if (it != byName.end()) {
+                applyIndexObject(packages[it->second], obj);
+                if (blessed.count(name)) packages[it->second].blessed = true;
+            } else if (remoteOnlyNew || !obj.empty()) {
+                PackageInfo info;
+                info.name = name;
+                applyIndexObject(info, obj);
+                if (info.method.empty() && !info.url.empty()) info.method = "git";
+                if (blessed.count(name)) info.blessed = true;
+                byName[name] = packages.size();
+                packages.push_back(std::move(info));
             }
         }
+    };
+
+    mergeBody(localBody, false);
+    mergeBody(remoteBody, true);
+
+    for (auto& pkg : packages) {
+        if (blessed.count(pkg.name)) pkg.blessed = true;
     }
+}
+
+PackageInfo PkgRegistry::lookupPackage(const std::string& afrilangRoot, const std::string& name) {
+    PackageInfo info;
+    const fs::path localDir = fs::path(afrilangRoot) / "packages" / name;
+    if (fs::exists(localDir / "manifest.toml")) {
+        info = loadManifest(localDir.string());
+        if (info.name.empty()) info.name = name;
+        info.method = info.method.empty() ? "local" : info.method;
+    } else {
+        info.name = name;
+    }
+    const std::string localBody = readIndexFile(fs::path(afrilangRoot) / "packages" / "index.json");
+    const std::string remoteBody =
+        readIndexFile(fs::path(afrilangRoot) / "packages" / "remote-index.json");
+    applyIndexObject(info, extractJsonObjectForName(localBody, name));
+    applyIndexObject(info, extractJsonObjectForName(remoteBody, name));
+    if (info.method.empty() && !info.url.empty()) info.method = "git";
+    if (loadBlessedNames(afrilangRoot).count(name)) info.blessed = true;
+    return info;
 }
 
 int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
     const fs::path packagesDir = fs::path(afrilangRoot) / "packages";
     const fs::path indexPath = packagesDir / "index.json";
-    const auto packages = listAvailable(afrilangRoot);
+    // Only local on-disk packages for authoritative local index
+    std::vector<PackageInfo> packages;
+    if (fs::exists(packagesDir)) {
+        for (const auto& entry : fs::directory_iterator(packagesDir)) {
+            if (!entry.is_directory()) continue;
+            PackageInfo info = loadManifest(entry.path().string());
+            if (info.name.empty()) continue;
+            packages.push_back(std::move(info));
+        }
+    }
     const auto blessed = loadBlessedNames(afrilangRoot);
 
     std::ostringstream json;
@@ -281,9 +289,9 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         const bool isBlessed = blessed.count(pkg.name) > 0;
         json << "    {\"name\":\"" << jsonEscape(pkg.name) << "\","
              << "\"version\":\"" << jsonEscape(pkg.version) << "\","
-             << "\"description\":\"" << jsonEscape(pkg.description) << "\"";
-        const std::string hash = sha256Directory(
-            (packagesDir / pkg.name).string());
+             << "\"description\":\"" << jsonEscape(pkg.description) << "\","
+             << "\"method\":\"local\"";
+        const std::string hash = sha256Directory((packagesDir / pkg.name).string());
         if (!hash.empty()) {
             json << ",\"sha256\":\"" << jsonEscape(hash) << "\"";
         }

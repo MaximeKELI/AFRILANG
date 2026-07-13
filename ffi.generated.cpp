@@ -16,9 +16,9 @@ extern "C" double sin(double x);
 extern "C" double sqrt(double x);
 
 int main() {
-    #line 4 "/home/maxime/AFRILANG/examples/ffi.afr"
+    #line 4 "/home/admin20/AFRILANG/./examples/ffi.afr"
     std::cout << sin((3.14159 / 2LL)) << std::endl;
-    #line 5 "/home/maxime/AFRILANG/examples/ffi.afr"
+    #line 5 "/home/admin20/AFRILANG/./examples/ffi.afr"
     std::cout << sqrt(16LL) << std::endl;
     return 0;
 }

@@ -11,30 +11,30 @@
 #include "str.hpp"
 
 int main() {
-    #line 1 "/home/maxime/AFRILANG/examples/while.afr"
+    #line 1 "/home/admin20/AFRILANG/./examples/while.afr"
     double count = 0LL;
-    #line 6 "/home/maxime/AFRILANG/examples/while.afr"
+    #line 6 "/home/admin20/AFRILANG/./examples/while.afr"
     while ((count < 5LL)) {
-        #line 4 "/home/maxime/AFRILANG/examples/while.afr"
+        #line 4 "/home/admin20/AFRILANG/./examples/while.afr"
         std::cout << count << std::endl;
-        #line 5 "/home/maxime/AFRILANG/examples/while.afr"
+        #line 5 "/home/admin20/AFRILANG/./examples/while.afr"
         count = (count + 1LL);
     }
-    #line 8 "/home/maxime/AFRILANG/examples/while.afr"
+    #line 8 "/home/admin20/AFRILANG/./examples/while.afr"
     std::cout << "Done counting" << std::endl;
-    #line 10 "/home/maxime/AFRILANG/examples/while.afr"
+    #line 10 "/home/admin20/AFRILANG/./examples/while.afr"
     double score = 75LL;
-    #line 20 "/home/maxime/AFRILANG/examples/while.afr"
+    #line 20 "/home/admin20/AFRILANG/./examples/while.afr"
     if ((score > 90LL)) {
-        #line 13 "/home/maxime/AFRILANG/examples/while.afr"
+        #line 13 "/home/admin20/AFRILANG/./examples/while.afr"
         std::cout << "Excellent" << std::endl;
     } else {
-        #line 19 "/home/maxime/AFRILANG/examples/while.afr"
+        #line 19 "/home/admin20/AFRILANG/./examples/while.afr"
         if ((score > 60LL)) {
-            #line 16 "/home/maxime/AFRILANG/examples/while.afr"
+            #line 16 "/home/admin20/AFRILANG/./examples/while.afr"
             std::cout << "Passed" << std::endl;
         } else {
-            #line 18 "/home/maxime/AFRILANG/examples/while.afr"
+            #line 18 "/home/admin20/AFRILANG/./examples/while.afr"
             std::cout << "Failed" << std::endl;
         }
     }

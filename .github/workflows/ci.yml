@@ -34,7 +34,6 @@ jobs:
 
       - name: Ecosystem smoke (init / pkg / test)
         run: |
-          TMP=$(mktemp -d)
           ./build/afrilang init smoke_app
           cd smoke_app
           ../build/afrilang pkg add math
@@ -43,15 +42,14 @@ jobs:
           cd ..
           ./build/afrilang pkg init smoke_lib
           test -f smoke_lib/manifest.toml
-          rm -rf smoke_app smoke_lib
-          # path dep E2E
           ./build/afrilang init path_app
           ./build/afrilang pkg init local_dep
           cd path_app
           ../build/afrilang pkg add local_dep --path ../local_dep
           ../build/afrilang pkg install
+          grep -q 'source = "path"' afrilang.lock
           cd ..
-          rm -rf path_app local_dep "$TMP"
+          rm -rf smoke_app smoke_lib path_app local_dep
 
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py

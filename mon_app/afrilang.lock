@@ -1,0 +1,9 @@
+# AFRILANG lockfile — source of truth for `pkg install`
+
+[[package]]
+name = "math"
+version = "0.1.0"
+path = "vendor/math"
+source = "registry"
+sha256 = "ef0c9fd4f548358cbe72d0ee42e32e2b45cd356ac02f004997617613d8f97d2e"
+

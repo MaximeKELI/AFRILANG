@@ -12,39 +12,39 @@
 #include "result.hpp"
 
 afrilang::runtime::AfrResult_number afr_divide(double a, double b) {
-    #line 4 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 4 "/home/admin20/AFRILANG/./examples/result.afr"
     if ((b == 0LL)) {
-        #line 3 "/home/maxime/AFRILANG/examples/result.afr"
+        #line 3 "/home/admin20/AFRILANG/./examples/result.afr"
         afrilang::runtime::AfrResult_number _result;
         _result.isError = true;
         _result.message = "Division par zero";
         return _result;
     }
-    #line 5 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 5 "/home/admin20/AFRILANG/./examples/result.afr"
     afrilang::runtime::AfrResult_number _result;
     _result.value = (a / b);
     return _result;
 }
 
 int main() {
-    #line 8 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 8 "/home/admin20/AFRILANG/./examples/result.afr"
     afrilang::runtime::AfrResult_number ok = afr_divide(10LL, 2LL);
-    #line 13 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 13 "/home/admin20/AFRILANG/./examples/result.afr"
     if (ok.isError) {
-        #line 10 "/home/maxime/AFRILANG/examples/result.afr"
+        #line 10 "/home/admin20/AFRILANG/./examples/result.afr"
         std::cout << ok.message << std::endl;
     } else {
-        #line 12 "/home/maxime/AFRILANG/examples/result.afr"
+        #line 12 "/home/admin20/AFRILANG/./examples/result.afr"
         std::cout << ok.value << std::endl;
     }
-    #line 15 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 15 "/home/admin20/AFRILANG/./examples/result.afr"
     afrilang::runtime::AfrResult_number bad = afr_divide(10LL, 0LL);
-    #line 20 "/home/maxime/AFRILANG/examples/result.afr"
+    #line 20 "/home/admin20/AFRILANG/./examples/result.afr"
     if (bad.isError) {
-        #line 17 "/home/maxime/AFRILANG/examples/result.afr"
+        #line 17 "/home/admin20/AFRILANG/./examples/result.afr"
         std::cout << bad.message << std::endl;
     } else {
-        #line 19 "/home/maxime/AFRILANG/examples/result.afr"
+        #line 19 "/home/admin20/AFRILANG/./examples/result.afr"
         std::cout << bad.value << std::endl;
     }
     return 0;

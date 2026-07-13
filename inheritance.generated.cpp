@@ -16,7 +16,7 @@ public:
     virtual ~Animal() = default;
 
     virtual void speak() {
-        #line 3 "/home/maxime/AFRILANG/examples/inheritance.afr"
+        #line 3 "/home/admin20/AFRILANG/./examples/inheritance.afr"
         std::cout << "..." << std::endl;
     }
 
@@ -27,12 +27,12 @@ public:
     virtual ~Dog() = default;
 
     virtual void speak() override {
-        #line 9 "/home/maxime/AFRILANG/examples/inheritance.afr"
+        #line 9 "/home/admin20/AFRILANG/./examples/inheritance.afr"
         std::cout << "Woof!" << std::endl;
     }
 
     virtual std::string breed() {
-        #line 13 "/home/maxime/AFRILANG/examples/inheritance.afr"
+        #line 13 "/home/admin20/AFRILANG/./examples/inheritance.afr"
         return "Labrador";
     }
 
@@ -43,26 +43,26 @@ public:
     virtual ~Cat() = default;
 
     virtual void speak() override {
-        #line 19 "/home/maxime/AFRILANG/examples/inheritance.afr"
+        #line 19 "/home/admin20/AFRILANG/./examples/inheritance.afr"
         std::cout << "Meow!" << std::endl;
     }
 
 };
 
 int main() {
-    #line 23 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 23 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     std::unique_ptr<Dog> animals = std::make_unique<Dog>();
-    #line 24 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 24 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     animals->speak();
-    #line 25 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 25 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     std::cout << animals->breed() << std::endl;
-    #line 27 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 27 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     std::unique_ptr<Cat> cat = std::make_unique<Cat>();
-    #line 28 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 28 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     cat->speak();
-    #line 30 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 30 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     std::unique_ptr<Animal> animal = std::make_unique<Animal>();
-    #line 31 "/home/maxime/AFRILANG/examples/inheritance.afr"
+    #line 31 "/home/admin20/AFRILANG/./examples/inheritance.afr"
     animal->speak();
     return 0;
 }

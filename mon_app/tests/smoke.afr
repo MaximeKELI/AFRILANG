@@ -1,0 +1,4 @@
+test "smoke"
+    create x = 1 + 1
+    assert x is equal to 2
+end

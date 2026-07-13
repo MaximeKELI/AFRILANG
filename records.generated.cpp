@@ -16,19 +16,19 @@ struct Point {
 };
 
 int main() {
-    #line 6 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 6 "/home/admin20/AFRILANG/./examples/records.afr"
     double px = 10LL;
-    #line 7 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 7 "/home/admin20/AFRILANG/./examples/records.afr"
     double py = 20LL;
-    #line 9 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 9 "/home/admin20/AFRILANG/./examples/records.afr"
     std::cout << px << std::endl;
-    #line 10 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 10 "/home/admin20/AFRILANG/./examples/records.afr"
     std::cout << py << std::endl;
-    #line 11 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 11 "/home/admin20/AFRILANG/./examples/records.afr"
     std::cout << (px + py) << std::endl;
-    #line 13 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 13 "/home/admin20/AFRILANG/./examples/records.afr"
     double dist = ((px * px) + (py * py));
-    #line 14 "/home/maxime/AFRILANG/examples/records.afr"
+    #line 14 "/home/admin20/AFRILANG/./examples/records.afr"
     std::cout << dist << std::endl;
     return 0;
 }

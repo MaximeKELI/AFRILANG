@@ -121,7 +121,7 @@ output = "build/mon_app"
 
 ### Bibliothèque standard
 
-**7971 modules** en trois tiers : **2151 simple** (`import "std/nom"`), **102 medium** (`import "std/m/nom"`), **5710 complex** (`import "std/c/nom"`). Voir `docs/STDLIB_*.md`, `docs/STDLIB_GEN.md` et le site `/stdlib/`.
+**7971 modules** en trois tiers : **2151 simple** (`import "std/nom"`), **102 medium** (`import "std/m/nom"`), **5710 complex** (`import "std/c/nom"`). Voir `docs/STDLIB_*.md`, `docs/STDLIB_GEN.md`, `docs/CORE_STDLIB.md` (modules réellement stabilisés) et le site `/stdlib/`. Paquets : `docs/PKG.md`. Roadmap : `docs/ROADMAP.md`.
 
 Modules cœur (runtime C++ dédié) :
 

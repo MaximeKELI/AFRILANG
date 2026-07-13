@@ -75,5 +75,8 @@ Thumbs.db
 coverage/
 *.info
 
+# Generated API docs (`afrilang doc <dir>`)
+/docs/api/
+
 # Node (extension)
 vscode-afrilang/node_modules/
