@@ -21,9 +21,10 @@ test "while and for"
     assert total is equal to 6
 end
 
+function double(n number) returns number
+    return n * 2
+end
+
 test "function call"
-    function double(n number) returns number
-        return n * 2
-    end
     assert double(21) is equal to 42
 end

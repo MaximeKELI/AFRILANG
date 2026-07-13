@@ -11,6 +11,7 @@ test "map and filter"
         return x * 2
     end
     assert doubled at 1 is equal to 4
-    create evens = filter each x in xs where x is equal to 2 or x is equal to 4
-    assert length of evens is equal to 2
+    create big = filter each x in xs where x is greater than 2
+    assert length of big is equal to 2
+    assert big at 0 is equal to 3
 end
