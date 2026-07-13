@@ -3,6 +3,19 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+
+  function revealClassFor(el) {
+    if (el.matches('.code-panel, .afr-card, .compare-card')) return 'afr-reveal-scale';
+    if (el.matches('.afr-feature-card')) return 'afr-reveal-scale';
+    if (el.matches('.afr-feature-plain, .afr-pkg-row')) return 'afr-reveal-slide';
+    if (el.matches('.section-label, .docs-callout')) return 'afr-reveal-blur';
+    if (el.matches('h2, h3, .afr-page-header')) return 'afr-reveal-clip';
+    return 'afr-reveal';
+  }
+
   function initScrollReveal() {
     if (reduced) return;
     var selectors = [
@@ -26,18 +39,21 @@
       '.afr-reveal',
     ].join(', ');
 
+    var revealKinds = [
+      'afr-reveal',
+      'afr-reveal-scale',
+      'afr-reveal-blur',
+      'afr-reveal-slide',
+      'afr-reveal-clip',
+    ];
     var seen = new Set();
     var nodes = [];
+
     document.querySelectorAll(selectors).forEach(function (el) {
       if (seen.has(el)) return;
       seen.add(el);
-      if (!el.classList.contains('afr-reveal') && !el.classList.contains('afr-reveal-scale')) {
-        el.classList.add(
-          el.matches('.afr-feature-card, .code-panel, .afr-card, .compare-card')
-            ? 'afr-reveal-scale'
-            : 'afr-reveal'
-        );
-      }
+      var hasKind = revealKinds.some(function (k) { return el.classList.contains(k); });
+      if (!hasKind) el.classList.add(revealClassFor(el));
       nodes.push(el);
     });
 
@@ -52,14 +68,14 @@
         entry.target.classList.add('afr-reveal-visible');
         io.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -48px 0px', threshold: 0.1 });
+    }, { rootMargin: '0px 0px -56px 0px', threshold: 0.12 });
 
     var groupIndex = new WeakMap();
     nodes.forEach(function (el) {
       var parent = el.closest('.row, .afr-stat-row, .afr-section .container, .docs-content') || document.body;
       var idx = groupIndex.get(parent) || 0;
       groupIndex.set(parent, idx + 1);
-      el.style.setProperty('--afr-delay', Math.min(idx, 8) * 55 + 'ms');
+      el.style.setProperty('--afr-delay', Math.min(idx, 9) * 70 + 'ms');
       io.observe(el);
     });
   }
@@ -71,15 +87,15 @@
       if (isNaN(target)) return;
       var suffix = el.getAttribute('data-suffix') || '';
       var prefix = el.getAttribute('data-prefix') || '';
-      var start = 0;
-      var duration = 1100;
+      var duration = 1400;
       var startTime = null;
 
       function tick(ts) {
         if (!startTime) startTime = ts;
         var p = Math.min((ts - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = prefix + Math.round(start + (target - start) * eased) + suffix;
+        // smootherstep — plus fondant qu’un ease cubic simple
+        var eased = p * p * p * (p * (p * 6 - 15) + 10);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
         if (p < 1) requestAnimationFrame(tick);
       }
 
@@ -87,7 +103,7 @@
         if (!entries[0].isIntersecting) return;
         requestAnimationFrame(tick);
         io.disconnect();
-      }, { threshold: 0.45 });
+      }, { threshold: 0.4 });
       io.observe(el);
     });
   }
@@ -100,7 +116,7 @@
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(function () {
-        nav.classList.toggle('afr-navbar-scrolled', window.scrollY > 10);
+        nav.classList.toggle('afr-navbar-scrolled', window.scrollY > 8);
         ticking = false;
       });
     }
@@ -114,19 +130,26 @@
     bar.className = 'afr-scroll-progress';
     bar.setAttribute('aria-hidden', 'true');
     document.body.appendChild(bar);
-    var ticking = false;
+    var current = 0;
+    var target = 0;
+    var raf = 0;
+
+    function loop() {
+      current = lerp(current, target, 0.12);
+      if (Math.abs(current - target) < 0.0005) current = target;
+      bar.style.transform = 'scaleX(' + current + ')';
+      if (current !== target) raf = requestAnimationFrame(loop);
+      else raf = 0;
+    }
+
     function update() {
       var doc = document.documentElement;
       var max = doc.scrollHeight - doc.clientHeight;
-      var p = max > 0 ? window.scrollY / max : 0;
-      bar.style.transform = 'scaleX(' + Math.min(Math.max(p, 0), 1) + ')';
-      ticking = false;
+      target = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+      if (!raf) raf = requestAnimationFrame(loop);
     }
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    }, { passive: true });
+
+    window.addEventListener('scroll', update, { passive: true });
     update();
   }
 
@@ -136,21 +159,47 @@
       panel.classList.add('afr-code-float');
 
       var rect = null;
-      panel.addEventListener('mousemove', function (e) {
-        rect = rect || panel.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
+      var curX = 0;
+      var curY = 0;
+      var tgtX = 0;
+      var tgtY = 0;
+      var hovering = false;
+      var raf = 0;
+
+      function frame() {
+        curX = lerp(curX, tgtX, 0.1);
+        curY = lerp(curY, tgtY, 0.1);
+        if (!hovering && Math.abs(curX) < 0.02 && Math.abs(curY) < 0.02) {
+          curX = curY = 0;
+          panel.classList.remove('afr-code-tilt');
+          panel.style.transform = '';
+          panel.style.boxShadow = '';
+          raf = 0;
+          return;
+        }
         panel.classList.add('afr-code-tilt');
         panel.style.transform =
-          'perspective(900px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 5) + 'deg) translateY(-2px)';
+          'perspective(1100px) rotateY(' + (curX * 7) + 'deg) rotateX(' + (-curY * 5.5) +
+          'deg) translate3d(0, -3px, 0)';
         panel.style.boxShadow =
-          Math.round(-x * 18) + 'px ' + Math.round(12 + y * 10) + 'px 36px rgba(15, 23, 42, 0.18)';
+          Math.round(-curX * 22) + 'px ' + Math.round(14 + curY * 12) +
+          'px 42px rgba(15, 23, 42, 0.2)';
+        raf = requestAnimationFrame(frame);
+      }
+
+      panel.addEventListener('mousemove', function (e) {
+        rect = rect || panel.getBoundingClientRect();
+        tgtX = (e.clientX - rect.left) / rect.width - 0.5;
+        tgtY = (e.clientY - rect.top) / rect.height - 0.5;
+        hovering = true;
+        if (!raf) raf = requestAnimationFrame(frame);
       });
       panel.addEventListener('mouseleave', function () {
         rect = null;
-        panel.classList.remove('afr-code-tilt');
-        panel.style.transform = '';
-        panel.style.boxShadow = '';
+        hovering = false;
+        tgtX = 0;
+        tgtY = 0;
+        if (!raf) raf = requestAnimationFrame(frame);
       });
       window.addEventListener('resize', function () { rect = null; }, { passive: true });
     });
@@ -163,7 +212,7 @@
         var rect = btn.getBoundingClientRect();
         var ripple = document.createElement('span');
         ripple.className = 'afr-ripple';
-        var size = Math.max(rect.width, rect.height) * 1.15;
+        var size = Math.max(rect.width, rect.height) * 1.25;
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
         ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
@@ -176,20 +225,82 @@
   function initMagneticButtons() {
     if (reduced || window.matchMedia('(pointer: coarse)').matches) return;
     document.querySelectorAll('.afr-hero .btn-afr-primary, .afr-hero .btn-afr-outline').forEach(function (btn) {
+      var curX = 0;
+      var curY = 0;
+      var tgtX = 0;
+      var tgtY = 0;
+      var hovering = false;
+      var raf = 0;
+
+      function frame() {
+        curX = lerp(curX, tgtX, 0.14);
+        curY = lerp(curY, tgtY, 0.14);
+        if (!hovering && Math.abs(curX) < 0.15 && Math.abs(curY) < 0.15) {
+          curX = curY = 0;
+          btn.style.transform = '';
+          raf = 0;
+          return;
+        }
+        btn.style.transform = 'translate3d(' + curX + 'px, ' + (curY - 2) + 'px, 0)';
+        raf = requestAnimationFrame(frame);
+      }
+
       btn.addEventListener('mousemove', function (e) {
         var rect = btn.getBoundingClientRect();
-        var x = e.clientX - rect.left - rect.width / 2;
-        var y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = 'translate(' + (x * 0.12) + 'px, ' + (y * 0.18 - 2) + 'px)';
+        tgtX = (e.clientX - rect.left - rect.width / 2) * 0.22;
+        tgtY = (e.clientY - rect.top - rect.height / 2) * 0.28;
+        hovering = true;
+        if (!raf) raf = requestAnimationFrame(frame);
       });
       btn.addEventListener('mouseleave', function () {
-        btn.style.transform = '';
+        hovering = false;
+        tgtX = 0;
+        tgtY = 0;
+        if (!raf) raf = requestAnimationFrame(frame);
       });
     });
   }
 
+  function initHeroParallax() {
+    if (reduced || window.matchMedia('(pointer: coarse)').matches) return;
+    var hero = document.querySelector('.afr-hero');
+    if (!hero) return;
+    var curX = 0;
+    var curY = 0;
+    var tgtX = 0;
+    var tgtY = 0;
+    var raf = 0;
+
+    function frame() {
+      curX = lerp(curX, tgtX, 0.06);
+      curY = lerp(curY, tgtY, 0.06);
+      hero.style.setProperty('--afr-parx', curX.toFixed(3));
+      hero.style.setProperty('--afr-pary', curY.toFixed(3));
+      if (Math.abs(curX - tgtX) > 0.001 || Math.abs(curY - tgtY) > 0.001) {
+        raf = requestAnimationFrame(frame);
+      } else {
+        raf = 0;
+      }
+    }
+
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      tgtX = ((e.clientX - rect.left) / rect.width - 0.5) * 12;
+      tgtY = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+      if (!raf) raf = requestAnimationFrame(frame);
+    });
+    hero.addEventListener('mouseleave', function () {
+      tgtX = 0;
+      tgtY = 0;
+      if (!raf) raf = requestAnimationFrame(frame);
+    });
+  }
+
   function boot() {
-    document.body.classList.add('afr-loaded');
+    // laisse un frame pour appliquer le fondu d’entrée
+    requestAnimationFrame(function () {
+      document.body.classList.add('afr-loaded');
+    });
     initScrollReveal();
     initStatCounters();
     initNavbarScroll();
@@ -197,6 +308,7 @@
     initHeroCodeGlow();
     initButtonRipple();
     initMagneticButtons();
+    initHeroParallax();
   }
 
   if (document.readyState === 'loading') {
