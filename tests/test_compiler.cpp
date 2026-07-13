@@ -11,6 +11,8 @@
 #include "afrilang/security.hpp"
 #include "afrilang/cache.hpp"
 #include "afrilang/semver.hpp"
+#include "afrilang/project.hpp"
+#include "afrilang/pkg.hpp"
 #include "afrilang/utf8.hpp"
 #include "afrilang/version.hpp"
 
@@ -149,6 +151,61 @@ static void testSemVer() {
     expect(v.major == 1 && v.minor == 2 && v.patch == 3, "semver parts");
     expect(afrilang::semverSatisfies("1.0.0", "1.2.3"), "semver satisfies");
     expect(!afrilang::semverSatisfies("2.0.0", "1.2.3"), "semver not satisfies");
+    expect(afrilang::semverSatisfies("^1.2.3", "1.9.0"), "caret allows minor");
+    expect(!afrilang::semverSatisfies("^1.2.3", "2.0.0"), "caret blocks major");
+    expect(afrilang::semverSatisfies("~1.2.3", "1.2.9"), "tilde allows patch");
+    expect(!afrilang::semverSatisfies("~1.2.3", "1.3.0"), "tilde blocks minor");
+    afrilang::SemVerRange range;
+    expect(afrilang::parseSemVerRange("^1.0.0", range), "parse caret range");
+    expect(range.kind == afrilang::SemVerRangeKind::Caret, "caret kind");
+}
+
+static void testParseDependencyValue() {
+    auto ver = afrilang::parseDependencyValue("\"^1.2.0\"");
+    expect(ver.kind == afrilang::DependencyKind::Version, "dep version kind");
+    expect(ver.version == "^1.2.0", "dep version value");
+
+    auto git = afrilang::parseDependencyValue(
+        "{ git = \"https://example.com/x.git\", tag = \"v1.0.0\" }");
+    expect(git.kind == afrilang::DependencyKind::Git, "dep git kind");
+    expect(git.git == "https://example.com/x.git", "dep git url");
+    expect(git.tag == "v1.0.0", "dep git tag");
+
+    auto path = afrilang::parseDependencyValue("{ path = \"../lib\" }");
+    expect(path.kind == afrilang::DependencyKind::Path, "dep path kind");
+    expect(path.path == "../lib", "dep path value");
+}
+
+static void testLockFileRoundTrip() {
+    namespace fs = std::filesystem;
+    const fs::path dir = fs::temp_directory_path() / "afrilang_lock_test";
+    fs::create_directories(dir);
+    const fs::path lockPath = dir / "afrilang.lock";
+
+    std::vector<afrilang::LockedPackage> packages;
+    afrilang::LockedPackage p;
+    p.name = "math";
+    p.version = "0.1.0";
+    p.path = "vendor/math";
+    p.sha256 = "abc";
+    p.source = "registry";
+    packages.push_back(p);
+
+    afrilang::LockedPackage g;
+    g.name = "ext";
+    g.version = "0.0.0";
+    g.path = "vendor/ext";
+    g.source = "git";
+    g.git = "https://example.com/ext.git";
+    g.tag = "v1";
+    packages.push_back(g);
+
+    afrilang::PkgRegistry::writeLockFile(lockPath.string(), packages);
+    auto loaded = afrilang::PkgRegistry::readLockFile(lockPath.string());
+    expect(loaded.size() == 2, "lock round-trip size");
+    expect(loaded[0].name == "math" && loaded[0].sha256 == "abc", "lock registry entry");
+    expect(loaded[1].source == "git" && loaded[1].tag == "v1", "lock git entry");
+    fs::remove_all(dir);
 }
 
 static void testUtf8Validation() {
@@ -708,6 +765,8 @@ int main() {
     testFindSimilarNames();
     testUiMultilineTextRenders();
     testSemVer();
+    testParseDependencyValue();
+    testLockFileRoundTrip();
     testUtf8Validation();
     testI18nEnglish();
     testMatchExpressionParse();

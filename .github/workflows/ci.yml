@@ -30,7 +30,28 @@ jobs:
         run: cd build && ctest --output-on-failure -R compiler_unit_tests
 
       - name: Integration tests (examples)
-        run: ./build/afrilang test .
+        run: ./build/afrilang test --examples .
+
+      - name: Ecosystem smoke (init / pkg / test)
+        run: |
+          TMP=$(mktemp -d)
+          ./build/afrilang init smoke_app
+          cd smoke_app
+          ../build/afrilang pkg add math
+          ../build/afrilang pkg install
+          ../build/afrilang test
+          cd ..
+          ./build/afrilang pkg init smoke_lib
+          test -f smoke_lib/manifest.toml
+          rm -rf smoke_app smoke_lib
+          # path dep E2E
+          ./build/afrilang init path_app
+          ./build/afrilang pkg init local_dep
+          cd path_app
+          ../build/afrilang pkg add local_dep --path ../local_dep
+          ../build/afrilang pkg install
+          cd ..
+          rm -rf path_app local_dep "$TMP"
 
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py

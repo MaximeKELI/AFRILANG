@@ -860,7 +860,7 @@ static int cmdInit(const std::string& name, bool asLib) {
 
     {
         std::ofstream gi(dir / ".gitignore");
-        gi << "build/\nvendor/\n*.o\n.afrilang/\nafrilang.lock\n";
+        gi << "build/\nvendor/\n*.o\n.afrilang/\n";
     }
 
     std::cout << "Projet '" << projectName << "' créé.\n";
