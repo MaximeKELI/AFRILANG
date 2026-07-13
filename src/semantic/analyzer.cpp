@@ -365,9 +365,11 @@ void SemanticAnalyzer::registerClasses() {
         }
 
         result_.classes[cls->name] = std::move(info);
+        });
     }
 
     for (const auto& cls : program_.classes) {
+        recover([&] {
         if (!cls->baseClassName.empty()) {
             if (!result_.classes.count(cls->baseClassName)) {
                 errorAt(*cls, "Classe de base '" + cls->baseClassName + "' introuvable pour '" + cls->name + "'");
@@ -375,6 +377,7 @@ void SemanticAnalyzer::registerClasses() {
                 errorAt(*cls, "La classe '" + cls->baseClassName + "' est final et ne peut être étendue");
             }
         }
+        });
     }
 
     for (const auto& module : program_.modules) {

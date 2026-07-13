@@ -2735,6 +2735,9 @@ std::string CodeGenerator::resolveVariableType(const std::string& name) const {
 }
 
 AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const {
+    if (expr.typeInferred) {
+        return expr.inferredType;
+    }
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
         auto it = semantic_.globalVariables.find(id->name);
         if (it != semantic_.globalVariables.end()) return it->second;

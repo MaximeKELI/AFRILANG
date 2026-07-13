@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 #include <sstream>
+#include <vector>
 
 namespace fs = std::filesystem;
 
@@ -39,10 +40,46 @@ std::string CompileCache::hashContent(const std::string& content) {
     return hashToHex(fnv1a64(content));
 }
 
+std::string CompileCache::metaKeyForPath(const std::string& sourcePath) {
+    const std::string abs = fs::absolute(sourcePath).string();
+    return hashContent(abs) + ".meta";
+}
+
+std::string CompileCache::runtimeFingerprint(const std::string& runtimeDir) {
+    if (runtimeDir.empty() || !fs::exists(runtimeDir)) {
+        return "no-runtime";
+    }
+    std::ostringstream acc;
+    std::error_code ec;
+    for (const auto& entry : fs::directory_iterator(runtimeDir, ec)) {
+        if (!entry.is_regular_file()) continue;
+        const auto ext = entry.path().extension().string();
+        if (ext != ".hpp" && ext != ".h" && ext != ".inl") continue;
+        acc << entry.path().filename().string() << ':';
+        acc << entry.file_size(ec) << ':';
+        acc << entry.last_write_time(ec).time_since_epoch().count() << ';';
+    }
+    return hashContent(acc.str());
+}
+
+std::string CompileCache::buildFingerprint(const CacheFingerprintInput& input) {
+    std::ostringstream acc;
+    acc << "v=" << input.compilerVersion << '\n';
+    acc << "target=" << input.crossTarget << '\n';
+    acc << "debug=" << (input.debugSymbols ? '1' : '0') << '\n';
+    acc << "cov=" << (input.coverageMode ? '1' : '0') << '\n';
+    acc << "runtime=" << runtimeFingerprint(input.runtimeDir) << '\n';
+    acc << "stdlib=" << input.stdlibStamp << '\n';
+    acc << "source=" << hashContent(input.sourceContent) << '\n';
+    for (const auto& imp : input.importContents) {
+        acc << "import=" << hashContent(imp) << '\n';
+    }
+    return hashContent(acc.str());
+}
+
 CompileCacheEntry CompileCache::lookup(const std::string& sourcePath) const {
     CompileCacheEntry entry;
-    const fs::path meta = fs::path(cacheDir(projectDir_)) /
-                          (fs::path(sourcePath).filename().string() + ".meta");
+    const fs::path meta = fs::path(cacheDir(projectDir_)) / metaKeyForPath(sourcePath);
     if (!fs::exists(meta)) return entry;
 
     std::ifstream in(meta);
@@ -55,13 +92,13 @@ CompileCacheEntry CompileCache::lookup(const std::string& sourcePath) const {
     return entry;
 }
 
-void CompileCache::store(const std::string& sourcePath, const std::string& sourceHash,
+void CompileCache::store(const std::string& sourcePath, const std::string& fingerprint,
                          const std::string& executablePath) const {
     const fs::path dir = cacheDir(projectDir_);
     fs::create_directories(dir);
-    const fs::path meta = dir / (fs::path(sourcePath).filename().string() + ".meta");
+    const fs::path meta = dir / metaKeyForPath(sourcePath);
     std::ofstream out(meta);
-    out << sourceHash << "\n" << executablePath << "\n";
+    out << fingerprint << "\n" << executablePath << "\n";
 }
 
 } // namespace afrilang

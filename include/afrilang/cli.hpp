@@ -3,6 +3,7 @@
 #include "afrilang/diagnostics.hpp"
 
 #include <string>
+#include <vector>
 
 namespace afrilang {
 
@@ -26,6 +27,7 @@ struct CompileResult {
     bool success = false;
     std::string generatedCpp;
     std::string executable;
+    std::vector<Diagnostic> diagnostics;
 };
 
 class Pipeline {
