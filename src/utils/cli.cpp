@@ -137,7 +137,7 @@ static void printUsage() {
     std::cerr << "  afrilang version             Afficher la version\n";
     std::cerr << "  afrilang build [projet/]     Compiler un projet (afrilang.toml)\n";
     std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter [--watch] [--profile]\n";
-    std::cerr << "  afrilang check <fichier.afr> Vérifier sans compiler\n";
+    std::cerr << "  afrilang check <fichier.afr> [--error-limit N]\n";
     std::cerr << "  afrilang test [--coverage]   Lancer la suite de tests\n";
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
@@ -669,6 +669,8 @@ static int cmdRun(int argc, char* argv[]) {
             opts.watchMode = true;
         } else if (arg == "--profile") {
             opts.profileMode = true;
+        } else if (arg == "--error-limit" && i + 1 < argc) {
+            opts.errorLimit = static_cast<std::size_t>(std::stoul(argv[++i]));
         }
     }
     opts.crossTarget = normalizeCrossTarget(opts.crossTarget);
@@ -964,8 +966,25 @@ int runCli(int argc, char* argv[]) {
         return cmdRun(argc, argv);
     }
     if (cmd == "check") {
-        if (argc < 3) { std::cerr << "Usage: afrilang check <fichier.afr>\n"; return 1; }
-        return Pipeline::checkFile(argv[2]) ? 0 : 1;
+        if (argc < 3) {
+            std::cerr << "Usage: afrilang check <fichier.afr> [--error-limit N]\n";
+            return 1;
+        }
+        std::string file;
+        std::size_t errorLimit = DiagnosticEngine::kDefaultErrorLimit;
+        for (int i = 2; i < argc; ++i) {
+            const std::string arg = argv[i];
+            if (arg == "--error-limit" && i + 1 < argc) {
+                errorLimit = static_cast<std::size_t>(std::stoul(argv[++i]));
+            } else if (!arg.empty() && arg[0] != '-') {
+                file = arg;
+            }
+        }
+        if (file.empty()) {
+            std::cerr << "Usage: afrilang check <fichier.afr> [--error-limit N]\n";
+            return 1;
+        }
+        return Pipeline::checkFile(file, errorLimit) ? 0 : 1;
     }
     if (cmd == "test") {
         bool coverage = false;

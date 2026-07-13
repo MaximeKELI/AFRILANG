@@ -1551,34 +1551,46 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
 
 std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
     if (match(TokenType::StringLiteral)) {
-        return parseStringExpression(previous().lexeme);
+        auto expr = parseStringExpression(previous().lexeme);
+        setLoc(*expr);
+        return expr;
     }
 
     if (match(TokenType::NumberLiteral)) {
         const std::string& lex = previous().lexeme;
         const bool isInt = lex.find('.') == std::string::npos;
-        return std::make_unique<NumberLiteralNode>(std::stod(lex), isInt);
+        auto expr = std::make_unique<NumberLiteralNode>(std::stod(lex), isInt);
+        setLoc(*expr);
+        return expr;
     }
 
     if (matchOneOf(TokenType::True, TokenType::Yes)) {
-        return std::make_unique<BoolLiteralNode>(true);
+        auto expr = std::make_unique<BoolLiteralNode>(true);
+        setLoc(*expr);
+        return expr;
     }
 
     if (match(TokenType::Nothing)) {
-        return std::make_unique<NothingLiteralNode>();
+        auto expr = std::make_unique<NothingLiteralNode>();
+        setLoc(*expr);
+        return expr;
     }
 
     if (matchOneOf(TokenType::False, TokenType::No)) {
-        return std::make_unique<BoolLiteralNode>(false);
+        auto expr = std::make_unique<BoolLiteralNode>(false);
+        setLoc(*expr);
+        return expr;
     }
 
     if (match(TokenType::This)) {
         auto expr = std::make_unique<ThisExpressionNode>();
+        setLoc(*expr);
         return finishCall(std::move(expr));
     }
 
     if (match(TokenType::Super)) {
         auto expr = std::make_unique<SuperExpressionNode>();
+        setLoc(*expr);
         return finishCall(std::move(expr));
     }
 

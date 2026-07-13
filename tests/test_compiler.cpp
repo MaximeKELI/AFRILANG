@@ -329,7 +329,71 @@ static void testCompileCacheHash() {
     expect(h1 != h3, "cache hash differs");
 }
 
-static void testMultiSemanticErrors() {
+static void testLexerUnexpectedCharRecovers() {
+    afrilang::Lexer lexer("say \"ok\"\n$\nsay \"ok2\"\n");
+    const auto tokens = lexer.tokenize();
+    expect(lexer.hasErrors(), "lexer reports unexpected char");
+    expect(lexer.diagnostics().errors()[0].code == afrilang::ErrorCode::Lexer, "E1000 lexer code");
+    bool hasOk2 = false;
+    for (const auto& t : tokens) {
+        if (t.type == afrilang::TokenType::StringLiteral && t.lexeme == "ok2") hasOk2 = true;
+    }
+    expect(hasOk2, "lexer continues after unexpected char");
+}
+
+static void testLexerUnterminatedStringRecovers() {
+    afrilang::Lexer lexer("say \"oops\nsay 1\n");
+    lexer.tokenize();
+    expect(lexer.hasErrors(), "unterminated string reported");
+    expect(lexer.diagnostics().errors()[0].code == afrilang::ErrorCode::Lexer, "lexer code on string");
+}
+
+static void testUndeclaredHasHelpNote() {
+    const std::string src = "say missing_name\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SourceManager sources;
+    sources.addFile("note.afr", src);
+    afrilang::SemanticAnalyzer analyzer(*program, &sources, "note.afr");
+    const auto result = analyzer.analyze();
+    expect(result.hasErrors(), "undeclared error");
+    expect(!result.errors[0].notes.empty(), "help note attached");
+}
+
+static void testTypeMismatchCode() {
+    const std::string src =
+        "create x number = 1\n"
+        "set x = \"text\"\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "tm.afr");
+    const auto result = analyzer.analyze();
+    expect(result.hasErrors(), "type mismatch detected");
+    bool found = false;
+    for (const auto& e : result.errors) {
+        if (e.code == afrilang::ErrorCode::TypeMismatch) found = true;
+    }
+    expect(found, "E3001 TypeMismatch code");
+}
+
+static void testErrorLimitStopsReporting() {
+    afrilang::DiagnosticEngine engine(2);
+    engine.reportError("a", 1, 1);
+    engine.reportError("b", 2, 1);
+    engine.reportError("c", 3, 1);
+    expect(engine.errorLimitReached(), "error limit reached");
+    expect(engine.errorCount() == 3, "two errors + limit message");
+}
+
+static void testFormatAllSummary() {
+    afrilang::DiagnosticEngine engine;
+    engine.reportError("one", 1, 1, "f.afr");
+    engine.reportError("two", 2, 1, "f.afr");
+    const std::string formatted = engine.formatAll();
+    expect(formatted.find("2") != std::string::npos, "summary mentions error count");
+}
     const std::string src =
         "say unknown_one\n"
         "say unknown_two\n";
