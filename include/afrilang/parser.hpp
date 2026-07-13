@@ -39,6 +39,7 @@ private:
 
     [[noreturn]] void error(const std::string& message) const;
     void synchronize();
+    void synchronizeInBlock();
 
     void setLoc(ASTNode& node) const;
     bool matchName(std::string& out);

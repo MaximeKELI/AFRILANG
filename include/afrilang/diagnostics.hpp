@@ -29,9 +29,17 @@ struct Diagnostic {
     std::string file;
     int line = 0;
     int column = 0;
+    int endLine = 0;    // 0 → same as line
+    int endColumn = 0;  // 0 → column + 1
     std::string sourceLine;
     std::vector<std::string> suggestions;
     std::vector<DiagnosticNote> notes;
+
+    int resolvedEndLine() const { return endLine > 0 ? endLine : line; }
+    int resolvedEndColumn() const {
+        if (endColumn > 0) return endColumn;
+        return column > 0 ? column + 1 : 1;
+    }
 };
 
 class CompileError : public std::runtime_error {
@@ -41,10 +49,14 @@ public:
                  std::string sourceLine = "",
                  std::vector<std::string> suggestions = {},
                  ErrorCode code = ErrorCode::Generic,
-                 std::vector<DiagnosticNote> notes = {});
+                 std::vector<DiagnosticNote> notes = {},
+                 int endLine = 0,
+                 int endColumn = 0);
 
     int line() const { return line_; }
     int column() const { return column_; }
+    int endLine() const { return endLine_; }
+    int endColumn() const { return endColumn_; }
     const std::string& file() const { return file_; }
     const std::string& messageText() const { return message_; }
     const std::string& sourceLine() const { return sourceLine_; }
@@ -60,6 +72,8 @@ private:
     std::string message_;
     int line_;
     int column_;
+    int endLine_;
+    int endColumn_;
     std::string file_;
     std::string sourceLine_;
     std::vector<std::string> suggestions_;
@@ -82,7 +96,9 @@ public:
                      std::string file = "",
                      std::string sourceLine = "",
                      std::vector<std::string> suggestions = {},
-                     ErrorCode code = ErrorCode::Generic);
+                     ErrorCode code = ErrorCode::Generic,
+                     int endLine = 0,
+                     int endColumn = 0);
     void reportWarning(std::string message, int line = 0, int column = 0,
                        std::string file = "");
 
@@ -128,6 +144,7 @@ private:
     std::unordered_map<std::string, SourceFile> files_;
 };
 
+bool diagnosticsUseColor();
 std::string formatDiagnostic(const Diagnostic& diagnostic);
 std::vector<std::string> findSimilarNames(const std::string& name,
                                           const std::vector<std::string>& candidates,
