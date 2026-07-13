@@ -2310,9 +2310,11 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cl
   /usr/include/asm-generic/int-ll64.h \
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
+  /usr/include/c++/15/algorithm \
   /usr/include/c++/15/backward/auto_ptr.h \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
+  /usr/include/c++/15/bits/algorithmfwd.h \
   /usr/include/c++/15/bits/align.h \
   /usr/include/c++/15/bits/alloc_traits.h \
   /usr/include/c++/15/bits/allocated_ptr.h \
@@ -2380,10 +2382,12 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cl
   /usr/include/c++/15/bits/sstream.tcc \
   /usr/include/c++/15/bits/std_abs.h \
   /usr/include/c++/15/bits/std_thread.h \
+  /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
   /usr/include/c++/15/bits/stl_construct.h \
   /usr/include/c++/15/bits/stl_function.h \
+  /usr/include/c++/15/bits/stl_heap.h \
   /usr/include/c++/15/bits/stl_iterator.h \
   /usr/include/c++/15/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15/bits/stl_iterator_base_types.h \
@@ -2398,6 +2402,7 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cl
   /usr/include/c++/15/bits/string_view.tcc \
   /usr/include/c++/15/bits/stringfwd.h \
   /usr/include/c++/15/bits/this_thread_sleep.h \
+  /usr/include/c++/15/bits/uniform_int_dist.h \
   /usr/include/c++/15/bits/unique_ptr.h \
   /usr/include/c++/15/bits/unordered_map.h \
   /usr/include/c++/15/bits/unordered_set.h \
@@ -2443,6 +2448,7 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cl
   /usr/include/c++/15/new \
   /usr/include/c++/15/ostream \
   /usr/include/c++/15/pstl/execution_defs.h \
+  /usr/include/c++/15/pstl/glue_algorithm_defs.h \
   /usr/include/c++/15/pstl/glue_memory_defs.h \
   /usr/include/c++/15/pstl/pstl_config.h \
   /usr/include/c++/15/ratio \
@@ -2581,8 +2587,10 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: /home/admin20/AFRILANG/src/uti
   /home/admin20/AFRILANG/include/afrilang/lexer.hpp \
   /home/admin20/AFRILANG/include/afrilang/parser.hpp \
   /home/admin20/AFRILANG/include/afrilang/pkg.hpp \
+  /home/admin20/AFRILANG/include/afrilang/project.hpp \
   /home/admin20/AFRILANG/include/afrilang/sandbox.hpp \
   /home/admin20/AFRILANG/include/afrilang/security.hpp \
+  /home/admin20/AFRILANG/include/afrilang/semantic.hpp \
   /home/admin20/AFRILANG/include/afrilang/stdlib_registry.hpp \
   /home/admin20/AFRILANG/include/afrilang/token.hpp \
   /home/admin20/AFRILANG/include/afrilang/types.hpp \

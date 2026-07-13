@@ -69,6 +69,9 @@ Thumbs.db
 # Lock / vendor (project-local)
 /vendor/
 
+# Package remote download cache
+/packages/.cache/
+
 # Coverage
 *.gcno
 *.gcda
