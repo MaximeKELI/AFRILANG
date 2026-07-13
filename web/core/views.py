@@ -438,8 +438,17 @@ def tutorial(request, step=None):
     return render(request, 'core/tutorial.html', ctx)
 
 
+def _playground_examples():
+    from .services.afrilang import requires_desktop_display
+
+    examples = list(CodeExample.objects.all())
+    for ex in examples:
+        ex.desktop_only = requires_desktop_display(ex.source)
+    return examples
+
+
 def playground(request):
-    examples = CodeExample.objects.all()
+    examples = _playground_examples()
     examples_map = {ex.slug: ex.source for ex in examples}
     initial_slug = request.GET.get('example', '').strip()
     return render(request, 'core/playground.html', {
@@ -450,7 +459,7 @@ def playground(request):
 
 
 def playground_embed(request):
-    examples = CodeExample.objects.all()
+    examples = _playground_examples()
     examples_map = {ex.slug: ex.source for ex in examples}
     initial_slug = request.GET.get('example', '').strip()
     initial_code = request.GET.get('code', '')

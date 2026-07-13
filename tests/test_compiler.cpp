@@ -109,6 +109,20 @@ static void testParserOperator() {
     expect(program->classes[0]->methods[0]->isOperator, "operator flag");
 }
 
+static void testParserInlineLambdaArgument() {
+    // list_ops.afr style: lambda as call argument must not be treated as statement start.
+    const std::string src =
+        "create doubled = mapNumbers(nums, function(x number) returns number\n"
+        "    return x * 2\n"
+        "end)\n"
+        "say doubled at 0\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(!parser.hasErrors(), "inline lambda as call argument parses");
+    expect(program->statements.size() == 2, "create + say after inline lambda");
+}
+
 static void testSemanticUndeclaredVariable() {
     const std::string src = "say unknown_var\n";
     afrilang::Lexer lexer(src);
@@ -801,6 +815,7 @@ int main() {
     testParserHello();
     testParserEnumUnion();
     testParserOperator();
+    testParserInlineLambdaArgument();
     testSemanticUndeclaredVariable();
     testFindSimilarNames();
     testUiMultilineTextRenders();

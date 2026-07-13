@@ -18,7 +18,7 @@
         <label for="examples" class="mb-0 small text-secondary-custom">{{ ui.playground_page.example }}</label>
         <select id="examples" class="form-select form-select-sm" style="max-width:220px" aria-label="{{ ui.playground_page.example }}">
           {% for ex in examples %}
-          <option value="{{ ex.slug }}" {% if initial_slug == ex.slug %}selected{% endif %}>{{ ex.title }}</option>
+          <option value="{{ ex.slug }}" {% if initial_slug == ex.slug %}selected{% endif %}>{% if ex.desktop_only %}{{ ex.title }} (desktop){% else %}{{ ex.title }}{% endif %}</option>
           {% empty %}
           <option value="hello">Hello</option>
           {% endfor %}

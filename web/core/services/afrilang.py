@@ -94,12 +94,9 @@ def _stage_relative_imports(source: str, tmp_path: Path) -> None:
         src = _resolve_relative_import(imp)
         if src is None:
             continue
-        dest = tmp_path / Path(imp).name if '/' not in imp.rstrip('/') else tmp_path / imp
+        dest = tmp_path / imp
         if '/' in imp:
-            dest = tmp_path / imp
             dest.parent.mkdir(parents=True, exist_ok=True)
-        else:
-            dest = tmp_path / imp
         if not dest.exists():
             shutil.copy2(src, dest)
         try:

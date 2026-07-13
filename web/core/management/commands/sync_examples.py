@@ -7,10 +7,11 @@ from django.utils.text import slugify
 
 from core.models import CodeExample
 
+# Exemples mis en avant (playground / accueil). Pas de GUI desktop (snake, gui_demo) :
+# ils restent dans la galerie mais ne doivent pas apparaître comme « ça marche ici ».
 FEATURED = {
     'hello', 'conditions', 'oop', 'generics', 'async_demo', 'traits_demo',
-    'gui_demo', 'wasm', 'match_demo', 'stdlib_demo',
-    'snake',
+    'match_expr_demo', 'stdlib_demo', 'list_ops', 'natural_list_ops',
 }
 
 
