@@ -36,7 +36,8 @@ public:
     static CompileResult compileFile(const std::string& sourcePath,
                                      const CompileOptions& options = {});
 
-    static bool checkFile(const std::string& sourcePath);
+    static bool checkFile(const std::string& sourcePath,
+                          std::size_t errorLimit = DiagnosticEngine::kDefaultErrorLimit);
     static int runTests(const std::string& afrilangRoot, bool coverage = false);
 
     static bool formatFile(const std::string& sourcePath, bool writeBack);

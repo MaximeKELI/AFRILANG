@@ -431,7 +431,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
     }
 }
 
-bool Pipeline::checkFile(const std::string& sourcePath) {
+bool Pipeline::checkFile(const std::string& sourcePath, std::size_t errorLimit) {
     try {
         const fs::path srcPath = fs::absolute(sourcePath);
         if (!fs::exists(srcPath)) {
@@ -439,11 +439,13 @@ bool Pipeline::checkFile(const std::string& sourcePath) {
             return false;
         }
         Compiler compiler(srcPath.string(), detectAfrilangRoot());
+        compiler.setErrorLimit(errorLimit);
         std::unique_ptr<ProgramNode> program = compiler.compile();
         SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
+        analyzer.setErrorLimit(errorLimit);
         const SemanticResult semantic = analyzer.analyze();
 
-        DiagnosticEngine all;
+        DiagnosticEngine all(errorLimit);
         for (const auto& d : compiler.diagnostics().diagnostics()) all.report(d);
         for (const auto& d : semantic.errors) all.report(d);
         for (const auto& w : semantic.warnings) {
