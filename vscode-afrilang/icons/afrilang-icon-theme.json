@@ -5,8 +5,20 @@
     },
     "_afr_file_light": {
       "iconPath": "./afr-light.png"
+    },
+    "_file": {
+      "iconPath": "./afr-dark.png"
+    },
+    "_folder": {
+      "iconPath": "./afr-dark.png"
+    },
+    "_folder_open": {
+      "iconPath": "./afr-dark.png"
     }
   },
+  "file": "_file",
+  "folder": "_folder",
+  "folderExpanded": "_folder_open",
   "fileExtensions": {
     "afr": "_afr_file"
   },
@@ -14,6 +26,9 @@
     "afrilang": "_afr_file"
   },
   "light": {
+    "file": "_afr_file_light",
+    "folder": "_afr_file_light",
+    "folderExpanded": "_afr_file_light",
     "fileExtensions": {
       "afr": "_afr_file_light"
     },
@@ -21,5 +36,6 @@
       "afrilang": "_afr_file_light"
     }
   },
+  "hidesExplorerArrows": false,
   "showLanguageModeIcons": true
 }
