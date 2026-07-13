@@ -519,21 +519,56 @@ static int cloneGit(const std::string& url, const std::string& tag, const std::s
     return 0;
 }
 
+static fs::path remoteCacheDir(const std::string& afrilangRoot) {
+    return fs::path(afrilangRoot) / "packages" / ".cache";
+}
+
 static LockedPackage installRegistryPackage(const std::string& projectDir,
                                             const std::string& packageName,
                                             const std::string& requiredRange,
                                             const std::string& afrilangRoot,
                                             bool skipToml) {
     LockedPackage locked;
-    const fs::path src = fs::path(afrilangRoot) / "packages" / packageName;
-    if (!fs::exists(src)) {
-        std::cerr << "Erreur: paquet '" << packageName << "' introuvable dans le registre.\n";
-        return locked;
+    fs::path src = fs::path(afrilangRoot) / "packages" / packageName;
+    PackageInfo meta = PkgRegistry::lookupPackage(afrilangRoot, packageName);
+    bool fetchedRemote = false;
+
+    // Nimble-style: if not on disk locally, fetch via url/method from index
+    if (!fs::exists(src) || !fs::exists(src / "manifest.toml")) {
+        if (meta.url.empty() || (meta.method != "git" && !meta.method.empty() &&
+                                 meta.method != "local")) {
+            if (meta.url.empty()) {
+                std::cerr << "Erreur: paquet '" << packageName
+                          << "' introuvable (local + remote-index).\n";
+                std::cerr << "Astuce: afrilang pkg sync  puis réessayez, ou "
+                             "pkg add --git <url>\n";
+            } else {
+                std::cerr << "Erreur: méthode de téléchargement non supportée pour '"
+                          << packageName << "': " << meta.method << "\n";
+            }
+            return locked;
+        }
+        if (meta.method.empty()) meta.method = "git";
+        const fs::path cache = remoteCacheDir(afrilangRoot) / packageName;
+        std::cout << "Téléchargement distant '" << packageName << "' depuis " << meta.url
+                  << " ...\n";
+        if (cloneGit(meta.url, meta.tag.empty() ? std::string{} : meta.tag,
+                     std::string{}, cache) != 0) {
+            // try without tag if meta has version as tag
+            if (cloneGit(meta.url, "v" + (meta.version.empty() ? "0.1.0" : meta.version),
+                         std::string{}, cache) != 0) {
+                if (cloneGit(meta.url, std::string{}, std::string{}, cache) != 0) {
+                    return locked;
+                }
+            }
+        }
+        src = cache;
+        fetchedRemote = true;
     }
 
     PackageInfo info = PkgRegistry::loadManifest(src.string());
     if (info.name.empty()) info.name = packageName;
-    if (info.version.empty()) info.version = "0.1.0";
+    if (info.version.empty()) info.version = meta.version.empty() ? "0.1.0" : meta.version;
 
     if (!requiredRange.empty() && !semverSatisfies(requiredRange, info.version)) {
         std::cerr << "Erreur: '" << packageName << "' requiert " << requiredRange
@@ -553,7 +588,7 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
     }
 
     const std::string expected = expectedIndexSha256(afrilangRoot, packageName);
-    if (!expected.empty() && expected != pkgHash) {
+    if (!expected.empty() && expected != pkgHash && !fetchedRemote) {
         std::cerr << "Erreur: checksum SHA256 invalide pour '" << packageName << "'.\n";
         std::cerr << "  attendu:  " << expected << "\n";
         std::cerr << "  obtenu:   " << pkgHash << "\n";
@@ -575,9 +610,12 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
     locked.version = info.version;
     locked.path = relPrefix + packageName;
     locked.sha256 = pkgHash;
-    locked.source = "registry";
+    locked.source = fetchedRemote ? "remote" : "registry";
+    if (fetchedRemote && !meta.url.empty()) {
+        locked.git = meta.url;
+    }
     std::cout << "Paquet '" << info.name << "@" << info.version << "' installé dans "
-              << dst.string() << "\n";
+              << dst.string() << (fetchedRemote ? " (distant)" : "") << "\n";
     std::cout << "sha256: " << pkgHash << "\n";
     return locked;
 }
@@ -650,7 +688,40 @@ static void upsertLock(std::vector<LockedPackage>& lock, const LockedPackage& pk
 static int installOneDep(const std::string& projectDir, const std::string& name,
                          const DependencySpec& spec, const std::string& afrilangRoot,
                          std::vector<LockedPackage>& lock, bool skipToml,
-                         bool resolveTransitive) {
+                         bool resolveTransitive, int depth = 0) {
+    if (depth > 32) {
+        std::cerr << "Erreur: profondeur de dépendances excessive (cycle?) pour '" << name
+                  << "'\n";
+        return 1;
+    }
+
+    // Conflict / already satisfied check
+    for (const auto& p : lock) {
+        if (p.name != name) continue;
+        if (spec.kind == DependencyKind::Version && !spec.version.empty()) {
+            if (!semverSatisfies(spec.version, p.version)) {
+                std::cerr << "Erreur: conflit de versions pour '" << name << "': "
+                          << "lock=" << p.version << " mais requis " << spec.version << "\n";
+                return 1;
+            }
+        }
+        // Already installed and satisfies — skip reinstall, still walk transitive if asked
+        if (resolveTransitive) {
+            const fs::path vendorPath = fs::path(projectDir) / p.path;
+            const fs::path manifest = vendorPath / "manifest.toml";
+            if (fs::exists(manifest)) {
+                ProjectConfig nested = loadProjectConfig(manifest.string());
+                for (const auto& [depName, depSpec] : nested.dependencies) {
+                    if (installOneDep(projectDir, depName, depSpec, afrilangRoot, lock, true,
+                                      true, depth + 1) != 0) {
+                        return 1;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
     LockedPackage installed;
     if (spec.kind == DependencyKind::Git) {
         installed = installGitPackage(projectDir, name, spec);
@@ -668,16 +739,8 @@ static int installOneDep(const std::string& projectDir, const std::string& name,
         if (fs::exists(manifest)) {
             ProjectConfig nested = loadProjectConfig(manifest.string());
             for (const auto& [depName, depSpec] : nested.dependencies) {
-                bool already = false;
-                for (const auto& p : lock) {
-                    if (p.name == depName) {
-                        already = true;
-                        break;
-                    }
-                }
-                if (already) continue;
-                if (installOneDep(projectDir, depName, depSpec, afrilangRoot, lock, true,
-                                  false) != 0) {
+                if (installOneDep(projectDir, depName, depSpec, afrilangRoot, lock, true, true,
+                                  depth + 1) != 0) {
                     return 1;
                 }
             }
