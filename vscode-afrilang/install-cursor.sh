@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
-# Raccourci — installe dans Cursor, VS Code et VSCodium.
-exec "$(dirname "$0")/install.sh"
+# Installe AFRILANG en local dans Cursor (sans marketplace).
+# Usage : ./install-cursor.sh
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+exec "$ROOT/install.sh"

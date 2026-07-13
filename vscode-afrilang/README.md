@@ -84,17 +84,28 @@ Exemple `settings.json` :
 Le workspace active le thème d'icônes **AFRILANG** (`afrilang-icons`) : les `.afr`
 affichent la carte d'Afrique. La grammaire TextMate colore mots-clés, types, chaînes, etc.
 
-Si la coloration ou l'icône n'apparaissent pas :
+**Important — Cursor Agents Window (Glass)**  
+La coloration et les icônes d'extensions **ne s'appliquent pas** dans la vue Agents
+([bug Cursor connu](https://forum.cursor.com/t/cursor-3-0-agents-window-syntax-highlighting-is-broken/156630)).
+Ce n'est pas un défaut de l'extension AFRILANG.
 
-1. **Réinstallez** l'extension :
-   ```bash
-   cd vscode-afrilang && ./install.sh
-   ```
-2. **Rechargez** la fenêtre : *Developer: Reload Window*
-3. Barre d'état (bas à droite) = **AFRILANG** (pas « Plain Text »)
+Pour voir couleurs + logo :
+
+1. `Ctrl+Shift+P` → **Cursor: Open or Focus Editor Window**  
+   (`cursor.openOrFocusEditorWindow`) — quitte Glass / Agents
+2. Ouvrir `examples/hello.afr` dans cet éditeur classique
+3. Barre d'état (bas à droite) = **AFRILANG**
 4. *File Icon Theme* = **AFRILANG**
-5. **Cursor Glass / Agents Window** : bug connu — les grammaires d'extensions
-   y sont souvent absentes. Ouvrez le fichier dans l'**éditeur classique** (IDE).
+
+Réinstallation si besoin :
+
+```bash
+cd vscode-afrilang && ./install.sh
+# ou :
+cursor --install-extension ./afrilang-1.4.0.vsix
+```
+
+Puis **Developer: Reload Window**.
 
 ## Commandes
 

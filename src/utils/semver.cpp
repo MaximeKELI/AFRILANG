@@ -40,11 +40,52 @@ int compareSemVer(const SemVer& a, const SemVer& b) {
     return 0;
 }
 
+bool parseSemVerRange(const std::string& required, SemVerRange& out) {
+    if (required.empty()) return false;
+    std::string body = required;
+    out.kind = SemVerRangeKind::ExactOrMin;
+    if (body[0] == '^') {
+        out.kind = SemVerRangeKind::Caret;
+        body = body.substr(1);
+    } else if (body[0] == '~') {
+        out.kind = SemVerRangeKind::Tilde;
+        body = body.substr(1);
+    }
+    return parseSemVer(body, out.base);
+}
+
 bool semverSatisfies(const std::string& required, const std::string& actual) {
-    SemVer req;
+    SemVerRange range;
     SemVer act;
-    if (!parseSemVer(required, req) || !parseSemVer(actual, act)) return required == actual;
-    return compareSemVer(act, req) >= 0;
+    if (!parseSemVer(actual, act)) return required == actual;
+    if (!parseSemVerRange(required, range)) return required == actual;
+
+    if (compareSemVer(act, range.base) < 0) return false;
+
+    if (range.kind == SemVerRangeKind::Caret) {
+        SemVer upper = range.base;
+        if (upper.major > 0) {
+            upper.major += 1;
+            upper.minor = 0;
+            upper.patch = 0;
+        } else if (upper.minor > 0) {
+            upper.minor += 1;
+            upper.patch = 0;
+        } else {
+            upper.patch += 1;
+        }
+        return compareSemVer(act, upper) < 0;
+    }
+
+    if (range.kind == SemVerRangeKind::Tilde) {
+        SemVer upper = range.base;
+        upper.minor += 1;
+        upper.patch = 0;
+        return compareSemVer(act, upper) < 0;
+    }
+
+    // ExactOrMin: actual >= required
+    return true;
 }
 
 } // namespace afrilang
