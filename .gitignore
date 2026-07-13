@@ -2,6 +2,7 @@
 /build/
 /dist/
 *.generated.cpp
+*.afr.debug.json
 *.o
 *.a
 *.so
