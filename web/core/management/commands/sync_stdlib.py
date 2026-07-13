@@ -10,6 +10,21 @@ from core.services.stdlib_pdf import generate_all_pdfs, generate_pdf
 
 FUNCTION_RE = re.compile(r'^\s*(?:export\s+)?function\s+(\w+)', re.MULTILINE)
 
+# Mirrors StdlibRegistry::isLegacyStdlibModule (+ aliases)
+CORE_MODULES = {
+    'io', 'json', 'fs', 'http', 'str', 'logging', 'log', 'math', 'chrono', 'time',
+    're', 'collections', 'args', 'path', 'sql', 'web', 'orm', 'thread', 'bigint',
+    'crypto', 'yaml', 'datetime', 'env', 'tempfile', 'base64', 'url', 'random',
+    'hex', 'csv', 'html', 'cli', 'email', 'uuid', 'async', 'ui', 'game2d',
+    'game3d', 'gamestate', 'gamenet',
+}
+
+
+def _module_base(name: str) -> str:
+    # stdlib/m/foo -> foo, stdlib paths use name without std/
+    base = name.split('/')[-1]
+    return base
+
 
 class Command(BaseCommand):
     help = 'Synchronise stdlib avec descriptions FR/EN et catégories'
@@ -27,6 +42,8 @@ class Command(BaseCommand):
             name = str(rel).replace('\\', '/')
             text = path.read_text(encoding='utf-8', errors='replace')
             meta = enrich_module(name, text)
+            base = _module_base(name)
+            is_core = base in CORE_MODULES and not name.startswith(('m/', 'c/'))
 
             StdlibModule.objects.update_or_create(
                 name=name,
@@ -38,6 +55,8 @@ class Command(BaseCommand):
                     'category': meta['category'],
                     'tier': meta['tier'],
                     'function_count': meta['function_count'],
+                    'is_core': is_core,
+                    'experimental': not is_core,
                 },
             )
             seen.add(name)
