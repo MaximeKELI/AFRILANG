@@ -230,7 +230,9 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"aplatir", TokenType::FlatMap},
 };
 
-Lexer::Lexer(std::string source) : source_(std::move(source)) {}
+Lexer::Lexer(std::string source, std::size_t errorLimit)
+    : source_(std::move(source))
+    , diagnostics_(errorLimit) {}
 
 std::vector<Token> Lexer::tokenize() {
     std::vector<Token> tokens;
@@ -275,11 +277,12 @@ std::vector<Token> Lexer::tokenize() {
                 case '<': tokens.push_back(makeToken(TokenType::AngleOpen, "<")); break;
                 case '>': tokens.push_back(makeToken(TokenType::AngleClose, ">")); break;
                 default:
-                    throw CompileError(
-                        std::string("Caractère inattendu '") + c + "'",
-                        startLine, startColumn);
+                    reportLexerError(std::string("Caractère inattendu '") + c + "'",
+                                     startLine, startColumn);
+                    break;
             }
         }
+        if (diagnostics_.errorLimitReached()) break;
     }
 
     tokens.push_back(makeToken(TokenType::Eof, ""));
@@ -326,8 +329,12 @@ Token Lexer::makeToken(TokenType type, std::string lexeme) const {
     return Token(type, std::move(lexeme), line_, column_);
 }
 
-Token Lexer::errorToken(const std::string& message) const {
-    throw CompileError(message, line_, column_);
+Token Lexer::makeTokenAt(TokenType type, std::string lexeme, int line, int column) const {
+    return Token(type, std::move(lexeme), line, column);
+}
+
+void Lexer::reportLexerError(const std::string& message, int line, int column) {
+    diagnostics_.reportError(message, line, column, "", "", {}, ErrorCode::Lexer);
 }
 
 Token Lexer::stringLiteral() {
@@ -348,14 +355,16 @@ Token Lexer::stringLiteral() {
                 default:   value += esc;  break;
             }
         } else if (c == '\n') {
-            throw CompileError("Chaîne non terminée", startLine, startColumn);
+            reportLexerError("Chaîne non terminée", startLine, startColumn);
+            return makeTokenAt(TokenType::StringLiteral, std::move(value), startLine, startColumn);
         } else {
             value += c;
         }
     }
 
     if (isAtEnd()) {
-        throw CompileError("Chaîne non terminée", startLine, startColumn);
+        reportLexerError("Chaîne non terminée", startLine, startColumn);
+        return makeTokenAt(TokenType::StringLiteral, std::move(value), startLine, startColumn);
     }
 
     advance();

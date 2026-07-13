@@ -85,6 +85,10 @@ std::string CompileError::formatJson() const {
 
 DiagnosticEngine::DiagnosticEngine(std::size_t errorLimit) : errorLimit_(errorLimit) {}
 
+void DiagnosticEngine::setErrorLimit(std::size_t limit) {
+    errorLimit_ = limit == 0 ? kDefaultErrorLimit : limit;
+}
+
 void DiagnosticEngine::report(Diagnostic diagnostic) {
     if (diagnostic.severity == DiagnosticSeverity::Error) {
         if (errorCount() >= errorLimit_) {
@@ -172,6 +176,14 @@ std::string DiagnosticEngine::formatAll() const {
     for (std::size_t i = 0; i < diagnostics_.size(); ++i) {
         if (i > 0) out << "\n";
         out << formatDiagnostic(diagnostics_[i]);
+    }
+    const std::size_t errs = errorCount();
+    if (errs > 1) {
+        const bool en = currentLocale() == Locale::English;
+        out << "\n"
+            << (en ? "error: aborting due to " : "erreur : arrêt après ")
+            << errs
+            << (en ? " previous errors\n" : " erreurs précédentes\n");
     }
     return out.str();
 }

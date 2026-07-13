@@ -70,6 +70,9 @@ public:
 
     explicit DiagnosticEngine(std::size_t errorLimit = kDefaultErrorLimit);
 
+    void setErrorLimit(std::size_t limit);
+    std::size_t errorLimit() const { return errorLimit_; }
+
     void report(Diagnostic diagnostic);
     void report(const CompileError& error);
     void reportError(std::string message, int line, int column,
