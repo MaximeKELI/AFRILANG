@@ -10,10 +10,15 @@
   </div>
   <form method="get" class="d-flex gap-2" style="min-width:280px" role="search">
     <label for="pkg-search" class="visually-hidden">{{ ui.packages_page.search }}</label>
-    <input id="pkg-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.packages_page.search }}">
+    <input id="pkg-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.packages_page.search }} (nom, desc, tags)">
     <button type="submit" class="btn btn-afr-primary">{{ ui.packages_page.filter }}</button>
   </form>
 </div>
+{% if tag %}
+<p class="small text-secondary-custom mb-3">Tag : <code>{{ tag }}</code>
+  <a href="{% url 'packages' %}{% if query %}?q={{ query }}{% endif %}">×</a>
+</p>
+{% endif %}
 
 <div class="row g-3">
   {% for pkg in packages %}

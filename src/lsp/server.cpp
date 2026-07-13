@@ -358,6 +358,14 @@ static void publishDiagnostics(const std::string& uri, const AnalysisResult& ana
     sendNotification("textDocument/publishDiagnostics", params.str());
 }
 
+static const std::vector<std::string> kCoreStdlibModules = {
+    "io", "json", "fs", "http", "str", "logging", "math", "chrono", "re",
+    "collections", "args", "path", "async", "sql", "web", "orm", "thread",
+    "bigint", "crypto", "yaml", "datetime", "env", "tempfile", "base64",
+    "url", "random", "hex", "csv", "html", "cli", "email", "uuid", "ui",
+    "game2d", "game3d", "gamestate", "gamenet", "log", "time",
+};
+
 static std::string completionItems(const AnalysisResult& analysis) {
     std::ostringstream out;
     out << "[";
@@ -365,11 +373,19 @@ static std::string completionItems(const AnalysisResult& analysis) {
     for (const auto& kw : kKeywords) {
         if (!first) out << ',';
         first = false;
-        out << "{\"label\":\"" << kw << "\",\"kind\":14,\"detail\":\"keyword\"}";
+        out << "{\"label\":\"" << kw << "\",\"kind\":14,\"detail\":\"keyword\","
+            << "\"sortText\":\"1_" << kw << "\"}";
+    }
+    for (const auto& mod : kCoreStdlibModules) {
+        out << ",{\"label\":\"" << mod << "\",\"kind\":9,\"detail\":\"core stdlib\","
+            << "\"insertText\":\"std/" << mod << "\","
+            << "\"sortText\":\"0_" << mod << "\","
+            << "\"documentation\":\"module core stabilisé (Vague 3)\"}";
     }
     for (const auto& sym : analysis.outline) {
         out << ",{\"label\":\"" << jsonEscape(sym.name) << "\",\"kind\":" << sym.kind
-            << ",\"detail\":\"" << jsonEscape(sym.detail) << "\"}";
+            << ",\"detail\":\"" << jsonEscape(sym.detail) << "\","
+            << "\"sortText\":\"2_" << jsonEscape(sym.name) << "\"}";
     }
     out << "]";
     return out.str();

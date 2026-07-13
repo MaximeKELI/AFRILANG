@@ -32,6 +32,9 @@ jobs:
       - name: Integration tests (examples)
         run: ./build/afrilang test --examples .
 
+      - name: Compiler specs + core stdlib
+        run: ./build/afrilang test --specs .
+
       - name: Ecosystem smoke (init / pkg / test)
         run: |
           ./build/afrilang init smoke_app
@@ -106,6 +109,7 @@ jobs:
         run: |
           source /tmp/emsdk/emsdk_env.sh
           ./build/afrilang run examples/tier8_demo.afr --target wasm32 --run
+          ./build/afrilang run examples/tier8_stdlib.afr --target wasm32 --run
 
       - name: Check Emscripten script
         run: |
