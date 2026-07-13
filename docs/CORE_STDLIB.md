@@ -3,7 +3,8 @@
 La masse de fichiers sous `stdlib/` (catalogues générés) sert surtout à la complétion / signatures IDE.  
 **Seuls les modules ci-dessous sont considérés « core »** : backend C++ réel dans `runtime/`, compatibilité 1.x, documentation prioritaire.
 
-Voir aussi `STDLIB_GEN.md` et `isLegacyStdlibModule` dans `src/utils/stdlib_registry.cpp`.
+Voir aussi `STDLIB_API.md` (API prioritaire Vague 3), `STDLIB_GEN.md`, et `isLegacyStdlibModule` dans `src/utils/stdlib_registry.cpp`.  
+Suite de tests : `afrilang test --specs`.
 
 ## Modules core (stabilisés)
 

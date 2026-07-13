@@ -27,13 +27,13 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Index enrichi (`url`, `method`, `tags`, `license`, `web`)
 - [x] `pkg test` — boucle auteur (self-vendor + tests/)
 
-## Vague 3 — Profondeur & cibles
+## Vague 3 — Profondeur & cibles (livrée)
 
-- [ ] Qualité du **core stdlib** (voir `CORE_STDLIB.md`) : APIs documentées + tests
-- [ ] Réduire la dépendance aux stubs générés pour l’expérience utilisateur
-- [ ] WASM / JS : élargir le sous-ensemble (voir `WASM_COMPAT.md`)
-- [ ] Batterie de tests compilateur élargie (style Testament / Crystal specs)
-- [ ] Site searchable type shards.info (deps graph, versions, README)
+- [x] Qualité du **core stdlib** : `docs/STDLIB_API.md` + `tests/stdlib/*.afr`
+- [x] UX stubs : hover LSP core vs experimental ; site stdlib **core** par défaut (`?experimental=1`)
+- [x] WASM / JS : sous-ensemble documenté (`WASM_COMPAT.md`) + `examples/tier8_stdlib.afr` ; playground JS avec fonctions/`for`
+- [x] Batterie specs : `afrilang test --specs` (`tests/specs` + `tests/stdlib`)
+- [x] Site packages : tags / repo / README / recherche (`sync_packages`, détail paquet)
 
 ## Hors roadmap (non codable ici)
 

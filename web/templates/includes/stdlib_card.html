@@ -9,6 +9,7 @@
     <div class="d-flex flex-wrap gap-1">
       <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
       <span class="badge text-bg-light border">{{ mod.tier }}</span>
+      {% if mod.is_core %}<span class="badge text-bg-success">core</span>{% elif mod.experimental %}<span class="badge text-bg-warning text-dark">experimental</span>{% endif %}
       {% if mod.has_pdf %}<span class="badge text-bg-primary">PDF</span>{% endif %}
     </div>
   </article>
