@@ -42,6 +42,11 @@ jobs:
           cd ..
           ./build/afrilang pkg init smoke_lib
           test -f smoke_lib/manifest.toml
+          cd smoke_lib
+          ../build/afrilang pkg test
+          ../build/afrilang pkg publish . --remote | grep -q 'Publication distante'
+          test -f registry-entry.json
+          cd ..
           ./build/afrilang init path_app
           ./build/afrilang pkg init local_dep
           cd path_app
@@ -49,6 +54,10 @@ jobs:
           ../build/afrilang pkg install
           grep -q 'source = "path"' afrilang.lock
           cd ..
+          # remote-index merge into search
+          cp packages/remote-index.example.json packages/remote-index.json
+          ./build/afrilang pkg search example_remote | grep -q example_remote
+          rm -f packages/remote-index.json
           rm -rf smoke_app smoke_lib path_app local_dep
 
       - name: LSP diagnostic smoke test

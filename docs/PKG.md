@@ -10,6 +10,8 @@
 | `afrilang.lock` | Versions exactes installées (source de vérité pour `install`) |
 | `vendor/` | Copies locales des paquets |
 | `manifest.toml` | Métadonnées d’un **paquet** (bibliothèque) |
+| `packages/index.json` | Index local |
+| `packages/remote-index.json` | Index distant (`pkg sync`) |
 
 ## Créer un projet ou un paquet
 
@@ -17,11 +19,13 @@
 afrilang init mon_app              # application
 afrilang init mon_lib --lib        # alias de pkg init
 afrilang pkg init mon_lib          # paquet bibliothèque
+cd mon_lib && afrilang pkg test    # self-vendor + tests/
+afrilang doc .                     # docs/api/
 ```
 
 ## Dépendances
 
-### Registre local
+### Registre (local ou distant)
 
 ```toml
 [dependencies]
@@ -30,10 +34,17 @@ strings = "^0.1.0"
 ```
 
 ```bash
-afrilang pkg add math
+afrilang pkg sync                  # télécharge remote-index.json
+afrilang pkg add math              # local packages/ ou clone via url/method
 afrilang pkg install
 afrilang pkg update
 ```
+
+Si le paquet n’est pas dans `packages/<name>` mais apparaît dans l’index avec
+`"method":"git"` + `"url"`, AFRILANG clone comme **Nimble** (cache sous
+`packages/.cache/`).
+
+Voir le modèle : [`packages/remote-index.example.json`](../packages/remote-index.example.json).
 
 ### Semver
 
@@ -65,19 +76,45 @@ mylib = { path = "../mylib" }
 afrilang pkg add mylib --path ../mylib
 ```
 
+## Transitivité & conflits
+
+`install` / `update` résolvent les deps des `manifest.toml` **récursivement**.
+Si deux contraintes sur le même nom sont incompatibles → erreur de conflit.
+
 ## Install vs update
 
 - `pkg install` — si `afrilang.lock` existe, installe **exactement** le lock ; sinon résout depuis le toml et écrit le lock.
 - `pkg update` — ignore les pins du lock, re-résout depuis les ranges du toml, réécrit le lock.
 
-## Publier (local)
+## Publier
+
+### Local
 
 ```bash
 afrilang pkg publish ./mon_lib
 afrilang pkg list
 ```
 
-Le publish distant authentifié est prévu en Vague 2 (voir `ROADMAP.md`).
+### Distant (style Nimble)
+
+```bash
+export AFRILANG_PACKAGE_GIT_URL=https://github.com/vous/mon_lib
+export AFRILANG_REGISTRY_TOKEN=...          # optionnel
+export AFRILANG_REGISTRY_PUBLISH_URL=...    # optionnel
+afrilang pkg publish ./mon_lib --remote
+```
+
+Écrit `registry-entry.json`, affiche la recette d’ajout au registre, et POST
+si un token est défini.
+
+Variables utiles :
+
+| Variable | Rôle |
+|----------|------|
+| `AFRILANG_REGISTRY_URL` | URL de l’index JSON (`pkg sync`) |
+| `AFRILANG_REGISTRY_PUBLISH_URL` | Endpoint POST publish |
+| `AFRILANG_REGISTRY_TOKEN` | Bearer token |
+| `AFRILANG_PACKAGE_GIT_URL` | URL git du paquet pour la recette |
 
 ## Imports
 

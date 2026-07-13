@@ -20,10 +20,12 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <filesystem>
 #include <stdexcept>
 #include <string>
 #include <cstdlib>
+#include <vector>
 
 #if __has_include(<SDL2/SDL_ttf.h>)
 #include "../runtime/ui.hpp"
@@ -206,6 +208,44 @@ static void testLockFileRoundTrip() {
     expect(loaded[0].name == "math" && loaded[0].sha256 == "abc", "lock registry entry");
     expect(loaded[1].source == "git" && loaded[1].tag == "v1", "lock git entry");
     fs::remove_all(dir);
+}
+
+static void testLookupMergesRemoteIndex() {
+    namespace fs = std::filesystem;
+    const char* home = std::getenv("AFRILANG_HOME");
+    const std::string root = home ? home : ".";
+    const fs::path remote = fs::path(root) / "packages" / "remote-index.json";
+    const bool hadRemote = fs::exists(remote);
+    std::string backup;
+    if (hadRemote) {
+        std::ifstream in(remote);
+        std::ostringstream buf;
+        buf << in.rdbuf();
+        backup = buf.str();
+    }
+    {
+        fs::create_directories(remote.parent_path());
+        std::ofstream out(remote);
+        out << R"({"packages":[{"name":"wave2_remote_probe","version":"1.2.3",)"
+            << R"("description":"probe","method":"git",)"
+            << R"("url":"https://example.com/wave2.git","tags":["probe"]}]})";
+    }
+    auto info = afrilang::PkgRegistry::lookupPackage(root, "wave2_remote_probe");
+    expect(info.name == "wave2_remote_probe", "lookup remote name");
+    expect(info.version == "1.2.3", "lookup remote version");
+    expect(info.method == "git", "lookup remote method");
+    expect(info.url == "https://example.com/wave2.git", "lookup remote url");
+    if (hadRemote) {
+        std::ofstream out(remote);
+        out << backup;
+    } else {
+        fs::remove(remote);
+    }
+}
+
+static void testSemVerConflictLogic() {
+    expect(!afrilang::semverSatisfies("^1.0.0", "0.1.0"), "conflict ^1 vs 0.1");
+    expect(afrilang::semverSatisfies("^0.1.0", "0.1.9"), "compatible caret");
 }
 
 static void testUtf8Validation() {
@@ -767,6 +807,8 @@ int main() {
     testSemVer();
     testParseDependencyValue();
     testLockFileRoundTrip();
+    testLookupMergesRemoteIndex();
+    testSemVerConflictLogic();
     testUtf8Validation();
     testI18nEnglish();
     testMatchExpressionParse();
