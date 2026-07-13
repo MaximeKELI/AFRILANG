@@ -16,6 +16,9 @@ public:
     std::unique_ptr<ProgramNode> compile();
     std::unique_ptr<ProgramNode> compileFromSource(const std::string& source);
     const SourceManager& sources() const { return sources_; }
+    const DiagnosticEngine& diagnostics() const { return diagnostics_; }
+    DiagnosticEngine& diagnostics() { return diagnostics_; }
+    bool hasErrors() const { return diagnostics_.hasErrors(); }
 
 private:
     std::string entryPath_;
@@ -23,6 +26,7 @@ private:
     std::string projectDir_;
     std::unordered_set<std::string> loadedFiles_;
     SourceManager sources_;
+    DiagnosticEngine diagnostics_;
 
     static std::string readFile(const std::string& path);
     std::string resolvePath(const std::string& baseDir, const std::string& importPath) const;
@@ -32,6 +36,7 @@ private:
     void mergeProgram(ProgramNode& target, ProgramNode& source);
     void resolveImports(ProgramNode& program, const std::string& baseDir, int depth = 0);
     void handleStdlibImport(ProgramNode& program, const std::string& importPath);
+    void mergeParserDiagnostics(const DiagnosticEngine& parserDiags, const std::string& file);
 };
 
 } // namespace afrilang

@@ -41,9 +41,23 @@ Compiler::Compiler(std::string entryPath, std::string afrilangRoot)
     }
 }
 
+void Compiler::mergeParserDiagnostics(const DiagnosticEngine& parserDiags,
+                                      const std::string& file) {
+    for (auto diag : parserDiags.diagnostics()) {
+        if (diag.file.empty()) diag.file = file;
+        if (diag.sourceLine.empty() && diag.line > 0) {
+            if (const SourceFile* sf = sources_.getFile(file)) {
+                diag.sourceLine = sf->lineAt(diag.line);
+            }
+        }
+        diagnostics_.report(std::move(diag));
+    }
+}
+
 std::unique_ptr<ProgramNode> Compiler::compile() {
     loadedFiles_.clear();
     sources_ = SourceManager{};
+    diagnostics_.clear();
     auto program = parseFile(entryPath_);
     const std::string baseDir = fs::path(entryPath_).parent_path().string();
     resolveImports(*program, baseDir);
@@ -53,6 +67,7 @@ std::unique_ptr<ProgramNode> Compiler::compile() {
 std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& source) {
     loadedFiles_.clear();
     sources_ = SourceManager{};
+    diagnostics_.clear();
     const std::string normalized = normalizePath(entryPath_);
     loadedFiles_.insert(normalized);
     sources_.addFile(normalized, source);
@@ -61,6 +76,7 @@ std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& sour
     const std::vector<Token> tokens = lexer.tokenize();
     Parser parser(tokens);
     auto program = parser.parse();
+    mergeParserDiagnostics(parser.diagnostics(), normalized);
 
     const std::string baseDir = fs::path(entryPath_).parent_path().string();
     resolveImports(*program, baseDir);
@@ -152,7 +168,9 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
     Lexer lexer(source);
     const std::vector<Token> tokens = lexer.tokenize();
     Parser parser(tokens);
-    return parser.parse();
+    auto program = parser.parse();
+    mergeParserDiagnostics(parser.diagnostics(), normalized);
+    return program;
 }
 
 void Compiler::mergeProgram(ProgramNode& target, ProgramNode& source) {
