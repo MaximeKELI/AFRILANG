@@ -69,11 +69,17 @@ def normalize_project_path(raw: str) -> str:
     """Normalise et valide un chemin relatif de projet (.afr)."""
     if not isinstance(raw, str) or not raw.strip():
         raise ProjectPayloadError('Chemin de fichier vide')
-    path = raw.replace('\\', '/').strip().lstrip('/')
+    raw_stripped = raw.strip()
+    path = raw_stripped.replace('\\', '/')
+    # Lecteur Windows (C:/...)
+    if len(path) >= 2 and path[0].isalpha() and path[1] == ':':
+        raise ProjectPayloadError(f'Chemin absolu interdit: {raw!r}')
+    # Absolu Unix (commence par /) — pas les chemins Windows style \game\...
+    if raw_stripped.startswith('/'):
+        raise ProjectPayloadError(f'Chemin absolu interdit: {raw!r}')
+    path = path.lstrip('/')
     if not path or path in ('.', '..'):
         raise ProjectPayloadError(f'Chemin invalide: {raw!r}')
-    if path.startswith('/') or path.startswith('\\'):
-        raise ProjectPayloadError(f'Chemin absolu interdit: {raw!r}')
     parts = [p for p in path.split('/') if p and p != '.']
     if any(p == '..' for p in parts):
         raise ProjectPayloadError(f'Traversée de répertoire interdite: {raw!r}')

@@ -4,21 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import '../services/workspace_store.dart';
 import '../state/app_state.dart';
 import '../theme/afrilang_theme.dart';
 import '../widgets/motion.dart';
-
-const _defaultSource = '''create name text = "AFRILANG"
-say "Hello, {name}!"
-
-function greet(who text) returns text
-    return "Hello, " + who
-end
-
-say greet(name)
-''';
 
 const _snippets = <(String, String)>[
   (
@@ -55,7 +45,19 @@ while i is less than or equal to 5 then
 end
 '''
   ),
+  (
+    'Multi-file',
+    '''import "helpers.afr"
+
+say sum2(20, 22)
+'''
+  ),
 ];
+
+const _helpersSnippet = '''function sum2(a number, b number) returns number
+    return a + b
+end
+''';
 
 class PlaygroundScreen extends StatefulWidget {
   const PlaygroundScreen({super.key});
@@ -66,6 +68,7 @@ class PlaygroundScreen extends StatefulWidget {
 
 class _PlaygroundScreenState extends State<PlaygroundScreen> {
   late final TextEditingController _src;
+  final _ws = WorkspaceStore();
   String _output = '';
   bool? _ok;
   bool _busy = false;
@@ -75,7 +78,7 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
   @override
   void initState() {
     super.initState();
-    _src = TextEditingController(text: _defaultSource);
+    _src = TextEditingController();
     _restore();
     _src.addListener(_persistDebounced);
   }
@@ -86,17 +89,20 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
   }
 
   Future<void> _restore() async {
-    final prefs = await SharedPreferences.getInstance();
-    final saved = prefs.getString('playground_source');
-    if (saved != null && saved.trim().isNotEmpty && mounted) {
-      _src.text = saved;
-    }
-    if (mounted) setState(() => _ready = true);
+    await _ws.load();
+    if (!mounted) return;
+    _src.text = _ws.activeSource;
+    setState(() => _ready = true);
   }
 
   Future<void> _persist() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('playground_source', _src.text);
+    _ws.setActiveSource(_src.text);
+    await _ws.persist();
+  }
+
+  Future<void> _flush() async {
+    _ws.setActiveSource(_src.text);
+    await _ws.persist();
   }
 
   @override
@@ -109,12 +115,20 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
 
   Future<void> _run() async {
     HapticFeedback.mediumImpact();
+    final api = context.read<AppState>().api;
+    await _flush();
+    if (!mounted) return;
     setState(() {
       _busy = true;
       _ok = null;
     });
     try {
-      final res = await context.read<AppState>().api.run(_src.text);
+      final payload = _ws.runPayload();
+      final res = await api.run(
+            _src.text,
+            entry: payload['entry'] as String,
+            files: Map<String, String>.from(payload['files'] as Map),
+          );
       if (!mounted) return;
       setState(() {
         _output = res['output']?.toString() ?? '';
@@ -133,13 +147,16 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
   }
 
   Future<void> _fmt() async {
+    final api = context.read<AppState>().api;
     setState(() => _busy = true);
     try {
-      final res = await context.read<AppState>().api.fmt(_src.text);
+      final res = await api.fmt(_src.text);
       if (!mounted) return;
       if (res['ok'] == true && res['source'] != null) {
         _src.text = res['source'].toString();
+        await _flush();
       }
+      if (!mounted) return;
       setState(() {
         _output = res['output']?.toString() ?? (res['ok'] == true ? 'Formatted ✓' : 'Format failed');
         _ok = res['ok'] == true;
@@ -156,9 +173,17 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
   }
 
   Future<void> _check() async {
+    final api = context.read<AppState>().api;
+    await _flush();
+    if (!mounted) return;
     setState(() => _busy = true);
     try {
-      final res = await context.read<AppState>().api.check(_src.text);
+      final payload = _ws.runPayload();
+      final res = await api.check(
+            _src.text,
+            entry: payload['entry'] as String,
+            files: Map<String, String>.from(payload['files'] as Map),
+          );
       if (!mounted) return;
       setState(() {
         _output = res['output']?.toString() ?? res.toString();
@@ -175,12 +200,218 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
     }
   }
 
-  void _loadSnippet(String code) {
+  Future<void> _openPath(String path) async {
+    await _flush();
+    _ws.openFile(path);
+    _src.text = _ws.activeSource;
+    await _ws.persist();
+    setState(() {});
+  }
+
+  Future<void> _promptNewFile() async {
+    final app = context.read<AppState>();
+    final controller = TextEditingController(
+      text: _ws.activePath?.contains('/') == true
+          ? '${_ws.activePath!.substring(0, _ws.activePath!.lastIndexOf('/') + 1)}main.afr'
+          : 'Mes projets/main.afr',
+    );
+    final path = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(app.lang == 'en' ? 'New file' : 'Nouveau fichier'),
+        content: TextField(
+          controller: controller,
+          decoration: const InputDecoration(hintText: 'Mes projets/main.afr'),
+          autofocus: true,
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(app.lang == 'en' ? 'Cancel' : 'Annuler')),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, controller.text.trim()),
+            child: Text(app.lang == 'en' ? 'Create' : 'Créer'),
+          ),
+        ],
+      ),
+    );
+    if (path == null || path.isEmpty) return;
+    try {
+      await _flush();
+      _ws.createFile(path);
+      _src.text = _ws.activeSource;
+      await _ws.persist();
+      setState(() {});
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$e')));
+    }
+  }
+
+  Future<void> _promptNewFolder() async {
+    final app = context.read<AppState>();
+    final controller = TextEditingController(text: 'Mes projets/mon_jeu');
+    final path = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(app.lang == 'en' ? 'New folder' : 'Nouveau dossier'),
+        content: TextField(controller: controller, autofocus: true),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(app.lang == 'en' ? 'Cancel' : 'Annuler')),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, controller.text.trim()),
+            child: Text(app.lang == 'en' ? 'Create' : 'Créer'),
+          ),
+        ],
+      ),
+    );
+    if (path == null || path.isEmpty) return;
+    try {
+      _ws.createFolder(path);
+      await _ws.persist();
+      setState(() {});
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$e')));
+    }
+  }
+
+  Future<void> _deletePath(String path) async {
+    final app = context.read<AppState>();
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(app.lang == 'en' ? 'Delete?' : 'Supprimer ?'),
+        content: Text(path),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(app.lang == 'en' ? 'Cancel' : 'Annuler')),
+          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(app.lang == 'en' ? 'Delete' : 'Supprimer')),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    await _flush();
+    _ws.deletePath(path);
+    _src.text = _ws.activeSource;
+    await _ws.persist();
+    setState(() {});
+  }
+
+  Future<void> _loadSnippet(String name, String code) async {
+    await _flush();
+    if (name == 'Multi-file') {
+      _ws.files['Mes projets/helpers.afr'] = _helpersSnippet;
+      _ws.files['Mes projets/main.afr'] = code;
+      _ws.folders.add('Mes projets');
+      _ws.activePath = 'Mes projets/main.afr';
+    } else {
+      _ws.copySnippet(name, code);
+    }
+    _src.text = _ws.activeSource;
+    await _ws.persist();
     setState(() {
-      _src.text = code;
       _output = '';
       _ok = null;
     });
+  }
+
+  Future<void> _openFilesSheet() async {
+    final app = context.read<AppState>();
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (ctx) {
+        return DraggableScrollableSheet(
+          expand: false,
+          initialChildSize: 0.65,
+          minChildSize: 0.4,
+          maxChildSize: 0.92,
+          builder: (_, scrollController) {
+            return StatefulBuilder(
+              builder: (ctx, setModal) {
+                final folders = _ws.sortedFolders();
+                final files = _ws.sortedPaths();
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              app.lang == 'en' ? 'My files' : 'Mes fichiers',
+                              style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                            ),
+                          ),
+                          TextButton(onPressed: () async {
+                            Navigator.pop(ctx);
+                            await _promptNewFile();
+                          }, child: Text(app.lang == 'en' ? '+ .afr' : '+ .afr')),
+                          TextButton(onPressed: () async {
+                            Navigator.pop(ctx);
+                            await _promptNewFolder();
+                          }, child: Text(app.lang == 'en' ? '+ folder' : '+ dossier')),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        controller: scrollController,
+                        children: [
+                          for (final folder in folders)
+                            ListTile(
+                              dense: true,
+                              leading: const Icon(Icons.folder_outlined, size: 20),
+                              title: Text(folder, style: const TextStyle(fontSize: 13)),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.delete_outline, size: 18),
+                                onPressed: () async {
+                                  await _deletePath(folder);
+                                  setModal(() {});
+                                },
+                              ),
+                            ),
+                          for (final path in files)
+                            ListTile(
+                              dense: true,
+                              selected: path == _ws.activePath,
+                              leading: const Icon(Icons.description_outlined, size: 20),
+                              title: Text(path, style: const TextStyle(fontSize: 13)),
+                              onTap: () async {
+                                await _openPath(path);
+                                if (ctx.mounted) Navigator.pop(ctx);
+                              },
+                              trailing: IconButton(
+                                icon: const Icon(Icons.delete_outline, size: 18),
+                                onPressed: () async {
+                                  await _deletePath(path);
+                                  setModal(() {});
+                                },
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Text(
+                        app.lang == 'en'
+                            ? 'Run sends the active file + whole project (relative imports).'
+                            : 'Run envoie le fichier actif + tout le projet (imports relatifs).',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        );
+      },
+    );
+    if (mounted) setState(() {});
   }
 
   @override
@@ -195,18 +426,38 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+          padding: const EdgeInsets.fromLTRB(4, 8, 12, 4),
           child: Row(
             children: [
+              IconButton(
+                tooltip: app.lang == 'en' ? 'Files' : 'Fichiers',
+                onPressed: _openFilesSheet,
+                icon: const Icon(Icons.folder_open_rounded),
+              ),
               Expanded(
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      app.t('nav_playground', 'Playground'),
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+                    Row(
+                      children: [
+                        Text(
+                          app.t('nav_playground', 'Playground'),
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+                        ),
+                        const SizedBox(width: 8),
+                        if (_busy) const PulsingDot(),
+                      ],
                     ),
-                    const SizedBox(width: 8),
-                    if (_busy) const PulsingDot(),
+                    Text(
+                      _ws.activePath ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontFamily: 'JetBrains Mono',
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.55),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -245,15 +496,10 @@ class _PlaygroundScreenState extends State<PlaygroundScreen> {
                   padding: const EdgeInsets.only(right: 8),
                   child: ActionChip(
                     label: Text(s.$1),
-                    onPressed: () => _loadSnippet(s.$2),
+                    onPressed: () => _loadSnippet(s.$1, s.$2),
                     avatar: const Icon(Icons.bolt_rounded, size: 16),
                   ),
                 ),
-              ActionChip(
-                label: Text(app.lang == 'en' ? 'Reset' : 'Réinitialiser'),
-                onPressed: () => _loadSnippet(_defaultSource),
-                avatar: const Icon(Icons.restart_alt_rounded, size: 16),
-              ),
             ],
           ),
         ),
