@@ -1,0 +1,8 @@
+import "std/collections"
+use collections
+create nums = list of 1, 2, 3
+create doubler = function(x number) returns number
+    return x * 2
+end
+create doubled = mapNumbers(nums, doubler)
+say doubled at 0
