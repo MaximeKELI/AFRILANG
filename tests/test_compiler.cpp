@@ -516,6 +516,7 @@ static void testCompileSnake() {
 }
 
 static void testSnakeLogicUnitTests() {
+#if AFRILANG_HAS_UI_TEST
     afrilang::CompileOptions opts;
     opts.runtimeDir = afrilang::detectAfrilangRoot() + "/runtime";
     opts.useCache = false;
@@ -528,6 +529,9 @@ static void testSnakeLogicUnitTests() {
     config.applyResourceLimits = true;
     const auto exec = afrilang::execSandboxed("./" + result.executable, {}, config);
     expect(exec.exitCode == 0, "snake logic unit tests pass");
+#else
+    (void)0; // SDL2 requis pour linker snake_test
+#endif
 }
 
 static void testStringInterpolationCall() {
