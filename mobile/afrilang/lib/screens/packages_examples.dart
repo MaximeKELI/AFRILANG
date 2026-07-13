@@ -273,15 +273,15 @@ class _ExamplesScreenState extends State<ExamplesScreen> {
                   style: afrMono(fontSize: 11, color: AfrColors.textSecondary),
                 ),
                 trailing: e['desktop_only'] == true
-                    ? Chip(
+                    ? const Chip(
                         label: Text(
-                          context.read<AppState>().lang == 'en' ? 'Desktop' : 'Desktop',
-                          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+                          'Desktop',
+                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
                         ),
                         visualDensity: VisualDensity.compact,
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         padding: EdgeInsets.zero,
-                        labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+                        labelPadding: EdgeInsets.symmetric(horizontal: 6),
                       )
                     : null,
                 onTap: () => Navigator.of(context).push(
