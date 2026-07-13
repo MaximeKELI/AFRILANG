@@ -6,10 +6,13 @@ import 'package:provider/provider.dart';
 import '../state/app_state.dart';
 import '../theme/afrilang_theme.dart';
 import '../widgets/common.dart';
+import '../widgets/motion.dart';
+import 'packages_examples.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.onNavigate});
-  final void Function(int tab)? onNavigate;
+  /// 0 Home, 1 Docs, 2 Explore, 3 Play, 4 More
+  final void Function(int tab, {int? exploreTab})? onNavigate;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,6 +22,29 @@ class _HomeScreenState extends State<HomeScreen> {
   Map<String, dynamic>? _home;
   String? _error;
   bool _loading = true;
+
+  static const _oopSample = '''class Animal
+    function speak()
+        say "..."
+    end
+end
+
+class Dog extends Animal
+    public field name text
+    function init(aName text)
+        set this.name = aName
+    end
+    function speak()
+        say name + " says Woof!"
+    end
+end
+
+create rex = new Dog("Rex")
+rex.speak()''';
+
+  static const _terminalSample = '''git clone https://github.com/MaximeKELI/AFRILANG
+cd AFRILANG/build && cmake .. && cmake --build .
+./afrilang run examples/hello.afr''';
 
   @override
   void initState() {
@@ -54,19 +80,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return context.read<AppState>().home(key, fb);
   }
 
+  String _stripHtml(String s) => s
+      .replaceAll(RegExp(r'<[^>]*>'), '')
+      .replaceAll('&nbsp;', ' ')
+      .replaceAll('&amp;', '&');
+
   @override
   Widget build(BuildContext context) {
     final app = context.watch<AppState>();
-    if (_loading) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (_error != null) {
-      return EmptyError(message: _error!, onRetry: _load);
-    }
+    if (_loading) return const HomeSkeleton();
+    if (_error != null) return EmptyError(message: _error!, onRetry: _load);
 
     final packages = (_home?['packages'] as List?) ?? [];
     final heroCode = _home?['hero_code'] as String? ?? '';
     final stats = app.stats;
+    final examples = int.tryParse('${stats['examples']}') ?? 0;
+    final stdlib = int.tryParse('${stats['stdlib_modules']}') ?? 0;
+    final pkgs = int.tryParse('${stats['blessed_packages']}') ?? 0;
 
     return RefreshIndicator(
       onRefresh: () async {
@@ -83,96 +113,103 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FadeSlideIn(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    const AfrBrandMark(size: 30)
+                        .animate()
+                        .fadeIn(duration: 500.ms)
+                        .slideX(begin: -0.05, end: 0),
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: AfrColors.primary.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          const AfrBrandMark(size: 28),
-                          const SizedBox(height: 10),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                            decoration: BoxDecoration(
-                              color: AfrColors.primary.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(999),
-                            ),
-                            child: Text(
-                              'v${stats['version'] ?? '1.0'} · ${_h('badge', 'Open source · MIT')}',
-                              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                          const SizedBox(height: 18),
-                          Text.rich(
-                            TextSpan(
-                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.15,
-                                  ),
-                              children: [
-                                TextSpan(text: '${_h('hero_h1_a', 'Codez en')} '),
-                                TextSpan(
-                                  text: _h('hero_h1_b', 'langage naturel'),
-                                  style: const TextStyle(color: AfrColors.primary),
-                                ),
-                                TextSpan(text: ',\n${_h('hero_h1_c', 'compilez en natif.')}'),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 12),
+                          const PulsingDot(),
+                          const SizedBox(width: 8),
                           Text(
-                            _h('hero_lead'),
-                            style: TextStyle(
-                              fontSize: 16,
-                              height: 1.5,
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Wrap(
-                            spacing: 10,
-                            runSpacing: 10,
-                            children: [
-                              AfrPrimaryButton(
-                                label: _h('btn_start', 'Commencer'),
-                                icon: Icons.rocket_launch_rounded,
-                                onPressed: () => widget.onNavigate?.call(1),
-                              ),
-                              OutlinedButton.icon(
-                                onPressed: () => widget.onNavigate?.call(5),
-                                icon: const Icon(Icons.play_arrow_rounded),
-                                label: Text(_h('btn_try', 'Playground')),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            _h('hero_compat', 'LSP · REPL · WASM · cross-compilation'),
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                            ),
+                            'v${stats['version'] ?? '1.0'} · ${_h('badge', 'Open source · MIT')}',
+                            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
+                    ).animate().fadeIn(delay: 120.ms),
+                    const SizedBox(height: 18),
+                    Text.rich(
+                      TextSpan(
+                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                              fontWeight: FontWeight.w800,
+                              height: 1.15,
+                            ),
+                        children: [
+                          TextSpan(text: '${_h('hero_h1_a', 'Codez en')} '),
+                          TextSpan(
+                            text: _h('hero_h1_b', 'langage naturel'),
+                            style: const TextStyle(color: AfrColors.primary),
+                          ),
+                          TextSpan(text: ',\n${_h('hero_h1_c', 'compilez en natif.')}'),
+                        ],
+                      ),
+                    )
+                        .animate()
+                        .fadeIn(delay: 180.ms, duration: 500.ms)
+                        .slideY(begin: 0.12, end: 0, curve: Curves.easeOutCubic),
+                    const SizedBox(height: 12),
+                    Text(
+                      _h('hero_lead'),
+                      style: TextStyle(
+                        fontSize: 16,
+                        height: 1.5,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                      ),
+                    ).animate().fadeIn(delay: 280.ms),
+                    const SizedBox(height: 20),
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: [
+                        AfrPrimaryButton(
+                          label: _h('btn_start', 'Commencer'),
+                          icon: Icons.rocket_launch_rounded,
+                          onPressed: () => widget.onNavigate?.call(1),
+                        ),
+                        OutlinedButton.icon(
+                          onPressed: () => widget.onNavigate?.call(3),
+                          icon: const Icon(Icons.play_arrow_rounded),
+                          label: Text(_h('btn_try', 'Playground')),
+                        ),
+                      ],
+                    ).animate().fadeIn(delay: 360.ms).slideY(begin: 0.1, end: 0),
+                    const SizedBox(height: 10),
+                    Text(
+                      _h('hero_compat', 'LSP · REPL · WASM · cross-compilation'),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                      ),
                     ),
                     const SizedBox(height: 28),
-                    FadeSlideIn(
-                      delay: 120.ms,
-                      child: CodePanel(code: heroCode),
-                    ),
+                    CodePanel(code: heroCode),
                   ],
                 ),
               ),
             ),
           ),
           SliverPadding(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 48),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
                 StatRow(items: [
-                  ('${stats['examples'] ?? 0}+', _h('stat_examples', 'Exemples')),
-                  ('${stats['stdlib_modules'] ?? 0}', _h('stat_stdlib', 'Modules stdlib')),
-                  ('${stats['blessed_packages'] ?? 0}', _h('stat_packages', 'Paquets certifiés')),
-                  ('v${stats['compiler_version'] ?? '1.0'}', app.lang == 'en' ? 'Compiler' : 'Compilateur'),
+                  (count: examples, display: '+', label: _h('stat_examples', 'Exemples')),
+                  (count: stdlib, display: '', label: _h('stat_stdlib', 'Modules stdlib')),
+                  (count: pkgs, display: '', label: _h('stat_packages', 'Paquets certifiés')),
+                  (
+                    count: null,
+                    display: 'v${stats['compiler_version'] ?? '1.0'}',
+                    label: app.lang == 'en' ? 'Compiler' : 'Compilateur',
+                  ),
                 ]),
                 const SizedBox(height: 36),
                 FadeSlideIn(
@@ -212,7 +249,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: Icons.build_circle_outlined,
                   delay: 160,
                 ),
-                const SizedBox(height: 28),
+                const SizedBox(height: 32),
+                FadeSlideIn(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SectionLabel(_h('example_label', 'Exemple rapide')),
+                      const SizedBox(height: 6),
+                      Text(
+                        _h('example_title', 'De la phrase au binaire'),
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        _stripHtml(_h('example_desc')),
+                        style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65)),
+                      ),
+                      const SizedBox(height: 14),
+                      CodePanel(code: _terminalSample, filename: 'Terminal'),
+                      const SizedBox(height: 14),
+                      CodePanel(code: _oopSample, filename: 'examples/oop.afr'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 32),
                 FadeSlideIn(
                   child: Row(
                     children: [
@@ -229,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () => widget.onNavigate?.call(2),
+                        onPressed: () => widget.onNavigate?.call(2, exploreTab: 0),
                         child: Text(_h('packages_all', 'Voir tout →')),
                       ),
                     ],
@@ -239,26 +299,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (packages.isEmpty)
                   Text(_stripHtml(_h('packages_empty', 'Registre vide')))
                 else
-                  ...packages.take(6).map((p) {
+                  ...packages.take(4).map((p) {
                     final m = p as Map<String, dynamic>;
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 10),
-                      child: ListTile(
-                        leading: Icon(
-                          m['blessed'] == true ? Icons.verified_rounded : Icons.inventory_2_outlined,
-                          color: AfrColors.primary,
-                        ),
-                        title: Text('${m['name']} · v${m['version']}'),
-                        subtitle: Text(
-                          (m['description'] as String?) ?? '',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        onTap: () => widget.onNavigate?.call(2),
-                      ),
-                    ).animate().fadeIn(duration: 400.ms).slideX(begin: 0.04, end: 0);
+                    return PkgRow(
+                      name: '${m['name']}',
+                      version: '${m['version']}',
+                      description: '${m['description'] ?? ''}',
+                      blessed: m['blessed'] == true,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => PackageDetailScreen(name: m['name'] as String),
+                          ),
+                        );
+                      },
+                    );
                   }),
-                const SizedBox(height: 24),
+                const SizedBox(height: 28),
                 FadeSlideIn(
                   child: Container(
                     width: double.infinity,
@@ -266,8 +323,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         colors: [AfrColors.primary, AfrColors.primaryDark],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
                       borderRadius: BorderRadius.circular(18),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AfrColors.primary.withValues(alpha: 0.35),
+                          blurRadius: 24,
+                          offset: const Offset(0, 12),
+                        ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,7 +357,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           runSpacing: 8,
                           children: [
                             FilledButton(
-                              style: FilledButton.styleFrom(backgroundColor: Colors.white, foregroundColor: AfrColors.primary),
+                              style: FilledButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: AfrColors.primary,
+                              ),
                               onPressed: () => widget.onNavigate?.call(1),
                               child: Text(_h('cta_guide', 'Guide de démarrage')),
                             ),
@@ -300,14 +369,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 foregroundColor: Colors.white,
                                 side: const BorderSide(color: Colors.white70),
                               ),
-                              onPressed: () => widget.onNavigate?.call(5),
+                              onPressed: () => widget.onNavigate?.call(3),
                               child: Text(_h('cta_play', 'Playground')),
                             ),
                           ],
                         ),
                       ],
                     ),
-                  ),
+                  )
+                      .animate(onPlay: (c) => c.repeat(reverse: true))
+                      .shimmer(delay: 3.seconds, duration: 1800.ms, color: Colors.white24),
                 ),
               ]),
             ),
@@ -316,11 +387,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  String _stripHtml(String s) => s
-      .replaceAll(RegExp(r'<[^>]*>'), '')
-      .replaceAll('&nbsp;', ' ')
-      .replaceAll('&amp;', '&');
 }
 
 class _FeatureCard extends StatelessWidget {
@@ -340,21 +406,17 @@ class _FeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeSlideIn(
       delay: delay.ms,
-      child: Card(
-        margin: const EdgeInsets.only(bottom: 12),
-        child: Padding(
+      child: SoftPress(
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            border: Border(left: BorderSide(color: AfrColors.primary.withValues(alpha: 0.5), width: 3)),
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AfrColors.primary.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(icon, color: AfrColors.primary),
-              ),
+              Icon(icon, color: AfrColors.primary, size: 22),
               const SizedBox(width: 14),
               Expanded(
                 child: Column(
@@ -362,7 +424,10 @@ class _FeatureCard extends StatelessWidget {
                   children: [
                     Text(title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                     const SizedBox(height: 6),
-                    Text(body, style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7))),
+                    Text(
+                      body,
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)),
+                    ),
                   ],
                 ),
               ),
@@ -374,7 +439,6 @@ class _FeatureCard extends StatelessWidget {
   }
 }
 
-/// Renders simple HTML snippets from docs blocks.
 class HtmlBlock extends StatelessWidget {
   const HtmlBlock(this.html, {super.key});
   final String html;
