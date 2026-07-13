@@ -14,6 +14,7 @@
   <div>
     <h1 class="h2 fw-bold mb-1"><code>{{ mod.import_path }}</code></h1>
     <p class="text-secondary-custom mb-0">{{ ui.libraries_page.guide_lead }}</p>
+    {% if wasm_note %}<p class="small text-secondary-custom mt-2 mb-0">{{ wasm_note }}</p>{% endif %}
   </div>
   <div class="d-flex gap-2">
     <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-primary btn-sm">↓ PDF</a>
@@ -25,9 +26,38 @@
   {% for sec in sections %}
   <section class="stdlib-guide-section mb-5 {% if not forloop.first %}page-break{% endif %}">
     <h2 class="h4 fw-bold mb-3">{{ sec.title }}</h2>
-    <pre class="code-block stdlib-guide-body">{{ sec.body }}</pre>
+    {% if sec.kind == 'api' and sec.functions %}
+    <div class="table-responsive afr-card">
+      <table class="table table-sm mb-0 docs-table">
+        <thead>
+          <tr>
+            <th>{{ ui.libraries_page.fn_name }}</th>
+            <th>{{ ui.libraries_page.fn_params }}</th>
+            <th>{{ ui.libraries_page.fn_returns }}</th>
+            <th>{{ ui.stdlib_page.fn_role }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fn in sec.functions %}
+          <tr>
+            <td><code>{{ fn.name }}</code></td>
+            <td class="small">{{ fn.params|join:", "|default:"—" }}</td>
+            <td><code>{{ fn.returns }}</code></td>
+            <td class="small text-secondary-custom">{{ fn.description|default:"—" }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% elif sec.kind == 'code' %}
+    <div class="code-panel">
+      <div class="code-panel-header"><span>{{ sec.title }}</span></div>
+      <pre>{{ sec.body }}</pre>
+    </div>
+    {% else %}
+    <div class="docs-callout">{{ sec.body }}</div>
+    {% endif %}
   </section>
   {% endfor %}
 </div>
 {% endblock %}
-

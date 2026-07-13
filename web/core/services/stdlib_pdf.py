@@ -12,7 +12,7 @@ from core.services.stdlib_latex import (
     compile_latex,
     page_count,
 )
-from core.services.stdlib_meta import module_source_path, parse_module_source
+from core.services.stdlib_meta import build_page_context
 
 PDF_DIR_NAME = 'stdlib_pdfs'
 MIN_PAGES = 5
@@ -55,10 +55,9 @@ def _pad_latex_document(tex: str, mod, extra_chars: int) -> str:
 
 
 def generate_pdf(mod, lang: str = 'fr') -> Path:
-    src_path = module_source_path(mod.name)
-    source = src_path.read_text(encoding='utf-8', errors='replace')
-    parsed = parse_module_source(source)
-    functions = parsed['functions']
+    page = build_page_context(mod, lang)
+    source = page['source'] or ''
+    functions = page['functions']
     out = pdf_path_for(mod.name)
 
     tex = build_latex_document(mod, source, functions)

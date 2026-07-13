@@ -27,9 +27,8 @@ from .services.afrilang import (
 )
 from .services.benchmarks import benchmark_summary, load_benchmarks
 from .services.downloads import get_download_context, resolve_binary
-from .services.stdlib_docs import get_module_doc
 from .services.stdlib_guide import build_guide_sections
-from .services.stdlib_meta import module_source_path, parse_module_source
+from .services.stdlib_meta import build_page_context, module_source_path
 from .services.stdlib_pdf import resolve_pdf_path
 
 
@@ -310,19 +309,29 @@ def libraries(request):
 
 def stdlib_detail(request, name):
     mod = get_object_or_404(StdlibModule, name=name)
-    path = module_source_path(name)
-    if not path.is_file():
-        raise Http404('Module source not found')
-    source = path.read_text(encoding='utf-8', errors='replace')
-    doc = get_module_doc(name)
-    parsed = parse_module_source(source)
+    page = build_page_context(mod, request.LANGUAGE_CODE)
+    # Accepter pages core sans fichier .afr
+    if not page['has_real_source'] and not page['functions'] and not page['doc'] and not page['prose']:
+        path = module_source_path(name)
+        if not path.is_file():
+            raise Http404('Module source not found')
     cat = category_by_id(mod.category, request.LANGUAGE_CODE)
     pdf_path = resolve_pdf_path(name)
     return render(request, 'core/stdlib_detail.html', {
         'mod': mod,
-        'source': source,
-        'doc': doc,
-        'functions': parsed['functions'],
+        'source': page['source'],
+        'source_label': page['source_label'],
+        'source_note': page['source_note'],
+        'has_real_source': page['has_real_source'],
+        'doc': page['doc'],
+        'functions': page['functions'],
+        'example': page['example'],
+        'overview': page['overview'],
+        'domain': page['domain'],
+        'wasm_note': page['wasm_note'],
+        'links': page['links'],
+        'is_core': page['is_core'],
+        'use_name': page['use_name'],
         'category': cat,
         'has_pdf': pdf_path is not None or mod.has_pdf,
     })
@@ -330,17 +339,25 @@ def stdlib_detail(request, name):
 
 def stdlib_guide(request, name):
     mod = get_object_or_404(StdlibModule, name=name)
-    path = module_source_path(name)
-    if not path.is_file():
-        raise Http404
-    source = path.read_text(encoding='utf-8', errors='replace')
-    parsed = parse_module_source(source)
+    page = build_page_context(mod, request.LANGUAGE_CODE)
     lang = request.LANGUAGE_CODE
-    sections = build_guide_sections(mod, source, parsed['functions'], lang)
+    sections = build_guide_sections(
+        mod,
+        page['source'] or '',
+        page['functions'],
+        lang,
+        overview=page['overview'],
+        example=page['example'],
+        wasm_note=page['wasm_note'],
+    )
     return render(request, 'core/stdlib_guide.html', {
         'mod': mod,
         'sections': sections,
-        'functions': parsed['functions'],
+        'functions': page['functions'],
+        'overview': page['overview'],
+        'example': page['example'],
+        'wasm_note': page['wasm_note'],
+        'is_core': page['is_core'],
     })
 
 

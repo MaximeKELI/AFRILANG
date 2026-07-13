@@ -12,52 +12,102 @@
 
 <div class="afr-page-header">
   <div class="d-flex flex-wrap gap-2 mb-2">
+    {% if is_core %}<span class="badge text-bg-success">core</span>{% elif mod.experimental %}<span class="badge text-bg-warning text-dark">experimental</span>{% endif %}
     {% if category %}<span class="badge text-bg-light border">{{ category.label }}</span>{% endif %}
+    {% if domain %}<span class="badge text-bg-light border">{{ domain }}</span>{% endif %}
     <span class="badge text-bg-light border">{{ mod.tier }}</span>
-    <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
+    <span class="badge text-bg-light border">{{ functions|length }} fn</span>
   </div>
-  <h1 class="h2 mb-1"><code>import "{{ mod.import_path }}"</code></h1>
-  <p class="lead">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr }}{% else %}{{ mod.description_fr|default:mod.description_en }}{% endif %}</p>
+  <h1 class="h2 mb-1"><code>{{ mod.name }}</code></h1>
+  <p class="lead mb-2">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr|truncatewords:48 }}{% else %}{{ mod.description_fr|default:mod.description_en|truncatewords:48 }}{% endif %}</p>
+  <p class="mb-0"><code class="small">import "{{ mod.import_path }}"</code>
+    &nbsp;·&nbsp; <code class="small">use {{ use_name }}</code></p>
 </div>
 
 <div class="d-flex flex-wrap gap-2 mb-4">
   <a href="{% url 'stdlib_guide' mod.name %}" class="btn btn-afr-primary btn-sm">{{ ui.libraries_page.guide }}</a>
   <a href="{% url 'stdlib_pdf' mod.name %}" class="btn btn-afr-outline btn-sm">PDF</a>
+  <a href="{% url 'docs_stdlib' %}" class="btn btn-afr-outline btn-sm">{{ ui.stdlib_page.docs_link }}</a>
+  {% if links.test_path %}
+  <span class="align-self-center small text-secondary-custom">{{ ui.stdlib_page.tests }}: <code>{{ links.test_path }}</code></span>
+  {% endif %}
 </div>
+
+{% if overview %}
+<section class="mb-4">
+  <h2 class="h5 fw-bold mb-2">{{ ui.stdlib_page.overview_title }}</h2>
+  <div class="docs-callout">{{ overview }}</div>
+  {% if wasm_note %}
+  <p class="small text-secondary-custom mt-2 mb-0"><strong>WASM / plateforme :</strong> {{ wasm_note }}</p>
+  {% endif %}
+</section>
+{% endif %}
 
 {% if functions %}
 <section class="mb-4">
   <h2 class="h5 fw-bold mb-3">{{ ui.libraries_page.api_title }}</h2>
-  <div class="table-responsive">
-    <table class="table table-sm align-middle">
-      <thead><tr><th>{{ ui.libraries_page.fn_name }}</th><th>{{ ui.libraries_page.fn_params }}</th><th>{{ ui.libraries_page.fn_returns }}</th></tr></thead>
+  <div class="table-responsive afr-card">
+    <table class="table table-sm align-middle mb-0 docs-table">
+      <thead>
+        <tr>
+          <th>{{ ui.libraries_page.fn_name }}</th>
+          <th>{{ ui.libraries_page.fn_params }}</th>
+          <th>{{ ui.libraries_page.fn_returns }}</th>
+          <th>{{ ui.stdlib_page.fn_role }}</th>
+        </tr>
+      </thead>
       <tbody>
         {% for fn in functions %}
         <tr>
           <td><code>{{ fn.name }}</code></td>
-          <td class="small text-secondary-custom">{{ fn.params|join:", " }}</td>
+          <td class="small text-secondary-custom">{% if fn.params %}{{ fn.params|join:", " }}{% else %}—{% endif %}</td>
           <td><code>{{ fn.returns }}</code></td>
+          <td class="small text-secondary-custom">{{ fn.description|default:"—" }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
 </section>
+{% else %}
+<div class="docs-callout docs-callout-warning mb-4">
+  {{ ui.stdlib_page.no_api }}
+</div>
+{% endif %}
+
+{% if example %}
+<section class="mb-4">
+  <h2 class="h5 fw-bold mb-3">{{ ui.stdlib_page.example_title }}</h2>
+  <div class="code-panel">
+    <div class="code-panel-header"><span>example.afr</span></div>
+    <pre>{{ example }}</pre>
+  </div>
+</section>
 {% endif %}
 
 {% if doc %}
 <div class="afr-card mb-4">
-  <div class="card-header small fw-bold">docs/STDLIB</div>
+  <div class="card-header small fw-bold">{{ ui.stdlib_page.doc_title }}</div>
   <div class="card-body docs-content small">
-    <pre class="code-block mb-0" style="white-space:pre-wrap;background:transparent;color:inherit">{{ doc.body }}</pre>
+    <pre class="mb-0" style="white-space:pre-wrap;background:transparent;color:inherit;font-family:inherit">{{ doc.body }}</pre>
   </div>
 </div>
 {% endif %}
 
-<div class="afr-card">
-  <div class="card-header d-flex justify-content-between align-items-center">
-    <span class="small text-secondary-custom">{{ mod.name }}.afr</span>
+<section class="mb-2">
+  <h2 class="h5 fw-bold mb-3">{{ ui.stdlib_page.source_title }}</h2>
+  {% if source_note %}
+  <p class="small text-secondary-custom">{{ source_note }}</p>
+  {% endif %}
+  <div class="code-panel">
+    <div class="code-panel-header"><span>{{ source_label }}</span></div>
+    <pre class="overflow-auto" style="max-height:520px">{{ source }}</pre>
   </div>
-  <pre class="card-body code-block mb-0 overflow-auto" style="max-height:520px">{{ source }}</pre>
-</div>
+</section>
+
+{% if links.runtime_hint %}
+<p class="small text-secondary-custom mt-3 mb-0">
+  Runtime : <code>{{ links.runtime_hint }}</code>
+</p>
+{% endif %}
 {% endblock %}
