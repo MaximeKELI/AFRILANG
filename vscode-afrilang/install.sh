@@ -48,6 +48,7 @@ cat > "$VSCODE_DIR/settings.json" << EOF
 {
   "afrilang.serverPath": "${BUILD_BIN}",
   "workbench.iconTheme": "afrilang-icons",
+  "files.associations": { "*.afr": "afrilang" },
   "[afrilang]": { "editor.tabSize": 4 }
 }
 EOF
