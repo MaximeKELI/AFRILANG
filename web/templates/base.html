@@ -78,9 +78,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'language' %}active{% endif %}" href="{% url 'language' %}">{{ ui.nav_language }}</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name and 'docs' in request.resolver_match.url_name %}active{% endif %}"
                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -93,25 +90,35 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'explore' %}active{% endif %}" href="{% url 'explore' %}">{{ ui.nav_ecosystem }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'packages' %}active{% endif %}" href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'packages' or request.resolver_match.url_name == 'package_detail' %}active{% endif %}" href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'examples' %}active{% endif %}" href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'stdlib' or request.resolver_match.url_name == 'stdlib_detail' or request.resolver_match.url_name == 'libraries' %}active{% endif %}" href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'tutorial' or request.resolver_match.url_name == 'tutorial_step' %}active{% endif %}" href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'playground' %}active{% endif %}" href="{% url 'playground' %}">{{ ui.nav_playground }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'download' %}">{{ ui.nav_download }}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if request.resolver_match.url_name in 'language explore libraries stdlib stdlib_detail tutorial tutorial_step community benchmarks showcase releases api_reference' %}active{% endif %}"
+               href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ ui.nav_more }}
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'language' %}">{{ ui.nav_language }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'explore' %}">{{ ui.nav_ecosystem }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a></li>
+              <li role="none"><hr class="dropdown-divider"></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'community' %}">{{ ui.nav_community }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'showcase' %}">{{ ui.nav_showcase }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'benchmarks' %}">{{ ui.nav_benchmarks }}</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'releases' %}">Changelog</a></li>
+              <li role="none"><a class="dropdown-item" role="menuitem" href="{% url 'api_reference' %}">{{ ui.nav_api }}</a></li>
+            </ul>
           </li>
         </ul>
         <div class="d-flex gap-2 align-items-center flex-wrap">
@@ -157,32 +164,27 @@
           <h6>{{ ui.footer_learn }}</h6>
           <a href="{% url 'docs_getting_started' %}">{{ docs_nav.1.title }}</a>
           <a href="{% url 'tutorial' %}">{{ ui.nav_tutorial }}</a>
-          <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
-          <a href="{% url 'docs_stdlib' %}">{{ docs_nav.6.title }}</a>
-          <a href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
-          <a href="{% url 'libraries' %}">{{ ui.nav_libraries }}</a>
           <a href="{% url 'examples' %}">{{ ui.nav_examples }}</a>
-          <a href="{% url 'playground' %}">Playground</a>
+          <a href="{% url 'playground' %}">{{ ui.nav_playground }}</a>
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_reference }}</h6>
-          <a href="{% url 'docs_types' %}">{{ docs_nav.3.title }}</a>
-          <a href="{% url 'docs_oop' %}">{{ docs_nav.4.title }}</a>
-          <a href="{% url 'docs_advanced' %}">{{ docs_nav.5.title }}</a>
-          <a href="{% url 'benchmarks' %}">{{ ui.nav_benchmarks }}</a>
+          <a href="{% url 'docs_syntax' %}">{{ docs_nav.2.title }}</a>
+          <a href="{% url 'stdlib' %}">{{ ui.nav_stdlib }}</a>
+          <a href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
           <a href="{% url 'api_reference' %}">{{ ui.nav_api }}</a>
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_community }}</h6>
           <a href="https://github.com/MaximeKELI/AFRILANG" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="{% url 'showcase' %}">{{ ui.nav_showcase }}</a>
           <a href="{% url 'community' %}">{{ ui.nav_community }}</a>
-          <a href="{% url 'packages' %}">{{ ui.nav_packages }}</a>
+          <a href="{% url 'showcase' %}">{{ ui.nav_showcase }}</a>
+          <a href="{% url 'language' %}">{{ ui.nav_language }}</a>
         </div>
         <div class="col-6 col-lg-2">
           <h6>{{ ui.footer_versions }}</h6>
-          <a href="{% url 'releases' %}">Changelog</a>
           <a href="{% url 'download' %}">{{ ui.nav_download }}</a>
+          <a href="{% url 'releases' %}">Changelog</a>
           <span class="small text-secondary-custom d-block">{{ ui.footer_lang }} {{ SITE_STATS.version }}</span>
           <span class="small text-secondary-custom d-block">{{ ui.footer_compiler }} {{ SITE_STATS.compiler_version }}</span>
         </div>
