@@ -17,6 +17,7 @@ struct CompileOptions {
     bool coverageMode = false;
     bool debugSymbols = true;
     bool useCache = true;
+    std::size_t errorLimit = DiagnosticEngine::kDefaultErrorLimit;
     std::string outputExecutable;
     std::string runtimeDir;
     std::string sourcePath;

@@ -111,6 +111,7 @@ public:
                      const SourceManager* sources = nullptr,
                      std::string currentFile = "");
 
+    void setErrorLimit(std::size_t limit) { diagnostics_.setErrorLimit(limit); }
     SemanticResult analyze();
 
 private:

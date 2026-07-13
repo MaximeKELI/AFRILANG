@@ -41,9 +41,14 @@ Compiler::Compiler(std::string entryPath, std::string afrilangRoot)
     }
 }
 
-void Compiler::mergeParserDiagnostics(const DiagnosticEngine& parserDiags,
-                                      const std::string& file) {
-    for (auto diag : parserDiags.diagnostics()) {
+void Compiler::setErrorLimit(std::size_t limit) {
+    errorLimit_ = limit == 0 ? DiagnosticEngine::kDefaultErrorLimit : limit;
+    diagnostics_.setErrorLimit(errorLimit_);
+}
+
+void Compiler::mergeDiagnostics(const DiagnosticEngine& other,
+                                const std::string& file) {
+    for (auto diag : other.diagnostics()) {
         if (diag.file.empty()) diag.file = file;
         if (diag.sourceLine.empty() && diag.line > 0) {
             if (const SourceFile* sf = sources_.getFile(file)) {
@@ -58,6 +63,7 @@ std::unique_ptr<ProgramNode> Compiler::compile() {
     loadedFiles_.clear();
     sources_ = SourceManager{};
     diagnostics_.clear();
+    diagnostics_.setErrorLimit(errorLimit_);
     auto program = parseFile(entryPath_);
     const std::string baseDir = fs::path(entryPath_).parent_path().string();
     resolveImports(*program, baseDir);
@@ -68,15 +74,18 @@ std::unique_ptr<ProgramNode> Compiler::compileFromSource(const std::string& sour
     loadedFiles_.clear();
     sources_ = SourceManager{};
     diagnostics_.clear();
+    diagnostics_.setErrorLimit(errorLimit_);
     const std::string normalized = normalizePath(entryPath_);
     loadedFiles_.insert(normalized);
     sources_.addFile(normalized, source);
 
-    Lexer lexer(source);
+    Lexer lexer(source, errorLimit_);
     const std::vector<Token> tokens = lexer.tokenize();
+    mergeDiagnostics(lexer.diagnostics(), normalized);
     Parser parser(tokens);
+    parser.diagnostics().setErrorLimit(errorLimit_);
     auto program = parser.parse();
-    mergeParserDiagnostics(parser.diagnostics(), normalized);
+    mergeDiagnostics(parser.diagnostics(), normalized);
 
     const std::string baseDir = fs::path(entryPath_).parent_path().string();
     resolveImports(*program, baseDir);
@@ -165,11 +174,13 @@ std::unique_ptr<ProgramNode> Compiler::parseFile(const std::string& path) {
     const std::string source = readFile(normalized);
     sources_.addFile(normalized, source);
 
-    Lexer lexer(source);
+    Lexer lexer(source, errorLimit_);
     const std::vector<Token> tokens = lexer.tokenize();
+    mergeDiagnostics(lexer.diagnostics(), normalized);
     Parser parser(tokens);
+    parser.diagnostics().setErrorLimit(errorLimit_);
     auto program = parser.parse();
-    mergeParserDiagnostics(parser.diagnostics(), normalized);
+    mergeDiagnostics(parser.diagnostics(), normalized);
     return program;
 }
 

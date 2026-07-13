@@ -13,6 +13,7 @@ class Compiler {
 public:
     Compiler(std::string entryPath, std::string afrilangRoot = "");
 
+    void setErrorLimit(std::size_t limit);
     std::unique_ptr<ProgramNode> compile();
     std::unique_ptr<ProgramNode> compileFromSource(const std::string& source);
     const SourceManager& sources() const { return sources_; }
@@ -27,6 +28,7 @@ private:
     std::unordered_set<std::string> loadedFiles_;
     SourceManager sources_;
     DiagnosticEngine diagnostics_;
+    std::size_t errorLimit_ = DiagnosticEngine::kDefaultErrorLimit;
 
     static std::string readFile(const std::string& path);
     std::string resolvePath(const std::string& baseDir, const std::string& importPath) const;
@@ -36,7 +38,7 @@ private:
     void mergeProgram(ProgramNode& target, ProgramNode& source);
     void resolveImports(ProgramNode& program, const std::string& baseDir, int depth = 0);
     void handleStdlibImport(ProgramNode& program, const std::string& importPath);
-    void mergeParserDiagnostics(const DiagnosticEngine& parserDiags, const std::string& file);
+    void mergeDiagnostics(const DiagnosticEngine& other, const std::string& file);
 };
 
 } // namespace afrilang
