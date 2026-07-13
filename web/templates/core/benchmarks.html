@@ -4,17 +4,17 @@
 {% block meta %}{{ ui.benchmarks_page.lead }}{% endblock %}
 
 {% block content %}
-<div class="mb-4">
+<div class="afr-page-header">
   <div class="section-label">{{ ui.benchmarks_page.label }}</div>
-  <h1 class="h2 fw-bold mb-2">{{ ui.benchmarks_page.h1 }}</h1>
-  <p class="lead text-secondary-custom">{{ ui.benchmarks_page.lead }}</p>
+  <h1 class="h2">{{ ui.benchmarks_page.h1 }}</h1>
+  <p class="lead">{{ ui.benchmarks_page.lead }}</p>
   {% if benchmarks.is_sample %}
-  <div class="docs-callout docs-callout-warning mt-3">
+  <div class="docs-callout docs-callout-warning mt-3 mb-0">
     <strong>{{ ui.benchmarks_page.sample_notice }}</strong>
     <p class="small mb-0 mt-1"><code>python manage.py sync_benchmarks</code></p>
   </div>
   {% else %}
-  <p class="small text-secondary-custom mb-0">
+  <p class="small text-secondary-custom mb-0 mt-2">
     {{ ui.benchmarks_page.updated }}
     {% if benchmarks.generated_at %}{{ benchmarks.generated_at|slice:":10" }}{% endif %}
     · {{ benchmarks.platform|default:"linux-x64" }}

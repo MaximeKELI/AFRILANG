@@ -3,17 +3,17 @@
 {% block meta %}{{ ui.language_page.meta }}{% endblock %}
 
 {% block content %}
-<div class="mb-5">
+<div class="afr-page-header">
   <div class="section-label">AFRILANG {{ SITE_STATS.version }}</div>
-  <h1 class="display-5 fw-bold">{{ ui.language_page.h1 }}</h1>
-  <p class="lead text-secondary-custom" style="max-width:44rem">{{ ui.language_page.lead }}</p>
+  <h1 class="h2">{{ ui.language_page.h1 }}</h1>
+  <p class="lead">{{ ui.language_page.lead }}</p>
 </div>
 
 <section class="mb-5">
   <h2 class="h3 fw-bold mb-4">Philosophie</h2>
   <div class="row g-4">
     <div class="col-md-4">
-      <div class="afr-feature-card">
+      <div class="afr-feature-plain">
         <h3 class="h6 fw-bold">Lisibilité d'abord</h3>
         <p class="small text-secondary-custom mb-0">
           Les conditions et boucles utilisent des mots : <em>is greater than</em>, <em>repeat N times</em>,
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="afr-feature-card">
+      <div class="afr-feature-plain">
         <h3 class="h6 fw-bold">Bilingue FR / EN</h3>
         <p class="small text-secondary-custom mb-0">
           Même programme en <code>dire</code> ou <code>say</code>, <code>si</code> ou <code>if</code>,
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="afr-feature-card">
+      <div class="afr-feature-plain">
         <h3 class="h6 fw-bold">Performance réelle</h3>
         <p class="small text-secondary-custom mb-0">
           Pas de VM ni d'interpréteur : transpilation + <code>g++</code>. Coroutines C++20 pour
