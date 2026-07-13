@@ -552,8 +552,7 @@ static LockedPackage installRegistryPackage(const std::string& projectDir,
         const fs::path cache = remoteCacheDir(afrilangRoot) / packageName;
         std::cout << "Téléchargement distant '" << packageName << "' depuis " << meta.url
                   << " ...\n";
-        if (cloneGit(meta.url, meta.tag.empty() ? std::string{} : meta.tag,
-                     std::string{}, cache) != 0) {
+        if (cloneGit(meta.url, std::string{}, std::string{}, cache) != 0) {
             // try without tag if meta has version as tag
             if (cloneGit(meta.url, "v" + (meta.version.empty() ? "0.1.0" : meta.version),
                          std::string{}, cache) != 0) {
@@ -956,7 +955,10 @@ int PkgRegistry::cmdInit(const std::string& dirOrName) {
         readme << "# " << name << "\n\n";
         readme << "Paquet AFRILANG.\n\n";
         readme << "```bash\n";
+        readme << "afrilang pkg test\n";
+        readme << "afrilang doc .\n";
         readme << "afrilang pkg publish .\n";
+        readme << "afrilang pkg publish . --remote   # recette registre + POST si token\n";
         readme << "```\n";
     }
 
@@ -966,6 +968,7 @@ int PkgRegistry::cmdInit(const std::string& dirOrName) {
     }
 
     std::cout << "Paquet '" << name << "' initialisé dans " << dir.string() << "\n";
+    std::cout << "  cd " << name << " && afrilang pkg test\n";
     std::cout << "  afrilang pkg publish " << dir.string() << "\n";
     return 0;
 }
@@ -996,6 +999,8 @@ int PkgRegistry::cmdList(const std::string& afrilangRoot, bool blessedOnly) {
             std::cout << " — " << pkg.description;
         }
         if (pkg.blessed) std::cout << " [blessed]";
+        if (!pkg.url.empty()) std::cout << " [" << (pkg.method.empty() ? "git" : pkg.method)
+                                       << ": " << pkg.url << "]";
         std::cout << "\n";
     }
     return 0;
@@ -1013,6 +1018,8 @@ int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& q
         found = true;
         std::cout << pkg.name << "@" << pkg.version;
         if (!pkg.description.empty()) std::cout << " — " << pkg.description;
+        if (!pkg.url.empty()) std::cout << " <" << pkg.url << ">";
+        for (const auto& tag : pkg.tags) std::cout << " #" << tag;
         std::cout << "\n";
     }
     if (!found) {
@@ -1023,7 +1030,21 @@ int PkgRegistry::cmdSearch(const std::string& afrilangRoot, const std::string& q
     return 0;
 }
 
-int PkgRegistry::cmdPublish(const std::string& packageDir, const std::string& afrilangRoot) {
+static int curlPostJson(const std::string& url, const std::string& token,
+                         const std::string& bodyPath) {
+    std::ostringstream cmd;
+    cmd << "curl -fsS -X POST";
+    if (!token.empty()) {
+        cmd << " -H \"Authorization: Bearer " << token << "\"";
+    }
+    cmd << " -H \"Content-Type: application/json\"";
+    cmd << " --data-binary @" << bodyPath;
+    cmd << " \"" << url << "\"";
+    return runCommand(cmd.str());
+}
+
+int PkgRegistry::cmdPublish(const std::string& packageDir, const std::string& afrilangRoot,
+                            bool remote) {
     const fs::path src = fs::absolute(packageDir);
     const fs::path manifest = src / "manifest.toml";
     if (!fs::exists(manifest)) {
@@ -1039,17 +1060,124 @@ int PkgRegistry::cmdPublish(const std::string& packageDir, const std::string& af
     if (info.version.empty()) info.version = "0.1.0";
 
     const fs::path dst = fs::path(afrilangRoot) / "packages" / info.name;
-    if (fs::equivalent(src, dst)) {
-        rebuildIndex(afrilangRoot);
-        std::cout << "Index régénéré pour " << info.name << "@" << info.version << "\n";
-        return 0;
+    if (!(fs::exists(dst) && fs::equivalent(src, dst))) {
+        copyDirectory(src, dst);
     }
-    copyDirectory(src, dst);
     rebuildIndex(afrilangRoot);
 
-    std::cout << "Paquet publié: " << info.name << "@" << info.version
+    std::cout << "Paquet publié (local): " << info.name << "@" << info.version
               << " → packages/" << info.name << "\n";
+
+    if (!remote) return 0;
+
+    // Nimble-style registry entry recipe
+    const char* gitUrlEnv = std::getenv("AFRILANG_PACKAGE_GIT_URL");
+    std::string gitUrl = gitUrlEnv ? gitUrlEnv : "";
+    std::ostringstream entry;
+    entry << "{\n";
+    entry << "  \"name\": \"" << jsonEscape(info.name) << "\",\n";
+    entry << "  \"version\": \"" << jsonEscape(info.version) << "\",\n";
+    entry << "  \"description\": \"" << jsonEscape(info.description) << "\",\n";
+    entry << "  \"method\": \"git\",\n";
+    if (!gitUrl.empty()) {
+        entry << "  \"url\": \"" << jsonEscape(gitUrl) << "\",\n";
+    } else {
+        entry << "  \"url\": \"https://github.com/OWNER/" << jsonEscape(info.name) << "\",\n";
+    }
+    entry << "  \"license\": \"MIT\",\n";
+    entry << "  \"tags\": [\"afrilang\"]\n";
+    entry << "}\n";
+
+    const fs::path recipePath = src / "registry-entry.json";
+    {
+        std::ofstream out(recipePath);
+        out << entry.str();
+    }
+    std::cout << "\n=== Publication distante (style Nimble) ===\n";
+    std::cout << "1. Poussez le dépôt git et taguez: git tag v" << info.version
+              << " && git push --tags\n";
+    std::cout << "2. Ajoutez cette entrée à packages.json du registre:\n";
+    std::cout << entry.str();
+    std::cout << "   (fichier écrit: " << recipePath.string() << ")\n";
+
+    const char* token = std::getenv("AFRILANG_REGISTRY_TOKEN");
+    const std::string publishUrl = registryPublishUrl();
+    if (token && *token) {
+        std::cout << "3. POST vers " << publishUrl << " ...\n";
+        if (curlPostJson(publishUrl, token, recipePath.string()) != 0) {
+            std::cerr << "Avertissement: POST registre a échoué "
+                         "(vérifiez AFRILANG_REGISTRY_PUBLISH_URL / token).\n";
+            std::cerr << "La publication locale et la recette restent valides.\n";
+            return 0; // local publish succeeded
+        }
+        std::cout << "Registre distant mis à jour.\n";
+    } else {
+        std::cout << "3. (optionnel) export AFRILANG_REGISTRY_TOKEN=... puis "
+                     "relancez avec --remote pour POST automatique.\n";
+    }
     return 0;
+}
+
+int PkgRegistry::cmdTest(const std::string& packageDir, const std::string& afrilangRoot) {
+    const fs::path src = fs::absolute(packageDir.empty() ? "." : packageDir);
+    const fs::path manifest = src / "manifest.toml";
+    if (!fs::exists(manifest)) {
+        std::cerr << "Erreur: manifest.toml introuvable (lancez depuis un paquet "
+                     "ou: afrilang pkg test <dir>).\n";
+        return 1;
+    }
+    PackageInfo info = loadManifest(src.string());
+    if (info.name.empty()) {
+        std::cerr << "Erreur: champ 'name' manquant dans manifest.toml\n";
+        return 1;
+    }
+
+    // Vendor self so import pkg/<name>/... resolves (like nimble test)
+    std::string relPrefix;
+    const fs::path vendorRoot = vendorRootFor(src.string(), relPrefix);
+    const fs::path dst = vendorRoot / info.name;
+    copyDirectory(src, dst);
+    std::cout << "Self-vendor: " << dst.string() << "\n";
+
+    const fs::path testsDir = src / "tests";
+    if (!fs::exists(testsDir)) {
+        std::cerr << "Aucun dossier tests/\n";
+        return 1;
+    }
+
+    // Delegate to CLI test runner via compiling each tests/*.afr with run
+    // Implemented inline to avoid circular CLI dependency.
+    int failures = 0;
+    int passed = 0;
+    for (const auto& entry : fs::recursive_directory_iterator(
+             testsDir, fs::directory_options::skip_permission_denied)) {
+        if (!entry.is_regular_file() || entry.path().extension() != ".afr") continue;
+        const std::string file = entry.path().string();
+        std::cout << "  " << fs::relative(entry.path(), src).string() << " ... ";
+        std::cout.flush();
+        std::ostringstream cmd;
+        // Use same binary if possible
+        cmd << "AFRILANG_HOME=\"" << afrilangRoot << "\" ";
+        if (const char* self = std::getenv("_")) {
+            (void)self;
+        }
+        // Prefer PATH afrilang
+        cmd << "afrilang run \"" << file << "\"";
+        const int rc = runCommand(cmd.str());
+        if (rc == 0) {
+            std::cout << "OK\n";
+            ++passed;
+        } else {
+            std::cout << "FAIL\n";
+            ++failures;
+        }
+    }
+    if (passed + failures == 0) {
+        std::cerr << "Aucun tests/**/*.afr\n";
+        return 1;
+    }
+    std::cout << passed << " réussi(s), " << failures << " échec(s).\n";
+    return failures == 0 ? 0 : 1;
 }
 
 } // namespace afrilang
