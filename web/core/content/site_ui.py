@@ -359,6 +359,7 @@ UI = {
         'nav_community': 'Community',
         'nav_api': 'API',
         'nav_github': 'GitHub',
+        'nav_more': 'More',
         'nav_start': 'Get started',
         'nav_theme_light': 'Light mode',
         'nav_theme_dark': 'Dark mode',
@@ -385,57 +386,41 @@ UI = {
         'home': {
             'title': 'AFRILANG — Code in sentences, ship native binaries',
             'badge': 'Open source · MIT',
+            'brand': 'AFRILANG',
             'hero_h1_a': 'Code in',
             'hero_h1_b': 'natural language',
             'hero_h1_c': 'compile to native.',
             'hero_lead': (
-                'AFRILANG is a readable object-oriented language that transpiles to C++17. '
-                'Classes, generics, pattern matching, async/await — with a standard library '
-                'and a full developer toolchain.'
+                'Readable object-oriented language: transpiles to C++17, '
+                'compiles to native binaries. French and English keywords.'
             ),
-            'hero_compat': 'French & English syntax · LSP · REPL · WASM · cross-compilation',
+            'hero_compat': 'LSP · REPL · WASM · cross-compilation',
             'btn_start': 'Get started',
-            'btn_try': 'Try online',
+            'btn_try': 'Playground',
             'btn_tutorial': 'Interactive tutorial',
-            'stat_examples': 'Official examples',
+            'stat_examples': 'Examples',
             'stat_stdlib': 'Stdlib modules',
             'stat_packages': 'Certified packages',
             'stat_targets': 'Targets (x64, ARM, WASM)',
             'why_label': 'Why AFRILANG',
             'why_title': 'Readable like prose, fast like C++',
             'why_desc': (
-                'Built for learning and production: natural syntax, clear errors, '
-                'modern tooling and an African open-source ecosystem.'
+                'Natural syntax, clear errors, modern tooling '
+                'and an open-source ecosystem.'
             ),
             'feat_natural_title': 'Natural syntax',
             'feat_natural': (
-                '<code>if age is greater than 18 then</code> instead of cryptic symbols. '
-                'French keywords (<code>dire</code>, <code>si</code>, <code>fin</code>) or English.'
+                '<code>if age is greater than 18 then</code> — French keywords '
+                '(<code>dire</code>, <code>si</code>, <code>fin</code>) or English.'
             ),
             'feat_perf_title': 'Native performance',
             'feat_perf': (
                 'Transpilation to C++17 then <code>g++</code>. Native binaries, '
-                'cross-compilation for linux-x64, linux-arm64 and wasm32.'
-            ),
-            'feat_modern_title': 'Modern & complete',
-            'feat_modern': (
-                'OOP, generics, enums, match, traits, async/await, Result, null-safety, '
-                'operator overloading and FFI.'
-            ),
-            'feat_stdlib_title': 'Massive stdlib',
-            'feat_stdlib': (
-                'I/O, JSON, HTTP, GIS, raster, data science, AI, SQLite, 2D/3D games… '
-                '7900+ modules via <code>import "std/…"</code>.'
+                'linux-x64, linux-arm64 and wasm32.'
             ),
             'feat_tools_title': 'Integrated toolchain',
             'feat_tools': (
-                'CLI (<code>build</code>, <code>test</code>, <code>fmt</code>, <code>lint</code>), '
-                'LSP 1.1, REPL, debug adapter, VS Code/Cursor extension, web playground.'
-            ),
-            'feat_africa_title': 'African open source',
-            'feat_africa': (
-                'Community MIT project. Package manager, official registry '
-                'and full documentation to contribute.'
+                'CLI, LSP, REPL, debug, VS Code/Cursor extension and web playground.'
             ),
             'example_label': 'Quick example',
             'example_title': 'From sentence to binary in one command',
@@ -448,7 +433,7 @@ UI = {
             'packages_all': 'View all →',
             'packages_empty': 'Empty registry — run <code>python manage.py sync_packages</code>',
             'cta_title': 'Ready to write your first program?',
-            'cta_desc': 'Detailed docs, interactive playground and IDE extension — all included.',
+            'cta_desc': 'Install the compiler or follow the getting-started guide.',
             'cta_guide': 'Getting started guide',
             'cta_lang': 'Discover the language',
             'cta_play': 'Playground',
