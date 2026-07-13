@@ -81,9 +81,82 @@ echo "→ Installation AFRILANG v${VERSION}..."
 cd "$ROOT"
 npm install --silent
 
-install_editor "Cursor"    "${HOME}/.cursor/extensions"
-install_editor "VS Code"   "${HOME}/.vscode/extensions"
-install_editor "VSCodium"  "${HOME}/.vscode-oss/extensions"
+# Préférer l'install officielle via CLI (enregistre correctement l'extension)
+VSIX="${ROOT}/afrilang-${VERSION}.vsix"
+if command -v zip >/dev/null 2>&1; then
+  TMP="$(mktemp -d)"
+  mkdir -p "${TMP}/extension"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --exclude node_modules --exclude '*.vsix' --exclude .git "$ROOT/" "${TMP}/extension/"
+  else
+    cp -a "$ROOT"/. "${TMP}/extension/"
+    rm -rf "${TMP}/extension/node_modules" "${TMP}/extension"/*.vsix 2>/dev/null || true
+  fi
+  cp -a "$ROOT/node_modules" "${TMP}/extension/" 2>/dev/null || true
+  cat > "${TMP}/[Content_Types].xml" <<'EOF'
+<?xml version="1.0" encoding="utf-8"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension=".json" ContentType="application/json"/>
+  <Default Extension=".vsixmanifest" ContentType="text/xml"/>
+  <Default Extension=".js" ContentType="application/javascript"/>
+  <Default Extension=".png" ContentType="image/png"/>
+  <Default Extension=".svg" ContentType="image/svg+xml"/>
+  <Default Extension=".md" ContentType="text/markdown"/>
+</Types>
+EOF
+  cat > "${TMP}/extension.vsixmanifest" <<EOF
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="afrilang" Version="${VERSION}" Publisher="afrilang" Language="en-US"/>
+    <DisplayName>AFRILANG</DisplayName>
+    <Description xml:space="preserve">Langage AFRILANG</Description>
+    <Categories>Programming Languages</Categories>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true"/>
+  </Assets>
+</PackageManifest>
+EOF
+  rm -f "$VSIX"
+  (cd "$TMP" && zip -qr "$VSIX" .)
+  rm -rf "$TMP"
+  echo "✓ VSIX : $VSIX"
+fi
+
+install_via_cli() {
+  local bin="$1"
+  local label="$2"
+  if ! command -v "$bin" >/dev/null 2>&1; then
+    echo "  ⊘ $label — CLI '$bin' absente"
+    return 0
+  fi
+  if [[ -f "$VSIX" ]]; then
+    if "$bin" --no-sandbox --install-extension "$VSIX" >/dev/null 2>&1 \
+      || "$bin" --install-extension "$VSIX" >/dev/null 2>&1; then
+      echo "  ✓ $label via CLI ($bin --install-extension)"
+      return 0
+    fi
+  fi
+  return 1
+}
+
+CLI_OK=0
+install_via_cli cursor  "Cursor"   && CLI_OK=1 || true
+install_via_cli code    "VS Code"  && CLI_OK=1 || true
+install_via_cli codium  "VSCodium" && CLI_OK=1 || true
+
+# Repli : copie manuelle si CLI indisponible
+if [[ "$CLI_OK" -eq 0 ]]; then
+  echo "⚠ CLI indisponible — installation par copie dans extensions/"
+  install_editor "Cursor"    "${HOME}/.cursor/extensions"
+  install_editor "VS Code"   "${HOME}/.vscode/extensions"
+  install_editor "VSCodium"  "${HOME}/.vscode-oss/extensions"
+fi
 
 if [[ -x "$BUILD_BIN" ]]; then
   echo "✓ Compilateur : $BUILD_BIN"
