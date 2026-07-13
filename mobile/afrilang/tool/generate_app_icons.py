@@ -81,7 +81,9 @@ def write_android(transparent: Image.Image, foreground: Image.Image) -> None:
     colors.write_text(
         '''<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Transparent so the Africa silhouette shows against the wallpaper. -->
     <color name="ic_launcher_background">#00000000</color>
+    <color name="splash_background">#1A2330</color>
 </resources>
 ''',
         encoding='utf-8',

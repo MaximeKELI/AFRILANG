@@ -44,7 +44,16 @@ Override :
 flutter run --dart-define=AFRILANG_API_BASE=http://192.168.1.10:8000
 ```
 
-## Fonctionnalités (miroir du site)
+## Icône d’application
+
+L’icône launcher utilise le logo Afrique AFRILANG (plus le logo Flutter).
+
+```bash
+cd mobile/afrilang
+python3 tool/generate_app_icons.py
+```
+
+Sur Android, le fond de l’icône adaptive est transparent pour laisser apparaître la silhouette Afrique (le launcher impose toujours un masque cercle/squircle). Sur iOS, Apple impose un carré arrondi opaque — logo Afrique sur fond navy.
 
 - Accueil (hero, stats, features, paquets certifiés, CTA)
 - Documentation (pages FR/EN + blocs code / callouts)
