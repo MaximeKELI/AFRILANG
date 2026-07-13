@@ -93,23 +93,27 @@ fi
 
 VSCODE_DIR="${REPO}/.vscode"
 mkdir -p "$VSCODE_DIR"
-cat > "$VSCODE_DIR/settings.json" << EOF
+for settings_dir in "${VSCODE_DIR}" "${REPO}/.cursor"; do
+  mkdir -p "$settings_dir"
+  cat > "$settings_dir/settings.json" << EOF
 {
   "afrilang.serverPath": "${BUILD_BIN}",
-  "workbench.iconTheme": "vs-seti",
+  "workbench.iconTheme": "afrilang-icons",
   "files.associations": { "*.afr": "afrilang" },
   "[afrilang]": { "editor.tabSize": 4 }
 }
 EOF
-echo "✓ Settings workspace : $VSCODE_DIR/settings.json"
+  echo "✓ Settings : $settings_dir/settings.json"
+done
 
 echo ""
 echo "Dans chaque éditeur (VS Code / Cursor / VSCodium) :"
 echo "  1. Ouvrir le dossier $REPO"
 echo "  2. Developer: Reload Window"
-echo "  3. Vérifier le mode langage (barre d'état) = AFRILANG"
-echo "  4. Output → AFRILANG — vérifier le chemin du serveur"
+echo "  3. Barre d'état (bas à droite) = AFRILANG (pas Plain Text)"
+echo "  4. Thème d'icônes = AFRILANG (File Icon Theme)"
+echo "  5. Output → AFRILANG — vérifier le chemin du serveur"
 echo ""
 echo "Note Cursor Glass / Agents Window :"
-echo "  La coloration et les icônes d'extensions y sont souvent absentes (bug Cursor)."
-echo "  Ouvrez le fichier dans l'éditeur classique (IDE) pour voir couleurs + logo."
+echo "  La coloration TextMate y est souvent absente (limite Cursor)."
+echo "  Ouvrez le fichier dans l'éditeur classique (IDE) pour couleurs + logo."
