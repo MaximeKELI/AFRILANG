@@ -1,0 +1,10 @@
+{
+  "source": "/home/admin20/AFRILANG/./tests/stdlib/math.afr",
+  "variables": [
+    {"name":"value","type":"number","scope":"abs"},
+    {"name":"value","type":"number","scope":"floor"},
+    {"name":"value","type":"number","scope":"ceil"},
+    {"name":"base","type":"number","scope":"pow"},
+    {"name":"exp","type":"number","scope":"pow"}
+  ]
+}
