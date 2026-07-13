@@ -12,6 +12,7 @@
 #include "afrilang/cache.hpp"
 #include "afrilang/semver.hpp"
 #include "afrilang/utf8.hpp"
+#include "afrilang/version.hpp"
 
 #include "afrilang/sandbox.hpp"
 
@@ -22,7 +23,10 @@
 #include <string>
 #include <cstdlib>
 
+#if __has_include(<SDL2/SDL_ttf.h>)
 #include "../runtime/ui.hpp"
+#define AFRILANG_HAS_UI_TEST 1
+#endif
 
 static int failures = 0;
 
@@ -109,15 +113,12 @@ static void testSemanticUndeclaredVariable() {
     afrilang::SourceManager sources;
     sources.addFile("test.afr", src);
     afrilang::SemanticAnalyzer analyzer(*program, &sources, "test.afr");
-    bool threw = false;
-    try {
-        analyzer.analyze();
-    } catch (const afrilang::CompileError& e) {
-        threw = true;
-        expect(e.code() == afrilang::ErrorCode::UndeclaredVariable, "undeclared error code");
-        expect(e.format().find("E3002") != std::string::npos, "E3002 in format");
-    }
-    expect(threw, "undeclared variable detected");
+    const auto result = analyzer.analyze();
+    expect(result.hasErrors(), "undeclared variable detected");
+    expect(!result.errors.empty(), "errors vector populated");
+    expect(result.errors[0].code == afrilang::ErrorCode::UndeclaredVariable, "undeclared error code");
+    expect(afrilang::formatDiagnostic(result.errors[0]).find("E3002") != std::string::npos,
+           "E3002 in format");
 }
 
 static void testFindSimilarNames() {
@@ -126,8 +127,7 @@ static void testFindSimilarNames() {
 }
 
 static void testUiMultilineTextRenders() {
-    // Test unitaire runtime: drawText doit supporter les sauts de ligne.
-    // Utilise le driver vidéo "dummy" pour fonctionner en environnement headless.
+#if AFRILANG_HAS_UI_TEST
     setenv("SDL_VIDEODRIVER", "dummy", 1);
 
     afrilang::runtime::ui::openWindow("test", 320, 240);
@@ -138,6 +138,9 @@ static void testUiMultilineTextRenders() {
     afrilang::runtime::ui::showFrame();
     afrilang::runtime::ui::closeWindow();
     expect(!afrilang::runtime::ui::isOpen(), "ui window closes");
+#else
+    (void)0; // SDL2 non disponible — test ignoré
+#endif
 }
 
 static void testSemVer() {
