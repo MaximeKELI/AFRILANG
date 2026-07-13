@@ -1,22 +1,27 @@
 """API JSON pour l’app Flutter mobile — même backend que le site web."""
 from __future__ import annotations
 
+import json
+
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from django.views.decorators.http import require_GET
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_GET, require_http_methods
 
-from core.content.docs_nav import NAV_ITEMS, docs_context
+from core.content.docs_nav import NAV_DESC, NAV_LABELS, NAV_META, get_docs_nav
 from core.content.docs_pages import PAGES, get_doc_page
 from core.content.site_ui import UI
 from core.content.stdlib_catalog import get_categories
 from core.content.tutorial import get_lesson, get_lessons, total_steps
 from core.models import CodeExample, Package, Release, StdlibModule
+from core.services.afrilang import AfrilangError, check_source, format_source, run_source, source_hash
 from core.services.stdlib_meta import build_page_context
+from core.models import PlaygroundRun
 
 
 def _lang(request) -> str:
-    lang = request.GET.get('lang') or request.LANGUAGE_CODE or 'fr'
-    return 'en' if lang.startswith('en') else 'fr'
+    lang = request.GET.get('lang') or getattr(request, 'LANGUAGE_CODE', None) or 'fr'
+    return 'en' if str(lang).startswith('en') else 'fr'
 
 
 def _serialize_block(block: dict) -> dict:
@@ -49,6 +54,17 @@ def _serialize_block(block: dict) -> dict:
     return out
 
 
+def _cors(response: JsonResponse) -> JsonResponse:
+    response['Access-Control-Allow-Origin'] = '*'
+    response['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response['Access-Control-Allow-Headers'] = 'Content-Type, Accept, X-Afrilang-Client'
+    return response
+
+
+def _json(data, status=200):
+    return _cors(JsonResponse(data, status=status, json_dumps_params={'ensure_ascii': False}))
+
+
 @require_GET
 def api_mobile_bootstrap(request):
     """Config + strings UI + stats pour démarrer l’app."""
@@ -56,7 +72,6 @@ def api_mobile_bootstrap(request):
     ui = UI.get(lang, UI['fr'])
     from django.conf import settings
 
-    # Stats légères (miroir context processor)
     stats = {
         'version': getattr(settings, 'AFRILANG_LANG_VERSION', '1.0'),
         'compiler_version': getattr(settings, 'AFRILANG_COMPILER_VERSION', '1.0.0'),
@@ -65,14 +80,16 @@ def api_mobile_bootstrap(request):
         'blessed_packages': Package.objects.filter(blessed=True).count(),
         'core_modules': StdlibModule.objects.filter(is_core=True).count(),
     }
-    docs_nav = [
-        {'slug': slug, 'title': labels.get(lang, labels.get('fr', slug))}
-        for slug, labels in [
-            (item[0], __import__('core.content.docs_nav', fromlist=['NAV_LABELS']).NAV_LABELS.get(item[0], {'fr': item[0], 'en': item[0]}))
-            for item in NAV_ITEMS
-        ]
-    ]
-    return JsonResponse({
+    docs_nav = []
+    for slug, _url_name in NAV_META:
+        labels = NAV_LABELS.get(slug, {'fr': slug, 'en': slug})
+        desc = NAV_DESC.get(slug, {'fr': '', 'en': ''})
+        docs_nav.append({
+            'slug': slug,
+            'title': labels.get(lang, labels.get('fr', slug)),
+            'description': desc.get(lang, desc.get('fr', '')),
+        })
+    return _json({
         'lang': lang,
         'ui': {
             'home': ui.get('home', {}),
@@ -84,9 +101,14 @@ def api_mobile_bootstrap(request):
             'nav_stdlib': ui.get('nav_stdlib'),
             'nav_more': ui.get('nav_more'),
             'nav_start': ui.get('nav_start'),
+            'nav_tutorial': ui.get('nav_tutorial'),
+            'nav_language': ui.get('nav_language'),
+            'nav_community': ui.get('nav_community'),
             'meta_default': ui.get('meta_default'),
             'stdlib_page': ui.get('stdlib_page', {}),
             'libraries_page': ui.get('libraries_page', {}),
+            'footer_tagline': ui.get('footer_tagline'),
+            'footer_desc': ui.get('footer_desc'),
         },
         'stats': stats,
         'docs_nav': docs_nav,
@@ -118,7 +140,7 @@ def api_mobile_home(request):
         }
         for p in Package.objects.filter(blessed=True).order_by('name')[:8]
     ]
-    return JsonResponse({
+    return _json({
         'lang': lang,
         'home': ui.get('home', {}),
         'packages': packages,
@@ -141,30 +163,26 @@ def api_mobile_home(request):
 @require_GET
 def api_mobile_docs_index(request):
     lang = _lang(request)
-    from core.content.docs_nav import NAV_LABELS
-
     items = []
-    for slug, url_name in NAV_ITEMS:
-        labels = NAV_LABELS.get(slug, {'fr': slug, 'en': slug})
-        page = get_doc_page(slug, lang)
+    for item in get_docs_nav(lang):
+        page = get_doc_page(item['slug'], lang)
         items.append({
-            'slug': slug,
-            'title': labels.get(lang, labels.get('fr', slug)),
+            'slug': item['slug'],
+            'title': item['title'],
+            'description': item.get('description', ''),
             'lead': page.get('lead', ''),
         })
-    return JsonResponse({'lang': lang, 'pages': items})
+    return _json({'lang': lang, 'pages': items})
 
 
 @require_GET
 def api_mobile_docs_page(request, slug):
     lang = _lang(request)
     if slug not in PAGES:
-        return JsonResponse({'error': 'not_found'}, status=404)
+        return _json({'error': 'not_found'}, status=404)
     page = get_doc_page(slug, lang)
-    ctx = docs_context(f'docs_{slug.replace("-", "_")}' if False else f'docs_{slug}', lang)
-    # docs_context expects url_name like docs_getting_started — best-effort nav
     blocks = [_serialize_block(b) for b in page.get('blocks', [])]
-    return JsonResponse({
+    return _json({
         'lang': lang,
         'slug': slug,
         'title': page.get('title', slug),
@@ -178,7 +196,8 @@ def api_mobile_packages(request):
     q = request.GET.get('q', '').strip()
     qs = Package.objects.all()
     if q:
-        qs = qs.filter(name__icontains=q) | qs.filter(description__icontains=q)
+        from django.db.models import Q
+        qs = qs.filter(Q(name__icontains=q) | Q(description__icontains=q))
     data = [
         {
             'name': p.name,
@@ -186,18 +205,18 @@ def api_mobile_packages(request):
             'description': p.description,
             'blessed': p.blessed,
             'tags': p.tag_list,
-            'readme': p.readme[:2000] if p.readme else '',
+            'readme': (p.readme or '')[:2000],
             'repo_url': p.repo_url,
         }
         for p in qs[:200]
     ]
-    return JsonResponse({'packages': data, 'query': q})
+    return _json({'packages': data, 'query': q})
 
 
 @require_GET
 def api_mobile_package_detail(request, name):
     pkg = get_object_or_404(Package, name=name)
-    return JsonResponse({
+    return _json({
         'name': pkg.name,
         'version': pkg.version,
         'description': pkg.description,
@@ -216,19 +235,19 @@ def api_mobile_examples(request):
     q = request.GET.get('q', '').strip()
     qs = CodeExample.objects.all()
     if q:
-        qs = qs.filter(slug__icontains=q) | qs.filter(title__icontains=q)
-    data = []
-    for ex in qs[:120]:
-        title = ex.title
-        if lang == 'en' and getattr(ex, 'title_en', None):
-            title = ex.title_en or title
-        data.append({
+        from django.db.models import Q
+        qs = qs.filter(Q(slug__icontains=q) | Q(title__icontains=q) | Q(description__icontains=q))
+    data = [
+        {
             'slug': ex.slug,
-            'title': title,
-            'topic': getattr(ex, 'topic', '') or '',
+            'title': ex.title,
+            'description': ex.description,
+            'featured': ex.featured,
             'source_preview': (ex.source or '')[:280],
-        })
-    return JsonResponse({'examples': data})
+        }
+        for ex in qs[:120]
+    ]
+    return _json({'lang': lang, 'examples': data})
 
 
 @require_GET
@@ -243,13 +262,14 @@ def api_mobile_stdlib(request):
     elif core_only:
         qs = qs.filter(is_core=True)
     if q:
-        qs = qs.filter(name__icontains=q) | qs.filter(summary__icontains=q)
+        from django.db.models import Q
+        qs = qs.filter(Q(name__icontains=q) | Q(summary__icontains=q))
     modules = [
         {
             'name': m.name,
             'import_path': m.import_path,
             'summary': m.summary,
-            'description': m.description_en if lang == 'en' else m.description_fr,
+            'description': m.description(lang),
             'tier': m.tier,
             'category': m.category,
             'function_count': m.function_count,
@@ -258,7 +278,7 @@ def api_mobile_stdlib(request):
         }
         for m in qs[:500]
     ]
-    return JsonResponse({
+    return _json({
         'lang': lang,
         'modules': modules,
         'categories': get_categories(lang),
@@ -272,7 +292,8 @@ def api_mobile_stdlib_detail(request, name):
     lang = _lang(request)
     mod = get_object_or_404(StdlibModule, name=name)
     page = build_page_context(mod, lang)
-    return JsonResponse({
+    doc = page.get('doc') or {}
+    return _json({
         'lang': lang,
         'name': mod.name,
         'import_path': mod.import_path,
@@ -280,7 +301,7 @@ def api_mobile_stdlib_detail(request, name):
         'tier': mod.tier,
         'category': mod.category,
         'is_core': page['is_core'],
-        'description': mod.description_en if lang == 'en' else mod.description_fr,
+        'description': mod.description(lang),
         'overview': page['overview'],
         'domain': page['domain'],
         'wasm_note': page['wasm_note'],
@@ -289,7 +310,7 @@ def api_mobile_stdlib_detail(request, name):
         'source': page['source'],
         'source_label': page['source_label'],
         'source_note': page['source_note'],
-        'doc_body': (page['doc'] or {}).get('body') if page['doc'] else None,
+        'doc_body': doc.get('body') if doc else None,
         'links': page['links'],
     })
 
@@ -298,16 +319,17 @@ def api_mobile_stdlib_detail(request, name):
 def api_mobile_tutorial(request):
     lang = _lang(request)
     lessons = get_lessons(lang)
-    return JsonResponse({
+    return _json({
         'lang': lang,
         'total_steps': total_steps(),
         'lessons': [
             {
-                'step': i + 1,
-                'title': lesson.get('title', f'Step {i+1}'),
-                'summary': lesson.get('summary', ''),
+                'step': lesson['step'],
+                'title': lesson['title'],
+                'summary': lesson['summary'],
+                'duration_min': lesson.get('duration_min', 5),
             }
-            for i, lesson in enumerate(lessons)
+            for lesson in lessons
         ],
     })
 
@@ -317,8 +339,8 @@ def api_mobile_tutorial_step(request, step: int):
     lang = _lang(request)
     lesson = get_lesson(step, lang)
     if not lesson:
-        return JsonResponse({'error': 'not_found'}, status=404)
-    return JsonResponse({
+        return _json({'error': 'not_found'}, status=404)
+    return _json({
         'lang': lang,
         'step': step,
         'total_steps': total_steps(),
@@ -331,10 +353,81 @@ def api_mobile_releases(request):
     data = [
         {
             'version': r.version,
-            'date': r.released_at.isoformat() if getattr(r, 'released_at', None) else '',
+            'date': r.released_at.isoformat() if r.released_at else '',
             'title': r.title,
-            'body': r.body[:4000],
+            'body': (r.body or '')[:4000],
         }
-        for r in Release.objects.all().order_by('-released_at')[:40]
+        for r in Release.objects.all().order_by('-sort_order', '-released_at')[:40]
     ]
-    return JsonResponse({'releases': data})
+    return _json({'releases': data})
+
+
+@csrf_exempt
+@require_http_methods(['POST', 'OPTIONS'])
+def api_mobile_run(request):
+    """Playground run — CSRF exempt pour clients mobiles (rate-limité)."""
+    if request.method == 'OPTIONS':
+        return _cors(JsonResponse({}))
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return _json({'ok': False, 'output': 'Invalid JSON', 'exitCode': 1}, status=400)
+
+    source = body.get('source', '')
+    target = body.get('target', 'native')
+    if not source.strip():
+        return _json({'ok': False, 'output': 'Empty source', 'exitCode': 1}, status=400)
+
+    try:
+        result = run_source(source, target=target)
+    except AfrilangError as e:
+        return _json({'ok': False, 'output': str(e), 'exitCode': 1}, status=503)
+
+    PlaygroundRun.objects.create(
+        source_hash=source_hash(source),
+        target=target,
+        ok=result['ok'],
+        exit_code=result['exitCode'],
+        output_preview=result['output'][:2000],
+        duration_ms=result.get('duration_ms', 0),
+    )
+    return _json({
+        'ok': result['ok'],
+        'output': result['output'],
+        'exitCode': result['exitCode'],
+    })
+
+
+@csrf_exempt
+@require_http_methods(['POST', 'OPTIONS'])
+def api_mobile_fmt(request):
+    if request.method == 'OPTIONS':
+        return _cors(JsonResponse({}))
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return _json({'ok': False, 'output': 'Invalid JSON'}, status=400)
+    try:
+        result = format_source(body.get('source', ''))
+    except AfrilangError as e:
+        return _json({'ok': False, 'output': str(e)}, status=503)
+    return _json(result)
+
+
+@csrf_exempt
+@require_http_methods(['POST', 'OPTIONS'])
+def api_mobile_check(request):
+    if request.method == 'OPTIONS':
+        return _cors(JsonResponse({}))
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return _json({'ok': False, 'output': 'Invalid JSON'}, status=400)
+    source = body.get('source', '')
+    if not source.strip():
+        return _json({'ok': False, 'output': 'Empty source', 'errors': 1}, status=400)
+    try:
+        result = check_source(source)
+    except AfrilangError as e:
+        return _json({'ok': False, 'output': str(e), 'errors': 1}, status=503)
+    return _json(result)

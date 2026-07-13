@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from . import api_mobile, views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -57,4 +57,20 @@ urlpatterns = [
     path('api/fmt/', views.api_fmt, name='api_fmt'),
     path('api/check/', views.api_check, name='api_check'),
     path('api/examples/<slug:slug>/', views.api_example, name='api_example'),
+    # Mobile / Flutter JSON API (même backend que le site)
+    path('api/mobile/bootstrap/', api_mobile.api_mobile_bootstrap, name='api_mobile_bootstrap'),
+    path('api/mobile/home/', api_mobile.api_mobile_home, name='api_mobile_home'),
+    path('api/mobile/docs/', api_mobile.api_mobile_docs_index, name='api_mobile_docs'),
+    path('api/mobile/docs/<slug:slug>/', api_mobile.api_mobile_docs_page, name='api_mobile_docs_page'),
+    path('api/mobile/packages/', api_mobile.api_mobile_packages, name='api_mobile_packages'),
+    path('api/mobile/packages/<slug:name>/', api_mobile.api_mobile_package_detail, name='api_mobile_package'),
+    path('api/mobile/examples/', api_mobile.api_mobile_examples, name='api_mobile_examples'),
+    path('api/mobile/stdlib/', api_mobile.api_mobile_stdlib, name='api_mobile_stdlib'),
+    path('api/mobile/stdlib/<path:name>/', api_mobile.api_mobile_stdlib_detail, name='api_mobile_stdlib_detail'),
+    path('api/mobile/tutorial/', api_mobile.api_mobile_tutorial, name='api_mobile_tutorial'),
+    path('api/mobile/tutorial/<int:step>/', api_mobile.api_mobile_tutorial_step, name='api_mobile_tutorial_step'),
+    path('api/mobile/releases/', api_mobile.api_mobile_releases, name='api_mobile_releases'),
+    path('api/mobile/run/', api_mobile.api_mobile_run, name='api_mobile_run'),
+    path('api/mobile/fmt/', api_mobile.api_mobile_fmt, name='api_mobile_fmt'),
+    path('api/mobile/check/', api_mobile.api_mobile_check, name='api_mobile_check'),
 ]
