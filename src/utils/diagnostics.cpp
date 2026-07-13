@@ -4,7 +4,6 @@
 #include "afrilang/utf8.hpp"
 
 #include <algorithm>
-#include <cctype>
 #include <sstream>
 
 namespace afrilang {
@@ -25,28 +24,53 @@ CompileError::CompileError(std::string message, int line, int column,
     static_cast<std::runtime_error&>(*this) = std::runtime_error(format());
 }
 
-std::string CompileError::format() const {
-    std::ostringstream out;
-    out << formatErrorHeader(file_, line_, column_, code_);
-    out << "  " << message_ << "\n";
+Diagnostic CompileError::toDiagnostic() const {
+    Diagnostic d;
+    d.severity = DiagnosticSeverity::Error;
+    d.code = code_;
+    d.message = message_;
+    d.file = file_;
+    d.line = line_;
+    d.column = column_;
+    d.sourceLine = sourceLine_;
+    d.suggestions = suggestions_;
+    return d;
+}
 
-    if (!sourceLine_.empty()) {
-        out << "\n  " << sourceLine_ << "\n  ";
-        const std::size_t caretPos = utf8DisplayWidthBefore(sourceLine_, column_);
+std::string formatDiagnostic(const Diagnostic& diagnostic) {
+    std::ostringstream out;
+    out << formatErrorHeader(diagnostic.file, diagnostic.line, diagnostic.column, diagnostic.code);
+    out << "  " << diagnostic.message << "\n";
+
+    if (!diagnostic.sourceLine.empty()) {
+        out << "\n  " << diagnostic.sourceLine << "\n  ";
+        const std::size_t caretPos = utf8DisplayWidthBefore(diagnostic.sourceLine, diagnostic.column);
         for (std::size_t i = 0; i < caretPos; ++i) {
             out << ' ';
         }
         out << "^\n";
     }
 
-    if (!suggestions_.empty()) {
-        out << "\n  " << formatSuggestionLabel(static_cast<int>(suggestions_.size())) << "\n";
-        for (const auto& s : suggestions_) {
+    if (!diagnostic.suggestions.empty()) {
+        out << "\n  " << formatSuggestionLabel(static_cast<int>(diagnostic.suggestions.size())) << "\n";
+        for (const auto& s : diagnostic.suggestions) {
             out << "    - " << s << "\n";
         }
     }
 
+    for (const auto& note : diagnostic.notes) {
+        out << "  help: " << note.message;
+        if (!note.file.empty() && note.line > 0) {
+            out << " (" << note.file << ":" << note.line << ":" << note.column << ")";
+        }
+        out << "\n";
+    }
+
     return out.str();
+}
+
+std::string CompileError::format() const {
+    return formatDiagnostic(toDiagnostic());
 }
 
 std::string CompileError::formatJson() const {
@@ -57,6 +81,104 @@ std::string CompileError::formatJson() const {
         << "\"column\":" << column_ << ","
         << "\"file\":\"" << file_ << "\"}";
     return out.str();
+}
+
+DiagnosticEngine::DiagnosticEngine(std::size_t errorLimit) : errorLimit_(errorLimit) {}
+
+void DiagnosticEngine::report(Diagnostic diagnostic) {
+    if (diagnostic.severity == DiagnosticSeverity::Error) {
+        if (errorCount() >= errorLimit_) {
+            if (!errorLimitReached_) {
+                errorLimitReached_ = true;
+                Diagnostic limitDiag;
+                limitDiag.severity = DiagnosticSeverity::Error;
+                limitDiag.code = ErrorCode::ResourceLimit;
+                limitDiag.message = "Limite d'erreurs atteinte (" +
+                                    std::to_string(errorLimit_) +
+                                    ") — compilation arrêtée";
+                diagnostics_.push_back(std::move(limitDiag));
+            }
+            return;
+        }
+    }
+    diagnostics_.push_back(std::move(diagnostic));
+}
+
+void DiagnosticEngine::report(const CompileError& error) {
+    report(error.toDiagnostic());
+}
+
+void DiagnosticEngine::reportError(std::string message, int line, int column,
+                                   std::string file, std::string sourceLine,
+                                   std::vector<std::string> suggestions,
+                                   ErrorCode code) {
+    Diagnostic d;
+    d.severity = DiagnosticSeverity::Error;
+    d.code = code;
+    d.message = std::move(message);
+    d.file = std::move(file);
+    d.line = line;
+    d.column = column;
+    d.sourceLine = std::move(sourceLine);
+    d.suggestions = std::move(suggestions);
+    report(std::move(d));
+}
+
+void DiagnosticEngine::reportWarning(std::string message, int line, int column,
+                                     std::string file) {
+    Diagnostic d;
+    d.severity = DiagnosticSeverity::Warning;
+    d.code = ErrorCode::Semantic;
+    d.message = std::move(message);
+    d.file = std::move(file);
+    d.line = line;
+    d.column = column;
+    report(std::move(d));
+}
+
+bool DiagnosticEngine::hasErrors() const {
+    for (const auto& d : diagnostics_) {
+        if (d.severity == DiagnosticSeverity::Error) return true;
+    }
+    return false;
+}
+
+std::size_t DiagnosticEngine::errorCount() const {
+    std::size_t count = 0;
+    for (const auto& d : diagnostics_) {
+        if (d.severity == DiagnosticSeverity::Error) ++count;
+    }
+    return count;
+}
+
+std::vector<Diagnostic> DiagnosticEngine::errors() const {
+    std::vector<Diagnostic> out;
+    for (const auto& d : diagnostics_) {
+        if (d.severity == DiagnosticSeverity::Error) out.push_back(d);
+    }
+    return out;
+}
+
+std::vector<Diagnostic> DiagnosticEngine::warnings() const {
+    std::vector<Diagnostic> out;
+    for (const auto& d : diagnostics_) {
+        if (d.severity == DiagnosticSeverity::Warning) out.push_back(d);
+    }
+    return out;
+}
+
+std::string DiagnosticEngine::formatAll() const {
+    std::ostringstream out;
+    for (std::size_t i = 0; i < diagnostics_.size(); ++i) {
+        if (i > 0) out << "\n";
+        out << formatDiagnostic(diagnostics_[i]);
+    }
+    return out.str();
+}
+
+void DiagnosticEngine::clear() {
+    diagnostics_.clear();
+    errorLimitReached_ = false;
 }
 
 std::string SourceFile::lineAt(int line) const {
@@ -70,7 +192,7 @@ std::string SourceFile::lineAt(int line) const {
 }
 
 void SourceManager::addFile(std::string path, std::string content) {
-    files_[std::move(path)] = SourceFile{path, std::move(content)};
+    files_[path] = SourceFile{path, std::move(content)};
 }
 
 const SourceFile* SourceManager::getFile(const std::string& path) const {

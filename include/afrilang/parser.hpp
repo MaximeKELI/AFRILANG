@@ -1,6 +1,7 @@
 #pragma once
 
 #include "afrilang/ast.hpp"
+#include "afrilang/diagnostics.hpp"
 #include "afrilang/token.hpp"
 
 #include <memory>
@@ -14,12 +15,16 @@ public:
     explicit Parser(std::vector<Token> tokens);
 
     std::unique_ptr<ProgramNode> parse();
+    const DiagnosticEngine& diagnostics() const { return diagnostics_; }
+    DiagnosticEngine& diagnostics() { return diagnostics_; }
+    bool hasErrors() const { return diagnostics_.hasErrors(); }
 
 private:
     std::vector<Token> tokens_;
     std::size_t current_ = 0;
     std::unordered_set<std::string> enumNames_;
     std::unordered_set<std::string> recordNames_;
+    DiagnosticEngine diagnostics_;
 
     bool isAtEnd() const;
     const Token& peek() const;

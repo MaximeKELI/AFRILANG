@@ -64,7 +64,7 @@ const Token& Parser::consume(TokenType type, const std::string& message) {
 
 [[noreturn]] void Parser::error(const std::string& message) const {
     const Token& token = peek();
-    throw CompileError(message, token.line, token.column);
+    throw CompileError(message, token.line, token.column, "", "", {}, ErrorCode::Parser);
 }
 
 void Parser::synchronize() {
@@ -240,9 +240,10 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
             } else {
                 statements.push_back(parseStatement());
             }
-        } catch (const CompileError&) {
+        } catch (const CompileError& e) {
+            diagnostics_.report(e);
             synchronize();
-            throw;
+            if (diagnostics_.errorLimitReached()) break;
         }
     }
 

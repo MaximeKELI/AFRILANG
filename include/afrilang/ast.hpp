@@ -1,5 +1,7 @@
 #pragma once
 
+#include "afrilang/types.hpp"
+
 #include <memory>
 #include <string>
 #include <utility>
@@ -21,7 +23,11 @@ struct ASTNode {
     virtual ~ASTNode() = default;
 };
 
-struct ExpressionNode : ASTNode {};
+struct ExpressionNode : ASTNode {
+    // Filled by SemanticAnalyzer; mutable so analyzeExpression can annotate via const&.
+    mutable AfrType inferredType;
+    mutable bool typeInferred = false;
+};
 struct StatementNode : ASTNode {};
 
 // ── Expressions ─────────────────────────────────────────────────────────────
