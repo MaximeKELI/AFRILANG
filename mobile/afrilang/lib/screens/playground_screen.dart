@@ -40,7 +40,7 @@ say greet("World")
     'Loop',
     '''create i number = 1
 while i is less than 6 do
-    say "tick " + i
+    say "tick {i}"
     set i = i + 1
 end
 '''
