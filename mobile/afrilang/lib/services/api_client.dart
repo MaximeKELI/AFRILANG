@@ -24,13 +24,23 @@ class AfrApiClient {
 
   Map<String, String> get _headers => {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
         'X-Afrilang-Client': 'flutter-mobile',
+      };
+
+  Map<String, String> get _postHeaders => {
+        ..._headers,
+        'Content-Type': 'application/json',
       };
 
   Uri _u(String path, [Map<String, String>? query]) {
     final p = path.startsWith('/') ? path : '/$path';
-    return Uri.parse('$baseUrl$p').replace(queryParameters: query);
+    final cleaned = <String, String>{};
+    if (query != null) {
+      for (final e in query.entries) {
+        if (e.value.isNotEmpty) cleaned[e.key] = e.value;
+      }
+    }
+    return Uri.parse('$baseUrl$p').replace(queryParameters: cleaned.isEmpty ? null : cleaned);
   }
 
   Future<Map<String, dynamic>> getJson(String path, {Map<String, String>? query}) async {
@@ -41,7 +51,7 @@ class AfrApiClient {
   Future<Map<String, dynamic>> postJson(String path, Map<String, dynamic> body) async {
     final res = await _client.post(
       _u(path),
-      headers: _headers,
+      headers: _postHeaders,
       body: jsonEncode(body),
     );
     return _decode(res);
