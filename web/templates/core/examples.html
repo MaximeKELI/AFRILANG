@@ -2,17 +2,19 @@
 {% block title %}{{ ui.examples_page.title }}{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
-  <div>
-    <div class="section-label">{{ ui.examples_page.label }}</div>
-    <h1 class="h2 fw-bold mb-1">{{ ui.examples_page.h1 }}</h1>
-    <p class="text-secondary-custom mb-0">{{ ui.examples_page.lead }}</p>
+<div class="afr-page-header">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+    <div>
+      <div class="section-label">{{ ui.examples_page.label }}</div>
+      <h1 class="h2">{{ ui.examples_page.h1 }}</h1>
+      <p class="lead">{{ ui.examples_page.lead }}</p>
+    </div>
+    <form method="get" class="d-flex gap-2" style="min-width:280px" role="search">
+      <label for="ex-search" class="visually-hidden">{{ ui.examples_page.search }}</label>
+      <input id="ex-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.examples_page.search }}">
+      <button type="submit" class="btn btn-afr-primary">{{ ui.examples_page.filter }}</button>
+    </form>
   </div>
-  <form method="get" class="d-flex gap-2" style="min-width:280px" role="search">
-    <label for="ex-search" class="visually-hidden">{{ ui.examples_page.search }}</label>
-    <input id="ex-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.examples_page.search }}">
-    <button type="submit" class="btn btn-afr-primary">{{ ui.examples_page.filter }}</button>
-  </form>
 </div>
 
 {% if groups and not query %}

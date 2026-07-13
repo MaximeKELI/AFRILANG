@@ -1,16 +1,14 @@
-<a href="{% url 'stdlib_detail' mod.name %}" class="text-decoration-none d-block h-100">
-  <article class="afr-feature-card h-100 py-3 px-3">
-    <code class="fw-bold text-primary">import "{{ mod.import_path }}"</code>
-    {% if mod.description_fr or mod.description_en %}
-    <p class="small text-secondary-custom mb-2 mt-2">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr|truncatewords:22 }}{% else %}{{ mod.description_fr|default:mod.description_en|truncatewords:22 }}{% endif %}</p>
-    {% elif mod.summary %}
-    <p class="small text-secondary-custom mb-2 mt-2">{{ mod.summary }}</p>
-    {% endif %}
-    <div class="d-flex flex-wrap gap-1">
-      <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
-      <span class="badge text-bg-light border">{{ mod.tier }}</span>
-      {% if mod.is_core %}<span class="badge text-bg-success">core</span>{% elif mod.experimental %}<span class="badge text-bg-warning text-dark">experimental</span>{% endif %}
-      {% if mod.has_pdf %}<span class="badge text-bg-primary">PDF</span>{% endif %}
-    </div>
-  </article>
+<a href="{% url 'stdlib_detail' mod.name %}" class="afr-pkg-row d-block h-100 py-3">
+  <code class="fw-bold text-primary">import "{{ mod.import_path }}"</code>
+  {% if mod.description_fr or mod.description_en %}
+  <p class="small text-secondary-custom mb-2 mt-2">{% if current_lang == 'en' %}{{ mod.description_en|default:mod.description_fr|truncatewords:22 }}{% else %}{{ mod.description_fr|default:mod.description_en|truncatewords:22 }}{% endif %}</p>
+  {% elif mod.summary %}
+  <p class="small text-secondary-custom mb-2 mt-2">{{ mod.summary }}</p>
+  {% endif %}
+  <div class="d-flex flex-wrap gap-1">
+    <span class="badge text-bg-light border">{{ mod.function_count }} fn</span>
+    <span class="badge text-bg-light border">{{ mod.tier }}</span>
+    {% if mod.is_core %}<span class="badge text-bg-success">core</span>{% elif mod.experimental %}<span class="badge text-bg-warning text-dark">experimental</span>{% endif %}
+    {% if mod.has_pdf %}<span class="badge text-bg-primary">PDF</span>{% endif %}
+  </div>
 </a>

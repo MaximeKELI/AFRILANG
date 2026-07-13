@@ -52,7 +52,7 @@
 
   function initStatCounters() {
     if (reduced) return;
-    document.querySelectorAll('.afr-stat-card .stat-value[data-count]').forEach(function (el) {
+    document.querySelectorAll('.afr-stat-card .stat-value[data-count], .afr-stat-row .stat-value[data-count]').forEach(function (el) {
       var target = parseInt(el.getAttribute('data-count'), 10);
       if (isNaN(target)) return;
       var suffix = el.getAttribute('data-suffix') || '';

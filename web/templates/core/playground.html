@@ -3,10 +3,10 @@
 {% block title %}{{ ui.playground_page.title }}{% endblock %}
 
 {% block content %}
-<div class="mb-4">
+<div class="afr-page-header">
   <div class="section-label">{{ ui.playground_page.label }}</div>
-  <h1 class="h2 fw-bold mb-1">{{ ui.playground_page.h1 }}</h1>
-  <p class="text-secondary-custom mb-0">{{ ui.playground_page.lead }}</p>
+  <h1 class="h2">{{ ui.playground_page.h1 }}</h1>
+  <p class="lead">{{ ui.playground_page.lead }}</p>
 </div>
 
 {{ examples_map|json_script:"examples-data" }}

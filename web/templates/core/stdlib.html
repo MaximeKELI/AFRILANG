@@ -2,19 +2,22 @@
 {% block title %}{{ ui.stdlib_page.title }}{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
-  <div>
-    <div class="section-label">{{ ui.stdlib_page.label }}</div>
-    <h1 class="h2 fw-bold mb-1">{{ ui.stdlib_page.h1 }}</h1>
-    <p class="text-secondary-custom mb-0">{{ ui.stdlib_page.lead }}</p>
+<div class="afr-page-header">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+    <div>
+      <div class="section-label">{{ ui.stdlib_page.label }}</div>
+      <h1 class="h2">{{ ui.stdlib_page.h1 }}</h1>
+      <p class="lead">{{ ui.stdlib_page.lead }}</p>
+    </div>
+    <form method="get" class="d-flex gap-2 flex-wrap" style="min-width:280px" role="search">
+      {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
+      {% if overview %}<input type="hidden" name="overview" value="1">{% endif %}
+      {% if show_experimental %}<input type="hidden" name="experimental" value="1">{% endif %}
+      <label for="std-search" class="visually-hidden">{{ ui.stdlib_page.search }}</label>
+      <input id="std-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.stdlib_page.search }}">
+      <button type="submit" class="btn btn-afr-primary">{{ ui.stdlib_page.filter }}</button>
+    </form>
   </div>
-  <form method="get" class="d-flex gap-2 flex-wrap" style="min-width:280px" role="search">
-    {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
-    {% if overview %}<input type="hidden" name="overview" value="1">{% endif %}
-    <label for="std-search" class="visually-hidden">{{ ui.stdlib_page.search }}</label>
-    <input id="std-search" type="search" name="q" value="{{ query }}" class="form-control" placeholder="{{ ui.stdlib_page.search }}">
-    <button type="submit" class="btn btn-afr-primary">{{ ui.stdlib_page.filter }}</button>
-  </form>
 </div>
 
 <div class="d-flex flex-wrap gap-2 mb-3">
