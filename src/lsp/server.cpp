@@ -6,6 +6,7 @@
 #include "afrilang/formatter.hpp"
 #include "afrilang/i18n.hpp"
 #include "afrilang/semantic.hpp"
+#include "afrilang/stdlib_registry.hpp"
 
 #include <cstdlib>
 #include <cstdio>
@@ -310,6 +311,17 @@ static AnalysisResult analyzeDocument(const std::string& path, const std::string
         }
         for (const auto& [name, type] : semantic.globalVariables) {
             result.symbolDocs[name] = type.toTypeName() + " " + name;
+        }
+        // Tag stdlib modules: core vs experimental generated catalogs
+        for (const auto& mod : semantic.usedModules) {
+            if (!StdlibRegistry::isStdlibModule(mod)) continue;
+            if (StdlibRegistry::isLegacyStdlibModule(mod) || mod == "log" || mod == "time") {
+                result.symbolDocs[mod] = "module `" + mod + "` — **core stdlib** (stabilisé 1.x)";
+            } else {
+                result.symbolDocs[mod] =
+                    "module `" + mod +
+                    "`\n\n⚠️ **experimental** (catalogue généré — pas de garantie API)";
+            }
         }
         for (const auto& [name, info] : scanSymbols(source)) {
             result.symbolLocations[name] = info;

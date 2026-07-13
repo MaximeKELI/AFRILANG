@@ -10,7 +10,7 @@ AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --targ
 | POO | classes, héritage, interfaces |
 | Stdlib core | `json`, `str`, `math`, `collections`, `args`, `path`, `log` |
 | Async | `std/async` — `sleep`, coroutines (Emscripten) |
-| Démo CI | `examples/tier8_demo.afr` |
+| Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr` |
 
 ## Natif uniquement (pas WASM)
 
@@ -24,8 +24,12 @@ AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --targ
 | `std/gamenet` UDP | sockets réseau |
 | Packs ultra lourds | compilation/link très longue ; tester en natif |
 
+## Playground JS (`compile-js`)
+
+Sous-ensemble élargi (Vague 3) : `say`, assign/set, `if`/`while`/`repeat`/`for`, **fonctions** + appels + `return`.  
+Toujours exclus : imports, classes, async, UI, tests.
+
 ## Recommandation
 
-- **Playground / CI WASM** : petits programmes sans SDL/OpenGL.
+- **Playground / CI WASM** : petits programmes sans SDL/OpenGL ; stdlib `str`/`math`/`json` OK.
 - **Jeux, SIG, data science** : cible `native` ou `linux-arm64`.
-- Voir `examples/tier8_demo.afr` pour le smoke test WASM minimal.
