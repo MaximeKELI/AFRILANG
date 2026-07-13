@@ -92,10 +92,6 @@ def docs_stdlib(request):
     return _doc_view(request, 'docs_stdlib')
 
 
-def docs_tooling(request):
-    return _doc_view(request, 'docs_tooling')
-
-
 def docs_functional(request):
     return _doc_view(request, 'docs_functional')
 
@@ -124,8 +120,24 @@ def docs_pkg(request):
     return _doc_view(request, 'docs_pkg')
 
 
+def docs_testing(request):
+    return _doc_view(request, 'docs_testing')
+
+
+def docs_tooling(request):
+    return _doc_view(request, 'docs_tooling')
+
+
+def docs_wasm(request):
+    return _doc_view(request, 'docs_wasm')
+
+
 def docs_spec(request):
     return _doc_view(request, 'docs_spec')
+
+
+def docs_contributing(request):
+    return _doc_view(request, 'docs_contributing')
 
 
 def download(request):

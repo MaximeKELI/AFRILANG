@@ -15,12 +15,15 @@ NAV_META = [
     ('advanced', 'docs_advanced'),
     ('stdlib', 'docs_stdlib'),
     ('package-manager', 'docs_pkg'),
+    ('testing', 'docs_testing'),
     ('tooling', 'docs_tooling'),
+    ('wasm', 'docs_wasm'),
     ('spec', 'docs_spec'),
+    ('contributing', 'docs_contributing'),
 ]
 
 NAV_LABELS = {
-    'overview': {'fr': 'Vue d\'ensemble', 'en': 'Overview'},
+    'overview': {'fr': "Vue d'ensemble", 'en': 'Overview'},
     'getting-started': {'fr': 'Premiers pas', 'en': 'Getting started'},
     'syntax': {'fr': 'Syntaxe de base', 'en': 'Basic syntax'},
     'types': {'fr': 'Types', 'en': 'Types'},
@@ -31,21 +34,24 @@ NAV_LABELS = {
     'exceptions': {'fr': 'Exceptions', 'en': 'Exceptions'},
     'async': {'fr': 'Async / await', 'en': 'Async / await'},
     'gui': {'fr': 'Interfaces graphiques', 'en': 'Graphical UI'},
-    'advanced': {'fr': 'FFI & tests', 'en': 'FFI & tests'},
+    'advanced': {'fr': 'FFI', 'en': 'FFI'},
     'stdlib': {'fr': 'Bibliothèque standard', 'en': 'Standard library'},
     'package-manager': {'fr': 'Paquets', 'en': 'Packages'},
+    'testing': {'fr': 'Tests', 'en': 'Testing'},
     'tooling': {'fr': 'Outils', 'en': 'Tooling'},
+    'wasm': {'fr': 'WASM & JS', 'en': 'WASM & JS'},
     'spec': {'fr': 'Référence', 'en': 'Reference'},
+    'contributing': {'fr': 'Contribuer', 'en': 'Contributing'},
 }
 
 NAV_DESC = {
     'overview': {
-        'fr': 'Introduction et parcours d\'apprentissage',
-        'en': 'Introduction and learning path',
+        'fr': "Parcours d'apprentissage numéroté",
+        'en': 'Numbered learning path',
     },
     'getting-started': {
-        'fr': 'Installation, premier programme, CLI',
-        'en': 'Installation, first program, CLI',
+        'fr': 'Installation pas à pas, PATH, premier programme',
+        'en': 'Step-by-step install, PATH, first program',
     },
     'syntax': {
         'fr': 'Variables, fonctions, maps, boucles, alias FR/EN',
@@ -68,40 +74,52 @@ NAV_DESC = {
         'en': 'Enums, unions, match expressions',
     },
     'modules': {
-        'fr': 'export/private, import, use',
-        'en': 'export/private, import, use',
+        'fr': 'export/private, import, use, chemins std/pkg',
+        'en': 'export/private, import, use, std/pkg paths',
     },
     'exceptions': {
-        'fr': 'try / catch / raise',
-        'en': 'try / catch / raise',
+        'fr': 'try/catch/raise et Result',
+        'en': 'try/catch/raise and Result',
     },
     'async': {
-        'fr': 'Coroutines, await, std/async, I/O async',
-        'en': 'Coroutines, await, std/async, async I/O',
+        'fr': 'Coroutines, await, std/async, limites WASM',
+        'en': 'Coroutines, await, std/async, WASM limits',
     },
     'gui': {
         'fr': 'SDL2, fenêtres, boutons, std/ui',
         'en': 'SDL2, windows, buttons, std/ui',
     },
     'advanced': {
-        'fr': 'FFI, tests intégrés',
-        'en': 'FFI, built-in tests',
+        'fr': 'Interop C / extern',
+        'en': 'C interop / extern',
     },
     'stdlib': {
-        'fr': '7900+ modules, SIG, data science, IA, SQLite',
-        'en': '7900+ modules, GIS, data science, AI, SQLite',
+        'fr': 'Core vs généré, API prioritaire',
+        'en': 'Core vs generated, priority API',
     },
     'package-manager': {
-        'fr': 'afrilang.toml, pkg, semver',
-        'en': 'afrilang.toml, pkg, semver',
+        'fr': 'toml, lock, semver, git/path, publish',
+        'en': 'toml, lock, semver, git/path, publish',
+    },
+    'testing': {
+        'fr': 'assert, tests/, --specs, pkg test',
+        'en': 'assert, tests/, --specs, pkg test',
     },
     'tooling': {
-        'fr': 'CLI, LSP, REPL, lint, debug, IDE',
-        'en': 'CLI, LSP, REPL, lint, debug, IDE',
+        'fr': 'CLI, LSP, REPL, IDE, cibles',
+        'en': 'CLI, LSP, REPL, IDE, targets',
+    },
+    'wasm': {
+        'fr': 'wasm32, playground JS, matrice de compat',
+        'en': 'wasm32, JS playground, compat matrix',
     },
     'spec': {
-        'fr': 'Spécification 1.0, UTF-8, error codes',
-        'en': 'Spec 1.0, UTF-8, error codes',
+        'fr': 'Spécification 1.0 condensée',
+        'en': 'Condensed 1.0 specification',
+    },
+    'contributing': {
+        'fr': 'Build, tests, PR, conventions',
+        'en': 'Build, tests, PR, conventions',
     },
 }
 

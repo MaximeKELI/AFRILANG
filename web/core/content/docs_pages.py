@@ -449,6 +449,8 @@ def get_doc_page_by_url_name(url_name, lang):
 
 
 from .docs_full import register_full_documentation
+from .docs_methodical import register_methodical_documentation
 
 register_full_documentation(PAGES)
+register_methodical_documentation(PAGES)
 DOC_NAV_ORDER = _build_nav_order()

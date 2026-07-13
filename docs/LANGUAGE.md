@@ -1,5 +1,19 @@
 # AFRILANG Language Specification 1.0
 
+## Comment lire cette spécification
+
+1. **Types** — primitives, collections, optionnels, Result  
+2. **POO** — classes, héritage, interfaces, records  
+3. **Contrôle** — conditions, boucles, match  
+4. **Modules & paquets** — import / use (voir aussi `PKG.md`)  
+5. **Async, FFI, tests** — sections dédiées plus bas  
+6. **Guide web méthodique** — [documentation site](https://github.com/MaximeKELI/AFRILANG) `/docs/` (parcours numéroté)
+
+Convention : chaque bloc se ferme par `end` (ou `fin`). Comparaisons en mots (`is equal to`, …).  
+Optionnels : `T?`, `nothing`, `is defined` — pas `none` / `is some`.
+
+---
+
 ## Types
 
 | Type | Syntax | C++ |

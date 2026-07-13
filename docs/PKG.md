@@ -2,6 +2,17 @@
 
 Équivalent pratique de **Nimble** / **Shards** pour AFRILANG.
 
+## Méthode en 6 étapes
+
+1. **Créer** — `afrilang init` / `pkg init`  
+2. **Déclarer** — `[dependencies]` dans `afrilang.toml` (version, git, path)  
+3. **Synchroniser** — `pkg sync` (index distant)  
+4. **Installer** — `pkg install` (respecte `afrilang.lock` s’il existe)  
+5. **Tester** — `pkg test` / `afrilang test`  
+6. **Publier** — `pkg publish` (+ `--remote` si registre)
+
+Guide web détaillé (bilingue) : `/docs/package-manager/`.
+
 ## Fichiers projet
 
 | Fichier | Rôle |
