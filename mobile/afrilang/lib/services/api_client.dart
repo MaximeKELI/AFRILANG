@@ -122,12 +122,36 @@ class AfrApiClient {
 
   Future<Map<String, dynamic>> releases() => getJson('/api/mobile/releases/');
 
-  Future<Map<String, dynamic>> run(String source, {String target = 'native'}) =>
-      postJson('/api/mobile/run/', {'source': source, 'target': target});
+  Future<Map<String, dynamic>> run(
+    String source, {
+    String target = 'native',
+    String? entry,
+    Map<String, String>? files,
+  }) {
+    if (files != null && files.isNotEmpty) {
+      return postJson('/api/mobile/run/', {
+        'entry': entry ?? files.keys.first,
+        'files': files,
+        'target': target,
+      });
+    }
+    return postJson('/api/mobile/run/', {'source': source, 'target': target});
+  }
 
   Future<Map<String, dynamic>> fmt(String source) =>
       postJson('/api/mobile/fmt/', {'source': source});
 
-  Future<Map<String, dynamic>> check(String source) =>
-      postJson('/api/mobile/check/', {'source': source});
+  Future<Map<String, dynamic>> check(
+    String source, {
+    String? entry,
+    Map<String, String>? files,
+  }) {
+    if (files != null && files.isNotEmpty) {
+      return postJson('/api/mobile/check/', {
+        'entry': entry ?? files.keys.first,
+        'files': files,
+      });
+    }
+    return postJson('/api/mobile/check/', {'source': source});
+  }
 }

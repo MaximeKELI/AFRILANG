@@ -1723,6 +1723,102 @@ body.afr-body.afr-loaded main {
   border-color: rgba(29, 78, 216, 0.35);
 }
 
+/* Workspace file tree */
+.playground-files-card {
+  min-height: 420px;
+}
+
+.playground-files-body {
+  max-height: 480px;
+  overflow: auto;
+}
+
+.workspace-tree {
+  font-size: 0.875rem;
+}
+
+.ws-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0.28rem 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ws-row:hover {
+  background: rgba(29, 78, 216, 0.08);
+}
+
+.ws-row.active {
+  background: rgba(29, 78, 216, 0.14);
+  font-weight: 600;
+}
+
+.ws-folder {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.ws-ico {
+  width: 1.1rem;
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  color: var(--afr-text-secondary, #64748b);
+}
+
+.ws-folder .ws-ico::before {
+  content: '▸';
+}
+
+.ws-file .ws-ico::before {
+  content: '·';
+}
+
+.ws-label {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ws-actions {
+  flex: 0 0 auto;
+  opacity: 0;
+}
+
+.ws-row:hover .ws-actions {
+  opacity: 1;
+}
+
+.ws-action-btn {
+  padding: 0 0.25rem !important;
+  font-size: 0.7rem !important;
+  text-decoration: none !important;
+}
+
+#wsFileBadge {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-afr-theme='dark'] .ws-row:hover {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+[data-afr-theme='dark'] .ws-row.active {
+  background: rgba(96, 165, 250, 0.2);
+}
+
 .form-select,
 .form-control {
   transition:
