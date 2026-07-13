@@ -81,22 +81,23 @@ Exemple `settings.json` :
 
 ### Icône des fichiers `.afr`
 
-Les fichiers `.afr` affichent le logo AFRILANG dans l'explorateur (VS Code / Cursor récent).
+Les fichiers `.afr` affichent le logo AFRILANG dans l'explorateur (via l'icône de langage + thème Seti).
 
-Si l'icône n'apparaît pas :
+Si la coloration ou l'icône n'apparaissent pas :
 
-1. **Réinstallez** l'extension après mise à jour :
+1. **Réinstallez** l'extension :
    ```bash
-   cd vscode-afrilang && cursor --install-extension . --force
+   cd vscode-afrilang && ./install.sh
    ```
 2. **Rechargez** la fenêtre : *Developer: Reload Window*
-3. **Optionnel** — activez le thème d'icônes AFRILANG dans `settings.json` :
+3. Vérifiez le mode langage en bas à droite : **AFRILANG** (pas « Plain Text »)
+4. **Cursor Glass / Agents Window** : bug connu — les grammaires d'extensions
+   (dont AFRILANG) ne s'appliquent souvent pas dans la vue Agents.
+   Ouvrez le fichier dans l'**éditeur classique** (IDE) : couleurs + logo y fonctionnent.
+5. **Optionnel** — thème d'icônes dédié :
    ```json
-   {
-     "workbench.iconTheme": "afrilang-icons"
-   }
+   { "workbench.iconTheme": "afrilang-icons" }
    ```
-   Ou : *Preferences → File Icon Theme → AFRILANG*
 
 ## Commandes
 

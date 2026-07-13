@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installe l'extension AFRILANG dans VS Code, Cursor et VSCodium (lien symbolique).
+# Installe l'extension AFRILANG dans VS Code, Cursor et VSCodium (copie réelle).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -11,6 +11,7 @@ BUILD_BIN="${REPO}/build/afrilang"
 install_editor() {
   local label="$1"
   local ext_dir="$2"
+  local dest="${ext_dir}/${EXT_ID}"
 
   if [[ ! -d "$ext_dir" ]]; then
     echo "  ⊘ $label — $ext_dir absent (éditeur non installé ?)"
@@ -18,14 +19,62 @@ install_editor() {
   fi
 
   for old in "${ext_dir}"/afrilang.afrilang-*; do
-    if [[ -e "$old" && "$old" != "${ext_dir}/${EXT_ID}" ]]; then
+    if [[ -e "$old" || -L "$old" ]]; then
       echo "  Suppression ancienne version ($label): $(basename "$old")"
-      rm -f "$old"
+      rm -rf "$old"
     fi
   done
 
-  ln -sfn "$ROOT" "${ext_dir}/${EXT_ID}"
-  echo "  ✓ $label → ${ext_dir}/${EXT_ID}"
+  mkdir -p "$dest"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --delete \
+      --exclude node_modules \
+      --exclude '*.vsix' \
+      --exclude .git \
+      --exclude hello \
+      --exclude '*.generated.cpp' \
+      "$ROOT/" "$dest/"
+  else
+    cp -a "$ROOT"/. "$dest/"
+    rm -rf "$dest/node_modules" "$dest"/*.vsix 2>/dev/null || true
+  fi
+
+  (cd "$dest" && npm install --omit=dev --silent)
+
+  # Enregistrement minimal dans extensions.json (Cursor / VS Code)
+  local catalog="${ext_dir}/extensions.json"
+  if [[ -f "$catalog" ]] || [[ -d "$ext_dir" ]]; then
+    node -e "
+const fs = require('fs');
+const path = ${JSON.stringify(catalog)};
+const id = 'afrilang.afrilang';
+const version = ${JSON.stringify(VERSION)};
+const rel = ${JSON.stringify(EXT_ID)};
+const abs = ${JSON.stringify('${dest}')};
+let data = [];
+try { data = JSON.parse(fs.readFileSync(path, 'utf8')); } catch (_) {}
+if (!Array.isArray(data)) data = [];
+const entry = {
+  identifier: { id },
+  version,
+  location: { \$mid: 1, fsPath: abs, external: 'file://' + abs, path: abs, scheme: 'file' },
+  relativeLocation: rel,
+  metadata: {
+    isApplicationScoped: false,
+    isMachineScoped: false,
+    isBuiltin: false,
+    installedTimestamp: Date.now(),
+    pinned: true,
+    source: 'vsix'
+  }
+};
+const out = data.filter(e => e?.identifier?.id !== id);
+out.push(entry);
+fs.writeFileSync(path, JSON.stringify(out));
+"
+  fi
+
+  echo "  ✓ $label → ${dest}"
 }
 
 echo "→ Installation AFRILANG v${VERSION}..."
@@ -47,7 +96,7 @@ mkdir -p "$VSCODE_DIR"
 cat > "$VSCODE_DIR/settings.json" << EOF
 {
   "afrilang.serverPath": "${BUILD_BIN}",
-  "workbench.iconTheme": "afrilang-icons",
+  "workbench.iconTheme": "vs-seti",
   "files.associations": { "*.afr": "afrilang" },
   "[afrilang]": { "editor.tabSize": 4 }
 }
@@ -58,5 +107,9 @@ echo ""
 echo "Dans chaque éditeur (VS Code / Cursor / VSCodium) :"
 echo "  1. Ouvrir le dossier $REPO"
 echo "  2. Developer: Reload Window"
-echo "  3. Preferences → File Icon Theme → AFRILANG (optionnel)"
+echo "  3. Vérifier le mode langage (barre d'état) = AFRILANG"
 echo "  4. Output → AFRILANG — vérifier le chemin du serveur"
+echo ""
+echo "Note Cursor Glass / Agents Window :"
+echo "  La coloration et les icônes d'extensions y sont souvent absentes (bug Cursor)."
+echo "  Ouvrez le fichier dans l'éditeur classique (IDE) pour voir couleurs + logo."
