@@ -172,10 +172,19 @@ def api_reference(request):
 
 def packages_list(request):
     q = request.GET.get('q', '').strip()
+    tag = request.GET.get('tag', '').strip()
     qs = Package.objects.all()
     if q:
-        qs = qs.filter(name__icontains=q) | qs.filter(description__icontains=q)
-    return render(request, 'core/packages.html', {'packages': qs, 'query': q})
+        qs = qs.filter(name__icontains=q) | qs.filter(description__icontains=q) | qs.filter(
+            tags__icontains=q,
+        )
+    if tag:
+        qs = qs.filter(tags__icontains=tag)
+    return render(request, 'core/packages.html', {
+        'packages': qs,
+        'query': q,
+        'tag': tag,
+    })
 
 
 def package_detail(request, name):
@@ -184,7 +193,11 @@ def package_detail(request, name):
     pkg_path = Path(settings.AFRILANG_ROOT) / 'packages' / name / f'{name}.afr'
     if pkg_path.is_file():
         source = pkg_path.read_text(encoding='utf-8', errors='replace')
-    return render(request, 'core/package_detail.html', {'pkg': pkg, 'source': source})
+    return render(request, 'core/package_detail.html', {
+        'pkg': pkg,
+        'source': source,
+        'readme': pkg.readme,
+    })
 
 
 def examples_gallery(request):
@@ -204,8 +217,16 @@ def stdlib_browse(request):
     q = request.GET.get('q', '').strip()
     cat = request.GET.get('category', '').strip()
     overview = request.GET.get('overview', '').strip() in ('1', 'true', 'yes')
+    show_experimental = request.GET.get('experimental', '').strip() in ('1', 'true', 'yes')
+    core_only = request.GET.get('core', '1').strip() not in ('0', 'false', 'no') and not show_experimental
 
     qs = StdlibModule.objects.all().order_by('name')
+    if core_only:
+        qs = qs.filter(is_core=True)
+    elif show_experimental:
+        pass  # all modules
+    else:
+        qs = qs.filter(is_core=True)
     if cat:
         qs = qs.filter(category=cat)
     if q:
@@ -221,8 +242,11 @@ def stdlib_browse(request):
     use_grouped = overview and not q and not cat
     grouped = []
     if use_grouped:
+        base = StdlibModule.objects.all()
+        if core_only:
+            base = base.filter(is_core=True)
         for c in categories:
-            mods = StdlibModule.objects.filter(category=c['id']).order_by('name')
+            mods = base.filter(category=c['id']).order_by('name')
             n = mods.count()
             if n:
                 grouped.append({**c, 'count': n, 'modules': list(mods)})
@@ -235,6 +259,8 @@ def stdlib_browse(request):
         'categories': categories,
         'grouped': grouped if use_grouped else None,
         'overview': use_grouped,
+        'core_only': core_only,
+        'show_experimental': show_experimental,
     })
 
 
