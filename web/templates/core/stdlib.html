@@ -18,16 +18,20 @@
 </div>
 
 <div class="d-flex flex-wrap gap-2 mb-3">
-  <a href="{% url 'stdlib' %}" class="btn btn-sm {% if not category and not overview %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.all }}</a>
+  <a href="{% url 'stdlib' %}" class="btn btn-sm {% if not category and not overview and core_only and not show_experimental %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.all }}</a>
+  <a href="{% url 'stdlib' %}?core=1" class="btn btn-sm {% if core_only and not show_experimental %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">Core</a>
+  <a href="{% url 'stdlib' %}?experimental=1" class="btn btn-sm {% if show_experimental %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">Experimental</a>
   <a href="{% url 'stdlib' %}?overview=1" class="btn btn-sm {% if overview %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ ui.stdlib_page.overview }}</a>
   {% for cat in categories %}
-  <a href="{% url 'stdlib' %}?category={{ cat.id }}" class="btn btn-sm {% if category == cat.id %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ cat.label }}</a>
+  <a href="{% url 'stdlib' %}?category={{ cat.id }}{% if show_experimental %}&experimental=1{% endif %}" class="btn btn-sm {% if category == cat.id %}btn-afr-primary{% else %}btn-afr-outline{% endif %}">{{ cat.label }}</a>
   {% endfor %}
   <a href="{% url 'libraries' %}" class="btn btn-sm btn-afr-outline ms-auto">{{ ui.nav_libraries }}</a>
 </div>
 
 <p class="small text-secondary-custom mb-3">
   <strong>{{ total_count }}</strong> {{ ui.stdlib_page.count_label }}
+  {% if core_only and not show_experimental %}· core seulement{% endif %}
+  {% if show_experimental %}· inclut catalogues générés{% endif %}
 </p>
 
 {% if grouped %}

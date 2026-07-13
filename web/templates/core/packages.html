@@ -25,7 +25,13 @@
         <span class="badge text-bg-light border ms-auto">v{{ pkg.version }}</span>
       </div>
       <p class="small text-secondary-custom">{{ pkg.description }}</p>
+      {% if pkg.tag_list %}
+      <p class="mb-2">{% for t in pkg.tag_list %}<span class="badge text-bg-secondary me-1">{{ t }}</span>{% endfor %}</p>
+      {% endif %}
       <code class="small d-block mb-2">afrilang pkg add {{ pkg.name }}</code>
+      {% if pkg.repo_url %}
+      <p class="small mb-1"><a href="{{ pkg.repo_url }}" rel="noopener">{{ pkg.repo_url }}</a></p>
+      {% endif %}
       {% if pkg.sha256 %}
       <p class="small font-monospace text-secondary-custom mb-0" title="{{ pkg.sha256 }}">sha256: {{ pkg.sha256|slice:":24" }}…</p>
       {% endif %}

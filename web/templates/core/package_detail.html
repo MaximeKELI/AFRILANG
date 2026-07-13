@@ -16,11 +16,27 @@
     <span class="badge text-bg-light border ms-2">v{{ pkg.version }}</span>
   </div>
   <p class="text-secondary-custom">{{ pkg.description }}</p>
+  {% if pkg.tag_list %}
+  <p>{% for t in pkg.tag_list %}<span class="badge text-bg-secondary me-1">#{{ t }}</span>{% endfor %}</p>
+  {% endif %}
   <code class="d-block mb-2">afrilang pkg add {{ pkg.name }}</code>
+  {% if pkg.repo_url %}
+  <p class="small"><strong>repo:</strong> <a href="{{ pkg.repo_url }}" rel="noopener">{{ pkg.repo_url }}</a>
+    {% if pkg.method %}<span class="badge text-bg-light border ms-1">{{ pkg.method }}</span>{% endif %}
+    {% if pkg.license %}<span class="badge text-bg-light border ms-1">{{ pkg.license }}</span>{% endif %}
+  </p>
+  {% endif %}
   {% if pkg.sha256 %}
   <p class="small font-monospace text-secondary-custom mb-0">sha256: {{ pkg.sha256 }}</p>
   {% endif %}
 </div>
+
+{% if readme %}
+<div class="afr-card mb-4">
+  <div class="card-header small text-secondary-custom">README</div>
+  <pre class="card-body mb-0 overflow-auto" style="max-height:360px;white-space:pre-wrap">{{ readme }}</pre>
+</div>
+{% endif %}
 
 {% if source %}
 <div class="afr-card">
