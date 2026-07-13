@@ -27,6 +27,7 @@ private:
 
     void emitStatement(std::ostream& out, const StatementNode& stmt, int indent) const;
     void emitExpression(std::ostream& out, const ExpressionNode& expr) const;
+    void emitFunction(std::ostream& out, const FunctionNode& func) const;
     static void indent(std::ostream& out, int level);
     static std::string escapeString(const std::string& s);
 };
