@@ -4,6 +4,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/afrilang_theme.dart';
+import 'code_highlight.dart';
+import 'motion.dart';
 
 class AfrBrandMark extends StatelessWidget {
   const AfrBrandMark({super.key, this.size = 22});
