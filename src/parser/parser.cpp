@@ -1683,6 +1683,7 @@ std::unique_ptr<ExpressionNode> Parser::parsePrimary() {
 
     if (match(TokenType::Identifier)) {
         auto expr = std::make_unique<IdentifierNode>(previous().lexeme);
+        setLoc(*expr);
 
         if (match(TokenType::At)) {
             auto index = parseOperand();
