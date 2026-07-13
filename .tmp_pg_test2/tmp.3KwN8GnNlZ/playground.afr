@@ -1,0 +1,10 @@
+import "std/c/gameultra001"
+use gameultra001
+
+create w number = 5
+create h number = 5
+create grid list number = list of 0,0,0,0,0, 0,1,1,1,0, 0,0,0,1,0, 0,1,0,0,0, 0,0,0,0,0
+
+create path list number = astarGridPath(grid, w, h, 0, 0, 4, 4, 0)
+create simp list number = simplifyGridPath(path, w)
+create cnt number = floodCount(grid, w, h, 0, 0, 0)

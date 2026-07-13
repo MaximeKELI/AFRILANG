@@ -1,8 +1,0 @@
-import "std/c/gameultra3d001"
-use gameultra3d001
-
-create pos list number = list of 0,0,0, 2,0,0, 1,0,2
-create vel list number = list of 0,0,0, 0,0,0, 0,0,0
-create nv list number = boidsVelStep(pos, vel, 3, 0.016, 3, 1, 4)
-create np list number = integratePos(pos, nv, 3, 0.016)
-create hit list number = raySphereHit(0, 2, 5, 0, -0.3, -1, 1, 0, 0, 1)
