@@ -1,6 +1,0 @@
-{
-  "source": "/home/admin20/AFRILANG/./tests/specs/language_basics.afr",
-  "variables": [
-    {"name":"n","type":"number","scope":"double","line":24}
-  ]
-}
