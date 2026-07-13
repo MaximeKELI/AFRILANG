@@ -19,9 +19,9 @@ class AfrCodeHighlight extends StatelessWidget {
     'create', 'set', 'say', 'dire', 'function', 'fonction', 'returns', 'retourne',
     'end', 'fin', 'if', 'si', 'then', 'alors', 'else', 'sinon', 'while', 'tant',
     'for', 'pour', 'in', 'dans', 'class', 'classe', 'extends', 'étend', 'new',
-    'nouveau', 'return', 'retourne', 'import', 'use', 'use', 'match', 'case',
+    'nouveau', 'return', 'import', 'use', 'match', 'case',
     'async', 'await', 'true', 'false', 'null', 'and', 'or', 'not', 'is',
-    'greater', 'than', 'or', 'equal', 'to', 'less', 'public', 'private',
+    'greater', 'than', 'equal', 'to', 'less', 'public', 'private',
     'field', 'this', 'super', 'export', 'module',
   };
 
