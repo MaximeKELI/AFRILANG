@@ -1276,14 +1276,21 @@ int runCli(int argc, char* argv[]) {
         return cmdExplain(argv[2], lineFilter);
     }
     if (cmd == "init") {
-        return cmdInit(argc > 2 ? argv[2] : "");
+        bool asLib = false;
+        std::string name;
+        for (int i = 2; i < argc; ++i) {
+            const std::string arg = argv[i];
+            if (arg == "--lib") asLib = true;
+            else if (!arg.empty() && arg[0] != '-' && name.empty()) name = arg;
+        }
+        return cmdInit(name, asLib);
     }
     if (cmd == "lint") {
         if (argc < 3) { std::cerr << "Usage: afrilang lint <fichier.afr>\n"; return 1; }
         return cmdLint(argv[2]);
     }
     if (cmd == "doc") {
-        if (argc < 3) { std::cerr << "Usage: afrilang doc <fichier.afr>\n"; return 1; }
+        if (argc < 3) { std::cerr << "Usage: afrilang doc <fichier.afr|dossier>\n"; return 1; }
         return cmdDoc(argv[2]);
     }
     if (cmd == "debug") {
