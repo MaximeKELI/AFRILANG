@@ -241,6 +241,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         }
 
         Compiler compiler(srcPath.string(), root);
+        compiler.setErrorLimit(options.errorLimit);
         std::unique_ptr<ProgramNode> program = compiler.compile();
 
         for (const auto& d : compiler.diagnostics().diagnostics()) {
@@ -256,6 +257,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         }
 
         SemanticAnalyzer analyzer(*program, &compiler.sources(), srcPath.string());
+        analyzer.setErrorLimit(options.errorLimit);
         const SemanticResult semantic = analyzer.analyze();
         for (const auto& d : semantic.errors) {
             result.diagnostics.push_back(d);
@@ -263,10 +265,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
 
         const bool hasErrors = compiler.hasErrors() || semantic.hasErrors();
         if (hasErrors) {
-            for (std::size_t i = 0; i < result.diagnostics.size(); ++i) {
-                if (i > 0) std::cerr << "\n";
-                std::cerr << formatDiagnostic(result.diagnostics[i]);
-            }
+            DiagnosticEngine printer(options.errorLimit);
+            for (const auto& d : result.diagnostics) printer.report(d);
+            std::cerr << printer.formatAll();
             return result;
         }
 

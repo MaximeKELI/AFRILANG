@@ -40,7 +40,8 @@ public:
                  std::string file = "",
                  std::string sourceLine = "",
                  std::vector<std::string> suggestions = {},
-                 ErrorCode code = ErrorCode::Generic);
+                 ErrorCode code = ErrorCode::Generic,
+                 std::vector<DiagnosticNote> notes = {});
 
     int line() const { return line_; }
     int column() const { return column_; }
@@ -48,6 +49,7 @@ public:
     const std::string& messageText() const { return message_; }
     const std::string& sourceLine() const { return sourceLine_; }
     const std::vector<std::string>& suggestions() const { return suggestions_; }
+    const std::vector<DiagnosticNote>& notes() const { return notes_; }
     ErrorCode code() const { return code_; }
 
     Diagnostic toDiagnostic() const;
@@ -62,6 +64,7 @@ private:
     std::string sourceLine_;
     std::vector<std::string> suggestions_;
     ErrorCode code_;
+    std::vector<DiagnosticNote> notes_;
 };
 
 class DiagnosticEngine {

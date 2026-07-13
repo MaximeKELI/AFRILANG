@@ -11,7 +11,8 @@ namespace afrilang {
 CompileError::CompileError(std::string message, int line, int column,
                            std::string file, std::string sourceLine,
                            std::vector<std::string> suggestions,
-                           ErrorCode code)
+                           ErrorCode code,
+                           std::vector<DiagnosticNote> notes)
     : std::runtime_error("")
     , message_(std::move(message))
     , line_(line)
@@ -20,6 +21,7 @@ CompileError::CompileError(std::string message, int line, int column,
     , sourceLine_(std::move(sourceLine))
     , suggestions_(std::move(suggestions))
     , code_(code)
+    , notes_(std::move(notes))
 {
     static_cast<std::runtime_error&>(*this) = std::runtime_error(format());
 }
@@ -34,6 +36,7 @@ Diagnostic CompileError::toDiagnostic() const {
     d.column = column_;
     d.sourceLine = sourceLine_;
     d.suggestions = suggestions_;
+    d.notes = notes_;
     return d;
 }
 
