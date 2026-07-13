@@ -6,5 +6,5 @@ CXX_DEFINES = -DAFRILANG_TESTING=1 -DAFRILANG_VERSION=\"1.0.0\"
 
 CXX_INCLUDES = -I/home/admin20/AFRILANG/include
 
-CXX_FLAGS = -std=c++17 -Wall -Wextra -Wpedantic
+CXX_FLAGS = -g -std=c++17 -Wall -Wextra -Wpedantic
 
