@@ -121,7 +121,13 @@ class AfrilangBook(FPDF):
         w = self.epw
         x0 = self.l_margin
         line_h = size * 0.45
+
+        def clean(s: str) -> str:
+            # Keep printable + common whitespace; drop other controls
+            return "".join(ch if (ord(ch) >= 32 or ch in "\t") else " " for ch in s)
+
         for line in text.replace("\t", "    ").splitlines() or [""]:
+            line = clean(line)
             while len(line) > 108:
                 chunk, line = line[:108], line[108:]
                 if self.get_y() + line_h > self.page_break_trigger:
