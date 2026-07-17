@@ -12,10 +12,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-insecure-change-me')
 DEBUG = os.environ.get('DEBUG', '0') == '1'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,10.0.2.2').split(',')
 if DEBUG and '*' not in ALLOWED_HOSTS:
-    # Émulateurs / devices en LAN pour l’app Flutter
-    for host in ('10.0.2.2', '0.0.0.0'):
-        if host not in ALLOWED_HOSTS:
-            ALLOWED_HOSTS.append(host)
+    # Émulateurs + téléphone physique (IP LAN) pour l’app Flutter
+    ALLOWED_HOSTS.append('*')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
