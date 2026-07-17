@@ -1326,7 +1326,18 @@ std::unique_ptr<StatementNode> Parser::parseAskStatement() {
     auto prompt = parseExpression();
     consumeIntoOrEn("'into' ou 'en' attendu après le prompt");
     const Token& varToken = consumeName( "Nom de variable attendu après 'into'");
-    auto node = std::make_unique<AskStatementNode>(std::move(prompt), varToken.lexeme);
+    std::string targetType;
+    if (match(TokenType::As)) {
+        if (match(TokenType::TypeNumber)) {
+            targetType = "number";
+        } else if (match(TokenType::TypeText)) {
+            targetType = "text";
+        } else {
+            error("'number' ou 'text' attendu après 'as'");
+        }
+    }
+    auto node = std::make_unique<AskStatementNode>(
+        std::move(prompt), varToken.lexeme, std::move(targetType));
     node->loc = {varToken.line, varToken.column};
     return node;
 }

@@ -1,28 +1,15 @@
-import "std/parse"
-import "std/format"
-
-use parse
-use format
-
-say "=== Calcul du PAHT ==="
+say "=== PAHT calculator ==="
 say ""
 
-create nom = ""
-create prenom = ""
-create prixTexte = ""
-create tvaTexte = ""
+ask "Last name: " into lastName
+ask "First name: " into firstName
+ask "Unit price (TTC): " into unitPrice as number
+ask "VAT rate (%): " into vat as number
 
-ask "Nom : " into nom
-ask "Prenom : " into prenom
-ask "Prix unitaire TTC : " into prixTexte
-ask "Taux de TVA (%) : " into tvaTexte
-
-create prixUnitaire = parseFloat(prixTexte)
-create tva = parseFloat(tvaTexte)
-create paht = prixUnitaire / (1 + tva / 100)
+create paht = unitPrice / (1 + vat / 100)
 
 say ""
-say "Client : " + prenom + " " + nom
-say "Prix unitaire TTC : " + formatNumber(prixUnitaire, 2)
-say "TVA : " + formatNumber(tva, 2) + " %"
-say "PAHT (Prix d'Achat Hors Taxes) : " + formatNumber(paht, 2)
+say "Client: " + firstName + " " + lastName
+say "Unit price TTC: " + unitPrice
+say "VAT: " + vat + " %"
+say "PAHT (purchase price excl. tax): " + paht

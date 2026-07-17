@@ -387,7 +387,11 @@ void Formatter::formatStatement(std::ostream& out, const StatementNode& stmt) co
         writeIndent(out);
         out << "ask ";
         formatExpression(out, *ask->prompt);
-        out << " into " << ask->variableName << "\n";
+        out << " into " << ask->variableName;
+        if (!ask->targetTypeName.empty()) {
+            out << " as " << ask->targetTypeName;
+        }
+        out << "\n";
         return;
     }
 

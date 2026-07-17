@@ -25,6 +25,8 @@ struct ProcessConfig {
   bool limitProcessCount = false;
   // Keep DISPLAY/Wayland sockets open (required for SDL windows).
   bool interactiveGui = false;
+  // Keep stdin/stdout/stderr on the terminal (required for `ask`).
+  bool interactiveConsole = false;
 };
 
 ExecResult execWithTimeout(const std::string& executable,

@@ -7,6 +7,7 @@
 #include <string>
 #include <memory>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace afrilang {
 
@@ -41,6 +42,7 @@ private:
     mutable const FunctionNode* currentFunction_ = nullptr;
     mutable bool inTest_ = false;
     mutable bool inAsyncCoroutine_ = false;
+    mutable std::unordered_set<std::string> declaredVars_;
 
     void emitHeader(std::ostream& out) const;
     void emitRecords(std::ostream& out) const;

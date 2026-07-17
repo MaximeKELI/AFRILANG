@@ -14,7 +14,7 @@ enum class TokenType {
     Yield, Generator, Setup, Teardown, Spawn,
     While, Do, For, Each, In, Stop, Skip,
     Module, Use, Import, Export, Record, Field, Public, Private,
-    Set, This, Ask, Into, At, Add, Length, Of, Empty, List,
+    Set, This, Ask, Into, As, At, Add, Length, Of, Empty, List,
     True, False, Yes, No,
     Interface, Implements, Test, Assert, ErrorKw,
     Extern, From,
@@ -118,6 +118,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::This:           return "this";
         case TokenType::Ask:            return "ask";
         case TokenType::Into:           return "into";
+        case TokenType::As:             return "as";
         case TokenType::At:             return "at";
         case TokenType::Add:            return "add";
         case TokenType::Length:         return "length";

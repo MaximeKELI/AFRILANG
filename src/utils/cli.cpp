@@ -202,6 +202,14 @@ static void applyGuiExecConfig(ProcessConfig& config) {
     config.maxCpuSeconds = 0;
 }
 
+static void applyInteractiveConsoleConfig(ProcessConfig& config) {
+    config.interactiveConsole = true;
+    config.newSession = false;
+    config.timeoutSeconds = 0;
+    config.limitProcessCount = false;
+    config.maxCpuSeconds = 0;
+}
+
 static ExecResult runCompiledProgram(const std::string& crossTarget,
                                      const std::string& executable,
                                      const ProcessConfig& config) {
@@ -338,7 +346,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                 result.success = true;
                 std::cout << "Cache: exécutable à jour (" << result.executable << ")\n";
                 if (options.runAfter) {
-                    std::cout << "--- Exécution ---\n";
+                    std::cout << "--- Exécution ---\n" << std::flush;
                     const auto execStart = std::chrono::steady_clock::now();
                     const auto limits = securityLimits(SecurityContext::TrustedCompile);
                     ProcessConfig config;
@@ -349,6 +357,8 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                     config.limitProcessCount = true;
                     if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                         applyGuiExecConfig(config);
+                    } else if (semantic.usesAsk) {
+                        applyInteractiveConsoleConfig(config);
                     }
                     const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
                     if (!exec.output.empty()) std::cout << exec.output;
@@ -401,7 +411,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
         }
 
         if (options.runAfter) {
-            std::cout << "--- Exécution ---\n";
+            std::cout << "--- Exécution ---\n" << std::flush;
             const auto execStart = std::chrono::steady_clock::now();
             const auto limits = securityLimits(SecurityContext::TrustedCompile);
             ProcessConfig config;
@@ -412,6 +422,8 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             config.limitProcessCount = true;
             if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                 applyGuiExecConfig(config);
+            } else if (semantic.usesAsk) {
+                applyInteractiveConsoleConfig(config);
             }
             const ExecResult exec = runCompiledProgram(crossTarget, result.executable, config);
             if (!exec.output.empty()) {

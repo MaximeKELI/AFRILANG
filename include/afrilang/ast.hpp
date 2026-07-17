@@ -342,9 +342,14 @@ struct ContinueStatementNode : StatementNode {};
 struct AskStatementNode : StatementNode {
     std::unique_ptr<ExpressionNode> prompt;
     std::string variableName;
+    // Empty or "text" → text; "number" → number (parsed from input).
+    std::string targetTypeName;
 
-    AskStatementNode(std::unique_ptr<ExpressionNode> prompt, std::string variableName)
-        : prompt(std::move(prompt)), variableName(std::move(variableName)) {}
+    AskStatementNode(std::unique_ptr<ExpressionNode> prompt, std::string variableName,
+                     std::string targetTypeName = "")
+        : prompt(std::move(prompt))
+        , variableName(std::move(variableName))
+        , targetTypeName(std::move(targetTypeName)) {}
 };
 
 struct UseStatementNode : StatementNode {

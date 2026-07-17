@@ -99,6 +99,7 @@ struct SemanticResult {
     bool usesGenerators = false;
     bool usesUi = false;
     bool usesGame3d = false;
+    bool usesAsk = false;
     std::vector<Diagnostic> errors;
     std::vector<LintWarning> warnings;
 

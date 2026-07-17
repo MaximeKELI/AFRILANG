@@ -226,9 +226,19 @@ end
 
 ### Entrée utilisateur
 ```
-ask "Quel est votre nom ?" into name
+ask "What is your name?" into name
 say name
+
+ask "Age:" into age as number
+say "Next year you will be " + (age + 1)
+
+ask "Price:" into price as number
+ask "VAT (%):" into vat as number
+create ht = price / (1 + vat / 100)
+say "Excl. tax: " + ht
 ```
+
+`ask` déclare automatiquement la variable. Sans `as`, le type est `text`. Avec `as number`, la saisie est convertie en nombre.
 
 ### Classes et méthodes
 ```

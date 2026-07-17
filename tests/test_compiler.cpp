@@ -805,6 +805,82 @@ static void testJsonStringLiteralParse() {
     analyzer.analyze();
 }
 
+static void testAskAsNumber() {
+    const std::string src =
+        "ask \"Name: \" into name\n"
+        "ask \"Price: \" into price as number\n"
+        "ask \"VAT: \" into vat as number\n"
+        "create ht = price / (1 + vat / 100)\n"
+        "say \"Client: \" + name\n"
+        "say \"HT: \" + ht\n";
+
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(program->statements.size() >= 4, "ask as number parses statements");
+
+    const auto* askName = dynamic_cast<const afrilang::AskStatementNode*>(
+        program->statements[0].get());
+    const auto* askPrice = dynamic_cast<const afrilang::AskStatementNode*>(
+        program->statements[1].get());
+    expect(askName != nullptr && askName->targetTypeName.empty(),
+           "ask text has empty target type");
+    expect(askPrice != nullptr && askPrice->targetTypeName == "number",
+           "ask as number sets targetTypeName");
+
+    afrilang::SourceManager sources;
+    sources.addFile("ask_as_number.afr", src);
+    afrilang::SemanticAnalyzer analyzer(*program, &sources, "ask_as_number.afr");
+    const auto semantic = analyzer.analyze();
+    expect(!semantic.hasErrors(), "ask as number semantic ok");
+    expect(semantic.usesAsk, "usesAsk is set");
+    expect(semantic.globalVariables.count("name") &&
+               semantic.globalVariables.at("name").kind == afrilang::TypeKind::Text,
+           "name auto-declared as text");
+    expect(semantic.globalVariables.count("price") &&
+               semantic.globalVariables.at("price").kind == afrilang::TypeKind::Number,
+           "price auto-declared as number");
+
+    afrilang::CodeGenerator codegen(*program, semantic);
+    codegen.setRuntimeDir(afrilang::detectAfrilangRoot() + "/runtime");
+    const std::string cpp = codegen.generate();
+    expect(cpp.find("std::stod") != std::string::npos, "codegen converts with stod");
+    expect(cpp.find("double price") != std::string::npos, "codegen declares double price");
+    expect(cpp.find("str::concat") != std::string::npos ||
+               cpp.find("str::toString") != std::string::npos,
+           "codegen stringifies numbers in say/concat");
+
+    namespace fs = std::filesystem;
+    const fs::path tmpDir = fs::temp_directory_path() / "afrilang_ask_as_number";
+    fs::create_directories(tmpDir);
+    const fs::path srcPath = tmpDir / "paht_short.afr";
+    {
+        std::ofstream out(srcPath);
+        out << src;
+    }
+    afrilang::CompileOptions opts;
+    opts.runtimeDir = afrilang::detectAfrilangRoot() + "/runtime";
+    opts.useCache = false;
+    opts.outputExecutable = (tmpDir / "paht_short_bin").string();
+    const auto result = afrilang::Pipeline::compileFile(srcPath.string(), opts);
+    expect(result.success, "compile ask as number program");
+
+    if (result.success) {
+        afrilang::ProcessConfig config;
+        config.timeoutSeconds = 10;
+        config.applyResourceLimits = false;
+        const std::string cmd =
+            "printf 'Ada\\n120\\n20\\n' | \"" + result.executable + "\"";
+        std::string combined;
+        const int code = afrilang::runCommand({"/bin/sh", "-c", cmd}, config, combined);
+        expect(code == 0, "ask as number program runs");
+        expect(combined.find("Ada") != std::string::npos,
+               "ask as number prints name");
+        expect(combined.find("100") != std::string::npos, "ask as number computes HT=100");
+    }
+    fs::remove_all(tmpDir);
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -866,6 +942,7 @@ int main() {
     testSnakeLogicUnitTests();
     testStringInterpolationCall();
     testJsonStringLiteralParse();
+    testAskAsNumber();
     std::cout << "\n";
     if (failures == 0) {
         std::cout << "Tous les tests passent.\n";

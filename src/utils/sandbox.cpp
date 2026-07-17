@@ -45,7 +45,7 @@ void applyChildLimits(const ProcessConfig& config) {
         rl.rlim_max = config.maxCpuSeconds;
         setrlimit(RLIMIT_CPU, &rl);
     }
-    if (!config.interactiveGui) {
+    if (!config.interactiveGui && !config.interactiveConsole) {
         rl.rlim_cur = 16 * 1024 * 1024;
         rl.rlim_max = 16 * 1024 * 1024;
         setrlimit(RLIMIT_FSIZE, &rl);
@@ -106,20 +106,24 @@ pid_t spawnProcess(const std::string& executable,
     const pid_t pid = fork();
     if (pid != 0) return pid;
 
-    if (config.newSession && !config.interactiveGui) {
+    if (config.newSession && !config.interactiveGui && !config.interactiveConsole) {
         setsid();
     }
     applyChildLimits(config);
 
-    const char* sinkPath = config.interactiveGui ? "/dev/null" : outPath.c_str();
-    const int fd = open(sinkPath, O_WRONLY | O_CREAT | O_TRUNC, 0600);
-    if (fd >= 0) {
-        dup2(fd, STDOUT_FILENO);
-        dup2(fd, STDERR_FILENO);
-        close(fd);
-    }
-    if (!config.interactiveGui) {
-        closeAllFdsExcept(STDOUT_FILENO, STDERR_FILENO);
+    if (config.interactiveConsole) {
+        // Keep the real terminal for ask / readline programs.
+    } else {
+        const char* sinkPath = config.interactiveGui ? "/dev/null" : outPath.c_str();
+        const int fd = open(sinkPath, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+        if (fd >= 0) {
+            dup2(fd, STDOUT_FILENO);
+            dup2(fd, STDERR_FILENO);
+            close(fd);
+        }
+        if (!config.interactiveGui) {
+            closeAllFdsExcept(STDOUT_FILENO, STDERR_FILENO);
+        }
     }
 
     std::vector<char*> argv;

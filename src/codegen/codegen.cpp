@@ -1190,6 +1190,7 @@ void CodeGenerator::emitTests(std::ostream& out) const {
 }
 
 void CodeGenerator::emitMain(std::ostream& out) const {
+    declaredVars_.clear();
     for (const auto& modName : semantic_.usedModules) {
         const std::string ns = usesStdlibModule(modName)
             ? stdlibWrapperNamespace(modName)
@@ -1259,15 +1260,16 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             emitExpression(out, *say->value, ownerClass);
             out << "));\n";
         } else {
-            out << "std::cout << ";
+            out << "std::cout << afrilang::runtime::str::toString(";
             emitExpression(out, *say->value, ownerClass);
-            out << " << std::endl;\n";
+            out << ") << std::endl;\n";
         }
         return;
     }
 
     if (const auto* assign = dynamic_cast<const AssignStatementNode*>(&stmt)) {
         const std::string constPrefix = assign->isConst ? "const " : "";
+        declaredVars_.insert(assign->name);
 
         if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(assign->value.get())) {
             std::string typeCpp;
@@ -1501,11 +1503,46 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* ask = dynamic_cast<const AskStatementNode*>(&stmt)) {
+        const bool asNumber = ask->targetTypeName == "number";
+        const bool needDeclare = declaredVars_.insert(ask->variableName).second;
+
+        if (needDeclare) {
+            if (asNumber) {
+                out << "double " << ask->variableName << " = 0;\n";
+            } else {
+                out << "std::string " << ask->variableName << ";\n";
+            }
+            indent(out, indentLevel);
+        }
+
+        out << "{\n";
+        indent(out, indentLevel + 1);
+        out << "std::string __afr_ask_line;\n";
+        indent(out, indentLevel + 1);
         out << "std::cout << ";
         emitExpression(out, *ask->prompt, ownerClass);
-        out << ";\n";
+        out << " << std::flush;\n";
+        indent(out, indentLevel + 1);
+        out << "std::getline(std::cin, __afr_ask_line);\n";
+        indent(out, indentLevel + 1);
+        if (asNumber) {
+            out << "try {\n";
+            indent(out, indentLevel + 2);
+            out << ask->variableName << " = std::stod(__afr_ask_line);\n";
+            indent(out, indentLevel + 1);
+            out << "} catch (...) {\n";
+            indent(out, indentLevel + 2);
+            out << "std::cerr << \"Invalid number for '" << escapeString(ask->variableName)
+                << "'\" << std::endl;\n";
+            indent(out, indentLevel + 2);
+            out << ask->variableName << " = 0;\n";
+            indent(out, indentLevel + 1);
+            out << "}\n";
+        } else {
+            out << ask->variableName << " = __afr_ask_line;\n";
+        }
         indent(out, indentLevel);
-        out << "std::getline(std::cin, " << ask->variableName << ");\n";
+        out << "}\n";
         return;
     }
 
@@ -1994,14 +2031,20 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
         if (bin->op == "+") {
-            const auto* leftStr = dynamic_cast<const StringLiteralNode*>(bin->left.get());
-            const auto* rightStr = dynamic_cast<const StringLiteralNode*>(bin->right.get());
-            if (leftStr || rightStr) {
-                out << "(";
+            const AfrType leftType = inferExpressionAfrType(*bin->left);
+            const AfrType rightType = inferExpressionAfrType(*bin->right);
+            const bool leftText = leftType.kind == TypeKind::Text;
+            const bool rightText = rightType.kind == TypeKind::Text;
+            const bool leftNum = leftType.kind == TypeKind::Number || leftType.kind == TypeKind::Int;
+            const bool rightNum = rightType.kind == TypeKind::Number || rightType.kind == TypeKind::Int;
+
+            if ((leftText && rightText) || (leftText && rightNum) || (leftNum && rightText)) {
+                out << "afrilang::runtime::str::concat({";
+                out << "afrilang::runtime::str::toString(";
                 emitExpression(out, *bin->left, ownerClass);
-                out << " + ";
+                out << "), afrilang::runtime::str::toString(";
                 emitExpression(out, *bin->right, ownerClass);
-                out << ")";
+                out << ")})";
                 return;
             }
         }
@@ -2730,6 +2773,20 @@ std::string CodeGenerator::resolveVariableType(const std::string& name) const {
 AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const {
     if (expr.typeInferred) {
         return expr.inferredType;
+    }
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        if (bin->op == "+") {
+            const AfrType left = inferExpressionAfrType(*bin->left);
+            const AfrType right = inferExpressionAfrType(*bin->right);
+            const bool leftText = left.kind == TypeKind::Text;
+            const bool rightText = right.kind == TypeKind::Text;
+            const bool leftNum = left.kind == TypeKind::Number || left.kind == TypeKind::Int;
+            const bool rightNum = right.kind == TypeKind::Number || right.kind == TypeKind::Int;
+            if ((leftText && rightText) || (leftText && rightNum) || (leftNum && rightText)) {
+                return AfrType::text();
+            }
+            if (leftNum && rightNum) return AfrType::number();
+        }
     }
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
         auto it = semantic_.globalVariables.find(id->name);

@@ -1022,10 +1022,28 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
     }
 
     if (const auto* ask = dynamic_cast<const AskStatementNode*>(&stmt)) {
+        result_.usesAsk = true;
         analyzeExpression(*ask->prompt, scope);
-        scope[ask->variableName] = AfrType::text();
-        if (isGlobalScope) {
-            result_.globalVariables[ask->variableName] = AfrType::text();
+
+        AfrType askType = AfrType::text();
+        if (ask->targetTypeName == "number") {
+            askType = AfrType::number();
+        } else if (!ask->targetTypeName.empty() && ask->targetTypeName != "text") {
+            errorAt(*ask, "Type ask invalide '" + ask->targetTypeName +
+                    "' (attendu: number ou text)");
+        }
+
+        auto existing = scope.find(ask->variableName);
+        if (existing != scope.end()) {
+            if (existing->second.kind != askType.kind) {
+                errorAt(*ask, "Variable '" + ask->variableName +
+                        "' déjà déclarée avec un type incompatible");
+            }
+        } else {
+            scope[ask->variableName] = askType;
+            if (isGlobalScope) {
+                result_.globalVariables[ask->variableName] = askType;
+            }
         }
         return;
     }
@@ -1493,6 +1511,12 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
         }
 
         if (bin->op == "+" && left.kind == TypeKind::Text && right.kind == TypeKind::Text) {
+            return AfrType::text();
+        }
+
+        if (bin->op == "+" &&
+            ((left.kind == TypeKind::Text && isNumeric(right)) ||
+             (isNumeric(left) && right.kind == TypeKind::Text))) {
             return AfrType::text();
         }
 
