@@ -238,6 +238,12 @@ PKG_CONFIG_ARGN:STRING=
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a library.
+pkgcfg_lib_SDL2TTF_SDL2:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2.so
+
+//Path to a library.
+pkgcfg_lib_SDL2TTF_SDL2_ttf:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
+
+//Path to a library.
 pkgcfg_lib_SDL2_SDL2:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2.so
 
 //Path to a library.
@@ -392,31 +398,41 @@ OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
-SDL2TTF_CFLAGS:INTERNAL=
+SDL2TTF_CFLAGS:INTERNAL=-I/usr/include/SDL2;-I/usr/include;-D_REENTRANT;-I/usr/include/harfbuzz;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/sysprof-6;-pthread;-I/usr/include/freetype2;-I/usr/include/libpng16
 SDL2TTF_CFLAGS_I:INTERNAL=
-SDL2TTF_CFLAGS_OTHER:INTERNAL=
-SDL2TTF_FOUND:INTERNAL=
-SDL2TTF_INCLUDEDIR:INTERNAL=
-SDL2TTF_LIBDIR:INTERNAL=
+SDL2TTF_CFLAGS_OTHER:INTERNAL=-D_REENTRANT;-pthread
+SDL2TTF_FOUND:INTERNAL=1
+SDL2TTF_INCLUDEDIR:INTERNAL=/usr/include
+SDL2TTF_INCLUDE_DIRS:INTERNAL=/usr/include/SDL2;/usr/include;/usr/include/harfbuzz;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/sysprof-6;/usr/include/freetype2;/usr/include/libpng16
+SDL2TTF_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lSDL2_ttf;-lSDL2
+SDL2TTF_LDFLAGS_OTHER:INTERNAL=
+SDL2TTF_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDL2TTF_LIBRARIES:INTERNAL=SDL2_ttf;SDL2
+SDL2TTF_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
 SDL2TTF_LIBS:INTERNAL=
 SDL2TTF_LIBS_L:INTERNAL=
 SDL2TTF_LIBS_OTHER:INTERNAL=
 SDL2TTF_LIBS_PATHS:INTERNAL=
-SDL2TTF_MODULE_NAME:INTERNAL=
-SDL2TTF_PREFIX:INTERNAL=
+SDL2TTF_MODULE_NAME:INTERNAL=SDL2_ttf
+SDL2TTF_PREFIX:INTERNAL=/usr
 SDL2TTF_SDL2_ttf_INCLUDEDIR:INTERNAL=
 SDL2TTF_SDL2_ttf_LIBDIR:INTERNAL=
 SDL2TTF_SDL2_ttf_PREFIX:INTERNAL=
 SDL2TTF_SDL2_ttf_VERSION:INTERNAL=
-SDL2TTF_STATIC_CFLAGS:INTERNAL=
+SDL2TTF_STATIC_CFLAGS:INTERNAL=-I/usr/include/SDL2;-I/usr/include;-D_REENTRANT;-I/usr/include/harfbuzz;-I/usr/include/glib-2.0;-I/usr/lib/x86_64-linux-gnu/glib-2.0/include;-I/usr/include/sysprof-6;-pthread;-I/usr/include/freetype2;-I/usr/include/libpng16
 SDL2TTF_STATIC_CFLAGS_I:INTERNAL=
-SDL2TTF_STATIC_CFLAGS_OTHER:INTERNAL=
+SDL2TTF_STATIC_CFLAGS_OTHER:INTERNAL=-D_REENTRANT;-pthread
+SDL2TTF_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/SDL2;/usr/include;/usr/include/harfbuzz;/usr/include/glib-2.0;/usr/lib/x86_64-linux-gnu/glib-2.0/include;/usr/include/sysprof-6;/usr/include/freetype2;/usr/include/libpng16
+SDL2TTF_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lSDL2_ttf;-lSDL2;-lm;-lasound;-lm;-ldl;-lpthread;-lpulse;-pthread;-lsamplerate;-lX11;-lXext;-lXcursor;-lXi;-lXfixes;-lXrandr;-lXss;-ldrm;-lgbm;-lwayland-egl;-lwayland-client;-lm;-lwayland-cursor;-lxkbcommon;-ldecor-0;-lpthread;-lharfbuzz;-pthread;-lm;-lglib-2.0;-latomic;-lm;-lsysprof-capture-4;-Wl,-z,nodelete;-pthread;-lpcre2-8;-lgraphite2;-lfreetype;-L/usr/lib;-lbz2;-lpng16;-lm;-lz;-lbrotlidec;-lbrotlicommon
+SDL2TTF_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread;-pthread;-Wl,-z,nodelete;-pthread
 SDL2TTF_STATIC_LIBDIR:INTERNAL=
+SDL2TTF_STATIC_LIBRARIES:INTERNAL=SDL2_ttf;SDL2;m;asound;m;dl;pthread;pulse;samplerate;X11;Xext;Xcursor;Xi;Xfixes;Xrandr;Xss;drm;gbm;wayland-egl;wayland-client;m;wayland-cursor;xkbcommon;decor-0;pthread;harfbuzz;m;glib-2.0;atomic;m;sysprof-capture-4;pcre2-8;graphite2;freetype;bz2;png16;m;z;brotlidec;brotlicommon
+SDL2TTF_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib
 SDL2TTF_STATIC_LIBS:INTERNAL=
 SDL2TTF_STATIC_LIBS_L:INTERNAL=
 SDL2TTF_STATIC_LIBS_OTHER:INTERNAL=
 SDL2TTF_STATIC_LIBS_PATHS:INTERNAL=
-SDL2TTF_VERSION:INTERNAL=
+SDL2TTF_VERSION:INTERNAL=2.24.0
 SDL2_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/SDL2;-D_REENTRANT
 SDL2_CFLAGS_I:INTERNAL=
 SDL2_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
@@ -488,10 +504,15 @@ _OPENSSL_openssl_LIBDIR:INTERNAL=
 _OPENSSL_openssl_PREFIX:INTERNAL=
 _OPENSSL_openssl_VERSION:INTERNAL=
 __pkg_config_arguments_SDL2:INTERNAL=QUIET;sdl2
+__pkg_config_arguments_SDL2TTF:INTERNAL=QUIET;SDL2_ttf
 __pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
 __pkg_config_checked_SDL2:INTERNAL=1
 __pkg_config_checked_SDL2TTF:INTERNAL=1
 __pkg_config_checked__OPENSSL:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDL2TTF_SDL2
+pkgcfg_lib_SDL2TTF_SDL2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDL2TTF_SDL2_ttf
+pkgcfg_lib_SDL2TTF_SDL2_ttf-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_SDL2_SDL2
 pkgcfg_lib_SDL2_SDL2-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
