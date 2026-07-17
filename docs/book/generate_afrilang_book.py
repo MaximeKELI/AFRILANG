@@ -214,40 +214,53 @@ class AfrilangBook(FPDF):
 
 def cover(pdf: AfrilangBook) -> None:
     pdf.add_page()
-    pdf.ln(40)
+    pdf.set_margins(15, 15, 15)
+    pdf.set_x(15)
+    pdf.ln(35)
     pdf.set_font("DejaVu", "B", 28)
-    pdf.multi_cell(0, 14, "AFRILANG", align="C")
-    pdf.ln(4)
-    pdf.set_font("DejaVu", "B", 16)
-    pdf.multi_cell(0, 8, "Le langage à syntaxe naturelle\nqui transpile vers C++17/C++20", align="C")
+    pdf.cell(0, 14, "AFRILANG", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(6)
+    pdf.set_font("DejaVu", "B", 14)
+    for line in (
+        "Le langage a syntaxe naturelle",
+        "qui transpile vers C++17/C++20",
+    ):
+        pdf.cell(0, 8, line, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(10)
-    pdf.set_font("DejaVu", "", 13)
-    pdf.multi_cell(
-        0,
-        7,
-        "Manuel officiel ultra-détaillé\nGuide d'utilisation • Spécification du langage\n"
-        "Bibliothèque standard • Paquets • Outils • Architecture\n"
-        "Playground web • Extension VS Code • WASM",
-        align="C",
-    )
-    pdf.ln(18)
+    pdf.set_font("DejaVu", "", 12)
+    for line in (
+        "Manuel officiel ultra-detaille",
+        "Guide d'utilisation - Specification du langage",
+        "Bibliotheque standard - Paquets - Outils - Architecture",
+        "Playground web - Extension VS Code - WASM",
+    ):
+        pdf.cell(0, 7, line, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(16)
     pdf.set_draw_color(20, 100, 60)
     pdf.set_line_width(0.8)
     pdf.line(60, pdf.get_y(), 150, pdf.get_y())
     pdf.ln(12)
     pdf.set_font("DejaVu", "B", 12)
-    pdf.multi_cell(0, 7, f"Auteur : {AUTHOR}", align="C")
+    pdf.cell(0, 7, f"Auteur : {AUTHOR}", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_font("DejaVu", "", 11)
-    pdf.multi_cell(
-        0,
-        6,
-        f"Téléphone : {TEL}\nWhatsApp : {WHATSAPP}\nEmail : {EMAIL}\n"
-        f"GitHub : {GITHUB}\nLicence : MIT",
-        align="C",
-    )
-    pdf.ln(20)
+    for line in (
+        f"Telephone : {TEL}",
+        f"WhatsApp : {WHATSAPP}",
+        f"Email : {EMAIL}",
+        f"GitHub : {GITHUB}",
+        "Licence : MIT",
+    ):
+        pdf.cell(0, 6, line, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(16)
     pdf.set_font("DejaVu", "", 10)
-    pdf.multi_cell(0, 5, "Édition 1.0 — Documentation complète de l'écosystème AFRILANG", align="C")
+    pdf.cell(
+        0,
+        5,
+        "Edition 1.0 - Documentation complete de l'ecosysteme AFRILANG",
+        align="C",
+        new_x=XPos.LMARGIN,
+        new_y=YPos.NEXT,
+    )
 
 
 def author_page(pdf: AfrilangBook) -> None:
