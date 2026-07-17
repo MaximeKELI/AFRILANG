@@ -7,6 +7,11 @@ use format
 say "=== Calcul du PAHT ==="
 say ""
 
+create nom = ""
+create prenom = ""
+create prixTexte = ""
+create tvaTexte = ""
+
 ask "Nom : " into nom
 ask "Prenom : " into prenom
 ask "Prix unitaire TTC : " into prixTexte
@@ -14,7 +19,6 @@ ask "Taux de TVA (%) : " into tvaTexte
 
 create prixUnitaire = parseFloat(prixTexte)
 create tva = parseFloat(tvaTexte)
-
 create paht = prixUnitaire / (1 + tva / 100)
 
 say ""
