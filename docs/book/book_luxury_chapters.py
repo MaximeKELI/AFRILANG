@@ -121,12 +121,18 @@ fixer AFRILANG_HOME et le PATH une fois pour toutes dans votre shell.
         "retrouver runtime, stdlib et ressources associees.",
     )
     pdf.h2("Voie rapide")
+    pdf.body(
+        """
+Je fournis un installateur officiel. Une fois le binaire place dans votre PATH, exportez
+AFRILANG_HOME puis verifiez. Si vous travaillez depuis les sources du projet, compilez
+localement comme indique plus bas — c'est la methode que je privilegie en atelier.
+"""
+    )
     pdf.code(
-        "curl -fsSL https://raw.githubusercontent.com/MaximeKELI/AFRILANG/main/install.sh | bash\n"
         'export PATH="$HOME/.local/bin:$PATH"\n'
         'export AFRILANG_HOME="$HOME/.local/afrilang"\n'
         "afrilang version",
-        caption="Installation et verification",
+        caption="Verification de l'atelier",
     )
     pdf.body(
         """
