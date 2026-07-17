@@ -271,48 +271,50 @@ def cover(pdf: AfrilangBook) -> None:
 
 def author_page(pdf: AfrilangBook) -> None:
     pdf.add_page()
+    pdf.set_x(pdf.l_margin)
     pdf.set_font("DejaVu", "B", 16)
-    pdf.multi_cell(0, 9, "À propos de l'auteur")
+    pdf.multi_cell(pdf.epw, 9, "A propos de l'auteur")
     pdf.ln(4)
     pdf.body(
         f"""
-{AUTHOR} est le créateur et mainteneur principal du langage AFRILANG et de son écosystème
-(compilateur, bibliothèque standard, gestionnaire de paquets, serveur Language Server,
+{AUTHOR} est le createur et mainteneur principal du langage AFRILANG et de son ecosysteme
+(compilateur, bibliotheque standard, gestionnaire de paquets, serveur Language Server,
 playground web Django, extension Visual Studio Code / Cursor, et application mobile Flutter).
 
 AFRILANG poursuit un objectif clair : offrir une syntaxe naturelle, accessible en anglais
-(avec alias français), tout en produisant des exécutables natifs performants via une
+(avec alias francais), tout en produisant des executables natifs performants via une
 transpilation vers C++17/C++20.
 
-Ce manuel regroupe la spécification du langage, les guides d'installation et d'utilisation,
-la référence de la bibliothèque standard, la documentation des outils, ainsi que des
-exemples commentés issus du dépôt officiel.
+Ce manuel regroupe la specification du langage, les guides d'installation et d'utilisation,
+la reference de la bibliotheque standard, la documentation des outils, ainsi que des
+exemples commentes issus du depot officiel.
 """
     )
-    pdf.h3("Coordonnées")
+    pdf.h3("Coordonnees")
     pdf.bullet(
         [
             f"Nom : {AUTHOR}",
-            f"Téléphone : {TEL}",
+            f"Telephone : {TEL}",
             f"WhatsApp : {WHATSAPP}",
             f"Email : {EMAIL}",
-            f"Dépôt : {GITHUB}",
+            f"Depot : {GITHUB}",
         ]
     )
 
 
 def write_toc(pdf: AfrilangBook) -> None:
     pdf.add_page()
-    pdf.chapter_title = "Table des matières"
+    pdf.chapter_title = "Table des matieres"
+    pdf.set_x(pdf.l_margin)
     pdf.set_font("DejaVu", "B", 18)
-    pdf.multi_cell(0, 10, "Table des matières")
+    pdf.multi_cell(pdf.epw, 10, "Table des matieres")
     pdf.ln(4)
     pdf.set_font("DejaVu", "", 10)
+    pdf.set_x(pdf.l_margin)
     pdf.multi_cell(
-        0,
+        pdf.epw,
         5,
-        "L'index détaillé avec numéros de pages se trouve en fin d'ouvrage. "
-        "Plan général :",
+        "L'index detaille avec numeros de pages se trouve en fin d'ouvrage. Plan general :",
     )
     pdf.ln(3)
     pdf.bullet(
@@ -320,11 +322,11 @@ def write_toc(pdf: AfrilangBook) -> None:
             "Partie I — Vision, philosophie et architecture",
             "Partie II — Installation et premiers pas",
             "Partie III — Guide d'utilisation de la CLI",
-            "Partie IV — Spécification complète du langage",
-            "Partie V — Entrée utilisateur (ask) et programmes interactifs",
+            "Partie IV — Specification complete du langage",
+            "Partie V — Entree utilisateur (ask) et programmes interactifs",
             "Partie VI — POO, modules, async, FFI et tests",
-            "Partie VII — Guides pédagogiques (débutant → avancé)",
-            "Partie VIII — Bibliothèque standard (core, simple, medium, complex)",
+            "Partie VII — Guides pedagogiques (debutant vers avance)",
+            "Partie VIII — Bibliotheque standard (core, simple, medium, complex)",
             "Partie IX — Gestionnaire de paquets",
             "Partie X — Outils : LSP, VS Code, WASM",
             "Partie XI — Site web Django, playground et mobile",

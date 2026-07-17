@@ -96,9 +96,9 @@ def part_cli(pdf) -> None:
     ]
     for cmd, desc in commands:
         pdf.set_font("Mono", "", 8)
-        pdf.multi_cell(0, 4.5, cmd)
+        pdf.set_x(pdf.l_margin); pdf.multi_cell(pdf.epw, 4.5, cmd)
         pdf.set_font("DejaVu", "", 9)
-        pdf.multi_cell(0, 5, f"    → {desc}")
+        pdf.set_x(pdf.l_margin); pdf.multi_cell(pdf.epw, 5, f"    → {desc}")
         pdf.ln(1)
     pdf.h2("Projet")
     pdf.code('[package]\nname = "mon_app"\nversion = "0.1.0"\nmain = "src/main.afr"\n\n[dependencies]\nmath = "^0.1.0"')
@@ -258,9 +258,9 @@ def part_appendix_glossary(pdf) -> None:
         ("WASM", "WebAssembly."),
     ]:
         pdf.set_font("DejaVu", "B", 10)
-        pdf.multi_cell(0, 5, term)
+        pdf.set_x(pdf.l_margin); pdf.multi_cell(pdf.epw, 5, term)
         pdf.set_font("DejaVu", "", 9.5)
-        pdf.multi_cell(0, 5, defn)
+        pdf.set_x(pdf.l_margin); pdf.multi_cell(pdf.epw, 5, defn)
         pdf.ln(1)
 
 def part_appendix_toc(pdf) -> None:
@@ -271,7 +271,7 @@ def part_appendix_toc(pdf) -> None:
         t = title if len(title) < 85 else title[:82] + "…"
         t = "".join(ch if ord(ch) >= 32 else " " for ch in t)
         dots = "." * max(2, 72 - len(indent) - len(t) - len(str(page)))
-        pdf.multi_cell(0, 4.2, f"{indent}{t} {dots} {page}")
+        pdf.set_x(pdf.l_margin); pdf.multi_cell(pdf.epw, 4.2, f"{indent}{t} {dots} {page}")
 
 def colophon(pdf) -> None:
     pdf.h1("Colophon et contacts")
