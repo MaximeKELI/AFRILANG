@@ -64,33 +64,36 @@ class AfrilangBook(FPDF):
 
     def h1(self, title: str) -> None:
         self.add_page()
+        self.set_x(self.l_margin)
         self.chapter_title = title[:80]
         self.add_toc_entry(1, title)
         self.set_font("DejaVu", "B", 18)
-        self.multi_cell(0, 10, title)
+        self.multi_cell(self.epw, 10, title)
         self.ln(3)
         self.set_draw_color(20, 100, 60)
         self.set_line_width(0.6)
         y = self.get_y()
-        self.line(10, y, 200, y)
+        self.line(self.l_margin, y, self.l_margin + self.epw, y)
         self.ln(6)
 
     def h2(self, title: str) -> None:
         self.add_toc_entry(2, title)
         if self.get_y() > 250:
             self.add_page()
+        self.set_x(self.l_margin)
         self.set_font("DejaVu", "B", 13)
         self.ln(2)
-        self.multi_cell(0, 7, title)
+        self.multi_cell(self.epw, 7, title)
         self.ln(2)
 
     def h3(self, title: str) -> None:
         self.add_toc_entry(3, title)
         if self.get_y() > 255:
             self.add_page()
+        self.set_x(self.l_margin)
         self.set_font("DejaVu", "B", 11)
         self.ln(1)
-        self.multi_cell(0, 6, title)
+        self.multi_cell(self.epw, 6, title)
         self.ln(1)
 
     def body(self, text: str, size: float = 10) -> None:
@@ -99,13 +102,15 @@ class AfrilangBook(FPDF):
             para = para.strip()
             if not para:
                 continue
-            self.multi_cell(0, 5, para)
+            self.set_x(self.l_margin)
+            self.multi_cell(self.epw, 5, para)
             self.ln(2)
 
     def bullet(self, items: list[str], size: float = 10) -> None:
         self.set_font("DejaVu", "", size)
         for item in items:
-            self.multi_cell(0, 5, f"•  {item}")
+            self.set_x(self.l_margin)
+            self.multi_cell(self.epw, 5, f"•  {item}")
         self.ln(2)
 
     def code(self, text: str, size: float = 7.5) -> None:
@@ -204,7 +209,8 @@ class AfrilangBook(FPDF):
                 cleaned = re.sub(r"\*([^*]+)\*", r"\1", cleaned)
                 cleaned = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", cleaned)
                 self.set_font("DejaVu", "", 9.5)
-                self.multi_cell(0, 5, cleaned)
+                self.set_x(self.l_margin)
+                self.multi_cell(self.epw, 5, cleaned)
                 self.ln(1.5)
                 continue
             i += 1
