@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Livre AFRILANG — edition luxe, premiere personne (Maxime Dzidula KELI)."""
+"""Livre AFRILANG — édition luxe, première personne (Maxime Dzidula KELI)."""
 
 from __future__ import annotations
 
@@ -66,7 +66,7 @@ class AfrilangBook(FPDF):
         self.set_y(10)
         self.set_font("Sans", "", 7.5)
         self.set_text_color(*MUTED)
-        left = "AFRILANG  ·  Manuel de reference"
+        left = "AFRILANG  ·  Manuel de référence"
         right = (self.chapter_title or "")[:55]
         self.set_x(self.l_margin)
         self.cell(self.epw * 0.55, 5, left, align="L")
@@ -94,7 +94,7 @@ class AfrilangBook(FPDF):
         self.set_x(self.l_margin)
         self.cell(self.epw / 3, 6, AUTHOR, align="L")
         self.cell(self.epw / 3, 6, f"—  {self.page_no()}  —", align="C")
-        self.cell(self.epw / 3, 6, "Edition luxe", align="R")
+        self.cell(self.epw / 3, 6, "Édition luxe", align="R")
         self.set_text_color(*CHARCOAL)
 
     def start_body(self) -> None:
@@ -402,7 +402,7 @@ def cover(pdf: AfrilangBook) -> None:
     pdf.multi_cell(
         150,
         8,
-        "Le langage a syntaxe naturelle\nqui transpile vers C++17 / C++20",
+        "Le langage à syntaxe naturelle\nqui transpile vers C++17 / C++20",
         align="C",
     )
     pdf.ln(16)
@@ -412,8 +412,8 @@ def cover(pdf: AfrilangBook) -> None:
     pdf.multi_cell(
         140,
         6.5,
-        "Guide complet d'utilisation, specification du langage,\n"
-        "bibliotheque standard, outils, architecture et pratique",
+        "Guide complet d'utilisation, spécification du langage,\n"
+        "bibliothèque standard, outils, architecture et pratique",
         align="C",
     )
     pdf.set_y(210)
@@ -422,14 +422,14 @@ def cover(pdf: AfrilangBook) -> None:
     pdf.cell(0, 7, AUTHOR, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_font("Sans", "", 10)
     pdf.set_text_color(*GOLD_SOFT)
-    pdf.cell(0, 6, "Geoinformaticien  ·  Professionnel QHSE", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.cell(0, 6, "Géoinformaticien  ·  Professionnel QHSE", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
     pdf.set_font("Sans", "", 9)
-    for line in (f"Tel. {TEL}", f"WhatsApp {WHATSAPP}", EMAIL):
+    for line in (f"Tél. {TEL}", f"WhatsApp {WHATSAPP}", EMAIL):
         pdf.cell(0, 5, line, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_y(270)
     pdf.set_font("Sans", "", 8)
-    pdf.cell(0, 5, "Edition 1.0", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.cell(0, 5, "Édition 1.0", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf._cream = True
 
 
@@ -444,7 +444,7 @@ def half_title(pdf: AfrilangBook) -> None:
     pdf.ornament()
     pdf.set_font("Serif", "", 11)
     pdf.set_text_color(*MUTED)
-    pdf.cell(0, 6, "Manuel de reference — Edition luxe", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.cell(0, 6, "Manuel de référence — Édition luxe", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
 
 def author_page(pdf: AfrilangBook) -> None:
@@ -459,36 +459,36 @@ def author_page(pdf: AfrilangBook) -> None:
     pdf.ornament()
     pdf.body(
         f"""
-Je m'appelle {AUTHOR}. Je suis geoinformaticien et professionnel QHSE. Ces deux
-identites ne sont pas pour moi des etiquettes separees : elles nourrissent la maniere
-dont j'ai concu AFRILANG.
+Je m'appelle {AUTHOR}. Je suis géoinformaticien et professionnel QHSE. Ces deux
+identités ne sont pas pour moi des étiquettes séparées : elles nourrissent la manière
+dont j'ai conçu AFRILANG.
 
-En geoinformatique, je travaille chaque jour avec des donnees spatiales, des pipelines
-de traitement, des contraintes de precision et des outils qui doivent rester
-comprehensibles pour des equipes mixtes — techniciens, ingenieurs, decideurs. En QHSE,
-j'exige la clarte des procedures, la tracabilite, et des formulations qui ne laissent
-aucune ambiguite lorsqu'il s'agit de securite, de qualite ou d'environnement.
+En géoinformatique, je travaille chaque jour avec des données spatiales, des pipelines
+de traitement, des contraintes de précision et des outils qui doivent rester
+compréhensibles pour des équipes mixtes — techniciens, ingénieurs, décideurs. En QHSE,
+j'exige la clarté des procédures, la traçabilité, et des formulations qui ne laissent
+aucune ambiguïté lorsqu'il s'agit de sécurité, de qualité ou d'environnement.
 
-AFRILANG nait de cette double exigence : une syntaxe naturelle, lisible comme de
-l'anglais simple, et une execution native performante via C++. Je veux qu'un collegue
-puisse lire un programme presque comme une procedure, tout en obtenant un binaire
-serieux pour le terrain, le laboratoire ou le bureau d'etudes.
+AFRILANG naît de cette double exigence : une syntaxe naturelle, lisible comme de
+l'anglais simple, et une exécution native performante via C++. Je veux qu'un collègue
+puisse lire un programme presque comme une procédure, tout en obtenant un binaire
+sérieux pour le terrain, le laboratoire ou le bureau d'études.
 """
     )
-    pdf.h3("Mes coordonnees")
+    pdf.h3("Mes coordonnées")
     pdf.bullet(
         [
             f"Nom : {AUTHOR}",
-            "Profil : Geoinformaticien & Professionnel QHSE",
-            f"Telephone : {TEL}",
+            "Profil : Géoinformaticien & Professionnel QHSE",
+            f"Téléphone : {TEL}",
             f"WhatsApp : {WHATSAPP}",
             f"Email : {EMAIL}",
         ]
     )
     pdf.callout(
         "Intention de cet ouvrage",
-        "Je n'ai pas ecrit ce livre comme une simple liste de commandes. Je l'ai concu "
-        "comme un compagnon : definitions, raisons, exemples, et references. Vous devez "
+        "Je n'ai pas écrit ce livre comme une simple liste de commandes. Je l'ai conçu "
+        "comme un compagnon : définitions, raisons, exemples, et références. Vous devez "
         "pouvoir comprendre le pourquoi avant le comment.",
     )
 
@@ -504,7 +504,7 @@ def front_toc(pdf: AfrilangBook) -> None:
     pdf.cell(0, 10, "Plan de l'ouvrage", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ornament()
     pdf.body(
-        "L'index detaille avec les numeros de pages figure en fin d'ouvrage. "
+        "L'index détaillé avec les numéros de pages figure en fin d'ouvrage. "
         "Voici d'abord la carte du territoire que nous allons parcourir ensemble."
     )
     pdf.bullet(
@@ -512,15 +512,15 @@ def front_toc(pdf: AfrilangBook) -> None:
             "I — Naissance d'AFRILANG : vision et architecture",
             "II — Installation et premiers pas",
             "III — La ligne de commande, mon atelier quotidien",
-            "IV — Le langage explique en profondeur",
+            "IV — Le langage expliqué en profondeur",
             "V — Dialoguer avec le programme : ask et l'interactif",
-            "VI — Objets, modules, asynchronisme et monde exterieur",
-            "VII — Pedagogie : du premier say a la maitrise",
-            "VIII — Bibliotheque standard : carte et references",
-            "IX — Paquets et reutilisation",
-            "X — Outils : editeur, formatage, WASM",
+            "VI — Objets, modules, asynchronisme et monde extérieur",
+            "VII — Pédagogie : du premier say à la maîtrise",
+            "VIII — Bibliothèque standard : carte et références",
+            "IX — Paquets et réutilisation",
+            "X — Outils : éditeur, formatage, WASM",
             "XI — Surface web, playground et mobile",
-            "XII — Exemples commentes",
+            "XII — Exemples commentés",
             "XIII — Sous le capot du compilateur",
             "XIV — Route, contribution et contacts",
             "Annexes — Glossaire et index",
@@ -534,10 +534,10 @@ from book_luxury_chapters import build_all  # noqa: E402
 def main() -> int:
     print("Generation du livre luxe AFRILANG…", flush=True)
     pdf = AfrilangBook()
-    pdf.set_title("AFRILANG — Manuel de reference (Edition luxe)")
+    pdf.set_title("AFRILANG — Manuel de référence (Édition luxe)")
     pdf.set_author(AUTHOR)
     pdf.set_creator(AUTHOR)
-    pdf.set_subject("Manuel AFRILANG par Maxime Dzidula KELI, geoinformaticien et QHSE")
+    pdf.set_subject("Manuel AFRILANG par Maxime Dzidula KELI, géoinformaticien et QHSE")
 
     cover(pdf)
     half_title(pdf)
