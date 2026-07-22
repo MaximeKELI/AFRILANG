@@ -1,8 +1,10 @@
 import "std/proba"
 import "std/math"
+import "std/stats"
 
 use proba
 use math
+use stats
 
 test "factorial comb perm"
     assert factorial(5) is equal to 120
@@ -17,17 +19,28 @@ test "normal pdf cdf inv"
     assert abs(inv) is less than 0.0001
 end
 
-test "uniform and exponential"
+test "uniform exponential geometric"
     assert uniformPdf(0.5, 0, 1) is equal to 1
     assert uniformCdf(0.5, 0, 1) is equal to 0.5
     assert exponentialCdf(0, 1) is equal to 0
+    assert geometricPdf(0, 0.5) is equal to 0.5
+    assert geometricCdf(0, 0.5) is equal to 0.5
 end
 
-test "binomial and poisson"
+test "binomial poisson gamma chi"
     assert binomialPdf(0, 1, 0.5) is equal to 0.5
     assert binomialCdf(1, 1, 0.5) is equal to 1
     assert poissonPdf(0, 1) is greater than 0.3
     assert poissonCdf(0, 1) is equal to poissonPdf(0, 1)
+    assert gammaPdf(1, 1, 1) is greater than 0.3
+    assert chiSquarePdf(1, 2) is greater than 0.2
+    assert studentTCdf(0, 10) is equal to 0.5
+end
+
+test "lognormal and student pdf"
+    assert logNormalPdf(1, 0, 1) is greater than 0.3
+    assert logNormalCdf(1, 0, 1) is equal to 0.5
+    assert studentTPdf(0, 10) is greater than 0.3
 end
 
 test "sampling with seed"
@@ -42,4 +55,13 @@ test "sampling with seed"
     create n = sampleBinomial(10, 0.5)
     assert n is greater than (0 - 1)
     assert n is less than 11
+    create i = sampleInt(1, 3)
+    assert i is greater than 0
+    assert i is less than 4
+    create bag = list of 10, 20, 30
+    create pick = sampleChoice(bag)
+    assert pick is greater than 9
+    assert pick is less than 31
+    create sh = sampleShuffle(bag)
+    assert count(sh) is equal to 3
 end

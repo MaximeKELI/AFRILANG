@@ -8,10 +8,21 @@ test "sum mean count min max range"
     create xs = list of 1, 2, 3, 4, 5
     assert count(xs) is equal to 5
     assert sum(xs) is equal to 15
+    assert fsum(xs) is equal to 15
+    assert product(xs) is equal to 120
     assert mean(xs) is equal to 3
     assert minVal(xs) is equal to 1
     assert maxVal(xs) is equal to 5
     assert range(xs) is equal to 4
+end
+
+test "alt means and rms"
+    create xs = list of 1, 4, 16
+    assert abs(geometricMean(xs) - 4) is less than 0.0001
+    create hs = list of 2, 3, 6
+    assert abs(harmonicMean(hs) - 3) is less than 0.0001
+    create rs = list of 3, 4
+    assert abs(rms(rs) - sqrt(12.5)) is less than 0.0001
 end
 
 test "median and mode"
@@ -29,16 +40,18 @@ test "variance and stddev"
     assert sv is less than 5
 end
 
-test "quantiles"
+test "quantiles and mad"
     create xs = list of 1, 2, 3, 4, 5
     assert percentile(xs, 50) is equal to 3
     assert quantile(xs, 0.5) is equal to 3
     assert q1(xs) is equal to 2
     assert q3(xs) is equal to 4
     assert iqr(xs) is equal to 2
+    assert midhinge(xs) is equal to 3
+    assert mad(xs) is equal to 1
 end
 
-test "covariance correlation"
+test "covariance correlation and linreg"
     create a = list of 1, 2, 3, 4
     create b = list of 2, 4, 6, 8
     create corr = correlation(a, b)
@@ -46,12 +59,22 @@ test "covariance correlation"
     create cov = covariance(a, b)
     assert cov is greater than 3
     assert cov is less than 4
+    assert abs(linRegSlope(a, b) - 2) is less than 0.0001
+    assert abs(linRegIntercept(a, b)) is less than 0.0001
+    assert abs(linRegPredict(a, b, 5) - 10) is less than 0.0001
 end
 
-test "cumSum and histogram"
+test "transforms and outliers"
     create xs = list of 1, 2, 3
     create c = cumSum(xs)
     assert c at 2 is equal to 6
+    create d = diffs(xs)
+    assert d at 0 is equal to 1
+    create n = normalize(xs)
+    assert n at 0 is equal to 0
+    assert n at 2 is equal to 1
     create h = histogram(xs, 3)
     assert count(h) is equal to 3
+    create noisy = list of 1, 2, 3, 4, 5, 100
+    assert outlierCount(noisy) is greater than 0
 end

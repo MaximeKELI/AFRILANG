@@ -20,44 +20,54 @@ Tests : `tests/stdlib/str.afr`
 
 ## `std/math`
 
+Inspiré de Python `math` et Nim `std/math`.
+
 | Fonction | Rôle |
 |----------|------|
-| `abs(n)` | Valeur absolue |
-| `floor(n)` / `ceil(n)` / `round(n)` / `trunc(n)` | Entiers autour |
-| `pow(base, exp)` / `sqrt` / `cbrt` / `exp` / `log` / `log10` / `log2` | Puissances & logs |
-| `sin` / `cos` / `tan` / `asin` / `acos` / `atan` / `atan2` / `sinh` / `cosh` / `tanh` / `hypot` | Trigonométrie |
-| `min` / `max` / `clamp` / `sign` | Comparaisons scalaires |
+| `abs` / `floor` / `ceil` / `round` / `trunc` | Entiers autour |
+| `pow` / `sqrt` / `cbrt` / `exp` / `expm1` / `log` / `log1p` / `log10` / `log2` | Puissances & logs |
+| `sin`…`tanh` / `hypot` | Trigonométrie |
+| `min` / `max` / `clamp` / `sign` / `lerp` | Comparaisons / interpolation |
+| `gcd` / `lcm` / `fmod` / `remainder` / `copysign` | Arithmétique |
+| `erf` / `erfc` / `gamma` / `lgamma` | Fonctions spéciales |
+| `isFinite` / `isInf` / `isNan` / `isClose` | Tests IEEE |
 | `deg2rad` / `rad2deg` | Angles |
-| `pi()` / `e()` / `tau()` | Constantes |
+| `pi` / `e` / `tau` / `inf` / `nan` | Constantes |
 | `random()` | `[0, 1)` |
 
 Tests : `tests/stdlib/math.afr`
 
 ## `std/stats`
 
+Inspiré de Nim `std/stats` et Python `statistics`.
+
 | Fonction | Rôle |
 |----------|------|
-| `count` / `sum` / `mean` / `median` / `mode` | Tendance centrale |
-| `minVal` / `maxVal` / `range` | Extrema (listes ; scalaires : `math.min` / `math.max`) |
-| `variance` / `stddev` / `popVariance` / `popStddev` | Dispersion |
-| `q1` / `q3` / `iqr` / `percentile` / `quantile` | Quantiles |
+| `count` / `sum` / `fsum` / `product` | Agrégats |
+| `mean` / `geometricMean` / `harmonicMean` / `rms` / `median` / `mode` | Tendance centrale |
+| `minVal` / `maxVal` / `range` | Extrema |
+| `variance` / `stddev` / `popVariance` / `popStddev` / `seMean` / `cv` | Dispersion |
+| `q1` / `q3` / `iqr` / `midhinge` / `mad` / `trimmedMean` / `percentile` / `quantile` | Quantiles / robustesse |
 | `skewness` / `kurtosis` | Forme |
 | `covariance` / `correlation` | Bivarié |
-| `cumSum` / `zScores` / `histogram(v, bins)` | Transformations |
+| `linRegSlope` / `linRegIntercept` / `linRegPredict` | Régression linéaire OLS |
+| `cumSum` / `cumProd` / `diffs` / `zScores` / `normalize` / `ranks` / `movingAvg` | Transformations |
+| `outlierIndices` / `outlierCount` / `withoutOutliers` / `histogram` | Outliers & hist |
 
 Tests : `tests/stdlib/stats.afr`
 
 ## `std/proba`
 
+Inspiré de Python/`scipy`, R et Crystal `Random`.
+
 | Fonction | Rôle |
 |----------|------|
 | `factorial` / `comb` / `perm` | Combinatoire |
-| `normalPdf` / `normalCdf` / `normalInv` | Normale |
-| `uniformPdf` / `uniformCdf` | Uniforme |
-| `exponentialPdf` / `exponentialCdf` | Exponentielle |
-| `binomialPdf` / `binomialCdf` | Binomiale |
-| `poissonPdf` / `poissonCdf` | Poisson |
-| `seed` / `sampleUniform` / `sampleNormal` / `sampleBernoulli` / `sampleBinomial` / `samplePoisson` / `sampleExponential` | RNG |
+| `normal*` / `uniform*` / `exponential*` | Continues de base |
+| `binomial*` / `poisson*` / `geometric*` | Discrètes |
+| `logNormal*` / `gamma*` / `chiSquare*` / `studentT*` | Continues avancées |
+| `seed` / `sampleUniform` / `sampleInt` / `sampleNormal` / … | RNG |
+| `sampleChoice` / `sampleShuffle` / `sampleN` | Tirages sur listes |
 
 Tests : `tests/stdlib/proba.afr`
 

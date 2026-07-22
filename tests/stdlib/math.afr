@@ -25,6 +25,8 @@ test "log and exp"
     assert log10(1000) is equal to 3
     assert log2(8) is equal to 3
     assert floor(exp(0)) is equal to 1
+    assert expm1(0) is equal to 0
+    assert log1p(0) is equal to 0
 end
 
 test "trig and hypot"
@@ -40,6 +42,17 @@ test "min max clamp round"
     assert round(2.5) is equal to 3
     assert trunc(2.9) is equal to 2
     assert sign(0 - 7) is equal to (0 - 1)
+    assert lerp(0, 10, 0.5) is equal to 5
+end
+
+test "gcd lcm and special"
+    assert gcd(12, 18) is equal to 6
+    assert lcm(4, 6) is equal to 12
+    assert gamma(5) is equal to 24
+    assert erf(0) is equal to 0
+    assert isFinite(1) is equal to true
+    assert isNan(nan()) is equal to true
+    assert isClose(1, 1.0000000001, 0.000001, 0) is equal to true
 end
 
 test "constants and angle convert"

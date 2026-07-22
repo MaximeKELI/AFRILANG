@@ -6,21 +6,22 @@ use math
 use stats
 use proba
 
-say "=== math ==="
-say "pi ≈ " + pi()
-say "hypot(3,4) = " + hypot(3, 4)
-say "clamp(12, 0, 10) = " + clamp(12, 0, 10)
+say "=== math (Python/Nim style) ==="
+say "gcd(12,18)=" + gcd(12, 18) + "  gamma(5)=" + gamma(5)
+say "lerp(0,10,0.3)=" + lerp(0, 10, 0.3)
 
 say "=== stats ==="
 create data = list of 2, 4, 4, 4, 5, 5, 7, 9
-say "mean = " + mean(data)
-say "median = " + median(data)
-say "stddev = " + stddev(data)
-say "iqr = " + iqr(data)
+create xs = list of 1, 2, 3, 4
+create ys = list of 2, 4, 6, 8
+say "geoMean(1,4,16)=" + geometricMean(list of 1, 4, 16)
+say "linReg slope=" + linRegSlope(xs, ys)
+say "mad=" + mad(data)
 
 say "=== proba ==="
-say "P(Z<=0) = " + normalCdf(0, 0, 1)
-say "C(10,3) = " + comb(10, 3)
-seed(123)
-say "sampleNormal(0,1) = " + sampleNormal(0, 1)
-say "sampleBinomial(20, 0.5) = " + sampleBinomial(20, 0.5)
+say "studentTCdf(0,10)=" + studentTCdf(0, 10)
+say "geometricPdf(0,0.5)=" + geometricPdf(0, 0.5)
+seed(7)
+say "sampleGamma(2,1)=" + sampleGamma(2, 1)
+create bag = list of 1, 2, 3, 4, 5
+say "sampleChoice=" + sampleChoice(bag)
