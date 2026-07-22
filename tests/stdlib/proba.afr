@@ -1,0 +1,45 @@
+import "std/proba"
+import "std/math"
+
+use proba
+use math
+
+test "factorial comb perm"
+    assert factorial(5) is equal to 120
+    assert comb(5, 2) is equal to 10
+    assert perm(5, 2) is equal to 20
+end
+
+test "normal pdf cdf inv"
+    assert normalPdf(0, 0, 1) is greater than 0.3
+    assert normalCdf(0, 0, 1) is equal to 0.5
+    create inv = normalInv(0.5, 0, 1)
+    assert abs(inv) is less than 0.0001
+end
+
+test "uniform and exponential"
+    assert uniformPdf(0.5, 0, 1) is equal to 1
+    assert uniformCdf(0.5, 0, 1) is equal to 0.5
+    assert exponentialCdf(0, 1) is equal to 0
+end
+
+test "binomial and poisson"
+    assert binomialPdf(0, 1, 0.5) is equal to 0.5
+    assert binomialCdf(1, 1, 0.5) is equal to 1
+    assert poissonPdf(0, 1) is greater than 0.3
+    assert poissonCdf(0, 1) is equal to poissonPdf(0, 1)
+end
+
+test "sampling with seed"
+    seed(42)
+    create u = sampleUniform(0, 1)
+    assert u is greater than (0 - 0.1)
+    assert u is less than 1.1
+    create b = sampleBernoulli(1)
+    assert b is equal to 1
+    create z = sampleBernoulli(0)
+    assert z is equal to 0
+    create n = sampleBinomial(10, 0.5)
+    assert n is greater than (0 - 1)
+    assert n is less than 11
+end

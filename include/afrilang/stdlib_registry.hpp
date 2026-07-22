@@ -16,6 +16,8 @@ public:
     static void injectStrModule(ProgramNode& program);
     static void injectLogModule(ProgramNode& program);
     static void injectMathModule(ProgramNode& program);
+    static void injectStatsModule(ProgramNode& program);
+    static void injectProbaModule(ProgramNode& program);
     static void injectTimeModule(ProgramNode& program);
     static void injectReModule(ProgramNode& program);
     static void injectCollectionsModule(ProgramNode& program);

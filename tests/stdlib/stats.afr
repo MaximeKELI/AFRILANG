@@ -1,0 +1,57 @@
+import "std/stats"
+import "std/math"
+
+use stats
+use math
+
+test "sum mean count min max range"
+    create xs = list of 1, 2, 3, 4, 5
+    assert count(xs) is equal to 5
+    assert sum(xs) is equal to 15
+    assert mean(xs) is equal to 3
+    assert minVal(xs) is equal to 1
+    assert maxVal(xs) is equal to 5
+    assert range(xs) is equal to 4
+end
+
+test "median and mode"
+    create xs = list of 1, 2, 2, 3
+    assert median(xs) is equal to 2
+    assert mode(xs) is equal to 2
+end
+
+test "variance and stddev"
+    create xs = list of 2, 4, 4, 4, 5, 5, 7, 9
+    assert popVariance(xs) is equal to 4
+    assert popStddev(xs) is equal to 2
+    create sv = variance(xs)
+    assert sv is greater than 4
+    assert sv is less than 5
+end
+
+test "quantiles"
+    create xs = list of 1, 2, 3, 4, 5
+    assert percentile(xs, 50) is equal to 3
+    assert quantile(xs, 0.5) is equal to 3
+    assert q1(xs) is equal to 2
+    assert q3(xs) is equal to 4
+    assert iqr(xs) is equal to 2
+end
+
+test "covariance correlation"
+    create a = list of 1, 2, 3, 4
+    create b = list of 2, 4, 6, 8
+    create corr = correlation(a, b)
+    assert abs(corr - 1) is less than 0.0001
+    create cov = covariance(a, b)
+    assert cov is greater than 3
+    assert cov is less than 4
+end
+
+test "cumSum and histogram"
+    create xs = list of 1, 2, 3
+    create c = cumSum(xs)
+    assert c at 2 is equal to 6
+    create h = histogram(xs, 3)
+    assert count(h) is equal to 3
+end

@@ -1,0 +1,26 @@
+import "std/math"
+import "std/stats"
+import "std/proba"
+
+use math
+use stats
+use proba
+
+say "=== math ==="
+say "pi ≈ " + pi()
+say "hypot(3,4) = " + hypot(3, 4)
+say "clamp(12, 0, 10) = " + clamp(12, 0, 10)
+
+say "=== stats ==="
+create data = list of 2, 4, 4, 4, 5, 5, 7, 9
+say "mean = " + mean(data)
+say "median = " + median(data)
+say "stddev = " + stddev(data)
+say "iqr = " + iqr(data)
+
+say "=== proba ==="
+say "P(Z<=0) = " + normalCdf(0, 0, 1)
+say "C(10,3) = " + comb(10, 3)
+seed(123)
+say "sampleNormal(0,1) = " + sampleNormal(0, 1)
+say "sampleBinomial(20, 0.5) = " + sampleBinomial(20, 0.5)

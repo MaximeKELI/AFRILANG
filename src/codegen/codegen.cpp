@@ -446,6 +446,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsStr = false;
     bool needsLog = false;
     bool needsMath = false;
+    bool needsStats = false;
+    bool needsProba = false;
     bool needsTime = false;
     bool needsRe = false;
     bool needsCollections = false;
@@ -481,6 +483,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "str") needsStr = true;
         if (module->name == "logging") needsLog = true;
         if (module->name == "math") needsMath = true;
+        if (module->name == "stats") needsStats = true;
+        if (module->name == "proba") needsProba = true;
         if (module->name == "chrono") needsTime = true;
         if (module->name == "re") needsRe = true;
         if (module->name == "collections") needsCollections = true;
@@ -522,6 +526,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsStr) out << "#include \"str.hpp\"\n";
     if (needsLog) out << "#include \"log.hpp\"\n";
     if (needsMath) out << "#include \"math.hpp\"\n";
+    if (needsStats) out << "#include \"stats.hpp\"\n";
+    if (needsProba) out << "#include \"proba.hpp\"\n";
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
     if (needsCollections) out << "#include \"collections.hpp\"\n";
@@ -2856,7 +2862,8 @@ std::string CodeGenerator::escapeString(const std::string& s) {
 
 bool CodeGenerator::usesStdlibModule(const std::string& name) const {
     return name == "io" || name == "json" || name == "fs" || name == "http" ||
-           name == "str" || name == "logging" || name == "math" || name == "chrono" ||
+           name == "str" || name == "logging" || name == "math" || name == "stats" ||
+           name == "proba" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
            name == "sql" || name == "web" || name == "orm" || name == "thread" ||
            name == "bigint" || name == "crypto" || name == "yaml" || name == "datetime" ||

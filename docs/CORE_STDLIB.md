@@ -17,6 +17,8 @@ Suite de tests : `afrilang test --specs`.
 | str | `std/str` | Chaînes |
 | log / logging | `std/log` | Journalisation |
 | math | `std/math` | Math |
+| stats | `std/stats` | Statistiques descriptives |
+| proba | `std/proba` | Probabilités / distributions |
 | time / chrono | `std/time` | Temps |
 | re | `std/re` | Regex |
 | collections | `std/collections` | Structures |
