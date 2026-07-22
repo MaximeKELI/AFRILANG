@@ -1,0 +1,4 @@
+name = "finance"
+version = "0.1.0"
+description = "Simple financial helpers (interest, discount, percent)"
+main = "finance.afr"

@@ -1,0 +1,15 @@
+import "pkg/numcheck/numcheck.afr"
+
+use numcheck
+
+test "parity"
+    assert isEven(4) is equal to true
+    assert isOdd(3) is equal to true
+end
+
+test "range and sign"
+    assert isPositive(5) is equal to true
+    assert inRange(5, 0, 10) is equal to true
+    assert inRange(15, 0, 10) is equal to false
+    assert sign(0 - 7) is equal to (0 - 1)
+end

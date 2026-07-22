@@ -17,3 +17,39 @@ test "getNumber"
     create numDoc json = parse("{\"value\": 42}")
     assert getNumber(numDoc, "value") is equal to 42
 end
+
+test "scientific notation"
+    create doc json = parse("{\"value\": 1.5e3}")
+    assert getNumber(doc, "value") is equal to 1500
+end
+
+test "unicode escape"
+    create doc json = parse("{\"s\": \"A\\u0042C\"}")
+    assert getString(doc, "s") is equal to "ABC"
+end
+
+test "getBool and has"
+    create doc json = parse("{\"ok\": true, \"n\": 1}")
+    assert getBool(doc, "ok") is equal to true
+    assert has(doc, "ok") is equal to true
+    assert has(doc, "missing") is equal to false
+end
+
+test "array access"
+    create arr json = parse("[10, 20, 30]")
+    assert arrayLength(arr) is equal to 3
+    assert getNumber(makeObject("wrap", "x"), "missing") is equal to 0
+    create item json = arrayGet(arr, 1)
+    assert stringify(item) is equal to "20"
+end
+
+test "getPath nested"
+    create doc json = parse("{\"a\": {\"b\": {\"c\": 7}}}")
+    create leaf json = getPath(doc, "a.b.c")
+    assert stringify(leaf) is equal to "7"
+end
+
+test "pretty print"
+    create arr json = parse("[1,2]")
+    assert stringifyPretty(arr, 2) is equal to "[\n  1,\n  2\n]"
+end

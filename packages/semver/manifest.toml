@@ -1,0 +1,4 @@
+name = "semver"
+version = "0.1.0"
+description = "Semantic version compare and compatibility checks"
+main = "semver.afr"

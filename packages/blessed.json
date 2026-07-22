@@ -1,1 +1,1 @@
-["math", "cli", "datetime", "strings", "fmt", "validate", "config", "testing", "colors", "uuid"]
+["math", "cli", "datetime", "strings", "fmt", "validate", "config", "testing", "colors", "uuid", "semver", "mathx", "retry", "temperature", "duration", "geometry", "finance", "numcheck"]

@@ -1,0 +1,56 @@
+module mathx
+    function gcd(a int, b int) returns int
+        create x int = a
+        create y int = b
+        while y is not equal to 0 do
+            create t int = y
+            set y = x - (x / y) * y
+            set x = t
+        end
+        return x
+    end
+
+    function lcm(a int, b int) returns int
+        if a is equal to 0 then
+            return 0
+        end
+        if b is equal to 0 then
+            return 0
+        end
+        return (a / gcd(a, b)) * b
+    end
+
+    function isPrime(n int) returns bool
+        if n is less than 2 then
+            return false
+        end
+        create i int = 2
+        while i * i is less than (n + 1) do
+            if n - (n / i) * i is equal to 0 then
+                return false
+            end
+            set i = i + 1
+        end
+        return true
+    end
+
+    function factorial(n int) returns int
+        create result int = 1
+        create i int = 2
+        while i is less than (n + 1) do
+            set result = result * i
+            set i = i + 1
+        end
+        return result
+    end
+
+    function clampInt(value int, low int, high int) returns int
+        if value is less than low then
+            return low
+        end
+        if value is greater than high then
+            return high
+        end
+        return value
+    end
+end

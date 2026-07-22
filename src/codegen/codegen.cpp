@@ -3071,6 +3071,18 @@ void CodeGenerator::emitStdlibFunction(std::ostream& out, const std::string& mod
             out << "return afrilang::runtime::json::getNumberFrom(value, key);\n";
         } else if (func.name == "getInt") {
             out << "return afrilang::runtime::json::getIntFrom(value, key);\n";
+        } else if (func.name == "getBool") {
+            out << "return afrilang::runtime::json::getBoolFrom(value, key);\n";
+        } else if (func.name == "has") {
+            out << "return afrilang::runtime::json::has(value, key);\n";
+        } else if (func.name == "arrayLength") {
+            out << "return afrilang::runtime::json::arrayLength(value);\n";
+        } else if (func.name == "arrayGet") {
+            out << "return afrilang::runtime::json::arrayGetFrom(value, index);\n";
+        } else if (func.name == "getPath") {
+            out << "return afrilang::runtime::json::getPath(value, path);\n";
+        } else if (func.name == "stringifyPretty") {
+            out << "return afrilang::runtime::json::stringifyPretty(value, indent);\n";
         } else if (func.name == "makeObject") {
             out << "return afrilang::runtime::json::makeObjectValue(key, value);\n";
         }

@@ -62,6 +62,24 @@ Tests : `tests/stdlib/proba.afr`
 
 RNG de base (Crystal / Nim style) : `seed`, `randomize`, `randomInt`, `randomFloat`, `rand`, `randint`, `gauss`, `uniform`, `choice`, `shuffle`, `sample`.
 
+## `std/re`
+
+Regex **ECMAScript** (`std::regex`, sans dépendance PCRE2 — compatible WASM). Surface façon Nim `re` / Crystal `Regex` :
+
+| Fonction | Rôle |
+|----------|------|
+| `matches(text, pattern)` | Correspondance ancrée (texte entier) |
+| `matchFlags(text, pattern, flags)` | Idem avec drapeaux `i` / `m` |
+| `search(text, pattern)` | Cherche une sous-chaîne |
+| `find(text, pattern)` | Premier match (ou `""`) |
+| `findAll(text, pattern)` | Liste de tous les matches |
+| `captures(text, pattern)` | Groupes capturants du 1er match |
+| `count(text, pattern)` | Nombre de matches |
+| `split(text, pattern)` | Découpe sur le motif |
+| `replace` / `replaceFirst` | Remplacement global / premier |
+
+Tests : `tests/stdlib/re.afr`
+
 ## `std/crypto`
 
 OpenSSL : `sha256` / `sha512` / `sha1` / `sha3_256`, `sha256File`, `hmacSha256`, `randomBytes` / `randomHex`, `hexEncode` / `hexDecode`, `aesGcmEncrypt` / `aesGcmDecrypt` (hex packed nonce||tag||ciphertext).
@@ -84,13 +102,51 @@ Tests : `tests/stdlib/net.afr` (listen/connect ; pas de serveur bloquant en CI).
 
 ## `std/json`
 
+Parseur conforme (échappements `\uXXXX` + surrogates, `\b`/`\f`/`\r`, notation scientifique) :
+
 | Fonction | Rôle |
 |----------|------|
 | `makeObject(key, value)` | Objet simple |
 | `parse(text)` / `stringify(doc)` | Sérialisation |
-| `getString` / `getNumber` | Lecture |
+| `stringifyPretty(doc, indent)` | Sérialisation indentée |
+| `getString` / `getNumber` / `getInt` / `getBool` | Lecture typée |
+| `has(doc, key)` | Présence d'une clé |
+| `arrayLength(doc)` / `arrayGet(doc, i)` | Accès tableau |
+| `getPath(doc, "a.b.c")` | Navigation par chemin pointé |
 
 Tests : `tests/stdlib/json.afr`
+
+## `std/datetime`
+
+Horodatage UTC + offsets fixes (pas de base IANA) :
+
+| Fonction | Rôle |
+|----------|------|
+| `nowSeconds` / `nowMs` | Instant courant |
+| `parseIso(text)` | ISO-8601 (`Z` ou `+HH:MM`) vers epoch secondes |
+| `formatIso(seconds)` / `formatIsoOffset(seconds, offsetMinutes)` | Formatage |
+| `year/month/day/hour/minute/second(seconds)` | Décomposition |
+| `weekday(seconds)` | Jour de semaine (0 = dimanche) |
+| `addSeconds` / `addDays` | Arithmétique |
+| `diffSeconds(a, b)` | Écart absolu |
+
+Tests : `tests/stdlib/datetime.afr`
+
+## `std/thread`
+
+Threads utilitaires + primitives de synchronisation (natif, `-pthread`) :
+
+| Fonction | Rôle |
+|----------|------|
+| `spawnSleep(ms)` / `join(id)` / `sleepMs(ms)` | Threads de temporisation |
+| `hardwareConcurrency()` | Cœurs disponibles |
+| `mutexNew()` / `mutexLock(id)` / `mutexUnlock(id)` | Exclusion mutuelle |
+| `chanNewText()` / `chanNewNumber()` | Canaux FIFO typés |
+| `chanSendText/Number(id, v)` | Envoi (tamponné) |
+| `chanRecvText/Number(id)` | Réception (bloquante) |
+| `chanClose(id)` | Fermeture |
+
+Tests : `tests/stdlib/thread.afr`
 
 ## WASM
 

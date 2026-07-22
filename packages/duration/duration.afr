@@ -1,0 +1,21 @@
+module duration
+    function minutesToSeconds(m number) returns number
+        return m * 60
+    end
+
+    function hoursToSeconds(h number) returns number
+        return h * 3600
+    end
+
+    function daysToSeconds(d number) returns number
+        return d * 86400
+    end
+
+    function secondsToMinutes(s number) returns number
+        return s / 60
+    end
+
+    function humanizeHours(seconds number) returns number
+        return seconds / 3600
+    end
+end

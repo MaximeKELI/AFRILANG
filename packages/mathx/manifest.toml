@@ -1,0 +1,4 @@
+name = "mathx"
+version = "0.1.0"
+description = "Extra integer math helpers (gcd, lcm, prime, factorial)"
+main = "mathx.afr"

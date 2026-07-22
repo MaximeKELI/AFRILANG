@@ -1,0 +1,10 @@
+import "pkg/geometry/geometry.afr"
+
+use geometry
+
+test "areas"
+    assert rectArea(3, 4) is equal to 12
+    assert triangleArea(6, 4) is equal to 12
+    assert cubeVolume(3) is equal to 27
+    assert boxVolume(2, 3, 4) is equal to 24
+end

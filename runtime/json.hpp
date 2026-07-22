@@ -52,6 +52,36 @@ private:
         return Value{};
     }
 
+    static void appendUtf8(std::string& out, unsigned int cp) {
+        if (cp <= 0x7F) {
+            out += static_cast<char>(cp);
+        } else if (cp <= 0x7FF) {
+            out += static_cast<char>(0xC0 | (cp >> 6));
+            out += static_cast<char>(0x80 | (cp & 0x3F));
+        } else if (cp <= 0xFFFF) {
+            out += static_cast<char>(0xE0 | (cp >> 12));
+            out += static_cast<char>(0x80 | ((cp >> 6) & 0x3F));
+            out += static_cast<char>(0x80 | (cp & 0x3F));
+        } else {
+            out += static_cast<char>(0xF0 | (cp >> 18));
+            out += static_cast<char>(0x80 | ((cp >> 12) & 0x3F));
+            out += static_cast<char>(0x80 | ((cp >> 6) & 0x3F));
+            out += static_cast<char>(0x80 | (cp & 0x3F));
+        }
+    }
+
+    unsigned int parseHex4() {
+        unsigned int value = 0;
+        for (int i = 0; i < 4 && pos_ < input_.size(); ++i) {
+            const char c = get();
+            value <<= 4;
+            if (c >= '0' && c <= '9') value |= static_cast<unsigned int>(c - '0');
+            else if (c >= 'a' && c <= 'f') value |= static_cast<unsigned int>(c - 'a' + 10);
+            else if (c >= 'A' && c <= 'F') value |= static_cast<unsigned int>(c - 'A' + 10);
+        }
+        return value;
+    }
+
     Value parseString() {
         get();
         Value v;
@@ -64,8 +94,24 @@ private:
                 switch (esc) {
                     case '"': v.stringVal += '"'; break;
                     case '\\': v.stringVal += '\\'; break;
+                    case '/': v.stringVal += '/'; break;
                     case 'n': v.stringVal += '\n'; break;
                     case 't': v.stringVal += '\t'; break;
+                    case 'b': v.stringVal += '\b'; break;
+                    case 'f': v.stringVal += '\f'; break;
+                    case 'r': v.stringVal += '\r'; break;
+                    case 'u': {
+                        unsigned int cp = parseHex4();
+                        if (cp >= 0xD800 && cp <= 0xDBFF &&
+                            pos_ + 1 < input_.size() && input_[pos_] == '\\' &&
+                            input_[pos_ + 1] == 'u') {
+                            pos_ += 2;
+                            const unsigned int low = parseHex4();
+                            cp = 0x10000 + ((cp - 0xD800) << 10) + (low - 0xDC00);
+                        }
+                        appendUtf8(v.stringVal, cp);
+                        break;
+                    }
                     default: v.stringVal += esc; break;
                 }
             } else {
@@ -81,6 +127,11 @@ private:
         while (std::isdigit(static_cast<unsigned char>(peek()))) get();
         if (peek() == '.') {
             get();
+            while (std::isdigit(static_cast<unsigned char>(peek()))) get();
+        }
+        if (peek() == 'e' || peek() == 'E') {
+            get();
+            if (peek() == '+' || peek() == '-') get();
             while (std::isdigit(static_cast<unsigned char>(peek()))) get();
         }
         Value v;
@@ -108,7 +159,7 @@ private:
         v.kind = Value::Kind::Object;
         skipWs();
         if (peek() == '}') { get(); return v; }
-        while (true) {
+        while (pos_ < input_.size()) {
             skipWs();
             Value key = parseString();
             skipWs();
@@ -117,7 +168,8 @@ private:
             v.objectVal[key.stringVal] = std::move(val);
             skipWs();
             if (peek() == '}') { get(); break; }
-            get(); // ,
+            if (peek() == ',') { get(); continue; }
+            break; // entrée malformée : on s'arrête plutôt que boucler
         }
         return v;
     }
@@ -128,11 +180,12 @@ private:
         v.kind = Value::Kind::Array;
         skipWs();
         if (peek() == ']') { get(); return v; }
-        while (true) {
+        while (pos_ < input_.size()) {
             v.arrayVal.push_back(parseValue());
             skipWs();
             if (peek() == ']') { get(); break; }
-            get();
+            if (peek() == ',') { get(); continue; }
+            break; // entrée malformée : on s'arrête plutôt que boucler
         }
         return v;
     }
@@ -146,6 +199,9 @@ inline std::string escape(const std::string& s) {
             case '\\': out += "\\\\"; break;
             case '\n': out += "\\n"; break;
             case '\t': out += "\\t"; break;
+            case '\b': out += "\\b"; break;
+            case '\f': out += "\\f"; break;
+            case '\r': out += "\\r"; break;
             default: out += c; break;
         }
     }
@@ -251,6 +307,90 @@ inline Value makeObjectValue(const std::string& key, const std::string& value) {
     field.stringVal = value;
     v.objectVal[key] = std::move(field);
     return v;
+}
+
+inline bool getBoolFrom(const Value& root, const std::string& key) {
+    if (root.kind != Value::Kind::Object) return false;
+    auto it = root.objectVal.find(key);
+    if (it == root.objectVal.end() || it->second.kind != Value::Kind::Bool) return false;
+    return it->second.boolVal;
+}
+
+inline bool has(const Value& root, const std::string& key) {
+    return root.kind == Value::Kind::Object && root.objectVal.count(key) > 0;
+}
+
+inline std::int64_t arrayLength(const Value& root) {
+    if (root.kind != Value::Kind::Array) return 0;
+    return static_cast<std::int64_t>(root.arrayVal.size());
+}
+
+inline Value arrayGetFrom(const Value& root, double index) {
+    if (root.kind != Value::Kind::Array) return Value{};
+    const auto i = static_cast<std::size_t>(index);
+    if (i >= root.arrayVal.size()) return Value{};
+    return root.arrayVal[i];
+}
+
+// Navigue un chemin pointé (ex "a.b.c") sur objets imbriqués.
+inline Value getPath(const Value& root, const std::string& path) {
+    const Value* cur = &root;
+    std::size_t start = 0;
+    while (start <= path.size()) {
+        std::size_t dot = path.find('.', start);
+        const std::string key =
+            path.substr(start, dot == std::string::npos ? std::string::npos : dot - start);
+        if (cur->kind != Value::Kind::Object) return Value{};
+        auto it = cur->objectVal.find(key);
+        if (it == cur->objectVal.end()) return Value{};
+        cur = &it->second;
+        if (dot == std::string::npos) break;
+        start = dot + 1;
+    }
+    return *cur;
+}
+
+inline void stringifyPrettyInto(const Value& v, std::string& out, int indentWidth, int depth) {
+    const std::string pad(static_cast<std::size_t>(indentWidth * (depth + 1)), ' ');
+    const std::string padEnd(static_cast<std::size_t>(indentWidth * depth), ' ');
+    switch (v.kind) {
+        case Value::Kind::Array: {
+            if (v.arrayVal.empty()) { out += "[]"; return; }
+            out += "[\n";
+            for (std::size_t i = 0; i < v.arrayVal.size(); ++i) {
+                out += pad;
+                stringifyPrettyInto(v.arrayVal[i], out, indentWidth, depth + 1);
+                if (i + 1 < v.arrayVal.size()) out += ",";
+                out += "\n";
+            }
+            out += padEnd + "]";
+            return;
+        }
+        case Value::Kind::Object: {
+            if (v.objectVal.empty()) { out += "{}"; return; }
+            out += "{\n";
+            std::size_t i = 0;
+            for (const auto& [k, val] : v.objectVal) {
+                out += pad + "\"" + escape(k) + "\": ";
+                stringifyPrettyInto(val, out, indentWidth, depth + 1);
+                if (++i < v.objectVal.size()) out += ",";
+                out += "\n";
+            }
+            out += padEnd + "}";
+            return;
+        }
+        default:
+            out += stringify(v);
+            return;
+    }
+}
+
+inline std::string stringifyPretty(const Value& v, double indent) {
+    std::string out;
+    int width = static_cast<int>(indent);
+    if (width < 0) width = 0;
+    stringifyPrettyInto(v, out, width, 0);
+    return out;
 }
 
 } // namespace json

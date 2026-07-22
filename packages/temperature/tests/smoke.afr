@@ -1,0 +1,14 @@
+import "pkg/temperature/temperature.afr"
+
+use temperature
+
+test "celsius fahrenheit"
+    assert cToF(100) is equal to 212
+    assert cToF(0) is equal to 32
+    assert fToC(212) is equal to 100
+end
+
+test "kelvin"
+    assert cToK(0) is equal to 273.15
+    assert kToC(273.15) is equal to 0
+end

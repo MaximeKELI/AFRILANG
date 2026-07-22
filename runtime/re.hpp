@@ -23,7 +23,8 @@ inline std::regex compile(const std::string& pattern, const std::string& flags =
 }
 
 // Ancré : la totalité du texte doit correspondre.
-inline bool match(const std::string& text, const std::string& pattern) {
+// Note : exposé sous le nom `matches` côté langage (`match` est un mot-clé).
+inline bool matches(const std::string& text, const std::string& pattern) {
     try {
         return std::regex_match(text, compile(pattern));
     } catch (const std::regex_error&) {

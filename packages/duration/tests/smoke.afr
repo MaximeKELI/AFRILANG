@@ -1,0 +1,10 @@
+import "pkg/duration/duration.afr"
+
+use duration
+
+test "conversions"
+    assert minutesToSeconds(2) is equal to 120
+    assert hoursToSeconds(1) is equal to 3600
+    assert daysToSeconds(1) is equal to 86400
+    assert secondsToMinutes(120) is equal to 2
+end

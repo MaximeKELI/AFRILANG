@@ -1583,9 +1583,34 @@ std::unique_ptr<ExpressionNode> Parser::parseStringExpression(const std::string&
                 continue;
             }
             // JSON / literal object: `{` followed by `"` is not interpolation.
+            // Copie l'objet {...} équilibré verbatim (accolades imbriquées et
+            // chaînes internes incluses) pour ne pas corompre le JSON.
             if (i + 1 < raw.size() && raw[i + 1] == '"') {
-                textBuf += '{';
-                ++i;
+                int depth = 0;
+                bool inStr = false;
+                std::size_t j = i;
+                for (; j < raw.size(); ++j) {
+                    const char cc = raw[j];
+                    if (inStr) {
+                        textBuf += cc;
+                        if (cc == '\\' && j + 1 < raw.size()) {
+                            textBuf += raw[++j];
+                        } else if (cc == '"') {
+                            inStr = false;
+                        }
+                        continue;
+                    }
+                    if (cc == '"') { inStr = true; textBuf += cc; continue; }
+                    if (cc == '{') { ++depth; textBuf += cc; continue; }
+                    if (cc == '}') {
+                        --depth;
+                        textBuf += cc;
+                        if (depth == 0) { ++j; break; }
+                        continue;
+                    }
+                    textBuf += cc;
+                }
+                i = j;
                 continue;
             }
             flushText();

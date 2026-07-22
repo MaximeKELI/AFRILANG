@@ -1,0 +1,34 @@
+import "std/thread"
+
+use thread
+
+test "mutex lock unlock"
+    create m = mutexNew()
+    mutexLock(m)
+    create x = 1 + 1
+    mutexUnlock(m)
+    assert x is equal to 2
+end
+
+test "number channel fifo"
+    create c = chanNewNumber()
+    chanSendNumber(c, 10)
+    chanSendNumber(c, 20)
+    chanSendNumber(c, 30)
+    assert chanRecvNumber(c) is equal to 10
+    assert chanRecvNumber(c) is equal to 20
+    assert chanRecvNumber(c) is equal to 30
+end
+
+test "text channel fifo"
+    create c = chanNewText()
+    chanSendText(c, "a")
+    chanSendText(c, "b")
+    assert chanRecvText(c) is equal to "a"
+    assert chanRecvText(c) is equal to "b"
+    chanClose(c)
+end
+
+test "hardware concurrency positive"
+    assert hardwareConcurrency() is greater than 0
+end

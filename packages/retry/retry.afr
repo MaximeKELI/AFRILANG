@@ -1,0 +1,23 @@
+module retry
+    function backoffDelay(attempt int, baseMs int) returns int
+        create factor int = 1
+        create i int = 0
+        while i is less than attempt do
+            set factor = factor * 2
+            set i = i + 1
+        end
+        return baseMs * factor
+    end
+
+    function cappedDelay(attempt int, baseMs int, maxMs int) returns int
+        create delay int = backoffDelay(attempt, baseMs)
+        if delay is greater than maxMs then
+            return maxMs
+        end
+        return delay
+    end
+
+    function shouldRetry(attempt int, maxAttempts int) returns bool
+        return attempt is less than maxAttempts
+    end
+end

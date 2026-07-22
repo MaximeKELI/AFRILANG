@@ -1,0 +1,14 @@
+import "pkg/retry/retry.afr"
+
+use retry
+
+test "backoff"
+    assert backoffDelay(0, 100) is equal to 100
+    assert backoffDelay(3, 100) is equal to 800
+end
+
+test "capped and shouldRetry"
+    assert cappedDelay(10, 100, 5000) is equal to 5000
+    assert shouldRetry(2, 5) is equal to true
+    assert shouldRetry(5, 5) is equal to false
+end

@@ -2,9 +2,9 @@ import "std/re"
 
 use re
 
-test "match anchored"
-    assert match("hello", "h.*o") is equal to true
-    assert match("hello world", "hello") is equal to false
+test "matches anchored"
+    assert matches("hello", "h.*o") is equal to true
+    assert matches("hello world", "hello") is equal to false
 end
 
 test "search substring"
@@ -14,7 +14,7 @@ end
 
 test "matchFlags case insensitive"
     assert matchFlags("HELLO", "hello", "i") is equal to true
-    assert match("HELLO", "hello") is equal to false
+    assert matches("HELLO", "hello") is equal to false
 end
 
 test "find first"

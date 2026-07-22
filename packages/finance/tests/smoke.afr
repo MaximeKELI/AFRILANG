@@ -1,0 +1,13 @@
+import "pkg/finance/finance.afr"
+
+use finance
+
+test "percent and discount"
+    assert percentOf(200, 10) is equal to 20
+    assert applyDiscount(100, 25) is equal to 75
+    assert addTax(100, 20) is equal to 120
+end
+
+test "interest"
+    assert simpleInterest(1000, 5, 2) is equal to 100
+end

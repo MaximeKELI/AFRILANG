@@ -1,0 +1,17 @@
+module finance
+    function percentOf(value number, percent number) returns number
+        return value * percent / 100
+    end
+
+    function applyDiscount(price number, percent number) returns number
+        return price - percentOf(price, percent)
+    end
+
+    function addTax(price number, ratePercent number) returns number
+        return price + percentOf(price, ratePercent)
+    end
+
+    function simpleInterest(principal number, ratePercent number, years number) returns number
+        return principal * ratePercent * years / 100
+    end
+end

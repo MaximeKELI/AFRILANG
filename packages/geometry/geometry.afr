@@ -1,0 +1,21 @@
+module geometry
+    function rectArea(width number, height number) returns number
+        return width * height
+    end
+
+    function triangleArea(base number, height number) returns number
+        return base * height / 2
+    end
+
+    function circleArea(radius number) returns number
+        return 3.14159265359 * radius * radius
+    end
+
+    function cubeVolume(side number) returns number
+        return side * side * side
+    end
+
+    function boxVolume(w number, h number, d number) returns number
+        return w * h * d
+    end
+end

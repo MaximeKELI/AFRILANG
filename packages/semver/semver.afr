@@ -1,0 +1,31 @@
+module semver
+    function compare(major1 int, minor1 int, patch1 int, major2 int, minor2 int, patch2 int) returns int
+        if major1 is less than major2 then
+            return 0 - 1
+        end
+        if major1 is greater than major2 then
+            return 1
+        end
+        if minor1 is less than minor2 then
+            return 0 - 1
+        end
+        if minor1 is greater than minor2 then
+            return 1
+        end
+        if patch1 is less than patch2 then
+            return 0 - 1
+        end
+        if patch1 is greater than patch2 then
+            return 1
+        end
+        return 0
+    end
+
+    function isCompatible(major1 int, major2 int) returns bool
+        return major1 is equal to major2
+    end
+
+    function satisfiesMin(major int, minor int, patch int, minMajor int, minMinor int, minPatch int) returns bool
+        return compare(major, minor, patch, minMajor, minMinor, minPatch) is greater than (0 - 1)
+    end
+end

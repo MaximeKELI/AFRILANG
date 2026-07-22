@@ -1,0 +1,33 @@
+module numcheck
+    function isEven(n int) returns bool
+        return n - (n / 2) * 2 is equal to 0
+    end
+
+    function isOdd(n int) returns bool
+        return isEven(n) is equal to false
+    end
+
+    function isPositive(n number) returns bool
+        return n is greater than 0
+    end
+
+    function inRange(value number, low number, high number) returns bool
+        if value is less than low then
+            return false
+        end
+        if value is greater than high then
+            return false
+        end
+        return true
+    end
+
+    function sign(n number) returns int
+        if n is greater than 0 then
+            return 1
+        end
+        if n is less than 0 then
+            return 0 - 1
+        end
+        return 0
+    end
+end

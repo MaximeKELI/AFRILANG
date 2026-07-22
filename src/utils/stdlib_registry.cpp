@@ -257,6 +257,12 @@ void StdlibRegistry::injectJsonModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("getString", {{"value", "json"}, {"key", "text"}}, "text"));
     fns.push_back(makeStubFunction("getNumber", {{"value", "json"}, {"key", "text"}}, "number"));
     fns.push_back(makeStubFunction("getInt", {{"value", "json"}, {"key", "text"}}, "int"));
+    fns.push_back(makeStubFunction("getBool", {{"value", "json"}, {"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("has", {{"value", "json"}, {"key", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("arrayLength", {{"value", "json"}}, "int"));
+    fns.push_back(makeStubFunction("arrayGet", {{"value", "json"}, {"index", "number"}}, "json"));
+    fns.push_back(makeStubFunction("getPath", {{"value", "json"}, {"path", "text"}}, "json"));
+    fns.push_back(makeStubFunction("stringifyPretty", {{"value", "json"}, {"indent", "number"}}, "text"));
     fns.push_back(makeStubFunction("makeObject", {{"key", "text"}, {"value", "text"}}, "json"));
     injectModule(program, "json", std::move(fns));
 }
@@ -565,7 +571,7 @@ void StdlibRegistry::injectTimeModule(ProgramNode& program) {
 
 void StdlibRegistry::injectReModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
-    fns.push_back(makeStubFunction("match", {{"text", "text"}, {"pattern", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("matches", {{"text", "text"}, {"pattern", "text"}}, "bool"));
     fns.push_back(makeStubFunction("matchFlags", {{"text", "text"}, {"pattern", "text"}, {"flags", "text"}}, "bool"));
     fns.push_back(makeStubFunction("search", {{"text", "text"}, {"pattern", "text"}}, "bool"));
     fns.push_back(makeStubFunction("find", {{"text", "text"}, {"pattern", "text"}}, "text"));
@@ -657,6 +663,16 @@ void StdlibRegistry::injectThreadModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("join", {{"id", "int"}}, ""));
     fns.push_back(makeStubFunction("sleepMs", {{"ms", "int"}}, ""));
     fns.push_back(makeStubFunction("hardwareConcurrency", {}, "int"));
+    fns.push_back(makeStubFunction("mutexNew", {}, "int"));
+    fns.push_back(makeStubFunction("mutexLock", {{"id", "int"}}, ""));
+    fns.push_back(makeStubFunction("mutexUnlock", {{"id", "int"}}, ""));
+    fns.push_back(makeStubFunction("chanNewText", {}, "int"));
+    fns.push_back(makeStubFunction("chanNewNumber", {}, "int"));
+    fns.push_back(makeStubFunction("chanSendText", {{"id", "int"}, {"value", "text"}}, ""));
+    fns.push_back(makeStubFunction("chanSendNumber", {{"id", "int"}, {"value", "number"}}, ""));
+    fns.push_back(makeStubFunction("chanRecvText", {{"id", "int"}}, "text"));
+    fns.push_back(makeStubFunction("chanRecvNumber", {{"id", "int"}}, "number"));
+    fns.push_back(makeStubFunction("chanClose", {{"id", "int"}}, ""));
     injectModule(program, "thread", std::move(fns));
 }
 
@@ -1039,7 +1055,18 @@ void StdlibRegistry::injectDatetimeModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("nowSeconds", {}, "number"));
     fns.push_back(makeStubFunction("nowMs", {}, "int"));
     fns.push_back(makeStubFunction("formatIso", {{"seconds", "number"}}, "text"));
+    fns.push_back(makeStubFunction("formatIsoOffset", {{"seconds", "number"}, {"offsetMinutes", "number"}}, "text"));
+    fns.push_back(makeStubFunction("parseIso", {{"text", "text"}}, "number"));
     fns.push_back(makeStubFunction("diffSeconds", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("year", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("month", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("day", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("hour", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("minute", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("second", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("weekday", {{"seconds", "number"}}, "number"));
+    fns.push_back(makeStubFunction("addSeconds", {{"seconds", "number"}, {"delta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("addDays", {{"seconds", "number"}, {"days", "number"}}, "number"));
     injectModule(program, "datetime", std::move(fns));
 }
 
