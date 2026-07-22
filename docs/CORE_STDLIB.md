@@ -29,7 +29,9 @@ Suite de tests : `afrilang test --specs`.
 | game2d / game3d | `std/game2d` | Jeux |
 | env | `std/env` | Environnement |
 | random | `std/random` | Aléatoire |
-| crypto | `std/crypto` | Crypto de base |
+| crypto | `std/crypto` | Hash, HMAC, AES-GCM, CSPRNG |
+| process | `std/process` | Spawn, pipes, exit (posix_spawn) |
+| net | `std/net` | TCP + HTTP minimal (+ TLS OpenSSL) |
 | csv / yaml / html | `std/csv` … | Formats |
 | uuid / base64 / hex / url | … | Utilitaires |
 

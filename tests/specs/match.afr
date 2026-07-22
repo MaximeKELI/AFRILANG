@@ -1,0 +1,26 @@
+enum Status
+    case Ok
+    case Error with message text
+end
+
+test "match ok"
+    create s = Status.Ok
+    create label = match s
+        case Ok then "success"
+        end
+        default "unknown"
+        end
+    end
+    assert label is equal to "success"
+end
+
+test "match error payload"
+    create e = Status.Error with "failed"
+    create msg = match e
+        case Error with m then m
+        end
+        default ""
+        end
+    end
+    assert msg is equal to "failed"
+end

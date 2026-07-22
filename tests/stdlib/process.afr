@@ -1,0 +1,25 @@
+import "std/process"
+
+use process
+
+test "run true and false"
+    assert runCmd("true") is equal to 0
+    assert runCmd("false") is equal to 1
+end
+
+test "run with args"
+    assert run("true", empty list text) is equal to 0
+end
+
+test "captureStdout"
+    create out = captureStdout("echo", list of "afrilang")
+    assert out is equal to "afrilang\n"
+end
+
+test "getPid"
+    assert getPid() is greater than 0
+end
+
+test "runShell refused without insecure flag"
+    assert runShell("echo hi") is equal to (0 - 2)
+end

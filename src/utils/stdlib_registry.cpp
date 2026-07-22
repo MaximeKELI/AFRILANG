@@ -70,7 +70,8 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "sql" ||
            moduleName == "web" || moduleName == "orm" || moduleName == "thread" ||
            moduleName == "bigint" ||
-           moduleName == "crypto" || moduleName == "yaml" || moduleName == "datetime" ||
+           moduleName == "crypto" || moduleName == "process" || moduleName == "net" ||
+           moduleName == "yaml" || moduleName == "datetime" ||
            moduleName == "env" || moduleName == "tempfile" || moduleName == "base64" ||
            moduleName == "url" || moduleName == "random" || moduleName == "hex" ||
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
@@ -113,6 +114,8 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "math") return "math";
     if (normalized == "stats") return "stats";
     if (normalized == "proba") return "proba";
+    if (normalized == "process") return "process";
+    if (normalized == "net") return "net";
     if (normalized == "log" || normalized == "logging") return "logging";
     if (normalized == "time" || normalized == "chrono") return "chrono";
     if (normalized == "str") return "str";
@@ -213,6 +216,8 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "thread") injectThreadModule(program);
     else if (moduleName == "bigint") injectBigintModule(program);
     else if (moduleName == "crypto") injectCryptoModule(program);
+    else if (moduleName == "process") injectProcessModule(program);
+    else if (moduleName == "net") injectNetModule(program);
     else if (moduleName == "yaml") injectYamlModule(program);
     else if (moduleName == "datetime") injectDatetimeModule(program);
     else if (moduleName == "env") injectEnvModule(program);
@@ -295,58 +300,124 @@ void StdlibRegistry::injectLogModule(ProgramNode& program) {
 void StdlibRegistry::injectMathModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("abs", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("fabs", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("floor", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("ceil", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("pow", {{"base", "number"}, {"exp", "number"}}, "number"));
+    fns.push_back(makeStubFunction("trunc", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("round", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("sqrt", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("cbrt", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("isqrt", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("exp", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("exp2", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("expm1", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("log", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("ln", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("log1p", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("log10", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("log2", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("log10", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("sin", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("cos", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("tan", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("asin", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("acos", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("atan", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("atan2", {{"y", "number"}, {"x", "number"}}, "number"));
     fns.push_back(makeStubFunction("sinh", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("cosh", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("tanh", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("hypot", {{"x", "number"}, {"y", "number"}}, "number"));
-    fns.push_back(makeStubFunction("min", {{"a", "number"}, {"b", "number"}}, "number"));
-    fns.push_back(makeStubFunction("max", {{"a", "number"}, {"b", "number"}}, "number"));
-    fns.push_back(makeStubFunction("clamp", {{"value", "number"}, {"lo", "number"}, {"hi", "number"}}, "number"));
-    fns.push_back(makeStubFunction("round", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("trunc", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("asinh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("acosh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("atanh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arcsin", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccos", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arctan", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arcsinh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccosh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arctanh", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sec", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("csc", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("cot", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sech", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("csch", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("coth", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arcsec", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccsc", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccot", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arcsech", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccsch", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arccoth", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("sign", {{"value", "number"}}, "number"));
-    fns.push_back(makeStubFunction("deg2rad", {{"degrees", "number"}}, "number"));
-    fns.push_back(makeStubFunction("rad2deg", {{"radians", "number"}}, "number"));
-    fns.push_back(makeStubFunction("gcd", {{"a", "number"}, {"b", "number"}}, "number"));
-    fns.push_back(makeStubFunction("lcm", {{"a", "number"}, {"b", "number"}}, "number"));
-    fns.push_back(makeStubFunction("fmod", {{"x", "number"}, {"y", "number"}}, "number"));
-    fns.push_back(makeStubFunction("remainder", {{"x", "number"}, {"y", "number"}}, "number"));
-    fns.push_back(makeStubFunction("copysign", {{"mag", "number"}, {"sgn", "number"}}, "number"));
-    fns.push_back(makeStubFunction("lerp", {{"a", "number"}, {"b", "number"}, {"t", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sgn", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("frexpMantissa", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("frexpExp", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("modfInt", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("modfFrac", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("ulp", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("factorial", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("fac", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("erf", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("erfc", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("gamma", {{"value", "number"}}, "number"));
     fns.push_back(makeStubFunction("lgamma", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("classify", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("nextPowerOfTwo", {{"value", "number"}}, "number"));
+    fns.push_back(makeStubFunction("deg2rad", {{"degrees", "number"}}, "number"));
+    fns.push_back(makeStubFunction("radians", {{"degrees", "number"}}, "number"));
+    fns.push_back(makeStubFunction("degToRad", {{"degrees", "number"}}, "number"));
+    fns.push_back(makeStubFunction("rad2deg", {{"radians", "number"}}, "number"));
+    fns.push_back(makeStubFunction("degrees", {{"radians", "number"}}, "number"));
+    fns.push_back(makeStubFunction("radToDeg", {{"radians", "number"}}, "number"));
+    fns.push_back(makeStubFunction("pow", {{"base", "number"}, {"exp", "number"}}, "number"));
+    fns.push_back(makeStubFunction("atan2", {{"y", "number"}, {"x", "number"}}, "number"));
+    fns.push_back(makeStubFunction("arctan2", {{"y", "number"}, {"x", "number"}}, "number"));
+    fns.push_back(makeStubFunction("hypot", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("hypot3", {{"x", "number"}, {"y", "number"}, {"z", "number"}}, "number"));
+    fns.push_back(makeStubFunction("min", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("max", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("clamp", {{"value", "number"}, {"lo", "number"}, {"hi", "number"}}, "number"));
+    fns.push_back(makeStubFunction("lerp", {{"a", "number"}, {"b", "number"}, {"t", "number"}}, "number"));
+    fns.push_back(makeStubFunction("fma", {{"x", "number"}, {"y", "number"}, {"z", "number"}}, "number"));
+    fns.push_back(makeStubFunction("copysign", {{"mag", "number"}, {"sgn", "number"}}, "number"));
+    fns.push_back(makeStubFunction("copySign", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("fmod", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("remainder", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("floorDiv", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("floorMod", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("euclDiv", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("euclMod", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("ldexp", {{"x", "number"}, {"i", "number"}}, "number"));
+    fns.push_back(makeStubFunction("nextafter", {{"x", "number"}, {"y", "number"}}, "number"));
+    fns.push_back(makeStubFunction("gcd", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("lcm", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("perm", {{"n", "number"}, {"k", "number"}}, "number"));
+    fns.push_back(makeStubFunction("comb", {{"n", "number"}, {"k", "number"}}, "number"));
+    fns.push_back(makeStubFunction("binom", {{"n", "number"}, {"k", "number"}}, "number"));
+    fns.push_back(makeStubFunction("logBase", {{"value", "number"}, {"base", "number"}}, "number"));
+    fns.push_back(makeStubFunction("roundPlaces", {{"value", "number"}, {"places", "number"}}, "number"));
     fns.push_back(makeStubFunction("isFinite", {{"value", "number"}}, "bool"));
     fns.push_back(makeStubFunction("isInf", {{"value", "number"}}, "bool"));
     fns.push_back(makeStubFunction("isNan", {{"value", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("isNaN", {{"value", "number"}}, "bool"));
     fns.push_back(makeStubFunction("isClose", {{"a", "number"}, {"b", "number"}, {"relTol", "number"}, {"absTol", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("almostEqual", {{"a", "number"}, {"b", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("isPowerOfTwo", {{"x", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("signbit", {{"value", "number"}}, "bool"));
     fns.push_back(makeStubFunction("pi", {}, "number"));
     fns.push_back(makeStubFunction("e", {}, "number"));
     fns.push_back(makeStubFunction("tau", {}, "number"));
     fns.push_back(makeStubFunction("inf", {}, "number"));
     fns.push_back(makeStubFunction("nan", {}, "number"));
     fns.push_back(makeStubFunction("random", {}, "number"));
+    fns.push_back(makeStubFunction("fsum", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("sum", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("prod", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("sumprod", {{"a", "list number"}, {"b", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("dist", {{"p", "list number"}, {"q", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("cumsummed", {{"v", "list number"}}, "list number"));
+    fns.push_back(makeStubFunction("cumproded", {{"v", "list number"}}, "list number"));
     injectModule(program, "math", std::move(fns));
 }
+
 
 void StdlibRegistry::injectStatsModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
@@ -355,11 +426,16 @@ void StdlibRegistry::injectStatsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("fsum", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("product", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("mean", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("fmean", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("geometricMean", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("harmonicMean", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("rms", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("median", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("medianLow", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("medianHigh", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("medianGrouped", {{"v", "list number"}, {"interval", "number"}}, "number"));
     fns.push_back(makeStubFunction("mode", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("multimode", {{"v", "list number"}}, "list number"));
     fns.push_back(makeStubFunction("minVal", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("maxVal", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("range", {{"v", "list number"}}, "number"));
@@ -367,6 +443,11 @@ void StdlibRegistry::injectStatsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("stddev", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("popVariance", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("popStddev", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("pvariance", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("pstdev", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("varianceS", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("standardDeviation", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("standardDeviationS", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("seMean", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("cv", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("q1", {{"v", "list number"}}, "number"));
@@ -377,10 +458,15 @@ void StdlibRegistry::injectStatsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("trimmedMean", {{"v", "list number"}, {"pct", "number"}}, "number"));
     fns.push_back(makeStubFunction("percentile", {{"v", "list number"}, {"p", "number"}}, "number"));
     fns.push_back(makeStubFunction("quantile", {{"v", "list number"}, {"q", "number"}}, "number"));
+    fns.push_back(makeStubFunction("quantiles", {{"v", "list number"}, {"n", "number"}}, "list number"));
     fns.push_back(makeStubFunction("skewness", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("kurtosis", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("skewnessS", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("kurtosisS", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("covariance", {{"a", "list number"}, {"b", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("covariancePop", {{"a", "list number"}, {"b", "list number"}}, "number"));
     fns.push_back(makeStubFunction("correlation", {{"a", "list number"}, {"b", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("pearsonr", {{"a", "list number"}, {"b", "list number"}}, "number"));
     fns.push_back(makeStubFunction("linRegSlope", {{"x", "list number"}, {"y", "list number"}}, "number"));
     fns.push_back(makeStubFunction("linRegIntercept", {{"x", "list number"}, {"y", "list number"}}, "number"));
     fns.push_back(makeStubFunction("linRegPredict", {{"x", "list number"}, {"y", "list number"}, {"xv", "number"}}, "number"));
@@ -397,6 +483,7 @@ void StdlibRegistry::injectStatsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("histogram", {{"v", "list number"}, {"bins", "number"}}, "list number"));
     injectModule(program, "stats", std::move(fns));
 }
+
 
 void StdlibRegistry::injectProbaModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
@@ -424,22 +511,49 @@ void StdlibRegistry::injectProbaModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("chiSquareCdf", {{"x", "number"}, {"k", "number"}}, "number"));
     fns.push_back(makeStubFunction("studentTPdf", {{"x", "number"}, {"nu", "number"}}, "number"));
     fns.push_back(makeStubFunction("studentTCdf", {{"x", "number"}, {"nu", "number"}}, "number"));
+    fns.push_back(makeStubFunction("weibullPdf", {{"x", "number"}, {"shape", "number"}, {"scale", "number"}}, "number"));
+    fns.push_back(makeStubFunction("weibullCdf", {{"x", "number"}, {"shape", "number"}, {"scale", "number"}}, "number"));
+    fns.push_back(makeStubFunction("betaPdf", {{"x", "number"}, {"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("paretoPdf", {{"x", "number"}, {"alpha", "number"}}, "number"));
+    fns.push_back(makeStubFunction("paretoCdf", {{"x", "number"}, {"alpha", "number"}}, "number"));
     fns.push_back(makeStubFunction("seed", {{"value", "int"}}, ""));
+    fns.push_back(makeStubFunction("randomize", {}, ""));
     fns.push_back(makeStubFunction("sampleUniform", {{"lo", "number"}, {"hi", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleInt", {{"lo", "number"}, {"hi", "number"}}, "number"));
+    fns.push_back(makeStubFunction("rand", {{"maxValue", "number"}}, "number"));
+    fns.push_back(makeStubFunction("randint", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("randrange", {{"start", "number"}, {"stop", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleNormal", {{"mu", "number"}, {"sigma", "number"}}, "number"));
+    fns.push_back(makeStubFunction("gauss", {{"mu", "number"}, {"sigma", "number"}}, "number"));
+    fns.push_back(makeStubFunction("normalvariate", {{"mu", "number"}, {"sigma", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleBernoulli", {{"p", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleBinomial", {{"n", "number"}, {"p", "number"}}, "number"));
     fns.push_back(makeStubFunction("samplePoisson", {{"lambda", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleExponential", {{"rate", "number"}}, "number"));
+    fns.push_back(makeStubFunction("expovariate", {{"lambd", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleGeometric", {{"p", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleLogNormal", {{"mu", "number"}, {"sigma", "number"}}, "number"));
+    fns.push_back(makeStubFunction("lognormvariate", {{"mu", "number"}, {"sigma", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleGamma", {{"shape", "number"}, {"rate", "number"}}, "number"));
+    fns.push_back(makeStubFunction("gammavariate", {{"alpha", "number"}, {"beta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sampleTriangular", {{"low", "number"}, {"high", "number"}, {"mode", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sampleBeta", {{"alpha", "number"}, {"beta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("betavariate", {{"alpha", "number"}, {"beta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sampleWeibull", {{"alpha", "number"}, {"beta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("weibullvariate", {{"alpha", "number"}, {"beta", "number"}}, "number"));
+    fns.push_back(makeStubFunction("samplePareto", {{"alpha", "number"}}, "number"));
+    fns.push_back(makeStubFunction("paretovariate", {{"alpha", "number"}}, "number"));
+    fns.push_back(makeStubFunction("sampleVonMises", {{"mu", "number"}, {"kappa", "number"}}, "number"));
+    fns.push_back(makeStubFunction("vonmisesvariate", {{"mu", "number"}, {"kappa", "number"}}, "number"));
     fns.push_back(makeStubFunction("sampleChoice", {{"v", "list number"}}, "number"));
     fns.push_back(makeStubFunction("sampleShuffle", {{"v", "list number"}}, "list number"));
     fns.push_back(makeStubFunction("sampleN", {{"v", "list number"}, {"n", "number"}}, "list number"));
+    fns.push_back(makeStubFunction("sampleWeighted", {{"v", "list number"}, {"weights", "list number"}, {"k", "number"}}, "list number"));
+    fns.push_back(makeStubFunction("sampleWithoutReplacement", {{"v", "list number"}, {"k", "number"}}, "list number"));
+    fns.push_back(makeStubFunction("sampleCdf", {{"v", "list number"}, {"cdf", "list number"}}, "number"));
     injectModule(program, "proba", std::move(fns));
 }
+
 
 void StdlibRegistry::injectTimeModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
@@ -865,8 +979,44 @@ void StdlibRegistry::injectGamenetModule(ProgramNode& program) {
 void StdlibRegistry::injectCryptoModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("sha256", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("sha512", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("sha1", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("sha3_256", {{"data", "text"}}, "text"));
     fns.push_back(makeStubFunction("sha256File", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("hmacSha256", {{"key", "text"}, {"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("randomBytes", {{"n", "number"}}, "text"));
+    fns.push_back(makeStubFunction("randomHex", {{"n", "number"}}, "text"));
+    fns.push_back(makeStubFunction("hexEncode", {{"data", "text"}}, "text"));
+    fns.push_back(makeStubFunction("hexDecode", {{"hex", "text"}}, "text"));
+    fns.push_back(makeStubFunction("aesGcmEncrypt", {{"keyHex", "text"}, {"plaintext", "text"}}, "text"));
+    fns.push_back(makeStubFunction("aesGcmDecrypt", {{"keyHex", "text"}, {"packedHex", "text"}}, "text"));
     injectModule(program, "crypto", std::move(fns));
+}
+
+void StdlibRegistry::injectProcessModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("run", {{"program", "text"}, {"args", "list text"}}, "int"));
+    fns.push_back(makeStubFunction("runCmd", {{"program", "text"}}, "int"));
+    fns.push_back(makeStubFunction("captureStdout", {{"program", "text"}, {"args", "list text"}}, "text"));
+    fns.push_back(makeStubFunction("captureCombined", {{"program", "text"}, {"args", "list text"}}, "text"));
+    fns.push_back(makeStubFunction("runShell", {{"command", "text"}}, "int"));
+    fns.push_back(makeStubFunction("getPid", {}, "int"));
+    fns.push_back(makeStubFunction("exitWith", {{"code", "int"}}, ""));
+    injectModule(program, "process", std::move(fns));
+}
+
+void StdlibRegistry::injectNetModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("tcpConnect", {{"host", "text"}, {"port", "number"}}, "number"));
+    fns.push_back(makeStubFunction("tcpClose", {{"fd", "number"}}, ""));
+    fns.push_back(makeStubFunction("tcpWrite", {{"fd", "number"}, {"data", "text"}}, "number"));
+    fns.push_back(makeStubFunction("tcpRead", {{"fd", "number"}, {"maxBytes", "number"}}, "text"));
+    fns.push_back(makeStubFunction("tcpListen", {{"port", "number"}}, "number"));
+    fns.push_back(makeStubFunction("tcpAccept", {{"listenFd", "number"}}, "number"));
+    fns.push_back(makeStubFunction("httpServe", {{"port", "number"}, {"body", "text"}}, "number"));
+    fns.push_back(makeStubFunction("httpServeOnce", {{"port", "number"}, {"body", "text"}}, "number"));
+    fns.push_back(makeStubFunction("httpServeTlsOnce", {{"port", "number"}, {"certFile", "text"}, {"keyFile", "text"}, {"body", "text"}}, "number"));
+    injectModule(program, "net", std::move(fns));
 }
 
 void StdlibRegistry::injectYamlModule(ProgramNode& program) {
@@ -918,10 +1068,19 @@ void StdlibRegistry::injectUrlModule(ProgramNode& program) {
 void StdlibRegistry::injectRandomModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("seed", {{"value", "int"}}, ""));
+    fns.push_back(makeStubFunction("randomize", {}, ""));
     fns.push_back(makeStubFunction("randomInt", {{"minValue", "int"}, {"maxValue", "int"}}, "int"));
     fns.push_back(makeStubFunction("randomFloat", {}, "number"));
+    fns.push_back(makeStubFunction("rand", {{"maxValue", "number"}}, "number"));
+    fns.push_back(makeStubFunction("randint", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("gauss", {{"mu", "number"}, {"sigma", "number"}}, "number"));
+    fns.push_back(makeStubFunction("uniform", {{"a", "number"}, {"b", "number"}}, "number"));
+    fns.push_back(makeStubFunction("choice", {{"v", "list number"}}, "number"));
+    fns.push_back(makeStubFunction("shuffle", {{"v", "list number"}}, "list number"));
+    fns.push_back(makeStubFunction("sample", {{"v", "list number"}, {"k", "number"}}, "list number"));
     injectModule(program, "random", std::move(fns));
 }
+
 
 void StdlibRegistry::injectHexModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;

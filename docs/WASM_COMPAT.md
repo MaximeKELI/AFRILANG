@@ -19,6 +19,9 @@ AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --targ
 | `std/ui`, SDL2 | pas de fenêtre native en navigateur |
 | `std/game2d`, `std/game3d` | OpenGL / SDL |
 | `std/http` (sync) | sockets système |
+| `std/net` | sockets TCP / HTTP / TLS |
+| `std/process` | `posix_spawn` / pipes |
+| `std/crypto` | OpenSSL natif |
 | `std/fs`, `std/io` fichiers | accès disque limité en WASM |
 | `std/thread` | threads POSIX |
 | `std/gamenet` UDP | sockets réseau |

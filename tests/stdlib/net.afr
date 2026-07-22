@@ -1,0 +1,14 @@
+import "std/net"
+
+use net
+
+test "tcpListen and close"
+    create fd = tcpListen(18765)
+    assert fd is greater than (0 - 1)
+    tcpClose(fd)
+end
+
+test "tcpConnect refused"
+    create bad = tcpConnect("127.0.0.1", 1)
+    assert bad is equal to (0 - 1)
+end

@@ -1,0 +1,23 @@
+function addInt(a int, b int) returns int
+    return a + b
+end
+
+function asNumber(n int) returns number
+    return n
+end
+
+test "int params and return"
+    create a int = 40
+    create b int = 2
+    assert addInt(a, b) is equal to 42
+end
+
+test "int coerces to number"
+    create x int = 7
+    assert asNumber(x) is equal to 7
+end
+
+test "int alias entier"
+    create n entier = 3
+    assert n is equal to 3
+end

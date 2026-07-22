@@ -6,22 +6,19 @@ use math
 use stats
 use proba
 
-say "=== math (Python/Nim style) ==="
-say "gcd(12,18)=" + gcd(12, 18) + "  gamma(5)=" + gamma(5)
-say "lerp(0,10,0.3)=" + lerp(0, 10, 0.3)
+say "=== math (Python+Nim surface) ==="
+say "isqrt(10)=" + isqrt(10) + " fac(6)=" + fac(6) + " binom(10,3)=" + binom(10, 3)
+say "asinh(0)=" + asinh(0) + " fma(2,3,4)=" + fma(2, 3, 4)
 
-say "=== stats ==="
-create data = list of 2, 4, 4, 4, 5, 5, 7, 9
+say "=== stats (Python+Nim) ==="
 create xs = list of 1, 2, 3, 4
 create ys = list of 2, 4, 6, 8
-say "geoMean(1,4,16)=" + geometricMean(list of 1, 4, 16)
-say "linReg slope=" + linRegSlope(xs, ys)
-say "mad=" + mad(data)
+say "pearsonr=" + pearsonr(xs, ys)
+create qdata = list of 1, 2, 3, 4, 5, 6, 7, 8
+say "quantiles n=4 count=" + count(quantiles(qdata, 4))
 
-say "=== proba ==="
-say "studentTCdf(0,10)=" + studentTCdf(0, 10)
-say "geometricPdf(0,0.5)=" + geometricPdf(0, 0.5)
-seed(7)
-say "sampleGamma(2,1)=" + sampleGamma(2, 1)
-create bag = list of 1, 2, 3, 4, 5
-say "sampleChoice=" + sampleChoice(bag)
+say "=== proba / random (Python-like) ==="
+seed(99)
+say "betavariate=" + betavariate(2, 5)
+say "weibullvariate=" + weibullvariate(1, 1.5)
+say "vonmisesvariate=" + vonmisesvariate(0, 4)

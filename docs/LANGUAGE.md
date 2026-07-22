@@ -19,6 +19,7 @@ Optionnels : `T?`, `nothing`, `is defined` — pas `none` / `is some`.
 | Type | Syntax | C++ |
 |------|--------|-----|
 | number | `number` | `double` |
+| int | `int` (alias FR `entier`) | `std::int64_t` |
 | text | `text` | `std::string` |
 | bool | `bool` | `bool` |
 | list | `list of T` | `std::vector<T>` (classes: `vector<unique_ptr<T>>`) |

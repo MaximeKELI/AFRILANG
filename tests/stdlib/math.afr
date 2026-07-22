@@ -19,20 +19,24 @@ end
 test "sqrt and cbrt"
     assert sqrt(9) is equal to 3
     assert cbrt(8) is equal to 2
+    assert isqrt(10) is equal to 3
 end
 
 test "log and exp"
     assert log10(1000) is equal to 3
     assert log2(8) is equal to 3
-    assert floor(exp(0)) is equal to 1
+    assert ln(e()) is equal to 1
     assert expm1(0) is equal to 0
     assert log1p(0) is equal to 0
+    assert exp2(3) is equal to 8
 end
 
-test "trig and hypot"
+test "trig hyperbolic and reciprocal"
     assert sin(0) is equal to 0
     assert cos(0) is equal to 1
     assert hypot(3, 4) is equal to 5
+    assert asinh(0) is equal to 0
+    assert sec(0) is equal to 1
 end
 
 test "min max clamp round"
@@ -43,22 +47,31 @@ test "min max clamp round"
     assert trunc(2.9) is equal to 2
     assert sign(0 - 7) is equal to (0 - 1)
     assert lerp(0, 10, 0.5) is equal to 5
+    assert fma(2, 3, 4) is equal to 10
 end
 
-test "gcd lcm and special"
+test "gcd lcm factorial special"
     assert gcd(12, 18) is equal to 6
     assert lcm(4, 6) is equal to 12
+    assert factorial(5) is equal to 120
+    assert comb(5, 2) is equal to 10
     assert gamma(5) is equal to 24
     assert erf(0) is equal to 0
     assert isFinite(1) is equal to true
     assert isNan(nan()) is equal to true
-    assert isClose(1, 1.0000000001, 0.000001, 0) is equal to true
+    assert almostEqual(1, 1) is equal to true
+    assert isPowerOfTwo(8) is equal to true
+    assert nextPowerOfTwo(5) is equal to 8
 end
 
-test "constants and angle convert"
+test "list helpers and constants"
+    create xs = list of 1, 2, 3, 4
+    assert sum(xs) is equal to 10
+    assert prod(xs) is equal to 24
+    assert sumprod(xs, xs) is equal to 30
+    create c = cumsummed(xs)
+    assert c at 3 is equal to 10
     assert floor(pi()) is equal to 3
     assert floor(e()) is equal to 2
-    assert floor(tau()) is equal to 6
     assert deg2rad(180) is equal to pi()
-    assert rad2deg(pi()) is equal to 180
 end

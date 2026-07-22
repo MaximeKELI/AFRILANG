@@ -354,7 +354,11 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                     config.maxMemoryMb = limits.maxMemoryMb;
                     config.maxCpuSeconds = limits.maxCpuSeconds;
                     config.maxOutputBytes = limits.maxOutputBytes;
-                    config.limitProcessCount = true;
+                    const bool needsSpawn =
+                        semantic.usesAsync || semantic.usedModules.count("process") > 0 ||
+                        semantic.usedModules.count("thread") > 0 ||
+                        semantic.usedModules.count("net") > 0;
+                    config.limitProcessCount = !needsSpawn;
                     if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                         applyGuiExecConfig(config);
                     } else if (semantic.usesAsk) {
@@ -367,6 +371,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                     std::cout << "--- Fin (code: " << exec.exitCode << ") ---\n";
                     if (options.profileMode) {
                         std::cout << "[profile] exec: " << execMs << " ms (cache hit)\n";
+                    }
+                    if (exec.exitCode != 0 || exec.timedOut) {
+                        result.success = false;
                     }
                 }
                 return result;
@@ -419,7 +426,11 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             config.maxMemoryMb = limits.maxMemoryMb;
             config.maxCpuSeconds = limits.maxCpuSeconds;
             config.maxOutputBytes = limits.maxOutputBytes;
-            config.limitProcessCount = true;
+            const bool needsSpawn =
+                semantic.usesAsync || semantic.usedModules.count("process") > 0 ||
+                semantic.usedModules.count("thread") > 0 ||
+                semantic.usedModules.count("net") > 0;
+            config.limitProcessCount = !needsSpawn;
             if (semantic.usesUi || semantic.usesGame3d || sourceUsesGui(sourceContent)) {
                 applyGuiExecConfig(config);
             } else if (semantic.usesAsk) {
@@ -438,6 +449,9 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             if (options.profileMode) {
                 std::cout << "[profile] exec: " << execMs << " ms\n";
                 std::cout << "[profile] total: " << (compileMs + execMs) << " ms\n";
+            }
+            if (exec.exitCode != 0 || exec.timedOut) {
+                result.success = false;
             }
         }
 

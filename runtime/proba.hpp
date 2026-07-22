@@ -3,6 +3,7 @@
 #include "random.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <limits>
@@ -410,6 +411,156 @@ inline std::vector<double> sampleN(const std::vector<double>& v, double n) {
     r.reserve(static_cast<std::size_t>(count));
     for (int i = 0; i < count; ++i) r.push_back(sampleChoice(v));
     return r;
+}
+
+// ---- Python random module surface (clean-room) ----
+inline void randomize() {
+    random_::seed(static_cast<std::int64_t>(
+        std::chrono::high_resolution_clock::now().time_since_epoch().count()));
+}
+inline double rand(double maxValue) {
+    if (maxValue <= 0.0) return 0.0;
+    return sampleUniform(0.0, maxValue);
+}
+inline double randint(double a, double b) { return sampleInt(a, b); }
+inline double randrange(double start, double stop) {
+    // Python randrange(start, stop) → [start, stop)
+    std::int64_t lo = static_cast<std::int64_t>(std::floor(start));
+    std::int64_t hi = static_cast<std::int64_t>(std::floor(stop)) - 1;
+    if (hi < lo) return static_cast<double>(lo);
+    return sampleInt(static_cast<double>(lo), static_cast<double>(hi));
+}
+inline double gauss(double mu, double sigma) { return sampleNormal(mu, sigma); }
+inline double normalvariate(double mu, double sigma) { return sampleNormal(mu, sigma); }
+inline double lognormvariate(double mu, double sigma) { return sampleLogNormal(mu, sigma); }
+inline double expovariate(double lambd) { return sampleExponential(lambd); }
+inline double gammavariate(double alpha, double beta) {
+    // Python: beta is scale; our sampleGamma uses rate = 1/scale
+    if (beta <= 0.0) return 0.0;
+    return sampleGamma(alpha, 1.0 / beta);
+}
+
+inline double sampleTriangular(double low, double high, double mode) {
+    if (low > high) std::swap(low, high);
+    // Inverse CDF
+    const double u = sampleUniform(0.0, 1.0);
+    const double c = (mode - low) / (high - low);
+    if (u < c) return low + std::sqrt(u * (high - low) * (mode - low));
+    return high - std::sqrt((1.0 - u) * (high - low) * (high - mode));
+}
+
+inline double sampleBeta(double alpha, double beta) {
+    if (alpha <= 0.0 || beta <= 0.0) return 0.0;
+    const double x = sampleGamma(alpha, 1.0);
+    const double y = sampleGamma(beta, 1.0);
+    const double s = x + y;
+    return s == 0.0 ? 0.0 : x / s;
+}
+inline double betavariate(double alpha, double beta) { return sampleBeta(alpha, beta); }
+
+inline double sampleWeibull(double alpha, double beta) {
+    // Python weibullvariate(alpha, beta): alpha=scale, beta=shape
+    if (alpha <= 0.0 || beta <= 0.0) return 0.0;
+    const double u = sampleUniform(0.0, 1.0);
+    return alpha * std::pow(-std::log(u), 1.0 / beta);
+}
+inline double weibullvariate(double alpha, double beta) { return sampleWeibull(alpha, beta); }
+
+inline double samplePareto(double alpha) {
+    if (alpha <= 0.0) return 0.0;
+    const double u = sampleUniform(0.0, 1.0);
+    return 1.0 / std::pow(u, 1.0 / alpha);
+}
+inline double paretovariate(double alpha) { return samplePareto(alpha); }
+
+inline double sampleVonMises(double mu, double kappa) {
+    if (kappa <= 1e-6) return sampleUniform(mu - 3.14159265358979323846,
+                                            mu + 3.14159265358979323846);
+    // Best–Fisher algorithm
+    const double a = 1.0 + std::sqrt(1.0 + 4.0 * kappa * kappa);
+    const double b = (a - std::sqrt(2.0 * a)) / (2.0 * kappa);
+    const double r = (1.0 + b * b) / (2.0 * b);
+    while (true) {
+        const double u1 = sampleUniform(0.0, 1.0);
+        const double z = std::cos(3.14159265358979323846 * u1);
+        const double f = (1.0 + r * z) / (r + z);
+        const double c = kappa * (r - f);
+        const double u2 = sampleUniform(0.0, 1.0);
+        if (u2 < c * (2.0 - c) || u2 <= c * std::exp(1.0 - c)) {
+            const double u3 = sampleUniform(0.0, 1.0);
+            return u3 > 0.5 ? mu + std::acos(f) : mu - std::acos(f);
+        }
+    }
+}
+inline double vonmisesvariate(double mu, double kappa) { return sampleVonMises(mu, kappa); }
+
+inline double weibullPdf(double x, double shape, double scale) {
+    if (x < 0.0 || shape <= 0.0 || scale <= 0.0) return 0.0;
+    const double z = x / scale;
+    return (shape / scale) * std::pow(z, shape - 1.0) * std::exp(-std::pow(z, shape));
+}
+inline double weibullCdf(double x, double shape, double scale) {
+    if (x < 0.0) return 0.0;
+    if (shape <= 0.0 || scale <= 0.0) return 0.0;
+    return 1.0 - std::exp(-std::pow(x / scale, shape));
+}
+inline double betaPdf(double x, double a, double b) {
+    if (x <= 0.0 || x >= 1.0 || a <= 0.0 || b <= 0.0) return 0.0;
+    const double B = std::exp(std::lgamma(a) + std::lgamma(b) - std::lgamma(a + b));
+    return std::pow(x, a - 1.0) * std::pow(1.0 - x, b - 1.0) / B;
+}
+inline double paretoPdf(double x, double alpha) {
+    if (x < 1.0 || alpha <= 0.0) return 0.0;
+    return alpha / std::pow(x, alpha + 1.0);
+}
+inline double paretoCdf(double x, double alpha) {
+    if (x < 1.0) return 0.0;
+    if (alpha <= 0.0) return 0.0;
+    return 1.0 - std::pow(x, -alpha);
+}
+
+inline std::vector<double> sampleWeighted(const std::vector<double>& v,
+                                          const std::vector<double>& weights,
+                                          double k) {
+    std::vector<double> r;
+    const int n = static_cast<int>(std::floor(k));
+    if (n <= 0 || v.empty() || v.size() != weights.size()) return r;
+    double total = 0.0;
+    for (double w : weights) total += std::fmax(0.0, w);
+    if (total <= 0.0) return sampleN(v, k);
+    for (int i = 0; i < n; ++i) {
+        double u = sampleUniform(0.0, total);
+        for (std::size_t j = 0; j < v.size(); ++j) {
+            u -= std::fmax(0.0, weights[j]);
+            if (u <= 0.0) {
+                r.push_back(v[j]);
+                break;
+            }
+        }
+        if (r.size() == static_cast<std::size_t>(i)) r.push_back(v.back());
+    }
+    return r;
+}
+
+inline std::vector<double> sampleWithoutReplacement(std::vector<double> v, double k) {
+    const int n = static_cast<int>(std::floor(k));
+    if (n <= 0) return {};
+    if (static_cast<std::size_t>(n) >= v.size()) {
+        std::shuffle(v.begin(), v.end(), random_::engine());
+        return v;
+    }
+    std::shuffle(v.begin(), v.end(), random_::engine());
+    v.resize(static_cast<std::size_t>(n));
+    return v;
+}
+
+inline double sampleCdf(const std::vector<double>& v, const std::vector<double>& cdf) {
+    if (v.empty() || v.size() != cdf.size()) return 0.0;
+    const double u = sampleUniform(0.0, cdf.back());
+    for (std::size_t i = 0; i < cdf.size(); ++i) {
+        if (u <= cdf[i]) return v[i];
+    }
+    return v.back();
 }
 
 } // namespace afrilang::runtime::proba

@@ -459,6 +459,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsThread = false;
     bool needsBigint = false;
     bool needsCrypto = false;
+    bool needsProcess = false;
+    bool needsNet = false;
     bool needsYaml = false;
     bool needsDatetime = false;
     bool needsEnv = false;
@@ -496,6 +498,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "thread") needsThread = true;
         if (module->name == "bigint") needsBigint = true;
         if (module->name == "crypto") needsCrypto = true;
+        if (module->name == "process") needsProcess = true;
+        if (module->name == "net") needsNet = true;
         if (module->name == "yaml") needsYaml = true;
         if (module->name == "datetime") needsDatetime = true;
         if (module->name == "env") needsEnv = true;
@@ -545,6 +549,8 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     }
     if (needsBigint) out << "#include \"bigint.hpp\"\n";
     if (needsCrypto) out << "#include \"crypto.hpp\"\n";
+    if (needsProcess) out << "#include \"process.hpp\"\n";
+    if (needsNet) out << "#include \"net.hpp\"\n";
     if (needsYaml) out << "#include \"yaml.hpp\"\n";
     if (needsDatetime) out << "#include \"datetime.hpp\"\n";
     if (needsEnv) out << "#include \"env.hpp\"\n";
@@ -592,6 +598,10 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
             linkLibraries_.insert("-lcrypto");
         }
         if (needsCrypto) {
+            linkLibraries_.insert("-lcrypto");
+        }
+        if (needsNet) {
+            linkLibraries_.insert("-lssl");
             linkLibraries_.insert("-lcrypto");
         }
         if (needsOrm || needsSql) {
@@ -1012,6 +1022,10 @@ bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
         return usesPointerAccess(*index->object);
     }
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&object)) {
+        const AfrType objectType = inferExpressionAfrType(object);
+        if (objectType.kind == TypeKind::Class || objectType.kind == TypeKind::Interface) {
+            return true;
+        }
         const auto it = semantic_.globalVariables.find(id->name);
         if (it != semantic_.globalVariables.end() &&
             (it->second.kind == TypeKind::Class || it->second.kind == TypeKind::Interface)) {
@@ -1756,11 +1770,16 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         }
 
         std::string enumName;
-        if (const auto* id = dynamic_cast<const IdentifierNode*>(matchStmt->subject.get())) {
-            auto vit = semantic_.globalVariables.find(id->name);
-            if (vit != semantic_.globalVariables.end() &&
-                vit->second.kind == TypeKind::Enum) {
-                enumName = vit->second.className;
+        if (subjectType.kind == TypeKind::Enum) {
+            enumName = subjectType.className;
+        }
+        if (enumName.empty()) {
+            if (const auto* id = dynamic_cast<const IdentifierNode*>(matchStmt->subject.get())) {
+                auto vit = semantic_.globalVariables.find(id->name);
+                if (vit != semantic_.globalVariables.end() &&
+                    vit->second.kind == TypeKind::Enum) {
+                    enumName = vit->second.className;
+                }
             }
         }
         if (enumName.empty()) {
@@ -2380,11 +2399,16 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         }
 
         std::string enumName;
-        if (const auto* id = dynamic_cast<const IdentifierNode*>(matchExpr->subject.get())) {
-            auto vit = semantic_.globalVariables.find(id->name);
-            if (vit != semantic_.globalVariables.end() &&
-                vit->second.kind == TypeKind::Enum) {
-                enumName = vit->second.className;
+        if (subjectType.kind == TypeKind::Enum) {
+            enumName = subjectType.className;
+        }
+        if (enumName.empty()) {
+            if (const auto* id = dynamic_cast<const IdentifierNode*>(matchExpr->subject.get())) {
+                auto vit = semantic_.globalVariables.find(id->name);
+                if (vit != semantic_.globalVariables.end() &&
+                    vit->second.kind == TypeKind::Enum) {
+                    enumName = vit->second.className;
+                }
             }
         }
         if (enumName.empty()) {
@@ -2565,14 +2589,26 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
 
             const MethodSignature* methodSig = nullptr;
-            if (const auto* objId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
-                const auto vit = semantic_.globalVariables.find(objId->name);
-                if (vit != semantic_.globalVariables.end() &&
-                    vit->second.kind == TypeKind::Class) {
-                    const auto mit = semantic_.classes.find(vit->second.className);
+            {
+                const AfrType objType = inferExpressionAfrType(*member->object);
+                if (objType.kind == TypeKind::Class) {
+                    const auto mit = semantic_.classes.find(objType.className);
                     if (mit != semantic_.classes.end()) {
                         const auto sit = mit->second.methods.find(member->member);
                         if (sit != mit->second.methods.end()) methodSig = &sit->second;
+                    }
+                }
+            }
+            if (!methodSig) {
+                if (const auto* objId = dynamic_cast<const IdentifierNode*>(member->object.get())) {
+                    const auto vit = semantic_.globalVariables.find(objId->name);
+                    if (vit != semantic_.globalVariables.end() &&
+                        vit->second.kind == TypeKind::Class) {
+                        const auto mit = semantic_.classes.find(vit->second.className);
+                        if (mit != semantic_.classes.end()) {
+                            const auto sit = mit->second.methods.find(member->member);
+                            if (sit != mit->second.methods.end()) methodSig = &sit->second;
+                        }
                     }
                 }
             }
@@ -2866,7 +2902,8 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "proba" || name == "chrono" ||
            name == "re" || name == "collections" || name == "args" || name == "path" ||
            name == "sql" || name == "web" || name == "orm" || name == "thread" ||
-           name == "bigint" || name == "crypto" || name == "yaml" || name == "datetime" ||
+           name == "bigint" || name == "crypto" || name == "process" || name == "net" ||
+           name == "yaml" || name == "datetime" ||
            name == "env" || name == "tempfile" || name == "base64" || name == "url" ||
            name == "random" || name == "hex" || name == "csv" || name == "html" ||
            name == "cli" || name == "email" || name == "uuid" ||

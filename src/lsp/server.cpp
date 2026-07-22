@@ -359,9 +359,11 @@ static void publishDiagnostics(const std::string& uri, const AnalysisResult& ana
 }
 
 static const std::vector<std::string> kCoreStdlibModules = {
-    "io", "json", "fs", "http", "str", "logging", "math", "chrono", "re",
+    "io", "json", "fs", "http", "str", "logging", "math", "stats", "proba",
+    "chrono", "re",
     "collections", "args", "path", "async", "sql", "web", "orm", "thread",
-    "bigint", "crypto", "yaml", "datetime", "env", "tempfile", "base64",
+    "bigint", "crypto", "process", "net", "yaml", "datetime", "env",
+    "tempfile", "base64",
     "url", "random", "hex", "csv", "html", "cli", "email", "uuid", "ui",
     "game2d", "game3d", "gamestate", "gamenet", "log", "time",
 };

@@ -1,0 +1,36 @@
+class Counter
+    public field n number
+
+    function init()
+        set this.n = 0
+    end
+
+    function inc() returns number
+        set this.n = this.n + 1
+        return this.n
+    end
+end
+
+class Animal
+    function speak() returns text
+        return "..."
+    end
+end
+
+class Dog extends Animal
+    function speak() returns text
+        return "woof"
+    end
+end
+
+test "class method and field"
+    create c = new Counter
+    assert c.inc() is equal to 1
+    assert c.inc() is equal to 2
+    assert c.n is equal to 2
+end
+
+test "inheritance override"
+    create d = new Dog
+    assert d.speak() is equal to "woof"
+end

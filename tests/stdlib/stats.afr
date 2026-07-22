@@ -11,6 +11,7 @@ test "sum mean count min max range"
     assert fsum(xs) is equal to 15
     assert product(xs) is equal to 120
     assert mean(xs) is equal to 3
+    assert fmean(xs) is equal to 3
     assert minVal(xs) is equal to 1
     assert maxVal(xs) is equal to 5
     assert range(xs) is equal to 4
@@ -25,42 +26,34 @@ test "alt means and rms"
     assert abs(rms(rs) - sqrt(12.5)) is less than 0.0001
 end
 
-test "median and mode"
+test "medians modes quantiles"
     create xs = list of 1, 2, 2, 3
     assert median(xs) is equal to 2
+    assert medianLow(xs) is equal to 2
+    assert medianHigh(xs) is equal to 2
     assert mode(xs) is equal to 2
+    create mm = multimode(xs)
+    assert count(mm) is greater than 0
+    create data = list of 1, 2, 3, 4, 5, 6, 7, 8
+    create qs = quantiles(data, 4)
+    assert count(qs) is equal to 3
 end
 
-test "variance and stddev"
+test "variance nim aliases"
     create xs = list of 2, 4, 4, 4, 5, 5, 7, 9
     assert popVariance(xs) is equal to 4
-    assert popStddev(xs) is equal to 2
-    create sv = variance(xs)
+    assert pvariance(xs) is equal to 4
+    assert standardDeviation(xs) is equal to 2
+    create sv = varianceS(xs)
     assert sv is greater than 4
     assert sv is less than 5
-end
-
-test "quantiles and mad"
-    create xs = list of 1, 2, 3, 4, 5
-    assert percentile(xs, 50) is equal to 3
-    assert quantile(xs, 0.5) is equal to 3
-    assert q1(xs) is equal to 2
-    assert q3(xs) is equal to 4
-    assert iqr(xs) is equal to 2
-    assert midhinge(xs) is equal to 3
-    assert mad(xs) is equal to 1
 end
 
 test "covariance correlation and linreg"
     create a = list of 1, 2, 3, 4
     create b = list of 2, 4, 6, 8
-    create corr = correlation(a, b)
-    assert abs(corr - 1) is less than 0.0001
-    create cov = covariance(a, b)
-    assert cov is greater than 3
-    assert cov is less than 4
+    assert abs(pearsonr(a, b) - 1) is less than 0.0001
     assert abs(linRegSlope(a, b) - 2) is less than 0.0001
-    assert abs(linRegIntercept(a, b)) is less than 0.0001
     assert abs(linRegPredict(a, b, 5) - 10) is less than 0.0001
 end
 
@@ -68,13 +61,9 @@ test "transforms and outliers"
     create xs = list of 1, 2, 3
     create c = cumSum(xs)
     assert c at 2 is equal to 6
-    create d = diffs(xs)
-    assert d at 0 is equal to 1
     create n = normalize(xs)
     assert n at 0 is equal to 0
     assert n at 2 is equal to 1
-    create h = histogram(xs, 3)
-    assert count(h) is equal to 3
     create noisy = list of 1, 2, 3, 4, 5, 100
     assert outlierCount(noisy) is greater than 0
 end

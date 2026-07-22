@@ -389,4 +389,102 @@ inline std::vector<double> histogram(const std::vector<double>& v, double bins) 
     return r;
 }
 
+// ---- Python statistics + Nim std/stats aliases ----
+inline double fmean(const std::vector<double>& v) { return mean(v); }
+
+inline double medianLow(std::vector<double> v) {
+    if (v.empty()) return 0.0;
+    std::sort(v.begin(), v.end());
+    return v[(v.size() - 1) / 2];
+}
+inline double medianHigh(std::vector<double> v) {
+    if (v.empty()) return 0.0;
+    std::sort(v.begin(), v.end());
+    return v[v.size() / 2];
+}
+inline double medianGrouped(std::vector<double> v, double interval) {
+    if (v.empty()) return 0.0;
+    if (interval <= 0.0) interval = 1.0;
+    std::sort(v.begin(), v.end());
+    const double med = median(v);
+    // Approximate grouped median (Python statistics.median_grouped)
+    const double L = med - interval / 2.0;
+    std::size_t cf = 0, f = 0;
+    for (double x : v) {
+        if (x < L) ++cf;
+        else if (x < L + interval) ++f;
+    }
+    if (f == 0) return med;
+    return L + interval * (static_cast<double>(v.size()) / 2.0 - static_cast<double>(cf)) /
+                        static_cast<double>(f);
+}
+
+inline std::vector<double> multimode(const std::vector<double>& v) {
+    std::vector<double> r;
+    if (v.empty()) return r;
+    std::map<long long, int> freq;
+    for (double x : v) ++freq[static_cast<long long>(std::llround(x * 1000.0))];
+    int best = 0;
+    for (const auto& p : freq) best = std::max(best, p.second);
+    for (const auto& p : freq) {
+        if (p.second == best) r.push_back(static_cast<double>(p.first) / 1000.0);
+    }
+    return r;
+}
+
+inline std::vector<double> quantiles(const std::vector<double>& v, double n) {
+    std::vector<double> r;
+    int cuts = static_cast<int>(n);
+    if (cuts < 2 || v.empty()) return r;
+    for (int i = 1; i < cuts; ++i) {
+        r.push_back(quantile(v, static_cast<double>(i) / static_cast<double>(cuts)));
+    }
+    return r;
+}
+
+inline double pvariance(const std::vector<double>& v) { return popVariance(v); }
+inline double pstdev(const std::vector<double>& v) { return popStddev(v); }
+inline double varianceS(const std::vector<double>& v) { return variance(v); }
+inline double standardDeviation(const std::vector<double>& v) { return popStddev(v); }
+inline double standardDeviationS(const std::vector<double>& v) { return stddev(v); }
+
+inline double skewnessS(const std::vector<double>& v) {
+    if (v.size() < 3) return 0.0;
+    const double n = static_cast<double>(v.size());
+    const double m = mean(v);
+    const double s = stddev(v);
+    if (s == 0.0) return 0.0;
+    double m3 = 0.0;
+    for (double x : v) {
+        const double z = (x - m) / s;
+        m3 += z * z * z;
+    }
+    return (n / ((n - 1.0) * (n - 2.0))) * m3;
+}
+inline double kurtosisS(const std::vector<double>& v) {
+    if (v.size() < 4) return 0.0;
+    const double n = static_cast<double>(v.size());
+    const double m = mean(v);
+    const double s = stddev(v);
+    if (s == 0.0) return 0.0;
+    double m4 = 0.0;
+    for (double x : v) {
+        const double z = (x - m) / s;
+        m4 += z * z * z * z;
+    }
+    return ((n * (n + 1.0)) / ((n - 1.0) * (n - 2.0) * (n - 3.0))) * m4
+           - (3.0 * (n - 1.0) * (n - 1.0)) / ((n - 2.0) * (n - 3.0));
+}
+
+inline double pearsonr(const std::vector<double>& a, const std::vector<double>& b) {
+    return correlation(a, b);
+}
+inline double covariancePop(const std::vector<double>& a, const std::vector<double>& b) {
+    if (a.size() != b.size() || a.empty()) return 0.0;
+    const double ma = mean(a), mb = mean(b);
+    double s = 0.0;
+    for (std::size_t i = 0; i < a.size(); ++i) s += (a[i] - ma) * (b[i] - mb);
+    return s / static_cast<double>(a.size());
+}
+
 } // namespace afrilang::runtime::stats
