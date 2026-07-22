@@ -566,7 +566,15 @@ void StdlibRegistry::injectTimeModule(ProgramNode& program) {
 void StdlibRegistry::injectReModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("match", {{"text", "text"}, {"pattern", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("matchFlags", {{"text", "text"}, {"pattern", "text"}, {"flags", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("search", {{"text", "text"}, {"pattern", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("find", {{"text", "text"}, {"pattern", "text"}}, "text"));
+    fns.push_back(makeStubFunction("findAll", {{"text", "text"}, {"pattern", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("captures", {{"text", "text"}, {"pattern", "text"}}, "list text"));
+    fns.push_back(makeStubFunction("count", {{"text", "text"}, {"pattern", "text"}}, "int"));
+    fns.push_back(makeStubFunction("split", {{"text", "text"}, {"pattern", "text"}}, "list text"));
     fns.push_back(makeStubFunction("replace", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
+    fns.push_back(makeStubFunction("replaceFirst", {{"text", "text"}, {"pattern", "text"}, {"replacement", "text"}}, "text"));
     injectModule(program, "re", std::move(fns));
 }
 

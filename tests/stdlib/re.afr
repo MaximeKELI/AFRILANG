@@ -1,0 +1,52 @@
+import "std/re"
+
+use re
+
+test "match anchored"
+    assert match("hello", "h.*o") is equal to true
+    assert match("hello world", "hello") is equal to false
+end
+
+test "search substring"
+    assert search("hello world", "world") is equal to true
+    assert search("hello world", "xyz") is equal to false
+end
+
+test "matchFlags case insensitive"
+    assert matchFlags("HELLO", "hello", "i") is equal to true
+    assert match("HELLO", "hello") is equal to false
+end
+
+test "find first"
+    assert find("abc123def", "[0-9]+") is equal to "123"
+    assert find("no digits", "[0-9]+") is equal to ""
+end
+
+test "findAll"
+    create nums = findAll("a1b22c333", "[0-9]+")
+    assert length of nums is equal to 3
+    assert nums at 0 is equal to "1"
+    assert nums at 2 is equal to "333"
+end
+
+test "captures groups"
+    create parts = captures("2024-07-22", "([0-9]+)-([0-9]+)-([0-9]+)")
+    assert length of parts is equal to 3
+    assert parts at 0 is equal to "2024"
+    assert parts at 1 is equal to "07"
+end
+
+test "count"
+    assert count("a,b,c,d", ",") is equal to 3
+end
+
+test "split"
+    create fields = split("a,b,c", ",")
+    assert length of fields is equal to 3
+    assert fields at 1 is equal to "b"
+end
+
+test "replace and replaceFirst"
+    assert replace("a1b2c3", "[0-9]", "#") is equal to "a#b#c#"
+    assert replaceFirst("a1b2c3", "[0-9]", "#") is equal to "a#b2c3"
+end
