@@ -701,6 +701,8 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     const int savedAsync = asyncContextDepth_;
     const bool savedGenerator = inGeneratorFunction_;
     const bool savedFunctionHasYield = functionHasYield_;
+    const bool savedReturnsResult = currentFunctionReturnsResult_;
+    currentFunctionReturnsResult_ = func.returnsResult;
     functionHasYield_ = false;
     if (func.isAsync) {
         ++asyncContextDepth_;
@@ -758,6 +760,7 @@ void SemanticAnalyzer::analyzeFunctionBody(const FunctionNode& func, const Class
     inGeneratorFunction_ = savedGenerator;
     currentGeneratorElementType_ = AfrType::voidType();
     functionHasYield_ = savedFunctionHasYield;
+    currentFunctionReturnsResult_ = savedReturnsResult;
 
     const bool implicitAsyncVoid = func.isAsync && func.returnTypeName.empty();
     if (func.isGenerator && !hadYield) {
@@ -852,6 +855,18 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
                 errorAt(*assign, "'nothing' requiert un type nullable (ex: text?)");
             }
             valueType = typeFromName(assign->typeName);
+        }
+
+        if (assign->propagate != ResultPropagation::None) {
+            if (valueType.kind != TypeKind::Result) {
+                errorAt(*assign, "'or return'/'or raise' requiert une valeur de type Result");
+            }
+            if (assign->propagate == ResultPropagation::Return &&
+                !currentFunctionReturnsResult_) {
+                errorAt(*assign, "'or return' n'est autorisé que dans une fonction "
+                                 "qui retourne 'T or error'");
+            }
+            valueType = valueType.resultInnerType();
         }
 
         if (!assign->typeName.empty()) {
