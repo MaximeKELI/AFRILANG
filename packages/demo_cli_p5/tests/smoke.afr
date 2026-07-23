@@ -1,0 +1,9 @@
+import "pkg/demo_cli_p5/demo_cli_p5.afr"
+
+use demo_cli_p5
+
+test "run"
+    create args = list of "help"
+    create out = run(args)
+    assert out is equal to "ok:help"
+end
