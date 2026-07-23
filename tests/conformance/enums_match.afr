@@ -1,0 +1,18 @@
+enum Color
+    case Red
+    case Green
+    case Blue
+end
+
+test "enum match cases"
+    create c = Color.Green
+    create label = match c
+        case Red then "r"
+        end
+        case Green then "g"
+        end
+        case Blue then "b"
+        end
+    end
+    assert label is equal to "g"
+end

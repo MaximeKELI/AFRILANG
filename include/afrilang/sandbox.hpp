@@ -21,6 +21,8 @@ struct ProcessConfig {
   std::size_t maxMemoryMb = 256;
   std::size_t maxCpuSeconds = 5;
   bool applyResourceLimits = true;
+  // Linux: PR_SET_NO_NEW_PRIVS + seccomp deny-list (ptrace/mount/…). No-op elsewhere.
+  bool applySeccomp = true;
   bool newSession = true;
   bool limitProcessCount = false;
   // Keep DISPLAY/Wayland sockets open (required for SDL windows).

@@ -1,0 +1,2 @@
+create xs = list of 1, 2
+create v = xs at "nope"

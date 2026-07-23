@@ -1,0 +1,4 @@
+function f() returns number
+    return 1
+end
+create x = f(1, 2)

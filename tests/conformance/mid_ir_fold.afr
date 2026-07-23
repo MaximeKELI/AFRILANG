@@ -1,0 +1,14 @@
+test "mid-ir folds arithmetic"
+    create x = 3 * 3 + 1
+    assert x is equal to 10
+end
+
+test "mid-ir dead branch"
+    create flag text = "init"
+    if false then
+        set flag = "dead"
+    else
+        set flag = "live"
+    end
+    assert flag is equal to "live"
+end

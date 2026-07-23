@@ -6649,13 +6649,19 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/util
   /usr/include/features.h \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/audit.h \
+  /usr/include/linux/bpf_common.h \
   /usr/include/linux/close_range.h \
+  /usr/include/linux/elf-em.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/falloc.h \
+  /usr/include/linux/filter.h \
   /usr/include/linux/limits.h \
   /usr/include/linux/openat2.h \
   /usr/include/linux/posix_types.h \
+  /usr/include/linux/prctl.h \
   /usr/include/linux/sched/types.h \
+  /usr/include/linux/seccomp.h \
   /usr/include/linux/stddef.h \
   /usr/include/linux/types.h \
   /usr/include/locale.h \
@@ -6677,6 +6683,8 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/util
   /usr/include/x86_64-linux-gnu/asm/posix_types.h \
   /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
   /usr/include/x86_64-linux-gnu/asm/types.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
   /usr/include/x86_64-linux-gnu/bits/confname.h \
@@ -6728,6 +6736,7 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/util
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -6796,9 +6805,11 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/util
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/sys/prctl.h \
   /usr/include/x86_64-linux-gnu/sys/resource.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/sys/ucontext.h \
   /usr/include/x86_64-linux-gnu/sys/wait.h \
@@ -7848,6 +7859,16 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 
+/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
+
+/usr/lib/x86_64-linux-gnu/libm.so:
+
+/usr/lib/x86_64-linux-gnu/crti.o:
+
+/home/admin20/AFRILANG/src/utils/utf8.cpp:
+
+/home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -7912,11 +7933,17 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 
 /usr/include/c++/15/random:
 
+/lib64/ld-linux-x86-64.so.2:
+
+/usr/include/c++/15/bits/istream.tcc:
+
 /usr/include/c++/15/bits/fstream.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/signum-generic.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/linux/filter.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -8104,8 +8131,6 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o:
 
 /usr/include/asm-generic/int-ll64.h:
 
-/usr/lib/x86_64-linux-gnu/libm.so:
-
 /usr/include/c++/15/bits/stringfwd.h:
 
 /usr/include/openssl/ssl.h:
@@ -8131,6 +8156,8 @@ CMakeFiles/afrilang.dir/src/passes/passes.cpp.o:
 /usr/include/openssl/lhash.h:
 
 /usr/include/c++/15/bits/cxxabi_init_exception.h:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
 
 /usr/include/c++/15/bits/algorithmfwd.h:
 
@@ -8182,8 +8209,6 @@ CMakeFiles/afrilang.dir/src/passes/passes.cpp.o:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o:
-
 /usr/include/c++/15/ext/string_conversions.h:
 
 /usr/include/c++/15/bits/hashtable_policy.h:
@@ -8195,8 +8220,6 @@ CMakeFiles/afrilang.dir/src/passes/passes.cpp.o:
 /usr/include/c++/15/utility:
 
 /usr/include/c++/15/bits/specfun.h:
-
-/home/admin20/AFRILANG/include/afrilang/sandbox.hpp:
 
 /usr/include/c++/15/locale:
 
@@ -8354,6 +8377,8 @@ CMakeFiles/afrilang.dir/src/utils/cache.cpp.o:
 
 /usr/include/c++/15/exception:
 
+/usr/include/x86_64-linux-gnu/sys/prctl.h:
+
 /usr/lib/x86_64-linux-gnu/libc.so.6:
 
 /usr/include/linux/types.h:
@@ -8482,6 +8507,10 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/c++/15/bits/ostream_insert.h:
@@ -8570,10 +8599,6 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.o:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/gthr-default.h:
 
-CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
-
-/usr/include/c++/15/limits:
-
 /home/admin20/AFRILANG/src/repl/repl.cpp:
 
 /usr/lib/x86_64-linux-gnu/libzstd.so.1:
@@ -8595,8 +8620,6 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
 /usr/include/openssl/symhacks.h:
 
 /home/admin20/AFRILANG/include/afrilang/formatter.hpp:
-
-/home/admin20/AFRILANG/src/utils/utf8.cpp:
 
 /usr/include/c++/15/bits/uses_allocator_args.h:
 
@@ -8648,6 +8671,12 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.o:
 
 /usr/include/c++/15/tr1/bessel_function.tcc:
 
+CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o:
+
+/usr/include/c++/15/limits:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
+
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/c++/15/tr1/riemann_zeta.tcc:
@@ -8696,12 +8725,6 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/sigcontext.h:
 
-/usr/lib/x86_64-linux-gnu/libz.so.1:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
-/usr/include/c++/15/functional:
-
 /usr/include/c++/15/tr1/legendre_function.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
@@ -8724,10 +8747,6 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 
 /home/admin20/AFRILANG/include/afrilang/cache.hpp:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
-/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
-
 /usr/include/string.h:
 
 /usr/include/unistd.h:
@@ -8748,8 +8767,6 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
-/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
-
 /usr/include/x86_64-linux-gnu/sys/socket.h:
 
 /usr/include/openssl/asyncerr.h:
@@ -8769,6 +8786,16 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 /usr/include/c++/15/bits/std_mutex.h:
 
 /usr/include/openssl/sslerr.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/lib/x86_64-linux-gnu/libc.so:
+
+/usr/lib/x86_64-linux-gnu/Scrt1.o:
+
+/usr/include/c++/15/deque:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
@@ -8810,10 +8837,6 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_rusage.h:
 
-/usr/include/c++/15/bits/align.h:
-
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/openssl/asn1err.h:
@@ -8827,6 +8850,8 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o:
 /home/admin20/AFRILANG/src/utils/debug_meta.cpp:
 
 /usr/include/openssl/bn.h:
+
+/usr/include/linux/seccomp.h:
 
 /usr/lib/x86_64-linux-gnu/libm.so.6:
 
@@ -8898,6 +8923,8 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 
 /home/admin20/AFRILANG/runtime/crypto.hpp:
 
+/usr/include/linux/audit.h:
+
 /home/admin20/AFRILANG/runtime/http.hpp:
 
 /usr/include/openssl/async.h:
@@ -8936,6 +8963,12 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 
 /usr/include/openssl/srtp.h:
 
+/usr/include/c++/15/bits/align.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
+
 /usr/include/openssl/x509_vfy.h:
 
 /usr/include/openssl/x509err.h:
@@ -8952,9 +8985,23 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 
 /usr/include/fcntl.h:
 
+/home/admin20/AFRILANG/include/afrilang/sandbox.hpp:
+
+/usr/include/linux/elf-em.h:
+
+/usr/include/linux/bpf_common.h:
+
 /usr/include/c++/15/bits/stl_vector.h:
 
 /usr/include/linux/openat2.h:
+
+/usr/lib/x86_64-linux-gnu/libz.so.1:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
+
+/usr/include/c++/15/functional:
+
+/usr/include/linux/prctl.h:
 
 /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
 
@@ -8963,17 +9010,3 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/semver.cpp:
-
-/home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:
-
-/usr/include/c++/15/bits/istream.tcc:
-
-/lib64/ld-linux-x86-64.so.2:
-
-/usr/lib/x86_64-linux-gnu/crti.o:
-
-/usr/lib/x86_64-linux-gnu/Scrt1.o:
-
-/usr/include/c++/15/deque:
-
-/usr/lib/x86_64-linux-gnu/libc.so:

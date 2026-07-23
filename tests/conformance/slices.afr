@@ -1,0 +1,30 @@
+test "list slice happy"
+    create xs = list of 1, 2, 3, 4, 5
+    create mid = xs from 1 to 4
+    assert mid at 0 is equal to 2
+    assert mid at 2 is equal to 4
+end
+
+test "list slice out of bounds"
+    create xs = list of 1, 2, 3
+    create caught text = ""
+    try
+        create bad = xs from 0 to 9
+        set caught = "nope"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "list slice out of bounds"
+end
+
+test "list slice negative start"
+    create xs = list of 1, 2, 3
+    create caught text = ""
+    try
+        create bad = xs from 0 - 1 to 2
+        set caught = "nope"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "list slice out of bounds"
+end

@@ -1,0 +1,11 @@
+test "text concat and compare"
+    create a text = "a"
+    create b text = "b"
+    assert a + b is equal to "ab"
+    assert (a is equal to b) is equal to false
+end
+
+test "bool and or"
+    assert (yes and no) is equal to no
+    assert (no or yes) is equal to yes
+end

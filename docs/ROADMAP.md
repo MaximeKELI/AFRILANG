@@ -74,3 +74,12 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Conformité : `constant_fold.afr`, `null_receiver.afr`
 - [x] Re-score audit canvas cible ≥18
 
+## Vague 9 — Plafond crédible ~19.0–19.5 (pas 20/20)
+
+- [x] Mid-IR CFG léger (`include/afrilang/ir/`, `src/passes/mid_ir.cpp`) + docs COMPILER
+- [x] Linux `NO_NEW_PRIVS` + seccomp-bpf deny-list + `check_sandbox_seccomp.sh`
+- [x] Conformité ×3 : 18 positifs + 9 négatifs (MANIFEST ↔ NORMATIVE)
+- [x] ASan+UBSan full conformance (`check_asan_conformance.sh`)
+- [x] CI secondaire macOS/Windows smoke + pack WASM conformité
+- [x] Re-score canvas ~19.2 — **20/20 international non revendiqué**
+

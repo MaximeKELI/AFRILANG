@@ -157,20 +157,18 @@ struct FunctionIR {
 bool lowerStmtList(std::vector<std::unique_ptr<StatementNode>>& stmts, FunctionIR& ir, int& blockId);
 
 void optimizeNestedOpaque(StatementNode& stmt) {
+    // Loops: fold conditions/bounds only. Full CFG raise on loop bodies can
+    // drop increments (infinite loops) — residual AST fold handles the body.
     if (auto* whileStmt = dynamic_cast<WhileStatementNode*>(&stmt)) {
         whileStmt->condition = foldExpr(std::move(whileStmt->condition));
-        (void)optimizeStmtList(whileStmt->body);
     } else if (auto* repeatStmt = dynamic_cast<RepeatStatementNode*>(&stmt)) {
         if (repeatStmt->count) repeatStmt->count = foldExpr(std::move(repeatStmt->count));
-        (void)optimizeStmtList(repeatStmt->body);
     } else if (auto* forRange = dynamic_cast<ForRangeStatementNode*>(&stmt)) {
         forRange->start = foldExpr(std::move(forRange->start));
         forRange->end = foldExpr(std::move(forRange->end));
         if (forRange->step) forRange->step = foldExpr(std::move(forRange->step));
-        (void)optimizeStmtList(forRange->body);
     } else if (auto* forEach = dynamic_cast<ForEachStatementNode*>(&stmt)) {
         forEach->list = foldExpr(std::move(forEach->list));
-        (void)optimizeStmtList(forEach->body);
     } else if (auto* tryStmt = dynamic_cast<TryStatementNode*>(&stmt)) {
         (void)optimizeStmtList(tryStmt->tryBody);
         (void)optimizeStmtList(tryStmt->catchBody);

@@ -1,0 +1,16 @@
+test "for range sum"
+    create s number = 0
+    for i from 1 to 4 do
+        set s = s + i
+    end
+    assert s is equal to 10
+end
+
+test "for each list"
+    create xs = list of 2, 3
+    create s number = 0
+    for each v in xs do
+        set s = s + v
+    end
+    assert s is equal to 5
+end

@@ -14,7 +14,7 @@ Reduce **language-surface** undefined behavior for everyday programs:
 | Result `.value` | Error Result → catchable error (message preserved) |
 | Object identity | Instances via `new` → `unique_ptr`; method receivers null-checked (`null object`) |
 | Secure compile | Stack protector, FORTIFY, PIE (when host supports) |
-| Mid-end | Constant fold + dead-branch / unreachable cleanup before codegen |
+| Mid-end | Mid-IR CFG (const-prop / simplify-cfg / DCE) + residual AST fold before codegen |
 
 ## Non-goals (honest)
 
@@ -31,9 +31,12 @@ Reduce **language-surface** undefined behavior for everyday programs:
 
 ## Sanitizers
 
-- CI smoke: `scripts/check_asan_bounds.sh` (AddressSanitizer on conformance bounds).
+- CI: `scripts/check_asan_conformance.sh` — AddressSanitizer **and** UndefinedBehaviorSanitizer
+  on the full positive `--conformance` suite.
+- Legacy smoke: `scripts/check_asan_bounds.sh` (bounds only).
 - Optional local: `AFRILANG_SANITIZE=1` adds `-fsanitize=address,undefined` to host flags
   (requires `AFRILANG_INSECURE=1` at run time because ASan needs large virtual address space).
+- These proofs are **not** a borrow checker or proven absence of UAF.
 
 ## FFI trust boundary
 

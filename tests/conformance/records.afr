@@ -1,0 +1,12 @@
+record Point
+    field x number
+    field y number
+end
+
+test "record literal get set"
+    create p = Point with x 3, y 4
+    assert p.x is equal to 3
+    assert p.y is equal to 4
+    set p.x = 10
+    assert p.x is equal to 10
+end

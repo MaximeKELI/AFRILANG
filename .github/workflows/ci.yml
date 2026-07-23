@@ -35,9 +35,13 @@ jobs:
       - name: Compiler specs + core stdlib
         run: ./build/afrilang test --specs .
 
-      - name: Conformance ASan smoke (bounds)
+      - name: Conformance ASan+UBSan
         if: matrix.compiler == 'g++'
-        run: bash scripts/check_asan_bounds.sh
+        run: bash scripts/check_asan_conformance.sh
+
+      - name: Sandbox seccomp smoke (Linux)
+        if: matrix.compiler == 'g++'
+        run: bash scripts/check_sandbox_seccomp.sh
 
       - name: Ecosystem smoke (init / pkg / test)
         run: |
@@ -189,14 +193,47 @@ jobs:
       - name: Build AFRILANG
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j$(nproc)
 
-      - name: WASM compile and run tier8
+      - name: WASM compile and run tier8 + conformance subset
         run: |
           source /tmp/emsdk/emsdk_env.sh
           ./build/afrilang run examples/tier8_demo.afr --target wasm32 --run
           ./build/afrilang run examples/tier8_stdlib.afr --target wasm32 --run
           ./build/afrilang run examples/wasm_core_smoke.afr --target wasm32 --run
+          ./build/afrilang run tests/conformance/text_bool.afr --target wasm32 --run
+          ./build/afrilang run tests/conformance/collections_basic.afr --target wasm32 --run
+          ./build/afrilang run tests/conformance/functions_basic.afr --target wasm32 --run
 
       - name: Check Emscripten script
         run: |
           source /tmp/emsdk/emsdk_env.sh
           bash scripts/check_emscripten.sh
+
+  # Secondary hosts — smoke only (not primary / not stdlib-FFI parity). See docs/PLATFORM.md.
+  secondary-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure and build
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j$(sysctl -n hw.ncpu)
+      - name: Version + conformance subset
+        run: |
+          ./build/afrilang version
+          ./build/afrilang test --conformance
+          bash scripts/check_conformance_negative.sh
+
+  secondary-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure and build
+        shell: bash
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release -j$(nproc 2>/dev/null || echo 2)
+      - name: Version + conformance subset
+        shell: bash
+        run: |
+          BIN=./build/afrilang
+          if [[ -x ./build/Release/afrilang.exe ]]; then BIN=./build/Release/afrilang.exe; fi
+          if [[ -x ./build/afrilang.exe ]]; then BIN=./build/afrilang.exe; fi
+          "$BIN" version
+          AFRILANG_BIN="$BIN" "$BIN" test --conformance
+          AFRILANG_BIN="$BIN" bash scripts/check_conformance_negative.sh

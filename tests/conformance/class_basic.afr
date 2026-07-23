@@ -1,0 +1,9 @@
+class Box
+    public field n number
+end
+
+test "class field"
+    create b = new Box()
+    set b.n = 42
+    assert b.n is equal to 42
+end

@@ -5,6 +5,7 @@
 #include <climits>
 #include <cstdlib>
 #include <cstring>
+#include <errno.h>
 #include <fcntl.h>
 #include <filesystem>
 #include <fstream>
@@ -13,6 +14,16 @@
 #include <sys/resource.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <vector>
+
+#if defined(__linux__)
+#include <linux/audit.h>
+#include <linux/filter.h>
+#include <linux/seccomp.h>
+#include <stddef.h>
+#include <sys/prctl.h>
+#include <sys/syscall.h>
+#endif
 
 namespace fs = std::filesystem;
 
@@ -29,6 +40,98 @@ void closeAllFdsExcept(int keep1, int keep2) {
         }
     }
 }
+
+#if defined(__linux__)
+/** Deny high-risk syscalls; allow everything else (incl. execve for the target). Linux only. */
+void applyLinuxSeccompDenylist() {
+    // Best-effort: failures must not abort child before exec (fall back to rlimits only).
+    if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) != 0) return;
+
+    auto denyEq = [](int nr) {
+        return std::vector<sock_filter>{
+            BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, static_cast<__u32>(nr), 0, 1),
+            BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ERRNO | (EPERM & SECCOMP_RET_DATA)),
+        };
+    };
+
+    std::vector<sock_filter> filter;
+    filter.push_back(BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
+                              static_cast<__u32>(offsetof(struct seccomp_data, arch))));
+#if defined(__x86_64__)
+    filter.push_back(BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, AUDIT_ARCH_X86_64, 1, 0));
+    filter.push_back(BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW));
+#elif defined(__aarch64__)
+    filter.push_back(BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, AUDIT_ARCH_AARCH64, 1, 0));
+    filter.push_back(BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW));
+#else
+    filter.push_back(BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW));
+    struct sock_fprog prog = {static_cast<unsigned short>(filter.size()), filter.data()};
+    (void)prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog);
+    return;
+#endif
+
+    filter.push_back(BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
+                              static_cast<__u32>(offsetof(struct seccomp_data, nr))));
+
+    const int denied[] = {
+#ifdef __NR_ptrace
+        __NR_ptrace,
+#endif
+#ifdef __NR_process_vm_readv
+        __NR_process_vm_readv,
+#endif
+#ifdef __NR_process_vm_writev
+        __NR_process_vm_writev,
+#endif
+#ifdef __NR_mount
+        __NR_mount,
+#endif
+#ifdef __NR_umount2
+        __NR_umount2,
+#endif
+#ifdef __NR_reboot
+        __NR_reboot,
+#endif
+#ifdef __NR_kexec_load
+        __NR_kexec_load,
+#endif
+#ifdef __NR_init_module
+        __NR_init_module,
+#endif
+#ifdef __NR_finit_module
+        __NR_finit_module,
+#endif
+#ifdef __NR_delete_module
+        __NR_delete_module,
+#endif
+#ifdef __NR_swapon
+        __NR_swapon,
+#endif
+#ifdef __NR_swapoff
+        __NR_swapoff,
+#endif
+#ifdef __NR_bpf
+        __NR_bpf,
+#endif
+#ifdef __NR_perf_event_open
+        __NR_perf_event_open,
+#endif
+#ifdef __NR_userfaultfd
+        __NR_userfaultfd,
+#endif
+    };
+    for (int nr : denied) {
+        auto part = denyEq(nr);
+        filter.insert(filter.end(), part.begin(), part.end());
+    }
+    filter.push_back(BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW));
+
+    struct sock_fprog prog{};
+    prog.len = static_cast<unsigned short>(filter.size());
+    prog.filter = filter.data();
+    (void)prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog);
+}
+#endif
 
 void applyChildLimits(const ProcessConfig& config) {
     if (!config.applyResourceLimits) return;
@@ -110,6 +213,12 @@ pid_t spawnProcess(const std::string& executable,
         setsid();
     }
     applyChildLimits(config);
+#if defined(__linux__)
+    // Seccomp deny-list only in secure mode — ASan/LSan need ptrace under AFRILANG_INSECURE.
+    if (config.applySeccomp && isSecureMode()) {
+        applyLinuxSeccompDenylist();
+    }
+#endif
 
     if (config.interactiveConsole) {
         // Keep the real terminal for ask / readline programs.

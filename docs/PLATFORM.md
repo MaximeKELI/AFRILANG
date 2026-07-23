@@ -26,5 +26,7 @@ Allowed values today: `native`, `linux-arm64`, `wasm32`.
 ## Recommendation
 
 - Develop and CI on **Linux native**.
+- Secondary host smokes (macOS / Windows) run `version` + a conformance subset — not stdlib/FFI parity.
 - Use WASM for sandboxed demos (no SDL/net/fs).
 - Treat Win/macOS as “binary may run”, not “stdlib/FFI parity”.
+- Linux sandbox: rlimits + seccomp deny-list; other hosts: rlimits only.

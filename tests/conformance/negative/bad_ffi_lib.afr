@@ -1,0 +1,3 @@
+// Unknown FFI library must be rejected (secure mode, no allow).
+extern from "not_a_real_ffi_lib_xyz" function evil() returns number
+say evil()

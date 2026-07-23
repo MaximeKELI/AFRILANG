@@ -1,0 +1,13 @@
+test "assert true passes"
+    assert 1 is equal to 1
+end
+
+test "raise message catch"
+    create caught text = ""
+    try
+        raise "boom"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "boom"
+end

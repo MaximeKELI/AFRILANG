@@ -1,0 +1,24 @@
+test "finally after success"
+    create flag text = ""
+    try
+        set flag = flag + "t"
+    catch error e
+        set flag = flag + "c"
+    finally
+        set flag = flag + "f"
+    end
+    assert flag is equal to "tf"
+end
+
+test "finally after catch"
+    create flag text = ""
+    try
+        set flag = flag + "t"
+        raise "x"
+    catch error e
+        set flag = flag + "c"
+    finally
+        set flag = flag + "f"
+    end
+    assert flag is equal to "tcf"
+end

@@ -1,0 +1,4 @@
+function needsText<T>(x T) returns T where T is text
+    return x
+end
+create bad = needsText(1)

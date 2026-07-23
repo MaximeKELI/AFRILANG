@@ -1,0 +1,12 @@
+test "list length and at"
+    create xs = list of 10, 20, 30
+    assert xs at 0 is equal to 10
+    assert xs at 2 is equal to 30
+end
+
+test "map has key path"
+    create m = map of "k" to 7
+    set m at "z" = 8
+    assert m at "k" is equal to 7
+    assert m at "z" is equal to 8
+end
