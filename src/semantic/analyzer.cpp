@@ -588,6 +588,9 @@ void SemanticAnalyzer::registerExterns() {
 
 void SemanticAnalyzer::registerMacros() {
     for (const auto& macro : program_.macros) {
+        std::cerr << "[debug] register macro " << macro->name
+                  << " params=" << macro->parameters.size()
+                  << " body=" << macro->body.size() << "\n";
         if (result_.macros.count(macro->name)) {
             errorAt(*macro, "Macro '" + macro->name + "' déjà définie");
         }
@@ -1373,6 +1376,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
     }
 
     if (const auto* macroCall = dynamic_cast<const MacroCallStatementNode*>(&stmt)) {
+        std::cerr << "[debug] macro call " << macroCall->name
+                  << " args=" << macroCall->arguments.size()
+                  << " macros_map=" << result_.macros.size() << "\n";
         auto mit = result_.macros.find(macroCall->name);
         if (mit == result_.macros.end() || !mit->second.node) {
             errorAt(*macroCall, "Macro '" + macroCall->name + "' introuvable");
@@ -1396,8 +1402,6 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         }
         return;
     }
-
-    if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(&stmt)) {
 
     if (const auto* brk = dynamic_cast<const BreakStatementNode*>(&stmt)) {
         if (loopDepth_ == 0) {

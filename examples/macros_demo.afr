@@ -1,0 +1,12 @@
+// Demo macros MVP : macro name(params) ... end + name!(args)
+
+macro shout(msg)
+    say msg
+end
+
+macro assertEq(a, b)
+    assert a is equal to b
+end
+
+shout!("macros ok")
+assertEq!(2 + 2, 4)

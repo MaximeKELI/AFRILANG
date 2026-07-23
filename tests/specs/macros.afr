@@ -1,0 +1,17 @@
+macro shout(msg)
+    say msg
+end
+
+macro assertEq(a, b)
+    assert a is equal to b
+end
+
+test "macro shout"
+    shout!("hello")
+end
+
+test "macro assertEq"
+    create x number = 7
+    assertEq!(x, 7)
+    assertEq!(1 + 1, 2)
+end
