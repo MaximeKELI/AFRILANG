@@ -276,6 +276,11 @@ void StdlibRegistry::injectFsModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("makeDir", {{"path", "text"}}, "bool"));
     fns.push_back(makeStubFunction("removeFile", {{"path", "text"}}, "bool"));
     fns.push_back(makeStubFunction("fileSize", {{"path", "text"}}, "number"));
+    fns.push_back(makeStubFunction("exists", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("isFile", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("isDir", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("readText", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("writeText", {{"path", "text"}, {"content", "text"}}, "bool"));
     injectModule(program, "fs", std::move(fns));
 }
 
@@ -626,6 +631,8 @@ void StdlibRegistry::injectPathModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("dirname", {{"path", "text"}}, "text"));
     fns.push_back(makeStubFunction("extension", {{"path", "text"}}, "text"));
     fns.push_back(makeStubFunction("isAbsolute", {{"path", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("normalize", {{"path", "text"}}, "text"));
+    fns.push_back(makeStubFunction("absolute", {{"path", "text"}}, "text"));
     injectModule(program, "path", std::move(fns));
 }
 

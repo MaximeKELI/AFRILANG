@@ -2,10 +2,17 @@ import "pkg/resultx/resultx.afr"
 
 use resultx
 
-test "resultx helpers"
-    assert okValue(5) is equal to 5
-    assert fallback(0, 99) is equal to 99
-    assert fallback(3, 99) is equal to 3
+test "resultx parsePositive"
+    create ok = parsePositive(5)
+    assert (ok is error) is equal to false
+    assert ok.value is equal to 5
+    create bad = parsePositive(0)
+    assert bad is error
+end
+
+test "resultx valueOr"
+    assert valueOr(parsePositive(3), 99) is equal to 3
+    assert valueOr(parsePositive(0 - 1), 99) is equal to 99
     assert mapDouble(4) is equal to 8
     assert isZero(0) is equal to true
 end

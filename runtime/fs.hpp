@@ -2,6 +2,8 @@
 
 #include <cstdint>
 #include <filesystem>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -37,6 +39,36 @@ inline double fileSize(const std::string& path) {
     const auto size = std::filesystem::file_size(path, ec);
     if (ec) return -1;
     return static_cast<double>(size);
+}
+
+inline bool exists(const std::string& path) {
+    std::error_code ec;
+    return std::filesystem::exists(path, ec);
+}
+
+inline bool isFile(const std::string& path) {
+    std::error_code ec;
+    return std::filesystem::is_regular_file(path, ec);
+}
+
+inline bool isDir(const std::string& path) {
+    std::error_code ec;
+    return std::filesystem::is_directory(path, ec);
+}
+
+inline std::string readText(const std::string& path) {
+    std::ifstream file(path);
+    if (!file) return "";
+    std::ostringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
+}
+
+inline bool writeText(const std::string& path, const std::string& content) {
+    std::ofstream file(path);
+    if (!file) return false;
+    file << content;
+    return true;
 }
 
 } // namespace fs
