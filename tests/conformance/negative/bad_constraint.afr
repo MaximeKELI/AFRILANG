@@ -1,4 +1,3 @@
-# MUST fail: constraint T is number rejects text
 function onlyNumber<T>(x T) returns T where T is number
     return x
 end

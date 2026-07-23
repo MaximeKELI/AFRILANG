@@ -1,4 +1,3 @@
-# MUST fail: optional match missing nothing arm
 function maybe(n number) returns number?
     return n
 end
