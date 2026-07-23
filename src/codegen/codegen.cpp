@@ -551,6 +551,9 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsProba) out << "#include \"proba.hpp\"\n";
     if (needsTime) out << "#include \"time.hpp\"\n";
     if (needsRe) out << "#include \"re.hpp\"\n";
+#if defined(AFRILANG_HAS_PCRE2)
+    if (needsRe) linkLibraries_.insert("-lpcre2-8");
+#endif
     if (needsCollections) out << "#include \"collections.hpp\"\n";
     if (needsArgs) out << "#include \"args.hpp\"\n";
     if (needsPath) out << "#include \"path.hpp\"\n";
@@ -3701,7 +3704,6 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         }
         if (needsRe && !wasmBuild) {
             args.push_back("-DAFRILANG_HAS_PCRE2=1");
-            args.push_back("-lpcre2-8");
         }
     }
 #endif
