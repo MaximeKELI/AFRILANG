@@ -1044,8 +1044,22 @@ std::unique_ptr<StatementNode> Parser::parseCreateStatement() {
         value = parseExpression();
     }
 
+    ResultPropagation propagate = ResultPropagation::None;
+    if (check(TokenType::Or)) {
+        if (checkNext(TokenType::Return)) {
+            advance();
+            advance();
+            propagate = ResultPropagation::Return;
+        } else if (checkNext(TokenType::Raise)) {
+            advance();
+            advance();
+            propagate = ResultPropagation::Raise;
+        }
+    }
+
     auto node = std::make_unique<AssignStatementNode>(
         nameToken.lexeme, std::move(typeName), std::move(value), isConst);
+    node->propagate = propagate;
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }

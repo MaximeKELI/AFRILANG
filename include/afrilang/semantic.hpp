@@ -126,6 +126,7 @@ private:
     int asyncContextDepth_ = 0;
     bool inGeneratorFunction_ = false;
     bool functionHasYield_ = false;
+    bool currentFunctionReturnsResult_ = false;
     const ClassInfo* currentClass_ = nullptr;
     std::unordered_set<std::string> constVariables_;
 
