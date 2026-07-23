@@ -10,6 +10,13 @@ function half(n number) returns number or error
     return n / 2
 end
 
+function maybe(n number) returns number?
+    if n is greater than 0 then
+        return n
+    end
+    return nothing
+end
+
 test "result ok path"
     create r = half(10)
     assert (r is error) is equal to false
@@ -19,4 +26,16 @@ end
 test "result error path"
     create bad = half(0)
     assert bad is error
+end
+
+test "or else on optional"
+    create a number? = maybe(9)
+    create b number? = maybe(0)
+    assert (a or else 0 - 1) is equal to 9
+    assert (b or else 0 - 1) is equal to 0 - 1
+end
+
+test "or else on result"
+    assert (half(10) or else 0) is equal to 5
+    assert (half(0) or else 0) is equal to 0
 end

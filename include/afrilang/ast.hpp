@@ -241,11 +241,15 @@ struct SayStatementNode : StatementNode {
         : value(std::move(value)) {}
 };
 
+// Propagation ergonomique d'un Result dans `create v = expr or return|raise`.
+enum class ResultPropagation { None, Return, Raise };
+
 struct AssignStatementNode : StatementNode {
     std::string name;
     std::string typeName;
     std::unique_ptr<ExpressionNode> value;
     bool isConst = false;
+    ResultPropagation propagate = ResultPropagation::None;
 
     AssignStatementNode(std::string name,
                         std::string typeName,
