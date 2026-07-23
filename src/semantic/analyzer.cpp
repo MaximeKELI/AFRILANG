@@ -429,6 +429,7 @@ void SemanticAnalyzer::registerClasses() {
             sig.typeParams = cls->typeParams.empty()
                 ? method->typeParams
                 : cls->typeParams;
+            sig.typeConstraints = method->typeConstraints;
 
             const std::vector<std::string>& tparams = sig.typeParams;
             sig.returnType = resolveFunctionReturnTypeWithParams(*method, tparams);
@@ -506,6 +507,8 @@ void SemanticAnalyzer::registerClasses() {
                 sig.isAsync = method->isAsync;
                 sig.isOperator = method->isOperator;
                 sig.operatorSymbol = method->operatorSymbol;
+                sig.typeParams = method->typeParams;
+                sig.typeConstraints = method->typeConstraints;
                 for (const auto& param : method->parameters) {
                     sig.paramTypes.push_back(typeFromName(param.typeName));
                 }
