@@ -1,4 +1,5 @@
 #include "afrilang/passes.hpp"
+#include "afrilang/ir/ir.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -241,12 +242,16 @@ void foldFunction(FunctionNode& func) {
 
 } // namespace
 
-void runOptionalPasses(ProgramNode& program) {
+void runAstFoldPasses(ProgramNode& program) {
     for (auto& func : program.functions) {
         if (func) foldFunction(*func);
     }
     for (auto& test : program.tests) {
-        if (test) foldStmtList(test->body);
+        if (test) {
+            foldStmtList(test->setupBody);
+            foldStmtList(test->body);
+            foldStmtList(test->teardownBody);
+        }
     }
     for (auto& cls : program.classes) {
         if (!cls) continue;
@@ -267,6 +272,11 @@ void runOptionalPasses(ProgramNode& program) {
         }
     }
     foldStmtList(program.statements);
+}
+
+void runOptionalPasses(ProgramNode& program) {
+    afrilang::ir::runMidIrPasses(program);
+    runAstFoldPasses(program);
 }
 
 } // namespace afrilang::passes

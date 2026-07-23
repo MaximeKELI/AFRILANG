@@ -11,10 +11,15 @@
                                                          exécutable (+ sandbox)
 ```
 
-Il existe un **mid-end AST** (pas un IR SSA complet) : `include/afrilang/passes.hpp`
-implémente le constant folding, l’élagage de branches mortes (`if` constant) et la
-suppression d’instructions inatteignables après `return`/`raise`/`stop`/`skip`.
+Il existe un **mid-end langage** (pas un IR SSA / LLVM) :
+
+1. **Mid-IR CFG** (`include/afrilang/ir/ir.hpp`, `src/passes/mid_ir.cpp`) — lower AST →
+   blocs / termineurs, const-prop, simplify-cfg, DCE des blocs inatteignables, raise AST.
+2. **Passe AST résiduelle** (`src/passes/passes.cpp`) — constant folding et cleanup sur
+   formes non couvertes par le Mid-IR.
+
 Les optimisations lourdes restent déléguées au compilateur hôte (`-O2`).
+Pas de claim « aussi rapide que Rust/C++ » ni backend LLVM.
 
 Voir aussi : `docs/PLATFORM.md`, `docs/WASM_COMPAT.md`.
 

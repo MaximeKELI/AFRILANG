@@ -342,6 +342,33 @@ src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
 
+src/passes/mid_ir.o: src/passes/mid_ir.cpp.o
+.PHONY : src/passes/mid_ir.o
+
+# target to build an object file
+src/passes/mid_ir.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/mid_ir.cpp.o
+.PHONY : src/passes/mid_ir.cpp.o
+
+src/passes/mid_ir.i: src/passes/mid_ir.cpp.i
+.PHONY : src/passes/mid_ir.i
+
+# target to preprocess a source file
+src/passes/mid_ir.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/mid_ir.cpp.i
+.PHONY : src/passes/mid_ir.cpp.i
+
+src/passes/mid_ir.s: src/passes/mid_ir.cpp.s
+.PHONY : src/passes/mid_ir.s
+
+# target to generate assembly for a file
+src/passes/mid_ir.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/mid_ir.cpp.s
+.PHONY : src/passes/mid_ir.cpp.s
+
 src/passes/passes.o: src/passes/passes.cpp.o
 .PHONY : src/passes/passes.o
 
@@ -1099,6 +1126,9 @@ help:
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"
+	@echo "... src/passes/mid_ir.o"
+	@echo "... src/passes/mid_ir.i"
+	@echo "... src/passes/mid_ir.s"
 	@echo "... src/passes/passes.o"
 	@echo "... src/passes/passes.i"
 	@echo "... src/passes/passes.s"

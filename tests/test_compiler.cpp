@@ -918,11 +918,18 @@ static void testConstantFoldPass() {
     expect(assign != nullptr, "first stmt is assign");
     const auto* num = dynamic_cast<const afrilang::NumberLiteralNode*>(assign->value.get());
     expect(num != nullptr && num->value == 4.0, "2+2 folded to 4");
-    const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(
-        program->statements[1].get());
-    expect(ifStmt != nullptr, "second stmt is if");
-    expect(ifStmt->elseBody.empty(), "false branch pruned to then-only after swap");
-    expect(!ifStmt->thenBody.empty(), "surviving branch kept");
+    // Mid-IR may flatten a constant if; AST fold may keep a pruned If.
+    if (const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(
+            program->statements[1].get())) {
+        expect(ifStmt->elseBody.empty(), "false branch pruned");
+        expect(!ifStmt->thenBody.empty(), "surviving branch kept");
+    } else {
+        const auto* say = dynamic_cast<const afrilang::SayStatementNode*>(
+            program->statements[1].get());
+        expect(say != nullptr, "dead if flattened to surviving say");
+        const auto* lit = dynamic_cast<const afrilang::StringLiteralNode*>(say->value.get());
+        expect(lit != nullptr && lit->value == "yes", "surviving branch is yes");
+    }
 }
 
 int main() {

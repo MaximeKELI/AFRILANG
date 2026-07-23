@@ -156,10 +156,24 @@ CMakeFiles/afrilang.dir/src/passes/passes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/passes/passes.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/admin20/AFRILANG/src/passes/passes.cpp -o CMakeFiles/afrilang.dir/src/passes/passes.cpp.s
 
+CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: CMakeFiles/afrilang.dir/flags.make
+CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: /home/admin20/AFRILANG/src/passes/mid_ir.cpp
+CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o -MF CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o.d -o CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o -c /home/admin20/AFRILANG/src/passes/mid_ir.cpp
+
+CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/admin20/AFRILANG/src/passes/mid_ir.cpp > CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.i
+
+CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/admin20/AFRILANG/src/passes/mid_ir.cpp -o CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.s
+
 CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: /home/admin20/AFRILANG/src/utils/compiler.cpp
 CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o -c /home/admin20/AFRILANG/src/utils/compiler.cpp
 
 CMakeFiles/afrilang.dir/src/utils/compiler.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/afrilang.dir/src/utils/compiler.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cli.cpp
 CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/afrilang.dir/src/utils/cli.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/afrilang.dir/src/utils/cli.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/cli.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/cli.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/cli.cpp.o -c /home/admin20/AFRILANG/src/utils/cli.cpp
 
 CMakeFiles/afrilang.dir/src/utils/cli.cpp.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o: /home/admin20/AFRILANG/src/utils/diagnostics.cpp
 CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o -c /home/admin20/AFRILANG/src/utils/diagnostics.cpp
 
 CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: /home/admin20/AFRILANG/src/utils/utf8.cpp
 CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o -c /home/admin20/AFRILANG/src/utils/utf8.cpp
 
 CMakeFiles/afrilang.dir/src/utils/utf8.cpp.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/afrilang.dir/src/utils/utf8.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o: /home/admin20/AFRILANG/src/utils/i18n.cpp
 CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/i18n.cpp.o -c /home/admin20/AFRILANG/src/utils/i18n.cpp
 
 CMakeFiles/afrilang.dir/src/utils/i18n.cpp.i: cmake_force
@@ -229,7 +243,7 @@ CMakeFiles/afrilang.dir/src/utils/i18n.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/semver.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/semver.cpp.o: /home/admin20/AFRILANG/src/utils/semver.cpp
 CMakeFiles/afrilang.dir/src/utils/semver.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/afrilang.dir/src/utils/semver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/afrilang.dir/src/utils/semver.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/semver.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/semver.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/semver.cpp.o -c /home/admin20/AFRILANG/src/utils/semver.cpp
 
 CMakeFiles/afrilang.dir/src/utils/semver.cpp.i: cmake_force
@@ -243,7 +257,7 @@ CMakeFiles/afrilang.dir/src/utils/semver.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/utils/sandbox.cpp
 CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o -c /home/admin20/AFRILANG/src/utils/sandbox.cpp
 
 CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.i: cmake_force
@@ -257,7 +271,7 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/security.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/security.cpp.o: /home/admin20/AFRILANG/src/utils/security.cpp
 CMakeFiles/afrilang.dir/src/utils/security.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/afrilang.dir/src/utils/security.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/afrilang.dir/src/utils/security.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/security.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/security.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/security.cpp.o -c /home/admin20/AFRILANG/src/utils/security.cpp
 
 CMakeFiles/afrilang.dir/src/utils/security.cpp.i: cmake_force
@@ -271,7 +285,7 @@ CMakeFiles/afrilang.dir/src/utils/security.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/project.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/project.cpp.o: /home/admin20/AFRILANG/src/utils/project.cpp
 CMakeFiles/afrilang.dir/src/utils/project.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/afrilang.dir/src/utils/project.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/afrilang.dir/src/utils/project.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/project.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/project.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/project.cpp.o -c /home/admin20/AFRILANG/src/utils/project.cpp
 
 CMakeFiles/afrilang.dir/src/utils/project.cpp.i: cmake_force
@@ -285,7 +299,7 @@ CMakeFiles/afrilang.dir/src/utils/project.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: /home/admin20/AFRILANG/src/utils/stdlib_registry.cpp
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o -c /home/admin20/AFRILANG/src/utils/stdlib_registry.cpp
 
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: /home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp
 CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.o -c /home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp
 
 CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.i: cmake_force
@@ -313,7 +327,7 @@ CMakeFiles/afrilang.dir/src/utils/stdlib_catalog.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: /home/admin20/AFRILANG/src/utils/medium_catalog.cpp
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o -c /home/admin20/AFRILANG/src/utils/medium_catalog.cpp
 
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.i: cmake_force
@@ -327,7 +341,7 @@ CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: /home/admin20/AFRILANG/src/utils/catalog_loader.cpp
 CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o -c /home/admin20/AFRILANG/src/utils/catalog_loader.cpp
 
 CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.i: cmake_force
@@ -341,7 +355,7 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: /home/admin20/AFRILANG/src/utils/formatter.cpp
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/formatter.cpp.o -c /home/admin20/AFRILANG/src/utils/formatter.cpp
 
 CMakeFiles/afrilang.dir/src/utils/formatter.cpp.i: cmake_force
@@ -355,7 +369,7 @@ CMakeFiles/afrilang.dir/src/utils/formatter.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: /home/admin20/AFRILANG/src/utils/pkg.cpp
 CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/pkg.cpp.o -c /home/admin20/AFRILANG/src/utils/pkg.cpp
 
 CMakeFiles/afrilang.dir/src/utils/pkg.cpp.i: cmake_force
@@ -369,7 +383,7 @@ CMakeFiles/afrilang.dir/src/utils/pkg.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/hash.cpp
 CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/afrilang.dir/src/utils/hash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/afrilang.dir/src/utils/hash.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/hash.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/hash.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/hash.cpp.o -c /home/admin20/AFRILANG/src/utils/hash.cpp
 
 CMakeFiles/afrilang.dir/src/utils/hash.cpp.i: cmake_force
@@ -383,7 +397,7 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: /home/admin20/AFRILANG/src/utils/cache.cpp
 CMakeFiles/afrilang.dir/src/utils/cache.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/afrilang.dir/src/utils/cache.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/afrilang.dir/src/utils/cache.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/cache.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/cache.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/cache.cpp.o -c /home/admin20/AFRILANG/src/utils/cache.cpp
 
 CMakeFiles/afrilang.dir/src/utils/cache.cpp.i: cmake_force
@@ -397,7 +411,7 @@ CMakeFiles/afrilang.dir/src/utils/cache.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: /home/admin20/AFRILANG/src/utils/debug.cpp
 CMakeFiles/afrilang.dir/src/utils/debug.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/afrilang.dir/src/utils/debug.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/afrilang.dir/src/utils/debug.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/debug.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/debug.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/debug.cpp.o -c /home/admin20/AFRILANG/src/utils/debug.cpp
 
 CMakeFiles/afrilang.dir/src/utils/debug.cpp.i: cmake_force
@@ -411,7 +425,7 @@ CMakeFiles/afrilang.dir/src/utils/debug.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o: /home/admin20/AFRILANG/src/utils/debug_meta.cpp
 CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.o -c /home/admin20/AFRILANG/src/utils/debug_meta.cpp
 
 CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.i: cmake_force
@@ -425,7 +439,7 @@ CMakeFiles/afrilang.dir/src/utils/debug_meta.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o: /home/admin20/AFRILANG/src/utils/js_codegen.cpp
 CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.o -c /home/admin20/AFRILANG/src/utils/js_codegen.cpp
 
 CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.i: cmake_force
@@ -439,7 +453,7 @@ CMakeFiles/afrilang.dir/src/utils/js_codegen.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/env.cpp.o: /home/admin20/AFRILANG/src/utils/env.cpp
 CMakeFiles/afrilang.dir/src/utils/env.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/afrilang.dir/src/utils/env.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/afrilang.dir/src/utils/env.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/env.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/env.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/env.cpp.o -c /home/admin20/AFRILANG/src/utils/env.cpp
 
 CMakeFiles/afrilang.dir/src/utils/env.cpp.i: cmake_force
@@ -453,7 +467,7 @@ CMakeFiles/afrilang.dir/src/utils/env.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: /home/admin20/AFRILANG/src/utils/educational.cpp
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/afrilang.dir/src/utils/educational.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/afrilang.dir/src/utils/educational.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/utils/educational.cpp.o -MF CMakeFiles/afrilang.dir/src/utils/educational.cpp.o.d -o CMakeFiles/afrilang.dir/src/utils/educational.cpp.o -c /home/admin20/AFRILANG/src/utils/educational.cpp
 
 CMakeFiles/afrilang.dir/src/utils/educational.cpp.i: cmake_force
@@ -467,7 +481,7 @@ CMakeFiles/afrilang.dir/src/utils/educational.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: /home/admin20/AFRILANG/src/repl/repl.cpp
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/afrilang.dir/src/repl/repl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/afrilang.dir/src/repl/repl.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/repl/repl.cpp.o -MF CMakeFiles/afrilang.dir/src/repl/repl.cpp.o.d -o CMakeFiles/afrilang.dir/src/repl/repl.cpp.o -c /home/admin20/AFRILANG/src/repl/repl.cpp
 
 CMakeFiles/afrilang.dir/src/repl/repl.cpp.i: cmake_force
@@ -481,7 +495,7 @@ CMakeFiles/afrilang.dir/src/repl/repl.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: /home/admin20/AFRILANG/src/serve/server.cpp
 CMakeFiles/afrilang.dir/src/serve/server.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/afrilang.dir/src/serve/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/afrilang.dir/src/serve/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/serve/server.cpp.o -MF CMakeFiles/afrilang.dir/src/serve/server.cpp.o.d -o CMakeFiles/afrilang.dir/src/serve/server.cpp.o -c /home/admin20/AFRILANG/src/serve/server.cpp
 
 CMakeFiles/afrilang.dir/src/serve/server.cpp.i: cmake_force
@@ -495,7 +509,7 @@ CMakeFiles/afrilang.dir/src/serve/server.cpp.s: cmake_force
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CMakeFiles/afrilang.dir/flags.make
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: /home/admin20/AFRILANG/src/lsp/server.cpp
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.o: CMakeFiles/afrilang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/afrilang.dir/src/lsp/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/afrilang.dir/src/lsp/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/afrilang.dir/src/lsp/server.cpp.o -MF CMakeFiles/afrilang.dir/src/lsp/server.cpp.o.d -o CMakeFiles/afrilang.dir/src/lsp/server.cpp.o -c /home/admin20/AFRILANG/src/lsp/server.cpp
 
 CMakeFiles/afrilang.dir/src/lsp/server.cpp.i: cmake_force
@@ -514,6 +528,7 @@ afrilang_OBJECTS = \
 "CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o" \
 "CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o" \
 "CMakeFiles/afrilang.dir/src/passes/passes.cpp.o" \
+"CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/cli.cpp.o" \
 "CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o" \
@@ -549,6 +564,7 @@ afrilang: CMakeFiles/afrilang.dir/src/parser/parser.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/semantic/analyzer.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/codegen/codegen.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/passes/passes.cpp.o
+afrilang: CMakeFiles/afrilang.dir/src/passes/mid_ir.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/compiler.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/cli.cpp.o
 afrilang: CMakeFiles/afrilang.dir/src/utils/diagnostics.cpp.o
@@ -579,7 +595,7 @@ afrilang: CMakeFiles/afrilang.dir/compiler_depend.ts
 afrilang: /usr/lib/x86_64-linux-gnu/libssl.so
 afrilang: /usr/lib/x86_64-linux-gnu/libcrypto.so
 afrilang: CMakeFiles/afrilang.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX executable afrilang"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/admin20/AFRILANG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX executable afrilang"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/afrilang.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
