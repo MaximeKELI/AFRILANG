@@ -60,6 +60,7 @@ struct ClassInfo {
 struct RecordInfo {
     std::string name;
     std::unordered_map<std::string, FieldInfo> fields;
+    std::vector<std::string> fieldOrder;
 };
 
 struct ModuleInfo {

@@ -215,6 +215,17 @@ struct SafeNavExprNode : ExpressionNode {
         : object(std::move(object)), member(std::move(member)) {}
 };
 
+// Littéral de record : `Point with x 1, y 2`
+struct RecordLiteralExprNode : ExpressionNode {
+    std::string typeName;
+    std::vector<std::pair<std::string, std::unique_ptr<ExpressionNode>>> fields;
+
+    RecordLiteralExprNode(
+        std::string typeName,
+        std::vector<std::pair<std::string, std::unique_ptr<ExpressionNode>>> fields)
+        : typeName(std::move(typeName)), fields(std::move(fields)) {}
+};
+
 // Littéral de plage numérique : `a..b` (inclusif) ou `a..<b` (exclusif).
 struct RangeExpressionNode : ExpressionNode {
     std::unique_ptr<ExpressionNode> low;

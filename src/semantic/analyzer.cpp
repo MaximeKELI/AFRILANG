@@ -212,6 +212,7 @@ void SemanticAnalyzer::registerRecords() {
             fi.type = typeFromName(field.typeName);
             fi.visibility = FieldVisibility::Public;
             info.fields[field.name] = std::move(fi);
+            info.fieldOrder.push_back(field.name);
         }
         result_.records[record->name] = std::move(info);
         });
@@ -231,6 +232,7 @@ void SemanticAnalyzer::registerRecords() {
                 fi.type = typeFromName(field.typeName);
                 fi.visibility = FieldVisibility::Public;
                 info.fields[field.name] = std::move(fi);
+                info.fieldOrder.push_back(field.name);
             }
             result_.records[record->name] = std::move(info);
             result_.modules[module->name].records[record->name] = result_.records.at(record->name);
@@ -964,6 +966,21 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             }
 
             AfrType objectType = analyzeExpression(*member->object, scope);
+            if (objectType.kind == TypeKind::Record) {
+                const RecordInfo* rec = findRecord(objectType.recordName);
+                if (!rec) {
+                    errorAt(*set, "Record '" + objectType.recordName + "' introuvable");
+                }
+                const auto fit = rec->fields.find(member->member);
+                if (fit == rec->fields.end()) {
+                    errorAt(*set, "Champ '" + member->member + "' introuvable sur record '" +
+                          objectType.recordName + "'");
+                }
+                if (!isAssignable(fit->second.type, valueType)) {
+                    errorAt(*set, "Type incompatible pour le champ '" + member->member + "'");
+                }
+                return;
+            }
             if (objectType.kind != TypeKind::Class) {
                 errorAt(*set, "Assignation de champ sur un type non objet");
             }
@@ -2403,7 +2420,46 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
             errorAt(expr, "Champ '" + member->member + "' introuvable sur enum '" + objectType.className + "'");
         }
 
+        if (objectType.kind == TypeKind::Record) {
+            const RecordInfo* rec = findRecord(objectType.recordName);
+            if (rec) {
+                const auto fit = rec->fields.find(member->member);
+                if (fit != rec->fields.end()) return fit->second.type;
+            }
+            errorAt(expr, "Champ '" + member->member + "' introuvable sur record '" +
+                  objectType.recordName + "'");
+        }
+
         errorAt(expr, "Accès membre sur un type non objet");
+    }
+
+    if (const auto* recLit = dynamic_cast<const RecordLiteralExprNode*>(&expr)) {
+        const RecordInfo* rec = findRecord(recLit->typeName);
+        if (!rec) {
+            errorAt(expr, "Record '" + recLit->typeName + "' introuvable");
+        }
+        std::unordered_set<std::string> seen;
+        for (const auto& [fname, fexpr] : recLit->fields) {
+            if (seen.count(fname)) {
+                errorAt(expr, "Champ '" + fname + "' dupliqué dans le littéral de record");
+            }
+            seen.insert(fname);
+            const auto fit = rec->fields.find(fname);
+            if (fit == rec->fields.end()) {
+                errorAt(expr, "Champ '" + fname + "' introuvable sur record '" + recLit->typeName + "'");
+            }
+            AfrType valType = analyzeExpression(*fexpr, scope);
+            if (!isAssignable(fit->second.type, valType)) {
+                errorAt(expr, "Type incompatible pour le champ '" + fname + "'");
+            }
+        }
+        for (const auto& fname : rec->fieldOrder) {
+            if (!seen.count(fname)) {
+                errorAt(expr, "Champ '" + fname + "' manquant dans le littéral de record '" +
+                      recLit->typeName + "'");
+            }
+        }
+        return AfrType::recordType(recLit->typeName);
     }
 
     if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {
@@ -2704,6 +2760,9 @@ bool SemanticAnalyzer::isAssignable(const AfrType& target, const AfrType& value)
     }
     if (target.kind == TypeKind::Optional && value.kind == TypeKind::Optional) {
         return target.listElementTypeName == value.listElementTypeName;
+    }
+    if (target.kind == TypeKind::Optional) {
+        return isAssignable(target.optionalInnerType(), value);
     }
     if (target.kind == TypeKind::Enum && value.kind == TypeKind::Enum) {
         return target.className == value.className;

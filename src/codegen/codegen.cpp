@@ -15,6 +15,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <unordered_map>
 
 namespace afrilang {
 
@@ -160,6 +161,13 @@ std::string storageCppForType(const AfrType& type) {
         return "std::unique_ptr<" + type.className + ">";
     }
     return type.toCpp();
+}
+
+std::string optionalAccessOp(const AfrType& optionalType) {
+    if (optionalType.kind != TypeKind::Optional) return ".";
+    const AfrType inner = optionalType.optionalInnerType();
+    if (inner.kind == TypeKind::Class || inner.kind == TypeKind::Interface) return "->";
+    return ".";
 }
 
 std::string instantiatedClassStorageCpp(const NewExpressionNode& newExpr) {
@@ -2325,14 +2333,51 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* nav = dynamic_cast<const SafeNavExprNode*>(&expr)) {
         const AfrType navType = inferExpressionAfrType(expr);
+        AfrType objType;
+        if (const auto* id = dynamic_cast<const IdentifierNode*>(nav->object.get())) {
+            auto vit = semantic_.globalVariables.find(id->name);
+            if (vit != semantic_.globalVariables.end()) objType = vit->second;
+            else objType = inferExpressionAfrType(*nav->object);
+        } else {
+            objType = inferExpressionAfrType(*nav->object);
+        }
+        const std::string access = optionalAccessOp(objType);
         out << "([&]() -> " << navType.toCpp() << " { auto _sn = ";
         if (const auto* id = dynamic_cast<const IdentifierNode*>(nav->object.get())) {
             out << id->name; // optionnel brut
         } else {
             emitExpression(out, *nav->object, ownerClass);
         }
-        out << "; if (_sn.has_value()) return _sn.value()." << nav->member
-            << "; return std::nullopt; }())";
+        out << "; if (_sn.has_value()) return " << navType.toCpp() << "{_sn.value()"
+            << access << nav->member << "}; return std::nullopt; }())";
+        return;
+    }
+
+    if (const auto* recLit = dynamic_cast<const RecordLiteralExprNode*>(&expr)) {
+        out << recLit->typeName << "{";
+        const RecordInfo* rec = nullptr;
+        auto rit = semantic_.records.find(recLit->typeName);
+        if (rit != semantic_.records.end()) rec = &rit->second;
+        std::unordered_map<std::string, const ExpressionNode*> byName;
+        for (const auto& [fname, fexpr] : recLit->fields) {
+            byName[fname] = fexpr.get();
+        }
+        const std::vector<std::string>& order = rec ? rec->fieldOrder
+            : std::vector<std::string>{};
+        if (!order.empty()) {
+            for (std::size_t i = 0; i < order.size(); ++i) {
+                if (i > 0) out << ", ";
+                auto it = byName.find(order[i]);
+                if (it != byName.end()) emitExpression(out, *it->second, ownerClass);
+                else out << "{}";
+            }
+        } else {
+            for (std::size_t i = 0; i < recLit->fields.size(); ++i) {
+                if (i > 0) out << ", ";
+                emitExpression(out, *recLit->fields[i].second, ownerClass);
+            }
+        }
+        out << "}";
         return;
     }
 
@@ -3119,6 +3164,10 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
         return enumCase->enumName;
     }
 
+    if (const auto* recLit = dynamic_cast<const RecordLiteralExprNode*>(&expr)) {
+        return recLit->typeName;
+    }
+
     if (dynamic_cast<const IsDefinedCheckNode*>(&expr)) return "bool";
 
     if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
@@ -3206,6 +3255,9 @@ AfrType CodeGenerator::inferExpressionAfrType(const ExpressionNode& expr) const 
     }
     if (const auto* newExpr = dynamic_cast<const NewExpressionNode*>(&expr)) {
         return AfrType::classType(newExpr->className);
+    }
+    if (const auto* recLit = dynamic_cast<const RecordLiteralExprNode*>(&expr)) {
+        return AfrType::recordType(recLit->typeName);
     }
     if (const auto* emptyMap = dynamic_cast<const EmptyMapNode*>(&expr)) {
         return AfrType::mapType(typeFromName(emptyMap->keyTypeName),

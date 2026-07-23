@@ -1963,6 +1963,21 @@ std::unique_ptr<ExpressionNode> Parser::finishCall(std::unique_ptr<ExpressionNod
             continue;
         }
 
+        if (match(TokenType::With)) {
+            if (auto* id = dynamic_cast<IdentifierNode*>(callee.get());
+                id && recordNames_.count(id->name)) {
+                std::vector<std::pair<std::string, std::unique_ptr<ExpressionNode>>> fields;
+                do {
+                    const Token& fname = consumeName("Nom de champ attendu après 'with'");
+                    auto value = parseExpression();
+                    fields.emplace_back(fname.lexeme, std::move(value));
+                } while (match(TokenType::Comma));
+                callee = std::make_unique<RecordLiteralExprNode>(id->name, std::move(fields));
+                continue;
+            }
+            error("'with' inattendu ici (littéral de record : Type with champ valeur, ...)");
+        }
+
         if (check(TokenType::AngleOpen)) {
             typeArgs = parseTypeParams();
         }

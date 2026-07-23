@@ -172,8 +172,13 @@ struct AfrType {
             case TypeKind::Interface: return className;
             case TypeKind::Record: return recordName;
             case TypeKind::Result: return "afrilang::runtime::AfrResult_" + listElementTypeName;
-            case TypeKind::Optional:
-                return "std::optional<" + optionalInnerType().toCpp() + ">";
+            case TypeKind::Optional: {
+                const AfrType inner = optionalInnerType();
+                if (inner.kind == TypeKind::Class || inner.kind == TypeKind::Interface) {
+                    return "std::optional<std::unique_ptr<" + inner.className + ">>";
+                }
+                return "std::optional<" + inner.toCpp() + ">";
+            }
             case TypeKind::Enum:   return className;
             case TypeKind::TypeVar: return className;
             case TypeKind::Function: return toCppFunctionType();
