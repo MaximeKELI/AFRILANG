@@ -9,6 +9,21 @@
 
 namespace afrilang {
 
+namespace {
+
+/** parseTypeName may already consume `or error`; normalize for FunctionNode.returnsResult. */
+bool takeOrErrorSuffix(std::string& typeName) {
+    static const std::string kSuffix = " or error";
+    if (typeName.size() >= kSuffix.size() &&
+        typeName.compare(typeName.size() - kSuffix.size(), kSuffix.size(), kSuffix) == 0) {
+        typeName.resize(typeName.size() - kSuffix.size());
+        return true;
+    }
+    return false;
+}
+
+} // namespace
+
 Parser::Parser(std::vector<Token> tokens) : tokens_(std::move(tokens)) {}
 
 std::unique_ptr<ProgramNode> Parser::parse() {
@@ -770,7 +785,9 @@ std::unique_ptr<FunctionNode> Parser::parseFunction(bool signatureOnly,
     bool returnsResult = false;
     if (match(TokenType::Returns)) {
         returnType = parseTypeName();
-        if (match(TokenType::Or)) {
+        if (takeOrErrorSuffix(returnType)) {
+            returnsResult = true;
+        } else if (match(TokenType::Or)) {
             consume(TokenType::ErrorKw, "'error' attendu après 'or'");
             returnsResult = true;
         }
@@ -826,7 +843,9 @@ std::unique_ptr<FunctionNode> Parser::parseOperatorMethod() {
     bool returnsResult = false;
     if (match(TokenType::Returns)) {
         returnType = parseTypeName();
-        if (match(TokenType::Or)) {
+        if (takeOrErrorSuffix(returnType)) {
+            returnsResult = true;
+        } else if (match(TokenType::Or)) {
             consume(TokenType::ErrorKw, "'error' attendu après 'or'");
             returnsResult = true;
         }
@@ -854,7 +873,9 @@ std::unique_ptr<ExpressionNode> Parser::parseLambdaExpression() {
     bool returnsResult = false;
     if (match(TokenType::Returns)) {
         returnType = parseTypeName();
-        if (match(TokenType::Or)) {
+        if (takeOrErrorSuffix(returnType)) {
+            returnsResult = true;
+        } else if (match(TokenType::Or)) {
             consume(TokenType::ErrorKw, "'error' attendu après 'or'");
             returnsResult = true;
         }

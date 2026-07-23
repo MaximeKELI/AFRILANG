@@ -4,3 +4,6 @@ description = "CLI banners and boxes"
 main = "bannerx.afr"
 license = "MIT"
 tags = ["cli", "text"]
+
+[dependencies]
+flagx = "0.1.0"

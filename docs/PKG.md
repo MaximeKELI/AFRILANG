@@ -177,4 +177,8 @@ plages, log textuel). Lister : `afrilang pkg list --blessed`.
 Les manifests portent `license = "MIT"` et `tags = [...]` ; `afrilang pkg reindex`
 propage ces champs dans `packages/index.json` et `site/packages.json`.
 
-Apps multi-paquets d’exemple : `examples/apps/pkg_cli_tool`, `pkg_data_pipeline`, `pkg_webish`.
+Apps multi-paquets d’exemple : `examples/apps/pkg_cli_tool`, `pkg_data_pipeline`, `pkg_webish`,
+`pkg_transitive` (deps transitives).
+
+**Result dans les paquets** : les modules peuvent exposer `returns T or error` et des
+paramètres `T or error` (ex. `resultx.parsePositive` / `valueOr`).

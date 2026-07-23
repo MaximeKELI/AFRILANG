@@ -1,0 +1,8 @@
+name = "pkg_transitive"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_transitive"
+description = "Demo transitive deps: queryx pulls urlx"
+
+[dependencies]
+queryx = "0.1.0"

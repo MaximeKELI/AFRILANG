@@ -1,0 +1,18 @@
+import "std/path"
+use path
+
+test "path join basename"
+    assert join("a", "b") is equal to "a/b"
+    assert basename("a/b/c.txt") is equal to "c.txt"
+    assert dirname("a/b/c.txt") is equal to "a/b"
+    assert extension("a/b/c.txt") is equal to ".txt"
+end
+
+test "path absolute normalize"
+    assert isAbsolute("/tmp") is equal to true
+    assert isAbsolute("tmp") is equal to false
+    create abs = absolute(".")
+    assert isAbsolute(abs) is equal to true
+    create norm = normalize("a/b/../c")
+    assert basename(norm) is equal to "c"
+end

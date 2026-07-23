@@ -4,3 +4,6 @@ description = "URL query string helpers"
 main = "queryx.afr"
 license = "MIT"
 tags = ["net", "url"]
+
+[dependencies]
+urlx = "0.1.0"

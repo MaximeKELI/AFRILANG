@@ -39,6 +39,7 @@ Suite de tests : `afrilang test --specs`.
 ## Hors core (expérimental / généré)
 
 - `stdlib/*.afr`, `stdlib/m/`, `stdlib/c/` — stubs de signatures, **pas** une garantie de profondeur API
+- Un module utilisateur / paquet qui **porte le même nom** qu’une entrée de catalogue n’est **pas** traité comme stdlib (origine `isStdlibInjected`)
 - Packs « ultra » (GIS, data, …) — utiles en démo ; stabilité au cas par cas
 
 ## Politique

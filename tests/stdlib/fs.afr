@@ -1,0 +1,16 @@
+import "std/fs"
+use fs
+
+test "fs exists and writeText"
+    create path = "/tmp/afrilang_fs_p6.txt"
+    assert writeText(path, "hello-p6") is equal to true
+    assert exists(path) is equal to true
+    assert isFile(path) is equal to true
+    assert readText(path) is equal to "hello-p6"
+    assert removeFile(path) is equal to true
+end
+
+test "fs isDir"
+    assert isDir("/tmp") is equal to true
+    assert isFile("/tmp") is equal to false
+end

@@ -166,6 +166,33 @@ Threads utilitaires + primitives de synchronisation (natif, `-pthread`) :
 
 Tests : `tests/stdlib/thread.afr`
 
+## `std/fs`
+
+| Fonction | Rôle |
+|----------|------|
+| `listDir` / `makeDir` / `removeFile` / `fileSize` | Contenu / taille |
+| `exists` / `isFile` / `isDir` | Prédicats |
+| `readText` / `writeText` | Lecture / écriture texte |
+
+Tests : `tests/stdlib/fs.afr`
+
+## `std/path`
+
+| Fonction | Rôle |
+|----------|------|
+| `join` / `basename` / `dirname` / `extension` | Composition |
+| `isAbsolute` / `normalize` / `absolute` | Forme |
+
+Tests : `tests/stdlib/path.afr`
+
+## `std/env`
+
+| Fonction | Rôle |
+|----------|------|
+| `get(name)` / `has(name)` / `set(name, value)` | Variables d'environnement |
+
+Tests : `tests/stdlib/env.afr`
+
 ## `std/unicode`
 
 Utilitaires UTF-8 orientés points de code (zéro-dép, WASM-compatible). Le module `str` reste orienté **octets**.
