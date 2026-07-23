@@ -17,6 +17,7 @@ set(AFRILANG_SOURCES
     src/parser/parser.cpp
     src/semantic/analyzer.cpp
     src/codegen/codegen.cpp
+    src/passes/passes.cpp
     src/utils/compiler.cpp
     src/utils/cli.cpp
     src/utils/diagnostics.cpp

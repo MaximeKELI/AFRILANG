@@ -11,13 +11,12 @@
                                                          exécutable (+ sandbox)
 ```
 
-Il n’existe **pas** d’IR AFRILANG (SSA / CFG / pass manager) aujourd’hui.
-Les optimisations de performance viennent du **compilateur hôte** (`-O2` par défaut,
-`-O0` si un module catalogue complexe est lié).
+Il existe un **mid-end AST** (pas un IR SSA complet) : `include/afrilang/passes.hpp`
+implémente le constant folding, l’élagage de branches mortes (`if` constant) et la
+suppression d’instructions inatteignables après `return`/`raise`/`stop`/`skip`.
+Les optimisations lourdes restent déléguées au compilateur hôte (`-O2`).
 
-Point d’extension : `include/afrilang/passes.hpp` (`runOptionalPasses`) — vide pour
-l’instant, volontairement, pour accueillir de futures passes AST sans prétendre à
-un backend LLVM.
+Voir aussi : `docs/PLATFORM.md`, `docs/WASM_COMPAT.md`.
 
 ## Sûreté d’indexation et d’accès
 

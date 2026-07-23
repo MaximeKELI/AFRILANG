@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/admin20/AFRILANG/src/lexer/lexer.cpp" "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/lexer/lexer.cpp.o.d"
   "/home/admin20/AFRILANG/src/lsp/server.cpp" "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o.d"
   "/home/admin20/AFRILANG/src/parser/parser.cpp" "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o.d"
+  "/home/admin20/AFRILANG/src/passes/passes.cpp" "CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.o.d"
   "/home/admin20/AFRILANG/src/repl/repl.cpp" "CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o.d"
   "/home/admin20/AFRILANG/src/semantic/analyzer.cpp" "CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o.d"
   "/home/admin20/AFRILANG/src/serve/server.cpp" "CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o" "gcc" "CMakeFiles/afrilang_tests.dir/src/serve/server.cpp.o.d"

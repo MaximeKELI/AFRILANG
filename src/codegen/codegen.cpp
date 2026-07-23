@@ -1084,12 +1084,15 @@ bool CodeGenerator::usesPointerAccess(const ExpressionNode& object) const {
 
 void CodeGenerator::emitReceiver(std::ostream& out, const ExpressionNode& object,
                                  const ClassInfo* ownerClass) const {
-    emitExpression(out, object, ownerClass);
     if (usesPointerAccess(object)) {
-        out << "->";
-    } else {
-        out << ".";
+        out << "([&]() -> auto& { auto& _afr_recv = ";
+        emitExpression(out, object, ownerClass);
+        out << "; if (!_afr_recv) throw std::runtime_error(\"null object\"); "
+               "return _afr_recv; })()->";
+        return;
     }
+    emitExpression(out, object, ownerClass);
+    out << ".";
 }
 
 void CodeGenerator::emitCallArgument(std::ostream& out, const ExpressionNode& arg,

@@ -1,15 +1,14 @@
 #pragma once
 
-// Optional AST mid-end extension point (no IR yet).
-// Future passes can transform ProgramNode between semantic analysis and codegen.
+// AFRILANG mid-end: AST optimization passes between semantic analysis and codegen.
+// Not a full SSA/IR — product mid-end for Performance efficiency (ISO 25010).
 // See docs/COMPILER.md.
 
 #include "afrilang/ast.hpp"
 
 namespace afrilang::passes {
 
-inline void runOptionalPasses(ProgramNode& /*program*/) {
-    // Intentionally empty — host C++ optimizer is the current performance path.
-}
+/** Run constant folding, dead-branch pruning, and unreachable-stmt cleanup. */
+void runOptionalPasses(ProgramNode& program);
 
 } // namespace afrilang::passes

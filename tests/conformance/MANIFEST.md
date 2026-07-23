@@ -11,6 +11,8 @@ See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 | `result_access.afr` | §5 Result | runtime |
 | `generics_constraints.afr` | §6 Generics constraints | runtime |
 | `exceptions_catch.afr` | §7 Exceptions | runtime |
+| `constant_fold.afr` | Mid-end constant fold / dead branch | runtime |
+| `null_receiver.afr` | Null-safe method receivers | runtime |
 
 ## Negative (must reject)
 

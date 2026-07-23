@@ -66,3 +66,11 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] FFI allowlist unique (`ffi_allowlist.hpp`) + link flags host-aware
 - [x] Re-score audit canvas (écarts modérés atténués)
 
+## Vague 8 — Vers ≥18/20 international (mid-end + profondeur)
+
+- [x] Mid-end AST réel : constant fold, dead branches, unreachable cleanup (`src/passes/passes.cpp`)
+- [x] Null-check receivers `unique_ptr` (`null object`)
+- [x] Playground JS maps + `at` + for-each entries
+- [x] Conformité : `constant_fold.afr`, `null_receiver.afr`
+- [x] Re-score audit canvas cible ≥18
+

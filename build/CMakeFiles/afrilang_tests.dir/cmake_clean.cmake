@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/afrilang_tests.dir/src/lsp/server.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.o.d"
+  "CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.o"
+  "CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o"
   "CMakeFiles/afrilang_tests.dir/src/repl/repl.cpp.o.d"
   "CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o"

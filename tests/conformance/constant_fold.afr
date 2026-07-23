@@ -1,0 +1,20 @@
+test "constant fold arithmetic"
+    assert (2 + 2) is equal to 4
+    assert (10 - 3) is equal to 7
+    assert (3 * 4) is equal to 12
+end
+
+test "constant fold comparison"
+    assert (1 is less than 2)
+    assert (5 is equal to 5)
+end
+
+test "dead branch false pruned still runs else"
+    create x = 0
+    if false then
+        set x = 1
+    else
+        set x = 2
+    end
+    assert x is equal to 2
+end

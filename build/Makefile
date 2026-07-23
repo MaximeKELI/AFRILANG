@@ -342,6 +342,33 @@ src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
 
+src/passes/passes.o: src/passes/passes.cpp.o
+.PHONY : src/passes/passes.o
+
+# target to build an object file
+src/passes/passes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/passes.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.o
+.PHONY : src/passes/passes.cpp.o
+
+src/passes/passes.i: src/passes/passes.cpp.i
+.PHONY : src/passes/passes.i
+
+# target to preprocess a source file
+src/passes/passes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/passes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.i
+.PHONY : src/passes/passes.cpp.i
+
+src/passes/passes.s: src/passes/passes.cpp.s
+.PHONY : src/passes/passes.s
+
+# target to generate assembly for a file
+src/passes/passes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang.dir/build.make CMakeFiles/afrilang.dir/src/passes/passes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/afrilang_tests.dir/build.make CMakeFiles/afrilang_tests.dir/src/passes/passes.cpp.s
+.PHONY : src/passes/passes.cpp.s
+
 src/repl/repl.o: src/repl/repl.cpp.o
 .PHONY : src/repl/repl.o
 
@@ -1072,6 +1099,9 @@ help:
 	@echo "... src/parser/parser.o"
 	@echo "... src/parser/parser.i"
 	@echo "... src/parser/parser.s"
+	@echo "... src/passes/passes.o"
+	@echo "... src/passes/passes.i"
+	@echo "... src/passes/passes.s"
 	@echo "... src/repl/repl.o"
 	@echo "... src/repl/repl.i"
 	@echo "... src/repl/repl.s"

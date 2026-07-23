@@ -12,8 +12,9 @@ Reduce **language-surface** undefined behavior for everyday programs:
 | List / map index | Bounds / key checked → catchable error (§3 NORMATIVE) |
 | Optional unwrap | Empty optional → catchable `optional value is nothing` |
 | Result `.value` | Error Result → catchable error (message preserved) |
-| Object identity | Instances via `new` → `unique_ptr`; no raw `delete` in user code |
+| Object identity | Instances via `new` → `unique_ptr`; method receivers null-checked (`null object`) |
 | Secure compile | Stack protector, FORTIFY, PIE (when host supports) |
+| Mid-end | Constant fold + dead-branch / unreachable cleanup before codegen |
 
 ## Non-goals (honest)
 

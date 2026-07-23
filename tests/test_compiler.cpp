@@ -17,6 +17,7 @@
 #include "afrilang/version.hpp"
 
 #include "afrilang/sandbox.hpp"
+#include "afrilang/passes.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -896,6 +897,34 @@ static void testGenericConstraintRejectsText() {
     expect(sem.hasErrors(), "onlyNumber(\"x\") must fail constraint T is number");
 }
 
+static void testConstantFoldPass() {
+    const std::string src =
+        "create x = 2 + 2\n"
+        "if false then\n"
+        "    say \"no\"\n"
+        "else\n"
+        "    say \"yes\"\n"
+        "end\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(!parser.hasErrors(), "fold sample parses");
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "fold.afr");
+    analyzer.analyze();
+    afrilang::passes::runOptionalPasses(*program);
+    expect(!program->statements.empty(), "fold keeps statements");
+    const auto* assign = dynamic_cast<const afrilang::AssignStatementNode*>(
+        program->statements[0].get());
+    expect(assign != nullptr, "first stmt is assign");
+    const auto* num = dynamic_cast<const afrilang::NumberLiteralNode*>(assign->value.get());
+    expect(num != nullptr && num->value == 4.0, "2+2 folded to 4");
+    const auto* ifStmt = dynamic_cast<const afrilang::IfStatementNode*>(
+        program->statements[1].get());
+    expect(ifStmt != nullptr, "second stmt is if");
+    expect(ifStmt->elseBody.empty(), "false branch pruned to then-only after swap");
+    expect(!ifStmt->thenBody.empty(), "surviving branch kept");
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -946,6 +975,7 @@ int main() {
     testDuplicateClassErrorCode();
     testTypedExpressionAnnotation();
     testGenericConstraintRejectsText();
+    testConstantFoldPass();
     testCacheFingerprintVersionInvalidates();
     testCacheMetaKeyDistinctPaths();
     testPipelineMissingFile();

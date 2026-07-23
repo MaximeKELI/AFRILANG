@@ -56,8 +56,6 @@ bool statementsSupported(const std::vector<std::unique_ptr<StatementNode>>& stmt
             continue;
         }
         if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(stmt.get())) {
-            // Lists only in JS playground (no map key/value pairs).
-            if (!forEach->valueName.empty()) return false;
             if (!expressionSupported(*forEach->list)) return false;
             if (!statementsSupported(forEach->body)) return false;
             continue;
@@ -111,6 +109,16 @@ bool expressionSupported(const ExpressionNode& expr) {
             if (!expressionSupported(*elem)) return false;
         }
         return true;
+    }
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        for (const auto& pair : mapLit->pairs) {
+            if (!expressionSupported(*pair.key) || !expressionSupported(*pair.value)) return false;
+        }
+        return true;
+    }
+    if (dynamic_cast<const EmptyMapNode*>(&expr)) return true;
+    if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        return expressionSupported(*index->object) && expressionSupported(*index->index);
     }
     return false;
 }
@@ -258,6 +266,29 @@ void JsCodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& ex
         out << "]";
         return;
     }
+    if (const auto* mapLit = dynamic_cast<const MapLiteralNode*>(&expr)) {
+        out << "({";
+        for (std::size_t i = 0; i < mapLit->pairs.size(); ++i) {
+            if (i > 0) out << ", ";
+            out << "[";
+            emitExpression(out, *mapLit->pairs[i].key);
+            out << "]: ";
+            emitExpression(out, *mapLit->pairs[i].value);
+        }
+        out << "})";
+        return;
+    }
+    if (dynamic_cast<const EmptyMapNode*>(&expr)) {
+        out << "({})";
+        return;
+    }
+    if (const auto* index = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        emitExpression(out, *index->object);
+        out << "[";
+        emitExpression(out, *index->index);
+        out << "]";
+        return;
+    }
 }
 
 void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt,
@@ -341,9 +372,16 @@ void JsCodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt
     }
 
     if (const auto* forEach = dynamic_cast<const ForEachStatementNode*>(&stmt)) {
-        out << "for (const " << forEach->itemName << " of ";
-        emitExpression(out, *forEach->list);
-        out << ") {\n";
+        if (!forEach->valueName.empty()) {
+            out << "for (const [" << forEach->itemName << ", " << forEach->valueName
+                << "] of Object.entries(";
+            emitExpression(out, *forEach->list);
+            out << ")) {\n";
+        } else {
+            out << "for (const " << forEach->itemName << " of ";
+            emitExpression(out, *forEach->list);
+            out << ") {\n";
+        }
         for (const auto& bodyStmt : forEach->body) {
             emitStatement(out, *bodyStmt, indentLevel + 1);
         }

@@ -1,0 +1,14 @@
+class Point
+    public field x number
+    function init(v number)
+        set this.x = v
+    end
+    function getX() returns number
+        return this.x
+    end
+end
+
+test "object method on live instance"
+    create p = new Point(9)
+    assert p.getX() is equal to 9
+end

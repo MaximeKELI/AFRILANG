@@ -1,0 +1,8 @@
+say "js maps"
+create m = map of "a" to 1, "b" to 2
+say m at "a"
+create sum = 0
+for each k, v in m do
+    set sum = sum + v
+end
+say sum

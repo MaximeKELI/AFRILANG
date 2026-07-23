@@ -31,12 +31,12 @@ Plateformes host : voir [`PLATFORM.md`](PLATFORM.md).
 
 ## Playground JS (`compile-js`)
 
-Sous-ensemble (Vague 7) : `say`, assign/set, `if`/`while`/`repeat`/`for`, **fonctions**,
-**list of** + `for each` (listes), **macros après expansion**.
+Sous-ensemble (Vague 7–8) : `say`, assign/set, `if`/`while`/`repeat`/`for`, **fonctions**,
+**list of** + `for each`, **map of** + `at` + `for each key, value`, **macros après expansion**.
 
-Toujours exclus : imports, classes, maps, async, UI, tests, FFI.
+Toujours exclus : imports, classes, async, UI, tests, FFI.
 
-CI smoke : `afrilang compile-js tests/js/playground_lists.afr | node`.
+CI smoke : `scripts/check_js_playground.sh` (lists + maps).
 
 ## Recommandation
 
