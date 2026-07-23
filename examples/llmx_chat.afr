@@ -1,11 +1,9 @@
 // llmx — OpenAI-compatible chat helpers (offline by default)
 // Network: uncomment chatText when Ollama (or similar) listens on :11434.
 // See packages/llmx/README.md and docs/STDLIB_AI.md
+// Note: do not also import std/str here — llmx already pulls it in.
 
-import "std/str"
 import "pkg/llmx/llmx.afr"
-
-use str
 use llmx
 
 create model = "llama3"
@@ -13,11 +11,10 @@ create prompt = "Reply with one word: ok"
 create body = buildChatBody(model, prompt)
 create url = chatUrl("http://127.0.0.1:11434/v1")
 create hdr = authHeader("sk-demo")
-create bearer = "Bearer"
 
 say "url={url}"
 say "body={body}"
-say "auth has Bearer={contains(hdr, bearer)}"
+say "auth={hdr}"
 
 create sample = "{\"id\":\"chat\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"ok\"}}]}"
 create blank = ""

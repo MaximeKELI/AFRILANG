@@ -1,19 +1,14 @@
 import "pkg/llmx/llmx.afr"
-import "std/str"
-
 use llmx
-use str
 
 test "buildChatBody"
     create body = buildChatBody("llama3", "hello")
-    assert contains(body, "\"model\":\"llama3\"") is equal to true
-    assert contains(body, "\"content\":\"hello\"") is equal to true
-    assert contains(body, "\"role\":\"user\"") is equal to true
+    assert buildChatBody("llama3", "hello") is equal to "{\"model\":\"llama3\",\"messages\":[{\"role\":\"user\",\"content\":\"hello\"}]}"
 end
 
 test "escape quotes in body"
     create body = buildChatBody("m", "say \"hi\"")
-    assert contains(body, "say \\\"hi\\\"") is equal to true
+    assert body is equal to "{\"model\":\"m\",\"messages\":[{\"role\":\"user\",\"content\":\"say \\\"hi\\\"\"}]}"
 end
 
 test "chatUrl"
@@ -30,5 +25,5 @@ end
 
 test "authHeader"
     assert authHeader("") is equal to ""
-    assert contains(authHeader("sk-test"), "Bearer sk-test") is equal to true
+    assert authHeader("sk-test") is equal to "Authorization: Bearer sk-test\n"
 end

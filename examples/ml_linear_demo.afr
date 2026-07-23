@@ -7,9 +7,12 @@ create X = list of 1, 2, 3, 4, 5
 create y = list of 2, 4, 6, 8, 10
 create trained = trainEpochs(w, X, y, 0.05, 100, 1)
 create x6 = list of 6
+create a = list of 2, 3
+create b = list of 4, 5
+create tw = trained at 0
 
-say "dot={dot(list of 2, 3, list of 4, 5)}"
-say "trained w0={trained at 0}"
+say "dot={dot(a, b)}"
+say "trained w0={tw}"
 say "mse={mse(trained, X, y, 1)}"
 say "predict(6)={predict(trained, x6, 0)}"
 say "sigmoid(0)={sigmoid(0)}"

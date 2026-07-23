@@ -1,0 +1,13 @@
+// NLP Jaccard / Dice — std/c/nlpjaccard
+import "std/c/nlpjaccard"
+use nlpjaccard
+
+create t1 = "le chat noir"
+create t2 = "le chat blanc"
+create magic = "abracadabra"
+create city = "paris"
+
+say "tokenJaccard={tokenJaccard(t1, t2)}"
+say "ngramJaccard={ngramJaccard(magic, magic, 2)}"
+say "dice={dice(city, city)}"
+say "overlap={overlap(t1, t2)}"

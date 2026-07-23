@@ -1,8 +1,6 @@
-// NLP distances — std/c/nlplevenshtein + nlpjaccard
+// NLP — levenshtein puis jaccard (fichiers séparés évitent le clash `distance`)
 import "std/c/nlplevenshtein"
-import "std/c/nlpjaccard"
 use nlplevenshtein
-use nlpjaccard
 
 create a = "kitten"
 create b = "sitting"
@@ -10,14 +8,8 @@ create h1 = "hello"
 create h2 = "hallo"
 create c1 = "couleur"
 create c2 = "couleurs"
-create t1 = "le chat noir"
-create t2 = "le chat blanc"
-create magic = "abracadabra"
-create city = "paris"
 
 say "levenshtein kitten/sitting={distance(a, b)}"
-say "lev similarity hello/hallo={similarity(h1, h2)}"
-say "isClose={isClose(c1, c2, 2)}"
-say "jaccard token={tokenJaccard(t1, t2)}"
-say "jaccard ngram={ngramJaccard(magic, magic, 2)}"
-say "dice={dice(city, city)}"
+say "similarity hello/hallo={similarity(h1, h2)}"
+say "isClose couleurs={isClose(c1, c2, 2)}"
+say "normalized={normalizedDist(a, b)}"

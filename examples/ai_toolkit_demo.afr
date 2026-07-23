@@ -7,7 +7,6 @@ import "std/c/mlperceptron"
 import "std/c/mldistance"
 import "std/c/mlnearest"
 import "std/c/nlplevenshtein"
-import "std/str"
 import "pkg/llmx/llmx.afr"
 
 use mlcosine
@@ -16,7 +15,6 @@ use mlperceptron
 use mldistance
 use mlnearest
 use nlplevenshtein
-use str
 use llmx
 
 say "=== cosine ==="
@@ -28,7 +26,8 @@ say "mostSimilar={mostSimilar(q, matrix, 2)} sim={cosineSim(q, same)}"
 say "=== softmax ==="
 create logits = list of 0, 2, 1
 create probs = softmax(logits)
-say "argmax={argmax(probs)} p1={probs at 1}"
+create p1 = probs at 1
+say "argmax={argmax(probs)} p1={p1}"
 
 say "=== distance / knn ==="
 create pts = list of 0, 0, 5, 0, 0, 5
@@ -41,7 +40,10 @@ say "=== perceptron step ==="
 create w0 = list of 0, 0
 create feat = list of 1, 1
 create step = trainStep(w0, 0 - 1, feat, 1, 0.5)
-say "bias={step at 0} w0={step at 1} w1={step at 2}"
+create sb = step at 0
+create sw0 = step at 1
+create sw1 = step at 2
+say "bias={sb} w0={sw0} w1={sw1}"
 
 say "=== nlp ==="
 create s1 = "kit"
@@ -51,4 +53,5 @@ say "editDist={distance(s1, s2)}"
 say "=== llmx (offline) ==="
 create body = buildChatBody("demo-model", "Bonjour AFRILANG")
 create fake = "{\"choices\":[{\"message\":{\"content\":\"Salut\"}}]}"
-say "bodyLen={byteLen(body)} extract={extractAssistantText(fake)}"
+say "chatBody={body}"
+say "extract={extractAssistantText(fake)}"

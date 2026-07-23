@@ -38,7 +38,8 @@ Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_levenshtein.afr`.
 | `ml_softmax_demo.afr` | softmax + entropy + KL/JS |
 | `ml_distance_demo.afr` | distances + knn + normalize |
 | `ml_linear_demo.afr` | régression GD |
-| `nlp_demo.afr` | levenshtein + jaccard |
+| `nlp_demo.afr` | levenshtein |
+| `nlp_jaccard_demo.afr` | Jaccard / Dice |
 | `llmx_chat.afr` | corps chat + extract (réseau commenté) |
 | `iaultra_demo.afr` / `complex_libs_demo.afr` | demos ultra / mixte historiques |
 
