@@ -56,6 +56,8 @@ private:
     std::unique_ptr<EnumNode> parseEnum();
     std::unique_ptr<InterfaceNode> parseInterface();
     std::unique_ptr<TestNode> parseTest();
+    std::unique_ptr<MacroNode> parseMacro();
+    std::unique_ptr<StatementNode> parseMacroCallStatement();
     std::unique_ptr<ClassNode> parseClass(bool isAbstract = false, bool isFinal = false);
     std::unique_ptr<FunctionNode> parseFunction(bool signatureOnly = false,
                                                     bool isStatic = false,

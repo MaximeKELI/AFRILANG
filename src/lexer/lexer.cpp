@@ -87,7 +87,10 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"map",      TokenType::Map},
     {"try",      TokenType::Try},
     {"catch",    TokenType::Catch},
+    {"rescue",   TokenType::Catch},
     {"raise",    TokenType::Raise},
+    {"finally",  TokenType::Finally},
+    {"macro",    TokenType::Macro},
     {"const",    TokenType::Const},
     {"step",     TokenType::Step},
     {"filter",   TokenType::Filter},
@@ -155,6 +158,8 @@ const std::unordered_map<std::string, TokenType> Lexer::keywords_ = {
     {"essayer",   TokenType::Try},
     {"attraper",  TokenType::Catch},
     {"lever",     TokenType::Raise},
+    {"enfin",     TokenType::Finally},
+    {"macrocommande", TokenType::Macro},
     {"depuis",    TokenType::From},
     {"prive",     TokenType::Private},
     {"protege",   TokenType::Protected},
@@ -296,6 +301,7 @@ std::vector<Token> Lexer::tokenize() {
                     break;
                 case '<': tokens.push_back(makeToken(TokenType::AngleOpen, "<")); break;
                 case '>': tokens.push_back(makeToken(TokenType::AngleClose, ">")); break;
+                case '!': tokens.push_back(makeToken(TokenType::Bang, "!")); break;
                 default:
                     reportLexerError(std::string("Caractère inattendu '") + c + "'",
                                      startLine, startColumn);

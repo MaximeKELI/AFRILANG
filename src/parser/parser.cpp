@@ -239,6 +239,7 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
     std::vector<std::unique_ptr<TestNode>> tests;
     std::vector<std::unique_ptr<ExternDeclNode>> externs;
     std::vector<std::unique_ptr<StatementNode>> statements;
+    std::vector<std::unique_ptr<MacroNode>> macros;
 
     while (!isAtEnd()) {
         try {
@@ -256,6 +257,8 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
                 enums.push_back(parseEnum());
             } else if (match(TokenType::Union)) {
                 enums.push_back(parseEnum());
+            } else if (match(TokenType::Macro)) {
+                macros.push_back(parseMacro());
             } else if (check(TokenType::AtSign) || check(TokenType::Abstract) ||
                        check(TokenType::Final) || check(TokenType::Class) ||
                        check(TokenType::Generator) || check(TokenType::Async) ||
@@ -306,10 +309,12 @@ std::unique_ptr<ProgramNode> Parser::parseProgram() {
         }
     }
 
-    return std::make_unique<ProgramNode>(
+    auto program = std::make_unique<ProgramNode>(
         std::move(imports), std::move(modules), std::move(interfaces),
         std::move(records), std::move(enums), std::move(classes), std::move(functions),
         std::move(tests), std::move(externs), std::move(statements));
+    program->macros = std::move(macros);
+    return program;
 }
 
 std::unique_ptr<ExternDeclNode> Parser::parseExtern() {
@@ -459,6 +464,39 @@ std::unique_ptr<TestNode> Parser::parseTest() {
     consume(TokenType::End, "'end' attendu pour fermer le test");
     auto node = std::make_unique<TestNode>(
         nameToken.lexeme, std::move(setupBody), std::move(body), std::move(teardownBody));
+    node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::unique_ptr<MacroNode> Parser::parseMacro() {
+    const Token& nameToken = consumeName("Nom de macro attendu après 'macro'");
+    consume(TokenType::LeftParen, "'(' attendu après le nom de macro");
+    std::vector<std::string> params;
+    if (!check(TokenType::RightParen)) {
+        do {
+            params.push_back(consumeName("Nom de paramètre de macro attendu").lexeme);
+        } while (match(TokenType::Comma));
+    }
+    consume(TokenType::RightParen, "')' attendu");
+    std::vector<std::unique_ptr<StatementNode>> body = parseBlock();
+    consume(TokenType::End, "'end' attendu pour fermer la macro");
+    auto node = std::make_unique<MacroNode>(nameToken.lexeme, std::move(params), std::move(body));
+    node->loc = {nameToken.line, nameToken.column};
+    return node;
+}
+
+std::unique_ptr<StatementNode> Parser::parseMacroCallStatement() {
+    const Token& nameToken = consumeName("Nom de macro attendu");
+    consume(TokenType::Bang, "'!' attendu après le nom de macro");
+    consume(TokenType::LeftParen, "'(' attendu après '!'");
+    std::vector<std::unique_ptr<ExpressionNode>> args;
+    if (!check(TokenType::RightParen)) {
+        do {
+            args.push_back(parseExpression());
+        } while (match(TokenType::Comma));
+    }
+    consume(TokenType::RightParen, "')' attendu");
+    auto node = std::make_unique<MacroCallStatementNode>(nameToken.lexeme, std::move(args));
     node->loc = {nameToken.line, nameToken.column};
     return node;
 }
@@ -918,7 +956,8 @@ std::unique_ptr<ExpressionNode> Parser::parseReduceExpression() {
 std::vector<std::unique_ptr<StatementNode>> Parser::parseBlock() {
     std::vector<std::unique_ptr<StatementNode>> body;
     while (!check(TokenType::End) && !check(TokenType::Else) &&
-           !check(TokenType::Catch) && !check(TokenType::Teardown) && !isAtEnd()) {
+           !check(TokenType::Catch) && !check(TokenType::Finally) &&
+           !check(TokenType::Teardown) && !isAtEnd()) {
         try {
             body.push_back(parseStatement());
         } catch (const CompileError& e) {
@@ -972,6 +1011,9 @@ std::unique_ptr<StatementNode> Parser::parseStatement() {
         auto node = std::make_unique<ContinueStatementNode>();
         setLoc(*node);
         return node;
+    }
+    if (check(TokenType::Identifier) && checkNext(TokenType::Bang)) {
+        return parseMacroCallStatement();
     }
     return parseExpressionStatement();
 }
@@ -1186,14 +1228,20 @@ std::unique_ptr<StatementNode> Parser::parseForRangeStatement() {
 
 std::unique_ptr<StatementNode> Parser::parseTryStatement() {
     std::vector<std::unique_ptr<StatementNode>> tryBody = parseBlock();
-    consume(TokenType::Catch, "'catch' attendu après le bloc try");
-    consume(TokenType::ErrorKw, "'error' attendu après 'catch'");
+    if (!match(TokenType::Catch)) {
+        error("'catch' ou 'rescue' attendu après le bloc try");
+    }
+    consume(TokenType::ErrorKw, "'error' attendu après 'catch'/'rescue'");
     const Token& varToken = consumeName("Nom de variable attendu après 'catch error'");
     std::vector<std::unique_ptr<StatementNode>> catchBody = parseBlock();
+    std::vector<std::unique_ptr<StatementNode>> finallyBody;
+    if (match(TokenType::Finally)) {
+        finallyBody = parseBlock();
+    }
     consume(TokenType::End, "'end' attendu pour fermer try/catch");
 
     auto node = std::make_unique<TryStatementNode>(
-        std::move(tryBody), varToken.lexeme, std::move(catchBody));
+        std::move(tryBody), varToken.lexeme, std::move(catchBody), std::move(finallyBody));
     node->loc = {varToken.line, varToken.column};
     return node;
 }

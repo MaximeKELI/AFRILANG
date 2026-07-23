@@ -81,6 +81,94 @@ AfrType inferReturnTypeFromBlockImpl(
     return result;
 }
 
+using MacroSubst = std::unordered_map<std::string, const ExpressionNode*>;
+
+std::unique_ptr<ExpressionNode> cloneExpr(const ExpressionNode& expr, const MacroSubst& subst);
+
+std::unique_ptr<ExpressionNode> cloneExpr(const ExpressionNode& expr, const MacroSubst& subst) {
+    if (const auto* id = dynamic_cast<const IdentifierNode*>(&expr)) {
+        auto it = subst.find(id->name);
+        if (it != subst.end()) return cloneExpr(*it->second, {});
+        return std::make_unique<IdentifierNode>(id->name);
+    }
+    if (const auto* s = dynamic_cast<const StringLiteralNode*>(&expr)) {
+        return std::make_unique<StringLiteralNode>(s->value);
+    }
+    if (const auto* n = dynamic_cast<const NumberLiteralNode*>(&expr)) {
+        auto node = std::make_unique<NumberLiteralNode>(n->value);
+        node->isInteger = n->isInteger;
+        return node;
+    }
+    if (const auto* b = dynamic_cast<const BoolLiteralNode*>(&expr)) {
+        return std::make_unique<BoolLiteralNode>(b->value);
+    }
+    if (const auto* bin = dynamic_cast<const BinaryOpNode*>(&expr)) {
+        return std::make_unique<BinaryOpNode>(
+            bin->op, cloneExpr(*bin->left, subst), cloneExpr(*bin->right, subst));
+    }
+    if (const auto* un = dynamic_cast<const UnaryOpNode*>(&expr)) {
+        return std::make_unique<UnaryOpNode>(un->op, cloneExpr(*un->operand, subst));
+    }
+    if (const auto* call = dynamic_cast<const CallExpressionNode*>(&expr)) {
+        std::vector<std::unique_ptr<ExpressionNode>> args;
+        for (const auto& a : call->arguments) args.push_back(cloneExpr(*a, subst));
+        return std::make_unique<CallExpressionNode>(
+            cloneExpr(*call->callee, subst), std::move(args));
+    }
+    if (const auto* mem = dynamic_cast<const MemberAccessNode*>(&expr)) {
+        return std::make_unique<MemberAccessNode>(
+            cloneExpr(*mem->object, subst), mem->member);
+    }
+    if (const auto* idx = dynamic_cast<const IndexExpressionNode*>(&expr)) {
+        return std::make_unique<IndexExpressionNode>(
+            cloneExpr(*idx->object, subst), cloneExpr(*idx->index, subst));
+    }
+    // Fallback : littéral texte pour rester compilable.
+    return std::make_unique<StringLiteralNode>("");
+}
+
+std::unique_ptr<StatementNode> cloneStmt(const StatementNode& stmt, const MacroSubst& subst) {
+    if (const auto* say = dynamic_cast<const SayStatementNode*>(&stmt)) {
+        return std::make_unique<SayStatementNode>(cloneExpr(*say->value, subst));
+    }
+    if (const auto* assertStmt = dynamic_cast<const AssertStatementNode*>(&stmt)) {
+        return std::make_unique<AssertStatementNode>(cloneExpr(*assertStmt->condition, subst));
+    }
+    if (const auto* set = dynamic_cast<const SetStatementNode*>(&stmt)) {
+        return std::make_unique<SetStatementNode>(
+            cloneExpr(*set->target, subst), cloneExpr(*set->value, subst));
+    }
+    if (const auto* ret = dynamic_cast<const ReturnStatementNode*>(&stmt)) {
+        auto node = std::make_unique<ReturnStatementNode>(
+            ret->value ? cloneExpr(*ret->value, subst) : nullptr);
+        node->isError = ret->isError;
+        return node;
+    }
+    if (const auto* raise = dynamic_cast<const RaiseStatementNode*>(&stmt)) {
+        return std::make_unique<RaiseStatementNode>(cloneExpr(*raise->message, subst));
+    }
+    if (const auto* create = dynamic_cast<const AssignStatementNode*>(&stmt)) {
+        auto node = std::make_unique<AssignStatementNode>(
+            create->name, create->typeName,
+            create->value ? cloneExpr(*create->value, subst) : nullptr);
+        node->isConst = create->isConst;
+        node->propagate = create->propagate;
+        return node;
+    }
+    if (const auto* ifStmt = dynamic_cast<const IfStatementNode*>(&stmt)) {
+        std::vector<std::unique_ptr<StatementNode>> thenBody;
+        std::vector<std::unique_ptr<StatementNode>> elseBody;
+        for (const auto& s : ifStmt->thenBody) thenBody.push_back(cloneStmt(*s, subst));
+        for (const auto& s : ifStmt->elseBody) elseBody.push_back(cloneStmt(*s, subst));
+        return std::make_unique<IfStatementNode>(
+            cloneExpr(*ifStmt->condition, subst), std::move(thenBody), std::move(elseBody));
+    }
+    if (const auto* exprStmt = dynamic_cast<const ExpressionStatementNode*>(&stmt)) {
+        return std::make_unique<ExpressionStatementNode>(cloneExpr(*exprStmt->expression, subst));
+    }
+    return std::make_unique<SayStatementNode>(std::make_unique<StringLiteralNode>(""));
+}
+
 } // namespace
 
 SemanticAnalyzer::SemanticAnalyzer(const ProgramNode& program,
@@ -97,6 +185,7 @@ SemanticResult SemanticAnalyzer::analyze() {
     recover([this] { registerClasses(); });
     recover([this] { registerModules(); });
     recover([this] { registerExterns(); });
+    recover([this] { registerMacros(); });
     recover([this] { analyzeProgram(); });
     recover([this] { collectLintWarnings(); });
     recover([this] { validateProgramSize(program_); });
@@ -494,6 +583,27 @@ void SemanticAnalyzer::registerExterns() {
             sig.paramTypes.push_back(typeFromName(param.typeName));
         }
         result_.functions[ext->name] = std::move(sig);
+    }
+}
+
+void SemanticAnalyzer::registerMacros() {
+    for (const auto& macro : program_.macros) {
+        if (result_.macros.count(macro->name)) {
+            errorAt(*macro, "Macro '" + macro->name + "' déjà définie");
+        }
+        if (result_.functions.count(macro->name)) {
+            errorAt(*macro, "Macro '" + macro->name + "' entre en conflit avec une fonction");
+        }
+        for (const auto& stmt : macro->body) {
+            if (dynamic_cast<const MacroCallStatementNode*>(stmt.get())) {
+                errorAt(*macro, "Macros récursives non supportées (appel de macro dans le corps)");
+            }
+        }
+        MacroInfo info;
+        info.name = macro->name;
+        info.parameters = macro->parameters;
+        info.node = macro.get();
+        result_.macros[macro->name] = std::move(info);
     }
 }
 
@@ -1248,6 +1358,9 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             analyzeStatement(*bodyStmt, scope, isGlobalScope);
         }
         scope.erase(tryStmt->catchVarName);
+        for (const auto& bodyStmt : tryStmt->finallyBody) {
+            analyzeStatement(*bodyStmt, scope, isGlobalScope);
+        }
         return;
     }
 
@@ -1258,6 +1371,33 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
         }
         return;
     }
+
+    if (const auto* macroCall = dynamic_cast<const MacroCallStatementNode*>(&stmt)) {
+        auto mit = result_.macros.find(macroCall->name);
+        if (mit == result_.macros.end() || !mit->second.node) {
+            errorAt(*macroCall, "Macro '" + macroCall->name + "' introuvable");
+        }
+        const MacroInfo& info = mit->second;
+        if (macroCall->arguments.size() != info.parameters.size()) {
+            errorAt(*macroCall, "Macro '" + macroCall->name + "' attend " +
+                  std::to_string(info.parameters.size()) + " argument(s), reçu " +
+                  std::to_string(macroCall->arguments.size()));
+        }
+        MacroSubst subst;
+        for (std::size_t i = 0; i < info.parameters.size(); ++i) {
+            analyzeExpression(*macroCall->arguments[i], scope);
+            subst[info.parameters[i]] = macroCall->arguments[i].get();
+        }
+        macroCall->expanded.clear();
+        for (const auto& bodyStmt : info.node->body) {
+            auto cloned = cloneStmt(*bodyStmt, subst);
+            analyzeStatement(*cloned, scope, isGlobalScope);
+            macroCall->expanded.push_back(std::move(cloned));
+        }
+        return;
+    }
+
+    if (const auto* openWin = dynamic_cast<const OpenWindowStatementNode*>(&stmt)) {
 
     if (const auto* brk = dynamic_cast<const BreakStatementNode*>(&stmt)) {
         if (loopDepth_ == 0) {

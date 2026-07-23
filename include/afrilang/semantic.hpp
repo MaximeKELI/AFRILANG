@@ -70,6 +70,12 @@ struct ModuleInfo {
     std::unordered_map<std::string, RecordInfo> records;
 };
 
+struct MacroInfo {
+    std::string name;
+    std::vector<std::string> parameters;
+    const MacroNode* node = nullptr;
+};
+
 struct InterfaceInfo {
     std::string name;
     std::vector<std::string> baseInterfaces;
@@ -95,6 +101,7 @@ struct SemanticResult {
     std::unordered_map<std::string, EnumInfo> enums;
     std::unordered_map<std::string, MethodSignature> functions;
     std::unordered_map<std::string, ModuleInfo> modules;
+    std::unordered_map<std::string, MacroInfo> macros;
     std::unordered_set<std::string> usedModules;
     bool usesAsync = false;
     bool usesGenerators = false;
@@ -137,6 +144,7 @@ private:
     void registerClasses();
     void registerModules();
     void registerExterns();
+    void registerMacros();
     void collectLintWarnings();
     void analyzeProgram();
     void analyzeClass(const ClassNode& cls);

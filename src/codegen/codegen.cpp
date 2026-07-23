@@ -2132,18 +2132,54 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* tryStmt = dynamic_cast<const TryStatementNode*>(&stmt)) {
+        if (tryStmt->finallyBody.empty()) {
+            out << "try {\n";
+            for (const auto& bodyStmt : tryStmt->tryBody) {
+                emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+            }
+            indent(out, indentLevel);
+            out << "} catch (const std::exception& _afr_ex) {\n";
+            indent(out, indentLevel + 1);
+            out << "std::string " << tryStmt->catchVarName
+                << " = _afr_ex.what();\n";
+            for (const auto& bodyStmt : tryStmt->catchBody) {
+                emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+            }
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+
+        // finally via RAII : toujours exécuté, même en cas de rethrow.
+        out << "{\n";
+        indent(out, indentLevel + 1);
+        out << "struct _AfrFinally" << indentLevel << " {\n";
+        indent(out, indentLevel + 2);
+        out << "std::function<void()> fn;\n";
+        indent(out, indentLevel + 2);
+        out << "~_AfrFinally" << indentLevel << "() { if (fn) fn(); }\n";
+        indent(out, indentLevel + 1);
+        out << "} _afr_finally" << indentLevel << "{[&]() {\n";
+        for (const auto& bodyStmt : tryStmt->finallyBody) {
+            emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+        }
+        indent(out, indentLevel + 1);
+        out << "}};\n";
+        indent(out, indentLevel + 1);
         out << "try {\n";
         for (const auto& bodyStmt : tryStmt->tryBody) {
-            emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+            emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
         }
-        indent(out, indentLevel);
-        out << "} catch (const std::exception& _afr_ex) {\n";
         indent(out, indentLevel + 1);
+        out << "} catch (const std::exception& _afr_ex) {\n";
+        indent(out, indentLevel + 2);
         out << "std::string " << tryStmt->catchVarName
             << " = _afr_ex.what();\n";
         for (const auto& bodyStmt : tryStmt->catchBody) {
-            emitStatement(out, *bodyStmt, indentLevel + 1, ownerClass);
+            emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
         }
+        indent(out, indentLevel + 1);
+        out << "}\n";
         indent(out, indentLevel);
         out << "}\n";
         return;
@@ -2153,6 +2189,13 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         out << "throw std::runtime_error(";
         emitExpression(out, *raiseStmt->message, ownerClass);
         out << ");\n";
+        return;
+    }
+
+    if (const auto* macroCall = dynamic_cast<const MacroCallStatementNode*>(&stmt)) {
+        for (const auto& expanded : macroCall->expanded) {
+            emitStatement(out, *expanded, indentLevel, ownerClass);
+        }
         return;
     }
 

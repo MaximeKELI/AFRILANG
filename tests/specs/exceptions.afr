@@ -1,0 +1,56 @@
+test "try catch raise"
+    create caught text = "none"
+    try
+        raise "boom"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "boom"
+end
+
+test "rescue alias"
+    create caught text = "none"
+    try
+        raise "rescued"
+    rescue error e
+        set caught = e
+    end
+    assert caught is equal to "rescued"
+end
+
+test "finally runs after success"
+    create flag text = ""
+    try
+        set flag = flag + "t"
+    catch error e
+        set flag = flag + "c"
+    finally
+        set flag = flag + "f"
+    end
+    assert flag is equal to "tf"
+end
+
+test "finally runs after catch"
+    create flag text = ""
+    try
+        raise "x"
+        set flag = flag + "t"
+    catch error e
+        set flag = flag + "c"
+    finally
+        set flag = flag + "f"
+    end
+    assert flag is equal to "cf"
+end
+
+test "enfin alias"
+    create flag text = ""
+    essayer
+        set flag = flag + "t"
+    attraper error e
+        set flag = flag + "c"
+    enfin
+        set flag = flag + "f"
+    end
+    assert flag is equal to "tf"
+end

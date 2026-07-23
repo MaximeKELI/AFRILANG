@@ -475,13 +475,16 @@ struct TryStatementNode : StatementNode {
     std::vector<std::unique_ptr<StatementNode>> tryBody;
     std::string catchVarName;
     std::vector<std::unique_ptr<StatementNode>> catchBody;
+    std::vector<std::unique_ptr<StatementNode>> finallyBody;
 
     TryStatementNode(std::vector<std::unique_ptr<StatementNode>> tryBody,
                      std::string catchVarName,
-                     std::vector<std::unique_ptr<StatementNode>> catchBody)
+                     std::vector<std::unique_ptr<StatementNode>> catchBody,
+                     std::vector<std::unique_ptr<StatementNode>> finallyBody = {})
         : tryBody(std::move(tryBody))
         , catchVarName(std::move(catchVarName))
-        , catchBody(std::move(catchBody)) {}
+        , catchBody(std::move(catchBody))
+        , finallyBody(std::move(finallyBody)) {}
 };
 
 struct RaiseStatementNode : StatementNode {
@@ -872,6 +875,31 @@ struct ExternDeclNode : ASTNode {
         , returnTypeName(std::move(returnTypeName)) {}
 };
 
+// Macro MVP : `macro name(a, b) ... end` + appel `name!(...)` (substitution d'idents).
+struct MacroNode : ASTNode {
+    std::string name;
+    std::vector<std::string> parameters;
+    std::vector<std::unique_ptr<StatementNode>> body;
+
+    MacroNode(std::string name,
+              std::vector<std::string> parameters,
+              std::vector<std::unique_ptr<StatementNode>> body)
+        : name(std::move(name))
+        , parameters(std::move(parameters))
+        , body(std::move(body)) {}
+};
+
+struct MacroCallStatementNode : StatementNode {
+    std::string name;
+    std::vector<std::unique_ptr<ExpressionNode>> arguments;
+    // Rempli par le sémantique : corps expansé à émettre.
+    mutable std::vector<std::unique_ptr<StatementNode>> expanded;
+
+    MacroCallStatementNode(std::string name,
+                           std::vector<std::unique_ptr<ExpressionNode>> arguments)
+        : name(std::move(name)), arguments(std::move(arguments)) {}
+};
+
 struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<ImportNode>> imports;
     std::vector<std::unique_ptr<ModuleNode>> modules;
@@ -883,6 +911,7 @@ struct ProgramNode : ASTNode {
     std::vector<std::unique_ptr<TestNode>> tests;
     std::vector<std::unique_ptr<ExternDeclNode>> externs;
     std::vector<std::unique_ptr<StatementNode>> statements;
+    std::vector<std::unique_ptr<MacroNode>> macros;
 
     ProgramNode(std::vector<std::unique_ptr<ImportNode>> imports,
                 std::vector<std::unique_ptr<ModuleNode>> modules,

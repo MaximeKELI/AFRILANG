@@ -1,0 +1,38 @@
+function identity<T>(x T) returns T
+    return x
+end
+
+function first<T>(items list of T) returns T
+    return items at 0
+end
+
+class Box<T>
+    public field data T
+
+    function init(v T)
+        set this.data = v
+    end
+
+    function get() returns T
+        return this.data
+    end
+end
+
+test "generic function identity"
+    assert identity(42) is equal to 42
+    assert identity("hello") is equal to "hello"
+end
+
+test "generic function on list of T"
+    create nums = list of 10, 20, 30
+    assert first(nums) is equal to 10
+    create words = list of "a", "b", "c"
+    assert first(words) is equal to "a"
+end
+
+test "generic class Box"
+    create numbers = new Box<number>(42)
+    assert numbers.get() is equal to 42
+    create label = new Box<text>("hello")
+    assert label.get() is equal to "hello"
+end

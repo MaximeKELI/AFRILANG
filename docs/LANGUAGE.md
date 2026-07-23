@@ -72,6 +72,28 @@ Fonctionnalités POO :
 
 Exemples : `examples/oop.afr`, `examples/inheritance.afr`, `examples/poo_demo.afr`, `examples/oop_full.afr`, `examples/polymorphic_list.afr`, `examples/generic_class.afr`, `examples/poo_advanced.afr`, `examples/phase11_demo.afr`
 
+## Génériques
+
+Fonctions et classes paramétrées avec `<T>` (transpile en templates C++) :
+
+```afr
+function identity<T>(x T) returns T
+    return x
+end
+
+class Box<T>
+    public field data T
+    function get() returns T
+        return this.data
+    end
+end
+
+create b = new Box<number>(42)
+say identity("ok")
+```
+
+Utiliser `list of T` (pas de syntaxe `List[T]`). Pas de contraintes de types (P5+).
+
 ## Maps
 
 ```afr
@@ -93,8 +115,34 @@ try
     raise "something failed"
 catch error e
     say e
+finally
+    say "toujours exécuté"
+end
+
+// Alias : rescue (= catch), enfin (= finally) ; FR : essayer / attraper / lever
+try
+    raise "x"
+rescue error e
+    say e
+enfin
+    say "done"
 end
 ```
+
+## Records (valeurs)
+
+```afr
+record Point
+    field x number
+    field y number
+end
+
+create p = Point with x 3, y 4
+say p.x
+set p.y = 10
+```
+
+Navigation sûre sur optionnel de classe/record : `personne?.name` (renvoie un optionnel).
 
 ## Enums et pattern matching
 

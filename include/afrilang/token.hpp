@@ -21,7 +21,7 @@ enum class TokenType {
     Explain,
     Enum, Case, Match, Default, With, Nothing, Defined,
     Union, Operator,
-    Map, Try, Catch, Raise,
+    Map, Try, Catch, Raise, Finally, Macro,
     Const, Step,
     Filter, Reduce, Where, FlatMap,
     Super, Static, Abstract, Protected, Final, Property, Destroy,
@@ -41,6 +41,7 @@ enum class TokenType {
     QuestionDot,
     DotDot, DotDotLess,
     AngleOpen, AngleClose,
+    Bang,
 
     // Fin de fichier
     Eof
@@ -152,6 +153,8 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::Try:            return "try";
         case TokenType::Catch:          return "catch";
         case TokenType::Raise:          return "raise";
+        case TokenType::Finally:        return "finally";
+        case TokenType::Macro:          return "macro";
         case TokenType::Const:          return "const";
         case TokenType::Step:           return "step";
         case TokenType::Filter:         return "filter";
@@ -204,6 +207,7 @@ inline const char* tokenTypeName(TokenType type) {
         case TokenType::RightBracket:   return "]";
         case TokenType::AngleOpen:      return "<";
         case TokenType::AngleClose:     return ">";
+        case TokenType::Bang:           return "!";
         case TokenType::Eof:            return "fin de fichier";
     }
     return "inconnu";
