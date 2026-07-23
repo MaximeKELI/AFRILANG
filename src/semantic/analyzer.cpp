@@ -1166,8 +1166,26 @@ void SemanticAnalyzer::analyzeStatement(const StatementNode& stmt,
             }
             scope[forEach->itemName] = containerType.mapKeyType();
             scope[forEach->valueName] = containerType.mapValueType();
+        } else if (containerType.kind == TypeKind::Generator) {
+            if (!forEach->valueName.empty()) {
+                errorAt(*forEach, "Un générateur ne fournit qu'une seule variable dans 'for each'");
+            }
+            scope[forEach->itemName] = resolveTypeName(containerType.listElementTypeName);
+        } else if (containerType.kind == TypeKind::Class) {
+            // Protocole d'itération duck-typé : hasNext() returns bool + next() returns T.
+            const MethodSignature* hasNext = findMethod(containerType.className, "hasNext");
+            const MethodSignature* nextM = findMethod(containerType.className, "next");
+            if (!hasNext || !nextM) {
+                errorAt(*forEach, "La cible de 'for each' doit être une liste, une map, un "
+                                  "générateur, ou une classe exposant hasNext()/next()");
+            }
+            if (!forEach->valueName.empty()) {
+                errorAt(*forEach, "Un itérateur ne fournit qu'une seule variable dans 'for each'");
+            }
+            scope[forEach->itemName] = nextM->returnType;
         } else {
-            errorAt(*forEach, "La cible de 'for each' doit être une liste ou une map");
+            errorAt(*forEach, "La cible de 'for each' doit être une liste, une map, un "
+                              "générateur, ou une classe exposant hasNext()/next()");
         }
         ++loopDepth_;
         for (const auto& bodyStmt : forEach->body) {
@@ -1647,6 +1665,15 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
             errorAt(expr, "La valeur de repli de 'or else' doit être de type " + inner.toTypeName());
         }
         return inner;
+    }
+
+    if (const auto* range = dynamic_cast<const RangeExpressionNode*>(&expr)) {
+        AfrType lowType = analyzeExpression(*range->low, scope);
+        AfrType highType = analyzeExpression(*range->high, scope);
+        if (!isNumeric(lowType) || !isNumeric(highType)) {
+            errorAt(expr, "Une plage 'a..b' requiert des bornes numériques");
+        }
+        return AfrType::listType(AfrType::number());
     }
 
     if (const auto* nav = dynamic_cast<const SafeNavExprNode*>(&expr)) {

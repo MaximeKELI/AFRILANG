@@ -578,6 +578,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (semantic_.usesAsync) out << "#include \"async.hpp\"\n";
     if (semantic_.usesGenerators) out << "#include \"generator.hpp\"\n";
     if (!program_.classes.empty()) out << "#include <memory>\n";
+    out << "#include \"range.hpp\"\n";
     out << "#include \"str.hpp\"\n";
     if (wasmBuild) out << "#include \"wasm/io.hpp\"\n";
 
@@ -2051,6 +2052,44 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << ") {\n";
             indent(out, indentLevel + 1);
             out << "auto& " << forEach->itemName << " = *_afr_ptr;\n";
+        } else if (containerType.kind == TypeKind::Generator) {
+            // Itération paresseuse sur un générateur (hasNext()/next()).
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto _afr_gen = ";
+            emitExpression(out, *forEach->list, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel + 1);
+            out << "while (_afr_gen.hasNext()) {\n";
+            indent(out, indentLevel + 2);
+            out << "auto " << forEach->itemName << " = _afr_gen.next();\n";
+            for (const auto& bodyStmt : forEach->body) {
+                emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+            }
+            indent(out, indentLevel + 1);
+            out << "}\n";
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        } else if (containerType.kind == TypeKind::Class) {
+            // Protocole d'itération duck-typé : instance exposant hasNext()/next().
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto&& _afr_it = ";
+            emitExpression(out, *forEach->list, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel + 1);
+            out << "while (_afr_it->hasNext()) {\n";
+            indent(out, indentLevel + 2);
+            out << "auto " << forEach->itemName << " = _afr_it->next();\n";
+            for (const auto& bodyStmt : forEach->body) {
+                emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+            }
+            indent(out, indentLevel + 1);
+            out << "}\n";
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
         } else {
             out << "for (auto& " << forEach->itemName << " : ";
             emitExpression(out, *forEach->list, ownerClass);
@@ -2271,6 +2310,16 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             out << ")";
         }
         out << "; }())";
+        return;
+    }
+
+    if (const auto* range = dynamic_cast<const RangeExpressionNode*>(&expr)) {
+        out << "afrilang::runtime::range::"
+            << (range->inclusive ? "inclusive(" : "exclusive(");
+        emitExpression(out, *range->low, ownerClass);
+        out << ", ";
+        emitExpression(out, *range->high, ownerClass);
+        out << ")";
         return;
     }
 
@@ -3060,6 +3109,10 @@ std::string CodeGenerator::inferExpressionType(const ExpressionNode& expr) const
 
     if (dynamic_cast<const NothingLiteralNode*>(&expr)) {
         return "std::nullopt";
+    }
+
+    if (dynamic_cast<const RangeExpressionNode*>(&expr)) {
+        return "std::vector<double>";
     }
 
     if (const auto* enumCase = dynamic_cast<const EnumCaseExprNode*>(&expr)) {

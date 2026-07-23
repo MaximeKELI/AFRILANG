@@ -1539,6 +1539,15 @@ std::unique_ptr<ExpressionNode> Parser::parseComparison() {
         }
     }
 
+    if (match(TokenType::DotDot)) {
+        auto high = parseTerm();
+        return std::make_unique<RangeExpressionNode>(std::move(left), std::move(high), true);
+    }
+    if (match(TokenType::DotDotLess)) {
+        auto high = parseTerm();
+        return std::make_unique<RangeExpressionNode>(std::move(left), std::move(high), false);
+    }
+
     if (match(TokenType::Is)) {
         if (match(TokenType::ErrorKw)) {
             return std::make_unique<IsErrorCheckNode>(std::move(left));
