@@ -1,0 +1,100 @@
+// P3 : robustesse du langage (pattern matching, optionnels, Result, itération)
+
+enum Color
+    case Red
+    case Green
+    case Blue
+end
+
+function half(n number) returns number or error
+    if n is equal to 0 then
+        return error "zero"
+    end
+    return n / 2
+end
+
+function maybe(n number) returns number?
+    if n is greater than 0 then
+        return n
+    end
+    return nothing
+end
+
+generator function counter(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+class Countdown
+    public field current number
+    function hasNext() returns bool
+        return current is greater than 0
+    end
+    function next() returns number
+        set current = current - 1
+        return current + 1
+    end
+end
+
+// 1) Pattern matching complet
+create c = Color.Green
+say match c
+    case Red or Green then "warm-ish"
+    end
+    case _ then "cool"
+    end
+end
+
+create n = 7
+say match n
+    case 1 to 10 then "small"
+    end
+    default "big"
+    end
+end
+
+// 2) Optionnels : or else
+create a number? = maybe(9)
+create b number? = maybe(0)
+say a or else 0 - 1
+say b or else 0 - 1
+
+// 3) Result : match + or else + propagation
+say match half(0)
+    case ok v then "ok"
+    end
+    case error m then m
+    end
+end
+say half(10) or else 0
+
+function chaine(x number, y number) returns number or error
+    create u = half(x) or return
+    create v = half(y) or return
+    return u + v
+end
+say chaine(10, 20).value
+
+// 4) Itération : plages, générateurs, protocole
+create total number = 0
+for each x in 1..5 do
+    set total = total + x
+end
+say total
+
+create gsum number = 0
+for each v in counter(4) do
+    set gsum = gsum + v
+end
+say gsum
+
+create cd = new Countdown()
+set cd.current = 3
+create csum number = 0
+for each v in cd do
+    set csum = csum + v
+end
+say csum

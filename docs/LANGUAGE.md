@@ -159,6 +159,104 @@ say match Status.Ok then "ok" end default "?" end
 
 Chaque bras : `case Nom then <expression> end` ou `default <expression> end`.
 
+### Motifs avancés
+
+Le `match` (instruction ou expression) accepte des motifs riches, sur enum, `text`,
+`number`, `bool`, `Result` et optionnels :
+
+```afr
+match n
+    case 0 then say "zéro" end
+    case 1 to 10 then say "petit" end         // plage numérique (inclusive)
+    case 11 or 12 or 13 then say "ado" end    // or-pattern (plusieurs valeurs)
+    case _ then say "grand" end               // joker (fourre-tout, comme default)
+end
+
+match flag
+    case true then say "oui" end
+    case false then say "non" end
+end
+
+// Sur un Result (T or error)
+match half(x)
+    case ok v then say v end        // lie la valeur
+    case error m then say m end     // lie le message
+end
+
+// Sur un optionnel (T?)
+match maybeValue
+    case value v then say v end     // présent : lie la valeur
+    case nothing then say "vide" end
+end
+```
+
+- `_` (joker) rend le `match` exhaustif, tout comme `default`.
+- `a to b` réutilise `to` pour une plage numérique inclusive.
+- `x or y or z` combine plusieurs valeurs/cas dans un même bras.
+- Exhaustivité : `bool` exige `true` + `false` (ou `_`) ; `Result` exige `ok` + `error`
+  (ou `_`) ; un optionnel exige `value` + `nothing` (ou `_`).
+
+## Optionnels robustes
+
+```afr
+create a number? = maybe(9)
+
+// Valeur de repli avec 'or else'
+say a or else 0            // a.value si présent, sinon 0
+
+// Navigation sûre '?.' (un niveau) : renvoie un optionnel du champ
+create nom = personne?.name
+```
+
+`or else` fonctionne aussi sur un `Result` : `half(x) or else 0` renvoie la valeur en
+cas de succès, sinon le repli.
+
+## Result ergonomique
+
+```afr
+function chaine(a number, b number) returns number or error
+    create x = half(a) or return    // si erreur : retourne l'erreur de la fonction
+    create y = half(b) or raise     // si erreur : lève une exception
+    return x + y
+end
+```
+
+- `... or return` : dans une fonction qui retourne `T or error`, propage l'erreur
+  (early-return) ; sinon lie la valeur déballée.
+- `... or raise` : convertit une erreur `Result` en exception (`try`/`catch`).
+- Sûreté de `.value` : accédez à la valeur via `is error`, `match`, `or else`,
+  `or return` ou `or raise` (l'accès direct `.value` sur un `Result` en erreur n'est
+  pas défini).
+
+## Générateurs et itération
+
+```afr
+generator function compteur(n int) returns list int
+    create i int = 0
+    while i is less than n do
+        yield i
+        set i = i + 1
+    end
+end
+
+// Itération paresseuse sur un générateur
+for each v in compteur(5) do
+    say v
+end
+
+// Littéraux de plage : 1..10 (inclusif), 1..<10 (exclusif)
+for each x in 1..5 do
+    say x
+end
+create xs = 1..3        // vaut la liste [1, 2, 3]
+
+// Protocole d'itération duck-typé : toute classe exposant
+// hasNext() returns bool et next() returns T est itérable
+for each item in monIterateur do
+    say item
+end
+```
+
 ## Interfaces (traits)
 
 ```afr
@@ -231,7 +329,7 @@ end
 
 use Math
 say add(3, 4)
-say Math.add(5, 6)    -- accès qualifié sans ambiguïté
+say Math.add(5, 6)    // accès qualifié sans ambiguïté
 ```
 
 - **`export function`** — API publique du module (documentation explicite)
@@ -253,8 +351,8 @@ function identity<T>(x T) returns T
     return x
 end
 
-say identity(42)              -- inférence
-say identity<number>(42)      -- paramètre de type explicite
+say identity(42)              // inférence
+say identity<number>(42)      // paramètre de type explicite
 ```
 
 ## Default parameters
