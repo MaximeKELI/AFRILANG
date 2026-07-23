@@ -75,7 +75,7 @@ bool StdlibRegistry::isLegacyStdlibModule(const std::string& moduleName) {
            moduleName == "env" || moduleName == "tempfile" || moduleName == "base64" ||
            moduleName == "url" || moduleName == "random" || moduleName == "hex" ||
            moduleName == "csv" || moduleName == "html" || moduleName == "cli" ||
-           moduleName == "email" || moduleName == "uuid" ||
+           moduleName == "email" || moduleName == "uuid" || moduleName == "unicode" ||
            moduleName == "async" || moduleName == "ui" || moduleName == "game2d" ||
            moduleName == "game3d" || moduleName == "gamestate" || moduleName == "gamenet";
 }
@@ -150,6 +150,7 @@ std::string StdlibRegistry::stdlibModuleName(const std::string& path) {
     if (normalized == "cli") return "cli";
     if (normalized == "email") return "email";
     if (normalized == "uuid") return "uuid";
+    if (normalized == "unicode") return "unicode";
 
     if (normalized.rfind("m/", 0) == 0) {
         if (const StdlibModuleSpec* spec = mediumCatalogFindModule(normalized.substr(2))) {
@@ -231,6 +232,7 @@ void StdlibRegistry::injectModuleByName(ProgramNode& program,
     else if (moduleName == "cli") injectCliModule(program);
     else if (moduleName == "email") injectEmailModule(program);
     else if (moduleName == "uuid") injectUuidModule(program);
+    else if (moduleName == "unicode") injectUnicodeModule(program);
     else if (moduleName == "async") injectAsyncModule(program);
     else if (moduleName == "ui") injectUiModule(program);
     else if (moduleName == "game2d") injectGame2dModule(program);
@@ -1166,6 +1168,23 @@ void StdlibRegistry::injectUuidModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("v4", {}, "text"));
     injectModule(program, "uuid", std::move(fns));
+}
+
+void StdlibRegistry::injectUnicodeModule(ProgramNode& program) {
+    std::vector<std::unique_ptr<FunctionNode>> fns;
+    fns.push_back(makeStubFunction("byteLength", {{"s", "text"}}, "int"));
+    fns.push_back(makeStubFunction("codepointCount", {{"s", "text"}}, "int"));
+    fns.push_back(makeStubFunction("graphemeCount", {{"s", "text"}}, "int"));
+    fns.push_back(makeStubFunction("codepointAt", {{"s", "text"}, {"index", "number"}}, "int"));
+    fns.push_back(makeStubFunction("charAt", {{"s", "text"}, {"index", "number"}}, "text"));
+    fns.push_back(makeStubFunction("slice", {{"s", "text"}, {"start", "number"}, {"end", "number"}}, "text"));
+    fns.push_back(makeStubFunction("reverse", {{"s", "text"}}, "text"));
+    fns.push_back(makeStubFunction("isValidUtf8", {{"s", "text"}}, "bool"));
+    fns.push_back(makeStubFunction("codepoints", {{"s", "text"}}, "list number"));
+    fns.push_back(makeStubFunction("isSpace", {{"codepoint", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("isAsciiLetter", {{"codepoint", "number"}}, "bool"));
+    fns.push_back(makeStubFunction("isAsciiDigit", {{"codepoint", "number"}}, "bool"));
+    injectModule(program, "unicode", std::move(fns));
 }
 
 } // namespace afrilang
