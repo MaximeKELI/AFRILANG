@@ -290,6 +290,9 @@ void StdlibRegistry::injectHttpModule(ProgramNode& program) {
     std::vector<std::unique_ptr<FunctionNode>> fns;
     fns.push_back(makeStubFunction("httpGet", {{"url", "text"}}, "text"));
     fns.push_back(makeStubFunction("httpPost", {{"url", "text"}, {"body", "text"}}, "text"));
+    fns.push_back(makeStubFunction("httpPostHeaders",
+                                   {{"url", "text"}, {"body", "text"}, {"headersText", "text"}},
+                                   "text"));
     fns.push_back(makeStubFunction("httpGetAsync", {{"url", "text"}}, "text", true));
     fns.push_back(makeStubFunction("httpPostAsync", {{"url", "text"}, {"body", "text"}}, "text", true));
     injectModule(program, "http", std::move(fns));

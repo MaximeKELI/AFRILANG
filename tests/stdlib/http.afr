@@ -7,4 +7,6 @@ test "http rejects unsafe urls"
     assert httpGet("ftp://example.com/") is equal to ""
     assert httpGet("http://") is equal to ""
     assert httpPost("javascript:alert(1)", "{}") is equal to ""
+    assert httpPostHeaders("not-a-url", "{}", "Authorization: Bearer x") is equal to ""
+    assert httpPostHeaders("ftp://example.com/", "{}", "X-Test: 1") is equal to ""
 end

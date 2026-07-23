@@ -192,6 +192,7 @@ plages, log textuel). Lister : `afrilang pkg list --blessed`.
 | Qualité | `checkx`, `validate`, `testing` | `validate`, `test` |
 | Temps | `datetime`, `timespan`, `stopwatch` | `time` |
 | Réseau / URL | `urlx`, `queryx` | `net`, `url` |
+| IA / LLM | `llmx` | `ai`, `llm` |
 | Lib / util | `resultx`, `optionx`, `uuid`, `semverx`, `backoff` | `lib`, `util` |
 
 Les manifests portent `license = "MIT"` et `tags = [...]` ; `afrilang pkg reindex`

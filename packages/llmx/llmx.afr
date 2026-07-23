@@ -1,0 +1,63 @@
+import "std/http"
+import "std/json"
+import "std/str"
+
+use http
+use json
+use str
+
+module llmx
+    function escapeJson(s text) returns text
+        create step1 = replace(s, "\\", "\\\\")
+        return replace(step1, "\"", "\\\"")
+    end
+
+    // OpenAI-compatible chat completions JSON body (single user message).
+    function buildChatBody(model text, userMessage text) returns text
+        create m = escapeJson(model)
+        create msg = escapeJson(userMessage)
+        return "{\"model\":\"" + m + "\",\"messages\":[{\"role\":\"user\",\"content\":\"" + msg + "\"}]}"
+    end
+
+    function chatUrl(baseUrl text) returns text
+        if endsWith(baseUrl, "/") then
+            return baseUrl + "chat/completions"
+        end
+        return baseUrl + "/chat/completions"
+    end
+
+    function authHeader(apiKey text) returns text
+        if apiKey is equal to "" then
+            return ""
+        end
+        return "Authorization: Bearer " + apiKey + "\n"
+    end
+
+    // Parse OpenAI-style response → assistant content ("" if missing).
+    function extractAssistantText(responseText text) returns text
+        if responseText is equal to "" then
+            return ""
+        end
+        create doc json = parse(responseText)
+        create choices json = getPath(doc, "choices")
+        if arrayLength(choices) is equal to 0 then
+            return ""
+        end
+        create first json = arrayGet(choices, 0)
+        create message json = getPath(first, "message")
+        return getString(message, "content")
+    end
+
+    // POST to OpenAI-compatible /chat/completions. Empty apiKey = no Bearer (Ollama).
+    function chatCompletions(baseUrl text, apiKey text, model text, userMessage text) returns text
+        create url = chatUrl(baseUrl)
+        create body = buildChatBody(model, userMessage)
+        create headers = authHeader(apiKey)
+        return httpPostHeaders(url, body, headers)
+    end
+
+    function chatText(baseUrl text, apiKey text, model text, userMessage text) returns text
+        create raw = chatCompletions(baseUrl, apiKey, model, userMessage)
+        return extractAssistantText(raw)
+    end
+end

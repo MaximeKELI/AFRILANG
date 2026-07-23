@@ -1,0 +1,34 @@
+import "pkg/llmx/llmx.afr"
+import "std/str"
+
+use llmx
+use str
+
+test "buildChatBody"
+    create body = buildChatBody("llama3", "hello")
+    assert contains(body, "\"model\":\"llama3\"") is equal to true
+    assert contains(body, "\"content\":\"hello\"") is equal to true
+    assert contains(body, "\"role\":\"user\"") is equal to true
+end
+
+test "escape quotes in body"
+    create body = buildChatBody("m", "say \"hi\"")
+    assert contains(body, "say \\\"hi\\\"") is equal to true
+end
+
+test "chatUrl"
+    assert chatUrl("http://127.0.0.1:11434/v1") is equal to "http://127.0.0.1:11434/v1/chat/completions"
+    assert chatUrl("http://127.0.0.1:11434/v1/") is equal to "http://127.0.0.1:11434/v1/chat/completions"
+end
+
+test "extractAssistantText"
+    create raw = "{\"choices\":[{\"message\":{\"role\":\"assistant\",\"content\":\"Bonjour\"}}]}"
+    assert extractAssistantText(raw) is equal to "Bonjour"
+    assert extractAssistantText("") is equal to ""
+    assert extractAssistantText("{}") is equal to ""
+end
+
+test "authHeader"
+    assert authHeader("") is equal to ""
+    assert contains(authHeader("sk-test"), "Bearer sk-test") is equal to true
+end

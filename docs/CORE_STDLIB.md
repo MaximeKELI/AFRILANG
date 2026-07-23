@@ -48,6 +48,9 @@ collections sort/reverse/contains/sum/take-drop edges). WASM CI smoke :
 singleton stats, `gcd(n,0)`, `basename` trailing slash pathlib-like, regex pattern
 invalide fails-closed). WASM CI smoke : + `math` + `stats` + `path` + `re`.
 
+IA / ML (catalogue expérimental + paquet LLM) : voir [`STDLIB_AI.md`](STDLIB_AI.md)
+— **pas** core.
+
 - `stdlib/*.afr`, `stdlib/m/`, `stdlib/c/` — stubs de signatures, **pas** une garantie de profondeur API
 - Un module utilisateur / paquet qui **porte le même nom** qu’une entrée de catalogue n’est **pas** traité comme stdlib (origine `isStdlibInjected`)
 - Packs « ultra » (GIS, data, …) — utiles en démo ; stabilité au cas par cas

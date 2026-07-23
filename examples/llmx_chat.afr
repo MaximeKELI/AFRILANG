@@ -1,0 +1,12 @@
+// Optional network demo — not part of CI.
+// Requires a local OpenAI-compatible endpoint (e.g. Ollama on :11434).
+
+import "pkg/llmx/llmx.afr"
+use llmx
+
+create body = buildChatBody("llama3", "Reply with one word: ok")
+say body
+
+// Uncomment when Ollama (or similar) is running:
+// create reply = chatText("http://127.0.0.1:11434/v1", "", "llama3", "Reply with one word: ok")
+// say reply

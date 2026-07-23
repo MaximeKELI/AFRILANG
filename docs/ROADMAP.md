@@ -96,3 +96,11 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 > (voir canvas `audit-iso-rigoureux`). Les livrables Vague 8–10 restent valides comme
 > mitigations produit ; seuls les points auto-attribués sont corrigés.
 
+## Vague IA — ML classique + paquet LLM (livrée)
+
+- [x] Fix `mlperceptron` (`trainStep`/`trainEpoch` → `[bias, w…]`) + fillers clés
+  (`mlentropy`, `mlkldiv`, `mldistance`, `mlnearest`, `mlnormalize`)
+- [x] Specs `tests/stdlib/ml_*.afr` + `nlp_levenshtein.afr` ; docs `STDLIB_AI.md`
+- [x] `httpPostHeaders` + paquet `llmx` (chat OpenAI-compatible, smoke offline)
+- [x] Score ISO inchangé (~16.6) — pas de claim « libs ML »
+

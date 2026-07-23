@@ -1,0 +1,6 @@
+name = "llmx"
+version = "0.1.0"
+description = "OpenAI-compatible chat helpers (build body, extract text, optional HTTP)"
+main = "llmx.afr"
+license = "MIT"
+tags = ["ai", "llm", "http", "json"]

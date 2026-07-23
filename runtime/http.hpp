@@ -157,8 +157,29 @@ inline std::string readResponseBodySsl(SSL* ssl, std::size_t maxBytes = 1024 * 1
     return raw.substr(headerEnd + 4);
 }
 
+// Normalize multiline "Key: Value\n…" into HTTP header block lines ending with CRLF.
+inline std::string normalizeExtraHeaders(const std::string& headersText) {
+    if (headersText.empty()) return {};
+    std::string out;
+    std::size_t start = 0;
+    while (start < headersText.size()) {
+        std::size_t end = headersText.find('\n', start);
+        if (end == std::string::npos) end = headersText.size();
+        std::string line = headersText.substr(start, end - start);
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        start = end + 1;
+        if (line.empty()) continue;
+        // Reject header injection / smuggling via blank lines or CR in name.
+        if (line.find('\r') != std::string::npos) continue;
+        out += line;
+        out += "\r\n";
+    }
+    return out;
+}
+
 inline std::string httpsRequest(const std::string& method, const ParsedUrl& parsed,
-                                const std::string& body = {}) {
+                                const std::string& body = {},
+                                const std::string& extraHeaders = {}) {
     static bool sslInit = false;
     if (!sslInit) {
         SSL_library_init();
@@ -200,6 +221,7 @@ inline std::string httpsRequest(const std::string& method, const ParsedUrl& pars
         request << "Content-Type: application/json\r\n";
         request << "Content-Length: " << body.size() << "\r\n";
     }
+    request << normalizeExtraHeaders(extraHeaders);
     request << "\r\n";
     if (!body.empty()) request << body;
 
@@ -221,7 +243,8 @@ inline std::string httpsRequest(const std::string& method, const ParsedUrl& pars
 #endif
 
 inline std::string httpRequestPlain(const std::string& method, const ParsedUrl& parsed,
-                                    const std::string& body = {}) {
+                                    const std::string& body = {},
+                                    const std::string& extraHeaders = {}) {
     const int fd = connectHost(parsed.host, parsed.port);
     if (fd < 0) return {};
 
@@ -234,6 +257,7 @@ inline std::string httpRequestPlain(const std::string& method, const ParsedUrl& 
         request << "Content-Type: application/json\r\n";
         request << "Content-Length: " << body.size() << "\r\n";
     }
+    request << normalizeExtraHeaders(extraHeaders);
     request << "\r\n";
     if (!body.empty()) request << body;
 
@@ -247,17 +271,19 @@ inline std::string httpRequestPlain(const std::string& method, const ParsedUrl& 
 }
 
 inline std::string httpRequest(const std::string& method, const std::string& url,
-                               const std::string& body = {}) {
+                               const std::string& body = {},
+                               const std::string& extraHeaders = {}) {
     ParsedUrl parsed;
     if (!parseUrl(url, parsed)) return {};
     if (parsed.useTls) {
 #ifdef AFRILANG_HAS_OPENSSL
-        return httpsRequest(method, parsed, body);
+        return httpsRequest(method, parsed, body, extraHeaders);
 #else
+        (void)extraHeaders;
         return {};
 #endif
     }
-    return httpRequestPlain(method, parsed, body);
+    return httpRequestPlain(method, parsed, body, extraHeaders);
 }
 
 inline std::string httpGet(const std::string& url) {
@@ -266,6 +292,12 @@ inline std::string httpGet(const std::string& url) {
 
 inline std::string httpPost(const std::string& url, const std::string& body) {
     return httpRequest("POST", url, body);
+}
+
+// Extra headers: multiline "Key: Value\nKey2: Value2". Invalid URL → "".
+inline std::string httpPostHeaders(const std::string& url, const std::string& body,
+                                   const std::string& headersText) {
+    return httpRequest("POST", url, body, headersText);
 }
 
 } // namespace http

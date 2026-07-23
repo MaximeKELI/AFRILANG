@@ -30,6 +30,8 @@ La stdlib AFRILANG (~7971 modules) est générée à partir de scripts Python et
 - **giskit** — SIG simple (`gen_simple_stdlib.py`)
 - **game2dkit**, **game3dkit**, **gamekit** — kits jeu
 - **gisultra**, **rasterultra**, **segultra**, **dataultra**, **datasci**, **vizultra**, **iaultra**, **dbultra**, **gameultra**, **game3dultra** — `gen_complex_stdlib.py`
+- Toolkit IA (curated vs fillers vs ultra) : [`STDLIB_AI.md`](STDLIB_AI.md) — le blob
+  runtime est écrit dans `runtime/optional/complex_libs.hpp` (gate `runtime/complex_libs.hpp`).
 
 ## Workflow après modification
 
