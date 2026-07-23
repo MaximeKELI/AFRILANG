@@ -1,0 +1,22 @@
+import "std/c/mlsoftmax"
+use mlsoftmax
+
+test "softmax sums to one"
+    create logits = list of 1, 2, 3
+    create p = softmax(logits)
+    create s = (p at 0) + (p at 1) + (p at 2)
+    assert s is greater than 0.999
+    assert s is less than 1.001
+    assert argmax(logits) is equal to 2
+end
+
+test "oneHot and entropy edges"
+    create oh = oneHot(1, 3)
+    assert oh at 0 is equal to 0
+    assert oh at 1 is equal to 1
+    assert oh at 2 is equal to 0
+    create sure = list of 1, 0, 0
+    assert entropy(sure) is equal to 0
+    create none = filter each x in sure where x is equal to 2
+    assert argmax(none) is equal to 0
+end

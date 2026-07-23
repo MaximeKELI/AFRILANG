@@ -1,0 +1,21 @@
+import "std/c/mllinear"
+use mllinear
+
+test "dot and predict"
+    create w = list of 2, 3
+    create x = list of 4, 5
+    assert dot(w, x) is equal to 23
+    assert predict(w, x, 1) is equal to 24
+    assert sigmoid(0) is equal to 0.5
+end
+
+test "gradient reduces mse on y equals 2x"
+    create w = list of 0
+    create X = list of 1, 2, 3, 4
+    create y = list of 2, 4, 6, 8
+    create trained = trainEpochs(w, X, y, 0.05, 80, 1)
+    create err = mse(trained, X, y, 1)
+    assert err is less than 0.1
+    create x5 = list of 5
+    assert predict(trained, x5, 0) is greater than 9
+end

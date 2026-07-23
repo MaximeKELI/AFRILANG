@@ -1,0 +1,28 @@
+import "std/c/mlcosine"
+use mlcosine
+
+test "cosine orthogonal and identical"
+    create a = list of 1, 0
+    create b = list of 0, 1
+    create c = list of 1, 0
+    assert cosineSim(a, b) is equal to 0
+    assert cosineSim(a, c) is equal to 1
+    assert cosineDist(a, c) is equal to 0
+end
+
+test "cosine dim mismatch and empty"
+    create a = list of 1, 2
+    create b = list of 1
+    assert cosineSim(a, b) is equal to 0
+    create z = list of 0, 0
+    assert cosineSim(z, z) is equal to 0
+end
+
+test "normalize and mostSimilar"
+    create v = list of 3, 0, 0
+    create n = normalize(v)
+    assert n at 0 is equal to 1
+    create q = list of 1, 0
+    create matrix = list of 1, 0, 0, 1, 1, 1
+    assert mostSimilar(q, matrix, 2) is equal to 0
+end

@@ -1,0 +1,16 @@
+import "std/c/nlplevenshtein"
+use nlplevenshtein
+
+test "distance kitten sitting"
+    assert distance("kitten", "sitting") is equal to 3
+    assert distance("abc", "abc") is equal to 0
+    assert distance("", "") is equal to 0
+    assert distance("a", "") is equal to 1
+end
+
+test "similarity and isClose"
+    assert similarity("hello", "hello") is equal to 1
+    assert isClose("hello", "hallo", 1) is equal to true
+    assert isClose("hello", "world", 1) is equal to false
+    assert normalizedDist("", "") is equal to 0
+end
