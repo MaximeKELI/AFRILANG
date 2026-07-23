@@ -24,6 +24,9 @@ See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 | `collections_basic.afr` | List / map basics | runtime |
 | `class_basic.afr` | Classes | runtime |
 | `assert_raise.afr` | assert / raise | runtime |
+| `while_repeat.afr` | while / repeat | runtime |
+| `macros_smoke.afr` | macros MVP | runtime |
+| `strength_reduce.afr` | Mid-IR identity folds | runtime |
 
 ## Negative (must reject)
 
@@ -38,6 +41,7 @@ See `docs/NORMATIVE.md`. This is **not** an ISO certification suite.
 | `negative/bad_macro_recursion.afr` | macros MVP | semantic reject |
 | `negative/bad_ffi_lib.afr` | §9 FFI | semantic reject |
 | `negative/bad_arity.afr` | calls | semantic reject |
+| `negative/bad_type_assign.afr` | types | semantic reject |
 
 Harness: `scripts/check_conformance_negative.sh`
 

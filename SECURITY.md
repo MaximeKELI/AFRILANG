@@ -23,8 +23,9 @@ In secure mode:
 - No shell invocation (`std::system` removed; `execve` / `posix_spawn` only)
 - Resource limits on untrusted execution (memory, CPU, file size, open FDs)
 - On **Linux**: `PR_SET_NO_NEW_PRIVS` + seccomp-bpf deny-list (`ptrace`, `mount`,
-  `reboot`, module load, `bpf`, …) for sandboxed `exec` (REPL / serve / `run --run`).
-  Not a VM; Windows/macOS keep rlimits only — see `docs/PLATFORM.md`.
+  `reboot`, module load, `bpf`, …) **and** best-effort Landlock FS restrict for
+  sandboxed `exec` (REPL / serve / `run --run`). Not a VM; Windows/macOS keep
+  rlimits only — see `docs/PLATFORM.md`.
 - Source size and program complexity limits
 - Import depth and file count limits with path confinement
 - FFI library allowlist at compile time
@@ -59,7 +60,8 @@ Mitigations in place:
 - Request body size cap (64 KiB)
 - Source validation (UTF-8, no null bytes, size limits)
 - Sandboxed execution with timeout, memory, and CPU limits
-- Linux seccomp deny-list on sandboxed children (`scripts/check_sandbox_seccomp.sh`)
+- Linux seccomp deny-list + Landlock FS on sandboxed children
+  (`scripts/check_sandbox_seccomp.sh`)
 - Output size cap with truncation flag
 - Static files confined under `site/` root (path traversal blocked)
 - Security headers: `X-Content-Type-Options`, `X-Frame-Options`, CSP

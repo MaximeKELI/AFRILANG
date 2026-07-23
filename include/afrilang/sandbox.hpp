@@ -23,6 +23,8 @@ struct ProcessConfig {
   bool applyResourceLimits = true;
   // Linux: PR_SET_NO_NEW_PRIVS + seccomp deny-list (ptrace/mount/…). No-op elsewhere.
   bool applySeccomp = true;
+  // Linux: Landlock FS restrict for sandboxed binaries. No-op if kernel/ABI unsupported.
+  bool applyLandlock = true;
   bool newSession = true;
   bool limitProcessCount = false;
   // Keep DISPLAY/Wayland sockets open (required for SDL windows).

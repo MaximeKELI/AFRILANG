@@ -6656,6 +6656,7 @@ CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/src/util
   /usr/include/linux/errno.h \
   /usr/include/linux/falloc.h \
   /usr/include/linux/filter.h \
+  /usr/include/linux/landlock.h \
   /usr/include/linux/limits.h \
   /usr/include/linux/openat2.h \
   /usr/include/linux/posix_types.h \
@@ -7819,8 +7820,6 @@ afrilang: /lib64/ld-linux-x86-64.so.2 \
 
 CMakeFiles/afrilang.dir/src/utils/utf8.cpp.o:
 
-CMakeFiles/afrilang.dir/src/utils/semver.cpp.o:
-
 CMakeFiles/afrilang.dir/src/utils/sandbox.cpp.o:
 
 CMakeFiles/afrilang.dir/src/utils/medium_catalog.cpp.o:
@@ -7869,6 +7868,8 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:
 
+/home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -7896,6 +7897,10 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 /usr/include/c++/15/iostream:
 
 /usr/include/rpc/netdb.h:
+
+CMakeFiles/afrilang.dir/src/utils/semver.cpp.o:
+
+/usr/include/linux/landlock.h:
 
 /usr/lib/i386-linux-gnu/libzstd.so.1:
 
@@ -7980,8 +7985,6 @@ CMakeFiles/afrilang.dir/src/lexer/lexer.cpp.o:
 /home/admin20/AFRILANG/include/afrilang/educational.hpp:
 
 /usr/include/openssl/buffererr.h:
-
-/home/admin20/AFRILANG/src/utils/stdlib_catalog.cpp:
 
 /home/admin20/AFRILANG/src/utils/catalog_loader.cpp:
 

@@ -1,0 +1,2 @@
+create x = 1
+set x = "nope"

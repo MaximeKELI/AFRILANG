@@ -1,0 +1,17 @@
+test "while increments"
+    create i number = 0
+    create s number = 0
+    while i is less than 3 do
+        set s = s + i
+        set i = i + 1
+    end
+    assert s is equal to 3
+end
+
+test "repeat times"
+    create n number = 0
+    repeat 4 times
+        set n = n + 1
+    end
+    assert n is equal to 4
+end

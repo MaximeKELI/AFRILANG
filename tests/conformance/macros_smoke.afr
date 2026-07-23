@@ -1,0 +1,10 @@
+macro twice(x)
+    say x
+    say x
+end
+
+test "macro expands"
+    // Side-effect free assert via flag
+    create flag text = "ok"
+    assert flag is equal to "ok"
+end

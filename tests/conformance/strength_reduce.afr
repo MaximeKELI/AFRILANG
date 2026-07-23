@@ -1,0 +1,7 @@
+test "identity fold still correct"
+    create n number = 7
+    create a = n + 0
+    create b = n * 1
+    assert a is equal to 7
+    assert b is equal to 7
+end

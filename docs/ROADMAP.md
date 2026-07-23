@@ -83,3 +83,16 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] CI secondaire macOS/Windows smoke + pack WASM conformité
 - [x] Re-score canvas ~19.2 — **20/20 international non revendiqué**
 
+## Vague 10 — Plafond crédible ~19.5–19.7 (jamais 20)
+
+- [x] Landlock FS Linux (binaires utilisateur ; host `g++` exempt)
+- [x] Mid-IR identity / annihilator folds + `strength_reduce.afr`
+- [x] Tooling smoke IC (`check_tooling_smoke.sh`)
+- [x] Conformité 21+10 ; WASM pack +2
+- [x] Re-score canvas ~19.6 — **jamais 20/20**
+
+> **Correction 2026-07-23 (audit adverse) :** le claim Vague 10 (~19.6) n’est **pas**
+> défendable vs C++/Rust/Go. Score officiel international recalibré à **~16.6/20**
+> (voir canvas `audit-iso-rigoureux`). Les livrables Vague 8–10 restent valides comme
+> mitigations produit ; seuls les points auto-attribués sont corrigés.
+

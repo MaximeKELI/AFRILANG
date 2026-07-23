@@ -19,6 +19,7 @@
 #if defined(__linux__)
 #include <linux/audit.h>
 #include <linux/filter.h>
+#include <linux/landlock.h>
 #include <linux/seccomp.h>
 #include <stddef.h>
 #include <sys/prctl.h>
@@ -131,6 +132,56 @@ void applyLinuxSeccompDenylist() {
     prog.filter = filter.data();
     (void)prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog);
 }
+
+/** Best-effort Landlock FS restrict for sandboxed user binaries (Linux 5.13+). */
+void applyLinuxLandlock(const std::string& executable) {
+    const __u64 readExec =
+        LANDLOCK_ACCESS_FS_EXECUTE | LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR;
+    const __u64 writeTmp = LANDLOCK_ACCESS_FS_WRITE_FILE | LANDLOCK_ACCESS_FS_MAKE_REG |
+                           LANDLOCK_ACCESS_FS_REMOVE_FILE | LANDLOCK_ACCESS_FS_READ_FILE |
+                           LANDLOCK_ACCESS_FS_READ_DIR;
+
+    struct landlock_ruleset_attr attr{};
+    attr.handled_access_fs = readExec | writeTmp;
+#ifdef LANDLOCK_ACCESS_FS_TRUNCATE
+    attr.handled_access_fs |= LANDLOCK_ACCESS_FS_TRUNCATE;
+#endif
+
+    const int ruleset = static_cast<int>(
+        syscall(__NR_landlock_create_ruleset, &attr, sizeof(attr), 0));
+    if (ruleset < 0) return;
+
+    auto allowPath = [&](const char* path, __u64 access) {
+        const int fd = open(path, O_PATH | O_CLOEXEC);
+        if (fd < 0) return;
+        struct landlock_path_beneath_attr beneath{};
+        beneath.allowed_access = access;
+        beneath.parent_fd = fd;
+        (void)syscall(__NR_landlock_add_rule, ruleset, LANDLOCK_RULE_PATH_BENEATH, &beneath, 0);
+        close(fd);
+    };
+
+    // Dynamic linker + system libs
+    allowPath("/lib", readExec);
+    allowPath("/lib64", readExec);
+    allowPath("/usr", readExec);
+    allowPath("/etc", LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR);
+    allowPath("/tmp", writeTmp);
+    // Executable location (build dir / cwd binaries)
+    try {
+        const fs::path exePath = fs::absolute(executable);
+        if (exePath.has_parent_path()) {
+            allowPath(exePath.parent_path().c_str(), readExec);
+        }
+        allowPath(exePath.c_str(), readExec);
+        // Also allow current working directory (tests often run ./bin from project root).
+        allowPath(".", readExec);
+    } catch (...) {
+    }
+    (void)prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0);
+    (void)syscall(__NR_landlock_restrict_self, ruleset, 0);
+    close(ruleset);
+}
 #endif
 
 void applyChildLimits(const ProcessConfig& config) {
@@ -214,9 +265,14 @@ pid_t spawnProcess(const std::string& executable,
     }
     applyChildLimits(config);
 #if defined(__linux__)
-    // Seccomp deny-list only in secure mode — ASan/LSan need ptrace under AFRILANG_INSECURE.
-    if (config.applySeccomp && isSecureMode()) {
-        applyLinuxSeccompDenylist();
+    // Landlock + seccomp only in secure mode (ASan/LSan need broader FS + ptrace when insecure).
+    if (isSecureMode() && !config.interactiveGui && !config.interactiveConsole) {
+        if (config.applyLandlock) {
+            applyLinuxLandlock(executable);
+        }
+        if (config.applySeccomp) {
+            applyLinuxSeccompDenylist();
+        }
     }
 #endif
 
@@ -285,12 +341,15 @@ int runCommand(const std::vector<std::string>& args,
                const ProcessConfig& config,
                std::string& combinedOutput) {
     if (args.empty()) return 127;
+    // Host toolchain (g++/em++) must write temp files — never Landlock the compiler.
+    ProcessConfig hostConfig = config;
+    hostConfig.applyLandlock = false;
     const std::string outPath = secureTempPath("cmd.out.txt");
     const pid_t pid = spawnProcess(args[0], std::vector<std::string>(args.begin() + 1, args.end()),
-                                   outPath, config);
+                                   outPath, hostConfig);
     if (pid < 0) return 127;
-    const ExecResult result = waitAndCollect(pid, config.timeoutSeconds, outPath,
-                                             config.maxOutputBytes);
+    const ExecResult result = waitAndCollect(pid, hostConfig.timeoutSeconds, outPath,
+                                             hostConfig.maxOutputBytes);
     combinedOutput = result.output;
     if (result.timedOut) return 124;
     return result.exitCode;

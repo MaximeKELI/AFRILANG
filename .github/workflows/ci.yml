@@ -43,6 +43,10 @@ jobs:
         if: matrix.compiler == 'g++'
         run: bash scripts/check_sandbox_seccomp.sh
 
+      - name: Tooling smoke (version/check/fmt/LSP)
+        if: matrix.compiler == 'g++'
+        run: bash scripts/check_tooling_smoke.sh
+
       - name: Ecosystem smoke (init / pkg / test)
         run: |
           ./build/afrilang init smoke_app
@@ -202,6 +206,8 @@ jobs:
           ./build/afrilang run tests/conformance/text_bool.afr --target wasm32 --run
           ./build/afrilang run tests/conformance/collections_basic.afr --target wasm32 --run
           ./build/afrilang run tests/conformance/functions_basic.afr --target wasm32 --run
+          ./build/afrilang run tests/conformance/strength_reduce.afr --target wasm32 --run
+          ./build/afrilang run tests/conformance/while_repeat.afr --target wasm32 --run
 
       - name: Check Emscripten script
         run: |

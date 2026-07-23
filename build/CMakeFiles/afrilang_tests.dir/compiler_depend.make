@@ -6492,6 +6492,7 @@ CMakeFiles/afrilang_tests.dir/src/utils/sandbox.cpp.o: /home/admin20/AFRILANG/sr
   /usr/include/linux/errno.h \
   /usr/include/linux/falloc.h \
   /usr/include/linux/filter.h \
+  /usr/include/linux/landlock.h \
   /usr/include/linux/limits.h \
   /usr/include/linux/openat2.h \
   /usr/include/linux/posix_types.h \
@@ -8565,6 +8566,8 @@ CMakeFiles/afrilang_tests.dir/src/semantic/analyzer.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/utf8.cpp:
 
+/home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:
+
 /usr/include/x86_64-linux-gnu/c++/15/bits/error_constants.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/cpu_defines.h:
@@ -8796,6 +8799,8 @@ CMakeFiles/afrilang_tests.dir/src/passes/mid_ir.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
 /usr/include/rpc/netdb.h:
+
+/usr/include/linux/landlock.h:
 
 /usr/lib/i386-linux-gnu/libasyncns.so.0:
 
@@ -9932,5 +9937,3 @@ CMakeFiles/afrilang_tests.dir/src/utils/semver.cpp.o:
 /usr/include/x86_64-linux-gnu/sys/resource.h:
 
 /home/admin20/AFRILANG/src/utils/semver.cpp:
-
-/home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:

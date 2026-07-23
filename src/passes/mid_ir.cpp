@@ -47,6 +47,20 @@ std::unique_ptr<ExpressionNode> foldBinary(std::unique_ptr<BinaryOpNode> bin) {
             if (bin->op == "<=") return std::make_unique<BoolLiteralNode>(a <= b);
             if (bin->op == ">=") return std::make_unique<BoolLiteralNode>(a >= b);
         }
+        // One-sided identity / annihilator (left const)
+        if (bin->op == "+" && almostEqual(ln->value, 0.0)) return std::move(bin->right);
+        if (bin->op == "*" && almostEqual(ln->value, 1.0)) return std::move(bin->right);
+        if (bin->op == "*" && almostEqual(ln->value, 0.0)) {
+            return std::make_unique<NumberLiteralNode>(0.0, ln->isInteger);
+        }
+    }
+    if (const auto* rn = asNumber(bin->right.get())) {
+        if (bin->op == "+" && almostEqual(rn->value, 0.0)) return std::move(bin->left);
+        if (bin->op == "-" && almostEqual(rn->value, 0.0)) return std::move(bin->left);
+        if (bin->op == "*" && almostEqual(rn->value, 1.0)) return std::move(bin->left);
+        if (bin->op == "*" && almostEqual(rn->value, 0.0)) {
+            return std::make_unique<NumberLiteralNode>(0.0, rn->isInteger);
+        }
     }
     if (const auto* lb = asBool(bin->left.get())) {
         if (const auto* rb = asBool(bin->right.get())) {
