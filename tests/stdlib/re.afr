@@ -83,10 +83,12 @@ end
 test "empty and no match edges"
     assert matches("", "") is equal to true
     assert search("", "a") is equal to false
-    assert findAll("abc", "[0-9]+") is equal to list of
+    create none = findAll("abc", "[0-9]+")
+    assert length of none is equal to 0
     assert count("abc", "z") is equal to 0
     assert replace("abc", "z", "Q") is equal to "abc"
-    assert split("", ",") at 0 is equal to ""
+    create parts = split("", ",")
+    assert parts at 0 is equal to ""
 end
 
 test "invalid pattern fails closed"

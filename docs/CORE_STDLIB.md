@@ -44,6 +44,10 @@ trim vide, split/join, JSON missing keys / `[]`/`{}`, fs makeDir/listDir/fileSiz
 collections sort/reverse/contains/sum/take-drop edges). WASM CI smoke :
 `str` + `json` + `collections`.
 
+**Vague modules C** : `math` / `stats` / `path` / `re` approfondis (listes vides,
+singleton stats, `gcd(n,0)`, `basename` trailing slash pathlib-like, regex pattern
+invalide fails-closed). WASM CI smoke : + `math` + `stats` + `path` + `re`.
+
 - `stdlib/*.afr`, `stdlib/m/`, `stdlib/c/` — stubs de signatures, **pas** une garantie de profondeur API
 - Un module utilisateur / paquet qui **porte le même nom** qu’une entrée de catalogue n’est **pas** traité comme stdlib (origine `isStdlibInjected`)
 - Packs « ultra » (GIS, data, …) — utiles en démo ; stabilité au cas par cas

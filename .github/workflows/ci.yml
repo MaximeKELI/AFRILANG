@@ -211,6 +211,10 @@ jobs:
           ./build/afrilang run tests/stdlib/str.afr --target wasm32 --run
           ./build/afrilang run tests/stdlib/json.afr --target wasm32 --run
           ./build/afrilang run tests/stdlib/collections.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/math.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/stats.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/path.afr --target wasm32 --run
+          ./build/afrilang run tests/stdlib/re.afr --target wasm32 --run
 
       - name: Check Emscripten script
         run: |

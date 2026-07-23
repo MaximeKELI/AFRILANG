@@ -5,21 +5,30 @@
 
 namespace afrilang::runtime::path {
 
+// Strip trailing separators so basename("/tmp/") → "tmp" (pathlib-like).
+inline std::filesystem::path trimmed(const std::string& path) {
+    auto p = std::filesystem::path(path);
+    while (!p.empty() && p.filename().empty() && p.has_parent_path()) {
+        p = p.parent_path();
+    }
+    return p;
+}
+
 inline std::string join(const std::string& left, const std::string& right) {
     return (std::filesystem::path(left) / right).string();
 }
 
 inline std::string basename(const std::string& path) {
-    return std::filesystem::path(path).filename().string();
+    return trimmed(path).filename().string();
 }
 
 inline std::string dirname(const std::string& path) {
-    const auto parent = std::filesystem::path(path).parent_path();
+    const auto parent = trimmed(path).parent_path();
     return parent.empty() ? "." : parent.string();
 }
 
 inline std::string extension(const std::string& path) {
-    return std::filesystem::path(path).extension().string();
+    return trimmed(path).extension().string();
 }
 
 inline bool isAbsolute(const std::string& path) {
