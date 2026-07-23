@@ -19,6 +19,7 @@
 #include "afrilang/semantic.hpp"
 #include "afrilang/js_codegen.hpp"
 #include "afrilang/formatter.hpp"
+#include "afrilang/passes.hpp"
 
 #include "afrilang/version.hpp"
 
@@ -291,6 +292,8 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             return result;
         }
 
+        afrilang::passes::runOptionalPasses(*program);
+
         CodeGenerator codegen(*program, semantic);
         codegen.setRuntimeDir(runtimeDir);
         codegen.setSourceFile(srcPath.string());
@@ -356,6 +359,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
                     config.maxMemoryMb = limits.maxMemoryMb;
                     config.maxCpuSeconds = limits.maxCpuSeconds;
                     config.maxOutputBytes = limits.maxOutputBytes;
+                    config.applyResourceLimits = isSecureMode();
                     const bool needsSpawn =
                         semantic.usesAsync || semantic.usedModules.count("process") > 0 ||
                         semantic.usedModules.count("thread") > 0 ||
@@ -428,6 +432,7 @@ CompileResult Pipeline::compileFile(const std::string& sourcePath,
             config.maxMemoryMb = limits.maxMemoryMb;
             config.maxCpuSeconds = limits.maxCpuSeconds;
             config.maxOutputBytes = limits.maxOutputBytes;
+            config.applyResourceLimits = isSecureMode();
             const bool needsSpawn =
                 semantic.usesAsync || semantic.usedModules.count("process") > 0 ||
                 semantic.usedModules.count("thread") > 0 ||
@@ -691,7 +696,7 @@ static int runProjectTests(const fs::path& projectDir, bool coverage) {
 
 static int runSpecsSuite(const fs::path& root, bool coverage) {
     std::vector<fs::path> files;
-    for (const char* sub : {"tests/specs", "tests/stdlib"}) {
+    for (const char* sub : {"tests/specs", "tests/stdlib", "tests/conformance"}) {
         const fs::path dir = root / sub;
         if (!fs::exists(dir) || !fs::is_directory(dir)) continue;
         for (const auto& entry : fs::recursive_directory_iterator(

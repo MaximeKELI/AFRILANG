@@ -92,7 +92,16 @@ create b = new Box<number>(42)
 say identity("ok")
 ```
 
-Utiliser `list of T` (pas de syntaxe `List[T]`). Pas de contraintes de types (P5+).
+Utiliser `list of T` (pas de syntaxe `List[T]`).
+
+Contraintes de types (MVP) : `where T is number|int|text|bool|…` ou
+`where T implements InterfaceName` après la signature :
+
+```afr
+function twiceNum<T>(x T) returns T where T is number
+    return x + x
+end
+```
 
 ## Macros (MVP)
 

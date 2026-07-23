@@ -35,6 +35,10 @@ jobs:
       - name: Compiler specs + core stdlib
         run: ./build/afrilang test --specs .
 
+      - name: Conformance ASan smoke (bounds)
+        if: matrix.compiler == 'g++'
+        run: bash scripts/check_asan_bounds.sh
+
       - name: Ecosystem smoke (init / pkg / test)
         run: |
           ./build/afrilang init smoke_app
@@ -70,6 +74,7 @@ jobs:
           ./build/afrilang pkg search example_remote | grep -q example_remote
           rm -f packages/remote-index.json
           unset AFRILANG_REGISTRY_URL
+          bash scripts/check_docs_honesty.sh
           bash scripts/check_blessed_quality.sh
           # http template uses std/web
           ROOT="$PWD"

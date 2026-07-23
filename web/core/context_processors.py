@@ -7,7 +7,8 @@ def _default_stats():
         'compiler_version': '1.0.0',
         'examples': 89,
         'blessed_packages': 10,
-        'stdlib_modules': 7971,
+        'stdlib_modules': 42,
+        'stdlib_catalog_signatures': 7971,
         'cli_commands': 15,
     }
 

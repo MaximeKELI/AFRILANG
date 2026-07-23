@@ -941,9 +941,11 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: /home/admin20/AFRILANG/src/pars
   /usr/include/asm-generic/int-ll64.h \
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
+  /usr/include/c++/15/algorithm \
   /usr/include/c++/15/backward/auto_ptr.h \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
+  /usr/include/c++/15/bits/algorithmfwd.h \
   /usr/include/c++/15/bits/align.h \
   /usr/include/c++/15/bits/alloc_traits.h \
   /usr/include/c++/15/bits/allocated_ptr.h \
@@ -998,10 +1000,12 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: /home/admin20/AFRILANG/src/pars
   /usr/include/c++/15/bits/shared_ptr_base.h \
   /usr/include/c++/15/bits/sstream.tcc \
   /usr/include/c++/15/bits/std_abs.h \
+  /usr/include/c++/15/bits/stl_algo.h \
   /usr/include/c++/15/bits/stl_algobase.h \
   /usr/include/c++/15/bits/stl_bvector.h \
   /usr/include/c++/15/bits/stl_construct.h \
   /usr/include/c++/15/bits/stl_function.h \
+  /usr/include/c++/15/bits/stl_heap.h \
   /usr/include/c++/15/bits/stl_iterator.h \
   /usr/include/c++/15/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15/bits/stl_iterator_base_types.h \
@@ -1015,6 +1019,7 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: /home/admin20/AFRILANG/src/pars
   /usr/include/c++/15/bits/streambuf_iterator.h \
   /usr/include/c++/15/bits/string_view.tcc \
   /usr/include/c++/15/bits/stringfwd.h \
+  /usr/include/c++/15/bits/uniform_int_dist.h \
   /usr/include/c++/15/bits/unique_ptr.h \
   /usr/include/c++/15/bits/unordered_map.h \
   /usr/include/c++/15/bits/unordered_set.h \
@@ -1050,6 +1055,7 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o: /home/admin20/AFRILANG/src/pars
   /usr/include/c++/15/new \
   /usr/include/c++/15/ostream \
   /usr/include/c++/15/pstl/execution_defs.h \
+  /usr/include/c++/15/pstl/glue_algorithm_defs.h \
   /usr/include/c++/15/pstl/glue_memory_defs.h \
   /usr/include/c++/15/pstl/pstl_config.h \
   /usr/include/c++/15/sstream \
@@ -2543,6 +2549,7 @@ CMakeFiles/afrilang.dir/src/utils/cli.cpp.o: /home/admin20/AFRILANG/src/utils/cl
   /home/admin20/AFRILANG/include/afrilang/lexer.hpp \
   /home/admin20/AFRILANG/include/afrilang/lsp.hpp \
   /home/admin20/AFRILANG/include/afrilang/parser.hpp \
+  /home/admin20/AFRILANG/include/afrilang/passes.hpp \
   /home/admin20/AFRILANG/include/afrilang/pkg.hpp \
   /home/admin20/AFRILANG/include/afrilang/project.hpp \
   /home/admin20/AFRILANG/include/afrilang/sandbox.hpp \
@@ -7390,6 +7397,10 @@ CMakeFiles/afrilang.dir/main.cpp.o:
 
 /usr/include/rpc/netdb.h:
 
+/usr/lib/i386-linux-gnu/libzstd.so.1:
+
+/usr/include/c++/15/bits/exception_ptr.h:
+
 /usr/include/c++/15/bits/streambuf.tcc:
 
 /usr/include/c++/15/bits/basic_string.tcc:
@@ -7789,8 +7800,6 @@ CMakeFiles/afrilang.dir/src/utils/cache.cpp.o:
 /usr/include/c++/15/bits/new_allocator.h:
 
 /usr/include/x86_64-linux-gnu/c++/15/bits/os_defines.h:
-
-/usr/include/c++/15/iosfwd:
 
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
@@ -8264,6 +8273,10 @@ CMakeFiles/afrilang.dir/src/utils/catalog_loader.cpp.o:
 
 /home/admin20/AFRILANG/include/afrilang/debug_meta.hpp:
 
+/usr/include/c++/15/iosfwd:
+
+/home/admin20/AFRILANG/include/afrilang/passes.hpp:
+
 /home/admin20/AFRILANG/include/afrilang/version.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
@@ -8457,10 +8470,6 @@ CMakeFiles/afrilang.dir/src/parser/parser.cpp.o:
 CMakeFiles/afrilang.dir/src/utils/stdlib_registry.cpp.o:
 
 /home/admin20/AFRILANG/src/utils/semver.cpp:
-
-/usr/include/c++/15/bits/exception_ptr.h:
-
-/usr/lib/i386-linux-gnu/libzstd.so.1:
 
 /home/admin20/AFRILANG/src/utils/stdlib_registry.cpp:
 

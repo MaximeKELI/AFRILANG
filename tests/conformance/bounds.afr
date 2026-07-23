@@ -31,8 +31,7 @@ test "map at throws on missing key"
     catch error e
         set caught = e
     end
-    assert caught is not equal to "nope"
-    assert caught is not equal to ""
+    assert caught is equal to "map key not found"
 end
 
 test "map set inserts"

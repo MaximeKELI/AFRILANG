@@ -2584,20 +2584,31 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             out << "))";
             return;
         }
-        emitExpression(out, *index->object, ownerClass);
         if (containerType.kind == TypeKind::List) {
-            out << ".at(static_cast<std::size_t>(";
+            out << "([&]() -> decltype(auto) { const auto& _afr_lst = ";
+            emitExpression(out, *index->object, ownerClass);
+            out << "; const std::size_t _afr_i = static_cast<std::size_t>(";
             emitExpression(out, *index->index, ownerClass);
-            out << "))";
-        } else if (containerType.kind == TypeKind::Map) {
-            out << ".at(";
-            emitExpression(out, *index->index, ownerClass);
-            out << ")";
-        } else {
-            out << "[";
-            emitExpression(out, *index->index, ownerClass);
-            out << "]";
+            out << "); if (_afr_i >= _afr_lst.size()) "
+                   "throw std::out_of_range(\"list index out of bounds\"); "
+                   "return _afr_lst[_afr_i]; })()";
+            return;
         }
+        if (containerType.kind == TypeKind::Map) {
+            out << "([&]() -> decltype(auto) { const auto& _afr_map = ";
+            emitExpression(out, *index->object, ownerClass);
+            out << "; const auto& _afr_key = ";
+            emitExpression(out, *index->index, ownerClass);
+            out << "; const auto _afr_it = _afr_map.find(_afr_key); "
+                   "if (_afr_it == _afr_map.end()) "
+                   "throw std::out_of_range(\"map key not found\"); "
+                   "return _afr_it->second; })()";
+            return;
+        }
+        emitExpression(out, *index->object, ownerClass);
+        out << "[";
+        emitExpression(out, *index->index, ownerClass);
+        out << "]";
         return;
     }
 
@@ -3709,6 +3720,14 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
     args.push_back(usesComplexCatalog && !wasmBuild ? "-O0" : "-O2");
     args.push_back("-Wall");
     args.push_back("-Wextra");
+    // Optional host flags (e.g. CI ASan: AFRILANG_EXTRA_CXXFLAGS="-fsanitize=address -O1").
+    if (const char* extra = std::getenv("AFRILANG_EXTRA_CXXFLAGS")) {
+        std::istringstream iss(extra);
+        std::string tok;
+        while (iss >> tok) {
+            if (!tok.empty()) args.push_back(tok);
+        }
+    }
     if (usesComplexCatalog && !wasmBuild) {
         args.push_back("-Wno-unused-parameter");
         args.push_back("-Wno-unused-variable");

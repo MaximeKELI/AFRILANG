@@ -121,7 +121,12 @@ output = "build/mon_app"
 
 ### Bibliothèque standard
 
-**7971 modules** en trois tiers : **2151 simple** (`import "std/nom"`), **102 medium** (`import "std/m/nom"`), **5710 complex** (`import "std/c/nom"`). Voir `docs/STDLIB_*.md`, `docs/STDLIB_GEN.md`, `docs/CORE_STDLIB.md` (modules réellement stabilisés) et le site `/stdlib/`. Paquets : `docs/PKG.md`. Roadmap : `docs/ROADMAP.md`.
+**Core (~40 modules runtime C++)** — API stabilisée, documentée dans
+[`docs/CORE_STDLIB.md`](docs/CORE_STDLIB.md) et [`docs/STDLIB_API.md`](docs/STDLIB_API.md).
+
+Des **catalogues expérimentaux de signatures** (~7971 stubs IDE : simple / medium /
+complex) existent pour la complétion ; ce ne sont **pas** des garanties d’API 1.x.
+Voir `docs/STDLIB_GEN.md`. Paquets : `docs/PKG.md`. Roadmap : `docs/ROADMAP.md`.
 
 Modules cœur (runtime C++ dédié) :
 

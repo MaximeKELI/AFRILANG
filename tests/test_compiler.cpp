@@ -881,6 +881,21 @@ static void testAskAsNumber() {
     fs::remove_all(tmpDir);
 }
 
+static void testGenericConstraintRejectsText() {
+    const std::string src =
+        "function onlyNumber<T>(x T) returns T where T is number\n"
+        "    return x\n"
+        "end\n"
+        "create bad = onlyNumber(\"x\")\n";
+    afrilang::Lexer lexer(src);
+    afrilang::Parser parser(lexer.tokenize());
+    auto program = parser.parse();
+    expect(!parser.hasErrors(), "constraint sample parses");
+    afrilang::SemanticAnalyzer analyzer(*program, nullptr, "constraint.afr");
+    const auto sem = analyzer.analyze();
+    expect(sem.hasErrors(), "onlyNumber(\"x\") must fail constraint T is number");
+}
+
 int main() {
     std::cout << "=== Tests compilateur AFRILANG ===\n";
 
@@ -930,6 +945,7 @@ int main() {
     testParserRecoveryContinues();
     testDuplicateClassErrorCode();
     testTypedExpressionAnnotation();
+    testGenericConstraintRejectsText();
     testCacheFingerprintVersionInvalidates();
     testCacheMetaKeyDistinctPaths();
     testPipelineMissingFile();

@@ -35,15 +35,11 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Batterie specs : `afrilang test --specs` (`tests/specs` + `tests/stdlib`)
 - [x] Site packages : tags / repo / README / recherche (`sync_packages`, détail paquet)
 
-## Vague 4 — Maturité ops & profondeur (livrée P8–P9)
+## Vague 5 — Non-conformités ISO majeures (livrée)
 
-- [x] Serveur HTTP request-aware + boucle multi-requêtes (`std/web`)
-- [x] Registre publié (`registry/index.json`) + sync HTTPS / fallback local
-- [x] Blessed 100 % signés + gate install + tier core-blessed
-- [x] Datetime DST/IANA native (`zoneOffsetAt`)
-- [x] PCRE2 optionnel pour `std/re`
-- [x] Quarantine `complex_libs` (~19 Mo opt-in)
-
-## Hors roadmap (non codable ici)
-
-Communauté, libs tierces, adoption — progressent avec le registre distant + usage réel.
+- [x] Indexation liste/map bornée (exceptions message stables)
+- [x] Contraintes génériques MVP (`where T is …` / `implements`)
+- [x] Suite `tests/conformance/` + inclusion dans `--specs`
+- [x] Honesty docs (core vs catalogues) + `check_docs_honesty.sh`
+- [x] `docs/COMPILER.md` (pas d’IR ; passes AST extension point)
+- [x] Smoke ASan bornes (`scripts/check_asan_bounds.sh` + CI)
