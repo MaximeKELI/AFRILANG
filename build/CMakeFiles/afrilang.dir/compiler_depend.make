@@ -4464,6 +4464,8 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/h
   /usr/include/c++/15/bits/cpp_type_traits.h \
   /usr/include/c++/15/bits/cxxabi_forced.h \
   /usr/include/c++/15/bits/cxxabi_init_exception.h \
+  /usr/include/c++/15/bits/enable_special_members.h \
+  /usr/include/c++/15/bits/erase_if.h \
   /usr/include/c++/15/bits/exception.h \
   /usr/include/c++/15/bits/exception_defines.h \
   /usr/include/c++/15/bits/exception_ptr.h \
@@ -4475,6 +4477,8 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/h
   /usr/include/c++/15/bits/functexcept.h \
   /usr/include/c++/15/bits/functional_hash.h \
   /usr/include/c++/15/bits/hash_bytes.h \
+  /usr/include/c++/15/bits/hashtable.h \
+  /usr/include/c++/15/bits/hashtable_policy.h \
   /usr/include/c++/15/bits/invoke.h \
   /usr/include/c++/15/bits/ios_base.h \
   /usr/include/c++/15/bits/istream.tcc \
@@ -4491,6 +4495,7 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/h
   /usr/include/c++/15/bits/move.h \
   /usr/include/c++/15/bits/nested_exception.h \
   /usr/include/c++/15/bits/new_allocator.h \
+  /usr/include/c++/15/bits/node_handle.h \
   /usr/include/c++/15/bits/ostream.h \
   /usr/include/c++/15/bits/ostream.tcc \
   /usr/include/c++/15/bits/ostream_insert.h \
@@ -4525,6 +4530,7 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/h
   /usr/include/c++/15/bits/stringfwd.h \
   /usr/include/c++/15/bits/uniform_int_dist.h \
   /usr/include/c++/15/bits/unique_ptr.h \
+  /usr/include/c++/15/bits/unordered_set.h \
   /usr/include/c++/15/bits/uses_allocator.h \
   /usr/include/c++/15/bits/uses_allocator_args.h \
   /usr/include/c++/15/bits/utility.h \
@@ -4577,6 +4583,7 @@ CMakeFiles/afrilang.dir/src/utils/hash.cpp.o: /home/admin20/AFRILANG/src/utils/h
   /usr/include/c++/15/tuple \
   /usr/include/c++/15/type_traits \
   /usr/include/c++/15/typeinfo \
+  /usr/include/c++/15/unordered_set \
   /usr/include/c++/15/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \

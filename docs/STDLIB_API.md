@@ -166,9 +166,30 @@ Threads utilitaires + primitives de synchronisation (natif, `-pthread`) :
 
 Tests : `tests/stdlib/thread.afr`
 
+## `std/unicode`
+
+Utilitaires UTF-8 orientés points de code (zéro-dép, WASM-compatible). Le module `str` reste orienté **octets**.
+
+| Fonction | Rôle |
+|----------|------|
+| `byteLength(s)` | Longueur en octets |
+| `codepointCount(s)` | Nombre de points de code |
+| `graphemeCount(s)` | Graphèmes (simplifié : base + marques combinantes + ZWJ) |
+| `codepointAt(s, i)` | Point de code à l'index (−1 hors limites) |
+| `charAt(s, i)` | Caractère à l'index (codepoints) |
+| `slice(s, start, end)` | Sous-chaîne par points de code |
+| `reverse(s)` | Inversion par points de code |
+| `isValidUtf8(s)` | Validité UTF-8 |
+| `codepoints(s)` | Liste des points de code |
+| `isSpace(cp)` / `isAsciiLetter(cp)` / `isAsciiDigit(cp)` | Prédicats |
+
+Hors périmètre (zéro-dép) : normalisation NFC/NFD et catégories Unicode complètes (grosses tables de données). `graphemeCount` ne couvre pas toutes les règles UAX #29 (ex. indicateurs régionaux).
+
+Tests : `tests/stdlib/unicode.afr`
+
 ## WASM
 
-Compatibles wasm32 (voir `WASM_COMPAT.md`) : `str`, `math`, `stats`, `proba`, `random`, `json`, `collections`, `path`, `log`, `async` (subset).  
+Compatibles wasm32 (voir `WASM_COMPAT.md`) : `str`, `math`, `stats`, `proba`, `random`, `json`, `collections`, `path`, `log`, `async` (subset), `re`, `datetime`, `yaml`, `unicode`.  
 Natif seulement : `fs`/`io` fichiers, `http`, `crypto`, `process`, `net`, `ui`, `game*`.
 
 Démo : `examples/tier8_stdlib.afr` · `examples/math_stats_proba_demo.afr`

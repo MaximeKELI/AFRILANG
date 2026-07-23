@@ -364,7 +364,7 @@ static const std::vector<std::string> kCoreStdlibModules = {
     "collections", "args", "path", "async", "sql", "web", "orm", "thread",
     "bigint", "crypto", "process", "net", "yaml", "datetime", "env",
     "tempfile", "base64",
-    "url", "random", "hex", "csv", "html", "cli", "email", "uuid", "ui",
+    "url", "random", "hex", "csv", "html", "cli", "email", "uuid", "unicode", "ui",
     "game2d", "game3d", "gamestate", "gamenet", "log", "time",
 };
 

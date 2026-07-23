@@ -1,0 +1,46 @@
+import "std/unicode"
+
+test "byte vs codepoint length"
+    create s = "café"
+    assert byteLength(s) is equal to 5
+    assert codepointCount(s) is equal to 4
+end
+
+test "codepointAt and charAt"
+    create s = "héllo"
+    assert charAt(s, 0) is equal to "h"
+    assert charAt(s, 1) is equal to "é"
+    assert codepointAt(s, 1) is equal to 233
+    assert charAt(s, 99) is equal to ""
+end
+
+test "slice by codepoints"
+    create s = "héllo"
+    assert slice(s, 0, 2) is equal to "hé"
+    assert slice(s, 1, 5) is equal to "éllo"
+end
+
+test "reverse preserves codepoints"
+    assert reverse("abc") is equal to "cba"
+    assert reverse("héllo") is equal to "olléh"
+end
+
+test "grapheme count with combining marks"
+    create combined = "é"
+    assert byteLength(combined) is equal to 3
+    assert codepointCount(combined) is equal to 2
+    assert graphemeCount(combined) is equal to 1
+end
+
+test "utf8 validity"
+    assert isValidUtf8("hello") is equal to true
+    assert isValidUtf8("café") is equal to true
+end
+
+test "predicates"
+    assert isSpace(32) is equal to true
+    assert isSpace(65) is equal to false
+    assert isAsciiLetter(65) is equal to true
+    assert isAsciiDigit(53) is equal to true
+    assert isAsciiDigit(65) is equal to false
+end

@@ -474,6 +474,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     bool needsCli = false;
     bool needsEmail = false;
     bool needsUuid = false;
+    bool needsUnicode = false;
     bool needsSimpleLibs = false;
     bool needsMediumLibs = false;
     bool needsComplexLibs = false;
@@ -513,6 +514,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
         if (module->name == "cli") needsCli = true;
         if (module->name == "email") needsEmail = true;
         if (module->name == "uuid") needsUuid = true;
+        if (module->name == "unicode") needsUnicode = true;
         if (stdlibCatalogIsSimpleModule(module->name)) needsSimpleLibs = true;
         if (mediumCatalogIsMediumModule(module->name)) needsMediumLibs = true;
         if (complexCatalogIsComplexModule(module->name)) needsComplexLibs = true;
@@ -564,6 +566,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     if (needsCli) out << "#include \"cli.hpp\"\n";
     if (needsEmail) out << "#include \"email.hpp\"\n";
     if (needsUuid) out << "#include \"uuid.hpp\"\n";
+    if (needsUnicode) out << "#include \"unicode.hpp\"\n";
     if (needsSimpleLibs) out << "#include \"simple_libs.hpp\"\n";
     if (needsMediumLibs) out << "#include \"medium_libs.hpp\"\n";
     if (needsComplexLibs) out << "#include \"complex_libs.hpp\"\n";
@@ -2906,7 +2909,7 @@ bool CodeGenerator::usesStdlibModule(const std::string& name) const {
            name == "yaml" || name == "datetime" ||
            name == "env" || name == "tempfile" || name == "base64" || name == "url" ||
            name == "random" || name == "hex" || name == "csv" || name == "html" ||
-           name == "cli" || name == "email" || name == "uuid" ||
+           name == "cli" || name == "email" || name == "uuid" || name == "unicode" ||
            name == "async" || name == "ui" || name == "game2d" || name == "game3d" ||
            name == "gamestate" || name == "gamenet" || stdlibCatalogIsSimpleModule(name) ||
            mediumCatalogIsMediumModule(name) || complexCatalogIsComplexModule(name);

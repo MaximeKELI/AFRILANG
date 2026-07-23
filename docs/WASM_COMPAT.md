@@ -8,7 +8,7 @@ AFRILANG peut cibler **wasm32** via Emscripten (`afrilang run fichier.afr --targ
 |---------|-------------------|
 | Langage de base | variables, fonctions, boucles, `if`, listes, maps |
 | POO | classes, héritage, interfaces |
-| Stdlib core | `json`, `str`, `math`, `stats`, `proba`, `collections`, `args`, `path`, `log` |
+| Stdlib core | `json`, `str`, `math`, `stats`, `proba`, `collections`, `args`, `path`, `log`, `re`, `datetime`, `yaml`, `unicode` |
 | Async | `std/async` — `sleep`, coroutines (Emscripten) |
 | Démos CI | `examples/tier8_demo.afr`, `examples/tier8_stdlib.afr` |
 

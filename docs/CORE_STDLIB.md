@@ -34,6 +34,7 @@ Suite de tests : `afrilang test --specs`.
 | net | `std/net` | TCP + HTTP minimal (+ TLS OpenSSL) |
 | csv / yaml / html | `std/csv` … | Formats |
 | uuid / base64 / hex / url | … | Utilitaires |
+| unicode | `std/unicode` | UTF-8 : points de code, graphèmes, prédicats |
 
 ## Hors core (expérimental / généré)
 
