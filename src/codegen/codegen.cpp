@@ -1758,7 +1758,11 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << "{\n";
             indent(out, indentLevel + 1);
             out << "auto _afr_opt = ";
-            emitExpression(out, *matchStmt->subject, ownerClass);
+            if (const auto* id = dynamic_cast<const IdentifierNode*>(matchStmt->subject.get())) {
+                out << id->name; // conserver l'optionnel/Result brut (pas d'auto-.value())
+            } else {
+                emitExpression(out, *matchStmt->subject, ownerClass);
+            }
             out << ";\n";
             bool first = true;
             for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
