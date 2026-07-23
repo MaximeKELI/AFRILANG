@@ -1,0 +1,37 @@
+module Collider
+    function line(msg text) returns text
+        return "L:" + msg
+    end
+end
+
+module Echo
+    function wrap(line text) returns text
+        return "[" + line + "]"
+    end
+end
+
+use Collider
+use Echo
+
+test "param not shadowed by module function"
+    assert wrap("x") is equal to "[x]"
+    assert line("y") is equal to "L:y"
+end
+
+module stopwatch
+    function begin() returns int
+        return 10
+    end
+
+    function pulse(t int) returns int
+        return t + 5
+    end
+end
+
+use stopwatch
+
+test "user stopwatch not catalog runtime"
+    create t = begin()
+    assert t is equal to 10
+    assert pulse(t) is equal to 15
+end

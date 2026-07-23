@@ -1,14 +1,19 @@
 module resultx
-    // Helpers "orientés Result" sans type Result en paramètre (surface MVP).
-    function okValue(n number) returns number
+    function parsePositive(n number) returns number or error
+        if n is less than 0 then
+            return error "negative"
+        end
+        if n is equal to 0 then
+            return error "zero"
+        end
         return n
     end
 
-    function fallback(n number, alt number) returns number
-        if n is equal to 0 then
+    function valueOr(r number or error, alt number) returns number
+        if r is error then
             return alt
         end
-        return n
+        return r
     end
 
     function mapDouble(n number) returns number

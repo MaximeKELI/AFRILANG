@@ -1,4 +1,4 @@
-module Swatch
+module stopwatch
     function begin() returns int
         return 0
     end

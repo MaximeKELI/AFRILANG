@@ -1,8 +1,8 @@
 import "pkg/stopwatch/stopwatch.afr"
 
-use Swatch
+use stopwatch
 
-test "stopwatch"
+test "stopwatch user module"
     create t = begin()
     create t2 = pulse(t)
     create t3 = pulse(t2)
