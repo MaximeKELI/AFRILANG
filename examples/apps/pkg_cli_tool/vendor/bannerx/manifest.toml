@@ -1,6 +1,0 @@
-name = "bannerx"
-version = "0.1.0"
-description = "CLI banners and boxes"
-main = "bannerx.afr"
-license = "MIT"
-tags = ["cli", "text"]

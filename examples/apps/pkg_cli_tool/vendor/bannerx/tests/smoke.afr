@@ -1,9 +1,0 @@
-import "pkg/bannerx/bannerx.afr"
-
-use bannerx
-
-test "bannerx"
-    assert line("go") is equal to "=== go ==="
-    assert box("ok") is equal to "[ok]"
-    assert title("tool", "1") is equal to "tool v1"
-end

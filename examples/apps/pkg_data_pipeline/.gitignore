@@ -1,0 +1,5 @@
+vendor/
+build/
+*.generated.cpp
+.afrilang/
+afrilang.lock

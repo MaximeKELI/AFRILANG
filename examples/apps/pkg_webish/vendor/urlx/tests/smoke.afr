@@ -1,9 +1,0 @@
-import "pkg/urlx/urlx.afr"
-
-use urlx
-
-test "urlx"
-    assert joinUrl("https://a", "b") is equal to "https://a/b"
-    assert withScheme("ex.com") is equal to "https://ex.com"
-    assert origin("http", "x") is equal to "http://x"
-end

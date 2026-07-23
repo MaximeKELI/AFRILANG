@@ -1,6 +1,0 @@
-name = "demo_cli_p5"
-version = "0.1.0"
-description = "Paquet AFRILANG demo_cli_p5"
-main = "demo_cli_p5.afr"
-license = "MIT"
-tags = ["cli"]

@@ -1,6 +1,0 @@
-name = "envx"
-version = "0.1.0"
-description = "Env-line helpers (parse KEY=VALUE)"
-main = "envx.afr"
-license = "MIT"
-tags = ["env", "cli"]

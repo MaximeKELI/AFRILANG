@@ -1,6 +1,0 @@
-name = "queryx"
-version = "0.1.0"
-description = "URL query string helpers"
-main = "queryx.afr"
-license = "MIT"
-tags = ["net", "url"]

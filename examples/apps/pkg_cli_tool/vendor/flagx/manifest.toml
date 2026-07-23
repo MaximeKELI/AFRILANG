@@ -1,6 +1,0 @@
-name = "flagx"
-version = "0.1.0"
-description = "CLI flag helpers on args list"
-main = "flagx.afr"
-license = "MIT"
-tags = ["cli"]

@@ -1,6 +1,0 @@
-name = "csvx"
-version = "0.1.0"
-description = "CSV text helpers (escape, join row)"
-main = "csvx.afr"
-license = "MIT"
-tags = ["format", "text"]

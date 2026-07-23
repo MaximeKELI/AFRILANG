@@ -1,8 +1,0 @@
-module demo_cli_p5
-    function run(args list text) returns text
-        if length of args is less than 1 then
-            return "usage: demo_cli_p5 <cmd>"
-        end
-        return "ok:" + (args at 0)
-    end
-end

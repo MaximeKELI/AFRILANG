@@ -1,8 +1,0 @@
-import "pkg/percentx/percentx.afr"
-
-use percentx
-
-test "percentx"
-    assert percent(25, 100) is equal to 25
-    assert ofTotal(50, 200) is equal to 100
-end

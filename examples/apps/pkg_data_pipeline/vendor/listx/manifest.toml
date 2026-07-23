@@ -1,6 +1,0 @@
-name = "listx"
-version = "0.1.0"
-description = "List helpers (first, last, size)"
-main = "listx.afr"
-license = "MIT"
-tags = ["collections"]

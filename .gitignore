@@ -72,6 +72,15 @@ Thumbs.db
 
 # Lock / vendor (project-local)
 /vendor/
+**/vendor/
+**/.afrilang/
+**/*.generated.cpp
+
+# Built example / package binaries
+/examples/apps/**/main
+/smoke
+**/smoke
+/ma_lib/smoke
 
 # Package remote download cache
 /packages/.cache/
