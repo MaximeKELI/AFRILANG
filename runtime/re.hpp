@@ -86,6 +86,91 @@ inline std::vector<std::string> captures(const std::string& text, const std::str
     return out;
 }
 
+// --- Groupes nommés (émulés) ----------------------------------------------
+// std::regex (ECMAScript / libstdc++) ne gère pas `(?<name>...)`. On réécrit
+// le motif en groupes ordinaires et on retient l'index de chaque nom. Chaque
+// `(` capturant non échappé incrémente l'index ; `(?:`, `(?=`, `(?!` ne
+// capturent pas. Le lookbehind `(?<=`/`(?<!` reste non supporté par std::regex.
+struct NamedPattern {
+    std::string pattern;                 // motif réécrit (sans noms)
+    std::vector<std::string> groupNames; // nom du groupe i+1 ("" si anonyme)
+};
+
+inline NamedPattern stripNames(const std::string& pattern) {
+    NamedPattern result;
+    std::string& out = result.pattern;
+    out.reserve(pattern.size());
+    bool inClass = false;
+    for (std::size_t i = 0; i < pattern.size(); ++i) {
+        const char c = pattern[i];
+        if (c == '\\' && i + 1 < pattern.size()) {
+            out += c;
+            out += pattern[i + 1];
+            ++i;
+            continue;
+        }
+        if (c == '[') { inClass = true; out += c; continue; }
+        if (c == ']') { inClass = false; out += c; continue; }
+        if (c == '(' && !inClass) {
+            // Groupe nommé `(?<name>` ou `(?'name'` → groupe capturant + nom.
+            if (i + 2 < pattern.size() && pattern[i + 1] == '?' &&
+                (pattern[i + 2] == '<' || pattern[i + 2] == '\'') &&
+                // exclure lookbehind `(?<=` / `(?<!`
+                !(pattern[i + 2] == '<' && i + 3 < pattern.size() &&
+                  (pattern[i + 3] == '=' || pattern[i + 3] == '!'))) {
+                const char close = pattern[i + 2] == '<' ? '>' : '\'';
+                const std::size_t nameStart = i + 3;
+                const std::size_t nameEnd = pattern.find(close, nameStart);
+                if (nameEnd != std::string::npos) {
+                    result.groupNames.push_back(pattern.substr(nameStart, nameEnd - nameStart));
+                    out += '(';
+                    i = nameEnd;
+                    continue;
+                }
+            }
+            // Groupe non capturant / lookaround : pas de nom, pas d'index.
+            if (i + 1 < pattern.size() && pattern[i + 1] == '?') {
+                out += c;
+                continue;
+            }
+            // Groupe capturant ordinaire.
+            result.groupNames.push_back("");
+            out += c;
+            continue;
+        }
+        out += c;
+    }
+    return result;
+}
+
+// Contenu du groupe nommé au premier match, ou chaîne vide.
+inline std::string captureNamed(const std::string& text, const std::string& pattern,
+                                const std::string& name) {
+    const NamedPattern np = stripNames(pattern);
+    std::size_t index = 0;
+    for (std::size_t i = 0; i < np.groupNames.size(); ++i) {
+        if (np.groupNames[i] == name) { index = i + 1; break; }
+    }
+    if (index == 0) return {};
+    try {
+        std::smatch m;
+        if (std::regex_search(text, m, compile(np.pattern)) && index < m.size()) {
+            return m[index].str();
+        }
+    } catch (const std::regex_error&) {
+    }
+    return {};
+}
+
+// 1-based index du groupe nommé (0 si absent). Utile pour introspection.
+inline double namedGroupIndex(const std::string& pattern, const std::string& name) {
+    const NamedPattern np = stripNames(pattern);
+    for (std::size_t i = 0; i < np.groupNames.size(); ++i) {
+        if (np.groupNames[i] == name) return static_cast<double>(i + 1);
+    }
+    return 0;
+}
+
 inline std::size_t count(const std::string& text, const std::string& pattern) {
     return findAll(text, pattern).size();
 }
