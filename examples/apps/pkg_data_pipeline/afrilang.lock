@@ -1,0 +1,23 @@
+# AFRILANG lockfile — source of truth for `pkg install`
+
+[[package]]
+name = "percentx"
+version = "0.1.0"
+path = "vendor/percentx"
+source = "registry"
+sha256 = "27037d9d5dc250e5c8b5808c5b059e78827b3d800f0ee58a2829d96aa44b22f9"
+
+[[package]]
+name = "listx"
+version = "0.1.0"
+path = "vendor/listx"
+source = "registry"
+sha256 = "cf01261c3b60afdbc59d9bd9d24d94db7e94395b55d3b6402bc2c2b1bb47e9eb"
+
+[[package]]
+name = "csvx"
+version = "0.1.0"
+path = "vendor/csvx"
+source = "registry"
+sha256 = "ef7f271e59bd683cec96c584be5bfdc518dfebff561e68b9ec9a065c3081bcf2"
+

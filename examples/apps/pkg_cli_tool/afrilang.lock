@@ -1,0 +1,23 @@
+# AFRILANG lockfile — source of truth for `pkg install`
+
+[[package]]
+name = "bannerx"
+version = "0.1.0"
+path = "vendor/bannerx"
+source = "registry"
+sha256 = "1216479b4d303093b7c201295a99fc819b90ec5238c53662143b399140feaf5d"
+
+[[package]]
+name = "envx"
+version = "0.1.0"
+path = "vendor/envx"
+source = "registry"
+sha256 = "a58fda5657e31fb45a3fcf507089dbd16928f21ebd7984991c0dbc2c82ef8a2b"
+
+[[package]]
+name = "flagx"
+version = "0.1.0"
+path = "vendor/flagx"
+source = "registry"
+sha256 = "778c21e402bbabb7a65576c405f1c2cec8f5d397dc95adf83e1090089169e732"
+

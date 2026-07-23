@@ -1,0 +1,13 @@
+module queryx
+    function pair(key text, value text) returns text
+        return key + "=" + value
+    end
+
+    function append(url text, key text, value text) returns text
+        return url + "?" + pair(key, value)
+    end
+
+    function joinPairs(a text, b text) returns text
+        return a + "&" + b
+    end
+end

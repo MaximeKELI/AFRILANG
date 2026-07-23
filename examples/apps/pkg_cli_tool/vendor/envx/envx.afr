@@ -1,0 +1,24 @@
+import "std/str"
+use str
+
+module envx
+    function parseKey(line text) returns text
+        create parts = split(line, "=")
+        if length of parts is less than 1 then
+            return ""
+        end
+        return parts at 0
+    end
+
+    function parseValue(line text) returns text
+        create parts = split(line, "=")
+        if length of parts is less than 2 then
+            return ""
+        end
+        return parts at 1
+    end
+
+    function format(key text, value text) returns text
+        return key + "=" + value
+    end
+end

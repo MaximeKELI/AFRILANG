@@ -1,0 +1,9 @@
+import "pkg/envx/envx.afr"
+
+use envx
+
+test "envx"
+    assert parseKey("HOME=/tmp") is equal to "HOME"
+    assert parseValue("HOME=/tmp") is equal to "/tmp"
+    assert format("A", "1") is equal to "A=1"
+end

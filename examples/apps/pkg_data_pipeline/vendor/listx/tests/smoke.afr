@@ -1,0 +1,10 @@
+import "pkg/listx/listx.afr"
+
+use listx
+
+test "listx"
+    create xs = list of "a", "b", "c"
+    assert size(xs) is equal to 3
+    assert first(xs) is equal to "a"
+    assert last(xs) is equal to "c"
+end

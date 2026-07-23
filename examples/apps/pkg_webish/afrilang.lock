@@ -1,0 +1,23 @@
+# AFRILANG lockfile — source of truth for `pkg install`
+
+[[package]]
+name = "textx"
+version = "0.1.0"
+path = "vendor/textx"
+source = "registry"
+sha256 = "b39bbfdc4bf28c09f34be5466656b8bf929c4b89944126bd0fd489792eab6061"
+
+[[package]]
+name = "queryx"
+version = "0.1.0"
+path = "vendor/queryx"
+source = "registry"
+sha256 = "503e2ae7237c1f66b1122e0a46994f1cc137401f2d0539feb96a595588a979e6"
+
+[[package]]
+name = "urlx"
+version = "0.1.0"
+path = "vendor/urlx"
+source = "registry"
+sha256 = "1f9f55b5f95d5d7f059f7e6d73460bd7a4c796e6c9ec8674fec0f5955dd9bd60"
+

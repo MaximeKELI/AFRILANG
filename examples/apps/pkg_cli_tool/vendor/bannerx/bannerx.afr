@@ -1,0 +1,13 @@
+module bannerx
+    function line(msg text) returns text
+        return "=== " + msg + " ==="
+    end
+
+    function box(msg text) returns text
+        return "[" + msg + "]"
+    end
+
+    function title(app text, ver text) returns text
+        return app + " v" + ver
+    end
+end

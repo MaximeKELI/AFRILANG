@@ -1,0 +1,6 @@
+name = "urlx"
+version = "0.1.0"
+description = "URL text helpers"
+main = "urlx.afr"
+license = "MIT"
+tags = ["net", "url"]

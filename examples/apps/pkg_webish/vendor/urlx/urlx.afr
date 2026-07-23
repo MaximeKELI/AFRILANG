@@ -1,0 +1,16 @@
+module urlx
+    function joinUrl(base text, path text) returns text
+        if path is equal to "" then
+            return base
+        end
+        return base + "/" + path
+    end
+
+    function withScheme(host text) returns text
+        return "https://" + host
+    end
+
+    function origin(scheme text, host text) returns text
+        return scheme + "://" + host
+    end
+end
