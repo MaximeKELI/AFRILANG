@@ -2342,76 +2342,179 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
 
     if (const auto* matchExpr = dynamic_cast<const MatchExpressionNode*>(&expr)) {
         AfrType subjectType = analyzeExpression(*matchExpr->subject, scope);
-        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
-            AfrType resultType;
-            bool hasResult = false;
-            for (const auto& arm : matchExpr->arms) {
-                if (!arm.value) {
-                    errorAt(*matchExpr, "Bras match sans expression");
-                }
-                if (arm.guard) {
-                    AfrType guardType = analyzeExpression(*arm.guard, scope);
-                    if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
-                        errorAt(*matchExpr, "Guard match doit être booléen");
-                    }
-                }
-                AfrType armType = analyzeExpression(*arm.value, scope);
-                if (!hasResult) {
+        using CK = MatchArmNode::CaseKind;
+        AfrType resultType;
+        bool hasResult = false;
+
+        auto mergeType = [&](const AfrType& armType) {
+            if (!hasResult) { resultType = armType; hasResult = true; return; }
+            if (isAssignable(resultType, armType)) return;
+            if (isAssignable(armType, resultType)) { resultType = armType; return; }
+            if (resultType.kind == TypeKind::Class && armType.kind == TypeKind::Class) {
+                if (isSubclassOf(armType.className, resultType.className)) return;
+                if (isSubclassOf(resultType.className, armType.className)) {
                     resultType = armType;
-                    hasResult = true;
-                } else if (!isAssignable(resultType, armType) && !isAssignable(armType, resultType)) {
-                    errorAt(*matchExpr, "Types incohérents dans match expression");
+                    return;
                 }
             }
-            return hasResult ? resultType : AfrType::voidType();
+            errorAt(*matchExpr, "Types incohérents dans match expression");
+        };
+        auto evalArm = [&](const MatchExprArmNode& arm,
+                           std::unordered_map<std::string, AfrType>& armScope) {
+            if (!arm.value) errorAt(*matchExpr, "Bras match sans expression");
+            if (arm.guard) {
+                AfrType g = analyzeExpression(*arm.guard, armScope);
+                if (g.kind != TypeKind::Bool && !isNumeric(g)) {
+                    errorAt(*matchExpr, "Guard match doit être booléen");
+                }
+            }
+            mergeType(analyzeExpression(*arm.value, armScope));
+        };
+        auto finish = [&]() -> AfrType {
+            if (!hasResult) errorAt(*matchExpr, "Match expression sans bras");
+            const_cast<MatchExpressionNode*>(matchExpr)->resultTypeName = resultType.toTypeName();
+            return resultType;
+        };
+
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number ||
+            subjectType.kind == TypeKind::Int || subjectType.kind == TypeKind::Bool) {
+            const bool wantText = subjectType.kind == TypeKind::Text;
+            const bool wantBool = subjectType.kind == TypeKind::Bool;
+            bool hasCatchAll = false, hasTrue = false, hasFalse = false;
+            for (const auto& arm : matchExpr->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    hasCatchAll = true;
+                    evalArm(arm, armScope);
+                    continue;
+                }
+                if (wantText && arm.caseKind != CK::Text) {
+                    errorAt(*matchExpr, "Cas texte attendu dans match sur text");
+                } else if (wantBool) {
+                    if (arm.caseKind != CK::Bool) {
+                        errorAt(*matchExpr, "Cas booléen (true/false) attendu dans match sur bool");
+                    }
+                    if (arm.caseName == "true") hasTrue = true; else hasFalse = true;
+                } else if (!wantText && arm.caseKind != CK::Number && arm.caseKind != CK::Range) {
+                    errorAt(*matchExpr, "Cas numérique attendu dans match sur number");
+                }
+                evalArm(arm, armScope);
+            }
+            if (wantBool) {
+                if (!hasCatchAll && !(hasTrue && hasFalse)) {
+                    errorAt(*matchExpr, "match expression sur bool doit couvrir true et false (ou _)");
+                }
+            } else if (!hasCatchAll) {
+                errorAt(*matchExpr, "match expression sur text/number requiert 'default' ou '_'");
+            }
+            return finish();
+        }
+        if (subjectType.kind == TypeKind::Result) {
+            const AfrType inner = subjectType.resultInnerType();
+            bool hasOk = false, hasError = false, hasCatchAll = false;
+            for (const auto& arm : matchExpr->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    hasCatchAll = true;
+                } else if (arm.caseKind == CK::ResultError) {
+                    hasError = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = AfrType::text();
+                } else if (arm.caseKind == CK::Enum && arm.caseName == "ok") {
+                    hasOk = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = inner;
+                } else {
+                    errorAt(*matchExpr, "Cas 'ok', 'error' ou '_' attendu dans match sur Result");
+                }
+                evalArm(arm, armScope);
+            }
+            if (!hasCatchAll && (!hasOk || !hasError)) {
+                errorAt(*matchExpr, "match sur Result doit couvrir 'ok' et 'error' (ou '_')");
+            }
+            return finish();
+        }
+        if (subjectType.kind == TypeKind::Optional) {
+            const AfrType inner = subjectType.optionalInnerType();
+            bool hasValue = false, hasNothing = false, hasCatchAll = false;
+            for (const auto& arm : matchExpr->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    hasCatchAll = true;
+                } else if (arm.caseKind == CK::OptionalNothing) {
+                    hasNothing = true;
+                } else if (arm.caseKind == CK::Enum && arm.caseName == "value") {
+                    hasValue = true;
+                    if (!arm.bindNames.empty()) armScope[arm.bindNames[0]] = inner;
+                } else {
+                    errorAt(*matchExpr, "Cas 'value', 'nothing' ou '_' attendu dans match sur optionnel");
+                }
+                evalArm(arm, armScope);
+            }
+            if (!hasCatchAll && (!hasValue || !hasNothing)) {
+                errorAt(*matchExpr, "match sur optionnel doit couvrir 'value' et 'nothing' (ou '_')");
+            }
+            return finish();
+        }
+        if (subjectType.kind == TypeKind::Record) {
+            const RecordInfo* rec = findRecord(subjectType.recordName);
+            if (!rec) errorAt(*matchExpr, "Record '" + subjectType.recordName + "' introuvable");
+            for (const auto& arm : matchExpr->arms) {
+                auto armScope = scope;
+                if (arm.isDefault || arm.caseKind == CK::Wildcard) {
+                    evalArm(arm, armScope);
+                    continue;
+                }
+                if (arm.caseKind != CK::Record) {
+                    errorAt(*matchExpr, "Cas record attendu dans match sur record");
+                }
+                if (arm.caseName != subjectType.recordName) {
+                    errorAt(*matchExpr, "Cas '" + arm.caseName + "' incompatible avec record '" +
+                          subjectType.recordName + "'");
+                }
+                if (rec) {
+                    for (const auto& bindName : arm.bindNames) {
+                        bool found = false;
+                        for (const auto& [fname, field] : rec->fields) {
+                            if (fname == bindName) { armScope[bindName] = field.type; found = true; break; }
+                        }
+                        if (!found) {
+                            errorAt(*matchExpr, "Champ '" + bindName + "' introuvable dans record '" +
+                                  rec->name + "'");
+                        }
+                    }
+                }
+                evalArm(arm, armScope);
+            }
+            return finish();
         }
         if (subjectType.kind != TypeKind::Enum) {
-            errorAt(*matchExpr, "'match' requiert une valeur de type enum, text ou number");
+            errorAt(*matchExpr, "'match' requiert enum, text, number, bool, record, Result ou optionnel");
         }
         const EnumInfo* en = findEnum(subjectType.className);
         if (!en) errorAt(*matchExpr, "Enum '" + subjectType.className + "' introuvable");
 
-        AfrType resultType;
-        bool hasResult = false;
         bool hasDefault = false;
         std::unordered_set<std::string> coveredCases;
-
         for (const auto& arm : matchExpr->arms) {
-            if (arm.isDefault) {
+            auto armScope = scope;
+            if (arm.isDefault || arm.caseKind == CK::Wildcard) {
                 hasDefault = true;
-                if (!arm.value) {
-                    errorAt(*matchExpr, "Bras 'default' sans expression dans match expression");
-                }
-                AfrType armType = analyzeExpression(*arm.value, scope);
-                if (!hasResult) {
-                    resultType = armType;
-                    hasResult = true;
-                } else if (!isAssignable(resultType, armType)) {
-                    if (isAssignable(armType, resultType)) {
-                        resultType = armType;
-                    } else {
-                        errorAt(*matchExpr, "Types incohérents dans match expression");
-                    }
-                }
+                evalArm(arm, armScope);
                 continue;
             }
-
             const auto caseIt = en->cases.find(arm.caseName);
             if (caseIt == en->cases.end()) {
                 errorAt(*matchExpr, "Cas '" + arm.caseName + "' introuvable dans enum '" + en->name + "'");
             }
-            if (arm.caseKind != MatchArmNode::CaseKind::Enum) {
+            if (arm.caseKind != CK::Enum) {
                 errorAt(*matchExpr, "Cas littéral incompatible avec match enum");
             }
-            if (!arm.guard) {
-                coveredCases.insert(arm.caseName);
+            if (!arm.guard) coveredCases.insert(arm.caseName);
+            for (const auto& orName : arm.orValues) {
+                if (en->cases.find(orName) == en->cases.end()) {
+                    errorAt(*matchExpr, "Cas '" + orName + "' introuvable dans enum '" + en->name + "'");
+                }
+                if (!arm.guard) coveredCases.insert(orName);
             }
-
-            if (!arm.value) {
-                errorAt(*matchExpr, "Cas '" + arm.caseName + "' sans expression dans match expression");
-            }
-
-            auto armScope = scope;
             if (!caseIt->second.fields.empty()) {
                 if (arm.bindNames.empty()) {
                     for (const auto& [fname, ftype] : caseIt->second.fields) {
@@ -2427,37 +2530,7 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
                     }
                 }
             }
-
-            if (arm.guard) {
-                AfrType guardType = analyzeExpression(*arm.guard, armScope);
-                if (guardType.kind != TypeKind::Bool && !isNumeric(guardType)) {
-                    errorAt(*matchExpr, "Guard match doit être booléen");
-                }
-            }
-
-            AfrType armType = analyzeExpression(*arm.value, armScope);
-            if (!hasResult) {
-                resultType = armType;
-                hasResult = true;
-            } else if (!isAssignable(resultType, armType)) {
-                if (isAssignable(armType, resultType)) {
-                    resultType = armType;
-                } else if (resultType.kind == TypeKind::Class && armType.kind == TypeKind::Class) {
-                    if (isSubclassOf(armType.className, resultType.className)) {
-                        // keep resultType
-                    } else if (isSubclassOf(resultType.className, armType.className)) {
-                        resultType = armType;
-                    } else {
-                        errorAt(*matchExpr, "Types incohérents dans match expression");
-                    }
-                } else {
-                    errorAt(*matchExpr, "Types incohérents dans match expression");
-                }
-            }
-        }
-
-        if (!hasResult) {
-            errorAt(*matchExpr, "Match expression sans bras");
+            evalArm(arm, armScope);
         }
         if (!hasDefault) {
             for (const auto& [caseName, _] : en->cases) {
@@ -2467,9 +2540,7 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
                 }
             }
         }
-
-        const_cast<MatchExpressionNode*>(matchExpr)->resultTypeName = resultType.toTypeName();
-        return resultType;
+        return finish();
     }
 
     return AfrType::voidType();

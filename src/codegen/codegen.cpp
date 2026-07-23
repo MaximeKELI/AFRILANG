@@ -1695,31 +1695,44 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
     }
 
     if (const auto* matchStmt = dynamic_cast<const MatchStatementNode*>(&stmt)) {
+        using CK = MatchArmNode::CaseKind;
         AfrType subjectType = inferExpressionAfrType(*matchStmt->subject);
-        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number) {
+        if (subjectType.kind == TypeKind::Text || subjectType.kind == TypeKind::Number ||
+            subjectType.kind == TypeKind::Int || subjectType.kind == TypeKind::Bool) {
+            const bool isText = subjectType.kind == TypeKind::Text;
             indent(out, indentLevel);
             out << "{\n";
             indent(out, indentLevel + 1);
             out << "auto _afr_match = ";
             emitExpression(out, *matchStmt->subject, ownerClass);
             out << ";\n";
+            bool first = true;
             for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
                 const auto& arm = matchStmt->arms[i];
+                const bool isCatchAll = arm.isDefault || arm.caseKind == CK::Wildcard;
                 indent(out, indentLevel + 1);
-                if (arm.isDefault) {
+                if (isCatchAll) {
                     out << "else {\n";
-                } else if (i == 0) {
-                    out << "if (";
                 } else {
-                    out << "else if (";
-                }
-                if (!arm.isDefault) {
-                    out << "_afr_match == ";
-                    if (subjectType.kind == TypeKind::Text) {
-                        out << "\"" << arm.caseName << "\"";
+                    out << (first ? "if (" : "else if (");
+                    first = false;
+                    out << "(";
+                    auto emitScalarEq = [&](const std::string& lit) {
+                        out << "_afr_match == ";
+                        if (isText) out << "\"" << lit << "\"";
+                        else out << lit;
+                    };
+                    if (arm.caseKind == CK::Range) {
+                        out << "_afr_match >= " << arm.rangeLow
+                            << " && _afr_match <= " << arm.rangeHigh;
                     } else {
-                        out << arm.caseName;
+                        emitScalarEq(arm.caseName);
+                        for (const auto& ov : arm.orValues) {
+                            out << " || ";
+                            emitScalarEq(ov);
+                        }
                     }
+                    out << ")";
                     if (arm.guard) {
                         out << " && (";
                         emitExpression(out, *arm.guard, ownerClass);
@@ -1739,6 +1752,79 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             return;
         }
 
+        if (subjectType.kind == TypeKind::Result || subjectType.kind == TypeKind::Optional) {
+            const bool isResult = subjectType.kind == TypeKind::Result;
+            indent(out, indentLevel);
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto _afr_opt = ";
+            emitExpression(out, *matchStmt->subject, ownerClass);
+            out << ";\n";
+            bool first = true;
+            for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
+                const auto& arm = matchStmt->arms[i];
+                const bool isCatchAll = arm.isDefault || arm.caseKind == CK::Wildcard;
+                indent(out, indentLevel + 1);
+                std::string bindType, bindExpr;
+                bool positive = false; // "ok"/"value" arm
+                if (isCatchAll) {
+                    out << "else {\n";
+                } else {
+                    out << (first ? "if (" : "else if (");
+                    first = false;
+                    if (isResult) {
+                        if (arm.caseKind == CK::ResultError) {
+                            out << "_afr_opt.isError";
+                            bindType = "std::string"; bindExpr = "_afr_opt.message";
+                        } else { // ok
+                            out << "!_afr_opt.isError";
+                            positive = true;
+                            bindType = "auto"; bindExpr = "_afr_opt.value";
+                        }
+                    } else {
+                        if (arm.caseKind == CK::OptionalNothing) {
+                            out << "!_afr_opt.has_value()";
+                        } else { // value
+                            out << "_afr_opt.has_value()";
+                            positive = true;
+                            bindType = "auto"; bindExpr = "_afr_opt.value()";
+                        }
+                    }
+                    if (arm.guard && arm.bindNames.empty()) {
+                        out << " && (";
+                        emitExpression(out, *arm.guard, ownerClass);
+                        out << ")";
+                    }
+                    out << ") {\n";
+                }
+                if (!isCatchAll && !arm.bindNames.empty() && (positive || isResult)) {
+                    indent(out, indentLevel + 2);
+                    out << bindType << " " << arm.bindNames[0] << " = " << bindExpr << ";\n";
+                }
+                if (!isCatchAll && arm.guard && !arm.bindNames.empty()) {
+                    indent(out, indentLevel + 2);
+                    out << "if (";
+                    emitExpression(out, *arm.guard, ownerClass);
+                    out << ") {\n";
+                    for (const auto& bodyStmt : arm.body) {
+                        emitStatement(out, *bodyStmt, indentLevel + 3, ownerClass);
+                    }
+                    indent(out, indentLevel + 2);
+                    out << "}\n";
+                } else {
+                    for (const auto& bodyStmt : arm.body) {
+                        emitStatement(out, *bodyStmt, indentLevel + 2, ownerClass);
+                    }
+                }
+                indent(out, indentLevel + 1);
+                out << "}";
+                if (i + 1 == matchStmt->arms.size()) out << "\n";
+            }
+            indent(out, indentLevel);
+            out << "}\n";
+            return;
+        }
+
         if (subjectType.kind == TypeKind::Record) {
             indent(out, indentLevel);
             out << "{\n";
@@ -1746,15 +1832,16 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
             out << "auto _afr_rec = ";
             emitExpression(out, *matchStmt->subject, ownerClass);
             out << ";\n";
+            bool firstRec = true;
             for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
                 const auto& arm = matchStmt->arms[i];
+                const bool isCatchAll = arm.isDefault || arm.caseKind == CK::Wildcard;
                 indent(out, indentLevel + 1);
-                if (arm.isDefault) {
+                if (isCatchAll) {
                     out << "else {\n";
-                } else if (i == 0) {
-                    out << "if (true) {\n";
                 } else {
-                    out << "else if (true) {\n";
+                    out << (firstRec ? "if (true) {\n" : "else if (true) {\n");
+                    firstRec = false;
                 }
                 for (const auto& bindName : arm.bindNames) {
                     indent(out, indentLevel + 2);
@@ -1797,25 +1884,31 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         emitExpression(out, *matchStmt->subject, ownerClass);
         out << ";\n";
 
+        bool firstEnum = true;
         for (std::size_t i = 0; i < matchStmt->arms.size(); ++i) {
             const auto& arm = matchStmt->arms[i];
+            const bool isCatchAll = arm.isDefault || arm.caseKind == CK::Wildcard;
             indent(out, indentLevel + 1);
-            if (arm.isDefault) {
+            if (isCatchAll) {
                 out << "else {\n";
-            } else if (i == 0) {
-                out << "if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
             } else {
-                out << "else if (_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
+                out << (firstEnum ? "if (" : "else if (");
+                firstEnum = false;
+                out << "(_afr_match.tag == " << enumName << "::Tag::" << arm.caseName;
+                for (const auto& ov : arm.orValues) {
+                    out << " || _afr_match.tag == " << enumName << "::Tag::" << ov;
+                }
+                out << ")";
             }
-            if (!arm.isDefault && arm.guard && arm.bindNames.empty()) {
+            if (!isCatchAll && arm.guard && arm.bindNames.empty()) {
                 out << " && (";
                 emitExpression(out, *arm.guard, ownerClass);
                 out << ")";
             }
-            if (!arm.isDefault) {
+            if (!isCatchAll) {
                 out << ") {\n";
             }
-            if (!arm.isDefault && !arm.bindNames.empty()) {
+            if (!isCatchAll && !arm.bindNames.empty()) {
                 const auto enumIt = semantic_.enums.find(enumName);
                 if (enumIt != semantic_.enums.end()) {
                     const auto caseIt = enumIt->second.cases.find(arm.caseName);
@@ -1831,7 +1924,7 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
                     }
                 }
             }
-            if (!arm.isDefault && arm.guard && !arm.bindNames.empty()) {
+            if (!isCatchAll && arm.guard && !arm.bindNames.empty()) {
                 indent(out, indentLevel + 2);
                 out << "if (";
                 emitExpression(out, *arm.guard, ownerClass);
