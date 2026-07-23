@@ -43,3 +43,14 @@ Modèle [nim-lang/packages](https://github.com/nim-lang/packages) (`url` + `meth
 - [x] Honesty docs (core vs catalogues) + `check_docs_honesty.sh`
 - [x] `docs/COMPILER.md` (pas d’IR ; passes AST extension point)
 - [x] Smoke ASan bornes (`scripts/check_asan_bounds.sh` + CI)
+
+## Vague 6 — Non-conformités ISO critiques (mitigation produit)
+
+> Impossible de devenir une norme ISO officielle ou Rust. Mitigation maximale honnête.
+
+- [x] Spec normative produit `docs/NORMATIVE.md` + `docs/MEMORY_MODEL.md`
+- [x] Suite conformité élargie + `afrilang test --conformance`
+- [x] Unwrap optionnel / Result `.value` → erreurs catchables stables
+- [x] `AFRILANG_SANITIZE` + CI conformance
+- [x] Re-score audit canvas (critiques atténuées, pas « certifié ISO »)
+

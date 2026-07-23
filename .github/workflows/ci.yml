@@ -76,6 +76,7 @@ jobs:
           unset AFRILANG_REGISTRY_URL
           bash scripts/check_docs_honesty.sh
           bash scripts/check_blessed_quality.sh
+          ./build/afrilang test --conformance
           # http template uses std/web
           ROOT="$PWD"
           rm -rf /tmp/demo_http_p9

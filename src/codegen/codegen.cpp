@@ -446,6 +446,7 @@ void CodeGenerator::emitHeader(std::ostream& out) const {
     out << "#include <stdexcept>\n";
     out << "#include <functional>\n";
     out << "#include <optional>\n";
+    out << "#include \"safe.hpp\"\n";
 
     bool needsIo = false;
     bool needsJson = false;
@@ -2326,7 +2327,7 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         auto vit = semantic_.globalVariables.find(id->name);
         if (vit != semantic_.globalVariables.end() &&
             vit->second.kind == TypeKind::Optional) {
-            out << id->name << ".value()";
+            out << "afrilang::runtime::optionalRequire(" << id->name << ")";
             return;
         }
         out << id->name;
@@ -2370,10 +2371,27 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             }
         }
 
+        const AfrType binLeft = inferExpressionAfrType(*bin->left);
+        const AfrType binRight = inferExpressionAfrType(*bin->right);
+        auto emitBinOperand = [&](const ExpressionNode& side, const AfrType& sideType,
+                                  const AfrType& otherType) {
+            if (sideType.kind == TypeKind::Optional && otherType.kind != TypeKind::Optional) {
+                out << "afrilang::runtime::optionalRequire(";
+                if (const auto* sid = dynamic_cast<const IdentifierNode*>(&side)) {
+                    out << sid->name;
+                } else {
+                    emitExpression(out, side, ownerClass);
+                }
+                out << ")";
+            } else {
+                emitExpression(out, side, ownerClass);
+            }
+        };
+
         out << "(";
-        emitExpression(out, *bin->left, ownerClass);
+        emitBinOperand(*bin->left, binLeft, binRight);
         out << " " << bin->op << " ";
-        emitExpression(out, *bin->right, ownerClass);
+        emitBinOperand(*bin->right, binRight, binLeft);
         out << ")";
         return;
     }
@@ -3165,6 +3183,12 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
 
     if (const auto* member = dynamic_cast<const MemberAccessNode*>(&expr)) {
         const AfrType objectType = inferExpressionAfrType(*member->object);
+        if (objectType.kind == TypeKind::Result && member->member == "value") {
+            out << "(";
+            emitExpression(out, *member->object, ownerClass);
+            out << ").requireValue()";
+            return;
+        }
         if (objectType.kind == TypeKind::Class &&
             classHasProperty(semantic_, objectType.className, member->member)) {
             emitReceiver(out, *member->object, ownerClass);
@@ -3726,6 +3750,14 @@ bool CodeGenerator::compileToExecutable(const std::string& outputPath,
         std::string tok;
         while (iss >> tok) {
             if (!tok.empty()) args.push_back(tok);
+        }
+    }
+    if (const char* sanitize = std::getenv("AFRILANG_SANITIZE")) {
+        if (sanitize[0] == '1' || sanitize[0] == 'y' || sanitize[0] == 'Y') {
+            if (!wasmBuild) {
+                args.push_back("-fsanitize=address,undefined");
+                args.push_back("-fno-omit-frame-pointer");
+            }
         }
     }
     if (usesComplexCatalog && !wasmBuild) {

@@ -1,0 +1,23 @@
+test "raise is catchable"
+    create caught text = ""
+    try
+        raise "boom"
+        set caught = "nope"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "boom"
+end
+
+test "list oob is catchable text"
+    create xs = list of 1
+    create caught text = ""
+    try
+        create v = xs at 3
+        set caught = "nope"
+        say v
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "list index out of bounds"
+end

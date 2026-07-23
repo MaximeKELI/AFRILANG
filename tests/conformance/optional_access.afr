@@ -1,0 +1,22 @@
+test "optional defined unwrap succeeds"
+    create a number? = 7
+    assert a is defined
+    assert a is equal to 7
+end
+
+test "optional nothing throws on unwrap"
+    create a number? = nothing
+    create caught text = ""
+    try
+        assert a is equal to 0
+        set caught = "nope"
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "optional value is nothing"
+end
+
+test "or else avoids throw"
+    create a number? = nothing
+    assert (a or else 3) is equal to 3
+end

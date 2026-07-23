@@ -141,8 +141,8 @@ static void printUsage() {
     std::cerr << "  afrilang build [projet/]     Compiler un projet (afrilang.toml)\n";
     std::cerr << "  afrilang run <fichier.afr>   Compiler et exécuter [--watch] [--profile]\n";
     std::cerr << "  afrilang check <fichier.afr> [--error-limit N]\n";
-    std::cerr << "  afrilang test [--examples|--specs] [--coverage]\n";
-    std::cerr << "      Tests projet | exemples | specs (tests/specs + tests/stdlib)\n";
+    std::cerr << "  afrilang test [--examples|--specs|--conformance] [--coverage]\n";
+    std::cerr << "      Tests projet | exemples | specs | conformité produit (NORMATIVE.md)\n";
     std::cerr << "  afrilang lsp                 Démarrer le serveur LSP\n";
     std::cerr << "  afrilang fmt <fichier.afr>   Formater un fichier\n";
     std::cerr << "  afrilang repl                REPL interactif\n";
@@ -745,6 +745,58 @@ static int runSpecsSuite(const fs::path& root, bool coverage) {
     return failures == 0 ? 0 : 1;
 }
 
+static int runConformanceSuite(const fs::path& root, bool coverage) {
+    std::vector<fs::path> files;
+    const fs::path dir = root / "tests" / "conformance";
+    if (fs::exists(dir) && fs::is_directory(dir)) {
+        for (const auto& entry : fs::recursive_directory_iterator(
+                 dir, fs::directory_options::skip_permission_denied)) {
+            if (!entry.is_regular_file()) continue;
+            if (entry.path().extension() == ".afr") files.push_back(entry.path());
+        }
+    }
+    std::sort(files.begin(), files.end());
+    if (files.empty()) {
+        std::cout << "Aucun fichier tests/conformance trouvé.\n";
+        return 1;
+    }
+
+    std::cout << "=== Conformité AFRILANG 1.0 (produit, " << files.size()
+              << " fichier(s)) ===\n";
+    std::cout << "(docs/NORMATIVE.md — pas une certification ISO)\n\n";
+    CompileOptions opts;
+    opts.runtimeDir = (root / "runtime").string();
+    opts.useCache = false;
+    opts.coverageMode = coverage;
+    opts.runAfter = true;
+
+    int failures = 0;
+    int passed = 0;
+    for (const auto& path : files) {
+        const std::string rel = fs::relative(path, root).string();
+        std::cout << "  " << rel << " ... ";
+        std::cout.flush();
+        try {
+            auto result = Pipeline::compileFile(path.string(), opts);
+            if (result.success) {
+                std::cout << "OK\n";
+                ++passed;
+            } else {
+                std::cout << "FAIL\n";
+                ++failures;
+            }
+        } catch (const CompileError&) {
+            std::cout << "FAIL\n";
+            ++failures;
+        } catch (const std::exception& e) {
+            std::cout << "FAIL (" << e.what() << ")\n";
+            ++failures;
+        }
+    }
+    std::cout << "\n" << passed << " réussi(s), " << failures << " échec(s).\n";
+    return failures == 0 ? 0 : 1;
+}
+
 int Pipeline::runTests(const std::string& rootOrProject, bool coverage, bool examplesMode,
                        bool specsMode) {
     const fs::path root(rootOrProject);
@@ -1215,13 +1267,19 @@ int runCli(int argc, char* argv[]) {
         bool coverage = false;
         bool examplesMode = false;
         bool specsMode = false;
+        bool conformanceMode = false;
         std::string rootArg;
         for (int i = 2; i < argc; ++i) {
             const std::string arg = argv[i];
             if (arg == "--coverage") coverage = true;
             else if (arg == "--examples") examplesMode = true;
             else if (arg == "--specs") specsMode = true;
+            else if (arg == "--conformance") conformanceMode = true;
             else if (!arg.empty() && arg[0] != '-' && rootArg.empty()) rootArg = arg;
+        }
+        if (conformanceMode) {
+            if (rootArg.empty()) rootArg = detectAfrilangRoot();
+            return runConformanceSuite(rootArg, coverage);
         }
         if (specsMode) {
             if (rootArg.empty()) rootArg = detectAfrilangRoot();

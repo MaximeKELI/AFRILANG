@@ -1,0 +1,30 @@
+function half(n number) returns number or error
+    if n is equal to 0 then
+        return error "zero"
+    end
+    return n / 2
+end
+
+test "result value on success"
+    create r = half(8)
+    assert (r is error) is equal to false
+    assert r.value is equal to 4
+end
+
+test "result value on error throws"
+    create bad = half(0)
+    assert bad is error
+    create caught text = ""
+    try
+        create v = bad.value
+        set caught = "nope"
+        say v
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "zero"
+end
+
+test "or else on error"
+    assert (half(0) or else 9) is equal to 9
+end

@@ -1,5 +1,10 @@
 # AFRILANG Language Specification 1.0
 
+> **Normative product rules** (MUST / catchable errors): [`docs/NORMATIVE.md`](NORMATIVE.md).  
+> **Memory model**: [`docs/MEMORY_MODEL.md`](MEMORY_MODEL.md).  
+> This file remains the readable language tour; when they conflict, NORMATIVE wins for
+> conformance.
+
 ## Comment lire cette spécification
 
 1. **Types** — primitives, collections, optionnels, Result  

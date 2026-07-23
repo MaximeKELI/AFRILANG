@@ -19,17 +19,21 @@ Point d’extension : `include/afrilang/passes.hpp` (`runOptionalPasses`) — vi
 l’instant, volontairement, pour accueillir de futures passes AST sans prétendre à
 un backend LLVM.
 
-## Sûreté d’indexation
+## Sûreté d’indexation et d’accès
 
-Depuis la vague ISO-majeurs :
+Depuis Vague 5–6 (ISO critiques/majeurs) :
 
 - lecture liste hors bornes → `std::out_of_range("list index out of bounds")`
 - lecture map clé absente → `std::out_of_range("map key not found")`
 - écriture liste hors bornes → même message liste
-- slices → vérification `start/end/size` (`list slice out of bounds`)
+- slices → `list slice out of bounds`
+- optionnel vs non-optionnel (ex. `a is equal to 7`) → `optionalRequire` /
+  `optional value is nothing`
+- `Result.value` si erreur → `requireValue()` (message d’erreur ou `result is error`)
 
-La sûreté mémoire globale reste celle du C++ généré (pas de borrow checker).
-Smoke CI optionnel : `scripts/check_asan_bounds.sh` (`AFRILANG_EXTRA_CXXFLAGS`).
+Modèle mémoire : `docs/MEMORY_MODEL.md`. Spec normative produit : `docs/NORMATIVE.md`.
+
+Smoke CI : `scripts/check_asan_bounds.sh` ; option `AFRILANG_SANITIZE=1`.
 
 ## Conformité
 

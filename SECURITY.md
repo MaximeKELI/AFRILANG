@@ -35,6 +35,8 @@ In secure mode:
 | Variable | Default | Effect |
 |----------|---------|--------|
 | `AFRILANG_INSECURE=1` | off | Disables secure mode entirely |
+| `AFRILANG_SANITIZE=1` | off | Adds `-fsanitize=address,undefined` to host compile (use with `AFRILANG_INSECURE=1` when running) |
+| `AFRILANG_EXTRA_CXXFLAGS` | empty | Extra host compiler flags (space-separated) |
 | `AFRILANG_ALLOW_FFI=1` | off | Allows FFI when insecure mode is off (allowlist still applies) |
 | `AFRILANG_ALLOW_SERVE=1` | off | Enables `afrilang serve` playground |
 | `AFRILANG_SERVE_PUBLIC=1` | off | Binds playground to `0.0.0.0` instead of localhost |
