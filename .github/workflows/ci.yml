@@ -63,6 +63,19 @@ jobs:
           rm -f packages/remote-index.json
           rm -rf smoke_app smoke_lib path_app local_dep
 
+      - name: Blessed packages smoke (subset)
+        run: |
+          ./build/afrilang pkg reindex
+          ./build/afrilang pkg search | grep -q '★'
+          ./build/afrilang pkg search math | grep -q '#math'
+          rm -rf /tmp/demo_cli_p5
+          ./build/afrilang pkg init /tmp/demo_cli_p5 --template cli
+          cd /tmp/demo_cli_p5 && /home/admin20/AFRILANG/build/afrilang pkg test
+          cd -
+          for p in math strx flagx percentx urlx listx jsonx clampx; do
+            ./build/afrilang run "packages/$p/tests/smoke.afr"
+          done
+
       - name: LSP diagnostic smoke test
         run: python3 scripts/test_lsp_diag.py
 

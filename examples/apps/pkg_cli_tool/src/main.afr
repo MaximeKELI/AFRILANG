@@ -1,0 +1,15 @@
+import "pkg/flagx/flagx.afr"
+import "pkg/envx/envx.afr"
+import "pkg/bannerx/bannerx.afr"
+
+use flagx
+use envx
+use bannerx
+
+create args = list of "--name", "Ada", "--verbose"
+say line(title("pkg_cli_tool", "0.1.0"))
+say box(format("USER", flagValue(args, "--name")))
+if hasFlag(args, "--verbose") then
+    say parseKey("MODE=debug")
+    say parseValue("MODE=debug")
+end

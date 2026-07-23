@@ -1,0 +1,10 @@
+name = "pkg_cli_tool"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_cli_tool"
+description = "Mini CLI: flagx + envx + bannerx"
+
+[dependencies]
+flagx = "0.1.0"
+envx = "0.1.0"
+bannerx = "0.1.0"

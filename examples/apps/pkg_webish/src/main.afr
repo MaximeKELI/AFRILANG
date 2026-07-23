@@ -1,0 +1,16 @@
+import "pkg/urlx/urlx.afr"
+import "pkg/queryx/queryx.afr"
+import "pkg/textx/textx.afr"
+
+use urlx
+use queryx
+use textx
+
+create base = withScheme("api.example.com")
+create path = joinUrl(base, "v1/search")
+create full = append(path, "q", "afrilang")
+say label("url", full)
+say joinPairs(pair("q", "afrilang"), pair("lang", "fr"))
+if nonEmpty(full) then
+    say "ready"
+end

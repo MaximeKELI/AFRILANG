@@ -1,0 +1,15 @@
+import "pkg/csvx/csvx.afr"
+import "pkg/listx/listx.afr"
+import "pkg/percentx/percentx.afr"
+
+use csvx
+use listx
+use percentx
+
+create row = joinRow(escape("name"), escape("score"), escape("pct"))
+create cells = list of "ok", "12", "50"
+say row
+say "cols=" + first(cells) + ".." + last(cells) + " n=" 
+say size(cells)
+say percent(25, 100)
+say ofTotal(50, 200)

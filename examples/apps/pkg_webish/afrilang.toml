@@ -1,0 +1,10 @@
+name = "pkg_webish"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_webish"
+description = "Webish URL helpers: urlx + queryx + textx"
+
+[dependencies]
+urlx = "0.1.0"
+queryx = "0.1.0"
+textx = "0.1.0"

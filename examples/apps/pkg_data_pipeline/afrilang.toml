@@ -1,0 +1,10 @@
+name = "pkg_data_pipeline"
+version = "0.1.0"
+main = "src/main.afr"
+output = "build/pkg_data_pipeline"
+description = "Pipeline data: csvx + listx + percentx"
+
+[dependencies]
+csvx = "0.1.0"
+listx = "0.1.0"
+percentx = "0.1.0"
