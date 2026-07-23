@@ -1014,6 +1014,10 @@ void StdlibRegistry::injectCryptoModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("hexDecode", {{"hex", "text"}}, "text"));
     fns.push_back(makeStubFunction("aesGcmEncrypt", {{"keyHex", "text"}, {"plaintext", "text"}}, "text"));
     fns.push_back(makeStubFunction("aesGcmDecrypt", {{"keyHex", "text"}, {"packedHex", "text"}}, "text"));
+    fns.push_back(makeStubFunction("ed25519GenPrivate", {}, "text"));
+    fns.push_back(makeStubFunction("ed25519PublicFromPrivate", {{"privHex", "text"}}, "text"));
+    fns.push_back(makeStubFunction("ed25519Sign", {{"privHex", "text"}, {"message", "text"}}, "text"));
+    fns.push_back(makeStubFunction("ed25519Verify", {{"pubHex", "text"}, {"message", "text"}, {"sigHex", "text"}}, "bool"));
     injectModule(program, "crypto", std::move(fns));
 }
 

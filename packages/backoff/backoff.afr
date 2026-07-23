@@ -1,4 +1,4 @@
-module retry
+module backoff
     function backoffDelay(attempt int, baseMs int) returns int
         create factor int = 1
         create i int = 0

@@ -6,6 +6,7 @@
 #include "afrilang/security.hpp"
 #include "afrilang/semver.hpp"
 
+#include "../../runtime/crypto.hpp"
 #include "../../runtime/http.hpp"
 
 #include <algorithm>
@@ -213,6 +214,71 @@ static std::unordered_set<std::string> loadBlessedNames(const std::string& afril
         i = end;
     }
     return names;
+}
+
+// Extrait toutes les chaînes hexadécimales entre guillemets d'un fichier JSON
+// simple (utilisé pour trusted_keys.json : tableau de clés publiques hex).
+static std::vector<std::string> loadTrustedKeys(const std::string& afrilangRoot) {
+    std::vector<std::string> keys;
+    const fs::path path = fs::path(afrilangRoot) / "packages" / "trusted_keys.json";
+    if (!fs::exists(path)) return keys;
+    std::ifstream in(path);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string body = buf.str();
+    for (std::size_t i = 0; i < body.size(); ++i) {
+        if (body[i] != '"') continue;
+        const std::size_t end = body.find('"', i + 1);
+        if (end == std::string::npos) break;
+        const std::string tok = body.substr(i + 1, end - i - 1);
+        if (tok.size() == 64) keys.push_back(tok);
+        i = end;
+    }
+    return keys;
+}
+
+// signatures.json : objet {"pkgName":"sigHex", ...}
+static std::unordered_map<std::string, std::string> loadSignatures(
+    const std::string& afrilangRoot) {
+    std::unordered_map<std::string, std::string> sigs;
+    const fs::path path = fs::path(afrilangRoot) / "packages" / "signatures.json";
+    if (!fs::exists(path)) return sigs;
+    std::ifstream in(path);
+    std::ostringstream buf;
+    buf << in.rdbuf();
+    const std::string body = buf.str();
+    std::size_t i = 0;
+    while (i < body.size()) {
+        if (body[i] != '"') { ++i; continue; }
+        const std::size_t keyEnd = body.find('"', i + 1);
+        if (keyEnd == std::string::npos) break;
+        const std::string key = body.substr(i + 1, keyEnd - i - 1);
+        std::size_t j = body.find(':', keyEnd);
+        if (j == std::string::npos) break;
+        const std::size_t valStart = body.find('"', j);
+        if (valStart == std::string::npos) break;
+        const std::size_t valEnd = body.find('"', valStart + 1);
+        if (valEnd == std::string::npos) break;
+        sigs[key] = body.substr(valStart + 1, valEnd - valStart - 1);
+        i = valEnd + 1;
+    }
+    return sigs;
+}
+
+static void writeSignatures(const std::string& afrilangRoot,
+                            const std::unordered_map<std::string, std::string>& sigs) {
+    const fs::path path = fs::path(afrilangRoot) / "packages" / "signatures.json";
+    std::ostringstream out;
+    out << "{\n";
+    std::size_t i = 0;
+    for (const auto& [name, sig] : sigs) {
+        out << "  \"" << name << "\": \"" << sig << "\"";
+        if (++i < sigs.size()) out << ",";
+        out << "\n";
+    }
+    out << "}\n";
+    std::ofstream file(path);
+    if (file) file << out.str();
 }
 
 static std::string readIndexField(const std::string& body, const std::string& packageName,
@@ -478,6 +544,7 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         }
     }
     const auto blessed = loadBlessedNames(afrilangRoot);
+    const auto signatures = loadSignatures(afrilangRoot);
 
     std::ostringstream json;
     json << "{\n  \"packages\": [\n";
@@ -491,6 +558,10 @@ int PkgRegistry::rebuildIndex(const std::string& afrilangRoot) {
         const std::string hash = sha256Directory((packagesDir / pkg.name).string());
         if (!hash.empty()) {
             json << ",\"sha256\":\"" << jsonEscape(hash) << "\"";
+        }
+        const auto sigIt = signatures.find(pkg.name);
+        if (sigIt != signatures.end() && !sigIt->second.empty()) {
+            json << ",\"sig\":\"" << jsonEscape(sigIt->second) << "\"";
         }
         if (isBlessed) {
             json << ",\"blessed\":true";

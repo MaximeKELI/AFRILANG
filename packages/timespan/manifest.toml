@@ -1,4 +1,4 @@
-name = "duration"
+name = "timespan"
 version = "0.1.0"
 description = "Time duration conversions"
-main = "duration.afr"
+main = "timespan.afr"

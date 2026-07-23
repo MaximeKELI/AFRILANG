@@ -1,4 +1,4 @@
-name = "retry"
+name = "backoff"
 version = "0.1.0"
 description = "Retry/backoff delay helpers"
-main = "retry.afr"
+main = "backoff.afr"

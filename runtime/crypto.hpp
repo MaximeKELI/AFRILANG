@@ -202,4 +202,77 @@ inline std::string aesGcmDecrypt(const std::string& keyHex, const std::string& p
     return plain;
 }
 
+// --- Signatures Ed25519 (provenance de paquets) ---------------------------
+// Clés au format brut (raw) encodées en hexadécimal : privée = 32 octets
+// (graine), publique = 32 octets, signature = 64 octets.
+
+inline std::string ed25519GenPrivate() {
+    return hexEncode(randomBytes(32));
+}
+
+inline std::string ed25519PublicFromPrivate(const std::string& privHex) {
+    const std::string priv = hexDecode(privHex);
+    if (priv.size() != 32) return {};
+    EVP_PKEY* pkey = EVP_PKEY_new_raw_private_key(
+        EVP_PKEY_ED25519, nullptr,
+        reinterpret_cast<const unsigned char*>(priv.data()), priv.size());
+    if (!pkey) return {};
+    unsigned char pub[32];
+    std::size_t publen = sizeof(pub);
+    std::string out;
+    if (EVP_PKEY_get_raw_public_key(pkey, pub, &publen) == 1) {
+        out = digestToHex(pub, publen);
+    }
+    EVP_PKEY_free(pkey);
+    return out;
+}
+
+inline std::string ed25519Sign(const std::string& privHex, const std::string& message) {
+    const std::string priv = hexDecode(privHex);
+    if (priv.size() != 32) return {};
+    EVP_PKEY* pkey = EVP_PKEY_new_raw_private_key(
+        EVP_PKEY_ED25519, nullptr,
+        reinterpret_cast<const unsigned char*>(priv.data()), priv.size());
+    if (!pkey) return {};
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    std::string out;
+    if (ctx && EVP_DigestSignInit(ctx, nullptr, nullptr, nullptr, pkey) == 1) {
+        std::size_t siglen = 0;
+        if (EVP_DigestSign(ctx, nullptr, &siglen,
+                           reinterpret_cast<const unsigned char*>(message.data()),
+                           message.size()) == 1) {
+            std::vector<unsigned char> sig(siglen);
+            if (EVP_DigestSign(ctx, sig.data(), &siglen,
+                               reinterpret_cast<const unsigned char*>(message.data()),
+                               message.size()) == 1) {
+                out = digestToHex(sig.data(), siglen);
+            }
+        }
+    }
+    if (ctx) EVP_MD_CTX_free(ctx);
+    EVP_PKEY_free(pkey);
+    return out;
+}
+
+inline bool ed25519Verify(const std::string& pubHex, const std::string& message,
+                          const std::string& sigHex) {
+    const std::string pub = hexDecode(pubHex);
+    const std::string sig = hexDecode(sigHex);
+    if (pub.size() != 32 || sig.size() != 64) return false;
+    EVP_PKEY* pkey = EVP_PKEY_new_raw_public_key(
+        EVP_PKEY_ED25519, nullptr,
+        reinterpret_cast<const unsigned char*>(pub.data()), pub.size());
+    if (!pkey) return false;
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    bool ok = false;
+    if (ctx && EVP_DigestVerifyInit(ctx, nullptr, nullptr, nullptr, pkey) == 1) {
+        ok = EVP_DigestVerify(ctx, reinterpret_cast<const unsigned char*>(sig.data()), sig.size(),
+                              reinterpret_cast<const unsigned char*>(message.data()),
+                              message.size()) == 1;
+    }
+    if (ctx) EVP_MD_CTX_free(ctx);
+    EVP_PKEY_free(pkey);
+    return ok;
+}
+
 } // namespace afrilang::runtime::crypto

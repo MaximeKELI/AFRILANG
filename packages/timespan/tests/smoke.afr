@@ -1,6 +1,6 @@
-import "pkg/duration/duration.afr"
+import "pkg/timespan/timespan.afr"
 
-use duration
+use timespan
 
 test "conversions"
     assert minutesToSeconds(2) is equal to 120

@@ -1,4 +1,4 @@
-module semver
+module semverx
     function compare(major1 int, minor1 int, patch1 int, major2 int, minor2 int, patch2 int) returns int
         if major1 is less than major2 then
             return 0 - 1

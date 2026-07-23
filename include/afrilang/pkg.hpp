@@ -65,6 +65,11 @@ public:
     /** Run tests/ for a package (vendors self first). */
     static int cmdTest(const std::string& packageDir, const std::string& afrilangRoot);
     static int rebuildIndex(const std::string& afrilangRoot);
+    /** Sign a package's directory hash with an Ed25519 key, recording sig in the index. */
+    static int cmdSign(const std::string& packageName, const std::string& privKeyHex,
+                       const std::string& afrilangRoot);
+    /** Verify a package's checksum and (if a trusted key + sig exist) its signature. */
+    static int cmdVerify(const std::string& packageName, const std::string& afrilangRoot);
     static int syncRemoteRegistry(const std::string& afrilangRoot);
     static std::string registryUrl();
     static std::string registryPublishUrl();

@@ -1,6 +1,6 @@
-import "pkg/semver/semver.afr"
+import "pkg/semverx/semverx.afr"
 
-use semver
+use semverx
 
 test "compare"
     assert compare(1, 2, 3, 1, 2, 3) is equal to 0

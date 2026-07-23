@@ -1,4 +1,4 @@
-module duration
+module timespan
     function minutesToSeconds(m number) returns number
         return m * 60
     end

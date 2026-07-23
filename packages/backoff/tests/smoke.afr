@@ -1,6 +1,6 @@
-import "pkg/retry/retry.afr"
+import "pkg/backoff/backoff.afr"
 
-use retry
+use backoff
 
 test "backoff"
     assert backoffDelay(0, 100) is equal to 100
