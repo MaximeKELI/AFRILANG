@@ -146,6 +146,7 @@ struct Instr {
     std::string name;
     std::string typeHint;
     bool isConst = false;
+    ResultPropagation propagate = ResultPropagation::None;
     std::unique_ptr<ExpressionNode> target; // Set
     std::unique_ptr<ExpressionNode> value;
     std::unique_ptr<StatementNode> opaque;
@@ -263,6 +264,14 @@ bool lowerInto(std::unique_ptr<StatementNode> stmt, FunctionIR& ir, int& blockId
         in.name = assign->name;
         in.typeHint = assign->typeName;
         in.isConst = assign->isConst;
+        in.propagate = assign->propagate;
+        if (assign->propagate != ResultPropagation::None) {
+            // Keep assign opaque so ResultPropagation survives Mid-IR raise.
+            in.kind = InstrKind::Opaque;
+            in.opaque = std::move(stmt);
+            ir.blocks[static_cast<size_t>(blockId)].instrs.push_back(std::move(in));
+            return true;
+        }
         if (assign->value) in.value = foldExpr(std::move(assign->value));
         ir.blocks[static_cast<size_t>(blockId)].instrs.push_back(std::move(in));
         return true;
@@ -357,9 +366,12 @@ void simplifyCfg(FunctionIR& ir) {
 
 std::unique_ptr<StatementNode> instrToStmt(Instr& in) {
     switch (in.kind) {
-    case InstrKind::Assign:
-        return std::make_unique<AssignStatementNode>(in.name, in.typeHint, std::move(in.value),
-                                                     in.isConst);
+    case InstrKind::Assign: {
+        auto s = std::make_unique<AssignStatementNode>(in.name, in.typeHint, std::move(in.value),
+                                                       in.isConst);
+        s->propagate = in.propagate;
+        return s;
+    }
     case InstrKind::Set: {
         if (!in.target || !in.value) return nullptr;
         return std::make_unique<SetStatementNode>(std::move(in.target), std::move(in.value));
