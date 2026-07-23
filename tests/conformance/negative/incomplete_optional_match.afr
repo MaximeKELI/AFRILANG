@@ -4,8 +4,8 @@ function maybe(n number) returns number?
 end
 
 create a = maybe(1)
-match a
-    case value v
-        say v
+create label = match a
+    case value v then v
     end
 end
+say label
