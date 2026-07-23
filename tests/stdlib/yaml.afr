@@ -1,0 +1,34 @@
+import "std/yaml"
+import "std/json"
+
+test "nested mapping"
+    create doc json = yaml.parse("name: AFRILANG\nversion: 3\nnested:\n  a: 1\n  b: hello\n")
+    assert json.getString(doc, "name") is equal to "AFRILANG"
+    assert json.getNumber(doc, "version") is equal to 3
+    assert json.stringify(json.getPath(doc, "nested.a")) is equal to "1"
+    assert json.getString(json.getPath(doc, "nested"), "b") is equal to "hello"
+end
+
+test "sequence of scalars"
+    create doc json = yaml.parse("items:\n  - one\n  - two\n  - three\n")
+    create arr json = json.getPath(doc, "items")
+    assert json.arrayLength(arr) is equal to 3
+    assert json.stringify(json.arrayGet(arr, 0)) is equal to "\"one\""
+    assert json.stringify(json.arrayGet(arr, 2)) is equal to "\"three\""
+end
+
+test "sequence of mappings"
+    create doc json = yaml.parse("users:\n  - name: alice\n    age: 30\n  - name: bob\n    age: 25\n")
+    create arr json = json.getPath(doc, "users")
+    assert json.arrayLength(arr) is equal to 2
+    assert json.getString(json.arrayGet(arr, 0), "name") is equal to "alice"
+    assert json.getNumber(json.arrayGet(arr, 1), "age") is equal to 25
+end
+
+test "roundtrip via emitter"
+    create doc json = yaml.parse("host: localhost\nport: 8080\n")
+    create text = yaml.stringify(doc)
+    create doc2 json = yaml.parse(text)
+    assert json.getString(doc2, "host") is equal to "localhost"
+    assert json.getNumber(doc2, "port") is equal to 8080
+end

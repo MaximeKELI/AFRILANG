@@ -122,6 +122,14 @@ Parseur conforme (échappements `\uXXXX` + surrogates, `\b`/`\f`/`\r`, notation 
 
 Tests : `tests/stdlib/json.afr`
 
+## `std/yaml`
+
+Sous-ensemble YAML **bloc** (zéro-dép) : mappings et séquences imbriqués, scalaires (bool/number/string/null). La valeur renvoyée est un `json` (utiliser les accesseurs `std/json`). `parse(text)` → `json`, `stringify(doc)` → YAML indenté.
+
+Non supporté : flow style `{}`/`[]` (hors vides), ancres/alias, scalaires bloc `|`/`>`, documents multiples.
+
+Tests : `tests/stdlib/yaml.afr`
+
 ## `std/datetime`
 
 Horodatage UTC + offsets fixes (pas de base IANA) :
