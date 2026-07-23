@@ -2525,7 +2525,11 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
                 : typeFromName(matchExpr->resultTypeName).toCpp();
             out << "([&]() -> " << resultCpp << " {\n";
             out << "    auto _afr_opt = ";
-            emitExpression(out, *matchExpr->subject, ownerClass);
+            if (const auto* id = dynamic_cast<const IdentifierNode*>(matchExpr->subject.get())) {
+                out << id->name; // conserver l'optionnel/Result brut (pas d'auto-.value())
+            } else {
+                emitExpression(out, *matchExpr->subject, ownerClass);
+            }
             out << ";\n";
             std::size_t idx = 0;
             for (const auto& arm : matchExpr->arms) {
