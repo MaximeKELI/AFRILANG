@@ -1,0 +1,16 @@
+function onlyNumber<T>(x T) returns T where T is number
+    return x
+end
+
+function id<T>(x T) returns T
+    return x
+end
+
+test "constraint number accepts"
+    assert onlyNumber(3) is equal to 3
+end
+
+test "unconstrained identity still works"
+    assert id("ok") is equal to "ok"
+    assert id(7) is equal to 7
+end

@@ -1558,18 +1558,34 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
 
     if (const auto* idxAssign = dynamic_cast<const IndexAssignStatementNode*>(&stmt)) {
         const AfrType containerType = inferExpressionAfrType(*idxAssign->object);
-        emitExpression(out, *idxAssign->object, ownerClass);
-        out << "[";
         if (containerType.kind == TypeKind::List) {
-            out << "static_cast<size_t>(";
+            out << "{\n";
+            indent(out, indentLevel + 1);
+            out << "auto& _afr_lst = ";
+            emitExpression(out, *idxAssign->object, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel + 1);
+            out << "const std::size_t _afr_i = static_cast<std::size_t>(";
             emitExpression(out, *idxAssign->index, ownerClass);
-            out << ")";
+            out << ");\n";
+            indent(out, indentLevel + 1);
+            out << "if (_afr_i >= _afr_lst.size()) "
+                   "throw std::out_of_range(\"list index out of bounds\");\n";
+            indent(out, indentLevel + 1);
+            out << "_afr_lst[_afr_i] = ";
+            emitExpression(out, *idxAssign->value, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel);
+            out << "}\n";
         } else {
+            // Map upsert remains intentional insert-or-assign via operator[].
+            emitExpression(out, *idxAssign->object, ownerClass);
+            out << "[";
             emitExpression(out, *idxAssign->index, ownerClass);
+            out << "] = ";
+            emitExpression(out, *idxAssign->value, ownerClass);
+            out << ";\n";
         }
-        out << "] = ";
-        emitExpression(out, *idxAssign->value, ownerClass);
-        out << ";\n";
         return;
     }
 
@@ -2569,15 +2585,19 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             return;
         }
         emitExpression(out, *index->object, ownerClass);
-        out << "[";
         if (containerType.kind == TypeKind::List) {
-            out << "static_cast<size_t>(";
+            out << ".at(static_cast<std::size_t>(";
+            emitExpression(out, *index->index, ownerClass);
+            out << "))";
+        } else if (containerType.kind == TypeKind::Map) {
+            out << ".at(";
             emitExpression(out, *index->index, ownerClass);
             out << ")";
         } else {
+            out << "[";
             emitExpression(out, *index->index, ownerClass);
+            out << "]";
         }
-        out << "]";
         return;
     }
 
@@ -2590,7 +2610,9 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
         emitExpression(out, *slice->start, ownerClass);
         out << "); const std::size_t _afr_e = static_cast<std::size_t>(";
         emitExpression(out, *slice->end, ownerClass);
-        out << "); return std::vector<" << elemType.toCpp()
+        out << "); if (_afr_s > _afr_e || _afr_e > _afr_lst.size()) "
+               "throw std::out_of_range(\"list slice out of bounds\"); "
+               "return std::vector<" << elemType.toCpp()
             << ">(_afr_lst.begin() + _afr_s, _afr_lst.begin() + _afr_e); })()";
         return;
     }

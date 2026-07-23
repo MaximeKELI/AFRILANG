@@ -2293,10 +2293,12 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
                                     subst[sig->typeParams[ti]] =
                                         resolveTypeForGeneric(call->typeArgs[ti], {});
                                 }
+                                checkTypeConstraints(*sig, subst, expr);
                                 return substituteType(sig->returnType, subst);
                             }
-                            return substituteType(sig->returnType,
-                                                  inferGenericSubst(*sig, argTypes, expr));
+                            const auto subst = inferGenericSubst(*sig, argTypes, expr);
+                            checkTypeConstraints(*sig, subst, expr);
+                            return substituteType(sig->returnType, subst);
                         }
                         return sig->returnType;
                     }
@@ -2456,9 +2458,11 @@ AfrType SemanticAnalyzer::analyzeExpressionRaw(const ExpressionNode& expr,
                         subst[sig->typeParams[ti]] =
                             resolveTypeForGeneric(call->typeArgs[ti], {});
                     }
+                    checkTypeConstraints(*sig, subst, expr);
                     return substituteType(sig->returnType, subst);
                 }
                 const auto subst = inferGenericSubst(*sig, argTypes, expr);
+                checkTypeConstraints(*sig, subst, expr);
                 return substituteType(sig->returnType, subst);
             }
 
@@ -3161,6 +3165,32 @@ std::unordered_map<std::string, AfrType> SemanticAnalyzer::inferGenericSubst(
     }
 
     return subst;
+}
+
+void SemanticAnalyzer::checkTypeConstraints(
+    const MethodSignature& sig,
+    const std::unordered_map<std::string, AfrType>& subst,
+    const ASTNode& at) const {
+    for (const auto& c : sig.typeConstraints) {
+        const auto it = subst.find(c.typeParam);
+        if (it == subst.end()) {
+            errorAt(at, "Impossible de vérifier la contrainte sur '" + c.typeParam +
+                      "' (type non inféré)");
+        }
+        const AfrType& concrete = it->second;
+        if (c.isInterface) {
+            if (concrete.kind != TypeKind::Class ||
+                !implementsInterface(concrete.className, c.bound)) {
+                errorAt(at, "Le type pour '" + c.typeParam +
+                          "' doit implémenter l'interface '" + c.bound + "'");
+            }
+        } else {
+            const AfrType expected = resolveTypeName(c.bound);
+            if (concrete.kind != expected.kind) {
+                errorAt(at, "Le type pour '" + c.typeParam + "' doit être '" + c.bound + "'");
+            }
+        }
+    }
 }
 
 const MethodSignature* SemanticAnalyzer::findMethod(const std::string& className,
