@@ -27,7 +27,20 @@ dans le paquet utilisateur `llmx`.
 
 Specs : `tests/stdlib/ml_*.afr`, `tests/stdlib/nlp_levenshtein.afr`.
 
-Demos : `examples/complex_libs_demo.afr`, `examples/iaultra_demo.afr`.
+### Exemples (`examples/`)
+
+| Fichier | Contenu |
+|---------|---------|
+| `ai_toolkit_demo.afr` | Tour curated (cosine, softmax, knn, perceptron, nlp, llmx offline) |
+| `ml_cosine_demo.afr` | similarité / batch / mostSimilar |
+| `ml_kmeans_demo.afr` | k-means, labels, inertia, elbow |
+| `ml_perceptron_demo.afr` | apprend AND |
+| `ml_softmax_demo.afr` | softmax + entropy + KL/JS |
+| `ml_distance_demo.afr` | distances + knn + normalize |
+| `ml_linear_demo.afr` | régression GD |
+| `nlp_demo.afr` | levenshtein + jaccard |
+| `llmx_chat.afr` | corps chat + extract (réseau commenté) |
+| `iaultra_demo.afr` / `complex_libs_demo.afr` | demos ultra / mixte historiques |
 
 ## Fillers (noms trompeurs)
 

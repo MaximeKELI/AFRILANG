@@ -1,0 +1,15 @@
+// K-means clustering — std/c/mlkmeans
+import "std/c/mlkmeans"
+use mlkmeans
+
+// Two blobs in 2D: (0,0)/(1,0) and (8,8)/(9,8)
+create points = list of 0, 0, 1, 0, 8, 8, 9, 8
+create centroids = kmeans(points, 2, 2)
+create labels = assignClusters(points, centroids, 2)
+create sizes = clusterSizes(labels, 2)
+
+say "centroids={centroids at 0} {centroids at 1} {centroids at 2} {centroids at 3}"
+say "labels={labels at 0} {labels at 1} {labels at 2} {labels at 3}"
+say "sizes={sizes at 0} {sizes at 1}"
+say "inertia={inertia(points, centroids, 2)}"
+say "elbowK={elbowK(points, 3, 2)}"

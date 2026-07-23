@@ -1,0 +1,24 @@
+// Distances, kNN, normalize — std/c/mldistance + mlnearest + mlnormalize
+import "std/c/mldistance"
+import "std/c/mlnearest"
+import "std/c/mlnormalize"
+use mldistance
+use mlnearest
+use mlnormalize
+
+create a = list of 0, 0
+create b = list of 3, 4
+create bitsA = list of 1, 0, 1
+create bitsB = list of 1, 1, 0
+create matrix = list of 0, 0, 3, 4, 10, 0
+create query = list of 2, 3
+create knn = knnIndices(query, matrix, 2, 2)
+create unit = l2Normalize(b)
+create raw = list of 1, 2, 3, 10
+create scaled = minMaxNormalize(raw)
+
+say "euclidean={euclidean(a, b)} manhattan={manhattan(a, b)}"
+say "chebyshev={chebyshev(a, b)} hamming={hamming(bitsA, bitsB)}"
+say "nearestIdx={nearestIdx(query, matrix, 2)} dist={nearestDist(query, matrix, 2)}"
+say "knn={knn at 0} {knn at 1}"
+say "l2={unit at 0} {unit at 1} minMax0={scaled at 0} minMax3={scaled at 3}"

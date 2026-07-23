@@ -1,0 +1,33 @@
+import "std/c/mldistance"
+import "std/c/mlnearest"
+import "std/c/mlnormalize"
+use mldistance
+use mlnearest
+use mlnormalize
+
+test "euclidean 3-4-5"
+    create a = list of 0, 0
+    create b = list of 3, 4
+    assert euclidean(a, b) is equal to 5
+    assert manhattan(a, b) is equal to 7
+    assert chebyshev(a, b) is equal to 4
+end
+
+test "dim mismatch safe"
+    create a = list of 1, 2
+    create b = list of 1
+    assert euclidean(a, b) is equal to 0
+end
+
+test "knn and normalize"
+    create matrix = list of 0, 0, 10, 0, 0, 10
+    create q = list of 1, 0
+    assert nearestIdx(q, matrix, 2) is equal to 0
+    create knn = knnIndices(q, matrix, 2, 2)
+    assert knn at 0 is equal to 0
+    create n = l2Normalize(list of 3, 0, 0)
+    assert n at 0 is equal to 1
+    create mm = minMaxNormalize(list of 1, 2, 3)
+    assert mm at 0 is equal to 0
+    assert mm at 2 is equal to 1
+end

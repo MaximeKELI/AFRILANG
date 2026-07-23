@@ -1,0 +1,34 @@
+// Perceptron learns AND — std/c/mlperceptron
+// trainEpoch / trainStep return [bias, w0, …, wn-1]
+import "std/c/mlperceptron"
+use mlperceptron
+
+create w = list of 0, 0
+create b = 0 - 1
+create X = list of 0, 0, 0, 1, 1, 0, 1, 1
+create y = list of 0, 0, 0, 1
+create packed = list of 0, 0, 0
+create w0 = 0
+create w1 = 0
+create i = 0
+
+while i is less than 60 do
+    set packed = trainEpoch(w, b, X, y, 0.25, 2)
+    set b = packed at 0
+    set w0 = packed at 1
+    set w1 = packed at 2
+    set w = list of w0, w1
+    set i = i + 1
+end
+
+create f00 = list of 0, 0
+create f01 = list of 0, 1
+create f10 = list of 1, 0
+create f11 = list of 1, 1
+
+say "weights={w at 0} {w at 1} bias={b}"
+say "AND 0,0 → {predict(w, f00, b)}"
+say "AND 0,1 → {predict(w, f01, b)}"
+say "AND 1,0 → {predict(w, f10, b)}"
+say "AND 1,1 → {predict(w, f11, b)}"
+say "accuracy={accuracy(w, b, X, y, 2)}"

@@ -1,12 +1,29 @@
-// Optional network demo — not part of CI.
-// Requires a local OpenAI-compatible endpoint (e.g. Ollama on :11434).
+// llmx — OpenAI-compatible chat helpers (offline by default)
+// Network: uncomment chatText when Ollama (or similar) listens on :11434.
+// See packages/llmx/README.md and docs/STDLIB_AI.md
 
+import "std/str"
 import "pkg/llmx/llmx.afr"
+
+use str
 use llmx
 
-create body = buildChatBody("llama3", "Reply with one word: ok")
-say body
+create model = "llama3"
+create prompt = "Reply with one word: ok"
+create body = buildChatBody(model, prompt)
+create url = chatUrl("http://127.0.0.1:11434/v1")
+create hdr = authHeader("sk-demo")
+create bearer = "Bearer"
 
-// Uncomment when Ollama (or similar) is running:
-// create reply = chatText("http://127.0.0.1:11434/v1", "", "llama3", "Reply with one word: ok")
-// say reply
+say "url={url}"
+say "body={body}"
+say "auth has Bearer={contains(hdr, bearer)}"
+
+create sample = "{\"id\":\"chat\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"ok\"}}]}"
+create blank = ""
+say "extract={extractAssistantText(sample)}"
+say "empty={extractAssistantText(blank)}"
+
+// Uncomment when a local OpenAI-compatible server is running:
+// create reply = chatText("http://127.0.0.1:11434/v1", "", model, prompt)
+// say "reply={reply}"

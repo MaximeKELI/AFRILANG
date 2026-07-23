@@ -1,0 +1,54 @@
+// Tour du toolkit IA curated (catalogue expérimental std/c/*)
+// Voir docs/STDLIB_AI.md — pas de promesse core / semver.
+
+import "std/c/mlcosine"
+import "std/c/mlsoftmax"
+import "std/c/mlperceptron"
+import "std/c/mldistance"
+import "std/c/mlnearest"
+import "std/c/nlplevenshtein"
+import "std/str"
+import "pkg/llmx/llmx.afr"
+
+use mlcosine
+use mlsoftmax
+use mlperceptron
+use mldistance
+use mlnearest
+use nlplevenshtein
+use str
+use llmx
+
+say "=== cosine ==="
+create q = list of 1, 0
+create matrix = list of 1, 0, 0, 1
+create same = list of 1, 0
+say "mostSimilar={mostSimilar(q, matrix, 2)} sim={cosineSim(q, same)}"
+
+say "=== softmax ==="
+create logits = list of 0, 2, 1
+create probs = softmax(logits)
+say "argmax={argmax(probs)} p1={probs at 1}"
+
+say "=== distance / knn ==="
+create pts = list of 0, 0, 5, 0, 0, 5
+create qq = list of 1, 1
+create origin = list of 0, 0
+create p34 = list of 3, 4
+say "nearest={nearestIdx(qq, pts, 2)} eucl={euclidean(origin, p34)}"
+
+say "=== perceptron step ==="
+create w0 = list of 0, 0
+create feat = list of 1, 1
+create step = trainStep(w0, 0 - 1, feat, 1, 0.5)
+say "bias={step at 0} w0={step at 1} w1={step at 2}"
+
+say "=== nlp ==="
+create s1 = "kit"
+create s2 = "sit"
+say "editDist={distance(s1, s2)}"
+
+say "=== llmx (offline) ==="
+create body = buildChatBody("demo-model", "Bonjour AFRILANG")
+create fake = "{\"choices\":[{\"message\":{\"content\":\"Salut\"}}]}"
+say "bodyLen={byteLen(body)} extract={extractAssistantText(fake)}"

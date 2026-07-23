@@ -559,6 +559,15 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
         "segultra_demo.afr",
         "datasci_demo.afr",
         "dbultra_demo.afr",
+        "ml_cosine_demo.afr",
+        "ml_kmeans_demo.afr",
+        "ml_perceptron_demo.afr",
+        "ml_softmax_demo.afr",
+        "ml_distance_demo.afr",
+        "ml_linear_demo.afr",
+        "nlp_demo.afr",
+        "ai_toolkit_demo.afr",
+        "llmx_chat.afr",
         "snake_test.afr",
         "game3d_demo.afr",
         "test_game2dkit.afr",
@@ -573,6 +582,9 @@ static int runExampleSuite(const fs::path& root, bool coverage) {
         "examples/iaultra_demo.afr",
         "examples/vizultra_demo.afr",
         "examples/test_gameultra.afr",
+        "examples/ai_toolkit_demo.afr",
+        "examples/ml_perceptron_demo.afr",
+        "examples/llmx_chat.afr",
     };
 
     CompileOptions opts;

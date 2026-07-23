@@ -1,0 +1,17 @@
+// Cosine similarity / retrieval — std/c/mlcosine
+import "std/c/mlcosine"
+use mlcosine
+
+create query = list of 1, 0, 1
+create same = list of 1, 0, 1
+create orthoA = list of 1, 0
+create orthoB = list of 0, 1
+create docs = list of 1, 0, 0, 0, 1, 0, 1, 0, 1
+create sims = batchCosine(query, docs, 3)
+create axis = list of 0, 1, 0
+
+say "cosine identical={cosineSim(query, same)}"
+say "cosine orthogonal={cosineSim(orthoA, orthoB)}"
+say "batch sims={sims at 0} {sims at 1} {sims at 2}"
+say "mostSimilar idx={mostSimilar(query, docs, 3)}"
+say "angular={angularDist(query, axis)}"
