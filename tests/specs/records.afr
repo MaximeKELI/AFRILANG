@@ -1,0 +1,47 @@
+record Point
+    field x number
+    field y number
+end
+
+class Person
+    public field name text
+end
+
+function maybePerson(flag bool) returns Person?
+    if flag then
+        create p = new Person()
+        set p.name = "Ada"
+        return p
+    end
+    return nothing
+end
+
+test "record literal get set"
+    create p = Point with x 3, y 4
+    assert p.x is equal to 3
+    assert p.y is equal to 4
+    set p.x = 10
+    assert p.x is equal to 10
+end
+
+test "record match destructure"
+    create p = Point with x 1, y 2
+    create sum number = 0
+    match p
+        case Point with x, y then
+            set sum = x + y
+        end
+    end
+    assert sum is equal to 3
+end
+
+test "safe nav on optional class"
+    create a Person? = maybePerson(true)
+    create b Person? = maybePerson(false)
+    create na text? = a?.name
+    create nb text? = b?.name
+    assert (na is defined) is equal to true
+    assert (na or else "") is equal to "Ada"
+    assert (nb is defined) is equal to false
+    assert (nb or else "none") is equal to "none"
+end

@@ -2342,13 +2342,15 @@ void CodeGenerator::emitExpression(std::ostream& out, const ExpressionNode& expr
             objType = inferExpressionAfrType(*nav->object);
         }
         const std::string access = optionalAccessOp(objType);
-        out << "([&]() -> " << navType.toCpp() << " { auto _sn = ";
+        out << "([&]() -> " << navType.toCpp() << " { ";
         if (const auto* id = dynamic_cast<const IdentifierNode*>(nav->object.get())) {
-            out << id->name; // optionnel brut
+            out << "const auto& _sn = " << id->name << "; ";
         } else {
+            out << "auto _sn = ";
             emitExpression(out, *nav->object, ownerClass);
+            out << "; ";
         }
-        out << "; if (_sn.has_value()) return " << navType.toCpp() << "{_sn.value()"
+        out << "if (_sn.has_value()) return " << navType.toCpp() << "{_sn.value()"
             << access << nav->member << "}; return std::nullopt; }())";
         return;
     }
