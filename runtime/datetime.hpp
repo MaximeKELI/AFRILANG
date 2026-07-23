@@ -122,4 +122,46 @@ inline double weekday(double seconds) { return toUtcTm(seconds).tm_wday; }
 inline double addSeconds(double seconds, double delta) { return seconds + delta; }
 inline double addDays(double seconds, double days) { return seconds + days * 86400.0; }
 
+// --- Fuseaux nommés (table statique) --------------------------------------
+// Zéro-dépendance : offsets STANDARD (heure d'hiver), sans passage automatique
+// à l'heure d'été (DST). Pour un décalage exact avec DST, utiliser
+// formatIsoOffset avec l'offset voulu. Sentinelle -100000 si zone inconnue.
+inline constexpr double kUnknownZone = -100000.0;
+
+inline double zoneOffset(const std::string& name) {
+    struct Zone { const char* name; int minutes; };
+    static const Zone zones[] = {
+        {"UTC", 0}, {"GMT", 0}, {"Z", 0},
+        {"Europe/London", 0}, {"Europe/Lisbon", 0},
+        {"Europe/Paris", 60}, {"Europe/Berlin", 60}, {"Europe/Madrid", 60},
+        {"Europe/Rome", 60}, {"Europe/Brussels", 60}, {"Europe/Amsterdam", 60},
+        {"Europe/Zurich", 60}, {"Europe/Warsaw", 60},
+        {"Europe/Athens", 120}, {"Europe/Helsinki", 120}, {"Europe/Bucharest", 120},
+        {"Europe/Kiev", 120}, {"Europe/Moscow", 180}, {"Europe/Istanbul", 180},
+        {"Africa/Casablanca", 0}, {"Africa/Lagos", 60}, {"Africa/Cairo", 120},
+        {"Africa/Johannesburg", 120}, {"Africa/Nairobi", 180},
+        {"Asia/Jerusalem", 120}, {"Asia/Dubai", 240}, {"Asia/Karachi", 300},
+        {"Asia/Kolkata", 330}, {"Asia/Dhaka", 360}, {"Asia/Bangkok", 420},
+        {"Asia/Shanghai", 480}, {"Asia/Singapore", 480}, {"Asia/Hong_Kong", 480},
+        {"Asia/Tokyo", 540}, {"Asia/Seoul", 540},
+        {"Australia/Sydney", 600}, {"Pacific/Auckland", 720},
+        {"America/Sao_Paulo", -180}, {"America/New_York", -300},
+        {"America/Toronto", -300}, {"America/Chicago", -360},
+        {"America/Denver", -420}, {"America/Los_Angeles", -480},
+        {"America/Anchorage", -540}, {"Pacific/Honolulu", -600},
+    };
+    for (const auto& z : zones) {
+        if (name == z.name) return static_cast<double>(z.minutes);
+    }
+    return kUnknownZone;
+}
+
+// Formate un instant epoch dans une zone nommée (offset standard). Chaîne vide
+// si la zone est inconnue.
+inline std::string formatInZone(double seconds, const std::string& zoneName) {
+    const double off = zoneOffset(zoneName);
+    if (off == kUnknownZone) return {};
+    return formatIsoOffset(seconds, off);
+}
+
 } // namespace afrilang::runtime::datetime

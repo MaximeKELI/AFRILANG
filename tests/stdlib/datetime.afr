@@ -38,3 +38,13 @@ test "format roundtrip"
     assert formatIso(t) is equal to "2024-07-22T13:45:30Z"
     assert formatIsoOffset(t, 120) is equal to "2024-07-22T15:45:30+02:00"
 end
+
+test "named zones (standard offsets)"
+    assert zoneOffset("UTC") is equal to 0
+    assert zoneOffset("Europe/Paris") is equal to 60
+    assert zoneOffset("America/New_York") is equal to (0 - 300)
+    assert zoneOffset("Asia/Tokyo") is equal to 540
+    create t = parseIso("2024-01-15T12:00:00Z")
+    assert formatInZone(t, "Asia/Tokyo") is equal to "2024-01-15T21:00:00+09:00"
+    assert formatInZone(t, "Unknown/Zone") is equal to ""
+end

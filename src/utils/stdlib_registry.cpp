@@ -1073,6 +1073,8 @@ void StdlibRegistry::injectDatetimeModule(ProgramNode& program) {
     fns.push_back(makeStubFunction("weekday", {{"seconds", "number"}}, "number"));
     fns.push_back(makeStubFunction("addSeconds", {{"seconds", "number"}, {"delta", "number"}}, "number"));
     fns.push_back(makeStubFunction("addDays", {{"seconds", "number"}, {"days", "number"}}, "number"));
+    fns.push_back(makeStubFunction("zoneOffset", {{"name", "text"}}, "number"));
+    fns.push_back(makeStubFunction("formatInZone", {{"seconds", "number"}, {"zoneName", "text"}}, "text"));
     injectModule(program, "datetime", std::move(fns));
 }
 

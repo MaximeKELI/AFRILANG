@@ -74,9 +74,13 @@ Regex **ECMAScript** (`std::regex`, sans dépendance PCRE2 — compatible WASM).
 | `find(text, pattern)` | Premier match (ou `""`) |
 | `findAll(text, pattern)` | Liste de tous les matches |
 | `captures(text, pattern)` | Groupes capturants du 1er match |
+| `captureNamed(text, pattern, name)` | Groupe nommé `(?<name>...)` du 1er match |
+| `namedGroupIndex(pattern, name)` | Index 1-based du groupe nommé (0 si absent) |
 | `count(text, pattern)` | Nombre de matches |
 | `split(text, pattern)` | Découpe sur le motif |
 | `replace` / `replaceFirst` | Remplacement global / premier |
+
+Le lookahead `(?=)` / `(?!)` est supporté ; le **lookbehind** `(?<=)` / `(?<!)` ne l'est pas (limite de `std::regex` ECMAScript, sans PCRE2). Les groupes nommés sont émulés.
 
 Tests : `tests/stdlib/re.afr`
 
@@ -131,6 +135,10 @@ Horodatage UTC + offsets fixes (pas de base IANA) :
 | `weekday(seconds)` | Jour de semaine (0 = dimanche) |
 | `addSeconds` / `addDays` | Arithmétique |
 | `diffSeconds(a, b)` | Écart absolu |
+| `zoneOffset(name)` | Offset **standard** (minutes) d'une zone nommée |
+| `formatInZone(seconds, zoneName)` | Formatage dans une zone nommée |
+
+Les zones nommées utilisent des offsets **standard** (heure d'hiver) issus d'une table statique (~45 zones) ; le passage automatique à l'heure d'été (DST) n'est pas géré et la base IANA complète est hors périmètre (choix zéro-dépendance). Zone inconnue : `zoneOffset` renvoie `-100000`, `formatInZone` renvoie `""`.
 
 Tests : `tests/stdlib/datetime.afr`
 
