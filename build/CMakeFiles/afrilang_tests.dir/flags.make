@@ -6,5 +6,5 @@ CXX_DEFINES = -DAFRILANG_INSTALL_CATALOG=\"/usr/local/share/afrilang/catalog/com
 
 CXX_INCLUDES = -I/home/admin20/AFRILANG/include -I/usr/include/SDL2 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/sysprof-6 -I/usr/include/freetype2 -I/usr/include/libpng16
 
-CXX_FLAGS = -g -std=c++17 -D_REENTRANT -pthread -Wall -Wextra -Wpedantic
+CXX_FLAGS = -std=c++17 -D_REENTRANT -pthread -Wall -Wextra -Wpedantic
 

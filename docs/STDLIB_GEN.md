@@ -4,11 +4,20 @@ La stdlib AFRILANG (~7971 modules) est générée à partir de scripts Python et
 
 ## Tiers
 
-| Tier | Import | Script | Catalogue C++ |
-|------|--------|--------|---------------|
-| Simple | `import "std/nom"` | `scripts/gen_simple_stdlib.py` | `src/utils/stdlib_catalog.cpp` |
-| Medium | `import "std/m/nom"` | `scripts/gen_medium_stdlib.py` | `src/utils/medium_catalog.cpp` |
-| Complex | `import "std/c/nom"` | `scripts/gen_complex_stdlib.py` | `src/utils/complex_catalog.cpp` |
+| Tier | Import | Script | Catalogue |
+|------|--------|--------|-----------|
+| Simple | `import "std/nom"` | `scripts/gen_simple_stdlib.py` | `src/utils/stdlib_catalog.cpp` (compilé) |
+| Medium | `import "std/m/nom"` | `scripts/gen_medium_stdlib.py` | `src/utils/medium_catalog.cpp` (compilé) |
+| Complex | `import "std/c/nom"` | `scripts/gen_complex_stdlib.py` | `share/afrilang/catalog/complex.json` (chargé paresseusement) |
+
+> Le tier **complex** (~5710 modules) n'est **plus compilé** dans le binaire : il est
+> externalisé en JSON et chargé à la demande par `src/utils/catalog_loader.cpp` (gain
+> de taille binaire et de temps de rebuild). Un garde-fou de version (`kComplexCatalogVersion`
+> dans `include/afrilang/complex_catalog.hpp` ↔ `CATALOG_JSON_VERSION` dans
+> `scripts/gen_catalog_lib.py`) détecte tout décalage binaire/catalogue.
+>
+> Résolution du chemin : `AFRILANG_CATALOG` → `AFRILANG_HOME/share/...` → arbre source
+> (build) → préfixe d'install → relatif à l'exécutable.
 
 ## Packs numérotés (500 modules)
 
