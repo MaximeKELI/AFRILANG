@@ -68,10 +68,12 @@ jobs:
           ./build/afrilang pkg reindex
           ./build/afrilang pkg search | grep -q '★'
           ./build/afrilang pkg search math | grep -q '#math'
+          ROOT="$PWD"
           rm -rf /tmp/demo_cli_p5
           ./build/afrilang pkg init /tmp/demo_cli_p5 --template cli
-          cd /tmp/demo_cli_p5 && /home/admin20/AFRILANG/build/afrilang pkg test
-          cd -
+          cd /tmp/demo_cli_p5
+          "$ROOT/build/afrilang" pkg test
+          cd "$ROOT"
           for p in math strx flagx percentx urlx listx jsonx clampx; do
             ./build/afrilang run "packages/$p/tests/smoke.afr"
           done
