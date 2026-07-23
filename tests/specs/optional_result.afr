@@ -39,3 +39,37 @@ test "or else on result"
     assert (half(10) or else 0) is equal to 5
     assert (half(0) or else 0) is equal to 0
 end
+
+function chain(a number, b number) returns number or error
+    create x = half(a) or return
+    create y = half(b) or return
+    return x + y
+end
+
+test "result propagation or return"
+    create good = chain(10, 20)
+    assert (good is error) is equal to false
+    assert good.value is equal to 15
+
+    create bad = chain(10, 0)
+    assert bad is error
+    assert bad.message is equal to "zero"
+end
+
+function chainRaise(a number) returns number
+    create x = half(a) or raise
+    return x + 1
+end
+
+test "or raise success and failure"
+    assert chainRaise(4) is equal to 3
+
+    create caught text = "none"
+    try
+        create y = chainRaise(0)
+        say y
+    catch error e
+        set caught = e
+    end
+    assert caught is equal to "zero"
+end

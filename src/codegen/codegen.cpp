@@ -1294,6 +1294,38 @@ void CodeGenerator::emitStatement(std::ostream& out, const StatementNode& stmt, 
         const std::string constPrefix = assign->isConst ? "const " : "";
         declaredVars_.insert(assign->name);
 
+        if (assign->propagate != ResultPropagation::None) {
+            const std::string tmp = "_afr_prop_" + assign->name;
+            out << "auto " << tmp << " = ";
+            emitExpression(out, *assign->value, ownerClass);
+            out << ";\n";
+            indent(out, indentLevel);
+            out << "if (" << tmp << ".isError) {\n";
+            if (assign->propagate == ResultPropagation::Return) {
+                const bool useCoReturn =
+                    inAsyncCoroutine_ || (currentFunction_ && currentFunction_->isAsync);
+                const std::string alias = currentFunction_
+                    ? resultTypeAlias(currentFunction_->returnTypeName)
+                    : "auto";
+                indent(out, indentLevel + 1);
+                out << alias << " _result;\n";
+                indent(out, indentLevel + 1);
+                out << "_result.isError = true;\n";
+                indent(out, indentLevel + 1);
+                out << "_result.message = " << tmp << ".message;\n";
+                indent(out, indentLevel + 1);
+                out << (useCoReturn ? "co_return" : "return") << " _result;\n";
+            } else {
+                indent(out, indentLevel + 1);
+                out << "throw std::runtime_error(" << tmp << ".message);\n";
+            }
+            indent(out, indentLevel);
+            out << "}\n";
+            indent(out, indentLevel);
+            out << constPrefix << "auto " << assign->name << " = " << tmp << ".value;\n";
+            return;
+        }
+
         if (const auto* lambda = dynamic_cast<const LambdaExpressionNode*>(assign->value.get())) {
             std::string typeCpp;
             if (!assign->typeName.empty()) {
