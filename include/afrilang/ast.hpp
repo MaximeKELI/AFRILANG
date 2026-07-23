@@ -370,10 +370,17 @@ struct ExplainStatementNode : StatementNode {
 };
 
 struct MatchArmNode {
-    enum class CaseKind { Enum, Text, Number, Record };
+    enum class CaseKind {
+        Enum, Text, Number, Record,
+        Wildcard, Bool, Range,
+        ResultOk, ResultError, OptionalValue, OptionalNothing
+    };
     std::string caseName;
     CaseKind caseKind = CaseKind::Enum;
     std::vector<std::string> bindNames;
+    std::vector<std::string> orValues; // valeurs supplementaires (or-patterns)
+    std::string rangeLow;              // borne basse (CaseKind::Range)
+    std::string rangeHigh;             // borne haute (CaseKind::Range)
     std::unique_ptr<ExpressionNode> guard;
     bool isDefault = false;
     std::vector<std::unique_ptr<StatementNode>> body;
